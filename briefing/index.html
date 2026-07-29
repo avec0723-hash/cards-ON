@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 서가 — 나눔용 판</title>
+<meta name="description" content="매일 아침 짓는 관제탑 브리핑. 오늘의 항로 통보(행정·사회·문화·AI), 등대(글감), 우편기(하루 한 편의 시). 디퍼 언브랜딩살롱 · 사막여우.">
+<meta property="og:title" content="관제탑 브리핑 서가">
+<meta property="og:description" content="매일 아침 짓는 한 장 — 항로 통보 · 등대 · 우편기">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35; --green-soft:#2C6249;
+    --gold:#B8912E; --gold-soft:#D9C48A;
+    --cream:#F7F1E3; --paper:#FBF7EC;
+    --ink:#2B2B26; --muted:#6B6459; --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed, var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;-webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .wrap{max-width:760px;margin:0 auto;}
+
+  .masthead{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;padding:44px 44px 38px;border-radius:14px;position:relative;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45);margin-bottom:30px;
+  }
+  .masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);
+    border-radius:0 0 14px 14px;}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .masthead h1{margin:0 0 14px;font-size:35px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .masthead p{margin:0;font-size:16px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  .card{
+    display:block;text-decoration:none;color:inherit;position:relative;
+    background:var(--paper);border:1px solid var(--line);border-radius:12px;
+    padding:24px 28px 22px;margin-bottom:16px;
+    box-shadow:0 10px 30px -22px rgba(26,74,53,.5);
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-2px);border-color:var(--gold-soft);
+    box-shadow:0 18px 40px -24px rgba(26,74,53,.6);}
+  .card .arrow{position:absolute;top:20px;right:24px;color:var(--gold);font-size:16px;}
+  .card .day{margin:0 0 6px;font-size:12.5px;letter-spacing:.14em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;}
+  .card h2{margin:0 0 10px;font-size:20px;font-weight:800;color:var(--green);
+    letter-spacing:-.01em;line-height:1.45;padding-right:28px;}
+  .card .peek{margin:0 0 14px;font-size:14.5px;color:#4A4740;line-height:1.8;}
+  .tags{display:flex;gap:7px;flex-wrap:wrap;}
+  .tag{font-size:11.5px;color:var(--green-soft);background:#F3ECD9;
+    border-radius:999px;padding:3px 11px;font-family:"Nanum Myeongjo",serif;}
+
+  .note{margin:26px 0 0;padding:20px 24px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:12px;font-size:14px;color:var(--muted);line-height:1.9;}
+  .note b{color:var(--green-soft);}
+  .foot{text-align:center;font-size:12.5px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.03em;padding:28px 0 0;line-height:1.9;}
+
+  @media (max-width:600px){
+    body{padding:24px 12px 56px;}
+    .masthead{padding:30px 24px 26px;} .masthead h1{font-size:28px;}
+    .card{padding:20px 20px 18px;} .card h2{font-size:18px;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="masthead">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑 서가</h1>
+      <p>이륙 전 조종사가 받는 기상·항로 통보처럼, 하루를 여는 한 장. 매일 아침 <b>항로 통보</b>(행정·사회·문화, 그리고 AI) · <b>등대</b>(오늘의 글감) · <b>우편기</b>(하루 한 편의 시)를 짓습니다.</p>
+    </header>
+
+    <!-- 새 브리핑은 이 자리 맨 위에 카드 하나씩 추가됩니다 -->
+    <a class="card" href="2026-07-29.html">
+      <span class="arrow">↗</span>
+      <p class="day">2026 · 07 · 29 · 수요일</p>
+      <h2>의미는 찾는 것이 아니라 만드는 것</h2>
+      <p class="peek">🛰 통합돌봄 내년 3월 시행 앞두고 지자체 조례 11%·센터 8% · 폭염 대책이 50인 미만 사업장으로 · '북클럽 리그' 9/3 마감 · 기재부 AI 집중교육의 결실 &nbsp;|&nbsp; 🗼 르 귄 "의미는 만드는 것" · 카뮈의 반항·자유·열정 · 거절 너머의 슬픔 · 최선의 자기 쓰기 &nbsp;|&nbsp; ✈️ 이육사 「광야」</p>
+      <div class="tags"><span class="tag">🛰 항로 통보</span><span class="tag">🗼 등대</span><span class="tag">✈️ 우편기</span></div>
+    </a>
+
+    <div class="note">
+      <b>나눔용 판입니다.</b> 원본 브리핑에는 그날의 '멈춤 질문'과 지은이가 자기 기록에서 길어 올린 문장이 함께 실립니다. 그 두 자리는 지은이의 것으로 남겨 두고, 여기에는 <b>뉴스·글감·시</b>만 담았습니다.<br>
+      뉴스와 글감은 모두 실제 출처 링크를 답니다. 확인하지 못한 것은 '출처에 관하여'에 정직하게 적습니다.
+    </div>
+
+    <p class="foot">사막여우 🦊 · 디퍼 언브랜딩살롱<br>매일 아침 짓습니다</p>
+  </div>
+</body>
+</html>
