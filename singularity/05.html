@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>함께읽기 ON · 읽기 안내 — 5장 일</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="함께읽기ON">
+<meta property="og:title" content="함께읽기 ON · 읽기 안내 — 마침내 특이점이 시작된다 5장 일">
+<meta property="og:description" content="8. 17(월) · 18(화) — 대체인가 증강인가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EDE4; --paper-2:#EAE3D6; --card:#FBF8F2;
+    --ink:#17262B; --ink-soft:#4B5C61; --ink-faint:#8A9799;
+    --deep:#12262E; --deep-2:#0C1A21; --deep-card:#1B3540;
+    --teal:#7FD4D8; --teal-ink:#256A74; --teal-soft:#C3E8EA;
+    --coral:#E8785A; --coral-deep:#CE5537;
+    --rule:#D9D1C3; --rule-soft:#E6DFD2;
+    --sans:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    --serif:"Nanum Myeongjo","Noto Serif KR","Batang",serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    line-height:1.8; letter-spacing:-.003em;}
+  .wrap{max-width:52rem; margin:0 auto; padding:0 clamp(1.15rem,4.5vw,2.6rem);}
+
+  /* ── 표지 ── */
+  .hero{background:var(--deep); color:var(--paper);
+    padding:clamp(2.8rem,7vw,4.6rem) 0 clamp(2.4rem,6vw,3.6rem);}
+  .hero .top{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;
+    margin-bottom:1.9rem;}
+  .brand{display:inline-block; font-size:.66rem; font-weight:900; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--deep); background:var(--teal);
+    padding:.36rem .55rem .3rem .8rem;}
+  .days{font-size:.72rem; font-weight:700; letter-spacing:.16em; color:var(--coral);}
+  .layernum{display:flex; align-items:baseline; gap:.75rem; margin-bottom:.4rem;}
+  .layernum .lb{font-size:.68rem; font-weight:900; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--teal);}
+  .layernum .nn{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:clamp(2.4rem,7vw,3.6rem); line-height:1; color:var(--coral);}
+  .hero h1{font-size:clamp(2rem,6.4vw,3.4rem); font-weight:900; line-height:1.2;
+    letter-spacing:-.025em;}
+  .hero .q{font-size:clamp(1rem,2.4vw,1.28rem); color:var(--teal); font-weight:700;
+    margin-top:.9rem;}
+  .hero .one{font-family:var(--serif); font-size:clamp(1.02rem,2.5vw,1.3rem);
+    line-height:1.85; color:rgba(242,237,228,.9); margin-top:1.7rem;
+    border-left:3px solid var(--coral); padding-left:1.2rem; max-width:40rem;}
+
+  /* 층 진행 표시 — 아래는 두껍고 위로 갈수록 촘촘 (가속) */
+  .stack{display:flex; flex-direction:column-reverse; gap:2px; margin-top:2.2rem;
+    max-width:22rem;}
+  .stack .bar{position:relative; background:rgba(127,212,216,.16);
+    border-left:2px solid rgba(127,212,216,.35);}
+  .stack .bar span{position:absolute; left:.55rem; top:50%; transform:translateY(-50%);
+    font-size:.6rem; font-weight:700; letter-spacing:.1em; color:rgba(242,237,228,.5);}
+  .stack .bar.on{background:var(--coral); border-left-color:var(--coral);}
+  .stack .bar.on span{color:#fff;}
+  .stack .b1{height:1.55rem;} .stack .b2{height:1.4rem;} .stack .b3{height:1.26rem;}
+  .stack .b4{height:1.13rem;} .stack .b5{height:1.01rem;} .stack .b6{height:.9rem;}
+  .stack .b7{height:.8rem;}  .stack .b8{height:.71rem;}
+  .stack-cap{font-size:.7rem; color:rgba(242,237,228,.45); margin-top:.7rem;
+    letter-spacing:.04em;}
+
+  /* ── 섹션 ── */
+  section{padding:clamp(2.6rem,6.5vw,4.2rem) 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .kicker{display:flex; align-items:center; gap:.7rem; font-size:.68rem; font-weight:900;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--teal-ink);
+    margin-bottom:.95rem;}
+  .kicker::after{content:""; flex:1; height:1px; background:var(--rule);}
+  h2{font-size:clamp(1.44rem,3.7vw,2.05rem); font-weight:900; line-height:1.34;
+    letter-spacing:-.02em; margin-bottom:.75rem;}
+  .intro{font-size:clamp(.98rem,2.15vw,1.12rem); color:var(--ink-soft); max-width:44rem;
+    margin-bottom:1.7rem;}
+  p b{font-weight:700; color:var(--ink);}
+  .hl{background:linear-gradient(transparent 60%, var(--teal-soft) 60%); padding:0 .1em;
+    font-weight:700; color:var(--ink);}
+
+  /* ── 개념 단어장 (눌러서 펼치기) ── */
+  .terms{display:grid; gap:.7rem;}
+  @media(min-width:800px){ .terms{grid-template-columns:1fr 1fr; align-items:start;} }
+  .term{background:var(--card); border:1px solid var(--rule-soft);
+    border-left:3px solid var(--teal-ink);}
+  .term > summary{cursor:pointer; list-style:none; padding:1rem 2.6rem 1.05rem 1.2rem;
+    position:relative;}
+  .term > summary::-webkit-details-marker{display:none;}
+  .term > summary::after{content:"+"; position:absolute; right:1rem; top:.95rem;
+    width:1.4rem; height:1.4rem; border:1px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.95rem; font-weight:700; color:var(--teal-ink); background:var(--paper);}
+  .term[open] > summary::after{content:"−"; background:var(--teal-ink); color:#fff;
+    border-color:var(--teal-ink);}
+  .term > summary:hover::after{border-color:var(--teal-ink);}
+  .term .w{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.35;
+    letter-spacing:-.015em;}
+  .term .la{display:block; font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:.88rem; color:var(--ink-faint); margin-top:.12rem; letter-spacing:.02em;}
+  .term .k{display:block; font-size:clamp(.88rem,1.9vw,.98rem); font-weight:700;
+    color:var(--teal-ink); margin-top:.5rem; line-height:1.6;}
+  .term .body{padding:0 1.2rem 1.2rem; border-top:1px dashed var(--rule-soft);
+    margin:0 1.2rem; padding:.9rem 0 1.15rem;}
+  .term .d{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);
+    white-space:pre-line;}
+  .term .ex{font-size:clamp(.88rem,1.9vw,.98rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.85rem; padding:.7rem .85rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+  .term .ex::before{content:"보기"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--coral-deep); margin-bottom:.3rem;}
+  .terms-cap{font-size:.8rem; color:var(--ink-faint); margin-bottom:.9rem;}
+  /* ── 핵심 논점 ── */
+  .passage{border:1px solid var(--rule); background:var(--card); margin-bottom:1.3rem;}
+  .passage > .ph{padding:1.15rem 1.35rem; border-bottom:1px solid var(--rule-soft);
+    background:var(--paper-2);}
+  .passage .pt{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.5;
+    letter-spacing:-.015em;}
+  .passage .pn{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.6rem;}
+  .passage .pn::before{content:"찾아 읽을 곳"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--teal-ink); margin-bottom:.3rem;}
+  .lay{padding:1.1rem 1.35rem; border-bottom:1px dashed var(--rule-soft);}
+  .lay:last-child{border-bottom:none;}
+  .lay .ll{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:#fff; background:var(--teal-ink); padding:.2rem .55rem; margin-bottom:.55rem;}
+  .lay:nth-child(3) .ll{background:var(--coral-deep);}
+  .lay:nth-child(4) .ll{background:#6D7F6A;}
+  .lay .lt{font-size:clamp(.94rem,2vw,1.05rem); line-height:1.9; color:var(--ink-soft);
+    white-space:pre-line;}
+
+  /* ── 논증 구조 ── */
+  .steps{position:relative; padding-left:1.6rem;}
+  .steps::before{content:""; position:absolute; left:.36rem; top:.6rem; bottom:.6rem;
+    width:2px; background:linear-gradient(var(--teal-ink),var(--coral));}
+  .step{position:relative; margin-bottom:1.15rem;}
+  .step:last-child{margin-bottom:0;}
+  .step::before{content:""; position:absolute; left:-1.6rem; top:.62rem; width:.78rem;
+    height:.78rem; border-radius:50%; background:var(--paper);
+    border:2px solid var(--teal-ink);}
+  .step:last-child::before{border-color:var(--coral); background:var(--coral);}
+  .step .sn{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:var(--teal-ink); background:var(--teal-soft); padding:.2rem .55rem;}
+  .step .st{font-size:clamp(1.02rem,2.2vw,1.16rem); font-weight:900; line-height:1.5;
+    margin-top:.45rem; letter-spacing:-.015em;}
+  .step .sb{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.9; color:var(--ink-soft);
+    margin-top:.5rem; white-space:pre-line;}
+  .step .sk{display:block; font-size:clamp(.88rem,1.9vw,.97rem); font-weight:700;
+    color:var(--ink); margin-top:.7rem; padding:.55rem .8rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+
+  /* ── 세 입장 ── */
+  .pos{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.95rem;}
+  .pos .pl{font-size:clamp(1.04rem,2.3vw,1.2rem); font-weight:900; letter-spacing:-.015em;}
+  .pos .ps{font-size:.84rem; font-weight:400; color:var(--ink-faint); margin-left:.5rem;
+    letter-spacing:.02em;}
+  .pos .lab{display:block; font-size:.6rem; font-weight:900; letter-spacing:.18em;
+    color:var(--teal-ink); margin:.85rem 0 .3rem;}
+  .pos .lab.b{color:var(--coral-deep);}
+  .pos .tx{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);}
+  .pos .qt{font-family:var(--serif); font-size:clamp(.86rem,1.85vw,.95rem); line-height:1.75;
+    color:var(--ink-faint); margin-top:.85rem; padding-top:.7rem;
+    border-top:1px solid var(--rule-soft); white-space:pre-line;}
+
+  /* ── 확인 문제 ── */
+  .quiz{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.9rem;}
+  .quiz .qq{font-size:clamp(1rem,2.15vw,1.12rem); font-weight:900; line-height:1.65;
+    letter-spacing:-.01em;}
+  .quiz ol{list-style:none; counter-reset:o; margin-top:.8rem;}
+  .quiz li{counter-increment:o; position:relative; padding-left:2rem; margin-bottom:.45rem;
+    font-size:clamp(.9rem,1.95vw,1rem); line-height:1.75; color:var(--ink-soft);}
+  .quiz li::before{content:counter(o); position:absolute; left:0; top:.15rem;
+    width:1.35rem; height:1.35rem; border:1px solid var(--rule); border-radius:50%;
+    font-size:.72rem; font-weight:700; color:var(--ink-faint);
+    display:flex; align-items:center; justify-content:center;}
+  .quiz details{margin-top:.9rem; border-top:1px solid var(--rule-soft); padding-top:.85rem;}
+  .quiz summary{cursor:pointer; font-size:.78rem; font-weight:900; letter-spacing:.14em;
+    color:var(--teal-ink); list-style:none;}
+  .quiz summary::-webkit-details-marker{display:none;}
+  .quiz summary::before{content:"▸ "; color:var(--coral);}
+  .quiz details[open] summary::before{content:"▾ ";}
+  .quiz .ans{font-size:clamp(.9rem,1.95vw,1rem); line-height:1.85; color:var(--ink-soft);
+    margin-top:.65rem;}
+  .quiz .ans b{color:var(--coral-deep);}
+
+  /* ── 북토크 질문 ── */
+  .talk{background:var(--deep); color:var(--paper);}
+  .talk .kicker{color:var(--teal);}
+  .talk .kicker::after{background:rgba(127,212,216,.28);}
+  .talk h2{color:var(--paper);}
+  .talk .intro{color:rgba(242,237,228,.78);}
+  .tq{border-left:3px solid var(--coral); padding:.2rem 0 .2rem 1.2rem;
+    margin-bottom:1.5rem;}
+  .tq:last-child{margin-bottom:0;}
+  .tq .n{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:1.15rem; color:var(--coral);}
+  .tq .qx{font-size:clamp(1rem,2.2vw,1.16rem); font-weight:700; line-height:1.8;
+    margin-top:.15rem;}
+  .tq .hint{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8;
+    color:rgba(242,237,228,.68); margin-top:.6rem;}
+  .tq .hint::before{content:"실마리 — "; color:var(--teal); font-weight:700;}
+
+  /* ── 꼬리 ── */
+  .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
+  .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
+  .next p{font-size:clamp(.92rem,1.95vw,1.02rem); color:var(--ink-soft); margin-top:.45rem;}
+  .foot{background:var(--deep-2); color:rgba(242,237,228,.55); padding:1.7rem 0;
+    font-size:.72rem; letter-spacing:.1em; line-height:1.9;}
+
+  @media print{
+    @page{margin:12mm;}
+    html,body{print-color-adjust:exact; -webkit-print-color-adjust:exact;}
+    section,.term,.passage,.step,.pos,.quiz{break-inside:avoid;}
+    details{display:block;} details > *{display:block !important;}
+    .term > summary::after{display:none !important;}
+    .terms-cap{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 표지 ── -->
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <span class="brand">함께읽기 O N · 읽기 안내</span>
+      <span class="days">8. 17(월) · 18(화)</span>
+    </div>
+    <div class="layernum">
+      <span class="lb">Layer</span><span class="nn">05</span>
+    </div>
+    <h1>일</h1>
+    <p class="q">대체인가 증강인가</p>
+    <p class="one">사라지는 것은 직업이 아니라 직업 안의 과제다. 그리고 진짜 문제는 결과가 아니라 속도다.</p>
+    <div class="stack">
+      <div class="bar b8"><span>08</span></div>
+      <div class="bar b7"><span>07</span></div>
+      <div class="bar b6"><span>06</span></div>
+      <div class="bar b5 on"><span>05</span></div>
+      <div class="bar b4"><span>04</span></div>
+      <div class="bar b3"><span>03</span></div>
+      <div class="bar b2"><span>02</span></div>
+      <div class="bar b1"><span>01</span></div>
+    </div>
+    <p class="stack-cap">아래가 첫 층입니다. 위로 갈수록 층이 얇고 촘촘해집니다 — 가속의 모양입니다.</p>
+  </div>
+</header>
+
+<!-- ── 개념 단어장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">개념 단어장</p>
+    <h2>먼저 알아 둘 열네 단어</h2>
+    <p class="intro">읽기 전에 한 번, 읽고 나서 한 번 더 훑어 보세요. 두 번째에는 다르게 읽힙니다.</p>
+    <p class="terms-cap">단어를 누르면 설명과 보기가 펼쳐집니다.</p>
+    <div class="terms">
+
+      <details class="term">
+        <summary>
+          <p class="w">기술적 실업<span class="la">Technological Unemployment · Keynes 1930</span></p>
+          <span class="k">기술이 노동을 영구적으로 대체할 것인가—케인스의 질문</span>
+        </summary>
+        <div class="body">
+          <p class="d">존 메이너드 케인스가 1930년 논문 '우리 손자 세대의 경제적 가능성(Economic Possibilities for our Grandchildren)'에서 처음 명명. 기술이 인간의 노동을 영구적으로 대체해 구조적 실업을 만들 수 있다는 우려.
+          
+          케인스의 역설: 그는 이 위험을 경고하면서도, 결국 기술이 인류를 풍요롭게 해 2030년에는 주 15시간만 일해도 된다고 낙관했다. 그의 낙관론은 생산성 향상 예측에서는 맞았지만—노동 시간 단축 예측은 빗나갔다.
+          
+          커즈와일의 위치: 케인스의 낙관론 계보에 서 있지만, 그 근거를 수확 가속의 법칙으로 제시한다.</p>
+          <p class="ex">1930년 케인스: '100년 후 우리 손자들은 경제 문제를 해결했을 것이다.' 2030년은 그 100년이 되는 해다. 케인스의 예측 중 무엇은 맞았고 무엇은 틀렸는가—이것이 5장의 출발점이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">러다이트의 오류<span class="la">Luddite Fallacy</span></p>
+          <span class="k">기술은 일자리를 파괴하면서 동시에 창출한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">19세기 초 영국 방직 노동자들(러다이트)이 방직 기계를 파괴하며 기술이 일자리를 영구적으로 없앨 것이라고 주장했다. 그러나 역사는 다르게 진행됐다.
+          
+          실제 역사:
+          • 방직 기계 → 섬유 산업 확장 → 더 많은 노동자 필요
+          • 자동화 → 생산성 향상 → 가격 하락 → 수요 증가 → 새 일자리
+          • 농업 기계화 → 도시 제조업 노동자 증가
+          
+          오류의 핵심: '일자리의 총량은 고정되어 있다'는 전제가 틀렸다. 기술은 새로운 수요와 새로운 직업을 창출한다.
+          
+          그러나 이번에는: AI가 인지 작업을 자동화하면서 이 오류가 여전히 오류인지 논쟁 중이다.</p>
+          <p class="ex">ATM기 도입 이후 은행 창구 직원 수는 증가했다. ATM이 창구 비용을 낮추자 은행이 더 많은 지점을 열었고, 영업·상담 등 더 복잡한 고객 서비스 직원이 더 필요해졌다. 기술이 일자리를 파괴하면서 동시에 창출하는 대표적 사례다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">노동 총량의 오류<span class="la">Lump of Labor Fallacy</span></p>
+          <span class="k">경제에서 일자리 총량은 고정되어 있지 않다</span>
+        </summary>
+        <div class="body">
+          <p class="d">'세상에 일자리의 총량은 정해져 있어서, 기술이 일자리를 없애면 남는 사람이 생긴다'는 잘못된 전제. 경제학자들이 노동 시장 논쟁에서 가장 자주 반박하는 오류 중 하나.
+          
+          실증: 산업혁명 이후 인구가 10배 늘었지만 실업률은 장기적으로 증가하지 않았다. 경제는 새로운 수요를 만들어내고, 그 수요가 새로운 일자리를 창출한다.
+          
+          커즈와일의 적용: 수확 가속의 법칙이 새로운 산업과 직업을 기하급수적으로 창출한다. 문제는 그 창출 속도가 파괴 속도를 따라가는가—전환기의 속도다.</p>
+          <p class="ex">1900년 미국 노동력의 41%가 농업 종사자였다. 지금은 2% 미만이다. 그 39%의 사람들은 어디로 갔는가—자동차 정비사, 파일럿, 프로그래머, 소셜 미디어 매니저가 됐다. 1900년에는 이 직업들이 존재하지 않았다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">노동 시장 양극화<span class="la">Labor Market Polarization · Autor 2006</span></p>
+          <span class="k">중간 소득 직업이 사라지고 고소득·저소득으로 양극화된다</span>
+        </summary>
+        <div class="body">
+          <p class="d">MIT 경제학자 다비드 아우토르가 2006년 제시한 개념. 자동화가 '일상적이고 반복적인 작업'을 대체하면서—중간 소득 직업(사무직·생산직)이 감소하고, 고소득(전문직·창의직)과 저소득(서비스직·돌봄직) 직업으로 양극화된다.
+          
+          자동화가 쉬운 직업: 규칙 기반·반복적·예측 가능 (회계, 데이터 입력, 조립 라인)
+          자동화가 어려운 직업: 창의적·사회적·물리적 적응 (예술, 상담, 플러머)
+          
+          AI 시대의 변화: LLM이 인지 작업(법률 문서 검토, 의학 진단, 코딩)까지 자동화하면서—아우토르의 모델이 깨질 수 있다.</p>
+          <p class="ex">1980년대 이후 미국의 고소득 직업(의사·변호사·엔지니어)과 저소득 직업(식당 종업원·청소부)은 증가했지만, 중간 소득 직업(비서·은행원·공장 직원)은 감소했다. 이것이 소득 불평등 심화의 구조적 원인 중 하나다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">47% 논문<span class="la">Frey &amp; Osborne · Oxford 2013</span></p>
+          <span class="k">현재 직업의 47%가 자동화 고위험 상태다</span>
+        </summary>
+        <div class="body">
+          <p class="d">칼 베네딕트 프레이·마이클 오스본의 옥스퍼드 연구(2013). 미국 직업의 47%가 자동화 고위험 상태라고 분석. 가장 많이 인용되는 자동화 위험 연구.
+          
+          방법론: 702개 직업을 분석해 컴퓨터화 가능성(susceptibility to computerization) 점수 부여.
+          
+          고위험 직업: 텔레마케터(99%)·회계사(94%)·부동산 중개인(86%)·요리사(96%)·건설 노동자(88%)
+          저위험 직업: 레크리에이션 치료사(0.28%)·사회복지사(0.35%)·치과의사(0.44%)·성직자(0.81%)
+          
+          비판: OECD 반론(2016)—직업 단위가 아니라 과제(task) 단위로 분석하면 자동화 위험이 9%로 낮아진다.</p>
+          <p class="ex">이 연구가 나온 후 10년: 회계사와 부동산 중개인은 아직 존재한다. 그러나 그들의 업무 내용은 극적으로 바뀌었다. '직업의 소멸'보다 '직업 내 과제의 변환'이 더 정확한 묘사다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">보완 효과<span class="la">Complementarity Effect</span></p>
+          <span class="k">AI는 인간 노동을 대체하는가, 보완하는가</span>
+        </summary>
+        <div class="body">
+          <p class="d">경제학에서 기술이 노동을 대체(substitution)하는지 보완(complementarity)하는지를 구분하는 개념.
+          
+          대체 효과: 기계가 인간 노동을 직접 대신함 → 같은 생산량을 더 적은 노동으로 달성
+          보완 효과: 기술이 인간 노동의 생산성을 높임 → 인간 노동의 수요와 임금이 증가
+          
+          커즈와일의 주장: AI는 단기적으로 일부 과제를 대체하지만, 장기적으로 인간 역량을 증폭시켜 더 높은 수준의 일을 가능하게 한다.
+          
+          실증 사례: GitHub Copilot 도입 후 프로그래머 생산성 55% 향상(MIT·스탠퍼드 연구, 2022). 대체가 아니라 증폭이다.</p>
+          <p class="ex">방사선과 의사: AI 진단 보조 도구 도입 후 더 많은 이미지를 더 빠르게 검토하게 됐다. 진단 정확도가 높아지고 더 복잡한 케이스에 집중할 수 있게 됐다. 단순 판독 과제는 AI가, 복잡한 판단은 의사가 담당하는 분업.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">범용 기술<span class="la">General Purpose Technology · GPT</span></p>
+          <span class="k">경제 전체를 재편하는 기반 기술</span>
+        </summary>
+        <div class="body">
+          <p class="d">경제학에서 GPT(General Purpose Technology)는 여러 산업에 광범위하게 적용되어 경제 전체를 재편하는 기반 기술을 의미한다. AI의 AI(artificial intelligence)와 혼동하지 않도록 주의.
+          
+          역사적 GPT 사례:
+          • 증기기관(1780년대): 제조·운송 전반 재편
+          • 전기(1890년대): 모든 산업의 동력원 교체
+          • 컴퓨터(1970~80년대): 정보 처리 전반 재편
+          
+          AI = 4번째 GPT: 이전 GPT들과의 결정적 차이—AI는 지식 노동(knowledge work)을 자동화한다. 이전 GPT들은 주로 육체 노동을 자동화했다.
+          
+          브린욜프슨·맥아피 《제2의 기계 시대》(2014): AI는 지식의 GPT다.</p>
+          <p class="ex">전기가 공장에 도입됐을 때, 초기에는 생산성이 오히려 하락했다(1880~1920년대). 기업들이 전기에 맞게 공장 구조를 재설계하는 데 30~40년이 걸렸다. AI도 마찬가지—진짜 생산성 향상은 사회 전체가 AI에 맞게 재조직되는 것을 기다린다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">비교 우위<span class="la">Comparative Advantage</span></p>
+          <span class="k">절대 우위가 없어도 교역은 가능하다—인간도 마찬가지</span>
+        </summary>
+        <div class="body">
+          <p class="d">데이비드 리카도의 국제무역 이론. 어떤 나라가 모든 분야에서 절대 열위여도, 상대적으로 더 잘 하는 분야에 특화하면 무역이 이익이 된다.
+          
+          커즈와일의 AI 적용: AI가 모든 인지 과제에서 인간보다 뛰어나져도—인간은 상대적으로 더 잘 하는 분야에 특화함으로써 가치를 창출할 수 있다.
+          
+          인간의 비교 우위 후보:
+          • 감정 지능(EQ)·공감·진정성
+          • 신체적 유연성·적응력
+          • 도덕적 책임과 판단
+          • 창의적 비전과 목적 설정
+          • 인간 관계와 신뢰</p>
+          <p class="ex">체스에서 AI가 인간을 완전히 능가한다. 그러나 '켄타우르 체스(Centaur Chess)'—인간과 AI의 팀—은 AI 단독보다 강할 수 있다. 인간의 직관과 AI의 계산력이 결합할 때 시너지가 발생한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">증강과 협업<span class="la">Augmentation &amp; Human-AI Collaboration</span></p>
+          <span class="k">AI가 대체가 아닌 증폭기가 되는 조건</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일이 5장에서 강조하는 핵심 프레임. AI는 인간의 일을 없애는 것이 아니라 인간이 더 높은 수준의 일을 할 수 있도록 증폭시킨다.
+          
+          증강이 작동하는 방식:
+          • 반복적·규칙적 과제 → AI가 처리
+          • 판단·창의·감성 과제 → 인간이 집중
+          • 결과: 인간의 생산성이 기하급수적으로 향상
+          
+          실증: GitHub Copilot 도입 후 개발자 생산성 55% 향상(MIT·스탠퍼드, 2022). 의사 AI 진단 보조 도구—오진율 감소 + 처리량 증가.
+          
+          전제 조건: 이 증강이 작동하려면—교육 시스템과 직업 훈련이 AI 시대에 맞게 재설계되어야 한다.</p>
+          <p class="ex">법률 분야: 법률 검색·문서 검토 AI 도입 후 변호사들이 더 복잡한 전략적 법률 조언에 집중할 수 있게 됐다. 단순 리서치에 드는 시간이 줄고, 의뢰인과의 심층 상담에 더 많은 시간을 쓸 수 있다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">보편적 기본 소득<span class="la">Universal Basic Income · UBI</span></p>
+          <span class="k">모든 시민에게 조건 없이 지급하는 기본 소득</span>
+        </summary>
+        <div class="body">
+          <p class="d">AI로 인한 일자리 소멸에 대한 정책적 대응으로 자주 논의되는 개념. 국가가 모든 시민에게 고용 상태와 무관하게 최소 생활 가능한 소득을 지급한다.
+          
+          UBI 지지 논거:
+          • AI가 경제적 가치를 창출하는 만큼 그 이익을 모든 시민이 누려야 한다
+          • 전환기에 사람들이 재교육할 시간·자원을 확보할 수 있다
+          • 소비를 유지해 경제를 안정시킨다
+          
+          UBI 반론:
+          • 재원 조달 문제
+          • 노동 의욕 감소 우려
+          • 인플레이션 가능성
+          
+          실험 사례: 핀란드(2017~2018), 케냐(GiveDirectly), 미국 스톡턴·알래스카 영구기금</p>
+          <p class="ex">알래스카 영구기금: 1982년부터 석유 수익을 모든 주민에게 배당. 2023년 1인당 약 $1,702 지급. 알래스카는 미국에서 소득 불평등이 가장 낮은 주 중 하나다. 완전한 UBI는 아니지만—부분적 자원 배당의 효과를 보여주는 사례.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">새로운 일자리 창출<span class="la">New Work Creation · Autor</span></p>
+          <span class="k">기술이 아직 존재하지 않는 직업들을 만들어낸다</span>
+        </summary>
+        <div class="body">
+          <p class="d">MIT 경제학자 다비드 아우토르의 '새로운 일(New Work)' 연구. 기술 진보는 단순히 기존 일자리를 대체하는 것이 아니라—이전에는 존재하지 않았던 완전히 새로운 종류의 일자리를 창출한다.
+          
+          아우토르의 발견: 2018년 현재 미국 일자리의 약 60%는 1940년에는 존재하지 않았던 직업이다.
+          
+          새로 창출된 직업 사례:
+          • 소셜 미디어 매니저
+          • 데이터 과학자
+          • UX 디자이너
+          • 유튜버
+          • AI 프롬프트 엔지니어
+          • AI 윤리 연구자
+          
+          커즈와일: 수확 가속의 법칙이 지속되면 이 새로운 직업 창출 속도도 기하급수적으로 가속된다.</p>
+          <p class="ex">2010년에는 '유튜버'라는 직업이 없었다. 지금은 전 세계에 수백만 명의 유튜버가 있다. '프롬프트 엔지니어'는 2022년 이전에는 존재하지 않았다. 기술 가속은 직업 창출 가속을 동반한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">재교육과 평생 학습<span class="la">Reskilling &amp; Lifelong Learning</span></p>
+          <span class="k">전환기를 통과하는 개인과 사회의 전략</span>
+        </summary>
+        <div class="body">
+          <p class="d">AI 시대 일자리 전환의 가장 큰 과제. 기술 파괴 속도가 새 직업 창출 속도보다 빠를 때—전환기에 사람들을 어떻게 지원할 것인가.
+          
+          규모: WEF(2023년 일자리 미래 보고서)에 따르면 2027년까지 약 23%의 직업이 변화하고, 전 세계 노동자의 약 44%가 핵심 기술을 재교육해야 한다.
+          
+          접근 방법:
+          • 개인: 적응적 학습, 메타 기술(학습하는 방법을 학습하는 것) 습득
+          • 기업: 업스킬링 프로그램 투자
+          • 국가: 직업 훈련 시스템 재설계, UBI·전환 수당
+          
+          AI의 역할: AI 기반 맞춤형 학습이 재교육을 더 빠르고 효율적으로 만든다.</p>
+          <p class="ex">싱가포르 SkillsFuture: 국민 모두에게 직업 훈련 크레딧을 제공하고 기업 재교육을 장려하는 국가 차원 플랫폼. 개인의 재교육을 제도적으로 지원하는 정책 모델로 자주 인용된다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">아제모을루의 반론<span class="la">Acemoglu's Critique</span></p>
+          <span class="k">AI가 모든 노동자에게 이익이 되는가</span>
+        </summary>
+        <div class="body">
+          <p class="d">MIT 경제학자 다론 아제모을루의 최근 연구. 자동화가 항상 노동자에게 이익이 되는 것은 아니며, 기술의 방향성이 중요하다고 주장.
+          
+          아제모을루·레스트레포(2018~2022): 산업 로봇 도입이 지역 노동 시장의 고용과 임금을 감소시켰다는 실증 연구.
+          
+          핵심 주장: '좋은 자동화(good automation)'와 '나쁜 자동화(so-so automation)'를 구분해야 한다.
+          • 좋은 자동화: 생산성을 충분히 높여 임금 상승·새 일자리 창출로 이어짐
+          • 나쁜 자동화: 생산성 향상 효과가 작고 노동자 대체만 일어남
+          
+          커즈와일과의 긴장: 아제모을루는 기술 자체가 아니라 '기술이 어떻게 설계되고 배치되는가'가 중요하다고 강조한다.</p>
+          <p class="ex">콜센터 자동화: 효율성은 증가했지만 많은 콜센터 노동자들이 실직했고, 그들이 유사한 임금의 새 직업으로 이동하지 못한 경우가 많았다. 이것이 아제모을루가 말하는 '나쁜 자동화'의 예다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">전환기의 속도 문제<span class="la">The Transition Problem</span></p>
+          <span class="k">새 일자리 창출이 파괴보다 빠를 것인가—속도가 핵심이다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일이 5장에서 인정하는 가장 중요한 불확실성. 역사적으로 기술은 새 일자리를 창출했다—그러나 전환기에 파괴 속도가 창출 속도를 앞서면 사회적 고통이 발생한다.
+          
+          과거의 전환 속도:
+          • 농업 → 제조업: 수십 년~수백 년
+          • 제조업 → 서비스업: 수십 년
+          
+          AI의 전환 속도: 수년. 수확 가속의 법칙이 적용되기 때문에.
+          
+          문제: 사람들이 새로운 기술과 직업을 습득하는 속도는 선형적이다. AI의 변화 속도는 기하급수적이다. 이 간격이 전환기의 고통을 만든다.
+          
+          커즈와일의 낙관: AI가 교육 자체도 가속해 이 간격을 줄일 것이다.</p>
+          <p class="ex">코다크(Kodak)는 2012년 파산했다. 35년간 세계 최대 필름 회사였고 14만 명을 고용했다. 2012년 인스타그램은 13명이 운영하며 10억 달러에 매각됐다. 이것이 디지털 전환의 속도다—산업 전환과 사람들의 재적응 사이의 간격이 좁혀질 시간이 없었다.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 핵심 논점 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">핵심 논점</p>
+    <h2>이 세 대목만은 직접 찾아 읽으세요</h2>
+    <p class="intro">각 논점마다 <b>핵심 주장 → 왜 그런가 → 비유로</b> 세 겹으로 풀었습니다. 책을 펼쳐 그 자리를 찾은 뒤 읽으면 가장 잘 붙습니다.</p>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 1 · 역사는 낙관을 지지한다—그러나 이번에는 다를 수 있다</p>
+        <p class="pn">역사적 기술 대체와 새 일자리 창출의 패턴을 논의하는 부분을 찾아보세요. 케인스의 1930년 예측, 러다이트 운동, ATM과 은행 창구 직원의 사례 등이 등장하는 단락입니다. '러다이트의 오류' '노동 총량의 오류' '보완 효과' '범용 기술'이 키워드입니다. 커즈와일이 왜 역사적 패턴을 근거로 낙관하면서도 AI의 특수성을 인정하는지 주목하세요.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">역사적 패턴: 기술은 항상 일자리를 파괴하고, 더 많은 일자리를 창출했다.
+
+증거들:
+• 농업 기계화: 1900년 미국 농업 종사자 41% → 현재 2% 미만. 그러나 실업률은 장기적으로 증가하지 않았다.
+• ATM: 도입 후 은행 창구 직원 수 증가. 비용 절감으로 은행 지점이 늘었고, 더 복잡한 서비스 직원이 필요해졌다.
+• 다비드 아우토르의 발견: 2018년 현재 미국 일자리의 약 60%는 1940년에는 존재하지 않았던 직업이다.
+
+러다이트의 오류: '일자리 총량은 고정되어 있다'는 전제가 틀렸다. 기술은 새로운 수요와 새로운 직업을 창출한다.
+
+그러나 AI의 특수성: 이전 기술들은 주로 육체 노동을 대체했다. AI는 인지 노동—지식 작업—을 대체한다. 이것이 이번이 다를 수 있는 이유다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">프레이-오스본(옥스퍼드, 2013): 미국 직업의 47%가 자동화 고위험. 이 연구가 사회적 공포를 촉발했다.
+
+OECD의 반론(2016): 직업 단위가 아니라 '과제(task)' 단위로 분석하면 자동화 위험은 9%. 직업 전체가 사라지는 것이 아니라, 직업 내의 특정 과제들이 자동화되는 것이다.
+
+실제 일어나는 것: '직업의 소멸'보다 '직업의 변환'이 더 정확하다.
+• 회계사 → AI가 데이터 처리, 인간은 전략적 재무 조언에 집중
+• 방사선과 의사 → AI가 판독 보조, 의사는 복잡한 케이스와 환자 상담에 집중
+• 변호사 → AI가 문서 검토, 변호사는 전략적 법률 조언에 집중
+
+커즈와일의 결론: 역사적 패턴이 반복될 것이다. 더 많은 새 직업이 창출된다—그러나 전환기의 속도가 문제다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">케인스의 역설: 1930년 그는 '기술적 실업'을 경고하면서도—결국 기술이 인류를 풍요롭게 해 2030년에는 주 15시간만 일해도 된다고 낙관했다. 생산성 향상 예측은 맞았다. 노동 시간 단축 예측은 빗나갔다. 왜인가?
+
+파킨슨의 법칙: 일은 주어진 시간을 채우도록 늘어난다. 그리고 더 중요하게: 풍요로워질수록 인간은 새로운 욕구와 새로운 서비스를 만들어낸다.
+
+이것이 커즈와일의 낙관의 근거다: 기하급수적으로 성장하는 경제는 기하급수적으로 새로운 일자리를 창출한다. 그 속도가 AI의 파괴 속도를 따라갈 것인가—이것이 핵심 불확실성이다.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 2 · AI는 인간 노동을 대체하는가, 증폭시키는가</p>
+        <p class="pn">AI의 보완 효과와 증강에 대해 논의하는 부분을 찾아보세요. GitHub Copilot 실험, 의료 AI, 법률 AI 등 구체적 사례들이 등장하는 단락입니다. '보완 효과' '증강' '인간-AI 협업' '비교 우위'가 키워드입니다. 아제모을루의 반론—'좋은 자동화'와 '나쁜 자동화'의 구분—도 이 논점에서 등장합니다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">두 가지 AI의 가능성:
+
+① 대체 시나리오: AI가 인간의 인지 노동을 대체 → 고용 감소 → 소득 불평등 심화
+
+② 증폭 시나리오: AI가 인간의 역량을 증폭 → 생산성 향상 → 더 높은 수준의 일 가능
+
+실증 증거:
+• GitHub Copilot: 도입 후 개발자 생산성 55% 향상(MIT·스탠퍼드, 2022)
+• AI 의료 진단 보조: 방사선과 의사의 정확도 향상 + 처리량 증가
+• 법률 AI: 문서 검토 시간 80% 단축 → 변호사가 전략적 업무에 집중
+
+비교 우위: AI가 모든 인지 과제에서 인간보다 뛰어나져도—인간은 상대적으로 더 잘 하는 분야에 특화해 가치를 창출할 수 있다.
+
+인간의 비교 우위 후보: 감정 지능·공감·창의적 비전·도덕적 책임·인간 관계와 신뢰</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">아제모을루의 경고: 증폭이 자동으로 일어나는 것이 아니다. 기술이 어떻게 설계되고 배치되느냐가 결정한다.
+
+'좋은 자동화' vs '나쁜 자동화':
+• 좋은: 생산성을 충분히 높여 임금 상승·새 일자리 창출로 이어짐
+• 나쁜: 생산성 향상 효과가 작고 노동자 대체만 일어남
+
+실증: 아제모을루·레스트레포(2018~2022) 연구—산업 로봇 도입이 해당 지역 고용과 임금을 감소시켰다. 보완 효과는 항상 작동하지 않는다.
+
+커즈와일의 낙관과 아제모을루의 경고를 함께 읽으면: 기술 자체보다 기술이 사회에 배치되는 방식—정책·제도·교육—이 결정적이다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">켄타우르 체스(Centaur Chess): AI가 체스에서 인간을 완전히 능가한다. 그런데 '인간+AI 팀'이 AI 단독보다 강한 경우가 있다. 인간의 직관과 창의성, AI의 계산력과 데이터 처리가 시너지를 만들 때.
+
+단, 이 시너지는 자동으로 발생하지 않는다: 인간이 AI를 효과적으로 활용하는 법을 배워야 한다. '프롬프트 엔지니어링'이 새로운 핵심 기술이 된 이유다.
+
+결론: AI가 인간을 대체하는 것이 아니라, AI를 잘 활용하는 인간이 그렇지 못한 인간을 대체할 것이다. 이것이 전환기에 개인이 직면하는 실질적 도전이다.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 3 · 전환기의 속도—새 일자리 창출이 파괴를 따라잡을 수 있는가</p>
+        <p class="pn">전환기의 속도 문제와 그 해법을 논의하는 부분을 찾아보세요. 재교육·평생 학습·UBI가 함께 등장하는 단락입니다. '전환기' '재교육' '보편적 기본 소득' '속도'가 키워드입니다. 커즈와일이 이 전환기의 고통을 어떻게 최소화할 수 있다고 보는지, 그리고 정책의 역할을 어떻게 설정하는지 주목하세요.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">역사적 전환 속도 vs AI 전환 속도:
+
+농업 → 제조업: 수십 년~수백 년
+제조업 → 서비스업: 수십 년
+AI에 의한 전환: 수년
+
+코닥의 사례: 2012년 파산. 35년간 14만 명 고용. 같은 해 인스타그램은 13명으로 10억 달러 가치. 사람들이 재적응할 시간이 없었다.
+
+WEF(2023 일자리 미래 보고서): 2027년까지 약 23%의 직업이 변화. 전 세계 노동자의 약 44%가 핵심 기술을 재교육해야 한다.
+
+문제의 구조: AI의 변화 속도는 기하급수적. 사람들이 새 기술을 습득하는 속도는 선형적. 이 간격이 전환기의 사회적 고통을 만든다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">세 가지 정책 접근:
+
+① 재교육 투자: 싱가포르 SkillsFuture 모델. 모든 국민에게 직업 훈련 크레딧 제공. 기업 재교육 장려.
+
+② 보편적 기본 소득(UBI): 전환기에 사람들이 재교육할 시간·자원 확보. 소비를 유지해 경제 안정. 핀란드 실험, 알래스카 영구기금의 교훈.
+
+③ AI 기반 교육 가속: AI가 개인 맞춤형 학습을 가능하게 해 재교육 속도를 높인다. 커즈와일의 낙관적 해법—AI가 전환기의 문제를 해결하는 도구 중 하나가 된다.
+
+커즈와일의 핵심 주장: 수확 가속의 법칙은 새로운 직업 창출도 가속한다. 그리고 AI가 교육과 재교육도 가속한다. 전환기의 고통은 실재하지만 관리 가능하다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">전기의 역설: 전기가 공장에 도입됐을 때 초기에는 생산성이 하락했다. 공장들이 증기기관 배치에 맞게 설계되어 있었기 때문에. 전기의 특성을 활용한 새 배치로 재설계하는 데 30~40년이 걸렸다.
+
+AI도 마찬가지: 진짜 생산성 향상은 사회 전체가 AI에 맞게 재조직될 때 온다. 그 재조직 기간이 전환기다.
+
+차이: 전기의 전환기는 수십 년이었다. AI의 전환기는 수년~수십 년이다. 수확 가속의 법칙 때문에 더 빠르다. 그래서 더 어렵고, 더 시급하다.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── 논증 구조 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">논증 구조</p>
+    <h2>커즈와일은 이렇게 밀고 나갑니다</h2>
+    <p class="intro">핵심 물음에서 출발해 위험을 먼저 인정하고, 두 낙관 근거를 거쳐 결론으로 닿습니다. 동의하든 아니든, <b>이 뼈대를 정확히 붙들면</b> 북토크에서 제대로 되물을 수 있습니다.</p>
+    <div class="steps">
+
+      <div class="step">
+        <span class="sn">핵심 물음</span>
+        <p class="st">그래서 우리는 어디로 가고 있는가</p>
+        <p class="sb">5장 전체의 핵심 물음: AI가 일자리를 파괴하고 소득 불평등을 심화하고 전환기의 혼란을 만들면서—결국 우리는 어디로 가고 있는가?
+
+커즈와일의 답은 역설적이다: 이 위험들을 정면으로 인정하면서도 낙관한다.
+
+그 낙관의 구조:
+• 역사적 패턴에 기반한 귀납
+• 수확 가속의 법칙이라는 연역적 원리
+• AI가 만드는 비교 우위의 새 질서
+• 전환기의 고통은 실재하지만 관리 가능하다
+• 기회의 크기가 위험의 크기를 압도한다
+
+이 논리 구조를 단계별로 따라가보자.</p>
+        <span class="sk">커즈와일의 낙관 = 위험을 부정하지 않고 기회의 크기로 응답한다</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">위험 인정</span>
+        <p class="st">커즈와일이 인정하는 전환기의 위험과 혼란</p>
+        <p class="sb">커즈와일은 5장에서 다음 위험들을 정면으로 인정한다.
+
+① 단기 실직: AI가 특정 과제를 자동화하면—즉각적인 실직이 발생한다. 코닥 14만 명이 사라진 해에 인스타그램 13명이 탄생했다. 전환 속도가 재교육 속도를 앞선다.
+
+② 소득 불평등 심화: 기술 가속이 구조적으로 '가진 자'에게 먼저 작동한다. 아제모을루의 '나쁜 자동화'는 노동자를 대체하기만 하고 새 기회를 만들지 않는다.
+
+③ 인지 노동의 자동화: 이번에는 육체 노동뿐 아니라 지식 노동이 대상이다. 법률·의료·회계·교육—전통적 안전 직종들도 예외가 아니다.
+
+④ 전환의 속도: AI 변화는 기하급수적. 인간의 재적응은 선형적. 이 불일치가 전환기의 사회적 고통을 만든다.</p>
+        <span class="sk">위험 인정 = 낙관론의 출발점—부정이 아니라 응답이 커즈와일의 방식이다</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">낙관 근거 1</span>
+        <p class="st">역사적 귀납: 기술은 항상 더 많은 일자리를 만들었다</p>
+        <p class="sb">러다이트(1811~1816): '기계가 우리 일자리를 없앨 것이다.'
+결과: 섬유 산업 확장 → 더 많은 노동자 필요.
+
+ATM(1969년 도입): '은행 창구 직원이 사라질 것이다.'
+결과: 창구 직원 수 증가. 더 많은 지점 → 더 복잡한 서비스 직원 수요.
+
+다비드 아우토르의 발견: 2018년 현재 미국 일자리의 약 60%는 1940년에는 존재하지 않았던 직업이다.
+
+케인스의 역설 재해석: 그는 2030년이면 주 15시간만 일해도 된다고 예측했다. 생산성 향상은 맞았다. 그러나 풍요로워질수록 인간은 새로운 욕구를 만들어낸다—일자리 총량은 고정되어 있지 않다.
+
+커즈와일: 이 패턴이 수확 가속의 법칙과 결합하면, 새 직업 창출은 기하급수적으로 가속된다.</p>
+        <span class="sk">역사적 귀납 = 러다이트의 오류가 반복적으로 증명됐다는 실증적 근거</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">낙관 근거 2</span>
+        <p class="st">비교 우위와 증강—새로운 인간-AI 분업의 질서</p>
+        <p class="sb">비교 우위(리카도): AI가 모든 인지 과제에서 절대 우위를 가져도—인간은 상대적으로 더 잘 하는 분야에 특화해 가치를 창출할 수 있다.
+
+인간의 비교 우위 후보:
+• 감정 지능·공감·진정한 인간 연결
+• 도덕적 책임과 가치 판단
+• 창의적 비전과 목적 설정
+• 신체적 유연성과 물리적 적응
+
+증강의 실증:
+• GitHub Copilot: 개발자 생산성 55% 향상—대체가 아닌 증폭
+• AI 진단 보조: 의사의 정확도 향상 + 처리량 증가
+• 법률 AI: 변호사가 전략적 업무에 집중 가능
+
+켄타우르 체스의 원리: AI가 인간을 능가하는 분야에서도, 인간+AI 팀이 AI 단독보다 강할 수 있다.
+
+결론: AI를 잘 활용하는 인간이 그렇지 못한 인간을 대체한다. 이것이 전환기 개인의 실질적 도전이다.</p>
+        <span class="sk">비교 우위 + 증강 = 인간이 AI 시대에 가치를 창출하는 구체적 메커니즘</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">결론</span>
+        <p class="st">기회는 어마어마하다—인류의 오랜 고통을 극복할 수 있는 기회</p>
+        <p class="sb">커즈와일의 최종 논거: 위험의 크기보다 기회의 크기가 압도적으로 크다.
+
+AI가 열어주는 기회의 규모:
+• 의료: AI가 신약 개발을 가속하고, 개인 맞춤 의료를 가능하게 한다. 인류를 수천 년간 괴롭혀온 질병들이 해결 가능한 정보 문제로 전환된다.
+• 빈곤: AI 기반 교육·의료·금융 서비스의 민주화. 수십억 명의 삶을 바꿀 수 있다.
+• 기후: AI가 에너지 전환을 가속하고, 기후 솔루션을 발견한다.
+• 수명 연장: AI가 노화 연구를 기하급수적으로 가속한다.
+
+전환기의 혼란은 실재한다. 그러나 그 혼란 너머에:
+'이 기술 발전에 내포된 기회는 실로 어마어마하다. 그것은 사실상 인류의 오랜 고통을 극복할 수 있는 기회이다.'
+
+이것이 커즈와일이 모든 위험을 인정하면서도 낙관하는 이유다.</p>
+        <span class="sk">기회의 크기 = 인류의 오랜 고통 극복—이것이 전환기의 혼란을 감수할 근거다</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 세 입장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">이 장을 둘러싼 세 입장</p>
+    <h2>같은 자료를 보고 다르게 말하는 사람들</h2>
+    <p class="intro">커즈와일만 읽으면 그의 자리가 보이지 않습니다. 양옆에 누가 서 있는지 알아야 그가 어디에 서 있는지 보입니다.</p>
+
+    <div class="pos">
+      <p class="pl">기술 낙관론<span class="ps">커즈와일·브린욜프슨·아우토르</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">역사적 패턴이 반복된다. AI는 기존 직업을 변환하고 새로운 직업을 창출한다. 수확 가속의 법칙이 새 직업 창출도 가속한다. 인간은 AI와 협업해 더 높은 수준의 일을 하게 된다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">비판: 이번 전환 속도가 역사보다 훨씬 빠르다. 아제모을루의 연구는 자동화가 항상 긍정적이지 않다는 것을 실증했다. 전환기의 고통을 과소평가할 수 있다.</p>
+      <p class="qt">에릭 브린욜프슨·앤드루 맥아피 《제2의 기계 시대》(2014)
+다비드 아우토르 'The Work of the Future'(MIT, 2022)</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">기술 비관론<span class="ps">아제모을루·프레이-오스본</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">AI는 이번에 다르다. 인지 노동의 자동화는 전례 없는 규모의 직업 대체를 가져올 것이다. 비교 우위와 보완 효과가 자동으로 작동한다는 보장이 없다. 기술이 어떻게 설계되고 배치되느냐가 결정적이다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일의 응답: 역사적 패턴이 이 비관론을 반복적으로 반박했다. 그러나 아제모을루의 '나쁜 자동화' 경고는 정책 설계의 중요성을 강조한다는 점에서 유효하다.</p>
+      <p class="qt">다론 아제모을루·파스쿠알 레스트레포 'Robots and Jobs'(2018)
+칼 프레이·마이클 오스본 'The Future of Employment'(Oxford, 2013)</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">제도적 접근<span class="ps">UBI·재교육 지지자들</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">기술 낙관론이 맞든 비관론이 맞든—전환기의 고통을 최소화하는 제도 설계가 필요하다. UBI, 적극적 노동 시장 정책, AI 기반 재교육 시스템이 전환기를 관리하는 도구다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">재원 조달 문제, UBI의 노동 의욕 영향, 재교육의 효과 불확실성 등 구체적 실행 과제가 많다. 그러나 커즈와일도 이 방향에 동의한다—기술 낙관론과 제도적 대응은 배타적이지 않다.</p>
+      <p class="qt">필리페 판 파레이스 《모두에게 실질적 자유를》(1995)
+WEF 'Future of Jobs Report'(2023)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 확인 문제 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">스스로 확인하기</p>
+    <h2>네 문제로 되짚기</h2>
+    <p class="intro">맞히는 것이 목적이 아닙니다. <b>틀린 문제가 있다면 그 대목을 다시 펼치라는 신호</b>입니다.</p>
+
+    <div class="quiz">
+      <p class="qq">'러다이트의 오류(Luddite Fallacy)'가 의미하는 것으로 가장 적절한 것은?</p>
+      <ol>
+        <li>기술은 항상 노동자에게 해롭다</li>
+        <li>일자리 총량이 고정되어 있다는 잘못된 전제—기술은 일자리를 파괴하지만 새로운 직업을 창출함으로써 총 고용을 유지하거나 증가시켜왔다</li>
+        <li>러다이트 운동은 역사적으로 성공한 노동 운동이다</li>
+        <li>자동화는 항상 좋은 것이다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>러다이트의 오류는 '세상에 일자리의 총량이 정해져 있어서 기술이 일자리를 없애면 영구적 실업이 생긴다'는 잘못된 전제에서 비롯된다. 역사적으로 기술은 기존 직업을 파괴하면서 동시에 이전에는 존재하지 않았던 새로운 직업들을 창출했다. 다비드 아우토르의 연구에 따르면 2018년 현재 미국 일자리의 약 60%는 1940년에는 존재하지 않았던 직업이다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">프레이-오스본의 옥스퍼드 연구(2013)와 OECD의 반론(2016)의 핵심 차이는?</p>
+      <ol>
+        <li>프레이-오스본은 낙관적이고 OECD는 비관적이다</li>
+        <li>프레이-오스본은 직업 단위로 분석해 47%가 위험하다고 했고, OECD는 과제(task) 단위로 분석해 9%로 낮게 추정했다—같은 현상을 다른 단위로 측정한 차이</li>
+        <li>두 연구는 분석 국가가 다르다</li>
+        <li>OECD는 AI를 포함하지 않았다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>프레이-오스본은 직업(occupation) 전체를 단위로 분석해 47%의 직업이 자동화 고위험이라고 했다. OECD는 직업 내의 구체적 과제(task)를 단위로 분석해 9%가 고위험이라고 반박했다. 핵심 통찰: 직업 전체가 사라지는 것이 아니라 직업 내의 특정 과제들이 자동화되고, 인간은 더 복잡한 과제에 집중하게 된다는 것이다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">다론 아제모을루의 '좋은 자동화'와 '나쁜 자동화' 구분이 의미하는 것은?</p>
+      <ol>
+        <li>자동화는 모두 나쁘다</li>
+        <li>자동화는 모두 좋다</li>
+        <li>자동화의 생산성 향상 효과가 충분히 크면 임금 상승과 새 일자리 창출로 이어지지만, 효과가 작으면 노동자 대체만 일어난다—기술 자체보다 배치 방식이 중요하다</li>
+        <li>자동화는 선진국에는 좋고 개발도상국에는 나쁘다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 3번</b><br>아제모을루·레스트레포의 연구는 자동화의 효과가 자동으로 긍정적이지 않다는 것을 실증했다. '좋은 자동화'는 생산성을 충분히 높여 임금 상승과 새 일자리 창출로 이어지지만, '나쁜 자동화(so-so automation)'는 생산성 향상 효과가 작고 노동자 대체만 일어난다. 이것은 기술 자체보다 기술이 어떻게 설계·배치되느냐가 중요하다는 것을 의미한다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">커즈와일이 5장에서 AI 시대 일자리 전환기의 핵심 문제로 지목하는 것은?</p>
+      <ol>
+        <li>AI가 너무 똑똑해서 인간이 경쟁할 수 없다</li>
+        <li>AI의 변화 속도(기하급수적)와 사람들이 새 기술을 습득하는 속도(선형적) 사이의 간격</li>
+        <li>정부가 AI 규제를 충분히 하지 않는다</li>
+        <li>젊은 세대는 AI를 잘 활용하지만 기성세대는 적응이 어렵다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>커즈와일이 지목하는 핵심 문제는 속도의 불일치다. AI에 의한 직업 변화 속도는 수확 가속의 법칙에 따라 기하급수적으로 빠르다. 반면 사람들이 새로운 기술과 직업을 습득하는 속도는 선형적이다. 이 간격이 전환기의 사회적 고통을 만든다. 코닥(2012년 파산, 14만 명 고용)과 인스타그램(13명, 10억 달러 가치)의 동시 존재가 이 속도 차이를 극적으로 보여준다.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── 북토크 질문 ── -->
+<section class="talk">
+  <div class="wrap">
+    <p class="kicker">북토크에서 나눌 질문</p>
+    <h2>답을 준비하지 마세요.<br>걸리는 것 하나만 골라 두세요</h2>
+    <p class="intro">8월 31일 북토크 2부에서 각자 <b>밑줄 한 문장과 질문 한 줄</b>을 내놓습니다. 아래 다섯 중 하나가 그 씨앗이 되어도 좋습니다.</p>
+
+    <div class="tq">
+      <span class="n">1</span>
+      <p class="qx">케인스는 1930년에 '2030년이면 주 15시간만 일해도 된다'고 예측했습니다. 그 예측은 왜 빗나갔습니까? 그리고 커즈와일의 낙관론은 같은 이유로 빗나갈 수 있습니까?</p>
+      <p class="hint">케인스의 예측이 틀린 이유 중 하나: 풍요로워질수록 인간은 새로운 욕구와 서비스를 만들어낸다. 이것이 커즈와일의 낙관을 지지하는가, 반박하는가?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">2</span>
+      <p class="qx">AI를 잘 활용하는 인간이 그렇지 못한 인간을 대체할 것입니다. 지금 당신의 일에서 AI가 대체하는 과제와 AI가 증폭시키는 과제는 각각 무엇입니까?</p>
+      <p class="hint">반복적·규칙적 과제 vs 판단·창의·관계 과제. 당신의 직업에서 이 구분이 어떻게 적용됩니까? AI 도입 후 당신이 더 집중하고 싶은 것은 무엇입니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">3</span>
+      <p class="qx">아제모을루는 '기술이 어떻게 설계되고 배치되느냐'가 중요하다고 말합니다. AI가 '좋은 자동화'가 되도록 하는 결정은 누가 어떻게 해야 합니까?</p>
+      <p class="hint">AI를 설계하는 엔지니어? 배치하는 기업? 규제하는 정부? 사용하는 노동자? 이 결정에서 각각의 역할은 무엇입니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">4</span>
+      <p class="qx">보편적 기본 소득(UBI)이 AI 시대의 해법이 될 수 있습니까? 알래스카 영구기금과 핀란드 실험의 교훈은 무엇이고, 그것이 AI 시대에도 적용됩니까?</p>
+      <p class="hint">UBI 지지 논거: 전환기 안전망, AI 경제 이익의 사회화. 반론: 재원, 노동 의욕, 인플레이션. 당신의 직관은 어느 쪽입니까? 그 직관의 근거는 무엇입니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">5</span>
+      <p class="qx">커즈와일은 '수확 가속의 법칙이 새 직업 창출도 가속한다'고 말합니다. 지금 존재하지 않지만 10년 후에는 존재할 직업은 무엇이라고 생각합니까? 그 직업을 위해 지금 무엇을 준비해야 합니까?</p>
+      <p class="hint">'소셜 미디어 매니저'는 2010년에 없었고, '프롬프트 엔지니어'는 2022년에 없었습니다. 10년 뒤의 새 직업을 예측하는 것과, 그 불확실성 속에서 어떤 역량을 키울 것인가—두 질문 중 어느 것이 더 중요합니까?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 다음 층 ── -->
+<div class="next">
+  <div class="wrap">
+    <p class="nx">다음 — 8. 19(수)는 쉬어가기, 8. 20(목)부터 <b>층 06 · 생명</b></p>
+    <p>오늘은 책 대신 내 일주일을 봅니다. 지난 한 주에 한 일을 열 줄로 적고, 각 줄 옆에 'AI가 맡아도 됨 / 내가 해야 함'을 표시해 보세요. 5장이 훨씬 선명해집니다.</p>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    함께읽기 ON · 레이 커즈와일 『마침내 특이점이 시작된다』 읽기 안내<br>
+    층 05 · 일 — 2026. 8. 17(월) · 18(화)
+  </div>
+</div>
+
+</body></html>

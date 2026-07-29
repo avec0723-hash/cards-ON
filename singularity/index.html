@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>함께읽기 ON · 읽기 안내 — 여덟 층</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="함께읽기ON">
+<meta property="og:title" content="함께읽기 ON · 읽기 안내 — 마침내 특이점이 시작된다 여덟 층">
+<meta property="og:description" content="8. 3(월)부터 8. 31(월) 북토크까지 — 여덟 층으로 나누어 한 달 동안 쌓습니다. 여덟 장의 읽기 안내 입구.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="함께읽기 ON · 읽기 안내 — 여덟 층">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EDE4; --paper-2:#EAE3D6; --card:#FBF8F2;
+    --ink:#17262B; --ink-soft:#4B5C61; --ink-faint:#8A9799;
+    --deep:#12262E; --deep-2:#0C1A21; --deep-card:#1B3540;
+    --teal:#7FD4D8; --teal-ink:#256A74; --teal-soft:#C3E8EA;
+    --coral:#E8785A; --coral-deep:#CE5537;
+    --rule:#D9D1C3; --rule-soft:#E6DFD2;
+    --sans:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    --serif:"Nanum Myeongjo","Noto Serif KR","Batang",serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    line-height:1.8; letter-spacing:-.003em;}
+  .wrap{max-width:52rem; margin:0 auto; padding:0 clamp(1.15rem,4.5vw,2.6rem);}
+
+  /* ── 표지 ── */
+  .hero{background:var(--deep); color:var(--paper);
+    padding:clamp(2.8rem,7vw,4.6rem) 0 clamp(2.4rem,6vw,3.6rem);}
+  .hero .top{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;
+    margin-bottom:1.9rem;}
+  .brand{display:inline-block; font-size:.66rem; font-weight:900; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--deep); background:var(--teal);
+    padding:.36rem .55rem .3rem .8rem;}
+  .days{font-size:.72rem; font-weight:700; letter-spacing:.16em; color:var(--coral);}
+  .layernum{display:flex; align-items:baseline; gap:.75rem; margin-bottom:.4rem;}
+  .layernum .lb{font-size:.68rem; font-weight:900; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--teal);}
+  .layernum .nn{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:clamp(2.4rem,7vw,3.6rem); line-height:1; color:var(--coral);}
+  .hero h1{font-size:clamp(2rem,6.4vw,3.4rem); font-weight:900; line-height:1.2;
+    letter-spacing:-.025em;}
+  .hero .q{font-size:clamp(1rem,2.4vw,1.28rem); color:var(--teal); font-weight:700;
+    margin-top:.9rem;}
+  .hero .one{font-family:var(--serif); font-size:clamp(1.02rem,2.5vw,1.3rem);
+    line-height:1.85; color:rgba(242,237,228,.9); margin-top:1.7rem;
+    border-left:3px solid var(--coral); padding-left:1.2rem; max-width:40rem;}
+
+  /* 층 진행 표시 — 아래는 두껍고 위로 갈수록 촘촘 (가속) */
+  .stack{display:flex; flex-direction:column-reverse; gap:2px; margin-top:2.2rem;
+    max-width:22rem;}
+  .stack .bar{position:relative; background:rgba(127,212,216,.16);
+    border-left:2px solid rgba(127,212,216,.35);}
+  .stack .bar span{position:absolute; left:.55rem; top:50%; transform:translateY(-50%);
+    font-size:.6rem; font-weight:700; letter-spacing:.1em; color:rgba(242,237,228,.5);}
+  .stack .bar.on{background:var(--coral); border-left-color:var(--coral);}
+  .stack .bar.on span{color:#fff;}
+  .stack .b1{height:1.55rem;} .stack .b2{height:1.4rem;} .stack .b3{height:1.26rem;}
+  .stack .b4{height:1.13rem;} .stack .b5{height:1.01rem;} .stack .b6{height:.9rem;}
+  .stack .b7{height:.8rem;}  .stack .b8{height:.71rem;}
+  .stack-cap{font-size:.7rem; color:rgba(242,237,228,.45); margin-top:.7rem;
+    letter-spacing:.04em;}
+
+  /* ── 섹션 ── */
+  section{padding:clamp(2.6rem,6.5vw,4.2rem) 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .kicker{display:flex; align-items:center; gap:.7rem; font-size:.68rem; font-weight:900;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--teal-ink);
+    margin-bottom:.95rem;}
+  .kicker::after{content:""; flex:1; height:1px; background:var(--rule);}
+  h2{font-size:clamp(1.44rem,3.7vw,2.05rem); font-weight:900; line-height:1.34;
+    letter-spacing:-.02em; margin-bottom:.75rem;}
+  .intro{font-size:clamp(.98rem,2.15vw,1.12rem); color:var(--ink-soft); max-width:44rem;
+    margin-bottom:1.7rem;}
+  p b{font-weight:700; color:var(--ink);}
+  .hl{background:linear-gradient(transparent 60%, var(--teal-soft) 60%); padding:0 .1em;
+    font-weight:700; color:var(--ink);}
+
+  /* ── 층 카드 그리드 ── */
+  .terms{display:grid; gap:.7rem;}
+  @media(min-width:800px){ .terms{grid-template-columns:1fr 1fr; align-items:start;} }
+  /* ── 층 카드 (표지 전용 · 눌러서 이동) ── */
+  .navcard{display:block; background:var(--card); border:1px solid var(--rule-soft);
+    border-left:3px solid var(--teal-ink); padding:1rem 1.2rem 1.1rem;
+    color:inherit; text-decoration:none; position:relative;}
+  .navcard::after{content:"→"; position:absolute; right:1.05rem; top:1.05rem;
+    font-size:1rem; color:var(--coral); font-weight:700;}
+  .navcard:hover{border-left-color:var(--coral); background:#fff;}
+  .navcard .w{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.35;
+    letter-spacing:-.015em; padding-right:1.6rem;}
+  .navcard .la{display:block; font-family:"Cormorant Garamond",Georgia,serif;
+    font-style:italic; font-size:.88rem; color:var(--ink-faint); margin-top:.12rem;}
+  .navcard .k{display:block; font-size:clamp(.88rem,1.9vw,.98rem); font-weight:700;
+    color:var(--teal-ink); margin-top:.5rem; line-height:1.6;}
+  .navcard .dy{display:block; font-size:.82rem; color:var(--ink-faint); margin-top:.5rem;
+    padding-top:.5rem; border-top:1px dashed var(--rule-soft);}
+
+  /* ── 걸음(사용법) ── */
+  .steps{position:relative; padding-left:1.6rem;}
+  .steps::before{content:""; position:absolute; left:.36rem; top:.6rem; bottom:.6rem;
+    width:2px; background:linear-gradient(var(--teal-ink),var(--coral));}
+  .step{position:relative; margin-bottom:1.15rem;}
+  .step:last-child{margin-bottom:0;}
+  .step::before{content:""; position:absolute; left:-1.6rem; top:.62rem; width:.78rem;
+    height:.78rem; border-radius:50%; background:var(--paper);
+    border:2px solid var(--teal-ink);}
+  .step:last-child::before{border-color:var(--coral); background:var(--coral);}
+  .step .sn{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:var(--teal-ink); background:var(--teal-soft); padding:.2rem .55rem;}
+  .step .st{font-size:clamp(1.02rem,2.2vw,1.16rem); font-weight:900; line-height:1.5;
+    margin-top:.45rem; letter-spacing:-.015em;}
+  .step .sb{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.9; color:var(--ink-soft);
+    margin-top:.5rem; white-space:pre-line;}
+  .step .sk{display:block; font-size:clamp(.88rem,1.9vw,.97rem); font-weight:700;
+    color:var(--ink); margin-top:.7rem; padding:.55rem .8rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+
+  /* ── 꼬리 ── */
+  .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
+  .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
+  .next p{font-size:clamp(.92rem,1.95vw,1.02rem); color:var(--ink-soft); margin-top:.45rem;}
+  .foot{background:var(--deep-2); color:rgba(242,237,228,.55); padding:1.7rem 0;
+    font-size:.72rem; letter-spacing:.1em; line-height:1.9;}
+
+  @media print{
+    @page{margin:12mm;}
+    html,body{print-color-adjust:exact; -webkit-print-color-adjust:exact;}
+    section,.step,.navcard{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 표지 ── -->
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <span class="brand">함께읽기 O N · 읽기 안내</span>
+      <span class="days">8. 3(월) — 8. 31(월)</span>
+    </div>
+    <div class="layernum">
+      <span class="lb">Layers</span><span class="nn">01–08</span>
+    </div>
+    <h1>여덟 층</h1>
+    <p class="q">아래는 지워지지 않는다</p>
+    <p class="one">레이 커즈와일 『마침내 특이점이 시작된다』를 여덟 층으로 나누어 한 달 동안 쌓습니다. 8. 3(월)부터 8. 31(월) 북토크까지.</p>
+    <div class="stack">
+      <div class="bar b8"><span>08</span></div>
+      <div class="bar b7"><span>07</span></div>
+      <div class="bar b6"><span>06</span></div>
+      <div class="bar b5"><span>05</span></div>
+      <div class="bar b4"><span>04</span></div>
+      <div class="bar b3"><span>03</span></div>
+      <div class="bar b2"><span>02</span></div>
+      <div class="bar b1"><span>01</span></div>
+    </div>
+    <p class="stack-cap">아래가 첫 층입니다. 위로 갈수록 층이 얇고 촘촘해집니다 — 가속의 모양입니다.</p>
+  </div>
+</header>
+
+<!-- ── 층은 왜 층인가 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">층은 왜 층인가</p>
+    <h2>문이 아니라 층입니다</h2>
+    <p class="intro">문은 지나가면 뒤에 남습니다. 층은 지나가도 아래가 그대로 있습니다. 우리는 한 장을 읽고 다음 장으로 넘어갈 때 앞의 장을 버리지 않습니다. 앞의 장 위에 다음 장을 올려놓습니다.</p>
+    <p class="intro"><b>위층이 더 나은 것이 아니라 나중에 온 것일 뿐입니다.</b> 8층을 읽었다고 1층이 낡아지지 않습니다. 8층은 1층이 있어야 설 수 있습니다.</p>
+    <p class="intro">이것은 8장에서 커즈와일이 하는 말과 같습니다 — <b>대체가 아니라 추가</b>. 새로 온 것이 앞의 것을 지우지 않고 그 위에 더해진다는 말입니다. 우리가 이 자료를 층으로 만든 이유가 그것입니다.</p>
+  </div>
+</section>
+
+<!-- ── 여덟 층 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">여덟 층</p>
+    <h2>한 달 동안 이렇게 쌓습니다</h2>
+    <p class="intro">각 층을 눌러 그날의 읽기 안내로 들어가세요. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 확인 문제 · 북토크 질문이 층마다 들어 있습니다.</p>
+    <div class="terms">
+
+      <a class="navcard" href="01.html">
+        <p class="w">가속<span class="la">Layer 01</span></p>
+        <span class="k">우리는 어느 시대인가</span>
+        <span class="dy">8. 3(월) · 4(화)</span>
+      </a>
+
+      <a class="navcard" href="02.html">
+        <p class="w">지능<span class="la">Layer 02</span></p>
+        <span class="k">기계는 이해하는가</span>
+        <span class="dy">8. 6(목) · 7(금)</span>
+      </a>
+
+      <a class="navcard" href="03.html">
+        <p class="w">정체성<span class="la">Layer 03</span></p>
+        <span class="k">나는 무엇으로 이어지는가</span>
+        <span class="dy">8. 10(월) · 11(화)</span>
+      </a>
+
+      <a class="navcard" href="04.html">
+        <p class="w">진보<span class="la">Layer 04</span></p>
+        <span class="k">세상은 나아지는가</span>
+        <span class="dy">8. 13(목) · 14(금)</span>
+      </a>
+
+      <a class="navcard" href="05.html">
+        <p class="w">일<span class="la">Layer 05</span></p>
+        <span class="k">대체인가 증강인가</span>
+        <span class="dy">8. 17(월) · 18(화)</span>
+      </a>
+
+      <a class="navcard" href="06.html">
+        <p class="w">생명<span class="la">Layer 06</span></p>
+        <span class="k">노화는 수정 가능한가</span>
+        <span class="dy">8. 20(목) · 21(금)</span>
+      </a>
+
+      <a class="navcard" href="07.html">
+        <p class="w">위험<span class="la">Layer 07</span></p>
+        <span class="k">가속을 통제할 수 있는가</span>
+        <span class="dy">8. 24(월) · 25(화)</span>
+      </a>
+
+      <a class="navcard" href="08.html">
+        <p class="w">추가<span class="la">Layer 08</span></p>
+        <span class="k">무엇을 더하고 지킬 것인가</span>
+        <span class="dy">8. 26(수) · 27(목)</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 이 자료를 쓰는 법 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">이 자료를 쓰는 법</p>
+    <h2>네 걸음이면 됩니다</h2>
+    <p class="intro">다 읽지 못해도 괜찮습니다. 이 자료는 진도를 재는 도구가 아니라, <b>읽는 동안 곁에 두는 지도</b>입니다.</p>
+    <div class="steps">
+
+      <div class="step">
+        <span class="sn">읽기 전</span>
+        <p class="st">개념 단어장을 한 번 훑습니다</p>
+        <p class="sb">그 층에서 처음 나오는 단어들을 미리 봅니다. 외우지 않아도 됩니다. 책에서 그 단어를 만났을 때 '아, 이거였구나' 하면 충분합니다.</p>
+      </div>
+
+      <div class="step">
+        <span class="sn">읽으면서</span>
+        <p class="st">핵심 논점의 '찾아 읽을 곳'을 따라갑니다</p>
+        <p class="sb">층마다 세 대목을 지정해 두었습니다. 시간이 없으면 그 세 대목만 직접 펼쳐 읽어도 됩니다. 안내문이 아니라 책의 문장이 먼저입니다.</p>
+      </div>
+
+      <div class="step">
+        <span class="sn">읽고 나서</span>
+        <p class="st">확인 문제로 되짚습니다</p>
+        <p class="sb">맞히려고 푸는 것이 아닙니다. 틀린 문제가 있으면 그 대목을 다시 펼치라는 신호입니다.</p>
+      </div>
+
+      <div class="step">
+        <span class="sn">그리고</span>
+        <p class="st">걸리는 문장 하나를 옮겨 적습니다</p>
+        <p class="sb">그 층에서 가장 오래 붙잡았던 문장을 어딘가에 적어 둡니다. 마지막 주에 이 문장들이 필요해집니다.</p>
+        <span class="sk">수요일은 쉬어가기입니다 — 8. 5 · 12 · 19. 밀린 것을 따라잡거나, 그냥 쉽니다. 마지막 주에는 쉬어가기가 없고, 대신 8. 28(금)에 북토크에 가져갈 질문 하나를 고릅니다.</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 다음 ── -->
+<div class="next">
+  <div class="wrap">
+    <p class="nx">8. 31(월) 저녁 8시 — <b>북토크</b></p>
+    <p>여덟 층을 다 쌓은 뒤 한자리에 모입니다. 준비물은 두 줄입니다 — "밑줄 — …… / 그래서 나는 이것이 궁금하다 — ……".</p>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    함께읽기 ON · 레이 커즈와일 『마침내 특이점이 시작된다』 읽기 안내<br>
+    층 01–08 · 여덟 층 — 2026. 8. 3(월) — 8. 31(월)
+  </div>
+</div>
+
+</body></html>

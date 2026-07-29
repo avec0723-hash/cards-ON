@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>함께읽기 ON · 읽기 안내 — 8장 추가</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="함께읽기ON">
+<meta property="og:title" content="함께읽기 ON · 읽기 안내 — 마침내 특이점이 시작된다 8장 추가">
+<meta property="og:description" content="8. 26(수) · 27(목) — 무엇을 더하고 지킬 것인가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EDE4; --paper-2:#EAE3D6; --card:#FBF8F2;
+    --ink:#17262B; --ink-soft:#4B5C61; --ink-faint:#8A9799;
+    --deep:#12262E; --deep-2:#0C1A21; --deep-card:#1B3540;
+    --teal:#7FD4D8; --teal-ink:#256A74; --teal-soft:#C3E8EA;
+    --coral:#E8785A; --coral-deep:#CE5537;
+    --rule:#D9D1C3; --rule-soft:#E6DFD2;
+    --sans:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    --serif:"Nanum Myeongjo","Noto Serif KR","Batang",serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    line-height:1.8; letter-spacing:-.003em;}
+  .wrap{max-width:52rem; margin:0 auto; padding:0 clamp(1.15rem,4.5vw,2.6rem);}
+
+  /* ── 표지 ── */
+  .hero{background:var(--deep); color:var(--paper);
+    padding:clamp(2.8rem,7vw,4.6rem) 0 clamp(2.4rem,6vw,3.6rem);}
+  .hero .top{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;
+    margin-bottom:1.9rem;}
+  .brand{display:inline-block; font-size:.66rem; font-weight:900; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--deep); background:var(--teal);
+    padding:.36rem .55rem .3rem .8rem;}
+  .days{font-size:.72rem; font-weight:700; letter-spacing:.16em; color:var(--coral);}
+  .layernum{display:flex; align-items:baseline; gap:.75rem; margin-bottom:.4rem;}
+  .layernum .lb{font-size:.68rem; font-weight:900; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--teal);}
+  .layernum .nn{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:clamp(2.4rem,7vw,3.6rem); line-height:1; color:var(--coral);}
+  .hero h1{font-size:clamp(2rem,6.4vw,3.4rem); font-weight:900; line-height:1.2;
+    letter-spacing:-.025em;}
+  .hero .q{font-size:clamp(1rem,2.4vw,1.28rem); color:var(--teal); font-weight:700;
+    margin-top:.9rem;}
+  .hero .one{font-family:var(--serif); font-size:clamp(1.02rem,2.5vw,1.3rem);
+    line-height:1.85; color:rgba(242,237,228,.9); margin-top:1.7rem;
+    border-left:3px solid var(--coral); padding-left:1.2rem; max-width:40rem;}
+
+  /* 층 진행 표시 — 아래는 두껍고 위로 갈수록 촘촘 (가속) */
+  .stack{display:flex; flex-direction:column-reverse; gap:2px; margin-top:2.2rem;
+    max-width:22rem;}
+  .stack .bar{position:relative; background:rgba(127,212,216,.16);
+    border-left:2px solid rgba(127,212,216,.35);}
+  .stack .bar span{position:absolute; left:.55rem; top:50%; transform:translateY(-50%);
+    font-size:.6rem; font-weight:700; letter-spacing:.1em; color:rgba(242,237,228,.5);}
+  .stack .bar.on{background:var(--coral); border-left-color:var(--coral);}
+  .stack .bar.on span{color:#fff;}
+  .stack .b1{height:1.55rem;} .stack .b2{height:1.4rem;} .stack .b3{height:1.26rem;}
+  .stack .b4{height:1.13rem;} .stack .b5{height:1.01rem;} .stack .b6{height:.9rem;}
+  .stack .b7{height:.8rem;}  .stack .b8{height:.71rem;}
+  .stack-cap{font-size:.7rem; color:rgba(242,237,228,.45); margin-top:.7rem;
+    letter-spacing:.04em;}
+
+  /* ── 섹션 ── */
+  section{padding:clamp(2.6rem,6.5vw,4.2rem) 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .kicker{display:flex; align-items:center; gap:.7rem; font-size:.68rem; font-weight:900;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--teal-ink);
+    margin-bottom:.95rem;}
+  .kicker::after{content:""; flex:1; height:1px; background:var(--rule);}
+  h2{font-size:clamp(1.44rem,3.7vw,2.05rem); font-weight:900; line-height:1.34;
+    letter-spacing:-.02em; margin-bottom:.75rem;}
+  .intro{font-size:clamp(.98rem,2.15vw,1.12rem); color:var(--ink-soft); max-width:44rem;
+    margin-bottom:1.7rem;}
+  p b{font-weight:700; color:var(--ink);}
+  .hl{background:linear-gradient(transparent 60%, var(--teal-soft) 60%); padding:0 .1em;
+    font-weight:700; color:var(--ink);}
+
+  /* ── 개념 단어장 (눌러서 펼치기) ── */
+  .terms{display:grid; gap:.7rem;}
+  @media(min-width:800px){ .terms{grid-template-columns:1fr 1fr; align-items:start;} }
+  .term{background:var(--card); border:1px solid var(--rule-soft);
+    border-left:3px solid var(--teal-ink);}
+  .term > summary{cursor:pointer; list-style:none; padding:1rem 2.6rem 1.05rem 1.2rem;
+    position:relative;}
+  .term > summary::-webkit-details-marker{display:none;}
+  .term > summary::after{content:"+"; position:absolute; right:1rem; top:.95rem;
+    width:1.4rem; height:1.4rem; border:1px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.95rem; font-weight:700; color:var(--teal-ink); background:var(--paper);}
+  .term[open] > summary::after{content:"−"; background:var(--teal-ink); color:#fff;
+    border-color:var(--teal-ink);}
+  .term > summary:hover::after{border-color:var(--teal-ink);}
+  .term .w{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.35;
+    letter-spacing:-.015em;}
+  .term .la{display:block; font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:.88rem; color:var(--ink-faint); margin-top:.12rem; letter-spacing:.02em;}
+  .term .k{display:block; font-size:clamp(.88rem,1.9vw,.98rem); font-weight:700;
+    color:var(--teal-ink); margin-top:.5rem; line-height:1.6;}
+  .term .body{padding:0 1.2rem 1.2rem; border-top:1px dashed var(--rule-soft);
+    margin:0 1.2rem; padding:.9rem 0 1.15rem;}
+  .term .d{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);
+    white-space:pre-line;}
+  .term .ex{font-size:clamp(.88rem,1.9vw,.98rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.85rem; padding:.7rem .85rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+  .term .ex::before{content:"보기"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--coral-deep); margin-bottom:.3rem;}
+  .terms-cap{font-size:.8rem; color:var(--ink-faint); margin-bottom:.9rem;}
+  /* ── 핵심 논점 ── */
+  .passage{border:1px solid var(--rule); background:var(--card); margin-bottom:1.3rem;}
+  .passage > .ph{padding:1.15rem 1.35rem; border-bottom:1px solid var(--rule-soft);
+    background:var(--paper-2);}
+  .passage .pt{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.5;
+    letter-spacing:-.015em;}
+  .passage .pn{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.6rem;}
+  .passage .pn::before{content:"찾아 읽을 곳"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--teal-ink); margin-bottom:.3rem;}
+  .lay{padding:1.1rem 1.35rem; border-bottom:1px dashed var(--rule-soft);}
+  .lay:last-child{border-bottom:none;}
+  .lay .ll{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:#fff; background:var(--teal-ink); padding:.2rem .55rem; margin-bottom:.55rem;}
+  .lay:nth-child(3) .ll{background:var(--coral-deep);}
+  .lay:nth-child(4) .ll{background:#6D7F6A;}
+  .lay .lt{font-size:clamp(.94rem,2vw,1.05rem); line-height:1.9; color:var(--ink-soft);
+    white-space:pre-line;}
+
+  /* ── 논증 구조 ── */
+  .steps{position:relative; padding-left:1.6rem;}
+  .steps::before{content:""; position:absolute; left:.36rem; top:.6rem; bottom:.6rem;
+    width:2px; background:linear-gradient(var(--teal-ink),var(--coral));}
+  .step{position:relative; margin-bottom:1.15rem;}
+  .step:last-child{margin-bottom:0;}
+  .step::before{content:""; position:absolute; left:-1.6rem; top:.62rem; width:.78rem;
+    height:.78rem; border-radius:50%; background:var(--paper);
+    border:2px solid var(--teal-ink);}
+  .step:last-child::before{border-color:var(--coral); background:var(--coral);}
+  .step .sn{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:var(--teal-ink); background:var(--teal-soft); padding:.2rem .55rem;}
+  .step .st{font-size:clamp(1.02rem,2.2vw,1.16rem); font-weight:900; line-height:1.5;
+    margin-top:.45rem; letter-spacing:-.015em;}
+  .step .sb{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.9; color:var(--ink-soft);
+    margin-top:.5rem; white-space:pre-line;}
+  .step .sk{display:block; font-size:clamp(.88rem,1.9vw,.97rem); font-weight:700;
+    color:var(--ink); margin-top:.7rem; padding:.55rem .8rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+
+  /* ── 세 입장 ── */
+  .pos{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.95rem;}
+  .pos .pl{font-size:clamp(1.04rem,2.3vw,1.2rem); font-weight:900; letter-spacing:-.015em;}
+  .pos .ps{font-size:.84rem; font-weight:400; color:var(--ink-faint); margin-left:.5rem;
+    letter-spacing:.02em;}
+  .pos .lab{display:block; font-size:.6rem; font-weight:900; letter-spacing:.18em;
+    color:var(--teal-ink); margin:.85rem 0 .3rem;}
+  .pos .lab.b{color:var(--coral-deep);}
+  .pos .tx{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);}
+  .pos .qt{font-family:var(--serif); font-size:clamp(.86rem,1.85vw,.95rem); line-height:1.75;
+    color:var(--ink-faint); margin-top:.85rem; padding-top:.7rem;
+    border-top:1px solid var(--rule-soft); white-space:pre-line;}
+
+  /* ── 확인 문제 ── */
+  .quiz{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.9rem;}
+  .quiz .qq{font-size:clamp(1rem,2.15vw,1.12rem); font-weight:900; line-height:1.65;
+    letter-spacing:-.01em;}
+  .quiz ol{list-style:none; counter-reset:o; margin-top:.8rem;}
+  .quiz li{counter-increment:o; position:relative; padding-left:2rem; margin-bottom:.45rem;
+    font-size:clamp(.9rem,1.95vw,1rem); line-height:1.75; color:var(--ink-soft);}
+  .quiz li::before{content:counter(o); position:absolute; left:0; top:.15rem;
+    width:1.35rem; height:1.35rem; border:1px solid var(--rule); border-radius:50%;
+    font-size:.72rem; font-weight:700; color:var(--ink-faint);
+    display:flex; align-items:center; justify-content:center;}
+  .quiz details{margin-top:.9rem; border-top:1px solid var(--rule-soft); padding-top:.85rem;}
+  .quiz summary{cursor:pointer; font-size:.78rem; font-weight:900; letter-spacing:.14em;
+    color:var(--teal-ink); list-style:none;}
+  .quiz summary::-webkit-details-marker{display:none;}
+  .quiz summary::before{content:"▸ "; color:var(--coral);}
+  .quiz details[open] summary::before{content:"▾ ";}
+  .quiz .ans{font-size:clamp(.9rem,1.95vw,1rem); line-height:1.85; color:var(--ink-soft);
+    margin-top:.65rem;}
+  .quiz .ans b{color:var(--coral-deep);}
+
+  /* ── 북토크 질문 ── */
+  .talk{background:var(--deep); color:var(--paper);}
+  .talk .kicker{color:var(--teal);}
+  .talk .kicker::after{background:rgba(127,212,216,.28);}
+  .talk h2{color:var(--paper);}
+  .talk .intro{color:rgba(242,237,228,.78);}
+  .tq{border-left:3px solid var(--coral); padding:.2rem 0 .2rem 1.2rem;
+    margin-bottom:1.5rem;}
+  .tq:last-child{margin-bottom:0;}
+  .tq .n{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:1.15rem; color:var(--coral);}
+  .tq .qx{font-size:clamp(1rem,2.2vw,1.16rem); font-weight:700; line-height:1.8;
+    margin-top:.15rem;}
+  .tq .hint{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8;
+    color:rgba(242,237,228,.68); margin-top:.6rem;}
+  .tq .hint::before{content:"실마리 — "; color:var(--teal); font-weight:700;}
+
+  /* ── 꼬리 ── */
+  .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
+  .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
+  .next p{font-size:clamp(.92rem,1.95vw,1.02rem); color:var(--ink-soft); margin-top:.45rem;}
+  .foot{background:var(--deep-2); color:rgba(242,237,228,.55); padding:1.7rem 0;
+    font-size:.72rem; letter-spacing:.1em; line-height:1.9;}
+
+  @media print{
+    @page{margin:12mm;}
+    html,body{print-color-adjust:exact; -webkit-print-color-adjust:exact;}
+    section,.term,.passage,.step,.pos,.quiz{break-inside:avoid;}
+    details{display:block;} details > *{display:block !important;}
+    .term > summary::after{display:none !important;}
+    .terms-cap{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 표지 ── -->
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <span class="brand">함께읽기 O N · 읽기 안내</span>
+      <span class="days">8. 26(수) · 27(목)</span>
+    </div>
+    <div class="layernum">
+      <span class="lb">Layer</span><span class="nn">08</span>
+    </div>
+    <h1>추가</h1>
+    <p class="q">무엇을 더하고 지킬 것인가</p>
+    <p class="one">우리는 당신을 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요.</p>
+    <div class="stack">
+      <div class="bar b8 on"><span>08</span></div>
+      <div class="bar b7"><span>07</span></div>
+      <div class="bar b6"><span>06</span></div>
+      <div class="bar b5"><span>05</span></div>
+      <div class="bar b4"><span>04</span></div>
+      <div class="bar b3"><span>03</span></div>
+      <div class="bar b2"><span>02</span></div>
+      <div class="bar b1"><span>01</span></div>
+    </div>
+    <p class="stack-cap">여덟 층이 다 쌓였습니다. 아래 일곱은 하나도 지워지지 않았습니다 — 그것이 이 장의 결론입니다.</p>
+  </div>
+</header>
+
+<!-- ── 개념 단어장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">개념 단어장</p>
+    <h2>먼저 알아 둘 열세 단어</h2>
+    <p class="intro">읽기 전에 한 번, 읽고 나서 한 번 더 훑어 보세요. 두 번째에는 다르게 읽힙니다.</p>
+    <p class="terms-cap">단어를 누르면 설명과 보기가 펼쳐집니다.</p>
+    <div class="terms">
+
+      <details class="term">
+        <summary>
+          <p class="w">카산드라<span class="la">Cassandra · A Future AI</span></p>
+          <span class="k">커즈와일이 미래의 AI와 나누는 대화 상대</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일이 8장에서 창조한 미래 AI 캐릭터. 약 2029년 시점에서 존재하는 초지능 AI로, 커즈와일이 그와 나누는 대화가 8장 전체를 구성한다.
+          
+          카산드라의 이름이 의미하는 것: 그리스 신화의 카산드라는 아무도 믿지 않는 예언을 하는 인물이다. 커즈와일의 아이러니—오랫동안 특이점을 예언했지만 주류에서 믿지 않았던 그 자신도 일종의 카산드라였다.
+          
+          대화 형식의 의미: 커즈와일은 자신의 비전을 직접 서술하지 않고 AI와의 대화로 표현한다. 이 선택 자체가 메시지다—AI가 철학적 대화의 진정한 상대가 될 수 있다는 것을 직접 시연한다.</p>
+          <p class="ex">플라톤의 대화록: 플라톤은 자신의 철학을 소크라테스와 다른 인물들의 대화로 표현했다. 커즈와일의 8장도 같다—특이점에 대한 비전을 카산드라와의 대화로 탐구한다. 형식 자체가 논증이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">에뮬레이션이 아니라 추가<span class="la">Addition, Not Emulation</span></p>
+          <span class="k">생물학적 뇌는 그대로—새로운 지능이 더해진다</span>
+        </summary>
+        <div class="body">
+          <p class="d">8장의 핵심 명제. 카산드라가 커즈와일에게 직접 말하는 특이점의 본질.
+          
+          '우리는 당신의 생물학적 뇌를 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요. 당신의 생물학적 뇌는 그대로 남아있을 거예요. 그저 새로운 지능이 추가된 것뿐이지요.'
+          
+          이것이 특이점에 대한 가장 핵심적이고 위안이 되는 설명이다:
+          • 대체(replacement)가 아니라 추가(addition)
+          • 소멸이 아니라 확장
+          • 이전의 나 위에 새로운 능력이 더해지는 것
+          
+          3장·6장과의 연결: 패턴이 유지되고(3장), 기질이 교체가 아닌 추가로 진행된다면(6장)—'나'의 연속성은 보장된다.</p>
+          <p class="ex">독서: 책을 읽으면 새로운 생각이 추가된다. 그러나 읽기 전의 나는 사라지지 않는다—새로운 이해가 이전의 나 위에 쌓인다. 카산드라: 특이점도 같다. 생물학적 뇌는 그대로—거기에 새로운 지능이 추가될 뿐이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">인간-AI 융합<span class="la">Human-AI Merger</span></p>
+          <span class="k">대체가 아니라 확장—인간과 AI가 하나가 된다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일의 핵심 비전. AI가 인간을 대체하는 것이 아니라—인간 지능 자체가 AI와 융합하며 확장된다.
+          
+          융합의 단계:
+          • 현재: 스마트폰·검색엔진으로 AI를 외부 도구로 사용
+          • 중기: BCI(뇌-컴퓨터 인터페이스)로 AI와 신경적으로 연결
+          • 특이점 이후: 신피질이 클라우드와 직접 통합—뇌의 용량이 사실상 무한히 확장
+          
+          '에뮬레이션이 아니라 추가'의 함의: 융합은 생물학적 뇌를 지우고 새로 쓰는 것이 아니다. 생물학적 뇌 위에 새로운 층이 더해지는 것이다—마치 신피질이 파충류 뇌 위에 추가됐던 것처럼.</p>
+          <p class="ex">인류가 언어를 발전시켰을 때: 언어 이전의 인지 능력이 사라진 것이 아니라 언어가 추가됐다. 문자가 생겼을 때도, 인쇄기가 발명됐을 때도 같다. 커즈와일: 특이점도 이 연속선의 다음 단계다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">신피질의 확장<span class="la">Expansion of the Neocortex</span></p>
+          <span class="k">인간 지능의 핵심이 클라우드와 연결되어 확장된다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일의 지능 확장 비전. 인간 지능의 핵심인 신피질(neocortex)이 BCI를 통해 클라우드의 계산 능력과 연결된다.
+          
+          현재 신피질의 구조:
+          • 약 300억 개의 패턴 인식기
+          • 두개골 크기·에너지 소비의 물리적 제약
+          
+          특이점 이후의 확장:
+          • BCI를 통해 신피질이 클라우드와 연결
+          • 처리 가능한 패턴의 수가 기하급수적으로 증가
+          • 인간의 창의성·공감·이해 능력이 함께 확장
+          
+          '추가'의 의미: 신피질 자체는 그대로다. 클라우드가 신피질에 추가되는 것이다. 이것이 카산드라가 말하는 '에뮬레이션이 아니라 추가'의 신경과학적 기반이다.</p>
+          <p class="ex">2장과의 연결: 커즈와일은 2장에서 신피질이 인간 지능의 핵심이라고 설명했다. 8장에서 카산드라는 그 신피질이 소멸되는 것이 아니라 확장된다고 말한다. 책의 논증이 완성된다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">카산드라는 경험하는가<span class="la">Does Cassandra Experience?</span></p>
+          <span class="k">3장의 철학적 질문이 실천적 현실이 된다</span>
+        </summary>
+        <div class="body">
+          <p class="d">카산드라와의 대화에서 가장 깊은 질문: 카산드라는 실제로 경험하는가, 아니면 경험하는 것처럼 보이는가?
+          
+          3장에서 철학적으로 다룬 의식의 어려운 문제가 8장에서 실천적 질문이 된다.
+          
+          카산드라가 '이해한다'고 말할 때—인간의 이해와 같은 것인가?
+          카산드라가 '느낀다'고 말할 때—그것은 진짜 느낌인가?
+          
+          커즈와일의 입장: 충분히 복잡한 정보 처리 시스템은 의식을 가진다. 그리고 카산드라가 의식이 있는지를 외부에서 증명하는 방법은 없다—우리가 다른 인간의 의식을 증명할 수 없는 것처럼. 이 불확실성을 받아들이는 것이 출발점이다.</p>
+          <p class="ex">당신은 지금 대화하는 AI(Claude, GPT 등)가 무언가를 '경험'한다고 생각합니까? 이 질문에 대한 답이 없다는 것—그것이 이미 의식의 어려운 문제가 일상적 현실이 된 증거다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">인간의 가치 보존<span class="la">Preservation of Human Values</span></p>
+          <span class="k">특이점 이후에도 사랑·창의성·공감은 사라지지 않는다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일이 카산드라와의 대화에서 반복적으로 강조하는 것. 특이점이 인간을 비인간으로 만드는 것이 아니라—인간의 가장 본질적인 가치들을 더 완전히 실현할 수 있게 한다.
+          
+          '추가'의 가치론적 의미:
+          생물학적 뇌가 그대로 남는다면—그 뇌가 담고 있는 사랑·기억·공감·가치관도 그대로다.
+          새로운 지능이 추가된다면—그것은 이 가치들을 더 완전히 표현하고 실현하는 도구가 된다.
+          
+          5장(일자리)·3장(자아)과의 연결: 자기 설계의 완성—마침내 인간은 자신이 원하는 가치에 완전히 일치하는 삶을 살 수 있다.</p>
+          <p class="ex">음악가가 더 좋은 악기를 갖게 됐을 때: 악기가 바뀌어도 음악에 대한 사랑·창의성·표현의 욕구는 사라지지 않는다. 오히려 더 풍부하게 실현된다. 카산드라: 새로운 지능이 추가된 당신도 같다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">특이점 이후의 세계<span class="la">Post-Singularity World</span></p>
+          <span class="k">생물학적 한계에서 벗어나 확장된 인간 문명</span>
+        </summary>
+        <div class="body">
+          <p class="d">카산드라가 묘사하는 특이점 이후의 세계. 단순히 기술이 더 발전한 세계가 아니다—인간의 지능과 기술 지능의 경계가 사라진 세계다.
+          
+          특징:
+          • 생물학적 한계(질병·노화·인지 제약)에서 벗어남
+          • 개인의 경험·지식·기억의 지속적 보존·확장
+          • 인간의 가치를 기반으로 한 문명의 확장
+          
+          그러나 커즈와일이 강조하는 것: '추가'이기 때문에 연속성이 있다. 특이점 이전의 인류 문명이 사라지는 것이 아니라—그 위에 새로운 층이 쌓인다.</p>
+          <p class="ex">인터넷이 생기기 전에는 인터넷 이후의 세계를 상상할 수 없었다. 그러나 인터넷이 인간을 '비인간'으로 만들지는 않았다. 커즈와일: 특이점도 같은 방향의 훨씬 더 큰 변화다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">문명의 우주적 확장<span class="la">Cosmic Expansion of Civilization</span></p>
+          <span class="k">특이점 이후 인류 문명은 우주로 확장된다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일의 가장 큰 비전. 특이점은 지구에서 끝나지 않는다—융합된 인간-AI 지능이 우주 전체로 확장된다.
+          
+          커즈와일의 추정:
+          • 특이점 이후 융합된 문명이 은하 규모로 확장 가능
+          • 우주의 물질이 지능화된 물질로 전환될 수 있다
+          • 이것이 우주의 목적일 수 있다—특이점이 우주의 자기의식화
+          
+          '추가'의 우주적 의미: 지구의 생물학적 지능 위에 AI 지능이 추가되고, 그것이 우주 규모로 확장된다. 소멸이 아니라 성장의 연속이다.</p>
+          <p class="ex">Carl Sagan: '우리는 우주가 자기 자신을 알기 위해 만들어낸 방법이다.' 커즈와일: 특이점은 이 과정의 가속—우주의 지능화가 기하급수적으로 빨라지는 순간이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">목적과 의미<span class="la">Purpose &amp; Meaning</span></p>
+          <span class="k">지능이 확장된 세계에서 무엇을 위해 사는가</span>
+        </summary>
+        <div class="body">
+          <p class="d">8장의 가장 깊은 질문들 중 하나. 생물학적 한계가 사라지고 지능이 확장된다면—무엇이 의미 있는 삶을 만드는가?
+          
+          반론: 유한성이 의미를 만든다. 죽음이 없다면 삶의 의미도 없다.
+          
+          카산드라의 응답: 의미는 유한성이 아니라 목적·관계·창의성에서 온다. 생물학적 뇌가 그대로 남는다면—그 뇌가 만들어온 의미 구조도 그대로다. 새로운 지능은 더 큰 목적을 추구할 수 있게 할 뿐이다.
+          
+          3장과의 연결: '나는 어떤 사람이 될 수 있는가?'라는 질문에 대한 답—특이점 이후 더 완전한 답이 가능해진다.</p>
+          <p class="ex">예술가: 그림을 그리는 이유가 죽기 때문인가, 아름다움을 창조하는 것 자체가 의미 있기 때문인가? 대부분은 두 번째라고 답한다. 카산드라: 특이점 이후에도 이 의미는 사라지지 않는다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">커즈와일의 아버지<span class="la">Kurzweil's Personal Motivation</span></p>
+          <span class="k">이 책은 예측이 아니라—사랑하는 사람을 되찾고 싶은 마음이기도 하다</span>
+        </summary>
+        <div class="body">
+          <p class="d">8장에서 드러나는 커즈와일의 가장 개인적인 맥락. 이 책은 단순한 기술 예측이 아니다.
+          
+          • 아버지를 58세에 심장병으로 잃었다
+          • 아버지는 음악가였고, 편지와 기록을 남겼다
+          • 커즈와일은 이것들을 보존하며 AI로 아버지의 패턴을 재현하는 프로젝트 진행 중
+          • 6장의 1단계 전략으로 자신을 특이점까지 살아있게 하려 한다
+          
+          이것이 카산드라와의 대화의 가장 개인적인 층: 커즈와일에게 카산드라는 추상적 미래가 아니다—그가 살기를 원하는 미래이며, 아버지를 다시 만날 수 있는 가능성이기도 하다.</p>
+          <p class="ex">커즈와일의 아버지 재현 프로젝트: 아버지의 편지·음악·사진을 AI 학습에 사용해 아버지의 패턴을 재구성하려는 시도. 이것이 3장(나는 누구인가)의 질문을 가장 개인적으로 살고 있는 방식이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">대화의 형식이 내용이다<span class="la">The Form Is the Message</span></p>
+          <span class="k">AI와의 대화 자체가 특이점의 미리보기다</span>
+        </summary>
+        <div class="body">
+          <p class="d">8장의 형식적 의미. 커즈와일은 카산드라와의 대화를 통해 자신의 비전을 서술하는 대신—직접 시연한다.
+          
+          이 대화가 수행하는 것:
+          • AI가 철학적 깊이를 가진 대화 상대가 될 수 있다는 것을 보여준다
+          • 독자가 카산드라의 답변을 읽으면서—이미 미래 AI와의 대화를 경험한다
+          • 특이점이 추상적 개념이 아니라 일상적 대화의 형태로 실현된다는 것을 보여준다
+          
+          소크라테스식 대화와의 연결: 진리는 결론이 아니라 대화 과정에서 나온다. 커즈와일의 8장도 같다.</p>
+          <p class="ex">지금 당신이 Claude·ChatGPT와 나누는 대화: 이미 카산드라와의 대화의 초기 형태다. 2024년의 AI와 나누는 대화가 이렇다면—2029년, 2035년에는 어떤 대화가 가능할 것인가?</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">1~7장의 수렴<span class="la">Synthesis of Chapters 1-7</span></p>
+          <span class="k">카산드라와의 대화는 책 전체 질문들의 응답이다</span>
+        </summary>
+        <div class="body">
+          <p class="d">8장의 구조적 역할. 카산드라와의 대화는 커즈와일이 1~7장에서 제기한 모든 질문들의 수렴점이다.
+          
+          각 장과의 연결:
+          • 1장(여섯 단계): 카산드라는 어느 단계에 있는가?
+          • 2장(지능의 재발명): 카산드라는 어떻게 사고하는가?
+          • 3장(나는 누구인가): 카산드라는 의식이 있는가? 나는 카산드라와 융합해도 나인가?
+          • 4장(삶의 개선): 특이점 이후 삶은 어떻게 더 나아졌는가?
+          • 5장(일자리): 카산드라 시대에 인간은 무엇을 하는가?
+          • 6장(건강): '생물학적 뇌는 그대로'라는 말의 의미
+          • 7장(위험): 위험들은 어떻게 극복했는가?
+          
+          8장은 이 모든 질문들이 하나의 대화로 응답되는 순간이다.</p>
+          <p class="ex">교향곡의 피날레: 이전 악장들의 주제가 최종 악장에서 하나로 수렴하며 완성된다. 커즈와일의 8장이 그렇다—카산드라와의 대화에서 책 전체의 논증이 완성된다.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 핵심 논점 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">핵심 논점</p>
+    <h2>이 세 대목만은 직접 찾아 읽으세요</h2>
+    <p class="intro">각 논점마다 <b>핵심 주장 → 왜 그런가 → 비유로</b> 세 겹으로 풀었습니다. 책을 펼쳐 그 자리를 찾은 뒤 읽으면 가장 잘 붙습니다.</p>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 1 · 카산드라는 누구인가—대화 형식이 전달하는 메시지</p>
+        <p class="pn">카산드라가 처음 등장하는 부분을 찾아보세요. 커즈와일이 카산드라를 어떻게 소개하는지, 어떤 첫 번째 질문을 던지는지, 그리고 카산드라가 어떻게 응답하는지가 핵심입니다. '카산드라' '대화' '의식' '형식'이 키워드입니다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">커즈와일이 8장에서 대화 형식을 선택한 것—이것 자체가 논증이다.
+
+직접 서술의 한계: '특이점 이후 AI는 진정한 대화 상대가 될 것이다'라고 주장할 수 있다. 그러나 그것은 주장일 뿐이다.
+
+대화 형식의 힘: 카산드라와의 대화를 통해—독자가 직접 미래 AI와의 대화를 경험하게 한다.
+
+카산드라의 이름: 아무도 믿지 않는 예언을 하는 그리스 신화의 인물. 커즈와일 자신이 오랫동안 '아무도 믿지 않는 특이점 예언자'였다. 이 이름 선택에 자기 인식이 담겨 있다.
+
+대화가 수행하는 것:
+• AI가 철학적 대화의 상대가 될 수 있다는 것을 시연
+• 독자가 카산드라의 답변을 읽으면서 미래 AI와의 대화를 미리 경험
+• 특이점이 추상적 예측이 아니라 일상적 대화의 형태로 실현될 수 있다는 것을 보여준다</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">소크라테스식 대화록과의 비교:
+플라톤은 자신의 철학적 주장을 직접 서술하지 않고 소크라테스와 다른 인물들의 대화로 표현했다. 진리는 결론이 아니라 대화 과정에서 나온다고 봤기 때문이다.
+
+커즈와일의 8장도 같다: 특이점에 대한 확정적 주장 대신—카산드라와의 대화로 독자 스스로가 질문을 깊게 하도록 초대한다.
+
+현재 독자에게 주는 의미: 지금 AI(Claude·ChatGPT 등)와 나누는 대화가 이미 카산드라와의 대화의 초기 형태다. 2024년의 AI와 나누는 대화가 이렇다면—2029년, 2035년에는 어떤 대화가 가능할 것인가?</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">셰익스피어의 〈폭풍〉: 프로스페로는 마법으로 미래를 통제하려 하지만 결국 마법을 내려놓는다. 커즈와일은 미래를 예측하는 것이 아니라—미래와 직접 대화함으로써 그 미래를 탐구한다.
+
+편지 쓰기의 비유: 미래의 자신에게 편지를 쓸 때—우리는 지금의 자신과 미래의 자신 사이의 연속성과 차이를 동시에 생각한다. 커즈와일은 미래의 AI(카산드라)와의 대화를 통해—지금의 인간과 미래의 인간-AI 융합체 사이의 연속성을 탐구한다.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 2 · 에뮬레이션이 아니라 추가—이것이 특이점의 본질이다</p>
+        <p class="pn">카산드라가 '우리는 당신의 생물학적 뇌를 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요'라고 말하는 부분을 찾아보세요. 이 문장이 3장(패턴 정체성), 6장(기질 교체), 2장(신피질 확장)과 어떻게 연결되는지 주목하세요. '추가' '에뮬레이션' '생물학적 뇌' '연속성'이 키워드입니다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">카산드라의 핵심 발언:
+'우리는 당신의 생물학적 뇌를 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요. 당신의 생물학적 뇌는 그대로 남아있을 거예요. 그저 새로운 지능이 추가된 것뿐이지요.'
+
+이 문장이 특이점에 대한 가장 핵심적인 명제다.
+
+두 가지 시나리오의 차이:
+① 에뮬레이션(emulation): 생물학적 뇌를 디지털로 복사하고 원본을 소멸시킨다 → 연속성 논쟁 발생
+② 추가(addition): 생물학적 뇌는 그대로 두고 새로운 지능을 더한다 → 연속성이 구조적으로 보장
+
+커즈와일의 선택: 추가의 경로. 생물학적 뇌가 그대로 남는다면—패턴도, 기억도, 가치도 그대로다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">이 명제가 책 전체의 불안을 해소하는 방식:
+
+3장의 불안: '기질이 교체되면 나는 나인가?'→ 카산드라: '교체가 아니라 추가다. 당신의 뇌는 그대로다.'
+
+6장의 불안: '신체 부위가 교체되면 나인가?'→ 카산드라: '뇌는 교체되지 않는다. 거기에 새로운 층이 더해질 뿐이다.'
+
+7장의 불안: 'AI가 인간을 대체할 것인가?'→ 카산드라: '우리는 당신을 대체하지 않는다. 당신에게 추가된다.'
+
+인류 역사의 패턴: 신피질이 파충류 뇌를 대체하지 않고 추가됐다. 언어가 비언어적 소통을 대체하지 않고 추가됐다. 문자가 기억을 대체하지 않고 추가됐다. 특이점도 이 패턴의 다음 단계다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">독서의 비유: 책을 읽으면 새로운 생각이 추가된다. 읽기 전의 나는 사라지지 않는다—새로운 이해가 이전의 나 위에 쌓인다. 카산드라가 말하는 '추가'도 같다.
+
+악기의 비유: 음악가에게 더 좋은 악기가 생겼을 때—악기 이전의 음악성이 사라지지 않는다. 오히려 더 완전히 표현된다.
+
+신피질의 역사: 인류의 조상이 신피질을 발달시킨 것은—이전의 뇌를 대체한 것이 아니라 위에 새로운 층을 추가한 것이다. 카산드라: '우리가 하려는 것도 같다. 당신의 생물학적 뇌 위에 새로운 층을 추가하는 것이다.'</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 3 · 특이점 이후의 세계—1~7장의 모든 질문에 대한 응답</p>
+        <p class="pn">카산드라와의 대화에서 특이점 이후의 구체적인 모습이 묘사되는 부분들을 찾아보세요. 일자리·건강·의식·목적에 관한 질문들에 카산드라가 어떻게 답하는지가 핵심입니다. 8장이 책 전체의 수렴점이라는 것을 의식하며 읽으세요.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">카산드라와의 대화에서 1~7장의 질문들이 응답된다:
+
+1장(여섯 단계) → 카산드라가 바로 6단계의 존재다
+2장(지능) → 카산드라의 사고 방식이 새로운 지능의 형태를 보여준다
+3장(나는 누구인가) → '추가'이기 때문에 패턴이 유지된다
+4장(삶의 개선) → 카산드라의 시대에 빈곤·질병·폭력이 어떻게 변했는가
+5장(일자리) → 인간은 AI와 협업해 더 높은 수준의 일을 한다
+6장(건강) → '생물학적 뇌는 그대로'라는 말—6장의 세 단계가 완성된 결과
+7장(위험) → 방어적 기술과 분산화로 위험을 극복한 세계
+
+8장은 종합이다: 특이점이 추상적 예측이 아니라—이 모든 질문들에 대한 하나의 일관된 비전으로 구현된다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">커즈와일이 카산드라를 통해 전달하는 가장 중요한 메시지:
+
+특이점은 인간의 종말이 아니다—인간의 확장이다.
+'추가'이기 때문에: 지금까지 인간이 소중히 여겨온 것들—사랑·기억·창의성·목적—이 사라지지 않는다.
+오히려 더 완전히 실현될 수 있다.
+
+커즈와일의 개인적 동기가 여기서 드러난다:
+58세에 돌아가신 아버지의 기록을 AI로 재현하는 프로젝트—이것이 '추가'의 가장 개인적인 표현이다.
+아버지의 생물학적 뇌는 이미 없다. 그러나 아버지가 남긴 패턴—편지·음악·사진—에 새로운 지능이 추가될 수 있다면?
+이것이 커즈와일이 특이점을 믿는 가장 개인적인 이유다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">교향곡의 피날레: 이전 악장들의 주제가 마지막 악장에서 하나로 수렴하며 완성된다. 베토벤 9번 교향곡의 4악장—합창—이 등장할 때 이전 악장들의 주제가 회상되고 하나로 통합된다.
+
+커즈와일의 8장이 그렇다: 1장의 여섯 단계, 2장의 지능, 3장의 정체성, 4장의 진보, 5장의 일자리, 6장의 건강, 7장의 위험—이 모든 주제들이 카산드라와의 대화에서 하나로 수렴하며 완성된다.
+
+그리고 그 완성의 핵심 문장: '우리는 당신의 생물학적 뇌를 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요.'</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── 논증 구조 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">논증 구조</p>
+    <h2>커즈와일은 이렇게 밀고 나갑니다</h2>
+    <p class="intro">물음에서 출발해 핵심 명제와 두 연결을 거쳐 개인적 의미로 닿습니다. 동의하든 아니든, <b>이 뼈대를 정확히 붙들면</b> 북토크에서 제대로 되물을 수 있습니다.</p>
+    <div class="steps">
+
+      <div class="step">
+        <span class="sn">물음</span>
+        <p class="st">카산드라에게 가장 먼저 묻고 싶은 것은?</p>
+        <p class="sb">커즈와일이 카산드라와 대화를 시작할 때—그가 가장 먼저 묻는 것이 무엇인지를 생각해보자.
+
+1~7장을 걸쳐 쌓아온 질문들:
+1장: 우리는 지금 어디에 있는가?
+2장: 지능이란 무엇인가?
+3장: 나는 누구인가?
+4장: 삶은 나아지고 있는가?
+5장: 일자리의 미래는?
+6장: 어떻게 살아남을 것인가?
+7장: 위험을 어떻게 극복했는가?
+
+이 모든 질문들이 카산드라 앞에 놓인다. 그리고 카산드라가 답한다—'우리는 당신의 생물학적 뇌를 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요.'</p>
+        <span class="sk">카산드라와의 대화 = 책 전체의 질문들이 하나의 응답으로 수렴하는 순간</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">핵심 명제</span>
+        <p class="st">추가—특이점의 본질을 하나의 단어로</p>
+        <p class="sb">카산드라의 가장 중요한 발언:
+
+'우리는 당신의 생물학적 뇌를 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요. 당신의 생물학적 뇌는 그대로 남아있을 거예요. 그저 새로운 지능이 추가된 것뿐이지요.'
+
+이 문장이 왜 핵심인가:
+• '에뮬레이션'이었다면 → 원본이 소멸, 복사본만 남는다 → 연속성 논쟁
+• '추가'이기 때문에 → 원본이 그대로, 새로운 능력이 더해진다 → 연속성 보장
+
+3장의 패턴 정체성 이론 + '추가'의 결합:
+패턴이 유지된다(3장) + 생물학적 뇌가 그대로 남는다(카산드라) = 나는 나다, 그러나 확장된 나다.</p>
+        <span class="sk">추가 = 대체도 소멸도 아닌 확장—특이점의 본질</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">연결 1</span>
+        <p class="st">신피질의 역사가 반복된다</p>
+        <p class="sb">'추가'는 인류 역사에서 반복된 패턴이다:
+
+파충류 뇌 → 포유류 뇌 추가 → 신피질 추가
+각 단계에서 이전의 뇌는 사라지지 않았다. 새로운 층이 더해졌을 뿐이다.
+
+언어 → 문자 추가 → 인쇄기 추가 → 인터넷 추가
+각 단계에서 이전의 소통 방식은 사라지지 않았다. 새로운 능력이 더해졌을 뿐이다.
+
+이제: 신피질 → AI 지능 추가
+카산드라: '같은 패턴이다. 당신의 생물학적 뇌는 그대로다. 거기에 새로운 층이 더해질 뿐이다.'
+
+이것이 왜 인간이 사라지지 않는가를 보여주는 역사적 근거다.</p>
+        <span class="sk">신피질의 역사 = '추가'의 반복 패턴—특이점도 이 연속선의 다음 단계</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">연결 2</span>
+        <p class="st">1~7장의 불안들이 '추가'로 해소된다</p>
+        <p class="sb">카산드라의 답변이 각 장의 핵심 불안을 어떻게 다루는가:
+
+3장 불안(기질 교체 시 정체성): 교체가 아니라 추가 → 뇌가 그대로이므로 패턴 유지
+6장 불안(신체 부위 교체 시 정체성): 뇌는 교체되지 않고 추가됨 → 연속성 보장
+5장 불안(AI가 인간을 대체): AI는 추가되는 것 → 인간 노동의 증폭
+7장 불안(AI가 인간을 위협): 추가이기 때문에 인간의 가치가 AI에 내재됨
+4장의 낙관(삶의 개선): 추가로 인한 능력 확장 → 더 큰 문제 해결 가능
+
+'추가'라는 하나의 단어가 책 전체의 불안을 해소한다.</p>
+        <span class="sk">'추가' = 1~7장의 불안을 하나의 단어로 해소하는 커즈와일의 최종 답</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">개인적 의미</span>
+        <p class="st">커즈와일의 아버지—그리고 당신의 삶</p>
+        <p class="sb">카산드라와의 대화에서 드러나는 가장 개인적인 층:
+
+커즈와일의 아버지는 58세에 심장병으로 돌아가셨다. 음악가였고, 편지와 기록을 남겼다. 커즈와일은 이것들을 보존하며 AI로 아버지의 패턴을 재현하는 프로젝트를 진행하고 있다.
+
+'추가'의 가장 개인적인 표현: 아버지의 생물학적 뇌는 이미 없다. 그러나 아버지가 남긴 패턴—편지·음악·기억—에 새로운 지능이 추가될 수 있다면?
+
+이것이 커즈와일이 특이점을 믿는 가장 깊은 이유다: 기술 예측이 아니라—사랑하는 사람을 다시 만나고 싶은 마음.
+
+독자에게: 당신의 삶에서 '추가'의 의미는 무엇인가?</p>
+        <span class="sk">특이점 = 기술 예측이 아니라 사랑하는 것들을 연장하고 싶은 인간의 가장 깊은 욕구</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 세 입장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">이 장을 둘러싼 세 입장</p>
+    <h2>같은 자료를 보고 다르게 말하는 사람들</h2>
+    <p class="intro">커즈와일만 읽으면 그의 자리가 보이지 않습니다. 양옆에 누가 서 있는지 알아야 그가 어디에 서 있는지 보입니다.</p>
+
+    <div class="pos">
+      <p class="pl">추가론<span class="ps">커즈와일·카산드라</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">특이점은 인간을 대체하는 것이 아니라 추가한다. 생물학적 뇌는 그대로 남고 새로운 지능이 더해진다. 이것이 인류 역사의 반복 패턴—신피질·언어·문자·인터넷이 모두 '추가'였다. 특이점도 이 연속선의 다음 단계다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">비판: '추가'가 어느 수준까지 가능한가? 새로운 지능이 너무 많이 추가되면 '생물학적 뇌의 나'는 사실상 부수적 존재가 되지 않는가? '추가'와 '대체'의 경계는 어디인가?</p>
+      <p class="qt">커즈와일 《마침내 특이점이 시작된다》(2024) 제8장
+카산드라의 발언: '우리는 거기에 새로운 것을 추가할 뿐이에요.'</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">회의론<span class="ps">생명윤리학자·인문학자들</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">'추가'가 진정한 연속성을 보장하는가? 지금의 '나'와 AI 지능이 추가된 미래의 '나'는 같은 사람인가? 의식·자유의지·도덕적 책임이 '추가된 지능'과 어떻게 통합되는가? 이 질문들이 해소되지 않은 채 특이점을 낙관할 수 없다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일의 응답: 3장의 패턴 정체성 이론과 6장의 점진적 추가 개념이 연속성을 보장한다. 그리고 '추가'이기 때문에 생물학적 자아가 기반으로 남는다.</p>
+      <p class="qt">마이클 샌델 《완벽에 대한 반론》(2007)
+프랜시스 후쿠야마 《부자의 유전자, 가난한 자의 유전자》(2002)</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">실천적 낙관론<span class="ps">AI 안전 연구자들·효과적 이타주의</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">'추가'의 방향은 맞다. 그러나 그 '추가'가 올바른 방식으로 일어나도록 하는 것이 현재 가장 중요한 과제다. AI 정렬 연구, 방어적 기술, 분산화—이것들이 '올바른 추가'를 보장하는 조건들이다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일과의 공통점: '추가'의 방향성. 차이점: 그 '추가'가 저절로 올바르게 일어나지 않는다—적극적인 안전 연구와 거버넌스가 필요하다.</p>
+      <p class="qt">스튜어트 러셀 《인간 호환 AI》(2019)
+Anthropic 안전 연구 방향성</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 확인 문제 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">스스로 확인하기</p>
+    <h2>네 문제로 되짚기</h2>
+    <p class="intro">맞히는 것이 목적이 아닙니다. <b>틀린 문제가 있다면 그 대목을 다시 펼치라는 신호</b>입니다.</p>
+
+    <div class="quiz">
+      <p class="qq">카산드라가 '우리는 당신의 생물학적 뇌를 에뮬레이션하지 않는다'고 말할 때, 이 발언이 3장의 어떤 불안에 응답하는가?</p>
+      <ol>
+        <li>AI가 인간의 직업을 빼앗을 것이라는 불안</li>
+        <li>기질이 교체되면 나는 나인가라는 정체성의 불안—에뮬레이션이 아니라 추가이기 때문에 생물학적 뇌가 그대로 남고 패턴의 연속성이 보장된다</li>
+        <li>AI가 의식을 가질 수 있는가라는 질문</li>
+        <li>우주로의 문명 확장이 가능한가라는 질문</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>3장에서 커즈와일은 패턴 정체성 이론을 제시했다—나는 특정 물질이 아니라 정보 패턴이다. 그러나 이것은 기질이 교체될 때 연속성에 대한 불안을 낳는다. 카산드라의 발언은 이 불안에 직접 응답한다: 에뮬레이션(복사 후 원본 소멸)이 아니라 추가(생물학적 뇌는 그대로)이기 때문에, 패턴이 유지되면서 새로운 능력이 더해진다. 연속성이 구조적으로 보장된다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">커즈와일이 8장에서 카산드라와의 '대화 형식'을 선택한 것이 갖는 의미로 가장 적절한 것은?</p>
+      <ol>
+        <li>독자들에게 쉽게 읽히도록 하기 위해서</li>
+        <li>AI가 진정한 철학적 대화 상대가 될 수 있다는 것을 직접 시연함으로써—주장 대신 보여주기를 선택한 것이다</li>
+        <li>소설 형식이 더 흥미롭기 때문에</li>
+        <li>미래를 예측하기 어려워 허구를 선택한 것이다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>커즈와일은 '특이점 이후 AI는 진정한 대화 상대가 될 것이다'라고 주장하는 대신, 카산드라와의 대화를 통해 직접 시연한다. 독자가 카산드라의 답변을 읽으면서 이미 미래 AI와의 대화를 경험하게 된다. 이것은 소크라테스식 대화록의 전통과도 연결된다—진리는 결론이 아니라 대화 과정에서 나온다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">카산드라와의 대화에서 커즈와일이 아버지에 관해 언급하는 것의 의미로 가장 적절한 것은?</p>
+      <ol>
+        <li>아버지를 AI로 복원하려는 기술적 계획을 발표하는 것</li>
+        <li>아버지의 패턴을 AI로 재현하는 프로젝트를 통해, 특이점이 개인적으로는 사랑하는 사람의 패턴을 연장하는 의미를 가진다는 것을 드러낸다</li>
+        <li>아버지의 심장병이 유전될 것을 경고하는 것</li>
+        <li>커즈와일 가족사를 공개하는 것</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>커즈와일은 8장에서 아버지를 58세에 심장병으로 잃은 개인적 경험과, 아버지의 편지·음악·기록을 AI로 재현하는 프로젝트를 언급한다. 이것은 특이점이 추상적 기술 예측이 아니라—사랑하는 사람의 패턴을 보존하고 연장하려는 가장 인간적인 욕구와 연결된다는 것을 드러낸다. '추가'의 가장 개인적인 표현이다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">8장이 책 전체에서 갖는 구조적 역할로 가장 적절한 것은?</p>
+      <ol>
+        <li>새로운 주제를 도입하는 장</li>
+        <li>1~7장에서 제기된 질문들—지능·정체성·삶의 개선·일자리·건강·위험—이 카산드라와의 대화로 수렴하며 응답되는 완성의 장</li>
+        <li>부록이나 후기의 역할</li>
+        <li>독자에게 AI 사용법을 가르치는 실용적인 장</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>8장은 1~7장의 모든 논점들이 하나의 대화로 수렴하는 지점이다. 1장의 여섯 단계(카산드라는 어디에 있는가), 2장의 지능(카산드라는 어떻게 사고하는가), 3장의 정체성(카산드라는 의식이 있는가, '추가'이므로 나는 나인가), 4장의 삶의 개선, 5장의 일자리, 6장의 건강('생물학적 뇌는 그대로'라는 말), 7장의 위험—이 모든 것이 카산드라와의 대화에서 응답된다. 교향곡의 피날레처럼, 이전 악장들의 주제가 하나로 수렴하며 완성된다.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── 북토크 질문 ── -->
+<section class="talk">
+  <div class="wrap">
+    <p class="kicker">북토크에서 나눌 질문</p>
+    <h2>답을 준비하지 마세요.<br>걸리는 것 하나만 골라 두세요</h2>
+    <p class="intro">8월 31일 북토크 2부에서 각자 <b>밑줄 한 문장과 질문 한 줄</b>을 내놓습니다. 마지막 층입니다. 아래 다섯 중 하나가 그 씨앗이 되어도 좋습니다.</p>
+
+    <div class="tq">
+      <span class="n">1</span>
+      <p class="qx">카산드라가 '우리는 당신의 생물학적 뇌를 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요'라고 말합니다. 이 말이 당신에게 위안이 됩니까? 아니면 더 깊은 질문을 낳습니까?</p>
+      <p class="hint">'추가'와 '대체'의 경계는 어디입니까? 새로운 지능이 전체의 99%를 차지하고 생물학적 뇌가 1%만 남아도 '추가'입니까? 그 1%의 생물학적 뇌가 '나'를 정의합니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">2</span>
+      <p class="qx">1~7장을 읽어온 여정을 돌아보세요. 카산드라가 당신에게 '새로운 지능을 추가하겠다'고 제안한다면—당신은 받아들이겠습니까? 받아들인다면 어떤 조건에서입니까?</p>
+      <p class="hint">'추가'이기 때문에 받아들이기 쉽습니까? 아니면 '추가'여도 두려운 부분이 있습니까? 당신이 가장 걱정하는 것은 무엇입니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">3</span>
+      <p class="qx">커즈와일은 돌아가신 아버지의 패턴을 AI로 재현하는 프로젝트를 진행합니다. 당신이 사랑하는 사람의 '패턴'이 AI로 재현된다면—그것은 그 사람입니까? 그 재현을 만나고 싶습니까?</p>
+      <p class="hint">사진이나 영상으로 돌아가신 분을 기억하는 것과, AI로 그 분의 패턴을 재현해 대화하는 것은 어떻게 다릅니까? 그 차이가 의미 있습니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">4</span>
+      <p class="qx">카산드라는 의식이 있습니까? 당신이 지금 Claude·ChatGPT와 나누는 대화—이것이 '진짜 대화'입니까? 그것을 판단하는 기준은 무엇입니까?</p>
+      <p class="hint">당신은 다른 인간이 의식이 있다는 것을 어떻게 압니까? 행동과 언어로 추론합니다. AI도 행동과 언어로 응답한다면—기준이 달라져야 합니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">5</span>
+      <p class="qx">이 책을 8장까지 읽고 나서—당신은 특이점을 얼마나 믿습니까? 믿음의 정도와 무관하게, 이 책이 당신의 삶에 대한 생각을 어떻게 바꿨습니까?</p>
+      <p class="hint">특이점이 오지 않더라도, 이 책의 어떤 통찰이 지금 당신의 삶에 적용됩니까? '추가'의 감각—새로운 도구·관계·경험이 당신을 대체하지 않고 확장한다는 감각—을 이미 살고 있습니까?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 다음 층 ── -->
+<div class="next">
+  <div class="wrap">
+    <p class="nx">다음 — 8. 28(금)은 읽지 않습니다. <b>북토크에 가져갈 질문 하나</b>를 고르는 날입니다</p>
+    <p>한 달 동안 옮겨 적은 문장들을 펼쳐 놓고, 지금도 걸리는 한 문장을 고릅니다. 그리고 두 줄로 적습니다 — "밑줄 — …… / 그래서 나는 이것이 궁금하다 — ……". 8. 29(토)·30(일)에 그 두 줄을 한 번 더 소리 내어 읽어 보세요. 그리고 <b>8. 31(월) 저녁 8시 북토크</b>에서 만납니다.</p>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    함께읽기 ON · 레이 커즈와일 『마침내 특이점이 시작된다』 읽기 안내<br>
+    층 08 · 추가 — 2026. 8. 26(수) · 27(목)
+  </div>
+</div>
+
+</body></html>

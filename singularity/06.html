@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>함께읽기 ON · 읽기 안내 — 6장 생명</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="함께읽기ON">
+<meta property="og:title" content="함께읽기 ON · 읽기 안내 — 마침내 특이점이 시작된다 6장 생명">
+<meta property="og:description" content="8. 20(목) · 21(금) — 노화는 수정 가능한가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EDE4; --paper-2:#EAE3D6; --card:#FBF8F2;
+    --ink:#17262B; --ink-soft:#4B5C61; --ink-faint:#8A9799;
+    --deep:#12262E; --deep-2:#0C1A21; --deep-card:#1B3540;
+    --teal:#7FD4D8; --teal-ink:#256A74; --teal-soft:#C3E8EA;
+    --coral:#E8785A; --coral-deep:#CE5537;
+    --rule:#D9D1C3; --rule-soft:#E6DFD2;
+    --sans:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    --serif:"Nanum Myeongjo","Noto Serif KR","Batang",serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    line-height:1.8; letter-spacing:-.003em;}
+  .wrap{max-width:52rem; margin:0 auto; padding:0 clamp(1.15rem,4.5vw,2.6rem);}
+
+  /* ── 표지 ── */
+  .hero{background:var(--deep); color:var(--paper);
+    padding:clamp(2.8rem,7vw,4.6rem) 0 clamp(2.4rem,6vw,3.6rem);}
+  .hero .top{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;
+    margin-bottom:1.9rem;}
+  .brand{display:inline-block; font-size:.66rem; font-weight:900; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--deep); background:var(--teal);
+    padding:.36rem .55rem .3rem .8rem;}
+  .days{font-size:.72rem; font-weight:700; letter-spacing:.16em; color:var(--coral);}
+  .layernum{display:flex; align-items:baseline; gap:.75rem; margin-bottom:.4rem;}
+  .layernum .lb{font-size:.68rem; font-weight:900; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--teal);}
+  .layernum .nn{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:clamp(2.4rem,7vw,3.6rem); line-height:1; color:var(--coral);}
+  .hero h1{font-size:clamp(2rem,6.4vw,3.4rem); font-weight:900; line-height:1.2;
+    letter-spacing:-.025em;}
+  .hero .q{font-size:clamp(1rem,2.4vw,1.28rem); color:var(--teal); font-weight:700;
+    margin-top:.9rem;}
+  .hero .one{font-family:var(--serif); font-size:clamp(1.02rem,2.5vw,1.3rem);
+    line-height:1.85; color:rgba(242,237,228,.9); margin-top:1.7rem;
+    border-left:3px solid var(--coral); padding-left:1.2rem; max-width:40rem;}
+
+  /* 층 진행 표시 — 아래는 두껍고 위로 갈수록 촘촘 (가속) */
+  .stack{display:flex; flex-direction:column-reverse; gap:2px; margin-top:2.2rem;
+    max-width:22rem;}
+  .stack .bar{position:relative; background:rgba(127,212,216,.16);
+    border-left:2px solid rgba(127,212,216,.35);}
+  .stack .bar span{position:absolute; left:.55rem; top:50%; transform:translateY(-50%);
+    font-size:.6rem; font-weight:700; letter-spacing:.1em; color:rgba(242,237,228,.5);}
+  .stack .bar.on{background:var(--coral); border-left-color:var(--coral);}
+  .stack .bar.on span{color:#fff;}
+  .stack .b1{height:1.55rem;} .stack .b2{height:1.4rem;} .stack .b3{height:1.26rem;}
+  .stack .b4{height:1.13rem;} .stack .b5{height:1.01rem;} .stack .b6{height:.9rem;}
+  .stack .b7{height:.8rem;}  .stack .b8{height:.71rem;}
+  .stack-cap{font-size:.7rem; color:rgba(242,237,228,.45); margin-top:.7rem;
+    letter-spacing:.04em;}
+
+  /* ── 섹션 ── */
+  section{padding:clamp(2.6rem,6.5vw,4.2rem) 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .kicker{display:flex; align-items:center; gap:.7rem; font-size:.68rem; font-weight:900;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--teal-ink);
+    margin-bottom:.95rem;}
+  .kicker::after{content:""; flex:1; height:1px; background:var(--rule);}
+  h2{font-size:clamp(1.44rem,3.7vw,2.05rem); font-weight:900; line-height:1.34;
+    letter-spacing:-.02em; margin-bottom:.75rem;}
+  .intro{font-size:clamp(.98rem,2.15vw,1.12rem); color:var(--ink-soft); max-width:44rem;
+    margin-bottom:1.7rem;}
+  p b{font-weight:700; color:var(--ink);}
+  .hl{background:linear-gradient(transparent 60%, var(--teal-soft) 60%); padding:0 .1em;
+    font-weight:700; color:var(--ink);}
+
+  /* ── 개념 단어장 (눌러서 펼치기) ── */
+  .terms{display:grid; gap:.7rem;}
+  @media(min-width:800px){ .terms{grid-template-columns:1fr 1fr; align-items:start;} }
+  .term{background:var(--card); border:1px solid var(--rule-soft);
+    border-left:3px solid var(--teal-ink);}
+  .term > summary{cursor:pointer; list-style:none; padding:1rem 2.6rem 1.05rem 1.2rem;
+    position:relative;}
+  .term > summary::-webkit-details-marker{display:none;}
+  .term > summary::after{content:"+"; position:absolute; right:1rem; top:.95rem;
+    width:1.4rem; height:1.4rem; border:1px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.95rem; font-weight:700; color:var(--teal-ink); background:var(--paper);}
+  .term[open] > summary::after{content:"−"; background:var(--teal-ink); color:#fff;
+    border-color:var(--teal-ink);}
+  .term > summary:hover::after{border-color:var(--teal-ink);}
+  .term .w{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.35;
+    letter-spacing:-.015em;}
+  .term .la{display:block; font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:.88rem; color:var(--ink-faint); margin-top:.12rem; letter-spacing:.02em;}
+  .term .k{display:block; font-size:clamp(.88rem,1.9vw,.98rem); font-weight:700;
+    color:var(--teal-ink); margin-top:.5rem; line-height:1.6;}
+  .term .body{padding:0 1.2rem 1.2rem; border-top:1px dashed var(--rule-soft);
+    margin:0 1.2rem; padding:.9rem 0 1.15rem;}
+  .term .d{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);
+    white-space:pre-line;}
+  .term .ex{font-size:clamp(.88rem,1.9vw,.98rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.85rem; padding:.7rem .85rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+  .term .ex::before{content:"보기"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--coral-deep); margin-bottom:.3rem;}
+  .terms-cap{font-size:.8rem; color:var(--ink-faint); margin-bottom:.9rem;}
+  /* ── 핵심 논점 ── */
+  .passage{border:1px solid var(--rule); background:var(--card); margin-bottom:1.3rem;}
+  .passage > .ph{padding:1.15rem 1.35rem; border-bottom:1px solid var(--rule-soft);
+    background:var(--paper-2);}
+  .passage .pt{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.5;
+    letter-spacing:-.015em;}
+  .passage .pn{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.6rem;}
+  .passage .pn::before{content:"찾아 읽을 곳"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--teal-ink); margin-bottom:.3rem;}
+  .lay{padding:1.1rem 1.35rem; border-bottom:1px dashed var(--rule-soft);}
+  .lay:last-child{border-bottom:none;}
+  .lay .ll{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:#fff; background:var(--teal-ink); padding:.2rem .55rem; margin-bottom:.55rem;}
+  .lay:nth-child(3) .ll{background:var(--coral-deep);}
+  .lay:nth-child(4) .ll{background:#6D7F6A;}
+  .lay .lt{font-size:clamp(.94rem,2vw,1.05rem); line-height:1.9; color:var(--ink-soft);
+    white-space:pre-line;}
+
+  /* ── 논증 구조 ── */
+  .steps{position:relative; padding-left:1.6rem;}
+  .steps::before{content:""; position:absolute; left:.36rem; top:.6rem; bottom:.6rem;
+    width:2px; background:linear-gradient(var(--teal-ink),var(--coral));}
+  .step{position:relative; margin-bottom:1.15rem;}
+  .step:last-child{margin-bottom:0;}
+  .step::before{content:""; position:absolute; left:-1.6rem; top:.62rem; width:.78rem;
+    height:.78rem; border-radius:50%; background:var(--paper);
+    border:2px solid var(--teal-ink);}
+  .step:last-child::before{border-color:var(--coral); background:var(--coral);}
+  .step .sn{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:var(--teal-ink); background:var(--teal-soft); padding:.2rem .55rem;}
+  .step .st{font-size:clamp(1.02rem,2.2vw,1.16rem); font-weight:900; line-height:1.5;
+    margin-top:.45rem; letter-spacing:-.015em;}
+  .step .sb{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.9; color:var(--ink-soft);
+    margin-top:.5rem; white-space:pre-line;}
+  .step .sk{display:block; font-size:clamp(.88rem,1.9vw,.97rem); font-weight:700;
+    color:var(--ink); margin-top:.7rem; padding:.55rem .8rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+
+  /* ── 세 입장 ── */
+  .pos{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.95rem;}
+  .pos .pl{font-size:clamp(1.04rem,2.3vw,1.2rem); font-weight:900; letter-spacing:-.015em;}
+  .pos .ps{font-size:.84rem; font-weight:400; color:var(--ink-faint); margin-left:.5rem;
+    letter-spacing:.02em;}
+  .pos .lab{display:block; font-size:.6rem; font-weight:900; letter-spacing:.18em;
+    color:var(--teal-ink); margin:.85rem 0 .3rem;}
+  .pos .lab.b{color:var(--coral-deep);}
+  .pos .tx{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);}
+  .pos .qt{font-family:var(--serif); font-size:clamp(.86rem,1.85vw,.95rem); line-height:1.75;
+    color:var(--ink-faint); margin-top:.85rem; padding-top:.7rem;
+    border-top:1px solid var(--rule-soft); white-space:pre-line;}
+
+  /* ── 확인 문제 ── */
+  .quiz{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.9rem;}
+  .quiz .qq{font-size:clamp(1rem,2.15vw,1.12rem); font-weight:900; line-height:1.65;
+    letter-spacing:-.01em;}
+  .quiz ol{list-style:none; counter-reset:o; margin-top:.8rem;}
+  .quiz li{counter-increment:o; position:relative; padding-left:2rem; margin-bottom:.45rem;
+    font-size:clamp(.9rem,1.95vw,1rem); line-height:1.75; color:var(--ink-soft);}
+  .quiz li::before{content:counter(o); position:absolute; left:0; top:.15rem;
+    width:1.35rem; height:1.35rem; border:1px solid var(--rule); border-radius:50%;
+    font-size:.72rem; font-weight:700; color:var(--ink-faint);
+    display:flex; align-items:center; justify-content:center;}
+  .quiz details{margin-top:.9rem; border-top:1px solid var(--rule-soft); padding-top:.85rem;}
+  .quiz summary{cursor:pointer; font-size:.78rem; font-weight:900; letter-spacing:.14em;
+    color:var(--teal-ink); list-style:none;}
+  .quiz summary::-webkit-details-marker{display:none;}
+  .quiz summary::before{content:"▸ "; color:var(--coral);}
+  .quiz details[open] summary::before{content:"▾ ";}
+  .quiz .ans{font-size:clamp(.9rem,1.95vw,1rem); line-height:1.85; color:var(--ink-soft);
+    margin-top:.65rem;}
+  .quiz .ans b{color:var(--coral-deep);}
+
+  /* ── 북토크 질문 ── */
+  .talk{background:var(--deep); color:var(--paper);}
+  .talk .kicker{color:var(--teal);}
+  .talk .kicker::after{background:rgba(127,212,216,.28);}
+  .talk h2{color:var(--paper);}
+  .talk .intro{color:rgba(242,237,228,.78);}
+  .tq{border-left:3px solid var(--coral); padding:.2rem 0 .2rem 1.2rem;
+    margin-bottom:1.5rem;}
+  .tq:last-child{margin-bottom:0;}
+  .tq .n{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:1.15rem; color:var(--coral);}
+  .tq .qx{font-size:clamp(1rem,2.2vw,1.16rem); font-weight:700; line-height:1.8;
+    margin-top:.15rem;}
+  .tq .hint{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8;
+    color:rgba(242,237,228,.68); margin-top:.6rem;}
+  .tq .hint::before{content:"실마리 — "; color:var(--teal); font-weight:700;}
+
+  /* ── 꼬리 ── */
+  .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
+  .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
+  .next p{font-size:clamp(.92rem,1.95vw,1.02rem); color:var(--ink-soft); margin-top:.45rem;}
+  .foot{background:var(--deep-2); color:rgba(242,237,228,.55); padding:1.7rem 0;
+    font-size:.72rem; letter-spacing:.1em; line-height:1.9;}
+
+  @media print{
+    @page{margin:12mm;}
+    html,body{print-color-adjust:exact; -webkit-print-color-adjust:exact;}
+    section,.term,.passage,.step,.pos,.quiz{break-inside:avoid;}
+    details{display:block;} details > *{display:block !important;}
+    .term > summary::after{display:none !important;}
+    .terms-cap{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 표지 ── -->
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <span class="brand">함께읽기 O N · 읽기 안내</span>
+      <span class="days">8. 20(목) · 21(금)</span>
+    </div>
+    <div class="layernum">
+      <span class="lb">Layer</span><span class="nn">06</span>
+    </div>
+    <h1>생명</h1>
+    <p class="q">노화는 수정 가능한가</p>
+    <p class="one">노화를 운명이 아니라 고칠 수 있는 정보로 볼 때, 의료는 다른 학문이 된다.</p>
+    <div class="stack">
+      <div class="bar b8"><span>08</span></div>
+      <div class="bar b7"><span>07</span></div>
+      <div class="bar b6 on"><span>06</span></div>
+      <div class="bar b5"><span>05</span></div>
+      <div class="bar b4"><span>04</span></div>
+      <div class="bar b3"><span>03</span></div>
+      <div class="bar b2"><span>02</span></div>
+      <div class="bar b1"><span>01</span></div>
+    </div>
+    <p class="stack-cap">아래가 첫 층입니다. 위로 갈수록 층이 얇고 촘촘해집니다 — 가속의 모양입니다.</p>
+  </div>
+</header>
+
+<!-- ── 개념 단어장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">개념 단어장</p>
+    <h2>먼저 알아 둘 열두 단어</h2>
+    <p class="intro">읽기 전에 한 번, 읽고 나서 한 번 더 훑어 보세요. 두 번째에는 다르게 읽힙니다.</p>
+    <p class="terms-cap">단어를 누르면 설명과 보기가 펼쳐집니다.</p>
+    <div class="terms">
+
+      <details class="term">
+        <summary>
+          <p class="w">생물학 = 정보 기술<span class="la">Biology as Information Technology</span></p>
+          <span class="k">생명의 소스코드를 읽고 쓸 수 있게 됐다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일 6장의 핵심 전제. 생물학은 본질적으로 정보 처리 시스템이다. DNA는 소프트웨어이고, 단백질은 그 실행 결과이며, 세포는 프로세서다.
+          
+          이 전환이 중요한 이유: 정보 기술이 되면—수확 가속의 법칙이 적용된다. 생물학적 과정을 정보로 이해할 수 있게 되면, 버그를 찾아 패치할 수 있다.
+          
+          실증: 유전체 분석 비용이 2001년 $3억에서 2023년 $200 이하로 감소. 이 속도 자체가 수확 가속의 법칙이 생물학에 적용된 증거다.
+          
+          함의: 노화·질병·유전 장애를 소프트웨어 버그처럼 찾아 수정할 수 있다.</p>
+          <p class="ex">인간 게놈 프로젝트: 완성에 13년·$27억 소요(1990~2003). 오늘날 같은 작업이 하루·$200 이하. 이 속도가 수확 가속의 법칙이 생물학에 적용된 결과다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">세 단계<span class="la">Three Stages to Longevity</span></p>
+          <span class="k">특이점까지 살아있기 위한 전략적 프레임워크</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일이 6장에서 제시하는 수명 연장의 세 단계 전략. 생물학적 수명을 특이점까지 연장하는 단계적 경로.
+          
+          • 1단계(지금): 영양·보충제·예방 의학으로 생물학을 최대한 활용한다. 커즈와일 자신이 하루 약 100가지 보충제를 복용하는 이유다.
+          • 2단계(10~20년 후): 생명공학 혁명—유전자 편집·역분화 줄기세포·유전자 치료로 생물학을 직접 재프로그래밍한다.
+          • 3단계(20~30년 후): 나노기술—혈류 속 나노봇이 세포 수준에서 의료를 수행한다.
+          
+          핵심 논리: 1단계가 2단계까지, 2단계가 3단계까지 살아있게 해준다. 3단계에 도달하면—수명 탈출 속도(LEV)가 달성된다.</p>
+          <p class="ex">커즈와일의 개인적 실천: 그는 아버지를 58세에 심장병으로 잃었다. 자신이 같은 유전적 위험을 가지고 있다고 판단해—공격적인 예방 의학(1단계)으로 자신의 생물학적 나이를 실제 나이보다 낮게 유지하고 있다고 주장한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">패턴 정체성과 신체적 기질<span class="la">Pattern Identity &amp; Physical Substrate</span></p>
+          <span class="k">나의 생존은 신체 어느 부위의 생존에 달려있지 않다</span>
+        </summary>
+        <div class="body">
+          <p class="d">3장의 패턴 정체성 이론이 6장에서 의료적 함의를 갖는다. 커즈와일의 주장: '나'는 특정 생물학적 기질(뉴런·세포·장기)이 아니라 정보 패턴이다.
+          
+          따라서: 생물학적 부위를 하나씩 기술적인 것으로 교체해도—패턴이 유지되는 한 '나'는 존속한다.
+          
+          6장에서의 적용: 인공 심장, 나노봇이 대체한 면역 세포, 디지털로 보완된 신피질—이것들 각각이 '나'를 대체하는 것이 아니라 '나'를 지속시키는 수단이다.
+          
+          핵심 질문: 우리 자신의 생존이 신체 어떤 부위의 생존 여부에 좌우되지 않는다는 것을—어떻게 받아들일 것인가?</p>
+          <p class="ex">심장 이식 수술을 받은 사람: 원래의 심장이 없어도 '나'는 존속한다. 커즈와일은 이 논리를 뇌 세포 하나하나에까지 확장한다. 결국 '나'는 어떤 특정 물질이 아니라 그 물질들이 이루는 패턴이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">생물학 재프로그래밍<span class="la">Reprogramming Biology</span></p>
+          <span class="k">노화는 수정 가능한 소프트웨어 오류다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일 6장의 2단계 핵심 개념. 노화를 '운명'이 아니라 '재프로그래밍 가능한 정보의 오류'로 본다.
+          
+          재프로그래밍의 두 방향:
+          • 유전체 수준: DNA 서열의 오류를 직접 수정하거나 발현을 조절
+          • 세포 수준: 노화된 세포를 젊은 상태로 되돌리거나 제거
+          
+          이것이 '생물학 = 소프트웨어'라는 명제의 실천적 의미다: 소프트웨어에 버그가 생기면 패치를 배포한다. 생물학도 같은 방식으로 접근하기 시작했다.
+          
+          현재 상태: 동물 실험에서 다수의 재프로그래밍 성공 사례. 인간 임상으로 이행하는 단계.</p>
+          <p class="ex">야마나카 인자(Yamanaka factors): 4개의 유전자를 활성화해 성체 세포를 줄기세포 수준으로 역분화시킬 수 있다(2006년 발견, 2012년 노벨상). 이 발견이 '노화는 되돌릴 수 없다'는 전제를 뒤집었다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">노화 세포 제거<span class="la">Senolytics</span></p>
+          <span class="k">분열을 멈추고 염증을 유발하는 세포를 제거한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">세포 노화(cellular senescence): 분열을 멈추고 염증성 물질을 분비하는 '좀비 세포'. 이것들이 조직에 축적되면서 노화·암·심장병의 원인이 된다.
+          
+          커즈와일의 6장 논거: 이 노화 세포를 선택적으로 제거하면 조직이 젊어진다.
+          
+          진행 상황: 동물 실험에서 노화 세포 제거 후 수명 25~36% 연장, 신체·인지 기능 개선 확인. 인간 임상 시험 진행 중.
+          
+          커즈와일의 예측: 노화 세포 제거가 2단계의 핵심 도구로 발전한다.</p>
+          <p class="ex">생쥐 실험: 6개월령 생쥐(인간 연령 중년)에게 노화 세포를 제거하는 처리를 했을 때—수명과 건강 수명이 모두 개선됐다. '젊음의 샘'에 가장 가까이 온 기술 중 하나로 평가된다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">유전자 치료<span class="la">Gene Therapy</span></p>
+          <span class="k">결함이 있는 유전자를 수정하거나 교체한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">유전자 치료: 질병의 원인이 되는 유전자 결함을 직접 수정하거나, 치료 단백질을 생산하는 유전자를 세포에 전달하는 치료법.
+          
+          커즈와일이 6장에서 강조하는 내용: 유전자 치료가 이제 실험실을 벗어나 임상 현실이 됐다.
+          
+          현재 승인된 치료:
+          • 겸상 적혈구 빈혈증: CRISPR 기반 Casgevy(2023 FDA 승인)
+          • 척수성 근위축증(SMA): Zolgensma—단회 투여로 근치 가능
+          • 혈우병: 유전자 치료로 평생 주사 필요 없어짐
+          
+          커즈와일의 전망: 유전자 치료가 노화 관련 유전자를 표적으로 하는 2단계로 확장된다.</p>
+          <p class="ex">레베르 선천성 흑암시(유전성 실명): 유전자 치료 Luxturna로 실명 환자의 시력을 부분 회복. 이전까지 불치였던 유전 질환이 일회성 치료로 개선됐다. 생물학의 소프트웨어 패치가 실현된 사례다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">역분화 줄기세포<span class="la">iPS Cells · Induced Pluripotent Stem Cells</span></p>
+          <span class="k">성체 세포를 줄기세포로 되돌려 조직을 재생한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">역분화 줄기세포(iPS): 야마나카 신야가 2006년 발견. 이미 분화된 성체 세포(피부세포 등)를 4개의 유전자로 처리해 배아 줄기세포와 유사한 상태로 역분화시킨다.
+          
+          중요성:
+          • 윤리 논란 없이 맞춤형 줄기세포 생성 가능
+          • 환자 자신의 세포로 만들어—면역 거부 반응 없음
+          • 고갈된 조직·장기의 재생 가능성
+          
+          커즈와일의 6장 논거: iPS 세포가 2단계의 핵심 재생 의학 도구. 노화로 고갈된 줄기세포 군을 iPS 세포로 보충하면—조직 노화를 역전시킬 수 있다.</p>
+          <p class="ex">iPS 세포 기반 파킨슨병 치료: 환자의 피부세포 → iPS 세포 → 도파민 신경세포로 분화 → 뇌에 이식. 손상된 신경세포를 환자 자신의 세포로 대체하는 개인 맞춤 재생 의학의 방향이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">나노봇 의료<span class="la">Nanomedicine · Nanobots</span></p>
+          <span class="k">혈류 속 나노봇이 세포 수준에서 의료를 수행한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">나노봇(nanobot): 나노미터 수준의 초소형 기계. 커즈와일의 3단계 핵심 기술.
+          
+          커즈와일의 비전:
+          • 혈류 속 나노봇이 면역 세포를 보강하거나 대체
+          • 암세포를 실시간으로 감지하고 제거
+          • 노화 세포를 지속적으로 청소
+          • 영양소를 세포에 직접 전달
+          • 혈관 플라크 제거
+          
+          현재 진행:
+          • DNA 나노구조(DNA origami): 약물을 암세포에 선택적 전달하는 나노 운반체
+          • 나노입자 암 치료: 항암제를 종양에만 전달—부작용 감소
+          • mRNA 백신의 지질 나노입자: 이미 수십억 명이 사용한 나노 전달 시스템</p>
+          <p class="ex">코로나19 mRNA 백신: 지질 나노입자가 mRNA를 세포 내로 전달한다. 이것이 나노의학의 첫 번째 대규모 인류 적용이다. 커즈와일: 이것이 3단계 나노봇 의료의 전조다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">장수 탈출 속도<span class="la">Longevity Escape Velocity · LEV</span></p>
+          <span class="k">매년 과학이 수명을 1년 이상 연장하면—죽음은 계속 후퇴한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일이 6장에서 목표로 제시하는 개념. 과학이 매년 남은 기대 수명을 1년 이상 연장하는 시점—이 시점이 되면 수명이 지속적으로 연장된다.
+          
+          커즈와일의 예측: 세 단계가 순서대로 성숙하면서 2030년대 초 LEV 달성 가능.
+          
+          현재 진행 속도: 20세기 동안 기대 수명이 매년 약 3개월씩 연장됐다. 생명공학 기술들이 동시에 가속되면서 이 속도가 빨라지고 있다. LEV에 도달하려면 이 속도가 연 12개월(1년)을 초과해야 한다.
+          
+          세 단계와의 연결: 1단계→2단계→3단계의 순서가 LEV를 달성하는 경로다.</p>
+          <p class="ex">100미터 달리기 비유: 1초에 10미터를 달리는 선수가 있다. 출발선에서 100미터 앞에 마감선이 있다. 그런데 선수가 1초에 10미터를 달리는 동안 마감선이 15미터씩 멀어진다면—결코 도달할 수 없다. LEV는 반대 상황: 마감선(죽음)이 달리는 속도보다 느리게 이동한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">GNR 혁명<span class="la">GNR Revolution · G·N·R</span></p>
+          <span class="k">유전공학·나노기술·로봇공학의 수렴이 의료를 재정의한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일이 제시하는 21세기 전반기 세 기술 혁명의 수렴. 6장에서 의료에 적용되는 방식으로 논의된다.
+          
+          • G (유전공학·Genetics): DNA 수준에서 생명을 재프로그래밍—유전자 치료·역분화 줄기세포·유전자 편집. 2단계의 핵심.
+          • N (나노기술·Nanotechnology): 원자·분자 수준에서 의료를 수행—나노봇·나노 약물 전달. 3단계의 핵심.
+          • R (로봇공학·Robotics): AI 포함—신약 발견 가속·수술 로봇·AI 진단. 모든 단계를 가속.
+          
+          GNR이 의료에서 수렴하는 방식: G가 2단계, N이 3단계, R(AI)이 전체를 가속한다.</p>
+          <p class="ex">mRNA 백신: G(RNA 서열 설계)·N(지질 나노입자 전달)·R(AI가 서열 최적화)가 동시에 작동했다. GNR 혁명이 코로나19에서 처음 대규모로 실현된 사례다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">점진적 기질 교체<span class="la">Gradual Substrate Replacement</span></p>
+          <span class="k">하나씩 교체하면 언제 내가 아닌 존재가 되는가</span>
+        </summary>
+        <div class="body">
+          <p class="d">3장의 점진적 대체 사고실험이 6장에서 의료적 현실이 된다. 심장 → 인공 심장, 관절 → 인공 관절, 면역 세포 → 나노봇, 신피질 → 디지털 신피질.
+          
+          이미 일어나고 있는 것:
+          • 심장 박동기·인공 심장: 수십만 명이 사용 중
+          • 인공 와우(달팽이관): 청각 장애 치료
+          • 인공 망막: 시각 장애 부분 회복
+          
+          커즈와일의 확장: 이 교체가 단순히 기능 회복에서 기능 향상으로, 그리고 노화 역전으로 확장된다.
+          
+          핵심 질문: 교체되는 비율이 높아질수록—나는 여전히 나인가? 그리고 이것이 중요한가?</p>
+          <p class="ex">인공 심장: 자연적 심장 없이도 완전히 정상적 삶을 사는 사람들이 있다. 아무도 그들을 '인간이 아니다'라고 말하지 않는다. 커즈와일: 이 직관을 뇌 세포에까지 확장하라.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">노화 역전<span class="la">Aging Reversal</span></p>
+          <span class="k">노화는 거스를 수 없는 자연이 아니라 해결 가능한 기술 문제다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일 6장의 핵심 주장. 노화를 불가피한 생물학적 운명이 아니라—정보 기술로 해결 가능한 공학적 문제로 재정의한다.
+          
+          노화 역전의 두 가지 경로:
+          ① 손상 수리(Damage Repair): 축적된 분자·세포 손상을 찾아 수리한다. 노화 세포 제거, DNA 손상 수선, 단백질 응집체 제거.
+          ② 재프로그래밍(Reprogramming): 세포의 나이를 되돌린다. 역분화 줄기세포, 후성유전학적 리셋.
+          
+          두 경로가 동시에, 기하급수적으로 발전하고 있다는 것이 커즈와일의 낙관의 근거다.</p>
+          <p class="ex">혈액 공유 실험(파라비오시스): 젊은 생쥐와 늙은 생쥐의 혈액을 연결하면 늙은 생쥐의 근육·간·뇌가 젊어진다. 이것은 노화가 '마모'가 아니라 혈액 내 신호 분자의 변화에 의해 조절된다는 것을 보여준다—재프로그래밍이 가능하다는 증거다.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 핵심 논점 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">핵심 논점</p>
+    <h2>이 세 대목만은 직접 찾아 읽으세요</h2>
+    <p class="intro">각 논점마다 <b>핵심 주장 → 왜 중요한가 → 비유로</b> 세 겹으로 풀었습니다. 책을 펼쳐 그 자리를 찾은 뒤 읽으면 가장 잘 붙습니다.</p>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 1 · 생물학이 정보 기술이 됐다—수확 가속의 법칙이 의료에 적용된다</p>
+        <p class="pn">생물학이 정보 기술로 전환된다는 커즈와일의 핵심 주장이 제시되는 부분을 찾아보세요. 유전체 분석 비용의 기하급수적 하락, DNA를 소프트웨어로 보는 시각이 핵심입니다. '생물학' '정보 기술' '소프트웨어' '수확 가속의 법칙'이 키워드입니다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">커즈와일의 핵심 전환: 생물학은 본질적으로 정보 처리 시스템이다.
+
+DNA = 소프트웨어 (약 30억 개의 염기쌍이 쓰인 코드)
+단백질 = 소프트웨어의 실행 결과
+세포 = 프로세서
+노화 = 소프트웨어 버그의 축적
+
+이 전환이 결정적인 이유: 정보 기술이 되면—수확 가속의 법칙이 적용된다.
+
+증거:
+유전체 분석 비용: 2001년 $3억 → 2023년 $200 이하 (약 백만 배 감소)
+이 속도는 무어의 법칙을 능가한다
+
+논리적 귀결: 버그는 패치할 수 있다. 노화도 마찬가지다. 그리고 이 패치 기술이 기하급수적 속도로 발전하고 있다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">이 전환이 이전 의학 패러다임과 근본적으로 다른 이유:
+
+기존 의학: 증상을 치료한다. 암이 생기면 잘라내거나 독소로 죽인다. 대증 치료(symptomatic treatment)다.
+
+정보 기술로서의 의학: 원인—소프트웨어 수준—을 수정한다. 암이 생기기 전에 암을 유발하는 유전자 변이를 수정한다. 노화 세포가 축적되기 전에 제거한다.
+
+수확 가속의 법칙의 적용:
+1980년대: 유전자의 존재는 알았지만 읽을 수 없었다
+2000년대: 읽을 수 있게 됐지만 비쌌다
+2020년대: 저렴하게 읽고 수정할 수 있게 됐다
+2030년대: 실시간으로 모니터링하고 수정할 것이다
+
+이것이 의료의 패러다임 전환이다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">컴퓨터 바이러스 치료의 비유: 1990년대 컴퓨터 바이러스를 치료하는 방법은 감염된 파일을 삭제하는 것이었다. 오늘날 안티바이러스 소프트웨어는 실시간으로 바이러스 코드 패턴을 인식해 제거한다.
+
+의학도 같은 방향으로 진화하고 있다:
+노화 세포를 수술로 제거하는 것(구식) → 약물이 노화 세포의 단백질 패턴을 인식해 선택적으로 제거하는 것(현재) → 나노봇이 실시간으로 노화 세포를 감지·제거하는 것(미래)
+
+이것이 의학이 정보 기술이 되는 과정이다.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 2 · 세 단계 전략—지금 당신은 어느 단계에 있는가</p>
+        <p class="pn">커즈와일의 '세 단계' 전략이 설명되는 부분을 찾아보세요. 각 단계의 구체적 내용과 현재 어느 단계에 와 있는지, 그리고 커즈와일 자신이 1단계로 무엇을 실천하는지가 나오는 단락입니다. '세 단계' '장수 탈출 속도' '나노봇' 'GNR 혁명'이 키워드입니다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">세 단계 전략:
+
+1단계 (지금): 현재의 최선으로 몸을 최대한 유지한다.
+• 공격적 예방 의학: 정기 혈액 검사·바이오마커 모니터링
+• 영양 최적화: 커즈와일은 하루 약 100가지 보충제 복용
+• 생활 습관: 저혈당 식단·규칙적 운동·스트레스 관리
+• 목표: 2단계가 성숙하는 10~20년 후까지 살아있기
+
+2단계 (10~20년 후): 생명공학 혁명
+• 유전자 편집으로 노화 관련 유전자 수정
+• 노화 세포 제거(세노리틱스)
+• 역분화 줄기세포로 조직 재생
+• 유전자 치료로 유전 질환 근치
+
+3단계 (20~30년 후): 나노기술
+• 혈류 속 나노봇이 세포 수준 의료 수행
+• 면역 시스템을 나노봇이 보강·대체
+• 장수 탈출 속도(LEV) 달성</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">각 단계의 현재 상황:
+
+1단계: 이미 가능하다. 예방 의학·영양 최적화·운동이 기대 수명을 연장할 수 있다는 증거가 풍부하다.
+
+2단계: 지금 가속 중이다.
+• 유전자 치료 최초 FDA 승인(겸상 적혈구 빈혈증 근치)
+• 역분화 줄기세포 임상 연구 진행
+• 노화 세포 제거 임상 시험 시작
+
+3단계: 연구 단계이지만 발전 중.
+• 나노 약물 전달 시스템(mRNA 백신 등)이 이미 실용화
+• 나노봇 전임상 연구 단계
+
+핵심 메시지: 1단계가 2단계까지, 2단계가 3단계까지 연결한다. 지금 살아있는 것이 중요하다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">접이식 다리의 비유: 강을 건너려면 다리가 필요하다. 아직 완성된 다리가 없지만—임시 다리(1단계)로 강의 중간 지점까지 가면, 거기서 더 나은 다리(2단계)로 갈아탈 수 있다. 2단계에서 최종 목적지(특이점)까지의 완전한 다리(3단계)가 완성된다.
+
+커즈와일의 핵심 메시지: 임시 다리(1단계)를 무시하지 마라. 그것이 더 나은 다리들을 기다리는 동안 살아있게 해준다.
+
+그리고 수확 가속의 법칙이 이 전환을 보장한다: 기본적인 기하급수적 증가 추세에 달려있기 때문에, 세부 가정이 크게 변해도 그 단계에 이르는 시점에는 큰 변화가 없을 것이다.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 3 · 우리 자신의 생존은 신체 어느 부위의 생존에 달려있지 않다</p>
+        <p class="pn">점진적 기질 교체와 패턴 정체성이 연결되는 부분을 찾아보세요. 인공 심장·나노봇 면역 세포·디지털 신피질로의 점진적 교체가 논의되는 단락입니다. 3장의 '나는 누구인가'와 6장의 의료 기술이 만나는 지점입니다. '기질 교체' '패턴' '정체성' '연속성'이 키워드입니다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">커즈와일의 3장 논증이 6장에서 의료적 함의를 갖는다:
+
+3장: '나'는 특정 물질이 아니라 정보 패턴이다.
+6장: 따라서 생물학적 기질을 기술적인 것으로 교체해도—패턴이 유지되는 한 '나'는 존속한다.
+
+이미 일어나고 있는 교체들:
+• 심장 박동기·인공 심장 → 나는 여전히 나다
+• 인공 관절·인공 와우·인공 망막 → 나는 여전히 나다
+• 나노봇이 면역 세포를 대체한다 → 나는 여전히 나다
+• 디지털 신피질이 생물학적 신피질을 보완한다 → 나는 여전히 나다
+
+커즈와일의 결론: 우리 자신의 생존은 신체 어느 특정 부위의 생존 여부에 달려있지 않다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">이것이 6장에서 가장 중요한 철학적·실천적 질문을 만든다:
+
+수용의 문제: 인공 심장을 가진 사람은 쉽게 받아들인다. 그런데 AI가 보완하는 뇌를 가진 사람은? 나노봇이 면역 시스템을 대체한 사람은?
+
+직관의 저항: 우리는 '뇌'가 '나'라는 직관을 갖고 있다. 심장이 교체돼도 '나'라고 느끼지만—뇌가 교체되면 '나'일까?
+
+커즈와일의 답: 점진적으로 일어나면—패턴이 유지되므로 연속성이 있다. 3장의 점진적 대체 사고실험이 여기서 의료적 현실이 된다.
+
+핵심 수용의 과제: 특이점을 향한 여정에서, 우리는 자신의 생물학적 구성이 점점 더 많이 기술로 대체되는 것을 어떻게 받아들일 것인가?</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">테세우스의 배(3장) + 의료 기술(6장):
+3장에서 배의 판자가 하나씩 교체돼도 같은 배인지를 물었다. 6장에서는 이 질문이 실제 의료 기술로 온다.
+
+이미 받아들여진 것:
+심장 박동기(전기 신호로 심장 조절)→인공 심장(기계가 혈액 펌핑)→나노봇 면역 세포(기계가 면역 기능 수행)→디지털 신피질(AI가 인지 기능 보완)
+
+각 단계가 이전 단계와 '질적으로' 다른가—아니면 정도의 차이인가?
+
+커즈와일의 답: 정도의 차이다. 패턴이 유지되는 한, 어느 단계도 '나'가 아닌 존재가 되는 단절점이 없다.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── 논증 구조 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">논증 구조</p>
+    <h2>커즈와일은 이렇게 밀고 나갑니다</h2>
+    <p class="intro">핵심 전환에서 출발해 전략과 기술 수렴을 거쳐 핵심 질문과 견고성으로 닿습니다. 동의하든 아니든, <b>이 뼈대를 정확히 붙들면</b> 북토크에서 제대로 되물을 수 있습니다.</p>
+    <div class="steps">
+
+      <div class="step">
+        <span class="sn">핵심 전환</span>
+        <p class="st">생물학이 정보 기술이 됐다</p>
+        <p class="sb">6장의 출발점: 하나의 패러다임 전환.
+
+이전: 의학은 화학이었다. 원인을 이해하지 못한 채 증상을 치료했다.
+지금: 의학은 정보 기술이 되고 있다. DNA를 읽고, 유전자를 편집하고, 세포를 재프로그래밍한다.
+
+전환의 증거:
+유전체 분석 비용: 2001년 $3억 → 2023년 $200 이하
+유전자 치료: 겸상 적혈구 빈혈증 근치(2023)
+역분화 줄기세포: 노화 세포를 젊은 상태로 역전(동물 실험)
+
+이 전환이 의미하는 것: 수확 가속의 법칙이 의료에 적용되기 시작했다. 그리고 이 가속은 이제 막 시작됐다.</p>
+        <span class="sk">생물학 = 정보 기술 = 수확 가속의 법칙의 새로운 적용 영역</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">전략</span>
+        <p class="st">세 단계—특이점까지 살아있기 위한 경로</p>
+        <p class="sb">커즈와일의 실용적 전략:
+
+1단계 (지금~): 현재 최선의 예방 의학
+공격적 바이오마커 모니터링, 영양 최적화, 생활 습관 개선
+→ 커즈와일 자신이 하루 약 100가지 보충제를 복용
+
+2단계 (10~20년 후): 생명공학 혁명
+노화 세포 제거, 유전자 편집, 역분화 줄기세포
+→ 이미 시작된 기술들이 성숙해지는 단계
+
+3단계 (20~30년 후): 나노기술
+혈류 속 나노봇이 세포 수준 실시간 의료 수행
+→ 장수 탈출 속도(LEV) 달성
+
+핵심 논리: 각 단계가 다음 단계를 기다리는 동안 살아있게 해준다.</p>
+        <span class="sk">세 단계 = 기하급수적 기술을 기다리는 동안 살아있기 위한 연결 경로</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">기술 수렴</span>
+        <p class="st">GNR 혁명—유전공학·나노기술·로봇공학의 수렴</p>
+        <p class="sb">커즈와일의 예측: 21세기 전반기에 세 기술 혁명이 수렴한다.
+
+G (유전공학): DNA 수준에서 생명을 재프로그래밍 → 2단계의 핵심
+• 유전자 치료, 역분화 줄기세포, 노화 세포 제거
+
+N (나노기술): 분자 수준에서 의료를 수행 → 3단계의 핵심
+• 나노봇이 혈류 속에서 세포 수준 치료
+
+R (로봇공학·AI): 모든 단계를 가속 → 전체 과정의 엔진
+• AI가 신약 발견·유전자 편집·임상 연구 가속
+
+수렴의 효과: 각 기술이 독립적으로 발전해도 수명이 연장된다. 이것들이 동시에 수렴할 때—LEV를 달성한다.</p>
+        <span class="sk">GNR 수렴 = 세 단계가 완성되는 기술적 근거</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">핵심 질문</span>
+        <p class="st">우리 자신의 생존은 신체 어느 부위의 생존에 달려있지 않다</p>
+        <p class="sb">커즈와일이 6장에서 제기하는 가장 깊은 질문:
+
+'나'는 특정 생물학적 기질이 아니라 정보 패턴이다(3장). 따라서 생물학적 부위를 기술적인 것으로 교체해도—패턴이 유지되는 한 '나'는 존속한다.
+
+이미 받아들인 것들:
+심장 박동기 → '나는 여전히 나다'
+인공 관절·인공 와우 → '나는 여전히 나다'
+
+앞으로 받아들여야 할 것들:
+나노봇이 면역 세포를 대체한다 → '나는 여전히 나다'?
+AI가 신피질을 보완한다 → '나는 여전히 나다'?
+
+커즈와일의 답: 점진적으로 일어나면 연속성이 있다. 우리 자신의 생존이 신체 어떤 부위의 생존 여부에 좌우되지 않는다는 것—이것이 세 단계 전략의 철학적 기반이다.</p>
+        <span class="sk">생물학적 기질의 교체 = 나의 소멸이 아니라 나의 연장</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">견고성</span>
+        <p class="st">기하급수적 추세의 견고성—세부 가정이 변해도 방향은 변하지 않는다</p>
+        <p class="sb">커즈와일의 핵심 주장: 이 미래는 기본적인 기하급수적 증가 추세에 달려있기 때문에—특정 기술이 예상보다 느리게 발전해도 전체 방향은 변하지 않는다.
+
+이유:
+• 수확 가속의 법칙은 특정 기술이 아니라 기술 발전 전체에 적용된다
+• 하나의 경로가 막히면 다른 경로가 열린다
+• G·N·R 중 하나가 느려도 나머지가 가속한다
+
+따라서: 설령 우리 자신의 디지털화가 얼마나 쉽게 일어날 것인가에 대한 가정이 크게 변하더라도, 그 단계에 이르는 시점에는 큰 변화가 없을 것이다.
+
+이것이 커즈와일이 구체적인 불확실성을 인정하면서도 전체 방향에 대해 낙관하는 이유다.</p>
+        <span class="sk">기하급수적 추세의 견고성 = 세부 예측이 틀려도 전체 방향은 맞다</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 세 입장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">이 장을 둘러싼 세 입장</p>
+    <h2>같은 자료를 보고 다르게 말하는 사람들</h2>
+    <p class="intro">커즈와일만 읽으면 그의 자리가 보이지 않습니다. 양옆에 누가 서 있는지 알아야 그가 어디에 서 있는지 보입니다.</p>
+
+    <div class="pos">
+      <p class="pl">급진적 수명 연장론<span class="ps">커즈와일·오브리 드 그레이</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">노화는 해결 가능한 기술적 문제다. 생물학이 정보 기술이 되면서 수확 가속의 법칙이 적용된다. 세 단계 전략으로 2030년대 LEV 달성이 가능하다. 지금 살아있는 사람들이 사실상 마지막으로 죽는 세대가 될 수 있다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">비판: 기술 낙관론이 의학적 현실을 과대평가한다. 임상 시험은 예상보다 항상 느리다. 동물 실험 결과가 인간에게 그대로 적용되지 않는 경우가 많다.</p>
+      <p class="qt">커즈와일·테리 그로스만 《환상적인 여정》(Fantastic Voyage, 2004)
+커즈와일 《마침내 특이점이 시작된다》(2024) 제6장</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">생명윤리적 우려<span class="ps">샌델·후쿠야마</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">급진적 수명 연장은 인간 조건의 근본을 바꾼다. 죽음의 부재는 삶의 의미를 어떻게 바꾸는가? 불평등한 접근이 '수명 카스트'를 만들 수 있다. 유한성이 인간을 인간답게 만드는 요소일 수 있다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일의 응답: 모든 의료 기술은 처음에 불평등하게 분배됐지만 결국 민주화됐다. 그리고 죽음이 '의미'를 주는가—아니면 죽음을 극복하는 것이 더 큰 의미인가?</p>
+      <p class="qt">마이클 샌델 《완벽에 대한 반론》(2007)
+프랜시스 후쿠야마 《부자의 유전자, 가난한 자의 유전자》(2002)</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">현실주의적 접근<span class="ps">노화 과학자들의 신중론</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">노화 연구가 빠르게 발전하고 있다는 것은 사실이다. 그러나 복잡계 생물학은 예측하기 어렵다. 더 현실적인 목표는 건강하게 사는 시간(건강 수명)을 늘리는 것이다. LEV의 타임라인에 회의적이다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일과의 공통점: 기술이 의미 있는 수명 연장을 가져올 것이다. 차이점: 30년이라는 타임라인과 LEV 달성 가능성에 대한 구체적 예측에 회의적이다.</p>
+      <p class="qt">NIH 국립노화연구소(NIA): 건강 수명 연장 중심 접근
+다수의 노화 연구자들: 타임라인 신중론</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 확인 문제 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">스스로 확인하기</p>
+    <h2>네 문제로 되짚기</h2>
+    <p class="intro">맞히는 것이 목적이 아닙니다. <b>틀린 문제가 있다면 그 대목을 다시 펼치라는 신호</b>입니다.</p>
+
+    <div class="quiz">
+      <p class="qq">커즈와일이 6장에서 말하는 '세 단계' 전략에서 1단계가 중요한 이유로 가장 적절한 것은?</p>
+      <ol>
+        <li>현재 의학 기술이 완벽하기 때문에</li>
+        <li>영양 보충제와 예방 의학으로 2단계 생명공학이 성숙하는 10~20년 후까지 살아있기 위한 전략이기 때문에</li>
+        <li>1단계가 노화를 완전히 역전시킬 수 있기 때문에</li>
+        <li>커즈와일이 건강보조식품 회사를 소유하고 있기 때문에</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>커즈와일의 세 단계 논리: 1단계(현재의 예방 의학)가 2단계(생명공학 혁명)까지, 2단계가 3단계(나노기술)까지 살아있게 해주는 연결 역할을 한다. 1단계 자체가 노화를 역전시키지는 못하지만—2단계 기술이 성숙할 때까지 살아있는 것이 목표다. 이것이 '세 단계가 다리처럼 연결된다'는 커즈와일의 전략적 프레임이다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">커즈와일이 '생물학 = 정보 기술'이라는 주장의 가장 강력한 증거로 제시하는 것은?</p>
+      <ol>
+        <li>생물학을 공부하면 컴퓨터를 잘할 수 있다</li>
+        <li>유전체 분석 비용이 2001년 약 $3억에서 2023년 약 $200 이하로 감소했다—수확 가속의 법칙이 생물학에 적용되고 있다는 증거</li>
+        <li>생물학 연구소에서 컴퓨터를 많이 사용한다</li>
+        <li>인체의 신경계가 전기 신호를 사용한다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>유전체 분석 비용의 극적 하락($3억 → $200 이하)은 수확 가속의 법칙이 생물학에 적용되고 있다는 가장 강력한 증거다. 무어의 법칙을 능가하는 속도로 비용이 하락하는 이것은—생물학이 정보 기술이 됐을 때 일어나는 전형적 패턴이다. 커즈와일은 이것이 이전에 다른 정보 기술 분야에서 본 것과 같은 패턴이라고 강조한다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">커즈와일이 6장에서 주장하는 '우리 자신의 생존은 신체 어느 부위의 생존에 달려있지 않다'는 명제와 가장 직접적으로 연결된 개념은?</p>
+      <ol>
+        <li>나의 생존은 뇌의 생존에 달려있다</li>
+        <li>3장의 패턴 정체성 이론—'나'는 특정 물질이 아니라 정보 패턴이므로, 기질이 교체돼도 패턴이 유지되면 존속한다</li>
+        <li>나는 몸 전체가 살아있어야 '나'다</li>
+        <li>디지털 복사본은 '나'가 아니다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>커즈와일의 6장 논증은 3장의 패턴 정체성 이론을 의료에 적용한 것이다. '나'는 특정 생물학적 기질(심장·뉴런·면역 세포)이 아니라 그것들이 이루는 정보 패턴이다. 따라서 심장 박동기·인공 관절·나노봇 면역 세포·디지털 신피질로 점진적으로 교체해도—패턴이 유지되는 한 '나'는 존속한다. 이것이 '신체 어느 부위의 생존에 달려있지 않다'는 주장의 근거다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">커즈와일이 말하는 '장수 탈출 속도(LEV)'의 개념으로 가장 적절한 것은?</p>
+      <ol>
+        <li>100세 이상 사는 것을 목표로 하는 전략</li>
+        <li>과학이 매년 남은 기대 수명을 1년 이상 연장하는 시점—이 시점이 되면 죽음이 계속 후퇴한다</li>
+        <li>로켓이 지구 중력을 벗어나는 속도</li>
+        <li>특정 나이에 노화가 완전히 멈추는 현상</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>장수 탈출 속도(LEV): 과학이 매년 남은 기대 수명을 1년 이상 연장하는 속도에 도달하면—죽음이 계속 후퇴한다. 커즈와일은 세 단계가 순서대로 성숙하면서 2030년대 초 LEV 달성이 가능하다고 예측한다. 현재 기대 수명 증가 속도(연 약 3개월)가 LEV(연 1년 이상)에 도달하려면—생명공학 기술들의 기하급수적 발전이 임계점을 넘어야 한다.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── 북토크 질문 ── -->
+<section class="talk">
+  <div class="wrap">
+    <p class="kicker">북토크에서 나눌 질문</p>
+    <h2>답을 준비하지 마세요.<br>걸리는 것 하나만 골라 두세요</h2>
+    <p class="intro">8월 31일 북토크 2부에서 각자 <b>밑줄 한 문장과 질문 한 줄</b>을 내놓습니다. 아래 다섯 중 하나가 그 씨앗이 되어도 좋습니다.</p>
+
+    <div class="tq">
+      <span class="n">1</span>
+      <p class="qx">커즈와일은 '우리 자신의 생존이 신체 어떤 부위의 생존 여부에 좌우되지 않는다'고 말합니다. 심장 박동기를 가진 사람은 이미 이 명제를 몸으로 살고 있습니다. 당신은 어디까지 받아들일 수 있습니까—나노봇 면역 세포? AI가 보완하는 기억? 디지털 신피질?</p>
+      <p class="hint">어느 지점에서 불편함이 시작됩니까? 그 불편함이 논리적 근거를 가진 것입니까, 아니면 익숙함의 문제입니까? 심장 박동기와 AI 신피질의 차이는 무엇입니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">2</span>
+      <p class="qx">커즈와일은 하루 약 100가지 보충제를 복용하며 1단계를 실천합니다. '2단계 기술이 올 때까지 살아있기 위해'입니다. 당신은 지금 당신의 몸에 얼마나 투자하고 있습니까? 그리고 그 투자의 근거는 무엇입니까?</p>
+      <p class="hint">예방 의학을 '기술을 기다리는 전략'으로 보면—건강 관리의 의미가 바뀝니까? 아니면 그 프레임이 과도합니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">3</span>
+      <p class="qx">장수 탈출 속도(LEV)가 달성되어 수명이 사실상 무한히 연장된다면—하지만 그 혜택이 처음에는 소수에게만 돌아간다면—이것은 어떤 세계를 만들겠습니까? 그리고 그 불평등은 어떻게 다뤄야 합니까?</p>
+      <p class="hint">민주주의는 세대 교체를 전제합니다. 500세 노인과 20세 청년이 같은 사회에서 산다면—권력·경제·문화는 어떻게 작동합니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">4</span>
+      <p class="qx">커즈와일은 생물학이 정보 기술이 됐기 때문에—노화는 '수정 가능한 소프트웨어 버그'라고 말합니다. 죽음을 '기술적 문제'로 보는 시각이 삶을 살아가는 방식에 어떤 영향을 미칩니까?</p>
+      <p class="hint">유한성을 알기 때문에 지금 이 순간이 소중하다는 감각—이것이 수명이 연장된다면 어떻게 달라집니까? 더 잘 살게 됩니까, 아니면 지금을 덜 소중히 여기게 됩니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">5</span>
+      <p class="qx">커즈와일은 '이 미래는 기본적인 기하급수적 증가 추세에 달려있기 때문에, 세부 가정이 크게 변해도 그 단계에 이르는 시점에는 큰 변화가 없을 것이다'라고 말합니다. 이 기하급수적 추세에 대한 믿음이 당신에게 얼마나 설득력이 있습니까? 그 믿음이 지금 당신의 삶에서 어떤 결정을 바꿀 수 있습니까?</p>
+      <p class="hint">기하급수적 추세가 실재한다면—지금 건강에 투자하는 것은 단순한 자기 관리가 아니라 '특이점까지 살아있기 위한 전략'이 됩니다. 이 프레임이 당신의 일상적 선택에 영향을 미칩니까?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 다음 층 ── -->
+<div class="next">
+  <div class="wrap">
+    <p class="nx">다음 — 토·일은 진도를 비웠습니다. 8. 24(월)부터 <b>층 07 · 위험</b></p>
+    <p>6장을 다 읽지 못했다면 주말에 따라잡습니다. 다 읽었다면 가장 오래 붙잡았던 한 문장만 어딘가에 옮겨 적어 두세요. 마지막 주에 이 문장들이 필요해집니다.</p>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    함께읽기 ON · 레이 커즈와일 『마침내 특이점이 시작된다』 읽기 안내<br>
+    층 06 · 생명 — 2026. 8. 20(목) · 21(금)
+  </div>
+</div>
+
+</body></html>

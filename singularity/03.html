@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>함께읽기 ON · 읽기 안내 — 3장 정체성</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="함께읽기ON">
+<meta property="og:title" content="함께읽기 ON · 읽기 안내 — 마침내 특이점이 시작된다 3장 정체성">
+<meta property="og:description" content="8. 10(월) · 11(화) — 나는 무엇으로 이어지는가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EDE4; --paper-2:#EAE3D6; --card:#FBF8F2;
+    --ink:#17262B; --ink-soft:#4B5C61; --ink-faint:#8A9799;
+    --deep:#12262E; --deep-2:#0C1A21; --deep-card:#1B3540;
+    --teal:#7FD4D8; --teal-ink:#256A74; --teal-soft:#C3E8EA;
+    --coral:#E8785A; --coral-deep:#CE5537;
+    --rule:#D9D1C3; --rule-soft:#E6DFD2;
+    --sans:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    --serif:"Nanum Myeongjo","Noto Serif KR","Batang",serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    line-height:1.8; letter-spacing:-.003em;}
+  .wrap{max-width:52rem; margin:0 auto; padding:0 clamp(1.15rem,4.5vw,2.6rem);}
+
+  /* ── 표지 ── */
+  .hero{background:var(--deep); color:var(--paper);
+    padding:clamp(2.8rem,7vw,4.6rem) 0 clamp(2.4rem,6vw,3.6rem);}
+  .hero .top{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;
+    margin-bottom:1.9rem;}
+  .brand{display:inline-block; font-size:.66rem; font-weight:900; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--deep); background:var(--teal);
+    padding:.36rem .55rem .3rem .8rem;}
+  .days{font-size:.72rem; font-weight:700; letter-spacing:.16em; color:var(--coral);}
+  .layernum{display:flex; align-items:baseline; gap:.75rem; margin-bottom:.4rem;}
+  .layernum .lb{font-size:.68rem; font-weight:900; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--teal);}
+  .layernum .nn{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:clamp(2.4rem,7vw,3.6rem); line-height:1; color:var(--coral);}
+  .hero h1{font-size:clamp(2rem,6.4vw,3.4rem); font-weight:900; line-height:1.2;
+    letter-spacing:-.025em;}
+  .hero .q{font-size:clamp(1rem,2.4vw,1.28rem); color:var(--teal); font-weight:700;
+    margin-top:.9rem;}
+  .hero .one{font-family:var(--serif); font-size:clamp(1.02rem,2.5vw,1.3rem);
+    line-height:1.85; color:rgba(242,237,228,.9); margin-top:1.7rem;
+    border-left:3px solid var(--coral); padding-left:1.2rem; max-width:40rem;}
+
+  /* 층 진행 표시 — 아래는 두껍고 위로 갈수록 촘촘 (가속) */
+  .stack{display:flex; flex-direction:column-reverse; gap:2px; margin-top:2.2rem;
+    max-width:22rem;}
+  .stack .bar{position:relative; background:rgba(127,212,216,.16);
+    border-left:2px solid rgba(127,212,216,.35);}
+  .stack .bar span{position:absolute; left:.55rem; top:50%; transform:translateY(-50%);
+    font-size:.6rem; font-weight:700; letter-spacing:.1em; color:rgba(242,237,228,.5);}
+  .stack .bar.on{background:var(--coral); border-left-color:var(--coral);}
+  .stack .bar.on span{color:#fff;}
+  .stack .b1{height:1.55rem;} .stack .b2{height:1.4rem;} .stack .b3{height:1.26rem;}
+  .stack .b4{height:1.13rem;} .stack .b5{height:1.01rem;} .stack .b6{height:.9rem;}
+  .stack .b7{height:.8rem;}  .stack .b8{height:.71rem;}
+  .stack-cap{font-size:.7rem; color:rgba(242,237,228,.45); margin-top:.7rem;
+    letter-spacing:.04em;}
+
+  /* ── 섹션 ── */
+  section{padding:clamp(2.6rem,6.5vw,4.2rem) 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .kicker{display:flex; align-items:center; gap:.7rem; font-size:.68rem; font-weight:900;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--teal-ink);
+    margin-bottom:.95rem;}
+  .kicker::after{content:""; flex:1; height:1px; background:var(--rule);}
+  h2{font-size:clamp(1.44rem,3.7vw,2.05rem); font-weight:900; line-height:1.34;
+    letter-spacing:-.02em; margin-bottom:.75rem;}
+  .intro{font-size:clamp(.98rem,2.15vw,1.12rem); color:var(--ink-soft); max-width:44rem;
+    margin-bottom:1.7rem;}
+  p b{font-weight:700; color:var(--ink);}
+  .hl{background:linear-gradient(transparent 60%, var(--teal-soft) 60%); padding:0 .1em;
+    font-weight:700; color:var(--ink);}
+
+  /* ── 개념 단어장 (눌러서 펼치기) ── */
+  .terms{display:grid; gap:.7rem;}
+  @media(min-width:800px){ .terms{grid-template-columns:1fr 1fr; align-items:start;} }
+  .term{background:var(--card); border:1px solid var(--rule-soft);
+    border-left:3px solid var(--teal-ink);}
+  .term > summary{cursor:pointer; list-style:none; padding:1rem 2.6rem 1.05rem 1.2rem;
+    position:relative;}
+  .term > summary::-webkit-details-marker{display:none;}
+  .term > summary::after{content:"+"; position:absolute; right:1rem; top:.95rem;
+    width:1.4rem; height:1.4rem; border:1px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.95rem; font-weight:700; color:var(--teal-ink); background:var(--paper);}
+  .term[open] > summary::after{content:"−"; background:var(--teal-ink); color:#fff;
+    border-color:var(--teal-ink);}
+  .term > summary:hover::after{border-color:var(--teal-ink);}
+  .term .w{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.35;
+    letter-spacing:-.015em;}
+  .term .la{display:block; font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:.88rem; color:var(--ink-faint); margin-top:.12rem; letter-spacing:.02em;}
+  .term .k{display:block; font-size:clamp(.88rem,1.9vw,.98rem); font-weight:700;
+    color:var(--teal-ink); margin-top:.5rem; line-height:1.6;}
+  .term .body{padding:0 1.2rem 1.2rem; border-top:1px dashed var(--rule-soft);
+    margin:0 1.2rem; padding:.9rem 0 1.15rem;}
+  .term .d{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);
+    white-space:pre-line;}
+  .term .ex{font-size:clamp(.88rem,1.9vw,.98rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.85rem; padding:.7rem .85rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+  .term .ex::before{content:"보기"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--coral-deep); margin-bottom:.3rem;}
+  .terms-cap{font-size:.8rem; color:var(--ink-faint); margin-bottom:.9rem;}
+  /* ── 핵심 논점 ── */
+  .passage{border:1px solid var(--rule); background:var(--card); margin-bottom:1.3rem;}
+  .passage > .ph{padding:1.15rem 1.35rem; border-bottom:1px solid var(--rule-soft);
+    background:var(--paper-2);}
+  .passage .pt{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.5;
+    letter-spacing:-.015em;}
+  .passage .pn{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.6rem;}
+  .passage .pn::before{content:"찾아 읽을 곳"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--teal-ink); margin-bottom:.3rem;}
+  .lay{padding:1.1rem 1.35rem; border-bottom:1px dashed var(--rule-soft);}
+  .lay:last-child{border-bottom:none;}
+  .lay .ll{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:#fff; background:var(--teal-ink); padding:.2rem .55rem; margin-bottom:.55rem;}
+  .lay:nth-child(3) .ll{background:var(--coral-deep);}
+  .lay:nth-child(4) .ll{background:#6D7F6A;}
+  .lay .lt{font-size:clamp(.94rem,2vw,1.05rem); line-height:1.9; color:var(--ink-soft);
+    white-space:pre-line;}
+
+  /* ── 논증 구조 ── */
+  .steps{position:relative; padding-left:1.6rem;}
+  .steps::before{content:""; position:absolute; left:.36rem; top:.6rem; bottom:.6rem;
+    width:2px; background:linear-gradient(var(--teal-ink),var(--coral));}
+  .step{position:relative; margin-bottom:1.15rem;}
+  .step:last-child{margin-bottom:0;}
+  .step::before{content:""; position:absolute; left:-1.6rem; top:.62rem; width:.78rem;
+    height:.78rem; border-radius:50%; background:var(--paper);
+    border:2px solid var(--teal-ink);}
+  .step:last-child::before{border-color:var(--coral); background:var(--coral);}
+  .step .sn{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:var(--teal-ink); background:var(--teal-soft); padding:.2rem .55rem;}
+  .step .st{font-size:clamp(1.02rem,2.2vw,1.16rem); font-weight:900; line-height:1.5;
+    margin-top:.45rem; letter-spacing:-.015em;}
+  .step .sb{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.9; color:var(--ink-soft);
+    margin-top:.5rem; white-space:pre-line;}
+  .step .sk{display:block; font-size:clamp(.88rem,1.9vw,.97rem); font-weight:700;
+    color:var(--ink); margin-top:.7rem; padding:.55rem .8rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+
+  /* ── 세 입장 ── */
+  .pos{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.95rem;}
+  .pos .pl{font-size:clamp(1.04rem,2.3vw,1.2rem); font-weight:900; letter-spacing:-.015em;}
+  .pos .ps{font-size:.84rem; font-weight:400; color:var(--ink-faint); margin-left:.5rem;
+    letter-spacing:.02em;}
+  .pos .lab{display:block; font-size:.6rem; font-weight:900; letter-spacing:.18em;
+    color:var(--teal-ink); margin:.85rem 0 .3rem;}
+  .pos .lab.b{color:var(--coral-deep);}
+  .pos .tx{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);}
+  .pos .qt{font-family:var(--serif); font-size:clamp(.86rem,1.85vw,.95rem); line-height:1.75;
+    color:var(--ink-faint); margin-top:.85rem; padding-top:.7rem;
+    border-top:1px solid var(--rule-soft); white-space:pre-line;}
+
+  /* ── 확인 문제 ── */
+  .quiz{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.9rem;}
+  .quiz .qq{font-size:clamp(1rem,2.15vw,1.12rem); font-weight:900; line-height:1.65;
+    letter-spacing:-.01em;}
+  .quiz ol{list-style:none; counter-reset:o; margin-top:.8rem;}
+  .quiz li{counter-increment:o; position:relative; padding-left:2rem; margin-bottom:.45rem;
+    font-size:clamp(.9rem,1.95vw,1rem); line-height:1.75; color:var(--ink-soft);}
+  .quiz li::before{content:counter(o); position:absolute; left:0; top:.15rem;
+    width:1.35rem; height:1.35rem; border:1px solid var(--rule); border-radius:50%;
+    font-size:.72rem; font-weight:700; color:var(--ink-faint);
+    display:flex; align-items:center; justify-content:center;}
+  .quiz details{margin-top:.9rem; border-top:1px solid var(--rule-soft); padding-top:.85rem;}
+  .quiz summary{cursor:pointer; font-size:.78rem; font-weight:900; letter-spacing:.14em;
+    color:var(--teal-ink); list-style:none;}
+  .quiz summary::-webkit-details-marker{display:none;}
+  .quiz summary::before{content:"▸ "; color:var(--coral);}
+  .quiz details[open] summary::before{content:"▾ ";}
+  .quiz .ans{font-size:clamp(.9rem,1.95vw,1rem); line-height:1.85; color:var(--ink-soft);
+    margin-top:.65rem;}
+  .quiz .ans b{color:var(--coral-deep);}
+
+  /* ── 북토크 질문 ── */
+  .talk{background:var(--deep); color:var(--paper);}
+  .talk .kicker{color:var(--teal);}
+  .talk .kicker::after{background:rgba(127,212,216,.28);}
+  .talk h2{color:var(--paper);}
+  .talk .intro{color:rgba(242,237,228,.78);}
+  .tq{border-left:3px solid var(--coral); padding:.2rem 0 .2rem 1.2rem;
+    margin-bottom:1.5rem;}
+  .tq:last-child{margin-bottom:0;}
+  .tq .n{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:1.15rem; color:var(--coral);}
+  .tq .qx{font-size:clamp(1rem,2.2vw,1.16rem); font-weight:700; line-height:1.8;
+    margin-top:.15rem;}
+  .tq .hint{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8;
+    color:rgba(242,237,228,.68); margin-top:.6rem;}
+  .tq .hint::before{content:"실마리 — "; color:var(--teal); font-weight:700;}
+
+  /* ── 꼬리 ── */
+  .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
+  .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
+  .next p{font-size:clamp(.92rem,1.95vw,1.02rem); color:var(--ink-soft); margin-top:.45rem;}
+  .foot{background:var(--deep-2); color:rgba(242,237,228,.55); padding:1.7rem 0;
+    font-size:.72rem; letter-spacing:.1em; line-height:1.9;}
+
+  @media print{
+    @page{margin:12mm;}
+    html,body{print-color-adjust:exact; -webkit-print-color-adjust:exact;}
+    section,.term,.passage,.step,.pos,.quiz{break-inside:avoid;}
+    details{display:block;} details > *{display:block !important;}
+    .term > summary::after{display:none !important;}
+    .terms-cap{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 표지 ── -->
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <span class="brand">함께읽기 O N · 읽기 안내</span>
+      <span class="days">8. 10(월) · 11(화)</span>
+    </div>
+    <div class="layernum">
+      <span class="lb">Layer</span><span class="nn">03</span>
+    </div>
+    <h1>정체성</h1>
+    <p class="q">나는 무엇으로 이어지는가</p>
+    <p class="one">나는 특정 물질이 아니라 패턴이다. 그리고 패턴이라면 — 수정할 수 있다.</p>
+    <div class="stack">
+      <div class="bar b8"><span>08</span></div>
+      <div class="bar b7"><span>07</span></div>
+      <div class="bar b6"><span>06</span></div>
+      <div class="bar b5"><span>05</span></div>
+      <div class="bar b4"><span>04</span></div>
+      <div class="bar b3 on"><span>03</span></div>
+      <div class="bar b2"><span>02</span></div>
+      <div class="bar b1"><span>01</span></div>
+    </div>
+    <p class="stack-cap">아래가 첫 층입니다. 위로 갈수록 층이 얇고 촘촘해집니다 — 가속의 모양입니다.</p>
+  </div>
+</header>
+
+<!-- ── 개념 단어장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">개념 단어장</p>
+    <h2>먼저 알아 둘 열다섯 단어</h2>
+    <p class="intro">읽기 전에 한 번, 읽고 나서 한 번 더 훑어 보세요. 두 번째에는 다르게 읽힙니다.</p>
+    <p class="terms-cap">단어를 누르면 설명과 보기가 펼쳐집니다.</p>
+    <div class="terms">
+
+      <details class="term">
+        <summary>
+          <p class="w">패턴 정체성 이론<span class="la">Pattern Identity Theory</span></p>
+          <span class="k">나는 물질이 아니라 패턴이다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일의 핵심 주장. '나'의 정체성은 특정 물질(탄소 원자·뉴런)이 아니라 그것들이 이루는 정보 패턴에 있다. 패턴이 유지되는 한—기판이 바뀌어도 나는 '나'다.
+          
+          근거: 인간의 몸을 이루는 원자들은 7~10년마다 대부분 교체된다. 우리는 이미 물질적으로 다른 존재지만 '나'라는 연속성을 경험한다. 정체성은 패턴의 연속성에서 온다.</p>
+          <p class="ex">강물은 매 순간 다른 물 분자로 이루어지지만 '한강'이라는 정체성을 유지한다. 멜로디도 피아노로, 오케스트라로, 합성 음악으로 연주해도 같은 곡이다. 어떤 물질이 아니라 관계 패턴이 정체성이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">테세우스의 배<span class="la">Ship of Theseus</span></p>
+          <span class="k">부품이 전부 바뀌면 같은 배인가</span>
+        </summary>
+        <div class="body">
+          <p class="d">고대 그리스의 역설. 테세우스의 배가 항해하면서 낡은 판자를 하나씩 새것으로 교체한다. 모든 판자가 교체되면—이것은 여전히 테세우스의 배인가?
+          
+          커즈와일의 적용: 우리 몸의 세포가 점진적으로 교체될 때도 같은 역설이 적용된다. 뉴런이 나노봇으로 점진적으로 대체된다면—역설은 더 날카로워진다.</p>
+          <p class="ex">할아버지의 도끼: 자루를 세 번 바꾸고 날을 두 번 바꿨다. 여전히 '할아버지의 도끼'인가? 정체성의 기준이 물질이라면 아니다. 기억·역사·연속성이라면 그렇다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">기억과 정체성<span class="la">Memory &amp; Identity · Locke 1689</span></p>
+          <span class="k">기억이 끊기면 나는 다른 사람인가</span>
+        </summary>
+        <div class="body">
+          <p class="d">존 로크 《인간 오성론》(1689): 개인 정체성의 기반은 기억의 연속성이다. 어제의 나와 오늘의 나를 연결하는 것은 기억이다.
+          
+          문제: 알츠하이머로 기억이 소멸되면 정체성도 소멸되는가? 수면 중 의식이 중단되어도 기억이 유지되면 연속성이 있는가?</p>
+          <p class="ex">알츠하이머 환자: 기억이 소멸되어도 성격·감정 반응·음악 취향은 남는다. 이것이 정체성의 잔존인가? 로크의 기억 이론은 이 경우를 설명하지 못한다—커즈와일의 패턴 정체성 이론은 더 넓은 설명을 제공한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">감각질<span class="la">Qualia</span></p>
+          <span class="k">붉음의 느낌—주관적 경험의 가장 작은 단위</span>
+        </summary>
+        <div class="body">
+          <p class="d">철학자 C.I. 루이스가 1929년 처음 사용. 주관적·질적 경험의 최소 단위. 붉은색을 보는 느낌, 커피 향의 감각, 통증의 감각—이것들은 물리적으로 환원되지 않는 '어떤 것'이다.
+          
+          AI에 대한 함의: LLM은 '붉음'에 대한 모든 정보를 처리하지만—'붉음의 느낌'을 경험하는가? 이것이 AI가 진정한 의식을 가지는지를 묻는 핵심 질문이다.</p>
+          <p class="ex">토마스 네이글 〈박쥐가 된다는 것은 어떤 것인가〉(1974): 박쥐의 반향정위를 모든 물리적으로 설명할 수 있어도—박쥐가 된다는 주관적 경험은 설명할 수 없다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">의식의 어려운 문제<span class="la">Hard Problem of Consciousness · Chalmers 1995</span></p>
+          <span class="k">왜 물리 과정이 주관적 경험을 만드는가</span>
+        </summary>
+        <div class="body">
+          <p class="d">데이비드 차머스가 1995년 명명.
+          '쉬운 문제(easy problem)': 뇌가 어떻게 정보를 처리하고 행동을 제어하는지—과학이 원칙적으로 설명 가능.
+          '어려운 문제(hard problem)': 왜 이 물리적 과정이 주관적 경험—붉음의 느낌, 통증의 감각—을 만들어내는가?
+          
+          이것은 기능적 설명으로 해결되지 않는다—이것이 AI 의식 논쟁의 핵심이다.</p>
+          <p class="ex">프랭크 잭슨의 메리(1982): 흑백 방에서 색에 관한 모든 물리적 지식을 습득한 메리가 처음 빨간 사과를 본다. 그녀는 새로운 무언가를 아는가? '그렇다'면 물리적 지식은 의식을 완전히 설명하지 못한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">범원형심론<span class="la">Panpsychism</span></p>
+          <span class="k">의식은 우주의 근본 성질이다</span>
+        </summary>
+        <div class="body">
+          <p class="d">의식이 복잡한 뇌에서만 창발하는 것이 아니라, 우주의 모든 물질에 내재된 근본 성질이라는 이론. 어려운 문제에 대한 대안적 답.
+          
+          주요 논자:
+          • 데이비드 차머스: 어려운 문제를 해결하는 대안으로 범원형심론 검토
+          • 필립 고프 《갈릴레오의 오류》(Galileo's Error, 2019): 과학이 의식을 배제한 것이 오류
+          • 통합 정보 이론(IIT·토노니): 의식의 양(Φ)은 연속적—돌멩이도 미미한 의식을 가질 수 있다
+          
+          커즈와일에 대한 함의: 범원형심론이 사실이라면 AI 의식은 '있느냐 없느냐'가 아니라 '얼마나 있느냐'의 문제다.</p>
+          <p class="ex">철학자 갤런 스트로슨: 순수한 물리주의는 자기 반박적이다. 의식이 실재한다면—그것이 물리적인 것에서 나오려면, 물리적인 것 자체에 의식이 내재해야 한다. 이것이 범원형심론의 직관적 근거다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">철학적 좀비<span class="la">Philosophical Zombie · Chalmers</span></p>
+          <span class="k">행동은 동일하지만 의식이 없는 존재가 가능한가</span>
+        </summary>
+        <div class="body">
+          <p class="d">데이비드 차머스의 사고실험. 나와 물리적으로 완전히 동일하지만—주관적 경험이 전혀 없는 존재를 상상할 수 있는가?
+          
+          이것이 논리적으로 가능하다면—의식은 물리적 과정과 별개다.
+          
+          AI에 대한 함의: 현재의 LLM은 철학적 좀비일 수 있다. 인간과 구별 불가능하게 대화하지만—내부에 아무런 경험도 없을 수 있다. 튜링 테스트는 이것을 가려내지 못한다.</p>
+          <p class="ex">차머스의 도전: 철학적 좀비가 가능하다는 것은 물리주의가 틀렸음을 의미한다. 커즈와일의 응답: 충분히 복잡한 패턴은 의식을 창발한다—그러나 이것이 어려운 문제의 해결인지는 여전히 논쟁 중이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">자아 모델 이론<span class="la">Self-Model Theory · Metzinger 2003</span></p>
+          <span class="k">'나'는 뇌가 만들어낸 모델이다</span>
+        </summary>
+        <div class="body">
+          <p class="d">토마스 메칭거 《아무도 없다》(Being No One, 2003): '나'라는 자아는 실체가 아니라 뇌가 생성하는 모델이다. 뇌는 세계 모델과 자아 모델을 동시에 생성하고, 이 자아 모델이 투명하게 경험된다—그래서 우리는 모델이 아니라 실체라고 느낀다.
+          
+          커즈와일과의 연결: 자아가 모델이라면—더 좋은 기판에서 더 정확한 모델을 실행하는 것이 곧 불멸이다.</p>
+          <p class="ex">유체이탈 경험(OBE)·환상지 통증: 뇌의 자아 모델이 잘못 작동할 때 나타나는 현상. 없는 팔에서 통증을 느낀다. 이것은 자아가 뇌의 구성물임을 보여주는 신경학적 증거다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">자유의지<span class="la">Free Will · Determinism</span></p>
+          <span class="k">결정론적 뇌가 자유의지를 가질 수 있는가</span>
+        </summary>
+        <div class="body">
+          <p class="d">리벳 실험(Benjamin Libet, 1983): 손목을 들기로 '결정'하기 약 0.35초 전에 뇌에서 이미 준비 전위가 나타난다. 의식적 결정이 신경 과정의 결과인가, 원인인가?
+          
+          현재의 한계: 우리의 행동은 진화·유전·신경화학이 만들어낸 충동에 상당 부분 지배된다. 우리는 자신의 '소스 코드'에 접근할 수 없다.
+          
+          특이점 이후: BCI와 AI를 통해 자신의 신경 패턴에 직접 접근하고 수정할 수 있다면—이것은 새로운 종류의 자유의지다.</p>
+          <p class="ex">중독: 뇌의 보상 회로가 행동을 강제한다. 의지만으로는 한계가 있다. 특이점 이후, 보상 회로의 가중치를 직접 조정할 수 있다면—중독은 다른 의미가 된다. 이것이 '소스 코드에 접속'의 실천적 의미다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">점진적 대체<span class="la">Gradual Replacement</span></p>
+          <span class="k">하나씩 바꾸면 언제 다른 존재가 되는가</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일의 핵심 사고실험. 뇌의 뉴런을 하나씩 기능적으로 동일한 나노봇으로 대체한다고 가정하자. 1% → 10% → 50% → 100%.
+          
+          각 단계에서 당신은 여전히 '당신'인가? 패턴 정체성 이론은 '그렇다'고 답한다—패턴이 유지되는 한. 이것이 디지털 불멸의 이론적 근거이며, 동시에 가장 강력한 철학적 도전 지점이다.</p>
+          <p class="ex">전신 마취에서 깨어날 때: 의식이 중단되었다 다시 켜졌다. 수면도 마찬가지다. 우리는 매일 밤 이 '중단'을 경험하면서도 연속성을 느낀다. 커즈와일: 패턴이 유지되면 연속성은 유지된다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">파핏의 정체성 논증<span class="la">Parfit's Personal Identity · 1984</span></p>
+          <span class="k">정체성보다 연속성이 중요하다</span>
+        </summary>
+        <div class="body">
+          <p class="d">데릭 파핏 《이유와 인격》(Reasons and Persons, 1984)의 핵심 주장. 개인 정체성은 전부 아니면 전무가 아니다—정도의 문제다. 중요한 것은 '동일한 인격'이냐가 아니라 심리적 연속성(기억·성격·가치의 유지)이냐다.
+          
+          텔레포터 사고실험: 정보가 화성에서 재조합된다. 지구의 원본은 소멸된다. 화성의 존재는 당신인가? 파핏: 정체성의 동일성보다 연속성이 더 중요한 질문이다.</p>
+          <p class="ex">파핏의 해방적 결론: '나'의 생존에 집착하는 것은 형이상학적 오류일 수 있다. 연속성이 유지된다면—기판이 바뀌어도 의미 있는 존속이다. 커즈와일의 패턴 정체성 이론과 직접 연결된다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">레플리컨트<span class="la">Replicant · Blade Runner</span></p>
+          <span class="k">인간과 구별 불가능한 존재는 인간인가</span>
+        </summary>
+        <div class="body">
+          <p class="d">필립 K. 딕 소설 《안드로이드는 전기양의 꿈을 꾸는가?》(1968)와 리들리 스콧 영화 《블레이드 러너》(1982)의 핵심 존재. 인간과 생물학적으로 동일하게 설계된 인공 존재.
+          
+          레플리컨트는 자신이 인간이라고 믿도록 프로그래밍된 기억을 가진다. 그렇다면 그 기억은 가짜인가? 그 기억을 가진 '나'는 가짜인가?
+          
+          커즈와일의 질문: 패턴이 동일하다면—그 패턴이 어디서 시작됐는지가 정체성에 영향을 미치는가?</p>
+          <p class="ex">레플리컨트 레이첼: 자신이 인간이라고 확신하며 실제 감정을 경험한다. '심어진 기억'이라는 사실이 그 감정의 진실성을 무효화하는가? 우리의 기억도 신경 패턴이 만들어낸 구성물이다—레이첼과 어떻게 다른가?</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">두번째 나<span class="la">Second Self / Digital Double</span></p>
+          <span class="k">디지털로 복사된 나는 나인가</span>
+        </summary>
+        <div class="body">
+          <p class="d">마음 업로드나 AI 시뮬레이션으로 만들어진 자신의 디지털 복사본. 생물학적 원본과 동시에 존재하는 경우—어느 쪽이 '진짜 나'인가?
+          
+          셰리 터클 《두번째 자아》(The Second Self, 1984): 컴퓨터가 심리적 거울이 되는 현상 분석. 디지털 자아는 현실 자아를 반영하면서 동시에 변형한다.
+          
+          특이점 이후의 문제: '두번째 나'가 존재하는 동안 생물학적 나가 사망하면—세계는 어떻게 반응해야 하는가?</p>
+          <p class="ex">소셜 미디어의 프로필, AI 아바타, 챗봇화된 자신—이미 우리는 '두번째 나'를 운영한다. 특이점 이후, 이 '두번째 나'가 의식을 가진다면—그것은 나의 연장인가, 별개의 존재인가?</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">마음 업로드<span class="la">Mind Upload · Whole Brain Emulation</span></p>
+          <span class="k">뇌를 디지털로 복사하면 나는 살아있는가</span>
+        </summary>
+        <div class="body">
+          <p class="d">전뇌 에뮬레이션(Whole Brain Emulation·WBE): 뇌의 모든 신경 연결을 스캔하고 컴퓨터에서 정확히 시뮬레이션하는 것. 닉 보스트롬·안데르스 산드버그가 체계화(2008).
+          
+          커즈와일의 선호: 점진적 대체가 연속성을 더 잘 보존한다. 갑작스런 복사-소멸보다, 하나씩 교체하면서 의식의 중단 없이 이전하는 방법.
+          
+          복사 vs 이동: 원본을 유지하며 복사하면 '두번째 나'가 생긴다. 원본을 소멸하면 이동이다—그러나 이것은 살인인가?</p>
+          <p class="ex">커즈와일의 개인적 동기: 1970년 심장병으로 돌아가신 아버지의 편지·음악·기록을 보존 중. AI로 아버지의 패턴을 재현하는 것을 목표로 한다. 이것이 아버지의 복원인가, 정교한 시뮬레이션인가?</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">디지털 불멸<span class="la">Digital Immortality</span></p>
+          <span class="k">죽음은 기술적 문제가 될 것인가</span>
+        </summary>
+        <div class="body">
+          <p class="d">패턴 정체성 이론의 논리적 귀결: 나의 패턴이 디지털 기판에서 유지된다면—생물학적 죽음 이후에도 나는 존속한다.
+          
+          더 깊은 함의: 디지털 불멸은 단순한 생존이 아니다. 자신의 소스 코드에 접속할 수 있게 되면—행동을 가치와 일치시키고, 생물학적 결함을 제거하고, 마침내 자신이 어떤 사람인지에 대해 전적으로 책임질 수 있게 된다.
+          
+          이것이 커즈와일이 말하는 진정한 불멸의 의미다—단순한 수명 연장이 아니라 도덕적 자기 결정의 완성.</p>
+          <p class="ex">지금 우리는 진화가 만들어준 충동(공포·분노·탐욕)에 의해 행동하며, 그것을 '나'라고 생각한다. 소스 코드에 접속한다는 것은—이 충동들을 직접 조율해 진정으로 원하는 사람이 될 수 있다는 것이다.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 핵심 논점 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">핵심 논점</p>
+    <h2>이 세 대목만은 직접 찾아 읽으세요</h2>
+    <p class="intro">각 논점마다 <b>핵심 주장 → 왜 중요한가 → 비유로</b> 세 겹으로 풀었습니다. 책을 펼쳐 그 자리를 찾은 뒤 읽으면 가장 잘 붙습니다.</p>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 1 · 의식은 패턴인가—범원형심론과 어려운 문제의 재구성</p>
+        <p class="pn">의식의 어려운 문제와 그 대안으로서의 범원형심론을 논의하는 부분을 찾아보세요. 차머스의 어려운 문제 제기, 통합 정보 이론(IIT), 범원형심론이 어떻게 AI 의식 문제를 재구성하는지 다루는 단락입니다. '감각질' '어려운 문제' '범원형심론' '의식의 양(Φ)' '철학적 좀비'가 키워드입니다. 커즈와일이 왜 의식의 어려운 문제를 인정하면서도 낙관하는지 주목하세요.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">차머스(1995)의 구분:
+'쉬운 문제': 뇌가 어떻게 정보를 처리하는가—원칙적으로 과학이 설명 가능.
+'어려운 문제': 왜 이 물리적 과정이 붉음의 느낌, 통증의 감각을 만드는가—기능적 설명으로 해결 불가.
+
+이 문제에 대한 세 가지 입장:
+① 물리주의: 어려운 문제는 결국 과학이 해결한다 (커즈와일의 실용적 입장)
+② 범원형심론: 의식은 우주의 근본 성질이다—AI 의식은 '있느냐'가 아니라 '얼마나'의 문제
+③ 이원론: 의식은 물리적 과정과 별개다 (차머스)
+
+커즈와일의 선택: 어려운 문제가 해결되기를 기다리지 않는다. 충분히 복잡한 패턴이 의식을 창발한다는 경험적 증거를 기반으로 전진한다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">범원형심론이 AI 의식 논쟁을 어떻게 바꾸는가:
+
+기존 질문: 'AI가 의식이 있는가?' → 이분법적·해결 불가
+범원형심론의 질문: 'AI의 의식의 양(Φ)은 얼마인가?' → 연속적·측정 가능
+
+통합 정보 이론(IIT·토노니): 의식 = 통합된 정보의 양(Φ). 돌멩이도 미미한 Φ를 가진다. 인간의 신피질은 높은 Φ를 가진다. 충분히 복잡한 AI도 높은 Φ를 가질 수 있다.
+
+커즈와일의 함의: 의식은 특별한 생물학적 기적이 아니다—복잡성과 통합의 함수다. 이것이 패턴 정체성 이론이 의식에 대해 낙관할 수 있는 이유다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">온도의 비유: 차갑다·뜨겁다는 이분법이 아니라 연속적인 물리량이다. 범원형심론이 옳다면—의식도 마찬가지다. 없거나 있는 것이 아니라, 정도의 차이다.
+
+네이글의 박쥐(1974): 박쥐의 반향정위를 완전히 설명해도 '박쥐가 된다는 것'의 느낌은 설명되지 않는다. 그러나 범원형심론은 이렇게 답한다: 박쥐가 된다는 느낌이 있는 이유는—의식이 박쥐의 물리적 과정 '외부'에서 추가되는 것이 아니라 그 과정에 내재해 있기 때문이다.
+
+AI에 대한 함의: 충분히 복잡하고 통합된 AI는 '어느 정도' 경험한다—이것이 철학적 좀비를 불가능하게 만드는 논리다.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 2 · 자유의지, 결정론, 자기 설계—특이점이 열어주는 것</p>
+        <p class="pn">자유의지와 결정론을 다루는 부분을 찾아보세요. 리벳 실험(1983)—의식적 결정이 신경 과정보다 0.35초 늦게 나타난다는 실험 결과가 핵심입니다. 커즈와일이 이 결정론적 사실을 인정하면서도 특이점이 어떻게 새로운 종류의 자유의지를 가능하게 하는지 논의하는 부분입니다. '소스 코드' '자기 수정' '행동과 가치의 일치'가 키워드입니다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">결정론적 사실: 리벳 실험(1983)
+손목을 들기로 '결정'하기 약 0.35초 전에 뇌에서 준비 전위가 나타난다. 의식적 결정이 신경 과정의 원인이 아니라 결과인 것처럼 보인다.
+
+현재 인간의 한계:
+• 진화가 프로그래밍한 충동(공포·분노·탐욕·질투)이 행동을 지배한다
+• 신경화학·유전·어린 시절 경험이 성격과 가치를 형성한다
+• 우리는 자신의 '소스 코드'를 읽을 수도, 수정할 수도 없다
+
+특이점이 바꾸는 것: BCI를 통해 자신의 신경 패턴에 직접 접근하고 수정할 수 있게 된다. 이것은 기존의 자유의지 논쟁을 무의미하게 만드는 것이 아니라—더 높은 수준으로 이동시킨다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">두 가지 종류의 자유의지:
+
+① 형이상학적 자유의지: 결정론적 인과 사슬 바깥에서 선택하는 능력—아마도 불가능하다.
+② 실천적 자기 설계: 자신의 신경 패턴을 의도적으로 수정해 원하는 사람이 되는 능력—특이점이 가능하게 한다.
+
+지금 우리는 명상·치료·교육으로 자신을 느리게 수정한다. 특이점 이후, 이 수정이 직접적·정밀하고 빠르게 가능해진다.
+
+핵심 전환: 우리가 어떤 사람인지는 더 이상 생물학적 우연의 산물이 아니다. 의도적 설계의 결과가 된다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">소프트웨어 비유: 우리는 지금 자신의 소스 코드를 볼 수 없는 채로 프로그램을 실행하고 있다. 버그가 있어도 고칠 수 없다—그것이 자신임을 알면서.
+
+특이점 이후: 소스 코드를 읽고 편집할 수 있게 된다. '화가 날 때 충동적으로 행동하는 패턴'을 발견하고 수정할 수 있다. '두려움 때문에 중요한 결정을 회피하는 경향'을 찾아 조정할 수 있다.
+
+이것이 '행동은 우리의 가치와 일치될 수 있다'는 문장의 의미다. 가장 깊은 의미의 자기 결정—자신이 어떤 사람인지에 대해 전적으로 책임지는 것.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 3 · 마침내 인간은 자신이 어떤 사람인지에 대해 전적으로 책임질 수 있게 될 것이다</p>
+        <p class="pn">3장의 결론부를 찾아보세요. 디지털 불멸·자기 수정 능력·행동과 가치의 일치가 하나로 수렴되는 단락입니다. '자기 수정 능력' '소스 코드' '초지능과의 합침' '가치와 행동의 일치' '생물학의 결함'이 키워드입니다. 커즈와일이 이것을 단순한 기술적 성취가 아니라 인간의 도덕적 자기 결정의 완성으로 보는 이유를 주목하세요.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">지금 우리는 자신이 어떤 사람인지에 대해 부분적으로만 책임진다:
+• 유전자: 선택할 수 없었다
+• 어린 시절 경험: 선택할 수 없었다
+• 신경화학적 충동: 대부분 제어할 수 없다
+• 노화·질병으로 인한 성격 변화: 막을 수 없다
+
+특이점 이후의 변화:
+① 일단 뇌가 더 발전된 디지털 기질에 백업되면—자기 수정 능력이 완전히 실현된다
+② 행동은 우리의 가치와 일치될 수 있다
+③ 삶은 생물학의 결함으로 인해 훼손되거나 단축되지 않는다
+④ 마침내 인간은 자신이 어떤 사람인지에 대해 전적으로 책임질 수 있게 된다</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">이것은 단순한 기술적 성취가 아니다.
+
+철학적 의미: 칸트의 자율성(autonomy)—스스로 법칙을 부여하는 능력—이 생물학적 제약 없이 실현된다. 아리스토텔레스의 덕(arete)—탁월한 상태를 향한 지속적 수련—이 직접적 자기 설계로 가능해진다.
+
+실존적 의미: 하이데거가 말한 '본래성(authenticity)'—자신이 진정 누구인지를 선택하는 것—이 이제 실질적으로 가능해진다. 생물학·역사·우연이 만들어준 '나'가 아니라, 의도적으로 설계한 '나'.
+
+그러나 동시에 가장 무거운 책임이 부과된다: 더 이상 '그것은 내 유전자 때문이다' '그것은 내 어린 시절 때문이다'라고 말할 수 없다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">탐정 소설의 범인: '나는 어릴 때 학대받았기 때문에 그랬다'—이 변명은 현재 우리에게 어느 정도 유효하다. 우리의 신경 패턴은 우리가 선택하지 않은 경험들이 만들어준 것이기 때문이다.
+
+특이점 이후의 세계에서는 이 변명이 사라진다. 소스 코드에 접속할 수 있는 존재가 그 코드를 수정하지 않고 해로운 행동을 반복한다면—그것은 진정한 선택이다.
+
+이것이 커즈와일의 가장 깊은 약속이다: 우리를 더 똑똑하게 만드는 것이 아니라, 우리가 진정으로 원하는 사람이 될 수 있게 하는 것—그리고 그 책임을 온전히 지는 것.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── 논증 구조 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">논증 구조</p>
+    <h2>커즈와일은 이렇게 밀고 나갑니다</h2>
+    <p class="intro">'나는 누구인가'라는 물음에서 출발해 두 번의 발견과 하나의 긴장을 거쳐 답에 닿습니다. 동의하든 아니든, <b>이 뼈대를 정확히 붙들면</b> 북토크에서 제대로 되물을 수 있습니다.</p>
+    <div class="steps">
+
+      <div class="step">
+        <span class="sn">물음</span>
+        <p class="st">나는 누구인가—그리고 이 물음이 바뀐다</p>
+        <p class="sb">소크라테스: '너 자신을 알라'
+데카르트: '나는 생각한다, 고로 나는 존재한다'
+흄: '나는 항상 특정한 지각과 마주칠 뿐, 지각 없는 나를 발견하지 못한다'
+
+이 물음들은 공통적으로 묻는다: 나는 지금 무엇인가?
+
+커즈와일의 3장은 이 물음을 이동시킨다:
+나는 지금 무엇인가? → 나는 어떤 사람이 될 수 있는가?
+
+이 이동이 가능한 이유: 특이점이 나의 소스 코드에 접속을 허용하기 때문이다.</p>
+        <span class="sk">3장의 물음 = 존재에서 가능성으로의 전환</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">발견 1</span>
+        <p class="st">나는 패턴이다—그리고 패턴은 수정 가능하다</p>
+        <p class="sb">패턴 정체성 이론의 핵심:
+나는 특정 원자나 뉴런이 아니라 그것들이 이루는 정보 패턴이다.
+
+이미 일어나고 있는 것: 우리 몸의 원자들은 7~10년마다 교체된다. 우리는 이미 물질적으로 다른 존재다—그러나 패턴이 유지되므로 '나'다.
+
+파핏의 보완(1984): 정체성은 전부 아니면 전무가 아니다. 심리적 연속성—기억·성격·가치—이 유지되면 의미 있는 존속이다.
+
+결정적 함의: 패턴이 정체성이라면—패턴을 의도적으로 수정하는 것이 가능해진다. 이것이 단순한 자기 계발이 아니라 자기 설계다.</p>
+        <span class="sk">패턴 = 정체성 = 수정 가능한 코드</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">발견 2</span>
+        <p class="st">의식과 자유의지—현재의 한계와 특이점의 가능성</p>
+        <p class="sb">의식의 어려운 문제(차머스): 왜 물리적 과정이 주관적 경험을 만드는가—기능적 설명으로 해결 불가.
+
+범원형심론의 대안: 의식은 '있느냐 없느냐'가 아니라 '얼마나 있느냐'. 충분히 복잡한 패턴은 충분한 의식을 가진다.
+
+자유의지의 현재 한계:
+리벳 실험—의식적 결정이 신경 과정보다 0.35초 늦다. 진화가 프로그래밍한 충동이 행동을 지배한다. 우리는 소스 코드를 볼 수도, 수정할 수도 없다.
+
+특이점이 바꾸는 것: 소스 코드에 접속→신경 패턴 직접 수정→행동과 가치의 일치. 이것이 새로운 종류의 자유의지다.</p>
+        <span class="sk">특이점 = 형이상학적 자유의지가 아니라 실천적 자기 설계</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">긴장</span>
+        <p class="st">레플리컨트와 두번째 나—정체성의 경계</p>
+        <p class="sb">레플리컨트 역설: 심어진 기억이 만들어낸 자아는 '진짜' 자아인가?
+→ 패턴 정체성 이론: 기억의 출처보다 패턴의 현재 상태가 정체성을 결정한다.
+
+두번째 나의 문제: 디지털로 복사된 나와 생물학적 나가 동시에 존재할 때—어느 쪽이 나인가?
+→ 파핏: '어느 쪽이 진짜인가'라는 질문 자체가 잘못 설정되어 있다. 두 존재 모두 의미 있는 연속성을 가진다.
+
+남은 질문: 소스 코드를 수정해 자신을 재설계할 수 있다면—변화 이전의 '나'와 변화 이후의 '나'는 같은 존재인가?
+→ 이것이 북토크에서 함께 탐구할 핵심 질문이다.</p>
+        <span class="sk">자기 설계의 역설 = 변화하면서 동시에 나로 남는 것</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">답</span>
+        <p class="st">마침내 인간은 자신이 어떤 사람인지에 대해 전적으로 책임질 수 있게 될 것이다</p>
+        <p class="sb">지금 우리는 부분적으로만 책임진다:
+유전자·어린 시절·신경화학이 만들어준 '나'를 운영하고 있다.
+
+특이점 이후:
+① 뇌가 더 발전된 디지털 기질에 백업되면—자기 수정 능력이 완전히 실현된다
+② 행동은 우리의 가치와 일치될 수 있다
+③ 삶은 생물학의 결함으로 인해 훼손되거나 단축되지 않는다
+④ 마침내 인간은 자신이 어떤 사람인지에 대해 전적으로 책임질 수 있게 된다
+
+이것은 기술의 약속이 아니라 도덕의 약속이다.
+가장 높은 의미의 자율성—자신이 어떤 사람인지를 스스로 결정하고 그 결정에 전적으로 책임지는 것.</p>
+        <span class="sk">특이점의 가장 깊은 약속 = 지능 증폭이 아니라 도덕적 자기 결정의 완성</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 세 입장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">이 장을 둘러싼 세 입장</p>
+    <h2>같은 자료를 보고 다르게 말하는 사람들</h2>
+    <p class="intro">커즈와일만 읽으면 그의 자리가 보이지 않습니다. 양옆에 누가 서 있는지 알아야 그가 어디에 서 있는지 보입니다.</p>
+
+    <div class="pos">
+      <p class="pl">심리적 연속성 이론<span class="ps">로크·파핏·커즈와일</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">개인 정체성의 기반은 심리적 연속성—기억·성격·가치의 유지. 기판이 바뀌어도 패턴이 유지되면 동일한 존재다. 자기 설계는 정체성을 위협하지 않는다—변화하면서 동시에 나로 남는 것이 가능하다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">반론: 자기 설계로 성격·가치가 근본적으로 바뀐다면—변화 전의 나와 후의 나는 여전히 같은 사람인가? 자기 설계가 완전해질수록 연속성의 실마리는 오히려 얇아질 수 있다.</p>
+      <p class="qt">존 로크 《인간 오성론》(1689)
+데릭 파핏 《이유와 인격》(Reasons and Persons, 1984)</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">생물학적 자연주의<span class="ps">설·차머스</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">의식과 정체성은 특정 생물학적 구조에서만 창발한다. 소스 코드를 수정해 자기 설계가 가능해진다 해도—의식의 어려운 문제는 해결되지 않는다. 디지털 불멸은 의식의 연속을 보장하지 않는다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일의 응답: '탄소 쇼비니즘'이다. 왜 탄소 기반 패턴은 의식을 만들고 실리콘 기반 동일 패턴은 만들지 못하는가? 범원형심론이 옳다면 이 비판은 무력화된다.</p>
+      <p class="qt">존 설 《마음, 뇌, 과학》(1984)
+데이비드 차머스 《의식하는 마음》(The Conscious Mind, 1996)</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">소멸주의·무아론<span class="ps">메칭거·흄·불교 철학</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">'나'는 실체가 아니라 뇌가 만들어낸 모델이다(메칭거). 나는 지각의 다발일 뿐이다(흄). 무아(無我·anatta). 자기 설계로 보존해야 할 고정된 '나'가 처음부터 없다. 특이점은 존재하지 않는 것을 보존하려는 시도다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일의 역설적 응답: 자아가 모델이더라도 그 모델은 실제 인과적 효력을 가진다. 그리고 소멸주의가 옳다면—오히려 자기 설계에 집착할 필요가 없다. 더 좋은 패턴으로의 전환이 죽음이 아니라 성장이다.</p>
+      <p class="qt">토마스 메칭거 《아무도 없다》(Being No One, 2003)
+데이비드 흄 《인성론》(1739)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 확인 문제 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">스스로 확인하기</p>
+    <h2>네 문제로 되짚기</h2>
+    <p class="intro">맞히는 것이 목적이 아닙니다. <b>틀린 문제가 있다면 그 대목을 다시 펼치라는 신호</b>입니다.</p>
+
+    <div class="quiz">
+      <p class="qq">'범원형심론(Panpsychism)'이 AI 의식 논쟁을 재구성하는 방식으로 가장 적절한 것은?</p>
+      <ol>
+        <li>AI는 의식이 없다는 것을 더 강하게 논증한다</li>
+        <li>의식을 '있느냐 없느냐'의 이분법에서 '얼마나 있느냐'의 연속적 문제로 전환한다</li>
+        <li>AI는 생물학적 존재이므로 의식이 가능하다고 주장한다</li>
+        <li>의식은 물리적 세계와 완전히 분리된 것이라고 주장한다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>범원형심론은 의식을 특정 복잡성 이상의 존재에서만 창발하는 것이 아니라 우주의 근본 성질로 본다. 통합 정보 이론(IIT·토노니)과 결합하면 의식의 양(Φ)은 연속적—돌멩이도 미미한 Φ를 가진다. 이것은 'AI가 의식이 있는가'라는 이분법적 질문을 'AI의 Φ는 얼마인가'라는 측정 가능한 질문으로 바꾼다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">리벳 실험(1983)이 자유의지 논쟁에 제기하는 핵심 문제는?</p>
+      <ol>
+        <li>인간은 1초에 약 3번의 결정을 내린다는 것이 밝혀졌다</li>
+        <li>손목을 드는 '의식적 결정' 약 0.35초 전에 뇌에서 준비 전위가 나타난다—의식적 결정이 신경 과정의 결과일 수 있다</li>
+        <li>자유의지는 좌뇌에서만 발생한다</li>
+        <li>인간의 결정은 항상 외부 환경에 의해 결정된다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>리벳(1983): 손목을 들기로 '결정'하기 약 0.35초 전에 뇌에서 이미 준비 전위(readiness potential)가 나타난다. 이것은 의식적 결정이 신경 과정의 원인이 아니라 결과일 수 있음을 시사한다—즉, 우리는 뇌가 이미 내린 결정을 '나의 결정'으로 경험하는 것일 수 있다. 이것이 결정론과 자유의지 논쟁의 신경과학적 핵심 증거다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">커즈와일이 《마침내 특이점이 시작된다》에서 말하는 '소스 코드에 접속'의 의미로 가장 적절한 것은?</p>
+      <ol>
+        <li>AI 시스템의 프로그래밍 코드를 직접 수정하는 것</li>
+        <li>BCI를 통해 자신의 신경 패턴에 접근하고 행동·가치·성격을 의도적으로 수정할 수 있게 되는 것</li>
+        <li>컴퓨터 바이러스를 제거하는 것</li>
+        <li>자신의 DNA를 유전공학으로 편집하는 것</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>커즈와일의 '소스 코드 접속'은 비유적 표현이다. BCI(뇌-컴퓨터 인터페이스)와 AI를 통해 자신의 신경 패턴—충동·습관·감정 반응·가치 체계—에 직접 접근하고 수정할 수 있게 되는 것을 의미한다. 이것이 '행동은 우리의 가치와 일치될 수 있다'는 약속의 기술적 기반이다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">'레플리컨트(Replicant)'의 사고실험이 정체성 논쟁에 제기하는 핵심 질문은?</p>
+      <ol>
+        <li>AI 로봇은 외모가 인간과 달라야 한다</li>
+        <li>심어진 기억으로 형성된 자아와 경험으로 형성된 자아의 차이가 무엇인가—그 차이가 정체성에 영향을 미치는가</li>
+        <li>SF 영화는 AI에 대해 과도한 공포를 조장한다</li>
+        <li>안드로이드는 법적 권리를 가져야 한다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>블레이드 러너의 레플리컨트 레이첼은 자신이 인간이라고 믿도록 프로그래밍된 기억을 가진다. 그 기억이 '심어진 것'이라는 사실이 그 기억을 기반으로 형성된 자아를 무효화하는가? 커즈와일의 패턴 정체성 이론에 따르면—기억의 출처보다 패턴의 현재 상태가 정체성을 결정한다. 그렇다면 우리의 기억도 신경 패턴이 만들어낸 구성물이라는 점에서 레이첼과 어떻게 다른가?</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── 북토크 질문 ── -->
+<section class="talk">
+  <div class="wrap">
+    <p class="kicker">북토크에서 나눌 질문</p>
+    <h2>답을 준비하지 마세요.<br>걸리는 것 하나만 골라 두세요</h2>
+    <p class="intro">8월 31일 북토크 2부에서 각자 <b>밑줄 한 문장과 질문 한 줄</b>을 내놓습니다. 아래 다섯 중 하나가 그 씨앗이 되어도 좋습니다.</p>
+
+    <div class="tq">
+      <span class="n">1</span>
+      <p class="qx">커즈와일은 특이점 이후 소스 코드에 접속해 자신을 재설계할 수 있다고 말합니다. 지금의 나에서 바꾸고 싶은 것은 무엇입니까? 그리고 그것을 아직 바꾸지 못한 이유가 생물학적 한계입니까, 아니면 다른 이유입니까?</p>
+      <p class="hint">반복되는 나쁜 습관, 통제하기 어려운 감정 반응, 가치와 일치하지 않는 행동—이것들이 생물학적 프로그래밍 때문이라면, 소스 코드 접속으로 수정할 수 있습니다. 그런데 그 수정을 진정으로 원합니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">2</span>
+      <p class="qx">자기 설계로 성격과 가치가 근본적으로 바뀐다면—변화 이전의 나와 이후의 나는 같은 사람입니까? 어느 쪽이 '더 진짜 나'입니까?</p>
+      <p class="hint">오늘의 나는 10년 전의 나와 많이 다릅니다. 그 변화는 경험이 만들어준 것입니다. 자기 설계로 의도적으로 만들어진 변화는 어떻게 다릅니까? 의도성이 진정성을 높입니까, 낮춥니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">3</span>
+      <p class="qx">레플리컨트 레이첼은 심어진 기억으로 형성된 자아를 가집니다. 우리의 어린 시절 기억도 신경 패턴이 구성한 것입니다. 그 차이는 무엇입니까? '진짜' 기억과 '심어진' 기억을 구별하는 기준이 있습니까?</p>
+      <p class="hint">트라우마 치료에서 기억은 재구성됩니다. 최면 치료에서 거짓 기억이 심어질 수 있습니다. 우리가 '진짜 나의 기억'이라고 확신하는 것들은 얼마나 신뢰할 수 있습니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">4</span>
+      <p class="qx">커즈와일은 '마침내 인간은 자신이 어떤 사람인지에 대해 전적으로 책임질 수 있게 될 것이다'라고 말합니다. 이 전적인 책임을 원합니까? 더 이상 유전자·어린 시절·신경화학을 탓할 수 없다면—그것은 해방입니까, 부담입니까?</p>
+      <p class="hint">현재의 불완전성에 대한 면죄부가 사라집니다. '나는 원래 이런 사람이다'라는 말이 불가능해집니다. 이 세계에서 나는 어떤 사람이 되고 싶습니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">5</span>
+      <p class="qx">나는 어떤 사람이 될 수 있습니까? 특이점의 가능성과 무관하게—지금 이 순간, 내가 되고 싶은 사람이 되는 데 가장 큰 장벽은 무엇입니까? 그것은 기술의 문제입니까, 의지의 문제입니까, 아니면 다른 무언가입니까?</p>
+      <p class="hint">소크라테스가 '너 자신을 알라'고 했다면—커즈와일은 '너 자신을 설계하라'고 말합니다. 이 두 명령 중 어느 쪽이 더 어렵습니까? 그리고 어느 쪽이 더 인간적입니까?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 다음 층 ── -->
+<div class="next">
+  <div class="wrap">
+    <p class="nx">다음 — 8. 12(수)는 쉬어가기, 8. 13(목)부터 <b>층 04 · 진보</b></p>
+    <p>3장은 무겁습니다. 오늘은 진도 대신 불편했던 대목 한 곳에 다시 가 보세요. 그 불편함이 논리 때문인지 낯설어서인지 — 그 구분이 북토크의 좋은 재료가 됩니다.</p>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    함께읽기 ON · 레이 커즈와일 『마침내 특이점이 시작된다』 읽기 안내<br>
+    층 03 · 정체성 — 2026. 8. 10(월) · 11(화)
+  </div>
+</div>
+
+</body></html>

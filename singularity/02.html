@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>함께읽기 ON · 읽기 안내 — 2장 지능</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="함께읽기ON">
+<meta property="og:title" content="함께읽기 ON · 읽기 안내 — 마침내 특이점이 시작된다 2장 지능">
+<meta property="og:description" content="8. 6(목) · 7(금) — 기계는 이해하는가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EDE4; --paper-2:#EAE3D6; --card:#FBF8F2;
+    --ink:#17262B; --ink-soft:#4B5C61; --ink-faint:#8A9799;
+    --deep:#12262E; --deep-2:#0C1A21; --deep-card:#1B3540;
+    --teal:#7FD4D8; --teal-ink:#256A74; --teal-soft:#C3E8EA;
+    --coral:#E8785A; --coral-deep:#CE5537;
+    --rule:#D9D1C3; --rule-soft:#E6DFD2;
+    --sans:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    --serif:"Nanum Myeongjo","Noto Serif KR","Batang",serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    line-height:1.8; letter-spacing:-.003em;}
+  .wrap{max-width:52rem; margin:0 auto; padding:0 clamp(1.15rem,4.5vw,2.6rem);}
+
+  /* ── 표지 ── */
+  .hero{background:var(--deep); color:var(--paper);
+    padding:clamp(2.8rem,7vw,4.6rem) 0 clamp(2.4rem,6vw,3.6rem);}
+  .hero .top{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;
+    margin-bottom:1.9rem;}
+  .brand{display:inline-block; font-size:.66rem; font-weight:900; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--deep); background:var(--teal);
+    padding:.36rem .55rem .3rem .8rem;}
+  .days{font-size:.72rem; font-weight:700; letter-spacing:.16em; color:var(--coral);}
+  .layernum{display:flex; align-items:baseline; gap:.75rem; margin-bottom:.4rem;}
+  .layernum .lb{font-size:.68rem; font-weight:900; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--teal);}
+  .layernum .nn{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:clamp(2.4rem,7vw,3.6rem); line-height:1; color:var(--coral);}
+  .hero h1{font-size:clamp(2rem,6.4vw,3.4rem); font-weight:900; line-height:1.2;
+    letter-spacing:-.025em;}
+  .hero .q{font-size:clamp(1rem,2.4vw,1.28rem); color:var(--teal); font-weight:700;
+    margin-top:.9rem;}
+  .hero .one{font-family:var(--serif); font-size:clamp(1.02rem,2.5vw,1.3rem);
+    line-height:1.85; color:rgba(242,237,228,.9); margin-top:1.7rem;
+    border-left:3px solid var(--coral); padding-left:1.2rem; max-width:40rem;}
+
+  /* 층 진행 표시 — 아래는 두껍고 위로 갈수록 촘촘 (가속) */
+  .stack{display:flex; flex-direction:column-reverse; gap:2px; margin-top:2.2rem;
+    max-width:22rem;}
+  .stack .bar{position:relative; background:rgba(127,212,216,.16);
+    border-left:2px solid rgba(127,212,216,.35);}
+  .stack .bar span{position:absolute; left:.55rem; top:50%; transform:translateY(-50%);
+    font-size:.6rem; font-weight:700; letter-spacing:.1em; color:rgba(242,237,228,.5);}
+  .stack .bar.on{background:var(--coral); border-left-color:var(--coral);}
+  .stack .bar.on span{color:#fff;}
+  .stack .b1{height:1.55rem;} .stack .b2{height:1.4rem;} .stack .b3{height:1.26rem;}
+  .stack .b4{height:1.13rem;} .stack .b5{height:1.01rem;} .stack .b6{height:.9rem;}
+  .stack .b7{height:.8rem;}  .stack .b8{height:.71rem;}
+  .stack-cap{font-size:.7rem; color:rgba(242,237,228,.45); margin-top:.7rem;
+    letter-spacing:.04em;}
+
+  /* ── 섹션 ── */
+  section{padding:clamp(2.6rem,6.5vw,4.2rem) 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .kicker{display:flex; align-items:center; gap:.7rem; font-size:.68rem; font-weight:900;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--teal-ink);
+    margin-bottom:.95rem;}
+  .kicker::after{content:""; flex:1; height:1px; background:var(--rule);}
+  h2{font-size:clamp(1.44rem,3.7vw,2.05rem); font-weight:900; line-height:1.34;
+    letter-spacing:-.02em; margin-bottom:.75rem;}
+  .intro{font-size:clamp(.98rem,2.15vw,1.12rem); color:var(--ink-soft); max-width:44rem;
+    margin-bottom:1.7rem;}
+  p b{font-weight:700; color:var(--ink);}
+  .hl{background:linear-gradient(transparent 60%, var(--teal-soft) 60%); padding:0 .1em;
+    font-weight:700; color:var(--ink);}
+
+  /* ── 개념 단어장 (눌러서 펼치기) ── */
+  .terms{display:grid; gap:.7rem;}
+  @media(min-width:800px){ .terms{grid-template-columns:1fr 1fr; align-items:start;} }
+  .term{background:var(--card); border:1px solid var(--rule-soft);
+    border-left:3px solid var(--teal-ink);}
+  .term > summary{cursor:pointer; list-style:none; padding:1rem 2.6rem 1.05rem 1.2rem;
+    position:relative;}
+  .term > summary::-webkit-details-marker{display:none;}
+  .term > summary::after{content:"+"; position:absolute; right:1rem; top:.95rem;
+    width:1.4rem; height:1.4rem; border:1px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.95rem; font-weight:700; color:var(--teal-ink); background:var(--paper);}
+  .term[open] > summary::after{content:"−"; background:var(--teal-ink); color:#fff;
+    border-color:var(--teal-ink);}
+  .term > summary:hover::after{border-color:var(--teal-ink);}
+  .term .w{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.35;
+    letter-spacing:-.015em;}
+  .term .la{display:block; font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:.88rem; color:var(--ink-faint); margin-top:.12rem; letter-spacing:.02em;}
+  .term .k{display:block; font-size:clamp(.88rem,1.9vw,.98rem); font-weight:700;
+    color:var(--teal-ink); margin-top:.5rem; line-height:1.6;}
+  .term .body{padding:0 1.2rem 1.2rem; border-top:1px dashed var(--rule-soft);
+    margin:0 1.2rem; padding:.9rem 0 1.15rem;}
+  .term .d{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);
+    white-space:pre-line;}
+  .term .ex{font-size:clamp(.88rem,1.9vw,.98rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.85rem; padding:.7rem .85rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+  .term .ex::before{content:"보기"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--coral-deep); margin-bottom:.3rem;}
+  .terms-cap{font-size:.8rem; color:var(--ink-faint); margin-bottom:.9rem;}
+  /* ── 핵심 논점 ── */
+  .passage{border:1px solid var(--rule); background:var(--card); margin-bottom:1.3rem;}
+  .passage > .ph{padding:1.15rem 1.35rem; border-bottom:1px solid var(--rule-soft);
+    background:var(--paper-2);}
+  .passage .pt{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.5;
+    letter-spacing:-.015em;}
+  .passage .pn{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.6rem;}
+  .passage .pn::before{content:"찾아 읽을 곳"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--teal-ink); margin-bottom:.3rem;}
+  .lay{padding:1.1rem 1.35rem; border-bottom:1px dashed var(--rule-soft);}
+  .lay:last-child{border-bottom:none;}
+  .lay .ll{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:#fff; background:var(--teal-ink); padding:.2rem .55rem; margin-bottom:.55rem;}
+  .lay:nth-child(3) .ll{background:var(--coral-deep);}
+  .lay:nth-child(4) .ll{background:#6D7F6A;}
+  .lay .lt{font-size:clamp(.94rem,2vw,1.05rem); line-height:1.9; color:var(--ink-soft);
+    white-space:pre-line;}
+
+  /* ── 논증 구조 ── */
+  .steps{position:relative; padding-left:1.6rem;}
+  .steps::before{content:""; position:absolute; left:.36rem; top:.6rem; bottom:.6rem;
+    width:2px; background:linear-gradient(var(--teal-ink),var(--coral));}
+  .step{position:relative; margin-bottom:1.15rem;}
+  .step:last-child{margin-bottom:0;}
+  .step::before{content:""; position:absolute; left:-1.6rem; top:.62rem; width:.78rem;
+    height:.78rem; border-radius:50%; background:var(--paper);
+    border:2px solid var(--teal-ink);}
+  .step:last-child::before{border-color:var(--coral); background:var(--coral);}
+  .step .sn{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:var(--teal-ink); background:var(--teal-soft); padding:.2rem .55rem;}
+  .step .st{font-size:clamp(1.02rem,2.2vw,1.16rem); font-weight:900; line-height:1.5;
+    margin-top:.45rem; letter-spacing:-.015em;}
+  .step .sb{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.9; color:var(--ink-soft);
+    margin-top:.5rem; white-space:pre-line;}
+  .step .sk{display:block; font-size:clamp(.88rem,1.9vw,.97rem); font-weight:700;
+    color:var(--ink); margin-top:.7rem; padding:.55rem .8rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+
+  /* ── 세 입장 ── */
+  .pos{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.95rem;}
+  .pos .pl{font-size:clamp(1.04rem,2.3vw,1.2rem); font-weight:900; letter-spacing:-.015em;}
+  .pos .ps{font-size:.84rem; font-weight:400; color:var(--ink-faint); margin-left:.5rem;
+    letter-spacing:.02em;}
+  .pos .lab{display:block; font-size:.6rem; font-weight:900; letter-spacing:.18em;
+    color:var(--teal-ink); margin:.85rem 0 .3rem;}
+  .pos .lab.b{color:var(--coral-deep);}
+  .pos .tx{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);}
+  .pos .qt{font-family:var(--serif); font-size:clamp(.86rem,1.85vw,.95rem); line-height:1.75;
+    color:var(--ink-faint); margin-top:.85rem; padding-top:.7rem;
+    border-top:1px solid var(--rule-soft); white-space:pre-line;}
+
+  /* ── 확인 문제 ── */
+  .quiz{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.9rem;}
+  .quiz .qq{font-size:clamp(1rem,2.15vw,1.12rem); font-weight:900; line-height:1.65;
+    letter-spacing:-.01em;}
+  .quiz ol{list-style:none; counter-reset:o; margin-top:.8rem;}
+  .quiz li{counter-increment:o; position:relative; padding-left:2rem; margin-bottom:.45rem;
+    font-size:clamp(.9rem,1.95vw,1rem); line-height:1.75; color:var(--ink-soft);}
+  .quiz li::before{content:counter(o); position:absolute; left:0; top:.15rem;
+    width:1.35rem; height:1.35rem; border:1px solid var(--rule); border-radius:50%;
+    font-size:.72rem; font-weight:700; color:var(--ink-faint);
+    display:flex; align-items:center; justify-content:center;}
+  .quiz details{margin-top:.9rem; border-top:1px solid var(--rule-soft); padding-top:.85rem;}
+  .quiz summary{cursor:pointer; font-size:.78rem; font-weight:900; letter-spacing:.14em;
+    color:var(--teal-ink); list-style:none;}
+  .quiz summary::-webkit-details-marker{display:none;}
+  .quiz summary::before{content:"▸ "; color:var(--coral);}
+  .quiz details[open] summary::before{content:"▾ ";}
+  .quiz .ans{font-size:clamp(.9rem,1.95vw,1rem); line-height:1.85; color:var(--ink-soft);
+    margin-top:.65rem;}
+  .quiz .ans b{color:var(--coral-deep);}
+
+  /* ── 북토크 질문 ── */
+  .talk{background:var(--deep); color:var(--paper);}
+  .talk .kicker{color:var(--teal);}
+  .talk .kicker::after{background:rgba(127,212,216,.28);}
+  .talk h2{color:var(--paper);}
+  .talk .intro{color:rgba(242,237,228,.78);}
+  .tq{border-left:3px solid var(--coral); padding:.2rem 0 .2rem 1.2rem;
+    margin-bottom:1.5rem;}
+  .tq:last-child{margin-bottom:0;}
+  .tq .n{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:1.15rem; color:var(--coral);}
+  .tq .qx{font-size:clamp(1rem,2.2vw,1.16rem); font-weight:700; line-height:1.8;
+    margin-top:.15rem;}
+  .tq .hint{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8;
+    color:rgba(242,237,228,.68); margin-top:.6rem;}
+  .tq .hint::before{content:"실마리 — "; color:var(--teal); font-weight:700;}
+
+  /* ── 꼬리 ── */
+  .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
+  .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
+  .next p{font-size:clamp(.92rem,1.95vw,1.02rem); color:var(--ink-soft); margin-top:.45rem;}
+  .foot{background:var(--deep-2); color:rgba(242,237,228,.55); padding:1.7rem 0;
+    font-size:.72rem; letter-spacing:.1em; line-height:1.9;}
+
+  @media print{
+    @page{margin:12mm;}
+    html,body{print-color-adjust:exact; -webkit-print-color-adjust:exact;}
+    section,.term,.passage,.step,.pos,.quiz{break-inside:avoid;}
+    details{display:block;} details > *{display:block !important;}
+    .term > summary::after{display:none !important;}
+    .terms-cap{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 표지 ── -->
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <span class="brand">함께읽기 O N · 읽기 안내</span>
+      <span class="days">8. 6(목) · 7(금)</span>
+    </div>
+    <div class="layernum">
+      <span class="lb">Layer</span><span class="nn">02</span>
+    </div>
+    <h1>지능</h1>
+    <p class="q">기계는 이해하는가</p>
+    <p class="one">지능의 재발명이란 인간을 흉내 내는 것이 아니라, 신피질의 알고리즘을 더 빠른 기판에서 다시 구현하는 것이다.</p>
+    <div class="stack">
+      <div class="bar b8"><span>08</span></div>
+      <div class="bar b7"><span>07</span></div>
+      <div class="bar b6"><span>06</span></div>
+      <div class="bar b5"><span>05</span></div>
+      <div class="bar b4"><span>04</span></div>
+      <div class="bar b3"><span>03</span></div>
+      <div class="bar b2 on"><span>02</span></div>
+      <div class="bar b1"><span>01</span></div>
+    </div>
+    <p class="stack-cap">아래가 첫 층입니다. 위로 갈수록 층이 얇고 촘촘해집니다 — 가속의 모양입니다.</p>
+  </div>
+</header>
+
+<!-- ── 개념 단어장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">개념 단어장</p>
+    <h2>먼저 알아 둘 열네 단어</h2>
+    <p class="intro">읽기 전에 한 번, 읽고 나서 한 번 더 훑어 보세요. 두 번째에는 다르게 읽힙니다.</p>
+    <p class="terms-cap">단어를 누르면 설명과 보기가 펼쳐집니다.</p>
+    <div class="terms">
+
+      <details class="term">
+        <summary>
+          <p class="w">튜링 테스트<span class="la">Turing Test · 1950</span></p>
+          <span class="k">기계가 생각할 수 있는가를 묻는 최초의 질문</span>
+        </summary>
+        <div class="body">
+          <p class="d">앨런 튜링이 1950년 논문 'Computing Machinery and Intelligence'에서 제안. 원래 이름은 '모방 게임(Imitation Game)'. 기계가 인간과 구별할 수 없을 정도로 텍스트 대화를 나눌 수 있다면—그것은 생각하는 것으로 간주할 수 있다.
+          
+          커즈와일의 예측: 2029년까지 유효한 튜링 테스트 통과. 역설: 튜링 테스트를 통과한 AI는 실제로는 대다수 분야에서 최고의 인간을 능가한다.</p>
+          <p class="ex">2024년 현재 GPT-4는 대부분의 비공식 튜링 테스트에서 인간으로 오인된다. 그러나 커즈와일이 말하는 '유효한' 튜링 테스트는 훨씬 더 엄격하다—상식·감정·유머·모순 감지까지 포함한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">신경망<span class="la">Neural Network</span></p>
+          <span class="k">뇌에서 영감을 얻은 계산 구조</span>
+        </summary>
+        <div class="body">
+          <p class="d">뉴런의 연결 구조를 수학적으로 모방한 계산 모델. 1943년 워런 맥컬록·월터 피츠가 최초 제안. 입력층·은닉층·출력층으로 구성되며, 각 연결의 가중치(weight)가 학습을 통해 조정된다.
+          
+          역전파(Backpropagation, 1986): 힌튼·르쿤·벤지오가 개발. 출력 오차를 역방향으로 전파해 가중치를 수정하는 알고리즘. 현대 딥러닝의 이론적 기반. 2018년 튜링상 수상.</p>
+          <p class="ex">신경망은 뇌의 '구조'를 모방했지만 뇌의 '알고리즘'을 완전히 복제하지는 않았다. 뇌 뉴런은 스파이크(spike) 신호를, 인공 신경망은 부동소수점 숫자를 사용한다. 그러나 계층적 표현 학습이라는 핵심 원리는 공유한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">토폴로지<span class="la">Network Topology</span></p>
+          <span class="k">신경망의 연결 구조—형태가 기능을 결정한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">신경망에서 노드(뉴런)와 엣지(연결)의 배열 방식. 토폴로지가 달라지면 학습할 수 있는 패턴의 종류가 달라진다.
+          
+          주요 토폴로지:
+          • 완전 연결(Fully Connected): 모든 뉴런이 연결—일반 분류
+          • 합성곱(Convolutional·CNN): 지역 연결—이미지 인식
+          • 순환(Recurrent·RNN): 시간 축 연결—순차 데이터
+          • 어텐션(Attention·Transformer): 전체 연결+가중치—언어</p>
+          <p class="ex">CNN이 이미지를 잘 처리하는 이유: 이미지의 국소적 패턴(귀퉁이, 선분)을 먼저 인식하는 구조가 시각 피질의 계층과 유사하다. 토폴로지는 신경망 역설계의 핵심 결정이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">모듈러 AI<span class="la">Modular Architecture · MoE</span></p>
+          <span class="k">전문가들의 혼합이 하나의 지능을 만든다</span>
+        </summary>
+        <div class="body">
+          <p class="d">하나의 거대한 단일 신경망 대신, 서로 다른 역할을 하는 전문화된 모듈(전문가·Expert)들이 협력하는 구조. GPT-4는 '전문가 혼합(Mixture of Experts·MoE)' 아키텍처를 사용하는 것으로 알려져 있다.
+          
+          각 입력에 대해 게이팅 네트워크(gating network)가 어떤 전문가를 활성화할지 선택한다. 전체 파라미터 중 일부만 사용—효율적이고 확장 가능하다.</p>
+          <p class="ex">법률 질문이 들어오면 '법률 전문가 모듈'이 주로 활성화되고, 코딩 질문에는 '코드 전문가 모듈'이 활성화된다. 신피질의 피질 기둥들이 분산 협력하는 방식과 유사하다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">딥러닝<span class="la">Deep Learning</span></p>
+          <span class="k">여러 층의 신경망이 표현을 스스로 학습한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">3층 이상의 깊은(deep) 신경망을 사용해 데이터에서 스스로 특징(feature)을 추출하는 기계학습 방법. 2012년 제프리 힌튼의 AlexNet이 이미지 분류 대회(ImageNet)를 압도적으로 우승하며 AI의 르네상스를 열었다.
+          
+          딥러닝 3인방(튜링상, 2018):
+          • 제프리 힌튼: 역전파, 딥 빌리프 네트워크
+          • 얀 르쿤: 합성곱 신경망(CNN)
+          • 요슈아 벤지오: 순환 신경망, 언어 모델</p>
+          <p class="ex">딥러닝 이전: 연구자가 '귀는 둥글고 위에 있다'처럼 특징을 직접 정의했다(특징 공학). 딥러닝 이후: 수백만 장의 얼굴 사진을 보여주면 신경망이 스스로 '귀의 특징'을 학습한다. 이것이 역설계의 핵심적 전환이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">토큰<span class="la">Token</span></p>
+          <span class="k">언어 모델이 텍스트를 처리하는 최소 단위</span>
+        </summary>
+        <div class="body">
+          <p class="d">대규모 언어 모델이 텍스트를 처리할 때 사용하는 기본 단위. 단어 전체가 아니라 단어의 일부(subword)일 수도 있다. 'unbelievable'은 'un', 'believ', 'able' 3개의 토큰으로 분리될 수 있다.
+          
+          한국어 특성: 교착어인 한국어는 어절 분리가 복잡해 영어보다 더 많은 토큰이 필요하다—같은 내용을 한국어로 처리할 때 비용이 더 들 수 있다.
+          
+          GPT-4의 컨텍스트 창: 최대 128,000 토큰(약 책 100페이지 분량).</p>
+          <p class="ex">토큰 한도는 AI의 '작업 기억(Working Memory)' 한계다. 인간도 한 번에 7±2개의 정보 단위만 처리할 수 있다—밀러의 법칙. AI의 컨텍스트 창은 이 한계를 극적으로 확장했지만, 여전히 한계는 존재한다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">대규모 언어 모델<span class="la">Large Language Model · LLM</span></p>
+          <span class="k">수백억 개의 파라미터로 언어를 학습한 모델</span>
+        </summary>
+        <div class="body">
+          <p class="d">수백억~수조 개의 파라미터를 가진 트랜스포머 기반 언어 모델. 인터넷 전체에 준하는 텍스트로 '다음 토큰 예측'을 수조 번 반복해 훈련된다.
+          
+          주요 모델(2024):
+          • GPT-4o(OpenAI): 멀티모달, 실시간 음성
+          • 제미나이 1.5 Pro(Google): 100만 토큰 컨텍스트
+          • Claude 3.5 Sonnet(Anthropic): 추론·코딩 강점
+          • Llama 3(Meta): 오픈소스
+          • 클로바X(네이버): 한국어 특화</p>
+          <p class="ex">LLM의 역설: '다음 단어 예측'이라는 단순한 목표로 훈련했는데—법률 추론, 의학 진단, 수학 증명, 시 창작이 창발한다. 이것이 커즈와일이 수확 가속의 법칙의 AI 버전이라고 보는 이유다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">범용 인공지능<span class="la">Artificial General Intelligence · AGI</span></p>
+          <span class="k">어떤 지적 과제도 학습하고 수행하는 AI</span>
+        </summary>
+        <div class="body">
+          <p class="d">특정 과제(좁은 AI·Narrow AI)가 아니라 어떤 새로운 지적 과제도 인간처럼 학습하고 수행할 수 있는 AI. 아직 달성되지 않았지만—그 정의와 기준 자체가 격렬한 논쟁 중이다.
+          
+          기관별 AGI 기준(2024):
+          • 커즈와일: 튜링 테스트 통과 = 2029년
+          • OpenAI: 대부분의 경제적으로 가치 있는 작업을 인간보다 잘 수행
+          • DeepMind: 5단계(신흥→유능→전문가→거장→초인간)
+          • Anthropic: 정의보다 안전에 집중</p>
+          <p class="ex">'우리가 AGI를 만들면 알게 될 것이다'—이것이 문제다. 체스는 해결됐지만 '체스 지능'을 AGI라 부르지 않는다. 의학 진단은 해결되고 있지만 아직 AGI라 부르지 않는다. AI 효과가 기준을 계속 이동시킨다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">멀티모달<span class="la">Multimodal AI</span></p>
+          <span class="k">텍스트·이미지·음성·영상을 하나의 표현 공간에서</span>
+        </summary>
+        <div class="body">
+          <p class="d">단일 입력 형식(텍스트만)이 아니라 여러 종류의 데이터를 하나의 모델이 통합 처리하는 AI. 인간의 신피질이 시각·청각·언어·촉각을 하나의 범용 알고리즘으로 처리하는 것과 같은 방향이다.
+          
+          현재 주요 모델:
+          • GPT-4o: 텍스트·이미지·음성 실시간 통합
+          • 제미나이 1.5: 텍스트·이미지·음성·영상·코드
+          • Sora(OpenAI): 텍스트→영상 생성</p>
+          <p class="ex">의사가 X선 사진(이미지)·환자 기록(텍스트)·청진음(오디오)을 동시에 보며 진단한다. 멀티모달 AI는 이 세 가지를 함께 처리한다. GPT-4V는 이미 여러 의학 영상 진단에서 전문의 수준에 근접했다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">AI 효과<span class="la">AI Effect</span></p>
+          <span class="k">'그건 진짜 지능이 아니야'—목표 기둥은 계속 이동한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">파멜라 맥코덕(Pamela McCorduck)이 명명. AI가 어떤 과제를 해결하면—사람들은 '그것은 진짜 지능이 아니다, 단순한 계산이다'라고 말하며 기준을 올린다. 지능의 정의가 AI가 아직 못 하는 것으로 계속 재정의된다.
+          
+          패턴:
+          체스(1997) → '계산일 뿐' → 바둑(2016) → '직관이 없다' → GPT-4(2023) → '이해가 없다'</p>
+          <p class="ex">1950년 튜링의 시대: '기계는 언어를 못 한다'. 1997년: '기계는 바둑을 못 한다'. 2022년: '기계는 창의적 글쓰기를 못 한다'. 2024년: '기계는 진짜로 이해하지 못 한다'. 이 패턴 자체가 지능이 무엇인지에 대한 우리의 불확실성을 드러낸다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">롱 나우<span class="la">The Long Now Foundation</span></p>
+          <span class="k">1만 년의 시간 지평으로 생각한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">스튜어트 브랜드·브라이언 이노가 1996년 설립. 현대 문명의 '빠른 생각'(수분~수년)에 대응해 수백~수천 년의 시간 지평으로 사고를 확장하는 프로젝트. 1만 년 후에도 작동하는 시계 제작 중.
+          
+          커즈와일과의 연결: 수확 가속의 법칙은 기술의 시간 지평을 극적으로 압축한다—1만 년의 변화가 수십 년 안에 일어날 수 있다. 롱 나우는 이 가속 시대에 장기 책임을 묻는다.</p>
+          <p class="ex">한나 할머니가 1910년대에 태어나 2010년대까지 살았다면—말에서 자동차로, 라디오에서 인터넷으로, 전보에서 스마트폰으로의 변화를 경험했다. 다음 100년은 그 이상의 변화가 수십 년 안에 일어날 것이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">지식 폭발<span class="la">Knowledge Explosion</span></p>
+          <span class="k">인류의 지식은 기하급수적으로 증가한다</span>
+        </summary>
+        <div class="body">
+          <p class="d">버크민스터 풀러의 '지식 두배화 곡선(Knowledge Doubling Curve)': 인류의 지식 총량이 두 배가 되는 데 걸리는 시간이 기하급수적으로 단축된다.
+          1900년까지: 100년마다 두 배
+          1945년: 25년마다 두 배
+          2024년: 12-13개월마다 두 배
+          
+          AI+과학의 가속: AlphaFold2가 2020년에 단백질 구조 50만 개를 예측—50년치 연구를 단숨에 압축.</p>
+          <p class="ex">논문 출판 속도: 2024년 기준 매일 약 5,000편의 학술 논문이 발표된다. 어떤 개인도 자기 분야 전체를 따라가기 불가능하다. AI가 이 지식 폭발을 처리하는 파트너가 될 것이라는 것이 커즈와일의 핵심 주장이다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">뇌-컴퓨터 인터페이스<span class="la">Brain-Computer Interface · BCI</span></p>
+          <span class="k">생물학적 신피질과 디지털 신피질의 직접 연결</span>
+        </summary>
+        <div class="body">
+          <p class="d">뇌와 컴퓨터를 직접 연결해 신경 신호를 디지털 정보로, 디지털 정보를 신경 신호로 변환하는 기술. 커즈와일이 2030년대의 핵심 기술로 예측.
+          
+          현재 현황:
+          • 뉴럴링크(Neuralink·일론 머스크): 2024년 첫 인체 이식, BCI로 마우스 커서 제어
+          • BrainGate: 척수 손상 환자가 생각으로 로봇 팔 조작
+          • Synchron: 혈관을 통한 비침습적 BCI</p>
+          <p class="ex">2024년 1월, 뉴럴링크가 첫 인체 칩 이식에 성공했다. 환자는 생각만으로 컴퓨터 마우스를 제어하고 체스를 두었다. 커즈와일은 이것이 시작이며, 2030년대에는 신피질 전체가 클라우드와 연결된다고 본다.</p>
+        </div>
+      </details>
+
+      <details class="term">
+        <summary>
+          <p class="w">신피질 혁명<span class="la">Neocortical Revolution</span></p>
+          <span class="k">신피질의 팽창이 문명을 만들었다—다음 팽창이 온다</span>
+        </summary>
+        <div class="body">
+          <p class="d">커즈와일의 핵심 역사 해석: 인류 문명의 폭발적 발전은 신피질의 팽창—특히 전전두엽 피질(prefrontal cortex)의 발달—이 만들어낸 것이다. 언어, 예술, 수학, 과학, 도덕 추론—이 모든 것이 신피질 혁명의 산물이다.
+          
+          다음 혁명: BCI를 통해 신피질이 클라우드 기반 비생물학적 신피질과 연결될 때, 제2의 신피질 혁명이 일어난다. 이것이 '지능의 재발명'의 핵심이다.</p>
+          <p class="ex">호모 사피엔스와 네안데르탈인의 결정적 차이: 더 발달한 신피질. 4만 년 전의 예술(동굴 벽화)·도구·언어는 신피질 혁명의 첫 번째 창발이었다. 커즈와일은 지금 두 번째 혁명이 시작되고 있다고 본다.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 핵심 논점 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">핵심 논점</p>
+    <h2>이 세 대목만은 직접 찾아 읽으세요</h2>
+    <p class="intro">각 논점마다 <b>핵심 주장 → 왜 중요한가 → 비유로</b> 세 겹으로 풀었습니다. 책을 펼쳐 그 자리를 찾은 뒤 읽으면 가장 잘 붙습니다.</p>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 1 · 신피질의 범용 알고리즘—하나가 전부를 처리한다</p>
+        <p class="pn">신피질의 범용성을 주장하는 부분을 찾아보세요. '청각 피질을 시각 입력으로 연결하면 귀로 보는 법을 학습한다'는 신경과학 실험이 핵심 증거입니다. '범용 알고리즘' '예측적 부호화(predictive coding)' '패턴 인식기' '계층'이 키워드입니다. 딥러닝의 합성곱 신경망(CNN)이 이 역설계의 첫 번째 성공이었음도 확인하세요.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">신피질은 하나의 범용 알고리즘으로 작동한다. 구조:
+① 입력 신호를 받아 패턴을 인식한다 (상향 처리)
+② 상위 층의 예측을 하위 층에서 검증한다 (하향 처리·예측적 부호화)
+③ 예측 오차를 줄이는 방향으로 학습한다 (오차 역전파)
+
+결정적 증거: 청각 피질을 시각 입력으로 연결하면 '귀로 보는' 법을 학습한다. 피질 영역은 입력 종류와 무관하게 동일한 알고리즘을 실행한다.
+
+함의: 지능·언어·음악·수학·도덕 추론이 하나의 알고리즘의 산물이라면—AI도 하나의 아키텍처가 이 모두를 처리할 수 있다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">이 범용성이 딥러닝의 성공을 설명한다. 합성곱 신경망(CNN)은 시각 피질의 계층 구조를 역설계했고—이미지·영상·의료 영상·위성 사진 모두에 적용된다.
+
+트랜스포머는 어텐션 메커니즘으로 신피질의 '상호 참조' 구조를 구현했고—언어·코드·음악·단백질 서열 모두에 적용된다.
+
+멀티모달 AI는 이 범용성의 논리적 귀결이다: 하나의 아키텍처가 텍스트·이미지·음성·영상을 통합 처리한다—인간의 신피질처럼.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">스마트폰의 하나의 운영체제가 카메라·마이크·GPS·터치스크린을 모두 처리한다. 입력 하드웨어가 달라도 알고리즘은 하나다.
+
+신피질도, AI도 마찬가지다. 토폴로지(구조)가 달라지면 처리할 수 있는 패턴의 종류가 달라지지만—근본 알고리즘은 하나다.
+
+이것이 '지능의 재발명'이 의미하는 바다: 뇌의 알고리즘을 이해하고, 더 빠른 기판에서 더 넓은 규모로 실행하는 것.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 2 · 대규모 언어 모델은 어떻게 '지능처럼' 보이는가</p>
+        <p class="pn">LLM의 훈련 과정과 창발적 능력이 설명되는 부분을 찾아보세요. 토큰 예측→지식 압축→창발의 경로, 그리고 RLHF를 통한 정렬이 핵심입니다. '다음 토큰 예측' '파라미터' '창발' '인간 피드백' 등이 키워드입니다. AI 효과—'그건 진짜 지능이 아니야'라는 반복되는 반론과 커즈와일의 응답도 주목하세요.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">대규모 언어 모델은 단순한 목표('다음 토큰 예측')로 훈련되지만—그 결과는 단순하지 않다.
+
+훈련 경로:
+① 사전 훈련: 인터넷 전체 텍스트로 수조 번의 토큰 예측 반복
+② 가중치에 세계 지식·언어·추론이 압축·저장됨
+③ RLHF: 인간 평가자의 선호도로 '정렬'
+④ 창발: 훈련되지 않은 능력이 규모에서 자발 출현
+
+창발 사례: 미국 의사 면허 시험 통과, 바 시험 상위 10%, 수학 올림피아드—이것들은 설계된 것이 아니다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">AI 효과의 반복: '그건 진짜 이해가 아니다, 단순한 통계 패턴 매칭이다.'
+
+커즈와일의 응답: 인간의 신피질도 '통계적 패턴 인식기'다. 우리가 'cat'을 보고 '고양이'를 떠올리는 것도—수십억 번의 시냅스 조정으로 학습된 패턴 인식이다. '이해'와 '정교한 패턴 인식'의 차이가 무엇인가?
+
+중국어 방 논증(존 설)은 이 질문에 '아직 다르다'고 답하고, 커즈와일은 '점점 같아지고 있다'고 답한다. 이 논쟁이 2장의 핵심 긴장이다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">'계산기는 수학을 이해하지 못한다.' 그러나 계산기가 없다면 현대 과학과 공학은 불가능하다.
+
+'GPS는 지리를 이해하지 못한다.' 그러나 GPS는 택시 기사보다 더 정확하게 길을 안내한다.
+
+'LLM은 언어를 이해하지 못한다.' 그러나 LLM은 이미 많은 영역에서 인간 전문가를 능가한다.
+
+AI 효과는 계속된다—그러나 그것이 AI의 실용적 가치를 감소시키지는 않는다.</p>
+      </div>
+    </article>
+
+    <article class="passage">
+      <div class="ph">
+        <p class="pt">논점 3 · 신피질 혁명 2.0—BCI가 다음 문명을 만든다</p>
+        <p class="pn">뇌-컴퓨터 인터페이스가 가져올 변화를 논의하는 부분을 찾아보세요. '신피질의 위쪽 영역을 클라우드에 연결' '생물학적 신피질과 비생물학적 신피질의 융합' '공동 창조 과정'이 키워드입니다. 커즈와일은 이것이 문명사적 전환임을 강조하는데—4만 년 전 신피질 혁명과 어떻게 연결되는지 주목하세요.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">핵심 주장</span>
+        <p class="lt">4만 년 전, 더 발달한 신피질이 예술·언어·도구를 만들었다—이것이 제1차 신피질 혁명이었다.
+
+2030년대, 신피질의 위쪽 영역이 클라우드와 연결될 것이다—이것이 제2차 신피질 혁명이다.
+
+진행 경로:
+• 현재: BCI로 장애인의 운동 기능 복원(BrainGate·Neuralink)
+• 2030년대: 비침습적 BCI로 인지 기능 증강
+• 특이점 이후: 생물학적·비생물학적 신피질의 완전 융합
+
+결과: 마음에서 비생물학적 부분이 생물학적 부분보다 수천 배나 많은 인지 능력을 제공한다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">왜 중요한가</span>
+        <p class="lt">지식 폭발의 문제: 매일 5,000편의 논문이 발표되는 세계에서, 생물학적 뇌만으로는 지식의 속도를 따라갈 수 없다. BCI는 이 한계를 돌파하는 방법이다.
+
+롱 나우의 관점: 이 전환이 수천 년의 문명사에서 갖는 의미는—불의 발견, 농업 혁명, 인쇄기 발명과 같은 수준 혹은 그 이상이다.
+
+공동 창조 과정: BCI는 단순한 인터페이스가 아니다. 인간의 마음이 AI와 함께 새로운 개념을 창조하는 협업 공간이다—커즈와일은 이것이 문화적 풍요로움의 새로운 차원이라고 본다.</p>
+      </div>
+      <div class="lay">
+        <span class="ll">비유로</span>
+        <p class="lt">인쇄기(1440년)는 지식의 복사 비용을 혁명적으로 낮췄다—지식이 성직자에서 시민으로 확산됐고, 르네상스·종교 개혁·과학 혁명이 뒤따랐다.
+
+BCI는 지식의 '접근' 비용을 혁명적으로 낮출 것이다—클라우드의 모든 지식에 생각으로 직접 접근한다.
+
+그러나 인쇄기도 선전(propaganda)을 가능하게 했다. BCI도 마찬가지—이것이 7장 '위험'에서 다뤄질 핵심 문제다.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── 논증 구조 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">논증 구조</p>
+    <h2>커즈와일은 이렇게 밀고 나갑니다</h2>
+    <p class="intro">1950년 튜링의 물음에서 출발해 발견과 긴장과 도약을 거쳐 '지능의 재발명'에 닿습니다. 동의하든 아니든, <b>이 뼈대를 정확히 붙들면</b> 북토크에서 제대로 되물을 수 있습니다.</p>
+    <div class="steps">
+
+      <div class="step">
+        <span class="sn">물음 · 1950</span>
+        <p class="st">기계가 생각할 수 있는가?</p>
+        <p class="sb">앨런 튜링, 1950년 논문 'Computing Machinery and Intelligence'의 첫 문장:
+
+"나는 '기계가 생각할 수 있는가?'라는 질문을 고찰하자고 제안한다."
+
+그리고 2장에서 커즈와일이 인용하는 튜링의 더 정확한 질문:
+
+"기계가 생각이라고 묘사할 수밖에 없는 뭔가를, 인간과는 매우 다른 방식으로 수행할 수 있지 않을까?"
+
+이 물음은 '기계가 인간처럼 생각하는가'를 묻지 않는다. '인간과 다른 방식으로 생각하는 무언가가 가능한가'를 묻는다.</p>
+        <span class="sk">튜링의 물음 = 지능의 재발명의 출발점</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">발견 · 1943-2017</span>
+        <p class="st">신경망 → 딥러닝 → 트랜스포머: 답을 향해</p>
+        <p class="sb">1943: 맥컬록-피츠 신경망—뉴런을 수학으로 모방
+1986: 역전파—오차를 통해 신경망이 학습
+2012: AlexNet—딥러닝이 이미지 인식을 혁명
+2017: 트랜스포머—어텐션으로 언어를 처리
+2020: GPT-3—175B 파라미터, 인류 글쓰기를 압축
+2022: ChatGPT—RLHF로 '사람처럼' 대화
+2023: GPT-4—의사·변호사·수학자 수준의 창발
+
+각 단계에서 AI 효과가 작동했다: '그건 진짜 지능이 아니야.' 그러나 튜링의 물음은 '진짜 지능'이 아니라 '생각이라고 묘사할 수밖에 없는 뭔가'를 물었다.</p>
+        <span class="sk">기술의 계보 = 뇌의 역설계 경로</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">긴장 · 현재</span>
+        <p class="st">AI 효과: '그건 진짜 지능이 아니야'</p>
+        <p class="sb">AI 효과(Pamela McCorduck)의 반복:
+체스(1997): '계산일 뿐' → 바둑(2016): '직관이 없다' → GPT-4(2023): '이해가 없다'
+
+이 긴장의 핵심 질문: '이해(understanding)'와 '정교한 패턴 인식'의 차이는 무엇인가?
+
+존 설의 중국어 방: 규칙을 따를 뿐 의미를 모른다.
+커즈와일의 응답: 인간의 신피질도 패턴 인식기 3억 개의 집합이다. 그 패턴 인식에서 '이해'가 창발한다면—AI의 패턴 인식에서도 창발할 수 있다.
+
+튜링의 물음은 이미 이것을 예견했다: '인간과는 매우 다른 방식으로.'</p>
+        <span class="sk">AI 효과 = 지능의 정의를 묻는 철학적 긴장</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">도약 · 2024-2029</span>
+        <p class="st">지식 폭발 + 멀티모달 + AGI: 수렴</p>
+        <p class="sb">지식 폭발: 매일 5,000편 논문 + AlphaFold가 단백질 서열 50만 개 예측—생물학적 뇌만으로는 이 속도를 따라갈 수 없다.
+
+멀티모달 AI: 텍스트·이미지·음성·영상을 하나의 표현 공간에서—신피질의 범용 알고리즘이 AI에서 구현된다.
+
+모듈러 아키텍처(MoE): 전문가 혼합이 더 효율적이고 확장 가능한 지능을 만든다.
+
+2029년 수렴점: 커즈와일이 예측한 튜링 테스트 통과. 이것은 단순한 기술적 성취가 아니라—지능이 더 이상 생물학의 전유물이 아니게 되는 순간이다.</p>
+        <span class="sk">수렴 = 지식 폭발 + 멀티모달 + AGI가 교차하는 지점</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">규명 · 재발명</span>
+        <p class="st">지능의 재발명은 무엇인가</p>
+        <p class="sb">튜링의 물음에 대한 2장의 답:
+
+지능의 재발명은 인간의 지능을 모방하는 것이 아니다. 신피질의 범용 알고리즘—계층적 패턴 인식—을 더 빠르고 더 확장 가능한 기판에서 구현하는 것이다.
+
+그리고 한 걸음 더: 이 디지털 신피질을 BCI를 통해 생물학적 신피질과 직접 연결하는 것.
+
+결과: 생물학적·비생물학적 신피질의 공동 창조. 우리의 마음이 더 깊은 통찰력을 이끌어내고, 그 힘으로 새로운 초월적 개념들을 만들어낸다.
+
+이것이 제2차 신피질 혁명이다—제1차가 4만 년 전 문명을 만들었듯.</p>
+        <span class="sk">지능의 재발명 = 신피질 알고리즘의 디지털 구현 + 인간과의 융합</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 세 입장 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">이 장을 둘러싼 세 입장</p>
+    <h2>같은 자료를 보고 다르게 말하는 사람들</h2>
+    <p class="intro">커즈와일만 읽으면 그의 자리가 보이지 않습니다. 양옆에 누가 서 있는지 알아야 그가 어디에 서 있는지 보입니다.</p>
+
+    <div class="pos">
+      <p class="pl">기능주의<span class="ps">튜링·커즈와일·데닛</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">지능(또는 마음)은 기능적 역할로 정의된다. 시스템이 올바른 입력-출력 관계를 보이고, 올바른 방식으로 내부 상태를 변환한다면—그것은 지능이다. 기판(뇌인지 실리콘인지)은 무관하다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일은 기능주의자다. 신피질의 알고리즘을 실리콘에서 구현하면—기능적으로 동일한 지능이다. 반론: 기능만으로는 주관적 경험(qualia·감각질)을 설명하지 못한다—좀비(zombie) 논증.</p>
+      <p class="qt">튜링 〈Computing Machinery and Intelligence〉(1950)
+데닛 《의식의 수수께끼를 풀다》(1991)</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">생물학적 자연주의<span class="ps">존 설·중국어 방</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">구문(syntax)이 의미론(semantics)을 만들어내지 않는다. 중국어 방 안의 사람은 규칙을 따르지만 중국어를 이해하지 못한다. 뇌는 특별한 생물학적 인과력으로 의식을 만든다—기능적 모방은 충분하지 않다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일의 응답: 이 논증은 인간의 뇌에도 동일하게 적용된다. 뉴런들도 전기화학적 신호를 '규칙에 따라' 처리할 뿐이다. 그럼에도 의식이 창발한다면—AI에서도 창발할 수 없다고 단정할 수 없다.</p>
+      <p class="qt">존 설 〈Minds, Brains, and Programs〉(1980)
+《마음, 뇌, 과학》(1984)</p>
+    </div>
+
+    <div class="pos">
+      <p class="pl">확장된 마음 이론<span class="ps">클락·찰머스·1998</span></p>
+      <span class="lab">주장</span>
+      <p class="tx">마음은 두개골 안에만 있지 않다. 노트북, 스마트폰, 다른 사람들—이 외부 도구들이 이미 인지 과정의 일부다. BCI는 이 '확장된 마음'의 다음 단계이며, AI와의 융합은 마음의 경계를 다시 그린다.</p>
+      <span class="lab b">약한 곳</span>
+      <p class="tx">커즈와일의 BCI 비전과 가장 잘 맞는 철학이다. 신피질이 클라우드에 연결된다면—클라우드가 마음의 일부가 된다. 그러나 이것은 동시에 '나는 누구인가'라는 3장의 핵심 질문을 열어젖힌다.</p>
+      <p class="qt">Andy Clark &amp; David Chalmers
+〈The Extended Mind〉(1998)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 확인 문제 ── -->
+<section>
+  <div class="wrap">
+    <p class="kicker">스스로 확인하기</p>
+    <h2>네 문제로 되짚기</h2>
+    <p class="intro">맞히는 것이 목적이 아닙니다. <b>틀린 문제가 있다면 그 대목을 다시 펼치라는 신호</b>입니다.</p>
+
+    <div class="quiz">
+      <p class="qq">'AI 효과(AI Effect)'가 설명하는 현상으로 가장 적절한 것은?</p>
+      <ol>
+        <li>AI가 특정 과제에서 인간을 능가할 때마다 그 과제는 '진짜 지능이 아니다'라고 재정의되는 현상</li>
+        <li>AI가 실수를 할 때 사용자들이 과민 반응하는 현상</li>
+        <li>AI 시스템이 예상치 못하게 에너지를 많이 소비하는 현상</li>
+        <li>AI 모델의 규모가 커질수록 성능 향상 속도가 둔화되는 현상</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 1번</b><br>AI 효과는 파멜라 맥코덕이 명명한 현상으로, AI가 어떤 능력을 획득하면 사람들은 '그건 진짜 지능이 아니다, 단순한 계산이다'라며 지능의 기준을 올린다는 것이다. 체스(1997)→바둑(2016)→자연어 처리(2022)→의학 진단(현재)의 패턴이 반복된다. 커즈와일은 이 패턴 자체가 우리의 지능 개념이 얼마나 불명확한지를 드러낸다고 본다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">대규모 언어 모델(LLM)의 훈련 과정 순서로 가장 적절한 것은?</p>
+      <ol>
+        <li>RLHF → 사전 훈련 → 창발 → 미세 조정</li>
+        <li>사전 훈련(방대한 텍스트로 토큰 예측) → RLHF(인간 피드백으로 정렬) → 창발적 능력 출현</li>
+        <li>창발 → 사전 훈련 → RLHF → 미세 조정</li>
+        <li>미세 조정 → 사전 훈련 → 창발 → RLHF</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>LLM 훈련의 핵심 경로: ① 사전 훈련—인터넷 전체에 준하는 텍스트로 '다음 토큰 예측'을 수조 번 반복, 세계 지식·추론·언어가 가중치에 압축. ② RLHF—인간 평가자의 선호도로 보상 모델을 훈련하고 언어 모델을 '도움이 되고 해롭지 않은' 방향으로 재훈련. ③ 창발—설계되지 않은 새로운 능력(의학 진단·법률 추론·수학)이 규모에서 자발 출현.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">커즈와일이 주장하는 '신피질 혁명 2.0'의 핵심 내용으로 가장 적절한 것은?</p>
+      <ol>
+        <li>신약 개발로 신피질 뉴런의 수를 늘려 지능을 향상시키는 것</li>
+        <li>BCI를 통해 생물학적 신피질과 클라우드 기반 비생물학적 신피질을 직접 연결해 인지 능력을 확장하는 것</li>
+        <li>유전공학으로 태아의 신피질 유전자를 편집해 더 똑똑한 인간을 만드는 것</li>
+        <li>AI가 신피질을 완전히 대체해 인간이 더 이상 사고할 필요가 없어지는 것</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>커즈와일의 신피질 혁명 2.0은 생물학적 신피질(인간 뇌)과 비생물학적 신피질(클라우드 AI)의 BCI를 통한 직접 연결이다. 이것은 인간 지능의 대체가 아니라 확장이다. 2030년대에 신피질의 위쪽 영역이 클라우드에 연결되면, 마음에서 비생물학적 부분이 생물학적 부분보다 수천 배 많은 인지 능력을 제공하게 된다.</p>
+      </details>
+    </div>
+
+    <div class="quiz">
+      <p class="qq">튜링 테스트의 역설—커즈와일이 지적하는 '튜링 테스트를 통과한 AI는 실제로는 훨씬 더 뛰어나다'는 주장의 근거는?</p>
+      <ol>
+        <li>튜링 테스트가 AI의 실제 능력을 정확히 측정하기 때문이다</li>
+        <li>튜링 테스트를 통과하려면 AI가 수학 계산 같은 분야에서 일부러 못하는 척해야 하므로, 실제 능력은 훨씬 뛰어나다</li>
+        <li>튜링 테스트는 언어만 측정하므로 다른 능력은 반영되지 않는다</li>
+        <li>AI는 튜링 테스트를 통과해도 감정을 모방할 수 없기 때문이다</li>
+      </ol>
+      <details><summary>답과 풀이 보기</summary>
+        <p class="ans"><b>답 · 2번</b><br>커즈와일의 역설적 분석: AI가 어떤 수학 문제도 순식간에 정확하게 푼다면—AI임이 탄로난다. 따라서 튜링 테스트를 통과하려면 AI는 많은 분야에서 '지능이 훨씬 떨어지는 것처럼' 보여야 한다. 이것은 실제로 튜링 테스트를 통과한 AI가 대다수 분야에서 최고의 인간을 훨씬 능가한다는 것을 의미한다.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── 북토크 질문 ── -->
+<section class="talk">
+  <div class="wrap">
+    <p class="kicker">북토크에서 나눌 질문</p>
+    <h2>답을 준비하지 마세요.<br>걸리는 것 하나만 골라 두세요</h2>
+    <p class="intro">8월 31일 북토크 2부에서 각자 <b>밑줄 한 문장과 질문 한 줄</b>을 내놓습니다. 아래 다섯 중 하나가 그 씨앗이 되어도 좋습니다.</p>
+
+    <div class="tq">
+      <span class="n">1</span>
+      <p class="qx">튜링은 '기계가 인간과 매우 다른 방식으로 생각할 수 있지 않을까?'라고 물었습니다. 지금 GPT-4·클로드·제미나이는 어떤 방식으로 생각합니까? 그것은 인간과 다른 방식입니까, 아니면 인간과 유사한 방식입니까?</p>
+      <p class="hint">LLM은 토큰을 하나씩 예측하며 답을 생성합니다. 인간은 문장 전체를 동시에 '떠올리며' 말합니다. 이 처리 방식의 차이가 '생각 방식'의 차이입니까, 아니면 같은 생각의 다른 구현입니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">2</span>
+      <p class="qx">AI 효과는 기준을 계속 이동시킵니다—체스, 바둑, 자연어 처리, 이제 의학 진단. 그렇다면 '진짜 지능'의 기준이 될 수 있는 마지막 능력은 무엇입니까? 그것도 AI가 달성하면 다시 이동합니까?</p>
+      <p class="hint">'공감' '도덕적 판단' '사랑' '의식'—이것들이 마지막 기준으로 자주 거론됩니다. 그런데 이것들도 신피질의 패턴 인식으로 설명 가능합니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">3</span>
+      <p class="qx">뉴럴링크가 2024년 첫 인체 칩 이식에 성공했습니다. 커즈와일은 2030년대에 신피질이 클라우드와 연결된다고 예측합니다. 그렇다면 클라우드에 연결된 나의 신피질이 해킹된다면—그것은 나의 '마음'이 해킹된 것입니까?</p>
+      <p class="hint">클락·찰머스의 확장된 마음 이론: 노트북도 이미 마음의 일부입니다. 노트북이 해킹되면 '마음이 해킹된' 것입니까? BCI는 어떻게 다릅니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">4</span>
+      <p class="qx">지식 폭발이 가속되고 있습니다. 매일 5,000편의 논문이 발표되고, AI가 이것들을 처리합니다. 인간이 이 지식의 속도를 따라갈 수 없다면—'모른다는 것을 아는 것'의 가치는 어떻게 변합니까?</p>
+      <p class="hint">소크라테스는 '나는 내가 아무것도 모른다는 것을 안다'를 지혜의 시작으로 봤습니다. AI가 모든 것을 '알 수' 있는 세계에서—인간의 무지는 결함입니까, 아니면 다른 종류의 능력입니까?</p>
+    </div>
+
+    <div class="tq">
+      <span class="n">5</span>
+      <p class="qx">커즈와일은 BCI가 '공동 창조 과정—우리의 마음을 발전시켜 더 깊은 통찰력을 이끌어내는'이 될 것이라 말합니다. 지금 당신은 이미 AI와 어떤 방식으로 공동 창조를 하고 있습니까? 그 경험에서 '내 생각'과 'AI의 생각'의 경계는 어디입니까?</p>
+      <p class="hint">이 질문에 답하기 위해 AI에게 물어본다면—그 답은 당신의 생각입니까, AI의 생각입니까, 아니면 공동 창조의 결과입니까?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 다음 층 ── -->
+<div class="next">
+  <div class="wrap">
+    <p class="nx">다음 — 토·일은 진도를 비웠습니다. 8. 10(월)부터 <b>층 03 · 정체성</b></p>
+    <p>2장을 다 읽지 못했다면 주말에 따라잡습니다. 다 읽었다면 가장 오래 붙잡았던 한 문장을 어딘가에 옮겨 적어 두세요 — 3장은 그 문장에 대고 '그렇다면 나는 누구인가'를 되묻습니다.</p>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    함께읽기 ON · 레이 커즈와일 『마침내 특이점이 시작된다』 읽기 안내<br>
+    층 02 · 지능 — 2026. 8. 6(목) · 7(금)
+  </div>
+</div>
+
+</body></html>
