@@ -84,9 +84,37 @@
   .hl{background:linear-gradient(transparent 60%, var(--teal-soft) 60%); padding:0 .1em;
     font-weight:700; color:var(--ink);}
 
-  /* ── 층 카드 그리드 ── */
+  /* ── 개념 단어장 (눌러서 펼치기) ── */
   .terms{display:grid; gap:.7rem;}
   @media(min-width:800px){ .terms{grid-template-columns:1fr 1fr; align-items:start;} }
+  .term{background:var(--card); border:1px solid var(--rule-soft);
+    border-left:3px solid var(--teal-ink);}
+  .term > summary{cursor:pointer; list-style:none; padding:1rem 2.6rem 1.05rem 1.2rem;
+    position:relative;}
+  .term > summary::-webkit-details-marker{display:none;}
+  .term > summary::after{content:"+"; position:absolute; right:1rem; top:.95rem;
+    width:1.4rem; height:1.4rem; border:1px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.95rem; font-weight:700; color:var(--teal-ink); background:var(--paper);}
+  .term[open] > summary::after{content:"−"; background:var(--teal-ink); color:#fff;
+    border-color:var(--teal-ink);}
+  .term > summary:hover::after{border-color:var(--teal-ink);}
+  .term .w{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.35;
+    letter-spacing:-.015em;}
+  .term .la{display:block; font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:.88rem; color:var(--ink-faint); margin-top:.12rem; letter-spacing:.02em;}
+  .term .k{display:block; font-size:clamp(.88rem,1.9vw,.98rem); font-weight:700;
+    color:var(--teal-ink); margin-top:.5rem; line-height:1.6;}
+  .term .body{padding:0 1.2rem 1.2rem; border-top:1px dashed var(--rule-soft);
+    margin:0 1.2rem; padding:.9rem 0 1.15rem;}
+  .term .d{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);
+    white-space:pre-line;}
+  .term .ex{font-size:clamp(.88rem,1.9vw,.98rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.85rem; padding:.7rem .85rem; background:var(--paper-2);
+    border-left:3px solid var(--coral);}
+  .term .ex::before{content:"보기"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--coral-deep); margin-bottom:.3rem;}
+  .terms-cap{font-size:.8rem; color:var(--ink-faint); margin-bottom:.9rem;}
   /* ── 층 카드 (표지 전용 · 눌러서 이동) ── */
   .navcard{display:block; background:var(--card); border:1px solid var(--rule-soft);
     border-left:3px solid var(--teal-ink); padding:1rem 1.2rem 1.1rem;
@@ -94,7 +122,7 @@
   .navcard::after{content:"→"; position:absolute; right:1.05rem; top:1.05rem;
     font-size:1rem; color:var(--coral); font-weight:700;}
   .navcard:hover{border-left-color:var(--coral); background:#fff;}
-  .navcard .w{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.35;
+  .navcard .w{font-size:clamp(.98rem,2.1vw,1.12rem); font-weight:900; line-height:1.35;
     letter-spacing:-.015em; padding-right:1.6rem;}
   .navcard .la{display:block; font-family:"Cormorant Garamond",Georgia,serif;
     font-style:italic; font-size:.88rem; color:var(--ink-faint); margin-top:.12rem;}
@@ -103,7 +131,26 @@
   .navcard .dy{display:block; font-size:.82rem; color:var(--ink-faint); margin-top:.5rem;
     padding-top:.5rem; border-top:1px dashed var(--rule-soft);}
 
-  /* ── 걸음(사용법) ── */
+  /* ── 핵심 논점 ── */
+  .passage{border:1px solid var(--rule); background:var(--card); margin-bottom:1.3rem;}
+  .passage > .ph{padding:1.15rem 1.35rem; border-bottom:1px solid var(--rule-soft);
+    background:var(--paper-2);}
+  .passage .pt{font-size:clamp(1.06rem,2.4vw,1.24rem); font-weight:900; line-height:1.5;
+    letter-spacing:-.015em;}
+  .passage .pn{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8; color:var(--ink-soft);
+    margin-top:.6rem;}
+  .passage .pn::before{content:"찾아 읽을 곳"; display:block; font-size:.6rem; font-weight:900;
+    letter-spacing:.18em; color:var(--teal-ink); margin-bottom:.3rem;}
+  .lay{padding:1.1rem 1.35rem; border-bottom:1px dashed var(--rule-soft);}
+  .lay:last-child{border-bottom:none;}
+  .lay .ll{display:inline-block; font-size:.62rem; font-weight:900; letter-spacing:.16em;
+    color:#fff; background:var(--teal-ink); padding:.2rem .55rem; margin-bottom:.55rem;}
+  .lay:nth-child(3) .ll{background:var(--coral-deep);}
+  .lay:nth-child(4) .ll{background:#6D7F6A;}
+  .lay .lt{font-size:clamp(.94rem,2vw,1.05rem); line-height:1.9; color:var(--ink-soft);
+    white-space:pre-line;}
+
+  /* ── 논증 구조 ── */
   .steps{position:relative; padding-left:1.6rem;}
   .steps::before{content:""; position:absolute; left:.36rem; top:.6rem; bottom:.6rem;
     width:2px; background:linear-gradient(var(--teal-ink),var(--coral));}
@@ -123,6 +170,60 @@
     color:var(--ink); margin-top:.7rem; padding:.55rem .8rem; background:var(--paper-2);
     border-left:3px solid var(--coral);}
 
+  /* ── 세 입장 ── */
+  .pos{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.95rem;}
+  .pos .pl{font-size:clamp(1.04rem,2.3vw,1.2rem); font-weight:900; letter-spacing:-.015em;}
+  .pos .ps{font-size:.84rem; font-weight:400; color:var(--ink-faint); margin-left:.5rem;
+    letter-spacing:.02em;}
+  .pos .lab{display:block; font-size:.6rem; font-weight:900; letter-spacing:.18em;
+    color:var(--teal-ink); margin:.85rem 0 .3rem;}
+  .pos .lab.b{color:var(--coral-deep);}
+  .pos .tx{font-size:clamp(.92rem,1.95vw,1.02rem); line-height:1.85; color:var(--ink-soft);}
+  .pos .qt{font-family:var(--serif); font-size:clamp(.86rem,1.85vw,.95rem); line-height:1.75;
+    color:var(--ink-faint); margin-top:.85rem; padding-top:.7rem;
+    border-top:1px solid var(--rule-soft); white-space:pre-line;}
+
+  /* ── 확인 문제 ── */
+  .quiz{border:1px solid var(--rule); background:var(--card); padding:1.2rem 1.35rem 1.3rem;
+    margin-bottom:.9rem;}
+  .quiz .qq{font-size:clamp(1rem,2.15vw,1.12rem); font-weight:900; line-height:1.65;
+    letter-spacing:-.01em;}
+  .quiz ol{list-style:none; counter-reset:o; margin-top:.8rem;}
+  .quiz li{counter-increment:o; position:relative; padding-left:2rem; margin-bottom:.45rem;
+    font-size:clamp(.9rem,1.95vw,1rem); line-height:1.75; color:var(--ink-soft);}
+  .quiz li::before{content:counter(o); position:absolute; left:0; top:.15rem;
+    width:1.35rem; height:1.35rem; border:1px solid var(--rule); border-radius:50%;
+    font-size:.72rem; font-weight:700; color:var(--ink-faint);
+    display:flex; align-items:center; justify-content:center;}
+  .quiz details{margin-top:.9rem; border-top:1px solid var(--rule-soft); padding-top:.85rem;}
+  .quiz summary{cursor:pointer; font-size:.78rem; font-weight:900; letter-spacing:.14em;
+    color:var(--teal-ink); list-style:none;}
+  .quiz summary::-webkit-details-marker{display:none;}
+  .quiz summary::before{content:"▸ "; color:var(--coral);}
+  .quiz details[open] summary::before{content:"▾ ";}
+  .quiz .ans{font-size:clamp(.9rem,1.95vw,1rem); line-height:1.85; color:var(--ink-soft);
+    margin-top:.65rem;}
+  .quiz .ans b{color:var(--coral-deep);}
+
+  /* ── 북토크 질문 ── */
+  .talk{background:var(--deep); color:var(--paper);}
+  .talk .kicker{color:var(--teal);}
+  .talk .kicker::after{background:rgba(127,212,216,.28);}
+  .talk h2{color:var(--paper);}
+  .talk .intro{color:rgba(242,237,228,.78);}
+  .talk b,.talk .intro b,.talk p b{color:#fff;}
+  .tq{border-left:3px solid var(--coral); padding:.2rem 0 .2rem 1.2rem;
+    margin-bottom:1.5rem;}
+  .tq:last-child{margin-bottom:0;}
+  .tq .n{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:1.15rem; color:var(--coral);}
+  .tq .qx{font-size:clamp(1rem,2.2vw,1.16rem); font-weight:700; line-height:1.8;
+    margin-top:.15rem;}
+  .tq .hint{font-size:clamp(.88rem,1.9vw,.97rem); line-height:1.8;
+    color:rgba(242,237,228,.68); margin-top:.6rem;}
+  .tq .hint::before{content:"실마리 — "; color:var(--teal); font-weight:700;}
+
   /* ── 꼬리 ── */
   .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
   .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
@@ -133,7 +234,10 @@
   @media print{
     @page{margin:12mm;}
     html,body{print-color-adjust:exact; -webkit-print-color-adjust:exact;}
-    section,.step,.navcard{break-inside:avoid;}
+    section,.term,.passage,.step,.pos,.quiz{break-inside:avoid;}
+    details{display:block;} details > *{display:block !important;}
+    .term > summary::after{display:none !important;}
+    .terms-cap{display:none;}
   }
 </style>
 </head>
@@ -186,51 +290,51 @@
     <div class="terms">
 
       <a class="navcard" href="01.html">
-        <p class="w">가속<span class="la">Layer 01</span></p>
+        <p class="w">우리는 여섯 단계 중 어디에 있는가?<span class="la">Layer 01</span></p>
         <span class="k">우리는 어느 시대인가</span>
-        <span class="dy">8. 3(월) · 4(화)</span>
+        <span class="dy">8. 3(월) · 8장도 함께</span>
       </a>
 
       <a class="navcard" href="02.html">
-        <p class="w">지능<span class="la">Layer 02</span></p>
+        <p class="w">지능의 재발명<span class="la">Layer 02</span></p>
         <span class="k">기계는 이해하는가</span>
-        <span class="dy">8. 6(목) · 7(금)</span>
+        <span class="dy">8. 4(화) · 6(목)</span>
       </a>
 
       <a class="navcard" href="03.html">
-        <p class="w">정체성<span class="la">Layer 03</span></p>
+        <p class="w">나는 누구인가?<span class="la">Layer 03</span></p>
         <span class="k">나는 무엇으로 이어지는가</span>
-        <span class="dy">8. 10(월) · 11(화)</span>
+        <span class="dy">8. 7(금)</span>
       </a>
 
       <a class="navcard" href="04.html">
-        <p class="w">진보<span class="la">Layer 04</span></p>
+        <p class="w">삶은 기하급수적으로 개선되고 있다<span class="la">Layer 04</span></p>
         <span class="k">세상은 나아지는가</span>
-        <span class="dy">8. 13(목) · 14(금)</span>
+        <span class="dy">8. 10 · 11 · 13 (사흘)</span>
       </a>
 
       <a class="navcard" href="05.html">
-        <p class="w">일<span class="la">Layer 05</span></p>
+        <p class="w">일자리의 미래: 좋은 쪽 혹은 나쁜 쪽?<span class="la">Layer 05</span></p>
         <span class="k">대체인가 증강인가</span>
-        <span class="dy">8. 17(월) · 18(화)</span>
+        <span class="dy">8. 14(금)</span>
       </a>
 
       <a class="navcard" href="06.html">
-        <p class="w">생명<span class="la">Layer 06</span></p>
+        <p class="w">향후 30년의 건강과 안녕<span class="la">Layer 06</span></p>
         <span class="k">노화는 수정 가능한가</span>
-        <span class="dy">8. 20(목) · 21(금)</span>
+        <span class="dy">8. 17(월)</span>
       </a>
 
       <a class="navcard" href="07.html">
         <p class="w">위험<span class="la">Layer 07</span></p>
         <span class="k">가속을 통제할 수 있는가</span>
-        <span class="dy">8. 24(월) · 25(화)</span>
+        <span class="dy">8. 18(화)</span>
       </a>
 
       <a class="navcard" href="08.html">
-        <p class="w">추가<span class="la">Layer 08</span></p>
+        <p class="w">카산드라와 나눈 대화<span class="la">Layer 08</span></p>
         <span class="k">무엇을 더하고 지킬 것인가</span>
-        <span class="dy">8. 26(수) · 27(목)</span>
+        <span class="dy">8. 3(월) 미리 · 8. 25(화) 다시</span>
       </a>
 
     </div>
@@ -241,8 +345,8 @@
 <section>
   <div class="wrap">
     <p class="kicker">이 자료를 쓰는 법</p>
-    <h2>네 걸음이면 됩니다</h2>
-    <p class="intro">다 읽지 못해도 괜찮습니다. 이 자료는 진도를 재는 도구가 아니라, <b>읽는 동안 곁에 두는 지도</b>입니다.</p>
+    <h2>다섯 걸음이면 됩니다</h2>
+    <p class="intro">이 자료는 진도를 재는 도구가 아니라, <b>읽는 동안 곁에 두는 지도</b>입니다.</p>
     <div class="steps">
 
       <div class="step">
@@ -267,7 +371,13 @@
         <span class="sn">그리고</span>
         <p class="st">걸리는 문장 하나를 옮겨 적습니다</p>
         <p class="sb">그 층에서 가장 오래 붙잡았던 문장을 어딘가에 적어 둡니다. 마지막 주에 이 문장들이 필요해집니다.</p>
-        <span class="sk">수요일은 쉬어가기입니다 — 8. 5 · 12 · 19. 밀린 것을 따라잡거나, 그냥 쉽니다. 마지막 주에는 쉬어가기가 없고, 대신 8. 28(금)에 북토크에 가져갈 질문 하나를 고릅니다.</span>
+      </div>
+
+      <div class="step">
+        <span class="sn">다 읽고 나서</span>
+        <p class="st">나흘에 걸쳐 다시 읽습니다</p>
+        <p class="sb">8. 20(목)부터 나흘 — <b>1–2장(8.20) → 3–4장(8.21) → 5–6장(8.24) → 7–8장(8.25)</b>을 이어서 다시 봅니다. 또 읽는 것이 아니라 <b>묶어 보는</b> 시간입니다 — 두 장을 나란히 놓으면 따로 읽을 때 안 보이던 것이 보입니다. 이 자료의 「핵심 논점」과 「세 입장」이 그때 가장 쓸모 있습니다.</p>
+        <span class="sk">수요일은 쉬어가기입니다 — 8. 5 · 12 · 19 · 26. 네 주가 모두 같은 리듬이니 "수요일은 쉰다"만 기억하시면 됩니다. 이어서 8. 27(목) 밑줄 모으기 → 8. 28(금) 질문 만들기로 북토크에 닿습니다.</span>
       </div>
 
     </div>

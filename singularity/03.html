@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>함께읽기 ON · 읽기 안내 — 3장 정체성</title>
+<title>함께읽기 ON · 읽기 안내 — 3장 나는 누구인가?</title>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="함께읽기ON">
 <meta property="og:title" content="함께읽기 ON · 읽기 안내 — 마침내 특이점이 시작된다 3장 정체성">
-<meta property="og:description" content="8. 10(월) · 11(화) — 나는 무엇으로 이어지는가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
+<meta property="og:description" content="8. 7(금) —  나는 무엇으로 이어지는가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,9 @@
     font-size:clamp(2.4rem,7vw,3.6rem); line-height:1; color:var(--coral);}
   .hero h1{font-size:clamp(2rem,6.4vw,3.4rem); font-weight:900; line-height:1.2;
     letter-spacing:-.025em;}
+  .en-title{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:clamp(.95rem,2.1vw,1.15rem); color:rgba(242,237,228,.55);
+    margin-top:.35rem; letter-spacing:.02em;}
   .hero .q{font-size:clamp(1rem,2.4vw,1.28rem); color:var(--teal); font-weight:700;
     margin-top:.9rem;}
   .hero .one{font-family:var(--serif); font-size:clamp(1.02rem,2.5vw,1.3rem);
@@ -172,13 +175,29 @@
     margin-bottom:.9rem;}
   .quiz .qq{font-size:clamp(1rem,2.15vw,1.12rem); font-weight:900; line-height:1.65;
     letter-spacing:-.01em;}
+  /* ── 확인 문제 · 고르기 ── */
   .quiz ol{list-style:none; counter-reset:o; margin-top:.8rem;}
-  .quiz li{counter-increment:o; position:relative; padding-left:2rem; margin-bottom:.45rem;
-    font-size:clamp(.9rem,1.95vw,1rem); line-height:1.75; color:var(--ink-soft);}
-  .quiz li::before{content:counter(o); position:absolute; left:0; top:.15rem;
-    width:1.35rem; height:1.35rem; border:1px solid var(--rule); border-radius:50%;
-    font-size:.72rem; font-weight:700; color:var(--ink-faint);
-    display:flex; align-items:center; justify-content:center;}
+  .quiz li{counter-increment:o; position:relative; padding:.5rem .7rem .5rem 2.5rem;
+    margin-bottom:.4rem; font-size:clamp(.9rem,1.95vw,1rem); line-height:1.7;
+    color:var(--ink-soft); cursor:pointer; border:1px solid var(--rule-soft);
+    background:var(--paper); transition:background .12s, border-color .12s;}
+  .quiz li::before{content:counter(o); position:absolute; left:.6rem; top:.62rem;
+    width:1.4rem; height:1.4rem; border:1px solid var(--rule); border-radius:50%;
+    font-size:.74rem; font-weight:700; color:var(--ink-faint); background:#fff;
+    display:flex; align-items:center; justify-content:center; transition:all .12s;}
+  .quiz li:hover{border-color:var(--teal-ink); background:#fff;}
+  .quiz li.right{border-color:var(--teal-ink); background:rgba(127,212,216,.16); color:var(--ink);}
+  .quiz li.right::before{content:"✓"; background:var(--teal-ink); color:#fff; border-color:var(--teal-ink);}
+  .quiz li.wrong{border-color:var(--coral); background:rgba(232,120,90,.12); color:var(--ink);}
+  .quiz li.wrong::before{content:"✕"; background:var(--coral); color:#fff; border-color:var(--coral);}
+  .quiz.done li{cursor:default;}
+  .quiz .verdict{margin-top:.7rem; font-size:clamp(.9rem,1.95vw,1rem); font-weight:700;
+    display:none;}
+  .quiz.done .verdict{display:block;}
+  .quiz .verdict.o{color:var(--teal-ink);}
+  .quiz .verdict.x{color:var(--coral-deep);}
+  .quiz .pick-cap{font-size:.8rem; color:var(--ink-faint); margin-top:.6rem;}
+  .quiz.done .pick-cap{display:none;}
   .quiz details{margin-top:.9rem; border-top:1px solid var(--rule-soft); padding-top:.85rem;}
   .quiz summary{cursor:pointer; font-size:.78rem; font-weight:900; letter-spacing:.14em;
     color:var(--teal-ink); list-style:none;}
@@ -195,6 +214,7 @@
   .talk .kicker::after{background:rgba(127,212,216,.28);}
   .talk h2{color:var(--paper);}
   .talk .intro{color:rgba(242,237,228,.78);}
+  .talk b,.talk .intro b,.talk p b{color:#fff;}
   .tq{border-left:3px solid var(--coral); padding:.2rem 0 .2rem 1.2rem;
     margin-bottom:1.5rem;}
   .tq:last-child{margin-bottom:0;}
@@ -210,6 +230,13 @@
   .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
   .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
   .next p{font-size:clamp(.92rem,1.95vw,1.02rem); color:var(--ink-soft); margin-top:.45rem;}
+  .backto{background:var(--deep-2); padding:0 0 1.5rem;}
+  .backto a{display:inline-flex; align-items:center; gap:.5rem; text-decoration:none;
+    font-size:.86rem; font-weight:800; letter-spacing:.02em;
+    color:var(--teal); border:1px solid rgba(127,212,216,.4); border-radius:2rem;
+    padding:.55rem 1.15rem; transition:background .12s;}
+  .backto a:hover{background:rgba(127,212,216,.14);}
+  .backto a::before{content:"←";}
   .foot{background:var(--deep-2); color:rgba(242,237,228,.55); padding:1.7rem 0;
     font-size:.72rem; letter-spacing:.1em; line-height:1.9;}
 
@@ -230,12 +257,13 @@
   <div class="wrap">
     <div class="top">
       <span class="brand">함께읽기 O N · 읽기 안내</span>
-      <span class="days">8. 10(월) · 11(화)</span>
+      <span class="days">8. 7(금)</span>
     </div>
     <div class="layernum">
       <span class="lb">Layer</span><span class="nn">03</span>
     </div>
-    <h1>정체성</h1>
+    <h1>나는 누구인가?</h1>
+    <p class="en-title">Who Am I?</p>
     <p class="q">나는 무엇으로 이어지는가</p>
     <p class="one">나는 특정 물질이 아니라 패턴이다. 그리고 패턴이라면 — 수정할 수 있다.</p>
     <div class="stack">
@@ -609,7 +637,7 @@ AI에 대한 함의: 충분히 복잡하고 통합된 AI는 '어느 정도' 경�
   <div class="wrap">
     <p class="kicker">논증 구조</p>
     <h2>커즈와일은 이렇게 밀고 나갑니다</h2>
-    <p class="intro">'나는 누구인가'라는 물음에서 출발해 두 번의 발견과 하나의 긴장을 거쳐 답에 닿습니다. 동의하든 아니든, <b>이 뼈대를 정확히 붙들면</b> 북토크에서 제대로 되물을 수 있습니다.</p>
+    <p class="intro">'나는 누구인가'라는 물음에서 출발해 두 번의 발견과 하나의 긴장을 거쳐 답에 닿습니다.</p>
     <div class="steps">
 
       <div class="step">
@@ -737,7 +765,7 @@ AI에 대한 함의: 충분히 복잡하고 통합된 AI는 '어느 정도' 경�
     <h2>네 문제로 되짚기</h2>
     <p class="intro">맞히는 것이 목적이 아닙니다. <b>틀린 문제가 있다면 그 대목을 다시 펼치라는 신호</b>입니다.</p>
 
-    <div class="quiz">
+    <div class="quiz" data-a="2">
       <p class="qq">'범원형심론(Panpsychism)'이 AI 의식 논쟁을 재구성하는 방식으로 가장 적절한 것은?</p>
       <ol>
         <li>AI는 의식이 없다는 것을 더 강하게 논증한다</li>
@@ -748,9 +776,10 @@ AI에 대한 함의: 충분히 복잡하고 통합된 AI는 '어느 정도' 경�
       <details><summary>답과 풀이 보기</summary>
         <p class="ans"><b>답 · 2번</b><br>범원형심론은 의식을 특정 복잡성 이상의 존재에서만 창발하는 것이 아니라 우주의 근본 성질로 본다. 통합 정보 이론(IIT·토노니)과 결합하면 의식의 양(Φ)은 연속적—돌멩이도 미미한 Φ를 가진다. 이것은 'AI가 의식이 있는가'라는 이분법적 질문을 'AI의 Φ는 얼마인가'라는 측정 가능한 질문으로 바꾼다.</p>
       </details>
+      <p class="pick-cap">보기를 눌러 답을 골라 보세요.</p>
     </div>
 
-    <div class="quiz">
+    <div class="quiz" data-a="2">
       <p class="qq">리벳 실험(1983)이 자유의지 논쟁에 제기하는 핵심 문제는?</p>
       <ol>
         <li>인간은 1초에 약 3번의 결정을 내린다는 것이 밝혀졌다</li>
@@ -761,9 +790,10 @@ AI에 대한 함의: 충분히 복잡하고 통합된 AI는 '어느 정도' 경�
       <details><summary>답과 풀이 보기</summary>
         <p class="ans"><b>답 · 2번</b><br>리벳(1983): 손목을 들기로 '결정'하기 약 0.35초 전에 뇌에서 이미 준비 전위(readiness potential)가 나타난다. 이것은 의식적 결정이 신경 과정의 원인이 아니라 결과일 수 있음을 시사한다—즉, 우리는 뇌가 이미 내린 결정을 '나의 결정'으로 경험하는 것일 수 있다. 이것이 결정론과 자유의지 논쟁의 신경과학적 핵심 증거다.</p>
       </details>
+      <p class="pick-cap">보기를 눌러 답을 골라 보세요.</p>
     </div>
 
-    <div class="quiz">
+    <div class="quiz" data-a="2">
       <p class="qq">커즈와일이 《마침내 특이점이 시작된다》에서 말하는 '소스 코드에 접속'의 의미로 가장 적절한 것은?</p>
       <ol>
         <li>AI 시스템의 프로그래밍 코드를 직접 수정하는 것</li>
@@ -774,9 +804,10 @@ AI에 대한 함의: 충분히 복잡하고 통합된 AI는 '어느 정도' 경�
       <details><summary>답과 풀이 보기</summary>
         <p class="ans"><b>답 · 2번</b><br>커즈와일의 '소스 코드 접속'은 비유적 표현이다. BCI(뇌-컴퓨터 인터페이스)와 AI를 통해 자신의 신경 패턴—충동·습관·감정 반응·가치 체계—에 직접 접근하고 수정할 수 있게 되는 것을 의미한다. 이것이 '행동은 우리의 가치와 일치될 수 있다'는 약속의 기술적 기반이다.</p>
       </details>
+      <p class="pick-cap">보기를 눌러 답을 골라 보세요.</p>
     </div>
 
-    <div class="quiz">
+    <div class="quiz" data-a="2">
       <p class="qq">'레플리컨트(Replicant)'의 사고실험이 정체성 논쟁에 제기하는 핵심 질문은?</p>
       <ol>
         <li>AI 로봇은 외모가 인간과 달라야 한다</li>
@@ -787,6 +818,7 @@ AI에 대한 함의: 충분히 복잡하고 통합된 AI는 '어느 정도' 경�
       <details><summary>답과 풀이 보기</summary>
         <p class="ans"><b>답 · 2번</b><br>블레이드 러너의 레플리컨트 레이첼은 자신이 인간이라고 믿도록 프로그래밍된 기억을 가진다. 그 기억이 '심어진 것'이라는 사실이 그 기억을 기반으로 형성된 자아를 무효화하는가? 커즈와일의 패턴 정체성 이론에 따르면—기억의 출처보다 패턴의 현재 상태가 정체성을 결정한다. 그렇다면 우리의 기억도 신경 패턴이 만들어낸 구성물이라는 점에서 레이첼과 어떻게 다른가?</p>
       </details>
+      <p class="pick-cap">보기를 눌러 답을 골라 보세요.</p>
     </div>
   </div>
 </section>
@@ -833,16 +865,53 @@ AI에 대한 함의: 충분히 복잡하고 통합된 AI는 '어느 정도' 경�
 <!-- ── 다음 층 ── -->
 <div class="next">
   <div class="wrap">
-    <p class="nx">다음 — 8. 12(수)는 쉬어가기, 8. 13(목)부터 <b>층 04 · 진보</b></p>
-    <p>3장은 무겁습니다. 오늘은 진도 대신 불편했던 대목 한 곳에 다시 가 보세요. 그 불편함이 논리 때문인지 낯설어서인지 — 그 구분이 북토크의 좋은 재료가 됩니다.</p>
+    <p class="nx">다음 — 8. 10(월) — 4장 삶은 기하급수적으로 개선되고 있다 ①</p>
+    <p>처음부터 「기대 수명」까지 (p.161–193)</p>
   </div>
+</div>
+
+<div class="backto">
+  <div class="wrap"><a href="index.html">여덟 층 — 전체 목차로</a></div>
 </div>
 
 <div class="foot">
   <div class="wrap">
     함께읽기 ON · 레이 커즈와일 『마침내 특이점이 시작된다』 읽기 안내<br>
-    층 03 · 정체성 — 2026. 8. 10(월) · 11(화)
+    층 03 · 정체성 — 2026. 8. 7(금)
   </div>
 </div>
 
+
+<script>
+// 확인 문제 — 보기를 눌러 고르기 (스크립트가 막힌 환경에서도 '답과 풀이 보기'는 그대로 쓸 수 있다)
+(function(){
+  document.querySelectorAll('.quiz').forEach(function(q){
+    var ans = parseInt(q.getAttribute('data-a'), 10);
+    if (!ans) return;
+    var items = q.querySelectorAll('ol li');
+    var det = q.querySelector('details');
+    var v = document.createElement('p');
+    v.className = 'verdict';
+    q.querySelector('ol').insertAdjacentElement('afterend', v);
+    items.forEach(function(li, i){
+      li.setAttribute('role','button');
+      li.setAttribute('tabindex','0');
+      var choose = function(){
+        if (q.classList.contains('done')) return;
+        var ok = (i + 1) === ans;
+        li.classList.add(ok ? 'right' : 'wrong');
+        if (!ok) items[ans-1].classList.add('right');
+        v.textContent = ok ? '맞았습니다.' : '다시 한 번 — 정답은 ' + ans + '번입니다.';
+        v.className = 'verdict ' + (ok ? 'o' : 'x');
+        q.classList.add('done');
+        if (det) det.open = true;
+      };
+      li.addEventListener('click', choose);
+      li.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(); }
+      });
+    });
+  });
+})();
+</script>
 </body></html>

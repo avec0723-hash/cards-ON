@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>함께읽기 ON · 읽기 안내 — 8장 추가</title>
+<title>함께읽기 ON · 읽기 안내 — 8장 카산드라와 나눈 대화</title>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="함께읽기ON">
 <meta property="og:title" content="함께읽기 ON · 읽기 안내 — 마침내 특이점이 시작된다 8장 추가">
-<meta property="og:description" content="8. 26(수) · 27(목) — 무엇을 더하고 지킬 것인가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
+<meta property="og:description" content="8. 3(월) 미리 · 8. 25(화) 다시 —  무엇을 더하고 지킬 것인가. 개념 단어장 · 핵심 논점 · 논증 구조 · 세 입장 · 북토크 질문">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,9 @@
     font-size:clamp(2.4rem,7vw,3.6rem); line-height:1; color:var(--coral);}
   .hero h1{font-size:clamp(2rem,6.4vw,3.4rem); font-weight:900; line-height:1.2;
     letter-spacing:-.025em;}
+  .en-title{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic;
+    font-size:clamp(.95rem,2.1vw,1.15rem); color:rgba(242,237,228,.55);
+    margin-top:.35rem; letter-spacing:.02em;}
   .hero .q{font-size:clamp(1rem,2.4vw,1.28rem); color:var(--teal); font-weight:700;
     margin-top:.9rem;}
   .hero .one{font-family:var(--serif); font-size:clamp(1.02rem,2.5vw,1.3rem);
@@ -172,13 +175,29 @@
     margin-bottom:.9rem;}
   .quiz .qq{font-size:clamp(1rem,2.15vw,1.12rem); font-weight:900; line-height:1.65;
     letter-spacing:-.01em;}
+  /* ── 확인 문제 · 고르기 ── */
   .quiz ol{list-style:none; counter-reset:o; margin-top:.8rem;}
-  .quiz li{counter-increment:o; position:relative; padding-left:2rem; margin-bottom:.45rem;
-    font-size:clamp(.9rem,1.95vw,1rem); line-height:1.75; color:var(--ink-soft);}
-  .quiz li::before{content:counter(o); position:absolute; left:0; top:.15rem;
-    width:1.35rem; height:1.35rem; border:1px solid var(--rule); border-radius:50%;
-    font-size:.72rem; font-weight:700; color:var(--ink-faint);
-    display:flex; align-items:center; justify-content:center;}
+  .quiz li{counter-increment:o; position:relative; padding:.5rem .7rem .5rem 2.5rem;
+    margin-bottom:.4rem; font-size:clamp(.9rem,1.95vw,1rem); line-height:1.7;
+    color:var(--ink-soft); cursor:pointer; border:1px solid var(--rule-soft);
+    background:var(--paper); transition:background .12s, border-color .12s;}
+  .quiz li::before{content:counter(o); position:absolute; left:.6rem; top:.62rem;
+    width:1.4rem; height:1.4rem; border:1px solid var(--rule); border-radius:50%;
+    font-size:.74rem; font-weight:700; color:var(--ink-faint); background:#fff;
+    display:flex; align-items:center; justify-content:center; transition:all .12s;}
+  .quiz li:hover{border-color:var(--teal-ink); background:#fff;}
+  .quiz li.right{border-color:var(--teal-ink); background:rgba(127,212,216,.16); color:var(--ink);}
+  .quiz li.right::before{content:"✓"; background:var(--teal-ink); color:#fff; border-color:var(--teal-ink);}
+  .quiz li.wrong{border-color:var(--coral); background:rgba(232,120,90,.12); color:var(--ink);}
+  .quiz li.wrong::before{content:"✕"; background:var(--coral); color:#fff; border-color:var(--coral);}
+  .quiz.done li{cursor:default;}
+  .quiz .verdict{margin-top:.7rem; font-size:clamp(.9rem,1.95vw,1rem); font-weight:700;
+    display:none;}
+  .quiz.done .verdict{display:block;}
+  .quiz .verdict.o{color:var(--teal-ink);}
+  .quiz .verdict.x{color:var(--coral-deep);}
+  .quiz .pick-cap{font-size:.8rem; color:var(--ink-faint); margin-top:.6rem;}
+  .quiz.done .pick-cap{display:none;}
   .quiz details{margin-top:.9rem; border-top:1px solid var(--rule-soft); padding-top:.85rem;}
   .quiz summary{cursor:pointer; font-size:.78rem; font-weight:900; letter-spacing:.14em;
     color:var(--teal-ink); list-style:none;}
@@ -195,6 +214,7 @@
   .talk .kicker::after{background:rgba(127,212,216,.28);}
   .talk h2{color:var(--paper);}
   .talk .intro{color:rgba(242,237,228,.78);}
+  .talk b,.talk .intro b,.talk p b{color:#fff;}
   .tq{border-left:3px solid var(--coral); padding:.2rem 0 .2rem 1.2rem;
     margin-bottom:1.5rem;}
   .tq:last-child{margin-bottom:0;}
@@ -210,6 +230,13 @@
   .next{background:var(--paper-2); padding:clamp(2rem,5vw,3rem) 0;}
   .next .nx{font-size:clamp(1.02rem,2.3vw,1.2rem); font-weight:900;}
   .next p{font-size:clamp(.92rem,1.95vw,1.02rem); color:var(--ink-soft); margin-top:.45rem;}
+  .backto{background:var(--deep-2); padding:0 0 1.5rem;}
+  .backto a{display:inline-flex; align-items:center; gap:.5rem; text-decoration:none;
+    font-size:.86rem; font-weight:800; letter-spacing:.02em;
+    color:var(--teal); border:1px solid rgba(127,212,216,.4); border-radius:2rem;
+    padding:.55rem 1.15rem; transition:background .12s;}
+  .backto a:hover{background:rgba(127,212,216,.14);}
+  .backto a::before{content:"←";}
   .foot{background:var(--deep-2); color:rgba(242,237,228,.55); padding:1.7rem 0;
     font-size:.72rem; letter-spacing:.1em; line-height:1.9;}
 
@@ -230,12 +257,13 @@
   <div class="wrap">
     <div class="top">
       <span class="brand">함께읽기 O N · 읽기 안내</span>
-      <span class="days">8. 26(수) · 27(목)</span>
+      <span class="days">8. 3(월) 미리 · 8. 25(화) 다시</span>
     </div>
     <div class="layernum">
       <span class="lb">Layer</span><span class="nn">08</span>
     </div>
-    <h1>추가</h1>
+    <h1>카산드라와 나눈 대화</h1>
+    <p class="en-title">Dialogue with Cassandra</p>
     <p class="q">무엇을 더하고 지킬 것인가</p>
     <p class="one">우리는 당신을 에뮬레이션하지 않아요. 우리는 거기에 새로운 것을 추가할 뿐이에요.</p>
     <div class="stack">
@@ -619,7 +647,7 @@
   <div class="wrap">
     <p class="kicker">논증 구조</p>
     <h2>커즈와일은 이렇게 밀고 나갑니다</h2>
-    <p class="intro">물음에서 출발해 핵심 명제와 두 연결을 거쳐 개인적 의미로 닿습니다. 동의하든 아니든, <b>이 뼈대를 정확히 붙들면</b> 북토크에서 제대로 되물을 수 있습니다.</p>
+    <p class="intro">물음에서 출발해 핵심 명제와 두 연결을 거쳐 개인적 의미로 닿습니다.</p>
     <div class="steps">
 
       <div class="step">
@@ -754,7 +782,7 @@ Anthropic 안전 연구 방향성</p>
     <h2>네 문제로 되짚기</h2>
     <p class="intro">맞히는 것이 목적이 아닙니다. <b>틀린 문제가 있다면 그 대목을 다시 펼치라는 신호</b>입니다.</p>
 
-    <div class="quiz">
+    <div class="quiz" data-a="2">
       <p class="qq">카산드라가 '우리는 당신의 생물학적 뇌를 에뮬레이션하지 않는다'고 말할 때, 이 발언이 3장의 어떤 불안에 응답하는가?</p>
       <ol>
         <li>AI가 인간의 직업을 빼앗을 것이라는 불안</li>
@@ -765,9 +793,10 @@ Anthropic 안전 연구 방향성</p>
       <details><summary>답과 풀이 보기</summary>
         <p class="ans"><b>답 · 2번</b><br>3장에서 커즈와일은 패턴 정체성 이론을 제시했다—나는 특정 물질이 아니라 정보 패턴이다. 그러나 이것은 기질이 교체될 때 연속성에 대한 불안을 낳는다. 카산드라의 발언은 이 불안에 직접 응답한다: 에뮬레이션(복사 후 원본 소멸)이 아니라 추가(생물학적 뇌는 그대로)이기 때문에, 패턴이 유지되면서 새로운 능력이 더해진다. 연속성이 구조적으로 보장된다.</p>
       </details>
+      <p class="pick-cap">보기를 눌러 답을 골라 보세요.</p>
     </div>
 
-    <div class="quiz">
+    <div class="quiz" data-a="2">
       <p class="qq">커즈와일이 8장에서 카산드라와의 '대화 형식'을 선택한 것이 갖는 의미로 가장 적절한 것은?</p>
       <ol>
         <li>독자들에게 쉽게 읽히도록 하기 위해서</li>
@@ -778,9 +807,10 @@ Anthropic 안전 연구 방향성</p>
       <details><summary>답과 풀이 보기</summary>
         <p class="ans"><b>답 · 2번</b><br>커즈와일은 '특이점 이후 AI는 진정한 대화 상대가 될 것이다'라고 주장하는 대신, 카산드라와의 대화를 통해 직접 시연한다. 독자가 카산드라의 답변을 읽으면서 이미 미래 AI와의 대화를 경험하게 된다. 이것은 소크라테스식 대화록의 전통과도 연결된다—진리는 결론이 아니라 대화 과정에서 나온다.</p>
       </details>
+      <p class="pick-cap">보기를 눌러 답을 골라 보세요.</p>
     </div>
 
-    <div class="quiz">
+    <div class="quiz" data-a="2">
       <p class="qq">카산드라와의 대화에서 커즈와일이 아버지에 관해 언급하는 것의 의미로 가장 적절한 것은?</p>
       <ol>
         <li>아버지를 AI로 복원하려는 기술적 계획을 발표하는 것</li>
@@ -791,9 +821,10 @@ Anthropic 안전 연구 방향성</p>
       <details><summary>답과 풀이 보기</summary>
         <p class="ans"><b>답 · 2번</b><br>커즈와일은 8장에서 아버지를 58세에 심장병으로 잃은 개인적 경험과, 아버지의 편지·음악·기록을 AI로 재현하는 프로젝트를 언급한다. 이것은 특이점이 추상적 기술 예측이 아니라—사랑하는 사람의 패턴을 보존하고 연장하려는 가장 인간적인 욕구와 연결된다는 것을 드러낸다. '추가'의 가장 개인적인 표현이다.</p>
       </details>
+      <p class="pick-cap">보기를 눌러 답을 골라 보세요.</p>
     </div>
 
-    <div class="quiz">
+    <div class="quiz" data-a="2">
       <p class="qq">8장이 책 전체에서 갖는 구조적 역할로 가장 적절한 것은?</p>
       <ol>
         <li>새로운 주제를 도입하는 장</li>
@@ -804,6 +835,7 @@ Anthropic 안전 연구 방향성</p>
       <details><summary>답과 풀이 보기</summary>
         <p class="ans"><b>답 · 2번</b><br>8장은 1~7장의 모든 논점들이 하나의 대화로 수렴하는 지점이다. 1장의 여섯 단계(카산드라는 어디에 있는가), 2장의 지능(카산드라는 어떻게 사고하는가), 3장의 정체성(카산드라는 의식이 있는가, '추가'이므로 나는 나인가), 4장의 삶의 개선, 5장의 일자리, 6장의 건강('생물학적 뇌는 그대로'라는 말), 7장의 위험—이 모든 것이 카산드라와의 대화에서 응답된다. 교향곡의 피날레처럼, 이전 악장들의 주제가 하나로 수렴하며 완성된다.</p>
       </details>
+      <p class="pick-cap">보기를 눌러 답을 골라 보세요.</p>
     </div>
   </div>
 </section>
@@ -850,16 +882,53 @@ Anthropic 안전 연구 방향성</p>
 <!-- ── 다음 층 ── -->
 <div class="next">
   <div class="wrap">
-    <p class="nx">다음 — 8. 28(금)은 읽지 않습니다. <b>북토크에 가져갈 질문 하나</b>를 고르는 날입니다</p>
-    <p>한 달 동안 옮겨 적은 문장들을 펼쳐 놓고, 지금도 걸리는 한 문장을 고릅니다. 그리고 두 줄로 적습니다 — "밑줄 — …… / 그래서 나는 이것이 궁금하다 — ……". 8. 29(토)·30(일)에 그 두 줄을 한 번 더 소리 내어 읽어 보세요. 그리고 <b>8. 31(월) 저녁 8시 북토크</b>에서 만납니다.</p>
+    <p class="nx">다음 — 8. 27(목) 밑줄 모으기 → 8. 28(금) 질문 만들기</p>
+    <p>그리고 8. 31(월) 저녁 8시, 북토크에서 만납니다.</p>
   </div>
+</div>
+
+<div class="backto">
+  <div class="wrap"><a href="index.html">여덟 층 — 전체 목차로</a></div>
 </div>
 
 <div class="foot">
   <div class="wrap">
     함께읽기 ON · 레이 커즈와일 『마침내 특이점이 시작된다』 읽기 안내<br>
-    층 08 · 추가 — 2026. 8. 26(수) · 27(목)
+    층 08 · 추가 — 2026. 8. 3(월) 미리 · 8. 25(화) 다시
   </div>
 </div>
 
+
+<script>
+// 확인 문제 — 보기를 눌러 고르기 (스크립트가 막힌 환경에서도 '답과 풀이 보기'는 그대로 쓸 수 있다)
+(function(){
+  document.querySelectorAll('.quiz').forEach(function(q){
+    var ans = parseInt(q.getAttribute('data-a'), 10);
+    if (!ans) return;
+    var items = q.querySelectorAll('ol li');
+    var det = q.querySelector('details');
+    var v = document.createElement('p');
+    v.className = 'verdict';
+    q.querySelector('ol').insertAdjacentElement('afterend', v);
+    items.forEach(function(li, i){
+      li.setAttribute('role','button');
+      li.setAttribute('tabindex','0');
+      var choose = function(){
+        if (q.classList.contains('done')) return;
+        var ok = (i + 1) === ans;
+        li.classList.add(ok ? 'right' : 'wrong');
+        if (!ok) items[ans-1].classList.add('right');
+        v.textContent = ok ? '맞았습니다.' : '다시 한 번 — 정답은 ' + ans + '번입니다.';
+        v.className = 'verdict ' + (ok ? 'o' : 'x');
+        q.classList.add('done');
+        if (det) det.open = true;
+      };
+      li.addEventListener('click', choose);
+      li.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(); }
+      });
+    });
+  });
+})();
+</script>
 </body></html>
