@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="함께읽기 ON">
+<meta property="og:title" content="특이점 퀴즈 열전 · 층 04 진보 — 함께읽기 ON">
+<meta property="og:description" content="『마침내 특이점이 시작된다』 4장에서 건진 뜻밖의 이야기 열 문제 · 많이 맞힌 분께 상품이 갑니다">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://avec0723-hash.github.io/cards-ON/singularity/quiz/04.html">
+<title>특이점 퀴즈 열전 · 층 04 진보 — 함께읽기 ON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2EDE4;
+    --card: #FBF8F2;
+    --ink: #1B2A2E;
+    --ink-soft: #4C5D62;
+    --ink-faint: #8D999B;
+    --deep: #12262E;
+    --deep-card: #1B3540;
+    --teal: #7FD4D8;
+    --teal-ink: #2C757F;
+    --teal-soft: #B9E5E7;
+    --coral: #E8785A;
+    --coral-deep: #D45C3D;
+    --rule: #D7CFC1;
+    --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    --serif: "Nanum Myeongjo", "Noto Serif KR", "Batang", serif;
+    --shadow: 0 10px 40px rgba(18, 38, 46, 0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(127,212,216,0.10) 0, transparent 30%),
+      radial-gradient(circle at 88% 82%, rgba(232,120,90,0.08) 0, transparent 35%);
+    pointer-events: none;
+  }
+  .stage {
+    width: 100%;
+    max-width: 880px;
+    position: relative;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--coral);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 56px 60px 48px;
+    display: none;
+    animation: rise .45s ease both;
+  }
+  .card.active { display: block; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── 표지 ── */
+  .cover { text-align: center; padding: 72px 60px; background: var(--deep); color: var(--paper); border-top-color: var(--teal); }
+  .cover .school {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--deep);
+    background: var(--teal);
+    padding: 6px 14px 5px 19px;
+    margin-bottom: 26px;
+  }
+  .cover .layer {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .cover .layer .nn { font-size: 34px; letter-spacing: 0; }
+  .cover h1 {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--paper);
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .cover h1 .em { color: var(--teal); }
+  .cover .sub {
+    font-size: 17px;
+    color: rgba(242,237,228,0.8);
+    margin-bottom: 40px;
+  }
+  .ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; margin: 28px 0 36px;
+    color: var(--coral);
+    font-size: 14px;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    width: 90px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(232,120,90,0.7));
+  }
+  .ornament::after { background: linear-gradient(to left, transparent, rgba(232,120,90,0.7)); }
+  .rules {
+    display: inline-block;
+    text-align: left;
+    background: var(--deep-card);
+    border: 1px solid rgba(127,212,216,0.25);
+    border-radius: 12px;
+    padding: 22px 32px;
+    font-size: 15.5px;
+    color: rgba(242,237,228,0.88);
+    margin-bottom: 42px;
+  }
+  .rules li { list-style: none; padding: 3px 0; }
+  .rules li::before { content: '· '; color: var(--teal); font-weight: 700; }
+
+  /* ── 문제 ── */
+  .qhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 26px;
+  }
+  .qnum {
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: var(--teal-ink);
+    font-weight: 700;
+  }
+  .qnum b { font-size: 26px; color: var(--coral-deep); letter-spacing: 0; }
+  .qcat {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--teal-ink);
+    padding: 5px 16px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+  }
+  .qtext {
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 34px;
+    word-break: keep-all;
+  }
+  .qtext .em { color: var(--coral-deep); }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 30px; }
+  .choice {
+    border: 1.5px solid var(--rule);
+    border-radius: 12px;
+    padding: 17px 22px;
+    font-size: 19px;
+    background: #fff;
+    transition: all .35s ease;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    word-break: keep-all;
+    cursor: pointer;
+  }
+  .choices:not(.revealed) .choice:hover {
+    border-color: var(--teal-ink);
+    transform: translateY(-1px);
+  }
+  .revealed .choice { cursor: default; }
+  .choice .tag {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--teal-ink);
+    color: var(--teal-ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .revealed .choice { opacity: 0.35; cursor: default; }
+  .revealed .choice.correct {
+    opacity: 1;
+    background: var(--teal-ink);
+    border-color: var(--teal-ink);
+    color: #fff;
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(44,117,127,0.35);
+  }
+  .revealed .choice.correct .tag {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--deep);
+  }
+  .revealed .choice.wrongpick {
+    opacity: 1;
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+  }
+  .revealed .choice.wrongpick .tag {
+    background: #fff;
+    border-color: #fff;
+    color: var(--coral-deep);
+  }
+  .revealed .choice.wrongpick .tag::after { content: ''; }
+  .aha {
+    display: none;
+    font-family: var(--serif);
+    background: rgba(127,212,216,0.22);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 28px;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    animation: rise .4s ease both;
+    word-break: keep-all;
+  }
+  .aha.show { display: block; }
+  .aha .label {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--teal-ink);
+    font-weight: 900;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ── 버튼·진행 ── */
+  .controls { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 13px 36px;
+    border-radius: 999px;
+    border: 1.5px solid var(--deep);
+    background: var(--deep);
+    color: var(--paper);
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all .25s ease;
+  }
+  .btn:hover { background: var(--deep-card); transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--deep); }
+  .btn.ghost:hover { background: rgba(18,38,46,0.06); }
+  .btn.coral { background: var(--coral); border-color: var(--coral); color: #fff; }
+  .btn.coral:hover { background: var(--coral-deep); }
+  .dots { display: flex; gap: 8px; }
+  .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: rgba(18,38,46,0.15);
+    transition: all .3s ease;
+  }
+  .dot.on { background: var(--coral); transform: scale(1.25); }
+  .dot.done { background: var(--teal-ink); }
+  .hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 18px;
+    letter-spacing: 1px;
+  }
+  .cover .hint { color: rgba(242,237,228,0.5); }
+
+  /* ── 마무리 ── */
+  .finale { text-align: center; padding: 64px 60px; }
+  .finale .school {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #fff;
+    background: var(--teal-ink);
+    padding: 5px 12px 4px 17px;
+    margin-bottom: 20px;
+  }
+  .finale h2 {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--deep);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .finale .msg { font-size: 18px; color: var(--ink-soft); margin-bottom: 40px; }
+  .recap {
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 28px 36px;
+    margin-bottom: 36px;
+  }
+  .recap h3 {
+    font-size: 15px; letter-spacing: 3px; font-weight: 900;
+    color: var(--teal-ink); margin-bottom: 16px;
+    text-align: center;
+  }
+  .recap table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  .recap td { padding: 7px 8px; border-bottom: 1px dashed var(--rule); vertical-align: top; }
+  .recap tr:last-child td { border-bottom: none; }
+  .recap .no { color: var(--coral-deep); font-weight: 900; width: 34px; }
+  .recap .ans { color: var(--deep); font-weight: 700; white-space: nowrap; padding-left: 14px; }
+  .recap .ox { width: 30px; font-weight: 900; text-align: center; }
+  .recap .ox.o { color: var(--teal-ink); }
+  .recap .ox.x { color: var(--coral-deep); }
+  .recap .ox.n { color: var(--ink-faint); font-weight: 400; }
+
+  @media (max-width: 640px) {
+    .card { padding: 36px 26px; }
+    .cover h1 { font-size: 30px; }
+    .qtext { font-size: 21px; }
+    .choices { grid-template-columns: 1fr; }
+    .choice { font-size: 17px; }
+    .recap .ans { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- 표지 -->
+  <section class="card cover active" id="cover">
+    <div class="school">함께읽기 O N</div>
+    <div class="layer">Layer <span class="nn">04</span></div>
+    <h1>진보<br><span class="em">퀴즈 열전</span></h1>
+    <p class="sub">세상은 나아지는가 — 4장에서 건진 뜻밖의 이야기 열 가지</p>
+    <div class="ornament">✦</div>
+    <div>
+      <button class="btn coral" onclick="start()">퀴즈 시작</button>
+    </div>
+    <p class="hint">스페이스 키로도 진행할 수 있습니다</p>
+  </section>
+
+  <!-- 문제 카드 (스크립트가 채움) -->
+  <section class="card" id="quiz">
+    <div class="qhead">
+      <div class="qnum">문제 <b id="qNo">1</b> / 10</div>
+      <div class="qcat" id="qCat"></div>
+    </div>
+    <div class="qtext" id="qText"></div>
+    <div class="choices" id="qChoices"></div>
+    <div class="aha" id="qAha"><span class="label">아하!</span><span id="qAhaText"></span></div>
+    <div class="controls">
+      <div class="dots" id="dots"></div>
+      <button class="btn" id="nextBtn" onclick="advance()">정답</button>
+    </div>
+    <p class="hint">스페이스: 다음 단계 &nbsp;·&nbsp; ← : 이전 문제</p>
+  </section>
+
+  <!-- 마무리 -->
+  <section class="card finale" id="finale">
+    <div class="school">함께읽기 O N</div>
+    <h2 id="finTitle">열 문제, 모두 끝났습니다</h2>
+    <p class="msg" id="finMsg">이제 채점하고, 상품 받으러 나오세요.</p>
+    <div class="recap">
+      <h3>정답 한눈에 보기</h3>
+      <table id="recapTable"></table>
+    </div>
+    <button class="btn ghost" onclick="restart()">처음부터 다시</button>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    cat: "전문가와 침팬지",
+    q: "한스 로슬링의 『팩트풀니스』. 세계의 빈곤·교육 현황을 묻는 문제에서 각국 <span class=\"em\">전문가들의 정답률</span>은 무작위로 찍는 침팬지와 비교해 어땠을까요?",
+    choices: ["침팬지보다 낮았다","침팬지와 비슷했다","침팬지보다 훨씬 높았다","문제가 쉬워 모두 만점"],
+    answer: 0,
+    aha: "침팬지보다 낮았습니다. 무작위로 찍느니만 못했다는 건, 세상이 실제보다 나쁘다고 「체계적으로」 믿고 있었다는 뜻이죠. 지식이 부족해서가 아니라 방향이 틀린 겁니다. 4장의 주제가 바로 이 간극이에요 — 데이터는 나아졌다고 말하는데 마음은 나빠졌다고 말하는.",
+    short: "침팬지보다 낮았다"
+  },
+  {
+    cat: "극빈층",
+    q: "세계 극빈층 비율은 1820년 약 89%였습니다. <span class=\"em\">2023년</span>에는 얼마일까요?",
+    choices: ["약 49%","약 29%","약 9%","약 69%"],
+    answer: 2,
+    aha: "약 9%까지 떨어졌습니다. 1990년만 해도 36%(19억 명)였는데 2023년엔 9%(7억 명)예요. 가장 빠른 건 중국 — 30년 만에 8억 명 넘게 빈곤에서 벗어났습니다. 맥스 로저는 이렇게 말했죠. \"매일 약 17만 명이 극빈층을 탈출했다. 이것은 매일 일어나는 기적 — 그러나 뉴스에 나오지 않는다.\"",
+    short: "약 9% (1820년엔 89%)"
+  },
+  {
+    cat: "아동 사망률",
+    q: "5세 미만 아동 사망률. 1900년에는 무려 43%였습니다. 오늘날은?",
+    choices: ["약 12%","약 4%","약 22%","약 30%"],
+    answer: 1,
+    aha: "약 4%입니다. 1950년 22%, 2000년 7%를 거쳐 여기까지 왔어요. 경구 수분 보충 요법, 백신, 산모 교육, 영양 개선이 만든 결과입니다. 홍역 사망만 해도 2000년부터 2017년 사이에 약 80% 줄었어요. 백 년 전 부모들이 아이 열 중 넷을 잃었다는 사실을 떠올리면, 이건 인류가 이룬 가장 극적인 변화입니다.",
+    short: "약 4% (1900년엔 43%)"
+  },
+  {
+    cat: "핑커의 말",
+    q: "스티븐 핑커가 우리의 착시를 설명한 유명한 문장. <span class=\"em\">\"나쁜 것들은 사건이고, 좋은 것들은 ___이다.\"</span> 빈칸은?",
+    choices: ["소문","거짓","우연","과정"],
+    answer: 3,
+    aha: "「과정」입니다. 살인은 하룻밤 사이에 일어나 1면에 실리지만, 범죄율 감소는 수십 년에 걸쳐 조용히 일어나 뉴스가 되지 않죠. 비행기 추락은 대서특필되고 안전 착륙한 수천 편은 보도되지 않는 것처럼요. 카너먼이 밝힌 대로 같은 크기의 손실은 이득보다 약 두 배 강하게 느껴집니다 — 우리 뇌가 위협을 먼저 보도록 설계된 탓입니다.",
+    short: "과정 (핑커)"
+  },
+  {
+    cat: "태양광",
+    q: "태양광 발전 단가는 2010년 MWh당 약 378달러였습니다. 2023년에는 약 29달러 — <span class=\"em\">얼마나 떨어진</span> 걸까요?",
+    choices: ["약 30% 감소","90% 이상 감소","약 70% 감소","약 50% 감소"],
+    answer: 1,
+    aha: "90% 이상 떨어졌습니다. 「스완슨의 법칙」 — 태양광 모듈 출하량이 두 배가 될 때마다 비용이 약 20%씩 줄어듭니다. 그 결과 2023년 신규 전력 설비의 약 90%가 재생에너지였어요. 그런데 바로 그 2023년이 기록상 가장 더운 해이기도 했습니다. 4장 낙관론이 가장 크게 시험받는 지점이 여기입니다.",
+    short: "90% 이상 감소"
+  },
+  {
+    cat: "유전체",
+    q: "한 사람의 유전체를 분석하는 비용. 2001년에는 약 3억 달러였습니다. 2023년에는?",
+    choices: ["약 200달러 이하","약 2,000달러","약 2만 달러","약 200만 달러"],
+    answer: 0,
+    aha: "200달러 아래입니다. 백만 배 넘게 떨어진 것 — 무어의 법칙보다도 가파른 하락이죠. 생물학이 정보 기술이 되면 이런 일이 벌어집니다. 같은 흐름에서 알파폴드2는 2020년 단백질 구조 예측이라는 50년 난제를 풀었고, mRNA 백신은 12개월 만에 개발됐습니다. 기존 최단 기록이 4년이었는데 말이죠.",
+    short: "200달러 이하 (백만 배 감소)"
+  },
+  {
+    cat: "3D 프린팅",
+    q: "코로나19 초기, 인공호흡기 밸브 설계 파일이 공개 공유되자 전 세계 3D 프린터로 부품이 생산되기까지 걸린 시간은?",
+    choices: ["1년","3주","3개월","72시간"],
+    answer: 3,
+    aha: "72시간입니다. 제조가 「파일 전송」이 되는 순간이었죠. 설계도가 인터넷을 타고 날아가 각지에서 물건이 되어 나온 겁니다. 커즈와일이 말하는 「비정보 기술이 정보 기술로 전환되는 순간」의 가장 선명한 장면이에요. 지금은 콘크리트 3D 프린팅으로 집을 짓고, 맞춤형 뼈 임플란트를 만듭니다.",
+    short: "72시간"
+  },
+  {
+    cat: "식량",
+    q: "1960~70년대 녹색혁명. 노먼 볼로그의 고수확 밀·쌀 품종이 구한 것으로 추정되는 생명은?",
+    choices: ["약 100만 명","약 1,000만 명","약 10억 명","약 1억 명"],
+    answer: 2,
+    aha: "약 10억 명입니다. 기아 인구 비율은 1970년 약 35%에서 지금 약 9%로 떨어졌어요. 다음 단계는 이미 와 있습니다 — 수직 농업은 도시 안에서 LED와 AI 제어로, 일반 농업 대비 토지는 100배 적게, 물은 95% 적게 쓰며 작물을 길러냅니다.",
+    short: "약 10억 명 (볼로그)"
+  },
+  {
+    cat: "정보 민주화",
+    q: "커즈와일이 정보 민주화를 설명하며 든 상징적 비교. \"아프리카의 스마트폰 사용자는 20년 전 <span class=\"em\">___</span>이 접근할 수 없었던 정보에 즉각 접근한다.\"",
+    choices: ["미국 대통령","하버드 교수","대영 도서관","노벨상 수상자"],
+    answer: 0,
+    aha: "미국 대통령입니다. 인터넷 접속률은 1995년 1%에서 2023년 약 65%로, 스마트폰은 2007년 등장 이후 67억 대로 늘었어요. 케냐에서는 은행 계좌 없이도 쓰는 모바일 금융 M-Pesa가 나라 GDP의 절반가량을 처리합니다. 선진국이 걸어온 단계를 건너뛰는 것 — 이것을 개구리 뛰기라 부릅니다.",
+    short: "미국 대통령"
+  },
+  {
+    cat: "수명",
+    q: "오브리 드 그레이가 제안하고 커즈와일이 이어받은 「수명 탈출 속도(LEV)」. 어떤 상태를 뜻할까요?",
+    choices: ["우주에서 노화가 느려지는 현상","평균 수명이 100세를 넘는 시점","노화가 완전히 멈추는 나이","과학이 매년 남은 기대 수명을 1년 넘게 늘리는 시점"],
+    answer: 3,
+    aha: "과학이 매년 남은 기대 수명을 1년 넘게 늘리는 시점입니다. 그렇게 되면 죽음이 계속 뒤로 물러나죠. 20세기 동안 기대 수명은 매년 약 3개월씩 늘었는데, 이것이 12개월을 넘어서는 순간입니다. 커즈와일은 2030년대에 가능하다고 봅니다 — 세노리틱스(생쥐 실험에서 수명 25~30% 연장), 야마나카 인자 같은 기술들이 근거예요.",
+    short: "LEV — 연 1년 이상 연장"
+  }
+];
+
+let qi = -1;        // 현재 문제 인덱스
+let stage = 0;      // 0: 문제, 1: 정답 공개, 2: 아하 공개
+let picks = [];     // 문제별 내가 고른 보기 (안 골랐으면 null)
+const $ = id => document.getElementById(id);
+
+function buildDots() {
+  $('dots').innerHTML = QUESTIONS.map((_, i) =>
+    `<div class="dot${i < qi ? ' done' : i === qi ? ' on' : ''}"></div>`).join('');
+}
+
+function reveal() {
+  const q = QUESTIONS[qi];
+  const picked = picks[qi];
+  $('qChoices').classList.add('revealed');
+  if (picked !== null && picked !== undefined && picked !== q.answer) {
+    $('qChoices').children[picked].classList.add('wrongpick');
+  }
+  $('nextBtn').textContent = '추가설명';
+  stage = 1;
+}
+
+function pick(i) {
+  if (stage !== 0) return;
+  picks[qi] = i;
+  reveal();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[qi];
+  $('qNo').textContent = qi + 1;
+  $('qCat').textContent = q.cat;
+  $('qText').innerHTML = q.q;
+  $('qChoices').innerHTML = q.choices.map((c, i) =>
+    `<div class="choice${i === q.answer ? ' correct' : ''}" onclick="pick(${i})"><span class="tag">${'①②③④'[i]}</span>${c}</div>`).join('');
+  $('qChoices').classList.remove('revealed');
+  $('qAha').classList.remove('show');
+  $('qAhaText').textContent = q.aha;
+  $('nextBtn').textContent = '정답';
+  stage = 0;
+  // 이미 답을 확인한 문제로 되돌아온 경우 — 채점 상태 복원
+  if (picks[qi] !== undefined) {
+    reveal();
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  }
+  buildDots();
+}
+
+function show(id) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  $(id).classList.add('active');
+}
+
+function start() {
+  qi = 0;
+  show('quiz');
+  renderQuestion();
+}
+
+function advance() {
+  if (stage === 0) {
+    if (picks[qi] === undefined) picks[qi] = null; // 진행자 모드 — 고르지 않고 공개
+    reveal();
+  } else if (stage === 1) {
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  } else {
+    if (qi === QUESTIONS.length - 1) { finish(); return; }
+    qi++;
+    renderQuestion();
+    show('quiz');
+  }
+}
+
+function back() {
+  if (qi > 0) { qi--; renderQuestion(); }
+}
+
+function finish() {
+  const answered = picks.filter(p => p !== null && p !== undefined).length;
+  const score = picks.filter((p, i) => p === QUESTIONS[i].answer).length;
+  if (answered > 0) {
+    $('finTitle').textContent = `열 문제 중 ${score}문제!`;
+    $('finMsg').textContent =
+      score >= 9 ? '특이점급입니다. 1장을 다시 읽을 필요가 없겠는데요.' :
+      score >= 7 ? '수확 가속의 법칙 — 읽은 만큼 돌아왔습니다.' :
+      score >= 4 ? '연못의 절반쯤 왔습니다. 내일이면 가득 찹니다.' :
+                   '아직 스물아홉 번째 날 — 틀린 자리를 다시 펼치면 됩니다.';
+  } else {
+    $('finTitle').textContent = '열 문제, 모두 끝났습니다';
+    $('finMsg').textContent = '이제 채점하고, 상품 받으러 나오세요.';
+  }
+  $('recapTable').innerHTML = QUESTIONS.map((q, i) => {
+    const p = picks[i];
+    const ox = (p === null || p === undefined) ? '<td class="ox n">−</td>'
+      : p === q.answer ? '<td class="ox o">O</td>' : '<td class="ox x">X</td>';
+    return `<tr><td class="no">${i + 1}</td>${ox}<td>${q.cat}</td><td class="ans">${q.short}</td></tr>`;
+  }).join('');
+  show('finale');
+}
+
+function restart() {
+  qi = -1;
+  picks = [];
+  show('cover');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') {
+    e.preventDefault();
+    if ($('cover').classList.contains('active')) start();
+    else if ($('quiz').classList.contains('active')) advance();
+  } else if (e.code === 'ArrowLeft' && $('quiz').classList.contains('active')) {
+    back();
+  }
+});
+</script>
+</body>
+</html>

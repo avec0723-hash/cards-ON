@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="함께읽기 ON">
+<meta property="og:title" content="특이점 퀴즈 열전 · 층 03 정체성 — 함께읽기 ON">
+<meta property="og:description" content="『마침내 특이점이 시작된다』 3장에서 건진 뜻밖의 이야기 열 문제 · 많이 맞힌 분께 상품이 갑니다">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://avec0723-hash.github.io/cards-ON/singularity/quiz/03.html">
+<title>특이점 퀴즈 열전 · 층 03 정체성 — 함께읽기 ON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2EDE4;
+    --card: #FBF8F2;
+    --ink: #1B2A2E;
+    --ink-soft: #4C5D62;
+    --ink-faint: #8D999B;
+    --deep: #12262E;
+    --deep-card: #1B3540;
+    --teal: #7FD4D8;
+    --teal-ink: #2C757F;
+    --teal-soft: #B9E5E7;
+    --coral: #E8785A;
+    --coral-deep: #D45C3D;
+    --rule: #D7CFC1;
+    --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    --serif: "Nanum Myeongjo", "Noto Serif KR", "Batang", serif;
+    --shadow: 0 10px 40px rgba(18, 38, 46, 0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(127,212,216,0.10) 0, transparent 30%),
+      radial-gradient(circle at 88% 82%, rgba(232,120,90,0.08) 0, transparent 35%);
+    pointer-events: none;
+  }
+  .stage {
+    width: 100%;
+    max-width: 880px;
+    position: relative;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--coral);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 56px 60px 48px;
+    display: none;
+    animation: rise .45s ease both;
+  }
+  .card.active { display: block; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── 표지 ── */
+  .cover { text-align: center; padding: 72px 60px; background: var(--deep); color: var(--paper); border-top-color: var(--teal); }
+  .cover .school {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--deep);
+    background: var(--teal);
+    padding: 6px 14px 5px 19px;
+    margin-bottom: 26px;
+  }
+  .cover .layer {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .cover .layer .nn { font-size: 34px; letter-spacing: 0; }
+  .cover h1 {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--paper);
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .cover h1 .em { color: var(--teal); }
+  .cover .sub {
+    font-size: 17px;
+    color: rgba(242,237,228,0.8);
+    margin-bottom: 40px;
+  }
+  .ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; margin: 28px 0 36px;
+    color: var(--coral);
+    font-size: 14px;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    width: 90px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(232,120,90,0.7));
+  }
+  .ornament::after { background: linear-gradient(to left, transparent, rgba(232,120,90,0.7)); }
+  .rules {
+    display: inline-block;
+    text-align: left;
+    background: var(--deep-card);
+    border: 1px solid rgba(127,212,216,0.25);
+    border-radius: 12px;
+    padding: 22px 32px;
+    font-size: 15.5px;
+    color: rgba(242,237,228,0.88);
+    margin-bottom: 42px;
+  }
+  .rules li { list-style: none; padding: 3px 0; }
+  .rules li::before { content: '· '; color: var(--teal); font-weight: 700; }
+
+  /* ── 문제 ── */
+  .qhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 26px;
+  }
+  .qnum {
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: var(--teal-ink);
+    font-weight: 700;
+  }
+  .qnum b { font-size: 26px; color: var(--coral-deep); letter-spacing: 0; }
+  .qcat {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--teal-ink);
+    padding: 5px 16px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+  }
+  .qtext {
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 34px;
+    word-break: keep-all;
+  }
+  .qtext .em { color: var(--coral-deep); }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 30px; }
+  .choice {
+    border: 1.5px solid var(--rule);
+    border-radius: 12px;
+    padding: 17px 22px;
+    font-size: 19px;
+    background: #fff;
+    transition: all .35s ease;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    word-break: keep-all;
+    cursor: pointer;
+  }
+  .choices:not(.revealed) .choice:hover {
+    border-color: var(--teal-ink);
+    transform: translateY(-1px);
+  }
+  .revealed .choice { cursor: default; }
+  .choice .tag {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--teal-ink);
+    color: var(--teal-ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .revealed .choice { opacity: 0.35; cursor: default; }
+  .revealed .choice.correct {
+    opacity: 1;
+    background: var(--teal-ink);
+    border-color: var(--teal-ink);
+    color: #fff;
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(44,117,127,0.35);
+  }
+  .revealed .choice.correct .tag {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--deep);
+  }
+  .revealed .choice.wrongpick {
+    opacity: 1;
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+  }
+  .revealed .choice.wrongpick .tag {
+    background: #fff;
+    border-color: #fff;
+    color: var(--coral-deep);
+  }
+  .revealed .choice.wrongpick .tag::after { content: ''; }
+  .aha {
+    display: none;
+    font-family: var(--serif);
+    background: rgba(127,212,216,0.22);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 28px;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    animation: rise .4s ease both;
+    word-break: keep-all;
+  }
+  .aha.show { display: block; }
+  .aha .label {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--teal-ink);
+    font-weight: 900;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ── 버튼·진행 ── */
+  .controls { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 13px 36px;
+    border-radius: 999px;
+    border: 1.5px solid var(--deep);
+    background: var(--deep);
+    color: var(--paper);
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all .25s ease;
+  }
+  .btn:hover { background: var(--deep-card); transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--deep); }
+  .btn.ghost:hover { background: rgba(18,38,46,0.06); }
+  .btn.coral { background: var(--coral); border-color: var(--coral); color: #fff; }
+  .btn.coral:hover { background: var(--coral-deep); }
+  .dots { display: flex; gap: 8px; }
+  .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: rgba(18,38,46,0.15);
+    transition: all .3s ease;
+  }
+  .dot.on { background: var(--coral); transform: scale(1.25); }
+  .dot.done { background: var(--teal-ink); }
+  .hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 18px;
+    letter-spacing: 1px;
+  }
+  .cover .hint { color: rgba(242,237,228,0.5); }
+
+  /* ── 마무리 ── */
+  .finale { text-align: center; padding: 64px 60px; }
+  .finale .school {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #fff;
+    background: var(--teal-ink);
+    padding: 5px 12px 4px 17px;
+    margin-bottom: 20px;
+  }
+  .finale h2 {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--deep);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .finale .msg { font-size: 18px; color: var(--ink-soft); margin-bottom: 40px; }
+  .recap {
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 28px 36px;
+    margin-bottom: 36px;
+  }
+  .recap h3 {
+    font-size: 15px; letter-spacing: 3px; font-weight: 900;
+    color: var(--teal-ink); margin-bottom: 16px;
+    text-align: center;
+  }
+  .recap table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  .recap td { padding: 7px 8px; border-bottom: 1px dashed var(--rule); vertical-align: top; }
+  .recap tr:last-child td { border-bottom: none; }
+  .recap .no { color: var(--coral-deep); font-weight: 900; width: 34px; }
+  .recap .ans { color: var(--deep); font-weight: 700; white-space: nowrap; padding-left: 14px; }
+  .recap .ox { width: 30px; font-weight: 900; text-align: center; }
+  .recap .ox.o { color: var(--teal-ink); }
+  .recap .ox.x { color: var(--coral-deep); }
+  .recap .ox.n { color: var(--ink-faint); font-weight: 400; }
+
+  @media (max-width: 640px) {
+    .card { padding: 36px 26px; }
+    .cover h1 { font-size: 30px; }
+    .qtext { font-size: 21px; }
+    .choices { grid-template-columns: 1fr; }
+    .choice { font-size: 17px; }
+    .recap .ans { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- 표지 -->
+  <section class="card cover active" id="cover">
+    <div class="school">함께읽기 O N</div>
+    <div class="layer">Layer <span class="nn">03</span></div>
+    <h1>정체성<br><span class="em">퀴즈 열전</span></h1>
+    <p class="sub">나는 무엇으로 이어지는가 — 3장에서 건진 뜻밖의 이야기 열 가지</p>
+    <div class="ornament">✦</div>
+    <div>
+      <button class="btn coral" onclick="start()">퀴즈 시작</button>
+    </div>
+    <p class="hint">스페이스 키로도 진행할 수 있습니다</p>
+  </section>
+
+  <!-- 문제 카드 (스크립트가 채움) -->
+  <section class="card" id="quiz">
+    <div class="qhead">
+      <div class="qnum">문제 <b id="qNo">1</b> / 10</div>
+      <div class="qcat" id="qCat"></div>
+    </div>
+    <div class="qtext" id="qText"></div>
+    <div class="choices" id="qChoices"></div>
+    <div class="aha" id="qAha"><span class="label">아하!</span><span id="qAhaText"></span></div>
+    <div class="controls">
+      <div class="dots" id="dots"></div>
+      <button class="btn" id="nextBtn" onclick="advance()">정답</button>
+    </div>
+    <p class="hint">스페이스: 다음 단계 &nbsp;·&nbsp; ← : 이전 문제</p>
+  </section>
+
+  <!-- 마무리 -->
+  <section class="card finale" id="finale">
+    <div class="school">함께읽기 O N</div>
+    <h2 id="finTitle">열 문제, 모두 끝났습니다</h2>
+    <p class="msg" id="finMsg">이제 채점하고, 상품 받으러 나오세요.</p>
+    <div class="recap">
+      <h3>정답 한눈에 보기</h3>
+      <table id="recapTable"></table>
+    </div>
+    <button class="btn ghost" onclick="restart()">처음부터 다시</button>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    cat: "몸과 나",
+    q: "우리 몸을 이루는 <span class=\"em\">원자</span>는 대부분 얼마 만에 새것으로 교체될까요?",
+    choices: ["평생 그대로다","70년마다","7~10개월마다","7~10년마다"],
+    answer: 3,
+    aha: "7~10년이면 대부분 교체됩니다. 물질로만 따지면 10년 전의 나와 지금의 나는 거의 다른 몸이죠. 그런데도 나는 여전히 나 — 커즈와일의 결론은 이렇습니다. \"나는 특정 물질이 아니라 패턴이다.\" 강물은 매 순간 다른 물 분자로 흐르지만 여전히 한강이고, 같은 곡을 피아노로 치든 오케스트라로 연주하든 같은 멜로디인 것처럼요.",
+    short: "7~10년 (나는 패턴이다)"
+  },
+  {
+    cat: "오래된 역설",
+    q: "낡은 판자를 하나씩 갈아 끼워 마침내 모든 판자가 새것이 된 배. 이 배는 여전히 같은 배인가 — 이 고대 그리스의 역설을 무엇이라 부를까요?",
+    choices: ["제논의 화살","테세우스의 배","오디세우스의 노","아르키메데스의 저울"],
+    answer: 1,
+    aha: "테세우스의 배입니다. 우리 식으로는 「할아버지의 도끼」 — 자루를 세 번 바꾸고 날을 두 번 바꿨는데 여전히 할아버지의 도끼인가. 정체성의 기준이 물질이라면 아니고, 기억·역사·연속성이라면 그렇습니다. 커즈와일은 뉴런을 나노봇으로 하나씩 바꾸는 상황에서 이 역설이 훨씬 날카로워진다고 봅니다.",
+    short: "테세우스의 배"
+  },
+  {
+    cat: "기억",
+    q: "\"기억이 이어지는 것이 곧 나다.\" 1689년 『인간 오성론』에서 이렇게 말한 철학자는 누구일까요?",
+    choices: ["존 로크","데카르트","칸트","니체"],
+    answer: 0,
+    aha: "존 로크입니다. 그런데 이 이론에는 허점이 있어요. 알츠하이머 환자는 기억이 사라져도 성격·감정 반응·음악 취향은 남습니다. 로크의 기억 이론은 이 경우를 설명하지 못하죠. 커즈와일의 패턴 정체성 이론은 기억보다 더 넓은 것 — 그 사람을 이루는 정보 패턴 전체 — 을 붙듭니다.",
+    short: "존 로크 (1689)"
+  },
+  {
+    cat: "주관적 경험",
+    q: "토마스 네이글의 유명한 논문 제목. <span class=\"em\">\"___가 된다는 것은 어떤 것인가\"</span> — 빈칸에 들어갈 동물은?",
+    choices: ["고래","문어","박쥐","개미"],
+    answer: 2,
+    aha: "박쥐입니다(1974년). 박쥐의 반향정위를 물리적으로 남김없이 설명할 수 있어도, 박쥐가 된다는 주관적 경험만은 설명할 수 없다는 것 — 이것이 「감각질」의 문제입니다. 붉은색을 보는 그 느낌 말이죠. LLM은 붉음에 관한 모든 정보를 처리하지만, 붉음을 느끼는가? 차머스는 이것을 「의식의 어려운 문제」라 불렀습니다.",
+    short: "박쥐 (네이글, 1974)"
+  },
+  {
+    cat: "자유의지",
+    q: "리벳의 1983년 실험. 손목을 들기로 「결정」하기 <span class=\"em\">0.35초 전</span>에 뇌에서 이미 나타나는 것은?",
+    choices: ["준비 전위","심장 박동 상승","동공 확장","아무것도 없다"],
+    answer: 0,
+    aha: "준비 전위입니다. 뇌가 먼저 움직이고, 의식은 그 뒤에 \"내가 결정했다\"고 느낀다는 뜻이죠. 커즈와일은 자유의지를 둘로 나눕니다. 결정론 바깥에서 선택하는 형이상학적 자유의지는 아마 불가능하지만, 자기 신경 패턴에 접근해 스스로를 설계하는 실천적 자유는 특이점이 가능하게 한다고요.",
+    short: "준비 전위 (0.35초 전)"
+  },
+  {
+    cat: "점진적 대체",
+    q: "커즈와일의 핵심 사고실험. 뇌의 뉴런을 기능이 똑같은 <span class=\"em\">나노봇</span>으로 1% → 10% → 50% → 100% 바꿔간다면, 그는 어느 지점에서 「나」가 사라진다고 볼까요?",
+    choices: ["50%를 넘는 순간","100%가 되는 순간","첫 1%에서 이미","어느 지점에서도 사라지지 않는다"],
+    answer: 3,
+    aha: "패턴이 유지되는 한 사라지지 않는다 — 이것이 패턴 정체성 이론의 답입니다. 전신 마취에서 깨어날 때도 의식은 한 번 꺼졌다 켜지지만 우리는 같은 사람이죠. 잠도 마찬가지고요. 다만 이 답은 디지털 불멸의 이론적 근거인 동시에, 가장 강력한 철학적 도전을 받는 지점이기도 합니다.",
+    short: "사라지지 않는다 (패턴 유지)"
+  },
+  {
+    cat: "복사와 이동",
+    q: "데릭 파핏의 텔레포터 사고실험. 내 정보가 화성에서 재조합되고 지구의 원본은 소멸됩니다. 파핏이 정체성보다 중요하다고 본 것은?",
+    choices: ["원본 여부","물질의 동일성","심리적 연속성","시간의 순서"],
+    answer: 2,
+    aha: "심리적 연속성 — 기억·성격·가치가 이어지는가입니다. 파핏은 정체성이 전부 아니면 전무가 아니라 정도의 문제라고 했고, 「나」의 생존에 집착하는 것 자체가 형이상학적 오류일 수 있다는 해방적 결론에 닿았습니다. 복사냐 이동이냐 — 원본을 남기면 「두 번째 나」가 생기고, 원본을 지우면 그건 살인인가? 이 질문이 여기서 열립니다.",
+    short: "심리적 연속성 (파핏)"
+  },
+  {
+    cat: "심어진 기억",
+    q: "『블레이드 러너』의 레플리컨트 레이첼은 자신이 인간이라 확신합니다. 그런데 그 기억은 <span class=\"em\">심어진 것</span>이었습니다. 이 설정이 던지는 질문은?",
+    choices: ["기계는 감정이 없다","기억의 출처가 자아의 진짜 여부를 정하는가","복제 인간은 위험하다","영화는 과학이 아니다"],
+    answer: 1,
+    aha: "기억이 「심어진 것」이라는 사실이 그 위에 세워진 자아를 무효로 만드는가 — 이 질문입니다. 커즈와일의 패턴 정체성 이론에 따르면 기억의 출처보다 지금 패턴의 상태가 정체성을 정합니다. 그런데 생각해보면 우리의 어린 시절 기억도 신경 패턴이 만들어낸 구성물이죠. 그렇다면 우리는 레이첼과 얼마나 다를까요?",
+    short: "기억의 출처가 자아를 정하는가"
+  },
+  {
+    cat: "탄소 쇼비니즘",
+    q: "\"기계에는 의식이 생길 수 없다\"는 반론에 커즈와일이 붙인 이름은?",
+    choices: ["실리콘 편견","기계 공포증","생물학적 오만","탄소 쇼비니즘"],
+    answer: 3,
+    aha: "「탄소 쇼비니즘」입니다. 왜 탄소로 된 패턴은 의식을 만들고 실리콘으로 된 똑같은 패턴은 못 만드느냐는 반문이죠. 뉴런도 전기화학 신호를 규칙대로 처리할 뿐인데 거기서 의식이 솟아난다면, 다른 기판에서는 왜 안 되느냐는 겁니다. 한편 범원형심론은 질문 자체를 바꿉니다 — 「있느냐 없느냐」가 아니라 「얼마나 있느냐」로.",
+    short: "탄소 쇼비니즘"
+  },
+  {
+    cat: "3장의 결론",
+    q: "3장이 끝나며 커즈와일이 내놓는 결론. \"마침내 인간은 자신이 어떤 사람인지에 대해 <span class=\"em\">전적으로 ___</span>질 수 있게 될 것이다.\" 빈칸은?",
+    choices: ["만족하","자랑스러워","책임","무관심해"],
+    answer: 2,
+    aha: "「책임」입니다. 유전자 탓, 어린 시절 탓, 신경화학 탓 — 그 변명이 모두 사라진다는 뜻이죠. 그래서 이것은 기술의 약속이 아니라 도덕의 약속이라고 커즈와일은 말합니다. 3장은 물음 자체를 옮겨 놓습니다. \"나는 지금 무엇인가?\"에서 \"나는 어떤 사람이 될 수 있는가?\"로. 소크라테스가 「너 자신을 알라」고 했다면, 커즈와일은 「너 자신을 설계하라」고 말하는 셈입니다.",
+    short: "책임 (도덕의 약속)"
+  }
+];
+
+let qi = -1;        // 현재 문제 인덱스
+let stage = 0;      // 0: 문제, 1: 정답 공개, 2: 아하 공개
+let picks = [];     // 문제별 내가 고른 보기 (안 골랐으면 null)
+const $ = id => document.getElementById(id);
+
+function buildDots() {
+  $('dots').innerHTML = QUESTIONS.map((_, i) =>
+    `<div class="dot${i < qi ? ' done' : i === qi ? ' on' : ''}"></div>`).join('');
+}
+
+function reveal() {
+  const q = QUESTIONS[qi];
+  const picked = picks[qi];
+  $('qChoices').classList.add('revealed');
+  if (picked !== null && picked !== undefined && picked !== q.answer) {
+    $('qChoices').children[picked].classList.add('wrongpick');
+  }
+  $('nextBtn').textContent = '추가설명';
+  stage = 1;
+}
+
+function pick(i) {
+  if (stage !== 0) return;
+  picks[qi] = i;
+  reveal();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[qi];
+  $('qNo').textContent = qi + 1;
+  $('qCat').textContent = q.cat;
+  $('qText').innerHTML = q.q;
+  $('qChoices').innerHTML = q.choices.map((c, i) =>
+    `<div class="choice${i === q.answer ? ' correct' : ''}" onclick="pick(${i})"><span class="tag">${'①②③④'[i]}</span>${c}</div>`).join('');
+  $('qChoices').classList.remove('revealed');
+  $('qAha').classList.remove('show');
+  $('qAhaText').textContent = q.aha;
+  $('nextBtn').textContent = '정답';
+  stage = 0;
+  // 이미 답을 확인한 문제로 되돌아온 경우 — 채점 상태 복원
+  if (picks[qi] !== undefined) {
+    reveal();
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  }
+  buildDots();
+}
+
+function show(id) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  $(id).classList.add('active');
+}
+
+function start() {
+  qi = 0;
+  show('quiz');
+  renderQuestion();
+}
+
+function advance() {
+  if (stage === 0) {
+    if (picks[qi] === undefined) picks[qi] = null; // 진행자 모드 — 고르지 않고 공개
+    reveal();
+  } else if (stage === 1) {
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  } else {
+    if (qi === QUESTIONS.length - 1) { finish(); return; }
+    qi++;
+    renderQuestion();
+    show('quiz');
+  }
+}
+
+function back() {
+  if (qi > 0) { qi--; renderQuestion(); }
+}
+
+function finish() {
+  const answered = picks.filter(p => p !== null && p !== undefined).length;
+  const score = picks.filter((p, i) => p === QUESTIONS[i].answer).length;
+  if (answered > 0) {
+    $('finTitle').textContent = `열 문제 중 ${score}문제!`;
+    $('finMsg').textContent =
+      score >= 9 ? '특이점급입니다. 1장을 다시 읽을 필요가 없겠는데요.' :
+      score >= 7 ? '수확 가속의 법칙 — 읽은 만큼 돌아왔습니다.' :
+      score >= 4 ? '연못의 절반쯤 왔습니다. 내일이면 가득 찹니다.' :
+                   '아직 스물아홉 번째 날 — 틀린 자리를 다시 펼치면 됩니다.';
+  } else {
+    $('finTitle').textContent = '열 문제, 모두 끝났습니다';
+    $('finMsg').textContent = '이제 채점하고, 상품 받으러 나오세요.';
+  }
+  $('recapTable').innerHTML = QUESTIONS.map((q, i) => {
+    const p = picks[i];
+    const ox = (p === null || p === undefined) ? '<td class="ox n">−</td>'
+      : p === q.answer ? '<td class="ox o">O</td>' : '<td class="ox x">X</td>';
+    return `<tr><td class="no">${i + 1}</td>${ox}<td>${q.cat}</td><td class="ans">${q.short}</td></tr>`;
+  }).join('');
+  show('finale');
+}
+
+function restart() {
+  qi = -1;
+  picks = [];
+  show('cover');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') {
+    e.preventDefault();
+    if ($('cover').classList.contains('active')) start();
+    else if ($('quiz').classList.contains('active')) advance();
+  } else if (e.code === 'ArrowLeft' && $('quiz').classList.contains('active')) {
+    back();
+  }
+});
+</script>
+</body>
+</html>

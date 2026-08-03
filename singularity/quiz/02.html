@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="함께읽기 ON">
+<meta property="og:title" content="특이점 퀴즈 열전 · 층 02 지능 — 함께읽기 ON">
+<meta property="og:description" content="『마침내 특이점이 시작된다』 2장에서 건진 뜻밖의 이야기 열 문제 · 많이 맞힌 분께 상품이 갑니다">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://avec0723-hash.github.io/cards-ON/singularity/quiz/02.html">
+<title>특이점 퀴즈 열전 · 층 02 지능 — 함께읽기 ON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2EDE4;
+    --card: #FBF8F2;
+    --ink: #1B2A2E;
+    --ink-soft: #4C5D62;
+    --ink-faint: #8D999B;
+    --deep: #12262E;
+    --deep-card: #1B3540;
+    --teal: #7FD4D8;
+    --teal-ink: #2C757F;
+    --teal-soft: #B9E5E7;
+    --coral: #E8785A;
+    --coral-deep: #D45C3D;
+    --rule: #D7CFC1;
+    --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    --serif: "Nanum Myeongjo", "Noto Serif KR", "Batang", serif;
+    --shadow: 0 10px 40px rgba(18, 38, 46, 0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(127,212,216,0.10) 0, transparent 30%),
+      radial-gradient(circle at 88% 82%, rgba(232,120,90,0.08) 0, transparent 35%);
+    pointer-events: none;
+  }
+  .stage {
+    width: 100%;
+    max-width: 880px;
+    position: relative;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--coral);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 56px 60px 48px;
+    display: none;
+    animation: rise .45s ease both;
+  }
+  .card.active { display: block; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── 표지 ── */
+  .cover { text-align: center; padding: 72px 60px; background: var(--deep); color: var(--paper); border-top-color: var(--teal); }
+  .cover .school {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--deep);
+    background: var(--teal);
+    padding: 6px 14px 5px 19px;
+    margin-bottom: 26px;
+  }
+  .cover .layer {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .cover .layer .nn { font-size: 34px; letter-spacing: 0; }
+  .cover h1 {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--paper);
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .cover h1 .em { color: var(--teal); }
+  .cover .sub {
+    font-size: 17px;
+    color: rgba(242,237,228,0.8);
+    margin-bottom: 40px;
+  }
+  .ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; margin: 28px 0 36px;
+    color: var(--coral);
+    font-size: 14px;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    width: 90px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(232,120,90,0.7));
+  }
+  .ornament::after { background: linear-gradient(to left, transparent, rgba(232,120,90,0.7)); }
+  .rules {
+    display: inline-block;
+    text-align: left;
+    background: var(--deep-card);
+    border: 1px solid rgba(127,212,216,0.25);
+    border-radius: 12px;
+    padding: 22px 32px;
+    font-size: 15.5px;
+    color: rgba(242,237,228,0.88);
+    margin-bottom: 42px;
+  }
+  .rules li { list-style: none; padding: 3px 0; }
+  .rules li::before { content: '· '; color: var(--teal); font-weight: 700; }
+
+  /* ── 문제 ── */
+  .qhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 26px;
+  }
+  .qnum {
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: var(--teal-ink);
+    font-weight: 700;
+  }
+  .qnum b { font-size: 26px; color: var(--coral-deep); letter-spacing: 0; }
+  .qcat {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--teal-ink);
+    padding: 5px 16px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+  }
+  .qtext {
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 34px;
+    word-break: keep-all;
+  }
+  .qtext .em { color: var(--coral-deep); }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 30px; }
+  .choice {
+    border: 1.5px solid var(--rule);
+    border-radius: 12px;
+    padding: 17px 22px;
+    font-size: 19px;
+    background: #fff;
+    transition: all .35s ease;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    word-break: keep-all;
+    cursor: pointer;
+  }
+  .choices:not(.revealed) .choice:hover {
+    border-color: var(--teal-ink);
+    transform: translateY(-1px);
+  }
+  .revealed .choice { cursor: default; }
+  .choice .tag {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--teal-ink);
+    color: var(--teal-ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .revealed .choice { opacity: 0.35; cursor: default; }
+  .revealed .choice.correct {
+    opacity: 1;
+    background: var(--teal-ink);
+    border-color: var(--teal-ink);
+    color: #fff;
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(44,117,127,0.35);
+  }
+  .revealed .choice.correct .tag {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--deep);
+  }
+  .revealed .choice.wrongpick {
+    opacity: 1;
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+  }
+  .revealed .choice.wrongpick .tag {
+    background: #fff;
+    border-color: #fff;
+    color: var(--coral-deep);
+  }
+  .revealed .choice.wrongpick .tag::after { content: ''; }
+  .aha {
+    display: none;
+    font-family: var(--serif);
+    background: rgba(127,212,216,0.22);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 28px;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    animation: rise .4s ease both;
+    word-break: keep-all;
+  }
+  .aha.show { display: block; }
+  .aha .label {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--teal-ink);
+    font-weight: 900;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ── 버튼·진행 ── */
+  .controls { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 13px 36px;
+    border-radius: 999px;
+    border: 1.5px solid var(--deep);
+    background: var(--deep);
+    color: var(--paper);
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all .25s ease;
+  }
+  .btn:hover { background: var(--deep-card); transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--deep); }
+  .btn.ghost:hover { background: rgba(18,38,46,0.06); }
+  .btn.coral { background: var(--coral); border-color: var(--coral); color: #fff; }
+  .btn.coral:hover { background: var(--coral-deep); }
+  .dots { display: flex; gap: 8px; }
+  .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: rgba(18,38,46,0.15);
+    transition: all .3s ease;
+  }
+  .dot.on { background: var(--coral); transform: scale(1.25); }
+  .dot.done { background: var(--teal-ink); }
+  .hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 18px;
+    letter-spacing: 1px;
+  }
+  .cover .hint { color: rgba(242,237,228,0.5); }
+
+  /* ── 마무리 ── */
+  .finale { text-align: center; padding: 64px 60px; }
+  .finale .school {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #fff;
+    background: var(--teal-ink);
+    padding: 5px 12px 4px 17px;
+    margin-bottom: 20px;
+  }
+  .finale h2 {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--deep);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .finale .msg { font-size: 18px; color: var(--ink-soft); margin-bottom: 40px; }
+  .recap {
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 28px 36px;
+    margin-bottom: 36px;
+  }
+  .recap h3 {
+    font-size: 15px; letter-spacing: 3px; font-weight: 900;
+    color: var(--teal-ink); margin-bottom: 16px;
+    text-align: center;
+  }
+  .recap table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  .recap td { padding: 7px 8px; border-bottom: 1px dashed var(--rule); vertical-align: top; }
+  .recap tr:last-child td { border-bottom: none; }
+  .recap .no { color: var(--coral-deep); font-weight: 900; width: 34px; }
+  .recap .ans { color: var(--deep); font-weight: 700; white-space: nowrap; padding-left: 14px; }
+  .recap .ox { width: 30px; font-weight: 900; text-align: center; }
+  .recap .ox.o { color: var(--teal-ink); }
+  .recap .ox.x { color: var(--coral-deep); }
+  .recap .ox.n { color: var(--ink-faint); font-weight: 400; }
+
+  @media (max-width: 640px) {
+    .card { padding: 36px 26px; }
+    .cover h1 { font-size: 30px; }
+    .qtext { font-size: 21px; }
+    .choices { grid-template-columns: 1fr; }
+    .choice { font-size: 17px; }
+    .recap .ans { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- 표지 -->
+  <section class="card cover active" id="cover">
+    <div class="school">함께읽기 O N</div>
+    <div class="layer">Layer <span class="nn">02</span></div>
+    <h1>지능<br><span class="em">퀴즈 열전</span></h1>
+    <p class="sub">기계는 이해하는가 — 2장에서 건진 뜻밖의 이야기 열 가지</p>
+    <div class="ornament">✦</div>
+    <div>
+      <button class="btn coral" onclick="start()">퀴즈 시작</button>
+    </div>
+    <p class="hint">스페이스 키로도 진행할 수 있습니다</p>
+  </section>
+
+  <!-- 문제 카드 (스크립트가 채움) -->
+  <section class="card" id="quiz">
+    <div class="qhead">
+      <div class="qnum">문제 <b id="qNo">1</b> / 10</div>
+      <div class="qcat" id="qCat"></div>
+    </div>
+    <div class="qtext" id="qText"></div>
+    <div class="choices" id="qChoices"></div>
+    <div class="aha" id="qAha"><span class="label">아하!</span><span id="qAhaText"></span></div>
+    <div class="controls">
+      <div class="dots" id="dots"></div>
+      <button class="btn" id="nextBtn" onclick="advance()">정답</button>
+    </div>
+    <p class="hint">스페이스: 다음 단계 &nbsp;·&nbsp; ← : 이전 문제</p>
+  </section>
+
+  <!-- 마무리 -->
+  <section class="card finale" id="finale">
+    <div class="school">함께읽기 O N</div>
+    <h2 id="finTitle">열 문제, 모두 끝났습니다</h2>
+    <p class="msg" id="finMsg">이제 채점하고, 상품 받으러 나오세요.</p>
+    <div class="recap">
+      <h3>정답 한눈에 보기</h3>
+      <table id="recapTable"></table>
+    </div>
+    <button class="btn ghost" onclick="restart()">처음부터 다시</button>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    cat: "튜링의 물음",
+    q: "1950년 앨런 튜링이 제안한 「튜링 테스트」. 튜링이 붙인 <span class=\"em\">원래 이름</span>은 무엇이었을까요?",
+    choices: ["대화의 시험","생각하는 기계","모방 게임","지능 판별기"],
+    answer: 2,
+    aha: "「모방 게임(Imitation Game)」입니다. 튜링의 논문 첫 문장은 \"나는 기계가 생각할 수 있는가라는 질문을 고찰하자고 제안한다\"였습니다. 그런데 커즈와일이 주목하는 튜링의 진짜 물음은 조금 다릅니다 — \"기계가 생각이라고 묘사할 수밖에 없는 뭔가를, 인간과는 매우 다른 방식으로 수행할 수 있지 않을까?\" 인간을 흉내 내는가가 아니라, 다른 방식으로 생각하는 무언가가 가능한가를 물은 것입니다.",
+    short: "모방 게임 (Imitation Game)"
+  },
+  {
+    cat: "뇌의 알고리즘",
+    q: "신경과학의 놀라운 실험. 동물의 <span class=\"em\">청각 피질(듣기 담당 뇌 부위)</span>에 눈에서 오는 시각 신호를 연결하면 어떤 일이 벌어질까요?",
+    choices: ["그 부위가 「보는 법」을 배운다","아무 일도 일어나지 않는다","청력과 시력을 모두 잃는다","소리가 두 배로 크게 들린다"],
+    answer: 0,
+    aha: "듣기 담당 부위가 보는 법을 학습합니다 — 말하자면 귀로 보는 셈이죠. 신피질은 부위마다 다른 기계가 아니라, 어디든 같은 알고리즘을 돌리는 약 3억 개의 패턴 인식기라는 결정적 증거입니다. 커즈와일이 말하는 「지능의 재발명」이란 인간 흉내가 아니라, 바로 이 하나의 알고리즘을 더 빠른 기판 위에 다시 구현하는 일입니다.",
+    short: "귀로 보는 법을 학습"
+  },
+  {
+    cat: "기술의 계보",
+    q: "딥러닝의 시대를 연 사건. 2012년 제프리 힌튼의 <span class=\"em\">AlexNet</span>이 압도적으로 우승한 대회는 무엇을 겨루는 대회였을까요?",
+    choices: ["체스 대국","음성 합성","번역 정확도","이미지 분류"],
+    answer: 3,
+    aha: "이미지 분류 대회 ImageNet입니다. 그전까지는 연구자가 \"귀는 둥글고 위에 있다\"처럼 특징을 직접 정의해 줘야 했습니다. 딥러닝 이후에는 사진 수백만 장을 보여주면 기계가 스스로 「귀의 특징」을 찾아냅니다. 힌튼·르쿤·벤지오 세 사람은 이 공로로 2018년 튜링상을 받았습니다.",
+    short: "ImageNet 이미지 분류"
+  },
+  {
+    cat: "언어 모델",
+    q: "GPT-4가 한 번에 기억하며 읽을 수 있는 분량(컨텍스트 창)은 12만 8천 토큰. 이는 대략 <span class=\"em\">책 몇 페이지</span> 분량일까요?",
+    choices: ["약 10페이지","약 100페이지","약 1,000페이지","약 1만 페이지"],
+    answer: 1,
+    aha: "약 100페이지입니다. 이 토큰 한도가 AI의 「작업 기억」 한계예요. 인간은 한 번에 7±2개의 정보 단위만 다룰 수 있다는 밀러의 법칙이 있죠. AI의 컨텍스트 창은 그 한계를 극적으로 넓혔지만, 여전히 한계는 있습니다. 참고로 제미나이 1.5 프로는 100만 토큰까지 읽습니다.",
+    short: "약 100페이지 (12.8만 토큰)"
+  },
+  {
+    cat: "창발",
+    q: "대규모 언어 모델(LLM)의 역설. 이 거대한 모델들이 훈련받은 목표는 <span class=\"em\">오직 하나</span>뿐이었습니다. 무엇일까요?",
+    choices: ["사람을 기쁘게 하기","정답을 맞히기","규칙을 외우기","다음 단어를 예측하기"],
+    answer: 3,
+    aha: "「다음 토큰(단어 조각) 예측」 하나입니다. 그 단순한 목표로 수조 번 훈련했을 뿐인데 법률 추론, 의학 진단, 수학 증명, 시 창작이 저절로 나타났습니다. 아무도 설계하지 않은 능력이 규모에서 스스로 솟아난 것 — 이것을 창발이라 부르고, 커즈와일은 여기서 수확 가속의 법칙의 AI판을 봅니다.",
+    short: "다음 단어(토큰) 예측"
+  },
+  {
+    cat: "AI 효과",
+    q: "AI가 무언가를 해낼 때마다 사람들은 \"그건 진짜 지능이 아니야\"라며 기준을 올립니다. 이 현상을 가리키는 말은?",
+    choices: ["실리콘 장벽","튜링 함정","AI 효과","지능 지연"],
+    answer: 2,
+    aha: "「AI 효과」입니다. 파멜라 맥코덕이 붙인 이름이죠. 체스(1997)에 지자 \"계산일 뿐\"이라 했고, 바둑(2016)에 지자 \"직관이 없다\"고 했고, GPT-4(2023) 앞에서는 \"이해가 없다\"고 말합니다. 지능의 정의가 「AI가 아직 못 하는 것」으로 계속 옮겨가는 겁니다. 커즈와일의 반문은 이렇습니다 — 인간의 신피질도 결국 통계적 패턴 인식기 아닌가?",
+    short: "AI 효과 (맥코덕)"
+  },
+  {
+    cat: "중국어 방",
+    q: "철학자 존 설의 유명한 반론 「중국어 방」. 방 안의 사람은 규칙표대로 한자를 주고받아 완벽히 대화하지만 정작 중국어를 모릅니다. 설이 말하려던 것은?",
+    choices: ["번역기가 곧 완성된다","규칙(구문)이 의미를 만들지는 못한다","중국어가 가장 어려운 언어다","기계는 속도가 느리다"],
+    answer: 1,
+    aha: "구문이 의미론을 만들어내지 않는다 — 규칙을 따르는 것과 이해하는 것은 다르다는 겁니다. 커즈와일의 응답은 날카롭습니다. 그 논증은 인간의 뇌에도 똑같이 적용된다는 것이죠. 뉴런도 전기화학 신호를 규칙대로 처리할 뿐인데 거기서 의식이 솟아난다면, AI에서 솟아나지 않는다고 어떻게 단정하겠느냐고요.",
+    short: "구문은 의미를 만들지 못한다"
+  },
+  {
+    cat: "지식 폭발",
+    q: "인류의 지식이 두 배가 되는 데 걸리는 시간. 1900년까지는 100년이었습니다. <span class=\"em\">오늘날</span>은 얼마일까요?",
+    choices: ["12~13개월","10년","3년","25년"],
+    answer: 0,
+    aha: "12~13개월입니다. 1945년에 25년으로 줄었고, 지금은 1년 남짓이죠. 매일 약 5,000편의 논문이 쏟아져 어떤 개인도 자기 분야 전체를 따라갈 수 없습니다. 그런데 AI는 이 폭발을 다시 가속합니다 — 알파폴드2는 2020년 단백질 구조 50만 개를 예측해 50년치 연구를 단숨에 압축했습니다.",
+    short: "12~13개월 (1900년엔 100년)"
+  },
+  {
+    cat: "BCI",
+    q: "2024년 1월, 뉴럴링크가 첫 인체 칩 이식에 성공했습니다. 그 환자가 생각만으로 해낸 일은 무엇일까요?",
+    choices: ["말하기와 걷기","기억 되살리기","마우스 조작과 체스","외국어 습득"],
+    answer: 2,
+    aha: "생각만으로 컴퓨터 마우스를 움직이고 체스를 두었습니다. 커즈와일은 2030년대에 이 길이 훨씬 멀리 간다고 봅니다 — 신피질의 위쪽 영역이 클라우드에 직접 연결되는 것이죠. 그는 이것을 대체가 아니라 「공동 창조 과정, 우리의 마음을 발전시켜 더 깊은 통찰을 이끌어내는」 일이라고 부릅니다.",
+    short: "마우스 조작과 체스"
+  },
+  {
+    cat: "신피질 혁명",
+    q: "호모 사피엔스가 4만 년 전 동굴 벽화·도구·언어를 남기게 만든 결정적 차이. 커즈와일이 꼽는 것은?",
+    choices: ["더 큰 근육","더 발달한 신피질","더 긴 수명","더 추운 기후"],
+    answer: 1,
+    aha: "신피질입니다. 특히 앞이마 쪽 전전두엽의 발달이 언어·예술·수학·과학·도덕 추론을 낳았습니다. 그것이 제1차 신피질 혁명이었죠. 커즈와일은 제2차 혁명이 2030년대에 온다고 봅니다 — 생물학적 신피질이 클라우드의 비생물학적 신피질과 이어질 때. 이때 마음의 비생물학적 부분이 생물학적 부분보다 수천 배 많은 인지 능력을 제공한다고 예측합니다.",
+    short: "더 발달한 신피질"
+  }
+];
+
+let qi = -1;        // 현재 문제 인덱스
+let stage = 0;      // 0: 문제, 1: 정답 공개, 2: 아하 공개
+let picks = [];     // 문제별 내가 고른 보기 (안 골랐으면 null)
+const $ = id => document.getElementById(id);
+
+function buildDots() {
+  $('dots').innerHTML = QUESTIONS.map((_, i) =>
+    `<div class="dot${i < qi ? ' done' : i === qi ? ' on' : ''}"></div>`).join('');
+}
+
+function reveal() {
+  const q = QUESTIONS[qi];
+  const picked = picks[qi];
+  $('qChoices').classList.add('revealed');
+  if (picked !== null && picked !== undefined && picked !== q.answer) {
+    $('qChoices').children[picked].classList.add('wrongpick');
+  }
+  $('nextBtn').textContent = '추가설명';
+  stage = 1;
+}
+
+function pick(i) {
+  if (stage !== 0) return;
+  picks[qi] = i;
+  reveal();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[qi];
+  $('qNo').textContent = qi + 1;
+  $('qCat').textContent = q.cat;
+  $('qText').innerHTML = q.q;
+  $('qChoices').innerHTML = q.choices.map((c, i) =>
+    `<div class="choice${i === q.answer ? ' correct' : ''}" onclick="pick(${i})"><span class="tag">${'①②③④'[i]}</span>${c}</div>`).join('');
+  $('qChoices').classList.remove('revealed');
+  $('qAha').classList.remove('show');
+  $('qAhaText').textContent = q.aha;
+  $('nextBtn').textContent = '정답';
+  stage = 0;
+  // 이미 답을 확인한 문제로 되돌아온 경우 — 채점 상태 복원
+  if (picks[qi] !== undefined) {
+    reveal();
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  }
+  buildDots();
+}
+
+function show(id) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  $(id).classList.add('active');
+}
+
+function start() {
+  qi = 0;
+  show('quiz');
+  renderQuestion();
+}
+
+function advance() {
+  if (stage === 0) {
+    if (picks[qi] === undefined) picks[qi] = null; // 진행자 모드 — 고르지 않고 공개
+    reveal();
+  } else if (stage === 1) {
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  } else {
+    if (qi === QUESTIONS.length - 1) { finish(); return; }
+    qi++;
+    renderQuestion();
+    show('quiz');
+  }
+}
+
+function back() {
+  if (qi > 0) { qi--; renderQuestion(); }
+}
+
+function finish() {
+  const answered = picks.filter(p => p !== null && p !== undefined).length;
+  const score = picks.filter((p, i) => p === QUESTIONS[i].answer).length;
+  if (answered > 0) {
+    $('finTitle').textContent = `열 문제 중 ${score}문제!`;
+    $('finMsg').textContent =
+      score >= 9 ? '특이점급입니다. 1장을 다시 읽을 필요가 없겠는데요.' :
+      score >= 7 ? '수확 가속의 법칙 — 읽은 만큼 돌아왔습니다.' :
+      score >= 4 ? '연못의 절반쯤 왔습니다. 내일이면 가득 찹니다.' :
+                   '아직 스물아홉 번째 날 — 틀린 자리를 다시 펼치면 됩니다.';
+  } else {
+    $('finTitle').textContent = '열 문제, 모두 끝났습니다';
+    $('finMsg').textContent = '이제 채점하고, 상품 받으러 나오세요.';
+  }
+  $('recapTable').innerHTML = QUESTIONS.map((q, i) => {
+    const p = picks[i];
+    const ox = (p === null || p === undefined) ? '<td class="ox n">−</td>'
+      : p === q.answer ? '<td class="ox o">O</td>' : '<td class="ox x">X</td>';
+    return `<tr><td class="no">${i + 1}</td>${ox}<td>${q.cat}</td><td class="ans">${q.short}</td></tr>`;
+  }).join('');
+  show('finale');
+}
+
+function restart() {
+  qi = -1;
+  picks = [];
+  show('cover');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') {
+    e.preventDefault();
+    if ($('cover').classList.contains('active')) start();
+    else if ($('quiz').classList.contains('active')) advance();
+  } else if (e.code === 'ArrowLeft' && $('quiz').classList.contains('active')) {
+    back();
+  }
+});
+</script>
+</body>
+</html>

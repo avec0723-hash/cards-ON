@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="함께읽기 ON">
+<meta property="og:title" content="특이점 퀴즈 열전 · 층 05 일 — 함께읽기 ON">
+<meta property="og:description" content="『마침내 특이점이 시작된다』 5장에서 건진 뜻밖의 이야기 열 문제 · 많이 맞힌 분께 상품이 갑니다">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://avec0723-hash.github.io/cards-ON/singularity/quiz/05.html">
+<title>특이점 퀴즈 열전 · 층 05 일 — 함께읽기 ON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2EDE4;
+    --card: #FBF8F2;
+    --ink: #1B2A2E;
+    --ink-soft: #4C5D62;
+    --ink-faint: #8D999B;
+    --deep: #12262E;
+    --deep-card: #1B3540;
+    --teal: #7FD4D8;
+    --teal-ink: #2C757F;
+    --teal-soft: #B9E5E7;
+    --coral: #E8785A;
+    --coral-deep: #D45C3D;
+    --rule: #D7CFC1;
+    --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    --serif: "Nanum Myeongjo", "Noto Serif KR", "Batang", serif;
+    --shadow: 0 10px 40px rgba(18, 38, 46, 0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(127,212,216,0.10) 0, transparent 30%),
+      radial-gradient(circle at 88% 82%, rgba(232,120,90,0.08) 0, transparent 35%);
+    pointer-events: none;
+  }
+  .stage {
+    width: 100%;
+    max-width: 880px;
+    position: relative;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--coral);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 56px 60px 48px;
+    display: none;
+    animation: rise .45s ease both;
+  }
+  .card.active { display: block; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── 표지 ── */
+  .cover { text-align: center; padding: 72px 60px; background: var(--deep); color: var(--paper); border-top-color: var(--teal); }
+  .cover .school {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--deep);
+    background: var(--teal);
+    padding: 6px 14px 5px 19px;
+    margin-bottom: 26px;
+  }
+  .cover .layer {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .cover .layer .nn { font-size: 34px; letter-spacing: 0; }
+  .cover h1 {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--paper);
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .cover h1 .em { color: var(--teal); }
+  .cover .sub {
+    font-size: 17px;
+    color: rgba(242,237,228,0.8);
+    margin-bottom: 40px;
+  }
+  .ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; margin: 28px 0 36px;
+    color: var(--coral);
+    font-size: 14px;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    width: 90px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(232,120,90,0.7));
+  }
+  .ornament::after { background: linear-gradient(to left, transparent, rgba(232,120,90,0.7)); }
+  .rules {
+    display: inline-block;
+    text-align: left;
+    background: var(--deep-card);
+    border: 1px solid rgba(127,212,216,0.25);
+    border-radius: 12px;
+    padding: 22px 32px;
+    font-size: 15.5px;
+    color: rgba(242,237,228,0.88);
+    margin-bottom: 42px;
+  }
+  .rules li { list-style: none; padding: 3px 0; }
+  .rules li::before { content: '· '; color: var(--teal); font-weight: 700; }
+
+  /* ── 문제 ── */
+  .qhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 26px;
+  }
+  .qnum {
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: var(--teal-ink);
+    font-weight: 700;
+  }
+  .qnum b { font-size: 26px; color: var(--coral-deep); letter-spacing: 0; }
+  .qcat {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--teal-ink);
+    padding: 5px 16px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+  }
+  .qtext {
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 34px;
+    word-break: keep-all;
+  }
+  .qtext .em { color: var(--coral-deep); }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 30px; }
+  .choice {
+    border: 1.5px solid var(--rule);
+    border-radius: 12px;
+    padding: 17px 22px;
+    font-size: 19px;
+    background: #fff;
+    transition: all .35s ease;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    word-break: keep-all;
+    cursor: pointer;
+  }
+  .choices:not(.revealed) .choice:hover {
+    border-color: var(--teal-ink);
+    transform: translateY(-1px);
+  }
+  .revealed .choice { cursor: default; }
+  .choice .tag {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--teal-ink);
+    color: var(--teal-ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .revealed .choice { opacity: 0.35; cursor: default; }
+  .revealed .choice.correct {
+    opacity: 1;
+    background: var(--teal-ink);
+    border-color: var(--teal-ink);
+    color: #fff;
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(44,117,127,0.35);
+  }
+  .revealed .choice.correct .tag {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--deep);
+  }
+  .revealed .choice.wrongpick {
+    opacity: 1;
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+  }
+  .revealed .choice.wrongpick .tag {
+    background: #fff;
+    border-color: #fff;
+    color: var(--coral-deep);
+  }
+  .revealed .choice.wrongpick .tag::after { content: ''; }
+  .aha {
+    display: none;
+    font-family: var(--serif);
+    background: rgba(127,212,216,0.22);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 28px;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    animation: rise .4s ease both;
+    word-break: keep-all;
+  }
+  .aha.show { display: block; }
+  .aha .label {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--teal-ink);
+    font-weight: 900;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ── 버튼·진행 ── */
+  .controls { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 13px 36px;
+    border-radius: 999px;
+    border: 1.5px solid var(--deep);
+    background: var(--deep);
+    color: var(--paper);
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all .25s ease;
+  }
+  .btn:hover { background: var(--deep-card); transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--deep); }
+  .btn.ghost:hover { background: rgba(18,38,46,0.06); }
+  .btn.coral { background: var(--coral); border-color: var(--coral); color: #fff; }
+  .btn.coral:hover { background: var(--coral-deep); }
+  .dots { display: flex; gap: 8px; }
+  .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: rgba(18,38,46,0.15);
+    transition: all .3s ease;
+  }
+  .dot.on { background: var(--coral); transform: scale(1.25); }
+  .dot.done { background: var(--teal-ink); }
+  .hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 18px;
+    letter-spacing: 1px;
+  }
+  .cover .hint { color: rgba(242,237,228,0.5); }
+
+  /* ── 마무리 ── */
+  .finale { text-align: center; padding: 64px 60px; }
+  .finale .school {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #fff;
+    background: var(--teal-ink);
+    padding: 5px 12px 4px 17px;
+    margin-bottom: 20px;
+  }
+  .finale h2 {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--deep);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .finale .msg { font-size: 18px; color: var(--ink-soft); margin-bottom: 40px; }
+  .recap {
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 28px 36px;
+    margin-bottom: 36px;
+  }
+  .recap h3 {
+    font-size: 15px; letter-spacing: 3px; font-weight: 900;
+    color: var(--teal-ink); margin-bottom: 16px;
+    text-align: center;
+  }
+  .recap table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  .recap td { padding: 7px 8px; border-bottom: 1px dashed var(--rule); vertical-align: top; }
+  .recap tr:last-child td { border-bottom: none; }
+  .recap .no { color: var(--coral-deep); font-weight: 900; width: 34px; }
+  .recap .ans { color: var(--deep); font-weight: 700; white-space: nowrap; padding-left: 14px; }
+  .recap .ox { width: 30px; font-weight: 900; text-align: center; }
+  .recap .ox.o { color: var(--teal-ink); }
+  .recap .ox.x { color: var(--coral-deep); }
+  .recap .ox.n { color: var(--ink-faint); font-weight: 400; }
+
+  @media (max-width: 640px) {
+    .card { padding: 36px 26px; }
+    .cover h1 { font-size: 30px; }
+    .qtext { font-size: 21px; }
+    .choices { grid-template-columns: 1fr; }
+    .choice { font-size: 17px; }
+    .recap .ans { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- 표지 -->
+  <section class="card cover active" id="cover">
+    <div class="school">함께읽기 O N</div>
+    <div class="layer">Layer <span class="nn">05</span></div>
+    <h1>일<br><span class="em">퀴즈 열전</span></h1>
+    <p class="sub">대체인가 증강인가 — 5장에서 건진 뜻밖의 이야기 열 가지</p>
+    <div class="ornament">✦</div>
+    <div>
+      <button class="btn coral" onclick="start()">퀴즈 시작</button>
+    </div>
+    <p class="hint">스페이스 키로도 진행할 수 있습니다</p>
+  </section>
+
+  <!-- 문제 카드 (스크립트가 채움) -->
+  <section class="card" id="quiz">
+    <div class="qhead">
+      <div class="qnum">문제 <b id="qNo">1</b> / 10</div>
+      <div class="qcat" id="qCat"></div>
+    </div>
+    <div class="qtext" id="qText"></div>
+    <div class="choices" id="qChoices"></div>
+    <div class="aha" id="qAha"><span class="label">아하!</span><span id="qAhaText"></span></div>
+    <div class="controls">
+      <div class="dots" id="dots"></div>
+      <button class="btn" id="nextBtn" onclick="advance()">정답</button>
+    </div>
+    <p class="hint">스페이스: 다음 단계 &nbsp;·&nbsp; ← : 이전 문제</p>
+  </section>
+
+  <!-- 마무리 -->
+  <section class="card finale" id="finale">
+    <div class="school">함께읽기 O N</div>
+    <h2 id="finTitle">열 문제, 모두 끝났습니다</h2>
+    <p class="msg" id="finMsg">이제 채점하고, 상품 받으러 나오세요.</p>
+    <div class="recap">
+      <h3>정답 한눈에 보기</h3>
+      <table id="recapTable"></table>
+    </div>
+    <button class="btn ghost" onclick="restart()">처음부터 다시</button>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    cat: "코닥과 인스타그램",
+    q: "2012년, 14만 명을 고용했던 필름의 제왕 코닥이 파산했습니다. 바로 그 해 10억 달러에 팔린 인스타그램의 <span class=\"em\">직원 수</span>는?",
+    choices: ["130명","13명","1,300명","13,000명"],
+    answer: 1,
+    aha: "13명입니다. 14만 명과 13명 — 같은 해에 벌어진 이 대비가 5장의 문제의식이에요. 다만 커즈와일이 지목하는 진짜 문제는 결과가 아니라 속도입니다. 농업에서 제조업으로 넘어가는 데는 수십에서 수백 년, 제조업에서 서비스업으로는 수십 년이 걸렸는데, AI의 전환은 몇 년 만에 일어나고 있으니까요.",
+    short: "13명 (코닥은 14만 명)"
+  },
+  {
+    cat: "케인스의 예측",
+    q: "1930년 케인스는 「우리 손자 세대의 경제적 가능성」에서 100년 뒤인 2030년이면 <span class=\"em\">주당 몇 시간</span>만 일해도 된다고 예측했을까요?",
+    choices: ["45시간","35시간","25시간","15시간"],
+    answer: 3,
+    aha: "주 15시간입니다. \"100년 후 우리 손자들은 경제 문제를 해결했을 것이다\"라고 했죠. 생산성 향상 예측은 맞았지만 노동 시간 예측은 크게 빗나갔습니다. 이유 중 하나는 풍요로워질수록 인간이 새로운 욕구와 서비스를 계속 만들어내기 때문이고요. 그래서 북토크에서 묻습니다 — 커즈와일의 낙관도 같은 이유로 빗나갈 수 있을까요?",
+    short: "주 15시간 (빗나간 예측)"
+  },
+  {
+    cat: "ATM의 역설",
+    q: "현금인출기(ATM)가 은행에 도입된 뒤, 은행 창구 직원 수는 어떻게 됐을까요?",
+    choices: ["절반으로 줄었다","거의 사라졌다","오히려 늘었다","변화가 없었다"],
+    answer: 2,
+    aha: "오히려 늘었습니다. 지점 운영비가 줄자 지점이 늘었고, 상담·영업 인력 수요가 커졌거든요. 이것이 「러다이트의 오류」— 세상의 일자리 총량이 정해져 있다는 전제가 틀렸다는 겁니다. 1900년 미국 노동력의 41%가 농업이었지만 지금은 2% 미만인데, 그 39%는 정비사·파일럿·프로그래머가 되었죠. 모두 1900년엔 없던 직업입니다.",
+    short: "오히려 늘었다"
+  },
+  {
+    cat: "47% 논문",
+    q: "2013년 옥스퍼드의 프레이-오스본 연구는 미국 직업의 47%가 자동화 고위험이라 했습니다. 그런데 <span class=\"em\">OECD가 2016년 다시 계산</span>했더니 몇 %였을까요?",
+    choices: ["9%","23%","47% 그대로","68%"],
+    answer: 0,
+    aha: "9%입니다. 차이는 측정 단위였어요. 프레이-오스본은 「직업」 통째로 봤고, OECD는 직업 안의 「과제」 단위로 봤습니다. 여기서 5장의 핵심 통찰이 나옵니다 — 사라지는 것은 직업이 아니라 직업 안의 과제라는 것. 실제로 회계사와 부동산 중개인은 아직 있지만, 하는 일의 내용이 완전히 달라졌습니다.",
+    short: "9% (과제 단위로 보면)"
+  },
+  {
+    cat: "없던 직업",
+    q: "MIT의 다비드 아우토르에 따르면, 2018년 현재 미국 일자리의 약 60%는 <span class=\"em\">언제</span>는 존재하지 않던 직업일까요?",
+    choices: ["2000년","1980년","1940년","2010년"],
+    answer: 2,
+    aha: "1940년입니다. 소셜 미디어 매니저, 데이터 과학자, UX 디자이너, 유튜버, 프롬프트 엔지니어 — 이런 직업들은 계속 생겨납니다. 「유튜버」는 2010년에 없었고, 「프롬프트 엔지니어」는 2022년 전까지 없었죠. 그래서 북토크 질문은 이렇게 이어집니다. 10년 뒤의 새 직업을 맞히는 것과, 그 불확실성 속에서 어떤 역량을 기를지 — 어느 쪽이 더 중요할까요?",
+    short: "1940년 (약 60%)"
+  },
+  {
+    cat: "증강",
+    q: "MIT·스탠퍼드 연구에 따르면 AI 코딩 도구 깃허브 코파일럿을 쓴 개발자의 생산성은 얼마나 올랐을까요?",
+    choices: ["5% 향상","55% 향상","20% 향상","변화 없음"],
+    answer: 1,
+    aha: "55% 올랐습니다(2022년). 법률 분야에서는 문서 검토 시간이 80% 줄었고요. 이것이 대체가 아닌 「보완」의 실증입니다. 방사선과 의사는 AI가 단순 판독을 맡아준 덕에 복잡한 판단에 집중하게 됐죠. 그래서 5장은 이렇게 정리합니다 — AI가 인간을 대체하는 것이 아니라, AI를 잘 쓰는 인간이 그렇지 못한 인간을 대체한다고.",
+    short: "55% 향상 (코파일럿)"
+  },
+  {
+    cat: "전기의 교훈",
+    q: "공장에 전기가 처음 들어왔을 때 생산성은 어떻게 됐을까요? 그리고 제대로 효과가 나기까지 얼마나 걸렸을까요?",
+    choices: ["초기엔 오히려 떨어졌고, 재설계에 30~40년 걸렸다","즉시 두 배가 됐다","변화가 전혀 없었다","3년 만에 완전히 자리잡았다"],
+    answer: 0,
+    aha: "초기엔 오히려 떨어졌습니다. 증기기관 시절의 공장 구조를 그대로 둔 채 동력원만 바꿨기 때문이에요. 공장을 전기에 맞게 다시 설계하는 데 30~40년이 걸렸습니다. AI도 범용 기술(GPT)의 네 번째 사례 — 증기기관, 전기, 컴퓨터에 이어서 — 이고, 같은 시차를 겪는 중일지 모릅니다.",
+    short: "초기 하락, 재설계에 30~40년"
+  },
+  {
+    cat: "켄타우르",
+    q: "체스에서 「인간 + AI」 팀이 AI 단독보다 강할 수 있다는 것을 보여준 대국 방식을 무엇이라 부를까요?",
+    choices: ["오라클 체스","하이브리드 체스","미러 체스","켄타우르 체스"],
+    answer: 3,
+    aha: "켄타우르 체스입니다 — 반인반마의 그 켄타우로스죠. 리카도의 비교 우위 이론처럼, 절대적으로 더 잘하지 못해도 협업은 성립합니다. 5장이 꼽는 인간의 비교 우위는 감정 지능과 공감, 신체적 유연성, 도덕적 책임과 판단, 창의적 비전과 목적 설정, 그리고 관계와 신뢰입니다.",
+    short: "켄타우르 체스"
+  },
+  {
+    cat: "기본소득",
+    q: "1982년부터 석유 수익을 모든 주민에게 배당해 온 미국의 주는? (2023년 1인당 약 1,702달러)",
+    choices: ["텍사스","알래스카","캘리포니아","하와이"],
+    answer: 1,
+    aha: "알래스카입니다. 영구기금 배당이라 부르고, 알래스카는 미국에서 소득 불평등이 가장 낮은 주 중 하나예요. 핀란드도 2017~2018년 기본소득을 실험했고, 케냐와 미국 스톡턴에서도 시도가 있었습니다. 다만 재원·노동 의욕·물가라는 반론도 만만치 않죠.",
+    short: "알래스카 (1982년~)"
+  },
+  {
+    cat: "좋은 자동화",
+    q: "MIT의 다론 아제모을루는 자동화를 두 종류로 나눕니다. 생산성 향상 효과가 작아 노동자 대체만 일어나는 쪽을 뭐라 불렀을까요?",
+    choices: ["그저 그런 자동화","검은 자동화","역행 자동화","유령 자동화"],
+    answer: 0,
+    aha: "「그저 그런 자동화(so-so automation)」입니다. 콜센터 자동화가 그 예예요 — 효율은 올랐지만 많은 사람이 일자리를 잃고 비슷한 임금의 새 자리로 옮겨가지 못했죠. 아제모을루의 요점은 기술 자체가 아니라 기술이 어떻게 설계되고 배치되느냐가 결정적이라는 겁니다. 그런데 그 결정은 누가 내려야 할까요 — 엔지니어? 기업? 정부? 우리?",
+    short: "그저 그런 자동화 (so-so)"
+  }
+];
+
+let qi = -1;        // 현재 문제 인덱스
+let stage = 0;      // 0: 문제, 1: 정답 공개, 2: 아하 공개
+let picks = [];     // 문제별 내가 고른 보기 (안 골랐으면 null)
+const $ = id => document.getElementById(id);
+
+function buildDots() {
+  $('dots').innerHTML = QUESTIONS.map((_, i) =>
+    `<div class="dot${i < qi ? ' done' : i === qi ? ' on' : ''}"></div>`).join('');
+}
+
+function reveal() {
+  const q = QUESTIONS[qi];
+  const picked = picks[qi];
+  $('qChoices').classList.add('revealed');
+  if (picked !== null && picked !== undefined && picked !== q.answer) {
+    $('qChoices').children[picked].classList.add('wrongpick');
+  }
+  $('nextBtn').textContent = '추가설명';
+  stage = 1;
+}
+
+function pick(i) {
+  if (stage !== 0) return;
+  picks[qi] = i;
+  reveal();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[qi];
+  $('qNo').textContent = qi + 1;
+  $('qCat').textContent = q.cat;
+  $('qText').innerHTML = q.q;
+  $('qChoices').innerHTML = q.choices.map((c, i) =>
+    `<div class="choice${i === q.answer ? ' correct' : ''}" onclick="pick(${i})"><span class="tag">${'①②③④'[i]}</span>${c}</div>`).join('');
+  $('qChoices').classList.remove('revealed');
+  $('qAha').classList.remove('show');
+  $('qAhaText').textContent = q.aha;
+  $('nextBtn').textContent = '정답';
+  stage = 0;
+  // 이미 답을 확인한 문제로 되돌아온 경우 — 채점 상태 복원
+  if (picks[qi] !== undefined) {
+    reveal();
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  }
+  buildDots();
+}
+
+function show(id) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  $(id).classList.add('active');
+}
+
+function start() {
+  qi = 0;
+  show('quiz');
+  renderQuestion();
+}
+
+function advance() {
+  if (stage === 0) {
+    if (picks[qi] === undefined) picks[qi] = null; // 진행자 모드 — 고르지 않고 공개
+    reveal();
+  } else if (stage === 1) {
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  } else {
+    if (qi === QUESTIONS.length - 1) { finish(); return; }
+    qi++;
+    renderQuestion();
+    show('quiz');
+  }
+}
+
+function back() {
+  if (qi > 0) { qi--; renderQuestion(); }
+}
+
+function finish() {
+  const answered = picks.filter(p => p !== null && p !== undefined).length;
+  const score = picks.filter((p, i) => p === QUESTIONS[i].answer).length;
+  if (answered > 0) {
+    $('finTitle').textContent = `열 문제 중 ${score}문제!`;
+    $('finMsg').textContent =
+      score >= 9 ? '특이점급입니다. 1장을 다시 읽을 필요가 없겠는데요.' :
+      score >= 7 ? '수확 가속의 법칙 — 읽은 만큼 돌아왔습니다.' :
+      score >= 4 ? '연못의 절반쯤 왔습니다. 내일이면 가득 찹니다.' :
+                   '아직 스물아홉 번째 날 — 틀린 자리를 다시 펼치면 됩니다.';
+  } else {
+    $('finTitle').textContent = '열 문제, 모두 끝났습니다';
+    $('finMsg').textContent = '이제 채점하고, 상품 받으러 나오세요.';
+  }
+  $('recapTable').innerHTML = QUESTIONS.map((q, i) => {
+    const p = picks[i];
+    const ox = (p === null || p === undefined) ? '<td class="ox n">−</td>'
+      : p === q.answer ? '<td class="ox o">O</td>' : '<td class="ox x">X</td>';
+    return `<tr><td class="no">${i + 1}</td>${ox}<td>${q.cat}</td><td class="ans">${q.short}</td></tr>`;
+  }).join('');
+  show('finale');
+}
+
+function restart() {
+  qi = -1;
+  picks = [];
+  show('cover');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') {
+    e.preventDefault();
+    if ($('cover').classList.contains('active')) start();
+    else if ($('quiz').classList.contains('active')) advance();
+  } else if (e.code === 'ArrowLeft' && $('quiz').classList.contains('active')) {
+    back();
+  }
+});
+</script>
+</body>
+</html>
