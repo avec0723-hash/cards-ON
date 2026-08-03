@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제주 하루 — 방학 나들이 코스 10:00–18:00</title>
+<!-- 카톡·SNS 링크 미리보기 (Open Graph) -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:site_name" content="제주 하루" />
+<meta property="og:title" content="제주 하루 — 방학 나들이 코스 10:00–18:00" />
+<meta property="og:description" content="고1과 함께하는 여덟 시간 — 레이싱·바다·카페·대화 가이드까지 한 장에" />
+<meta property="og:url" content="https://avec0723-hash.github.io/cards-ON/jeju-day.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="제주 하루 — 방학 나들이 코스 10:00–18:00" />
+<meta name="twitter:description" content="고1과 함께하는 여덟 시간 — 레이싱·바다·카페·대화 가이드까지 한 장에" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35; --green-deep:#123526; --green-soft:#EAF1EC;
+    --gold:#C9A24B; --gold-soft:#F3E8CF;
+    --cream:#FAF7EF; --ink:#26271F; --ink-soft:#5A5B50; --ink-faint:#9A9B8C; --rule:#E4E0D2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{font-family:"Noto Sans KR",sans-serif;background:var(--cream);color:var(--ink);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.65;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px 64px;}
+
+  /* ── 헤더 ── */
+  header{background:var(--green);color:var(--cream);padding:44px 20px 38px;text-align:center;}
+  header .eyebrow{font-size:12.5px;letter-spacing:.35em;color:var(--gold);font-weight:700;margin-bottom:14px;}
+  header h1{font-family:"Noto Serif KR",serif;font-size:clamp(26px,6.5vw,34px);font-weight:700;line-height:1.35;}
+  header .sub{margin-top:12px;font-size:14.5px;color:#CFE0D5;}
+  header .time-pill{display:inline-block;margin-top:18px;padding:7px 18px;border:1px solid var(--gold);
+    border-radius:999px;font-size:13.5px;letter-spacing:.12em;color:var(--gold);font-weight:700;}
+
+  /* ── 원칙 배너 ── */
+  .principle{background:var(--green-deep);color:var(--cream);text-align:center;
+    padding:22px 24px;font-family:"Noto Serif KR",serif;font-size:16.5px;line-height:1.8;}
+  .principle b{color:var(--gold);font-weight:700;}
+
+  /* ── 섹션 제목 ── */
+  .sec{margin-top:48px;}
+  .sec-title{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+  .sec-title .num{width:30px;height:30px;border-radius:50%;background:var(--green);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;}
+  .sec-title h2{font-family:"Noto Serif KR",serif;font-size:21px;font-weight:700;color:var(--green);}
+
+  /* ── 타임라인 ── */
+  .timeline{position:relative;padding-left:26px;}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--rule);}
+  .stop{position:relative;padding-bottom:26px;}
+  .stop:last-child{padding-bottom:0;}
+  .stop::before{content:"";position:absolute;left:-25px;top:7px;width:12px;height:12px;border-radius:50%;
+    background:var(--gold);border:3px solid var(--cream);box-shadow:0 0 0 2px var(--gold);}
+  .stop .t{font-size:12.5px;font-weight:900;letter-spacing:.08em;color:var(--gold);margin-bottom:2px;}
+  .stop .t b{color:var(--green);}
+  .stop h3{font-size:17px;font-weight:700;color:var(--green-deep);margin-bottom:6px;}
+  .stop p{font-size:14.5px;color:var(--ink-soft);}
+  .stop p b{color:var(--ink);}
+  .stop .say{display:block;margin-top:8px;background:var(--green-soft);border-left:3px solid var(--green);
+    padding:9px 14px;border-radius:0 8px 8px 0;font-size:14px;color:var(--green-deep);font-weight:500;}
+  .alt{margin-top:22px;background:#fff;border:1px dashed var(--rule);border-radius:12px;
+    padding:16px 18px;font-size:13.5px;color:var(--ink-soft);}
+  .alt b{color:var(--green);}
+
+  /* ── 대화 카드 ── */
+  .talk-card{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:20px 22px;margin-bottom:16px;
+    box-shadow:0 1px 4px rgba(26,74,53,.06);}
+  .talk-card .tag{display:inline-block;font-size:11.5px;font-weight:900;letter-spacing:.14em;
+    color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:3px 12px;margin-bottom:12px;}
+  .talk-card h3{font-size:16.5px;font-weight:700;color:var(--green-deep);margin-bottom:8px;}
+  .talk-card p{font-size:14.5px;color:var(--ink-soft);}
+  .talk-card p + p{margin-top:8px;}
+  .q{margin-top:10px;background:var(--green-soft);border-radius:10px;padding:12px 16px;
+    font-size:14.5px;color:var(--green-deep);font-weight:500;}
+  .q + .q{margin-top:8px;}
+
+  /* ── 한 문장 ── */
+  .one-line{margin:8px 0 16px;background:var(--green);border-radius:16px;padding:28px 26px;text-align:center;color:var(--cream);}
+  .one-line .lbl{font-size:12px;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-bottom:14px;}
+  .one-line blockquote{font-family:"Noto Serif KR",serif;font-size:18px;line-height:1.85;font-weight:600;}
+  .one-line .note{margin-top:14px;font-size:13px;color:#B8CFC1;}
+
+  /* ── 금기 ── */
+  .avoid{display:flex;flex-direction:column;gap:10px;}
+  .avoid .chip{background:#fff;border:1px solid var(--rule);border-left:4px solid #B0553B;
+    border-radius:10px;padding:13px 17px;font-size:14.5px;color:var(--ink-soft);}
+  .avoid .chip b{color:#8F4028;}
+
+  /* ── 마무리 ── */
+  .fin{margin-top:48px;background:var(--gold-soft);border-radius:16px;padding:26px 24px;text-align:center;}
+  .fin h3{font-family:"Noto Serif KR",serif;font-size:18px;color:var(--green-deep);font-weight:700;margin-bottom:10px;}
+  .fin p{font-size:14.5px;color:var(--ink-soft);}
+  .fin .big{margin-top:12px;font-size:16px;font-weight:700;color:var(--green);}
+
+  footer{margin-top:44px;text-align:center;font-size:12.5px;color:var(--ink-faint);letter-spacing:.06em;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">SUMMER · JEJU</div>
+  <h1>제주 하루,<br>여덟 시간의 나들이</h1>
+  <div class="sub">고1과 함께 — 애월 · 한림 코스</div>
+  <div class="time-pill">10:00 — 18:00</div>
+</header>
+
+<div class="principle">
+  이 나이의 아이는 <b>마주 보면 입을 닫고,<br>나란히 있으면 입을 연다.</b><br>
+  <span style="font-size:13.5px;color:#B8CFC1;">— 몸이 먼저 움직이고, 말은 그 틈에 흘러나오게</span>
+</div>
+
+<div class="wrap">
+
+  <!-- 코스 -->
+  <section class="sec">
+    <div class="sec-title"><span class="num">1</span><h2>오늘의 코스</h2></div>
+    <div class="timeline">
+
+      <div class="stop">
+        <div class="t">10:00 – 10:40 · <b>이동, 차 안</b></div>
+        <h3>플레이리스트는 아이에게</h3>
+        <p>음악 선곡권을 통째로 넘긴다. 아이가 듣는 노래를 놀리지 않고 진심으로 물으면, 하루의 결이 정해진다.</p>
+        <span class="say">"네 플레이리스트 틀어줘."</span>
+      </div>
+
+      <div class="stop">
+        <div class="t">10:40 – 12:30 · <b>9.81파크 (애월)</b></div>
+        <h3>무동력 레이싱 — 진지하게 승부</h3>
+        <p>기록이 앱에 남아 <b>재대결</b>이 된다. 봐주는 어른보다 같이 승부하는 어른을 아이는 더 편해한다.</p>
+      </div>
+
+      <div class="stop">
+        <div class="t">12:40 – 13:50 · <b>점심 (협재·한림)</b></div>
+        <h3>메뉴는 아이가 정한다</h3>
+        <p>흑돼지든 돈까스든, 핵심은 메뉴가 아니라 이 문장 — 선택권을 주는 것이 오늘의 숨은 주제다.</p>
+        <span class="say">"오늘 점심은 네가 정해, 난 따라간다."</span>
+      </div>
+
+      <div class="stop">
+        <div class="t">14:10 – 15:30 · <b>협재–금능 해변</b></div>
+        <h3>나란히 걷기 — 오늘의 본론</h3>
+        <p>밥 먹고 바로 카페에 앉으면 대화가 취조가 된다. 한 번 걸어야 한다. 바다를 보며 나란히 걷는 이 구간에서 아래의 질문들을 꺼낸다.</p>
+      </div>
+
+      <div class="stop">
+        <div class="t">15:30 – 16:40 · <b>바다뷰 카페</b></div>
+        <h3>사진 넘겨보며 낄낄대기</h3>
+        <p>아이는 음료와 디저트, 어른은 커피. 무겁게 가지 않는다. 동기부여 이야기는 여기서 <b>딱 한 문장</b>만.</p>
+      </div>
+
+      <div class="stop">
+        <div class="t">17:00 – 18:00 · <b>이른 저녁</b></div>
+        <h3>평소 먹고 싶다던 것으로</h3>
+        <p>하루의 마지막 기억이 '맛있음'이면, 다음 외출 섭외가 쉬워진다.</p>
+      </div>
+
+    </div>
+    <div class="alt"><b>동부 대안 코스</b> — 함덕해수욕장(수영·산책) → 함덕 점심 → 월정·세화 카페 → 스누피가든 → 이른 저녁. 활동 강도는 애월 코스가 더 높다. 더운 날 실내 대안은 아르떼뮤지엄.</div>
+  </section>
+
+  <!-- 대화 가이드 -->
+  <section class="sec">
+    <div class="sec-title"><span class="num">2</span><h2>대화 가이드</h2></div>
+
+    <div class="talk-card">
+      <span class="tag">비율 3 : 7</span>
+      <h3>부모가 3, 아이가 7</h3>
+      <p>여덟 시간 중 '동기부여 대화'는 20분이면 충분하다. 나머지 일곱 시간 사십 분의 즐거움 자체가 동기부여다. <b>"같이 놀아도 재밌네"</b>라는 경험이 어떤 훈화보다 오래 간다.</p>
+    </div>
+
+    <div class="talk-card">
+      <span class="tag">여는 질문 · 걷기 구간</span>
+      <h3>취향부터, 평가 없이</h3>
+      <div class="q">"요즘 뭐 할 때 시간이 제일 빨리 가?"<br><span style="font-weight:400;font-size:13.5px;">— 게임·유튜브라 답해도 "그게 왜 재밌어?"로 한 겹 더.</span></div>
+      <div class="q">"요즘 유행인데 어른들은 전혀 모르는 거, 하나만 알려줘."<br><span style="font-weight:400;font-size:13.5px;">— 아이를 선생 자리에 앉히는 질문. 의외로 길게 말한다.</span></div>
+    </div>
+
+    <div class="talk-card">
+      <span class="tag">깊어지는 질문 · 분위기가 열렸을 때만</span>
+      <h3>질문보다 강한 것은 자기개방</h3>
+      <div class="q">"성적이나 돈이 아무 상관없다면, 해보고 싶은 거 있어?"</div>
+      <p style="margin-top:10px;">그리고 부모의 고1 시절 <b>실패담</b>을 먼저 꺼낸다. "나도 그 나이엔 뭘 하고 싶은지 몰랐다"는 고백이, "너는 꿈이 뭐냐"는 질문 열 개보다 아이의 입을 연다.</p>
+    </div>
+  </section>
+
+  <!-- 한 문장 -->
+  <section class="sec">
+    <div class="sec-title"><span class="num">3</span><h2>동기부여, 한 문장만</h2></div>
+    <div class="one-line">
+      <div class="lbl">카페에서 · 한 번만</div>
+      <blockquote>"뭘 하든 응원해.<br>다만 남이 시킨 거 말고,<br>네가 고른 걸 하면 좋겠어."</blockquote>
+      <div class="note">답을 요구하지 않는 것이 요령 — 씨앗은 심고, 그날 캐지 않는다.</div>
+    </div>
+  </section>
+
+  <!-- 금기 -->
+  <section class="sec">
+    <div class="sec-title"><span class="num">4</span><h2>피해야 할 세 가지</h2></div>
+    <div class="avoid">
+      <div class="chip"><b>① 심문</b> — 성적·학원·계획을 캐묻지 않는다.</div>
+      <div class="chip"><b>② 비교</b> — "내가 네 나이 땐"으로 시작하지 않는다.</div>
+      <div class="chip"><b>③ 급선회</b> — 좋은 분위기에서 갑자기 진지해지지 않는다. "이거 때문에 데려왔구나" 하는 순간, 아이는 마음을 닫는다.</div>
+    </div>
+  </section>
+
+  <!-- 마무리 -->
+  <div class="fin">
+    <h3>헤어지기 전, 마지막 한마디</h3>
+    <p>다음 외출의 기획자를 아이로 만들면,<br>동기부여는 그때부터 스스로 굴러간다.</p>
+    <div class="big">"다음엔 어디 갈래? 네가 정해."</div>
+  </div>
+
+  <footer>여름 방학 · 제주에서의 하루</footer>
+</div>
+
+</body>
+</html>
