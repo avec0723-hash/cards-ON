@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="website">
+<meta property="og:title" content="류강의 매일 영어 — 하루 열 문제">
+<meta property="og:description" content="매일 날짜에 맞춰 새로 뽑히는 단어·숙어 10문제. 오늘 몇 점?">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://avec0723-hash.github.io/deeper-cards/daily-english.html">
+<meta name="twitter:card" content="summary">
+<title>류강의 매일 영어 — 하루 열 문제</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0F1A2B;
+    --card: #16233A;
+    --card-2: #1D2C47;
+    --ink: #EAF0F7;
+    --ink-soft: #9FB0C6;
+    --ink-faint: #5F7290;
+    --mint: #4FE3C1;
+    --mint-deep: #2BB597;
+    --coral: #FF7A59;
+    --coral-deep: #E05A3A;
+    --gold: #FFC94D;
+    --rule: #2A3B5C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(79,227,193,0.08) 0, transparent 32%),
+      radial-gradient(circle at 85% 85%, rgba(255,122,89,0.07) 0, transparent 36%);
+    pointer-events: none;
+  }
+  .stage { width: 100%; max-width: 620px; position: relative; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    box-shadow: 0 14px 44px rgba(0,0,0,0.45);
+    padding: 36px 30px 32px;
+    display: none;
+    animation: rise .4s ease both;
+  }
+  .card.active { display: block; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── 표지 ── */
+  .cover { text-align: center; padding: 48px 30px; }
+  .cover .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: var(--bg);
+    background: var(--mint);
+    border-radius: 999px;
+    padding: 6px 16px;
+    margin-bottom: 22px;
+  }
+  .cover h1 {
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .cover h1 .em { color: var(--mint); }
+  .cover .today {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 26px;
+  }
+  .streakbox {
+    display: inline-flex;
+    gap: 26px;
+    background: var(--card-2);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 14px 26px;
+    margin-bottom: 32px;
+  }
+  .streakbox .item { text-align: center; }
+  .streakbox .num { font-size: 26px; font-weight: 900; color: var(--gold); }
+  .streakbox .lb { font-size: 12px; color: var(--ink-faint); letter-spacing: 1px; }
+  .players { display: flex; justify-content: center; gap: 10px; margin-bottom: 22px; }
+  .pbtn {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 8px 24px;
+    border-radius: 999px;
+    border: 1.5px solid var(--rule);
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .pbtn.on { background: var(--coral); border-color: var(--coral); color: #fff; }
+
+  /* ── 문제 ── */
+  .qhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+  }
+  .qnum { font-size: 14px; letter-spacing: 2px; color: var(--ink-faint); font-weight: 700; }
+  .qnum b { font-size: 22px; color: var(--mint); letter-spacing: 0; }
+  .qcat {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--mint);
+    padding: 4px 14px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+  }
+  .qlabel { font-size: 15px; color: var(--ink-soft); margin-bottom: 8px; }
+  .qtext {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 26px;
+    word-break: keep-all;
+  }
+  .qtext.word { font-size: 40px; color: var(--mint); letter-spacing: 0.5px; }
+  .qtext .blank { color: var(--coral); }
+  .choices { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
+  .choice {
+    border: 1.5px solid var(--rule);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 17px;
+    background: var(--card-2);
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    word-break: keep-all;
+    cursor: pointer;
+  }
+  .choices:not(.revealed) .choice:hover { border-color: var(--mint); transform: translateY(-1px); }
+  .choice .tag {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink-faint);
+    color: var(--ink-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .revealed .choice { opacity: 0.3; cursor: default; }
+  .revealed .choice.correct {
+    opacity: 1;
+    background: var(--mint);
+    border-color: var(--mint);
+    color: var(--bg);
+    font-weight: 700;
+    transform: scale(1.02);
+  }
+  .revealed .choice.correct .tag { background: var(--bg); border-color: var(--bg); color: var(--mint); }
+  .revealed .choice.wrongpick {
+    opacity: 1;
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+    font-weight: 700;
+  }
+  .revealed .choice.wrongpick .tag { background: #fff; border-color: #fff; color: var(--coral-deep); }
+  .aha {
+    display: none;
+    background: rgba(79,227,193,0.08);
+    border-left: 4px solid var(--mint);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    animation: rise .35s ease both;
+    word-break: keep-all;
+  }
+  .aha.show { display: block; }
+  .aha .en { color: var(--ink); font-weight: 700; }
+  .aha .label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--mint);
+    font-weight: 900;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ── 버튼·진행 ── */
+  .controls { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 999px;
+    border: 1.5px solid var(--mint);
+    background: var(--mint);
+    color: var(--bg);
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all .25s ease;
+  }
+  .btn:hover { background: var(--mint-deep); border-color: var(--mint-deep); transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--mint); }
+  .btn.ghost:hover { background: rgba(79,227,193,0.1); }
+  .btn.big { font-size: 18px; padding: 15px 44px; }
+  .dots { display: flex; gap: 7px; flex-wrap: wrap; max-width: 55%; }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--rule);
+    transition: all .3s ease;
+  }
+  .dot.on { background: var(--coral); transform: scale(1.3); }
+  .dot.done { background: var(--mint); }
+  .hint { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 16px; letter-spacing: 1px; }
+
+  /* ── 마무리 ── */
+  .finale { text-align: center; padding: 44px 30px; }
+  .finale h2 { font-size: 34px; font-weight: 900; margin-bottom: 8px; }
+  .finale h2 .em { color: var(--mint); }
+  .finale .msg { font-size: 16px; color: var(--ink-soft); margin-bottom: 28px; }
+  .recap {
+    text-align: left;
+    background: var(--card-2);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 28px;
+  }
+  .recap h3 {
+    font-size: 13px; letter-spacing: 3px; font-weight: 900;
+    color: var(--mint); margin-bottom: 12px;
+    text-align: center;
+  }
+  .recap table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .recap td { padding: 6px 6px; border-bottom: 1px dashed var(--rule); vertical-align: top; }
+  .recap tr:last-child td { border-bottom: none; }
+  .recap .ox { width: 26px; font-weight: 900; text-align: center; }
+  .recap .ox.o { color: var(--mint); }
+  .recap .ox.x { color: var(--coral); }
+  .recap .ox.n { color: var(--ink-faint); font-weight: 400; }
+  .recap .en { color: var(--ink); font-weight: 700; white-space: nowrap; }
+  .recap .ko { color: var(--ink-soft); padding-left: 10px; }
+
+  @media (max-width: 480px) {
+    .card { padding: 28px 20px; }
+    .cover h1 { font-size: 27px; }
+    .qtext { font-size: 21px; }
+    .qtext.word { font-size: 32px; }
+    .choice { font-size: 16px; }
+    .recap .en { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- 표지 -->
+  <section class="card cover active" id="cover">
+    <div class="badge">DAILY ENGLISH</div>
+    <h1>류강의 <span class="em">매일 영어</span></h1>
+    <p class="today" id="todayLine"></p>
+    <div class="players">
+      <button class="pbtn" id="pbtn-류강" onclick="setPlayer('류강')">류강</button>
+      <button class="pbtn" id="pbtn-엄마" onclick="setPlayer('엄마')">엄마</button>
+    </div>
+    <div class="streakbox">
+      <div class="item"><div class="num" id="streakNum">0</div><div class="lb">연속 학습</div></div>
+      <div class="item"><div class="num" id="bestNum">−</div><div class="lb">오늘 최고</div></div>
+    </div>
+    <div>
+      <button class="btn big" onclick="start()">오늘의 열 문제</button>
+    </div>
+    <p class="hint">단어와 숙어, 매일 날짜에 맞춰 새로 뽑힙니다</p>
+  </section>
+
+  <!-- 문제 카드 -->
+  <section class="card" id="quiz">
+    <div class="qhead">
+      <div class="qnum">문제 <b id="qNo">1</b> / 10</div>
+      <div class="qcat" id="qCat"></div>
+    </div>
+    <p class="qlabel" id="qLabel"></p>
+    <div class="qtext" id="qText"></div>
+    <div class="choices" id="qChoices"></div>
+    <div class="aha" id="qAha"><span class="label">추가설명</span><span id="qAhaText"></span></div>
+    <div class="controls">
+      <div class="dots" id="dots"></div>
+      <button class="btn" id="nextBtn" onclick="advance()">정답</button>
+    </div>
+  </section>
+
+  <!-- 마무리 -->
+  <section class="card finale" id="finale">
+    <h2 id="finTitle">끝!</h2>
+    <p class="msg" id="finMsg"></p>
+    <p class="msg" id="vsLine" style="display:none; color:var(--gold); font-weight:700;"></p>
+    <div class="recap">
+      <h3>오늘의 열 개</h3>
+      <table id="recapTable"></table>
+    </div>
+    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+      <button class="btn" onclick="shareScore()">점수 공유</button>
+      <button class="btn ghost" onclick="restart()">한 번 더</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// ── 문제은행 · 단어 (고1 필수) ──────────────────────────────
+// ex 문장에는 en이 원형 그대로 들어 있어야 빈칸 문제가 만들어진다.
+const WORDS = [
+  { en: 'achieve', ko: '이루다, 달성하다', ex: 'You can achieve your goal.', exKo: '너는 네 목표를 이룰 수 있다.' },
+  { en: 'avoid', ko: '피하다', ex: 'Try to avoid sugary drinks.', exKo: '단 음료를 피하도록 해 봐.' },
+  { en: 'benefit', ko: '이익을 얻다; 이익', ex: 'You will benefit from daily reading.', exKo: '매일 독서하면 득을 본다.' },
+  { en: 'cause', ko: '일으키다; 원인', ex: 'Smoking can cause cancer.', exKo: '흡연은 암을 일으킬 수 있다.' },
+  { en: 'compare', ko: '비교하다', ex: 'Don\'t compare yourself with others.', exKo: '자신을 남과 비교하지 마라.' },
+  { en: 'complain', ko: '불평하다', ex: 'He didn\'t complain about the food.', exKo: '그는 음식에 대해 불평하지 않았다.' },
+  { en: 'consider', ko: '고려하다', ex: 'Please consider my suggestion.', exKo: '내 제안을 고려해 줘.' },
+  { en: 'continue', ko: '계속하다', ex: 'The rain will continue all day.', exKo: '비가 하루 종일 계속될 것이다.' },
+  { en: 'create', ko: '창조하다, 만들다', ex: 'Artists create new worlds.', exKo: '예술가는 새로운 세계를 만든다.' },
+  { en: 'decide', ko: '결정하다', ex: 'I can\'t decide what to eat.', exKo: '뭘 먹을지 결정을 못 하겠다.' },
+  { en: 'decrease', ko: '감소하다', ex: 'The population will decrease.', exKo: '인구가 감소할 것이다.' },
+  { en: 'describe', ko: '묘사하다, 설명하다', ex: 'Can you describe the man?', exKo: '그 남자를 묘사할 수 있니?' },
+  { en: 'destroy', ko: '파괴하다', ex: 'Fire can destroy a forest.', exKo: '불은 숲을 파괴할 수 있다.' },
+  { en: 'develop', ko: '발달시키다, 개발하다', ex: 'Reading helps develop your mind.', exKo: '독서는 사고력을 발달시킨다.' },
+  { en: 'discover', ko: '발견하다', ex: 'Scientists discover new stars.', exKo: '과학자들은 새로운 별을 발견한다.' },
+  { en: 'effect', ko: '효과, 영향', ex: 'The medicine had no effect.', exKo: '그 약은 효과가 없었다.' },
+  { en: 'effort', ko: '노력', ex: 'Success needs great effort.', exKo: '성공에는 큰 노력이 필요하다.' },
+  { en: 'encourage', ko: '격려하다', ex: 'Teachers encourage their students.', exKo: '선생님들은 학생들을 격려한다.' },
+  { en: 'environment', ko: '환경', ex: 'We must protect the environment.', exKo: '우리는 환경을 보호해야 한다.' },
+  { en: 'expect', ko: '기대하다, 예상하다', ex: 'I didn\'t expect to see you here.', exKo: '여기서 널 볼 줄은 몰랐어.' },
+  { en: 'experience', ko: '경험; 경험하다', ex: 'Travel gives you experience.', exKo: '여행은 경험을 준다.' },
+  { en: 'explain', ko: '설명하다', ex: 'Let me explain the rules.', exKo: '규칙을 설명해 줄게.' },
+  { en: 'express', ko: '표현하다', ex: 'It\'s hard to express my feelings.', exKo: '내 감정을 표현하기 어렵다.' },
+  { en: 'familiar', ko: '익숙한, 친숙한', ex: 'His face looks familiar.', exKo: '그의 얼굴이 낯익다.' },
+  { en: 'gather', ko: '모으다, 모이다', ex: 'We gather data every day.', exKo: '우리는 매일 자료를 모은다.' },
+  { en: 'improve', ko: '향상시키다', ex: 'Practice will improve your English.', exKo: '연습이 네 영어 실력을 키운다.' },
+  { en: 'include', ko: '포함하다', ex: 'The price does not include tax.', exKo: '가격에 세금은 포함되지 않는다.' },
+  { en: 'increase', ko: '증가하다', ex: 'Prices continue to increase.', exKo: '물가가 계속 오른다.' },
+  { en: 'influence', ko: '영향을 주다; 영향', ex: 'Friends influence each other.', exKo: '친구들은 서로 영향을 준다.' },
+  { en: 'maintain', ko: '유지하다', ex: 'Exercise helps maintain health.', exKo: '운동은 건강 유지를 돕는다.' },
+  { en: 'mention', ko: '언급하다', ex: 'Don\'t mention it again.', exKo: '그 얘기 다시 꺼내지 마.' },
+  { en: 'notice', ko: '알아차리다', ex: 'Did you notice the change?', exKo: '그 변화를 알아차렸니?' },
+  { en: 'observe', ko: '관찰하다', ex: 'We observe the stars at night.', exKo: '우리는 밤에 별을 관찰한다.' },
+  { en: 'occur', ko: '일어나다, 발생하다', ex: 'Earthquakes occur suddenly.', exKo: '지진은 갑자기 일어난다.' },
+  { en: 'opportunity', ko: '기회', ex: 'This is a great opportunity.', exKo: '이것은 좋은 기회다.' },
+  { en: 'patient', ko: '참을성 있는; 환자', ex: 'Be patient with yourself.', exKo: '스스로에게 인내심을 가져라.' },
+  { en: 'perform', ko: '공연하다, 수행하다', ex: 'The band will perform tonight.', exKo: '그 밴드는 오늘 밤 공연한다.' },
+  { en: 'prefer', ko: '선호하다', ex: 'I prefer tea to coffee.', exKo: '나는 커피보다 차를 선호한다.' },
+  { en: 'prepare', ko: '준비하다', ex: 'We prepare for the exam.', exKo: '우리는 시험을 준비한다.' },
+  { en: 'prevent', ko: '막다, 예방하다', ex: 'Helmets prevent injuries.', exKo: '헬멧은 부상을 예방한다.' },
+  { en: 'protect', ko: '보호하다', ex: 'Sunscreen can protect your skin.', exKo: '자외선 차단제는 피부를 보호한다.' },
+  { en: 'provide', ko: '제공하다', ex: 'The school will provide lunch.', exKo: '학교가 점심을 제공할 것이다.' },
+  { en: 'purpose', ko: '목적', ex: 'What is the purpose of this trip?', exKo: '이 여행의 목적이 뭐니?' },
+  { en: 'realize', ko: '깨닫다', ex: 'Now I realize my mistake.', exKo: '이제 내 실수를 깨닫는다.' },
+  { en: 'reduce', ko: '줄이다', ex: 'We should reduce plastic use.', exKo: '플라스틱 사용을 줄여야 한다.' },
+  { en: 'refuse', ko: '거절하다', ex: 'She had to refuse the offer.', exKo: '그녀는 그 제안을 거절해야 했다.' },
+  { en: 'remain', ko: '남다, 여전히 ~이다', ex: 'Only a few tickets remain.', exKo: '표가 몇 장 남지 않았다.' },
+  { en: 'require', ko: '필요로 하다, 요구하다', ex: 'Plants require sunlight.', exKo: '식물은 햇빛을 필요로 한다.' },
+  { en: 'similar', ko: '비슷한', ex: 'Our ideas are similar.', exKo: '우리 생각은 비슷하다.' },
+  { en: 'solve', ko: '해결하다, 풀다', ex: 'Let\'s solve this problem together.', exKo: '이 문제를 함께 풀자.' },
+  { en: 'suffer', ko: '고통받다', ex: 'Many people suffer from stress.', exKo: '많은 사람이 스트레스로 고통받는다.' },
+  { en: 'suggest', ko: '제안하다', ex: 'I suggest taking a break.', exKo: '잠깐 쉬자고 제안할게.' },
+  { en: 'survive', ko: '살아남다', ex: 'Camels survive in the desert.', exKo: '낙타는 사막에서 살아남는다.' },
+  { en: 'tend', ko: '~하는 경향이 있다', ex: 'I tend to stay up late.', exKo: '나는 늦게 자는 경향이 있다.' },
+  { en: 'various', ko: '다양한', ex: 'The store sells various snacks.', exKo: '그 가게는 다양한 과자를 판다.' }
+];
+
+// ── 문제은행 · 숙어 ──────────────────────────────
+const IDIOMS = [
+  { en: 'give up', ko: '포기하다', ex: 'Don\'t give up on your dream.', exKo: '꿈을 포기하지 마.' },
+  { en: 'look after', ko: '돌보다', ex: 'Please look after my dog.', exKo: '내 개를 돌봐 줘.' },
+  { en: 'look forward to', ko: '~을 기대하다', ex: 'I look forward to the vacation.', exKo: '방학이 기대된다.' },
+  { en: 'put off', ko: '미루다', ex: 'Don\'t put off your homework.', exKo: '숙제를 미루지 마.' },
+  { en: 'take part in', ko: '~에 참가하다', ex: 'I will take part in the contest.', exKo: '나는 그 대회에 참가할 것이다.' },
+  { en: 'carry out', ko: '수행하다, 실행하다', ex: 'They will carry out the plan.', exKo: '그들은 그 계획을 실행할 것이다.' },
+  { en: 'come up with', ko: '(아이디어를) 생각해내다', ex: 'Try to come up with a new idea.', exKo: '새로운 아이디어를 생각해내 봐.' },
+  { en: 'deal with', ko: '다루다, 처리하다', ex: 'I can deal with this problem.', exKo: '나는 이 문제를 처리할 수 있다.' },
+  { en: 'depend on', ko: '~에 의존하다, 달려 있다', ex: 'The result will depend on you.', exKo: '결과는 너에게 달려 있다.' },
+  { en: 'figure out', ko: '알아내다, 이해하다', ex: 'I can\'t figure out this question.', exKo: '이 문제를 도무지 모르겠어.' },
+  { en: 'get along with', ko: '~와 잘 지내다', ex: 'I get along with my classmates.', exKo: '나는 반 친구들과 잘 지낸다.' },
+  { en: 'get over', ko: '극복하다', ex: 'You will get over the failure.', exKo: '너는 그 실패를 극복할 것이다.' },
+  { en: 'get rid of', ko: '없애다, 제거하다', ex: 'Let\'s get rid of the trash.', exKo: '쓰레기를 치우자.' },
+  { en: 'hand in', ko: '제출하다', ex: 'Please hand in your report.', exKo: '보고서를 제출하세요.' },
+  { en: 'keep in mind', ko: '명심하다', ex: 'Keep in mind that time is gold.', exKo: '시간이 금이라는 걸 명심해.' },
+  { en: 'look up to', ko: '존경하다', ex: 'Students look up to the teacher.', exKo: '학생들은 그 선생님을 존경한다.' },
+  { en: 'pay attention to', ko: '~에 주의를 기울이다', ex: 'Pay attention to the signs.', exKo: '표지판에 주의를 기울여라.' },
+  { en: 'point out', ko: '지적하다', ex: 'He will point out the errors.', exKo: '그가 오류를 지적할 것이다.' },
+  { en: 'put up with', ko: '참다, 견디다', ex: 'I can\'t put up with the noise.', exKo: '그 소음을 참을 수가 없다.' },
+  { en: 'run out of', ko: '~을 다 써버리다', ex: 'We may run out of time.', exKo: '우리는 시간이 다 떨어질지도 모른다.' },
+  { en: 'set up', ko: '설치하다, 세우다', ex: 'Let\'s set up the tent here.', exKo: '여기에 텐트를 치자.' },
+  { en: 'show up', ko: '나타나다', ex: 'He didn\'t show up at the party.', exKo: '그는 파티에 나타나지 않았다.' },
+  { en: 'stand for', ko: '상징하다, 나타내다', ex: 'What does AI stand for?', exKo: 'AI는 무엇의 약자일까?' },
+  { en: 'take advantage of', ko: '~을 이용하다', ex: 'Take advantage of this chance.', exKo: '이 기회를 이용해라.' },
+  { en: 'take after', ko: '닮다', ex: 'I take after my mother.', exKo: '나는 엄마를 닮았다.' },
+  { en: 'turn down', ko: '거절하다; (소리를) 줄이다', ex: 'She will turn down the offer.', exKo: '그녀는 그 제안을 거절할 것이다.' },
+  { en: 'turn out', ko: '~로 판명되다', ex: 'The rumor may turn out to be true.', exKo: '그 소문은 사실로 판명될지도 모른다.' },
+  { en: 'break down', ko: '고장 나다', ex: 'Old cars break down often.', exKo: '오래된 차는 자주 고장 난다.' },
+  { en: 'catch up with', ko: '~을 따라잡다', ex: 'Run fast to catch up with them.', exKo: '그들을 따라잡으려면 빨리 달려라.' },
+  { en: 'count on', ko: '~을 믿다, 의지하다', ex: 'You can count on me.', exKo: '나를 믿어도 돼.' }
+];
+
+// ── 날짜 시드 난수 — 같은 날엔 누구나 같은 열 문제 ──
+function mulberry32(seed) {
+  return function() {
+    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const now = new Date();
+const dateKey = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+const seed = parseInt(dateKey.replace(/-/g, ''), 10);
+
+function shuffled(arr, rng) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// 오늘의 10문제: 단어 6 + 숙어 4, 뜻 맞히기와 빈칸을 섞는다
+function buildDaily() {
+  const rng = mulberry32(seed);
+  const words = shuffled(WORDS, rng).slice(0, 6);
+  const idioms = shuffled(IDIOMS, rng).slice(0, 4);
+  const picked = shuffled(
+    words.map(e => ({ e, pool: WORDS, kind: '단어' }))
+      .concat(idioms.map(e => ({ e, pool: IDIOMS, kind: '숙어' }))), rng);
+  return picked.map((p, i) => {
+    const type = rng() < 0.5 ? 'meaning' : 'blank';
+    const distract = shuffled(p.pool.filter(x => x.en !== p.e.en && x.ko !== p.e.ko), rng).slice(0, 3);
+    const options = shuffled([p.e].concat(distract), rng);
+    return {
+      entry: p.e,
+      cat: p.kind + ' · ' + (type === 'meaning' ? '뜻' : '빈칸'),
+      label: type === 'meaning' ? '이 ' + p.kind + '의 뜻은?' : '빈칸에 들어갈 ' + p.kind + '는?',
+      text: type === 'meaning'
+        ? p.e.en
+        : p.e.ex.replace(p.e.en, '<span class="blank">______</span>'),
+      isWord: type === 'meaning',
+      choices: options.map(o => type === 'meaning' ? o.ko : o.en),
+      answer: options.indexOf(p.e),
+      aha: '<span class="en">' + p.e.en + '</span> — ' + p.e.ko + '<br>' + p.e.ex + '<br>' + p.e.exKo,
+      short: p.e.en
+    };
+  });
+}
+
+const QUESTIONS = buildDaily();
+
+// ── 기록 (localStorage, 프로필별) ──
+const PLAYERS = ['류강', '엄마'];
+let player = localStorage.getItem('daily_eng_player') || '류강';
+if (PLAYERS.indexOf(player) < 0) player = '류강';
+
+function loadStoreFor(name) {
+  try { return JSON.parse(localStorage.getItem('daily_eng_v1_' + name)) || { scores: {} }; }
+  catch (e) { return { scores: {} }; }
+}
+function loadStore() { return loadStoreFor(player); }
+function saveScore(score) {
+  const s = loadStore();
+  const prev = s.scores[dateKey];
+  s.scores[dateKey] = (prev === undefined) ? score : Math.max(prev, score);
+  localStorage.setItem('daily_eng_v1_' + player, JSON.stringify(s));
+}
+function getStreak() {
+  const s = loadStore();
+  let streak = 0;
+  const d = new Date();
+  while (true) {
+    const k = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    if (s.scores[k] !== undefined) { streak++; d.setDate(d.getDate() - 1); }
+    else break;
+  }
+  return streak;
+}
+function setPlayer(name) {
+  player = name;
+  localStorage.setItem('daily_eng_player', name);
+  refreshCover();
+}
+
+// ── 퀴즈 엔진 ──
+let qi = -1;
+let stage = 0;      // 0: 문제, 1: 정답, 2: 추가설명
+let picks = [];
+const $ = id => document.getElementById(id);
+
+function refreshCover() {
+  $('todayLine').textContent = (now.getMonth() + 1) + '월 ' + now.getDate() + '일의 열 문제';
+  PLAYERS.forEach(n => $('pbtn-' + n).classList.toggle('on', n === player));
+  $('streakNum').textContent = getStreak();
+  const best = loadStore().scores[dateKey];
+  $('bestNum').textContent = (best === undefined) ? '−' : best + '점';
+}
+
+function buildDots() {
+  $('dots').innerHTML = QUESTIONS.map((_, i) =>
+    `<div class="dot${i < qi ? ' done' : i === qi ? ' on' : ''}"></div>`).join('');
+}
+
+function reveal() {
+  const q = QUESTIONS[qi];
+  const picked = picks[qi];
+  $('qChoices').classList.add('revealed');
+  if (picked !== null && picked !== undefined && picked !== q.answer) {
+    $('qChoices').children[picked].classList.add('wrongpick');
+  }
+  $('nextBtn').textContent = '추가설명';
+  stage = 1;
+}
+
+function pick(i) {
+  if (stage !== 0) return;
+  picks[qi] = i;
+  reveal();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[qi];
+  $('qNo').textContent = qi + 1;
+  $('qCat').textContent = q.cat;
+  $('qLabel').textContent = q.label;
+  $('qText').innerHTML = q.text;
+  $('qText').className = 'qtext' + (q.isWord ? ' word' : '');
+  $('qChoices').innerHTML = q.choices.map((c, i) =>
+    `<div class="choice${i === q.answer ? ' correct' : ''}" onclick="pick(${i})"><span class="tag">${'①②③④'[i]}</span>${c}</div>`).join('');
+  $('qChoices').classList.remove('revealed');
+  $('qAha').classList.remove('show');
+  $('qAhaText').innerHTML = q.aha;
+  $('nextBtn').textContent = '정답';
+  stage = 0;
+  if (picks[qi] !== undefined) {
+    reveal();
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  }
+  buildDots();
+}
+
+function show(id) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  $(id).classList.add('active');
+}
+
+function start() {
+  qi = 0;
+  picks = [];
+  show('quiz');
+  renderQuestion();
+}
+
+function advance() {
+  if (stage === 0) {
+    if (picks[qi] === undefined) picks[qi] = null;
+    reveal();
+  } else if (stage === 1) {
+    $('qAha').classList.add('show');
+    $('nextBtn').textContent = qi === QUESTIONS.length - 1 ? '결과 보기' : '다음 문제';
+    stage = 2;
+  } else {
+    if (qi === QUESTIONS.length - 1) { finish(); return; }
+    qi++;
+    renderQuestion();
+    show('quiz');
+  }
+}
+
+function back() {
+  if (qi > 0) { qi--; renderQuestion(); }
+}
+
+let lastScore = 0;
+
+function finish() {
+  const score = picks.filter((p, i) => p === QUESTIONS[i].answer).length;
+  lastScore = score;
+  saveScore(score);
+  $('finTitle').innerHTML = player + ' <span class="em">' + score + '점</span>!';
+  $('finMsg').textContent =
+    score >= 9 ? '완벽에 가깝다. 내일도 이 기세로.' :
+    score >= 7 ? '좋아, 감이 잡히고 있어.' :
+    score >= 4 ? '틀린 단어만 아래에서 한 번 더 보고 가자.' :
+                 '괜찮아. 오늘 만난 열 개, 내일 또 만나면 네 것이 된다.';
+  // 같은 기기에서 둘 다 풀었으면 오늘의 대결 표시
+  const other = PLAYERS.find(n => n !== player);
+  const otherScore = loadStoreFor(other).scores[dateKey];
+  const mine = loadStore().scores[dateKey];
+  if (otherScore !== undefined) {
+    const vs = $('vsLine');
+    vs.style.display = 'block';
+    vs.textContent = '오늘의 대결 — ' + player + ' ' + mine + ' : ' + otherScore + ' ' + other +
+      (mine > otherScore ? ' · ' + player + ' 승!' : mine < otherScore ? ' · ' + other + ' 승!' : ' · 무승부!');
+  } else {
+    $('vsLine').style.display = 'none';
+  }
+  $('recapTable').innerHTML = QUESTIONS.map((q, i) => {
+    const p = picks[i];
+    const ox = (p === null || p === undefined) ? '<td class="ox n">−</td>'
+      : p === q.answer ? '<td class="ox o">O</td>' : '<td class="ox x">X</td>';
+    return `<tr>${ox}<td class="en">${q.entry.en}</td><td class="ko">${q.entry.ko}</td></tr>`;
+  }).join('');
+  show('finale');
+}
+
+function restart() {
+  qi = -1;
+  picks = [];
+  refreshCover();
+  show('cover');
+}
+
+// ── 점수 공유 (카톡 등) ──
+function shareScore() {
+  const streak = getStreak();
+  const text = '📚 매일 영어 ' + (now.getMonth() + 1) + '/' + now.getDate() +
+    ' — ' + player + ' ' + lastScore + '/10점!' +
+    (streak > 1 ? ' (연속 ' + streak + '일째)' : '') +
+    '\n오늘 문제로 도전 → https://avec0723-hash.github.io/deeper-cards/daily-english.html';
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text).then(
+      () => alert('점수가 복사됐어요! 카톡에 붙여넣기 하세요.'),
+      () => prompt('아래 내용을 복사해 카톡에 붙여넣으세요.', text)
+    );
+  }
+}
+
+refreshCover();
+
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') {
+    e.preventDefault();
+    if ($('cover').classList.contains('active')) start();
+    else if ($('quiz').classList.contains('active')) advance();
+  } else if (e.code === 'ArrowLeft' && $('quiz').classList.contains('active')) {
+    back();
+  }
+});
+</script>
+</body>
+</html>
