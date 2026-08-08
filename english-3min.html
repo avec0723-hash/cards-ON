@@ -48,6 +48,13 @@
   .hero h1 em{font-style:normal;color:var(--accent);}
   .hero p{margin-top:10px;font-size:13.5px;color:var(--sub);line-height:1.75;}
   .hero p b{color:var(--ink);font-weight:700;}
+  .prog{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:18px;}
+  .prog .lbl{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;font-weight:700;color:var(--sub);margin-bottom:9px;letter-spacing:.02em;}
+  .prog .lbl b{color:var(--accent);font-size:13.5px;}
+  .prog.full .lbl b{color:var(--gold);}
+  .prog .track{height:8px;background:var(--line);border-radius:99px;overflow:hidden;}
+  .prog .fill{height:100%;background:var(--accent);border-radius:99px;transition:width .4s;}
+  .prog.full .fill{background:var(--gold);}
   .lv{margin-bottom:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;}
   .lv.hw-lv{border-color:var(--accent);}
   .lv-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;}
@@ -162,6 +169,7 @@
       <h1>하루 10단어,<br>문장으로 <em>3분</em>.</h1>
       <p>퀴즈의 절반은 문장 빈칸 — 뜻과 쓰임을 양방향으로.<br>틀림은 감점이 아니라 데이터다. 다시 하면 오른다.<br><b>시험 전, 숙제 세트 한 바퀴면 준비 끝.</b></p>
     </div>
+    <div class="prog" id="prog"></div>
     <div id="levels"></div>
     <button class="hwbtn" onclick="showHw()">학원 숙제 붙여넣기 →</button>
     <p class="legend">완주한 판은 검게, 만점 판엔 금점<i class="g"></i>이 붙는다.<br>판이 끝나면 같은 문제, 다른 순서로 — 한 사람 더.</p>
@@ -2530,6 +2538,15 @@ function renderHome(){
   });
   document.getElementById("starN").textContent=total;
   document.getElementById("streakN").textContent=streak;
+  // 2,000개 뽀개기 게이지 (숙제 단원 d01~d50 = 200판)
+  let hwDone=0, hwTotal=0;
+  ALL.forEach(lv=>{ if(lv.id[0]==="d"){ hwTotal+=lv.days.length; lv.days.forEach((_,di)=>{ if(stars[lv.id+"-"+di]!==undefined) hwDone++; }); } });
+  const pg=document.getElementById("prog");
+  if(pg){
+    const pct=hwTotal? (hwDone/hwTotal*100):0;
+    pg.classList.toggle("full", hwDone===hwTotal);
+    pg.innerHTML='<div class="lbl"><span>2,000개 뽀개기 · '+hwDone+'/'+hwTotal+'판</span><b>'+(hwDone*10).toLocaleString()+' / 2,000 단어</b></div><div class="track"><div class="fill" style="width:'+pct+'%"></div></div>';
+  }
 }
 function show(id){ ["home","learn","quiz","done","hw"].forEach(x=>document.getElementById(x).classList.add("hidden")); document.getElementById(id).classList.remove("hidden"); window.scrollTo(0,0); }
 function goHome(){ stopTimer(); isVs=false; firstScore=null; renderHome(); show("home"); }
