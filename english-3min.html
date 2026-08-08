@@ -87,6 +87,13 @@
   .face .ex b{color:var(--accent);font-weight:800;}
   .face .ex .ko{display:block;margin-top:8px;font-size:13px;color:var(--sub);font-weight:400;}
   .face .tip{font-size:12px;color:var(--faint);}
+  .spk{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-strong);display:flex;
+    align-items:center;justify-content:center;color:var(--accent);background:var(--card);}
+  .spk:active{transform:scale(.94);}
+  .snd{font-size:10.5px;font-weight:800;letter-spacing:.1em;color:var(--faint);
+    border:1px solid var(--line);border-radius:999px;padding:5px 11px;}
+  .snd.on{color:var(--accent);border-color:var(--accent);}
+  .sess-right{display:flex;align-items:center;gap:8px;}
   .nav{display:flex;gap:10px;}
   .nav button{flex:1;padding:15px;border-radius:12px;font-size:14.5px;font-weight:700;}
   .nav .ghost{background:var(--card);border:1px solid var(--line-strong);color:var(--ink);}
@@ -158,12 +165,12 @@
 
   <!-- ─── 학습 ─── -->
   <div id="learn" class="hidden">
-    <div class="sess-top"><span class="name" id="learnName"></span><span class="timer" id="timer1">0:00</span></div>
+    <div class="sess-top"><span class="name" id="learnName"></span><span class="sess-right"><button class="snd" onclick="toggleVoice()">SOUND ON</button><span class="timer" id="timer1">0:00</span></span></div>
     <div class="bar"><i id="learnBar" style="width:0%"></i></div>
     <div class="flip" id="flipCard" onclick="flipIt()">
       <div class="inner">
-        <div class="face front"><div class="w" id="fw"></div><div class="tip">카드를 누르면 뜻과 예문</div></div>
-        <div class="face back"><div class="m" id="fm"></div><div class="ex" id="fex"></div><div class="tip" id="fwSmall"></div></div>
+        <div class="face front"><div class="w" id="fw"></div><button class="spk" onclick="event.stopPropagation();speakWord()" aria-label="단어 발음 듣기"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></button><div class="tip">카드를 누르면 뜻과 예문 · 스피커는 발음</div></div>
+        <div class="face back"><div class="m" id="fm"></div><div class="ex" id="fex"></div><button class="spk" onclick="event.stopPropagation();speakSent()" aria-label="예문 발음 듣기"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></button><div class="tip" id="fwSmall"></div></div>
       </div>
     </div>
     <div class="nav">
@@ -174,7 +181,7 @@
 
   <!-- ─── 퀴즈 ─── -->
   <div id="quiz" class="hidden">
-    <div class="sess-top"><span class="name" id="quizName"></span><span class="timer" id="timer2">0:00</span></div>
+    <div class="sess-top"><span class="name" id="quizName"></span><span class="sess-right"><button class="snd" onclick="toggleVoice()">SOUND ON</button><span class="timer" id="timer2">0:00</span></span></div>
     <div class="bar"><i id="quizBar" style="width:0%"></i></div>
     <div class="q-word" id="qbox"></div>
     <div class="opts" id="opts"></div>
@@ -517,6 +524,21 @@ function startDay(li,di){
   words=lv.days[di].slice(); sessName=lv.name.split(" —")[0].split(" ·")[0]+" · "+(di+1)+"판"; sessKey=lv.id+"-"+di;
   beginLearn();
 }
+// ───────── 발음 (기기 내장 영어 음성) ─────────
+let voiceOn = S.get("voice", true);
+function speak(t){
+  if(!voiceOn || !("speechSynthesis" in window)) return;
+  try{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=0.95;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function speakWord(){ if(words[idx]) speak(words[idx][0]); }
+function speakSent(){ const w=words[idx]; if(!w) return; speak(w.length>=4 ? w[2].replace(/\*/g,"") : w[0]); }
+function toggleVoice(){ voiceOn=!voiceOn; S.set("voice",voiceOn); if(!voiceOn){ try{speechSynthesis.cancel();}catch(e){} } updSnd(); }
+function updSnd(){ document.querySelectorAll(".snd").forEach(b=>{ b.textContent = voiceOn?"SOUND ON":"SOUND OFF"; b.classList.toggle("on",voiceOn); }); }
+
 function markup(sent,cls){ return sent.replace(/\*([^*]+)\*/, "<b"+(cls?' class="'+cls+'"':"")+">$1</b>"); }
 function blank(sent){ return sent.replace(/\*([^*]+)\*/, "<b>＿＿＿</b>"); }
 function beginLearn(){
@@ -535,6 +557,7 @@ function renderCard(){
   document.getElementById("fwSmall").textContent=w[0];
   document.getElementById("learnBar").style.width=((idx+1)/words.length*100)+"%";
   document.getElementById("learnNext").textContent = idx===words.length-1 ? "퀴즈 시작" : "다음 →";
+  speak(w[0]);
 }
 function flipIt(){ document.getElementById("flipCard").classList.toggle("on"); }
 function learnMove(d){
@@ -561,6 +584,7 @@ function renderQ(){
   }else{
     box.innerHTML='<div class="w">'+w[0]+'</div><div class="cnt">'+(idx+1)+' / '+order.length+' · 뜻은?</div>';
     right=w[1];
+    speak(w[0]);
     choices=[w[1], ...words.filter(x=>x[1]!==w[1]).map(x=>x[1]).sort(()=>Math.random()-.5).slice(0,3)];
   }
   choices.sort(()=>Math.random()-.5);
@@ -650,6 +674,7 @@ function startHw(){
 (function(){ const today=new Date().toDateString(), y=new Date(Date.now()-864e5).toDateString();
   if(lastDay!==today && lastDay!==y){ streak=0; } })();
 renderHome();
+updSnd();
 </script>
 </body>
 </html>
