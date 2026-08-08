@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <title>단어 스와이프 · Day 37–38</title>
 <meta name="description" content="80단어 × 예문 160개. 탭해서 뜻과 쓰임을 보고, 밀어서 O/X. 문장 빈칸 모드로 활용까지. 몰랐던 단어만 다시 나옵니다.">
-<meta name="theme-color" content="#0A0D12">
+<meta name="theme-color" content="#FFF8EF">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="매일영어">
 <meta property="og:title" content="단어 스와이프 · Day 37–38">
@@ -22,18 +22,23 @@
 <meta name="twitter:description" content="80단어 × 예문 160개. 탭하면 쓰임, 밀면 O/X.">
 <style>
   :root{
-    --bg:#0A0D12;
-    --ink:#F4F7F9;
-    --sub:#8A97A8;
-    --dim:#5C6878;
-    --line:rgba(255,255,255,.09);
-    --line2:rgba(255,255,255,.16);
-    --surface:rgba(255,255,255,.045);
-    --teal:#2DD4BF;
-    --indigo:#818CF8;
-    --gold:#FBBF24;
-    --ok:#34D399;
-    --no:#FB7185;
+    --bg:#FFF8EF;            /* 따뜻한 크림 */
+    --ink:#221F3D;           /* 짙은 남보라 잉크 */
+    --sub:#5B5E85;
+    --dim:#6C6F95;
+    --line:#EEE7F7;          /* 연한 테두리 */
+    --line2:#E4DAF5;         /* 카드 테두리 */
+    --surface:#FFFFFF;
+    --teal:#00C2A8;          /* 민트 — 주 색 */
+    --teal-ink:#046A5E;      /* 글자용 진한 민트 */
+    --teal-deep:#00A18C;     /* 도톰한 그림자용 */
+    --indigo:#7C5CFC;        /* 바이올렛 — 보조 */
+    --indigo-ink:#5B37EE;
+    --gold:#F0A020;          /* 햇살 노랑 */
+    --ok:#12B76A;
+    --ok-deep:#0E9457;
+    --no:#FF5B5B;
+    --no-deep:#E03E3E;
     --appvh:100vh;
     --ease:cubic-bezier(.22,1,.36,1);
   }
@@ -50,8 +55,9 @@
   body::before{
     content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     background:
-      radial-gradient(70% 44% at 50% -6%, rgba(45,212,191,.16), transparent 70%),
-      radial-gradient(56% 36% at 12% 104%, rgba(129,140,248,.14), transparent 72%);
+      radial-gradient(52% 30% at 88% -4%, rgba(0,194,168,.26), transparent 68%),
+      radial-gradient(46% 28% at 4% 6%, rgba(124,92,252,.20), transparent 70%),
+      radial-gradient(58% 34% at 46% 106%, rgba(240,160,32,.22), transparent 72%);
   }
   #app{
     position:relative;z-index:1;width:100%;max-width:460px;
@@ -67,8 +73,8 @@
   @media (min-height:700px){ #s-start,#s-done{justify-content:center} }
   .kicker{
     display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
-    font-size:.7rem;letter-spacing:.2em;font-weight:800;color:var(--teal);
-    border:1px solid rgba(45,212,191,.3);background:rgba(45,212,191,.07);
+    font-size:.7rem;letter-spacing:.2em;font-weight:800;color:var(--teal-ink);
+    border:2px solid rgba(0,194,168,.4);background:rgba(0,194,168,.12);
     padding:7px 13px;border-radius:99px;margin-bottom:20px;
   }
   .kicker i{width:6px;height:6px;border-radius:99px;background:var(--teal);font-style:normal;
@@ -83,34 +89,38 @@
   .label{font-size:.7rem;color:var(--dim);letter-spacing:.16em;font-weight:800;margin:22px 0 9px}
   .chips{display:flex;gap:8px}
   .chip{
-    flex:1;min-width:0;padding:13px 4px;border-radius:16px;border:1px solid var(--line);
+    flex:1;min-width:0;padding:13px 4px;border-radius:16px;border:2px solid var(--line2);
     background:var(--surface);color:var(--sub);font-size:.92rem;font-weight:700;
     text-align:center;cursor:pointer;font-family:inherit;letter-spacing:-.02em;
-    transition:border-color .2s,background .2s,color .2s,transform .12s;
+    box-shadow:0 3px 0 var(--line2);
+    transition:border-color .18s,background .18s,color .18s,transform .12s,box-shadow .12s;
   }
-  .chip small{display:block;font-weight:500;color:var(--dim);font-size:.67rem;margin-top:4px;letter-spacing:0}
-  .chip.sel{border-color:rgba(45,212,191,.55);background:rgba(45,212,191,.11);color:var(--teal)}
-  .chip.sel small{color:rgba(45,212,191,.75)}
-  .chip:active{transform:scale(.97)}
+  .chip small{display:block;font-weight:600;color:var(--dim);font-size:.67rem;margin-top:4px;letter-spacing:0}
+  .chip.sel{border-color:var(--teal);background:#E4FAF6;color:var(--teal-ink);box-shadow:0 3px 0 var(--teal)}
+  .chip.sel small{color:var(--teal-ink);opacity:.75}
+  .chip:active{transform:translateY(2px);box-shadow:0 1px 0 var(--line2)}
+  .chip.sel:active{box-shadow:0 1px 0 var(--teal)}
   #mode-chips .chip{font-size:.85rem}
   #mode-chips .chip small{font-size:.63rem}
 
   .go{
     margin-top:26px;padding:19px;border:none;border-radius:18px;width:100%;
-    background:linear-gradient(100deg,var(--teal),#3BB7E8);color:#04211E;
+    background:linear-gradient(100deg,var(--teal),#4FD6C0 55%,#5BD2F0);color:var(--ink);
     font-size:1.06rem;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:-.01em;
-    box-shadow:0 10px 30px -10px rgba(45,212,191,.6);
-    transition:transform .12s,box-shadow .2s;
+    box-shadow:0 5px 0 var(--teal-deep), 0 14px 26px -12px rgba(0,162,140,.55);
+    transition:transform .1s,box-shadow .1s;
   }
-  .go:active{transform:scale(.98);box-shadow:0 6px 18px -10px rgba(45,212,191,.6)}
-  .go.ghost{background:var(--surface);color:var(--sub);border:1px solid var(--line);box-shadow:none}
+  .go:active{transform:translateY(3px);box-shadow:0 2px 0 var(--teal-deep)}
+  .go.ghost{background:var(--surface);color:var(--sub);border:2px solid var(--line2);
+    box-shadow:0 4px 0 var(--line2)}
+  .go.ghost:active{transform:translateY(3px);box-shadow:0 1px 0 var(--line2)}
   .foot{margin-top:16px;text-align:center;font-size:.73rem;color:var(--dim);line-height:1.7}
 
   /* ─────────── 퀴즈 화면 ─────────── */
   .top{display:flex;align-items:center;gap:13px;margin-bottom:13px}
   .quit{background:none;border:none;color:var(--dim);font-size:1.25rem;cursor:pointer;
     padding:2px 6px;line-height:1;font-family:inherit}
-  .bar{flex:1;height:5px;background:rgba(255,255,255,.09);border-radius:99px;overflow:hidden}
+  .bar{flex:1;height:7px;background:#EDE6F8;border-radius:99px;overflow:hidden}
   .bar i{display:block;height:100%;width:0%;border-radius:99px;
     background:linear-gradient(90deg,var(--teal),var(--indigo));transition:width .4s var(--ease)}
   .count{font-size:.78rem;color:var(--dim);font-variant-numeric:tabular-nums;
@@ -118,22 +128,24 @@
 
   .meta-row{display:flex;align-items:center;justify-content:center;gap:8px;
     min-height:20px;margin-bottom:11px;flex-wrap:wrap}
-  .tag{font-size:.68rem;font-weight:800;letter-spacing:.03em;padding:4px 10px;border-radius:99px;
-    border:1px solid transparent}
-  .tag.round{color:var(--gold);border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.08)}
-  .tag.streak{color:var(--ok);border-color:rgba(52,211,153,.28);background:rgba(52,211,153,.08)}
+  .tag{font-size:.68rem;font-weight:800;letter-spacing:.03em;padding:4px 11px;border-radius:99px;
+    border:2px solid transparent}
+  .tag.round{color:#B36A00;border-color:rgba(240,160,32,.45);background:#FFF3DC}
+  .tag.streak{color:var(--ok-deep);border-color:rgba(18,183,106,.4);background:#E4F9EE}
 
   .stack{position:relative;flex:1;min-height:290px;margin-bottom:15px}
   .card{
     position:absolute;inset:0;border-radius:26px;
-    background:linear-gradient(170deg,#181E28,#12171F);
-    border:1px solid var(--line2);
+    background:#FFFFFF;
+    border:2px solid var(--line2);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;padding:26px 22px;
-    box-shadow:0 24px 50px -18px rgba(0,0,0,.85);
+    box-shadow:0 7px 0 var(--line2), 0 20px 34px -20px rgba(34,31,61,.35);
   }
-  .card.peek2{transform:scale(.9) translateY(20px);opacity:.4;z-index:0}
-  .card.peek1{transform:scale(.95) translateY(10px);opacity:.7;z-index:1}
+  .card.peek2{transform:scale(.9) translateY(22px);background:#FFF4E2;border-color:#F3DFBC;
+    box-shadow:none;z-index:0}
+  .card.peek1{transform:scale(.95) translateY(11px);background:#F3EEFF;border-color:#DDD1FA;
+    box-shadow:none;z-index:1}
   .card.front{z-index:2;cursor:pointer;touch-action:pan-y;will-change:transform}
   .card.front.settle{transition:transform .38s var(--ease),opacity .3s}
   .card.front.in{animation:cardIn .38s var(--ease)}
@@ -150,10 +162,11 @@
   /* 문장 빈칸 모드 앞면 */
   .word.sent{font-size:clamp(1.06rem,4.8vw,1.28rem);line-height:1.75;font-weight:600;
     letter-spacing:-.005em;text-align:left;width:100%}
-  .blank{display:inline-block;min-width:92px;border-bottom:2.5px solid var(--teal);
+  .blank{display:inline-block;min-width:92px;border-bottom:3px solid var(--teal);
+    background:rgba(0,194,168,.1);border-radius:4px 4px 0 0;
     vertical-align:baseline;height:1.1em}
-  .word.sent mark{background:rgba(45,212,191,.14);color:var(--teal);font-weight:800;
-    border-radius:5px;padding:1px 4px;animation:fillIn .4s var(--ease)}
+  .word.sent mark{background:#D6F7F0;color:var(--teal-ink);font-weight:800;
+    border-radius:6px;padding:1px 5px;animation:fillIn .4s var(--ease)}
   @keyframes fillIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
   #c-answer .word{font-size:clamp(1.7rem,7.5vw,2.1rem);margin-top:18px}
   .sent-ko{display:none;margin-top:16px;font-size:.86rem;color:var(--sub);line-height:1.6;
@@ -169,26 +182,27 @@
   .card.open .hint{display:none}
   .card.open .sent-ko{display:none}
   .card.open .reveal{display:block}
-  .pos{display:inline-block;font-size:.68rem;font-weight:800;color:var(--teal);
-    border:1px solid rgba(45,212,191,.32);border-radius:99px;padding:3px 11px;margin:14px 0 8px}
+  .pos{display:inline-block;font-size:.68rem;font-weight:800;color:var(--teal-ink);
+    background:#E4FAF6;border:2px solid rgba(0,194,168,.35);
+    border-radius:99px;padding:3px 11px;margin:14px 0 8px}
   .mean{font-size:1.08rem;font-weight:700;line-height:1.55;letter-spacing:-.01em}
   .rel{font-size:.78rem;color:var(--dim);margin-top:8px}
   .ex-label{font-size:.62rem;letter-spacing:.16em;font-weight:800;color:var(--dim);
     text-align:left;margin:18px 0 8px}
   .ex{padding:14px 15px;border-radius:15px;
-    background:rgba(45,212,191,.06);border:1px solid rgba(45,212,191,.16);text-align:left}
-  .ex + .ex{margin-top:9px;background:rgba(129,140,248,.06);border-color:rgba(129,140,248,.18)}
+    background:#E9FBF7;border:2px solid rgba(0,194,168,.28);text-align:left}
+  .ex + .ex{margin-top:9px;background:#F2EEFF;border-color:rgba(124,92,252,.3)}
   .ex-en{font-size:.93rem;line-height:1.6}
-  .ex-en mark{background:none;color:var(--teal);font-weight:800}
-  .ex + .ex .ex-en mark{color:var(--indigo)}
+  .ex-en mark{background:none;color:var(--teal-ink);font-weight:800}
+  .ex + .ex .ex-en mark{color:var(--indigo-ink)}
   .ex-ko{font-size:.81rem;color:var(--sub);margin-top:6px;line-height:1.55}
 
   /* 카드 안에 더 볼 내용이 남아 있을 때 알려주는 표시 */
   .more-hint{
     position:absolute;left:1px;right:1px;bottom:1px;z-index:3;pointer-events:none;
-    padding:26px 0 12px;text-align:center;font-size:.7rem;font-weight:700;color:var(--teal);
-    border-radius:0 0 25px 25px;opacity:0;transition:opacity .25s;
-    background:linear-gradient(to bottom,rgba(19,24,32,0),rgba(19,24,32,.92) 55%);
+    padding:26px 0 12px;text-align:center;font-size:.72rem;font-weight:800;color:var(--teal-ink);
+    border-radius:0 0 24px 24px;opacity:0;transition:opacity .25s;
+    background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.96) 55%);
   }
   .more-hint.on{opacity:1}
   /* 낮은 화면에서는 여백을 줄여 두 예문이 최대한 한눈에 들어오게 */
@@ -201,24 +215,27 @@
 
   .stamp{
     position:absolute;top:24px;font-size:1.5rem;font-weight:900;letter-spacing:.06em;
-    padding:7px 15px;border-radius:12px;border:3px solid;opacity:0;pointer-events:none;z-index:3;
+    padding:7px 15px;border-radius:14px;border:4px solid;opacity:0;pointer-events:none;z-index:3;
+    background:#FFFFFF;
   }
-  .stamp.y{right:22px;color:var(--ok);border-color:var(--ok);transform:rotate(11deg)}
-  .stamp.n{left:22px;color:var(--no);border-color:var(--no);transform:rotate(-11deg)}
+  .stamp.y{right:22px;color:var(--ok-deep);border-color:var(--ok);transform:rotate(11deg)}
+  .stamp.n{left:22px;color:var(--no-deep);border-color:var(--no);transform:rotate(-11deg)}
 
   .ox{display:flex;gap:11px}
   .ox button{
-    flex:1;padding:18px;border-radius:18px;font-size:1.02rem;font-weight:800;
-    cursor:pointer;font-family:inherit;letter-spacing:-.01em;transition:transform .12s;
+    flex:1;padding:17px;border-radius:18px;font-size:1.02rem;font-weight:800;
+    cursor:pointer;font-family:inherit;letter-spacing:-.01em;
+    transition:transform .1s,box-shadow .1s;
   }
-  .ox .no{background:rgba(251,113,133,.1);color:var(--no);border:1px solid rgba(251,113,133,.32)}
-  .ox .ok{background:rgba(52,211,153,.1);color:var(--ok);border:1px solid rgba(52,211,153,.32)}
-  .ox button:active{transform:scale(.96)}
+  .ox .no{background:#FFECEC;color:var(--no-deep);border:2px solid var(--no);box-shadow:0 4px 0 var(--no)}
+  .ox .ok{background:#E4F9EE;color:var(--ok-deep);border:2px solid var(--ok);box-shadow:0 4px 0 var(--ok)}
+  .ox .no:active{transform:translateY(2px);box-shadow:0 2px 0 var(--no)}
+  .ox .ok:active{transform:translateY(2px);box-shadow:0 2px 0 var(--ok)}
 
   /* ─────────── 결과 화면 ─────────── */
   .ring-wrap{position:relative;width:164px;height:164px;margin:0 auto 18px;flex-shrink:0}
   .ring-wrap svg{transform:rotate(-90deg)}
-  .ring-bg{fill:none;stroke:rgba(255,255,255,.08);stroke-width:9}
+  .ring-bg{fill:none;stroke:#EDE6F8;stroke-width:9}
   .ring-fg{fill:none;stroke:url(#rg);stroke-width:9;stroke-linecap:round;
     transition:stroke-dashoffset 1.1s var(--ease)}
   .ring-mid{position:absolute;inset:0;display:flex;flex-direction:column;
@@ -229,16 +246,17 @@
   .score b{color:var(--ink)}
   .sub-msg{text-align:center;color:var(--sub);font-size:.88rem;margin:11px 0 20px;line-height:1.7}
 
-  .miss-box{background:var(--surface);border:1px solid var(--line);border-radius:20px;
+  .miss-box{background:var(--surface);border:2px solid var(--line2);border-radius:20px;
+    box-shadow:0 5px 0 var(--line2);
     padding:15px 17px;max-height:32vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
-  .miss-box h3{font-size:.68rem;color:var(--gold);letter-spacing:.14em;font-weight:800;margin-bottom:11px}
+  .miss-box h3{font-size:.68rem;color:#B36A00;letter-spacing:.14em;font-weight:800;margin-bottom:11px}
   .miss{padding:9px 0;border-bottom:1px solid var(--line)}
   .miss:last-child{border-bottom:none}
   .miss-top{display:flex;justify-content:space-between;gap:12px;font-size:.9rem}
   .miss-top b{font-weight:700;letter-spacing:-.01em}
   .miss-top span{color:var(--sub);text-align:right;font-size:.81rem;line-height:1.45}
   .miss-ex{font-size:.76rem;color:var(--dim);margin-top:5px;line-height:1.5}
-  .miss-ex mark{background:none;color:rgba(45,212,191,.85);font-weight:700}
+  .miss-ex mark{background:none;color:var(--teal-ink);font-weight:800}
   .btn-row{display:flex;gap:10px;margin-top:18px}
   .btn-row .go{margin-top:0}
 
@@ -331,7 +349,7 @@
     <div class="ring-wrap">
       <svg width="164" height="164" viewBox="0 0 164 164">
         <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#2DD4BF"/><stop offset="100%" stop-color="#818CF8"/>
+          <stop offset="0%" stop-color="#00C2A8"/><stop offset="100%" stop-color="#7C5CFC"/>
         </linearGradient></defs>
         <circle class="ring-bg" cx="82" cy="82" r="72"/>
         <circle class="ring-fg" id="ring" cx="82" cy="82" r="72"
