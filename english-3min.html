@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3분 영어 — 오늘의 한 판</title>
+<!-- 카톡·SNS 링크 미리보기 (Open Graph) -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:site_name" content="3분 영어" />
+<meta property="og:title" content="3분 영어 — 오늘의 한 판" />
+<meta property="og:description" content="하루 10단어, 3분이면 한 판 — 기초부터 단계별, 대결 모드까지" />
+<meta property="og:url" content="https://avec0723-hash.github.io/cards-ON/english-3min.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="3분 영어 — 오늘의 한 판" />
+<meta name="twitter:description" content="하루 10단어, 3분이면 한 판 — 기초부터 단계별, 대결 모드까지" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F1420; --panel:#1A2233; --panel2:#212B40; --line:#2E3A54;
+    --mint:#3EE08F; --mint-deep:#2BB871; --gold:#F5C84C;
+    --txt:#EDF1F7; --sub:#8E9AB3; --red:#F06A6A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{font-family:"Noto Sans KR",sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:480px;margin:0 auto;padding:20px 18px 48px;}
+  button{font-family:inherit;border:none;cursor:pointer;}
+  .hidden{display:none !important;}
+
+  /* 헤더 */
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+  .logo{font-size:20px;font-weight:900;letter-spacing:-.02em;}
+  .logo b{color:var(--mint);}
+  .streak{font-size:13px;color:var(--sub);background:var(--panel);border:1px solid var(--line);
+    border-radius:999px;padding:6px 14px;font-weight:700;}
+  .streak b{color:var(--gold);}
+
+  /* 홈 */
+  .hero{background:linear-gradient(135deg,#182238,#131B2C);border:1px solid var(--line);border-radius:18px;
+    padding:22px 20px;margin-bottom:18px;}
+  .hero h1{font-size:22px;font-weight:900;line-height:1.4;}
+  .hero h1 b{color:var(--mint);}
+  .hero p{margin-top:8px;font-size:13.5px;color:var(--sub);line-height:1.6;}
+  .lv{margin-bottom:14px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;}
+  .lv-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;}
+  .lv-head h2{font-size:15.5px;font-weight:900;}
+  .lv-head span{font-size:12px;color:var(--sub);}
+  .days{display:flex;gap:8px;}
+  .day{flex:1;aspect-ratio:1;border-radius:12px;background:var(--panel2);border:1px solid var(--line);
+    color:var(--txt);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-size:13px;font-weight:900;transition:transform .1s;}
+  .day:active{transform:scale(.94);}
+  .day .st{font-size:15px;line-height:1;}
+  .day.done{border-color:var(--gold);}
+  .day.perfect{background:#2A2A18;border-color:var(--gold);}
+  .hwbtn{width:100%;margin-top:4px;background:var(--panel);border:1px dashed var(--mint-deep);color:var(--mint);
+    border-radius:16px;padding:16px;font-size:15px;font-weight:900;}
+  .hint{margin-top:14px;font-size:12.5px;color:var(--sub);text-align:center;line-height:1.7;}
+
+  /* 세션 공통 */
+  .sess-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+  .sess-top .name{font-size:14px;font-weight:900;color:var(--sub);}
+  .timer{font-size:14px;font-weight:900;color:var(--mint);background:var(--panel);border:1px solid var(--line);
+    border-radius:999px;padding:5px 14px;font-variant-numeric:tabular-nums;}
+  .bar{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin-bottom:20px;}
+  .bar i{display:block;height:100%;background:var(--mint);border-radius:99px;transition:width .25s;}
+
+  /* 학습 카드 */
+  .flip{perspective:900px;margin-bottom:16px;}
+  .flip .inner{position:relative;width:100%;height:250px;transform-style:preserve-3d;transition:transform .45s;}
+  .flip.on .inner{transform:rotateY(180deg);}
+  .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;display:flex;
+    flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px;text-align:center;}
+  .face.front{background:var(--panel);border:1px solid var(--line);}
+  .face.back{background:#14261E;border:1px solid var(--mint-deep);transform:rotateY(180deg);}
+  .face .w{font-size:34px;font-weight:900;letter-spacing:-.01em;word-break:break-all;}
+  .face .m{font-size:24px;font-weight:900;color:var(--mint);line-height:1.5;}
+  .face .tip{font-size:12.5px;color:var(--sub);}
+  .nav{display:flex;gap:10px;}
+  .nav button{flex:1;padding:15px;border-radius:14px;font-size:15px;font-weight:900;}
+  .nav .ghost{background:var(--panel);color:var(--txt);border:1px solid var(--line);}
+  .nav .go{background:var(--mint);color:#0C2418;}
+
+  /* 퀴즈 */
+  .q-word{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:34px 20px;
+    text-align:center;margin-bottom:16px;}
+  .q-word .w{font-size:32px;font-weight:900;}
+  .q-word .cnt{margin-top:6px;font-size:12.5px;color:var(--sub);}
+  .opts{display:flex;flex-direction:column;gap:10px;}
+  .opt{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:14px;
+    padding:16px;font-size:16px;font-weight:700;text-align:left;transition:transform .08s;}
+  .opt:active{transform:scale(.98);}
+  .opt.ok{background:#14351F;border-color:var(--mint);color:var(--mint);}
+  .opt.no{background:#3A1D22;border-color:var(--red);color:var(--red);}
+
+  /* 결과 */
+  .result{text-align:center;padding-top:8vh;}
+  .result .big{font-size:64px;font-weight:900;color:var(--mint);font-variant-numeric:tabular-nums;}
+  .result .big small{font-size:24px;color:var(--sub);font-weight:700;}
+  .result .msg{margin-top:10px;font-size:17px;font-weight:900;line-height:1.6;}
+  .result .tmsg{margin-top:6px;font-size:13.5px;color:var(--sub);}
+  .stars-earn{margin-top:14px;font-size:26px;letter-spacing:6px;}
+  .result .btns{margin-top:34px;display:flex;flex-direction:column;gap:10px;}
+  .result .btns button{padding:16px;border-radius:14px;font-size:15.5px;font-weight:900;}
+  .b-mint{background:var(--mint);color:#0C2418;}
+  .b-gold{background:var(--gold);color:#3A2E08;}
+  .b-ghost{background:var(--panel);color:var(--txt);border:1px solid var(--line);}
+
+  /* 대결 */
+  .vs{display:flex;align-items:center;justify-content:center;gap:18px;margin:26px 0 6px;}
+  .vs .p{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 22px;min-width:110px;}
+  .vs .p .who{font-size:13px;color:var(--sub);font-weight:900;}
+  .vs .p .sc{font-size:36px;font-weight:900;font-variant-numeric:tabular-nums;}
+  .vs .p.win{border-color:var(--gold);}
+  .vs .p.win .sc{color:var(--gold);}
+  .vs .x{font-size:18px;font-weight:900;color:var(--sub);}
+
+  /* 숙제 모드 */
+  .hw-in{width:100%;min-height:180px;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    color:var(--txt);padding:14px;font-size:15px;font-family:inherit;line-height:1.8;resize:vertical;}
+  .hw-in:focus{outline:2px solid var(--mint-deep);}
+  .hw-note{margin:10px 0 16px;font-size:12.5px;color:var(--sub);line-height:1.7;}
+  .back-link{display:inline-block;margin-bottom:16px;background:none;color:var(--sub);font-size:14px;font-weight:700;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ─── 홈 ─── -->
+  <div id="home">
+    <div class="top">
+      <div class="logo">⚡ <b>3분</b> 영어</div>
+      <div class="streak">🔥 연속 <b id="streakN">0</b>일 · ⭐ <b id="starN">0</b></div>
+    </div>
+    <div class="hero">
+      <h1>하루 10단어,<br><b>3분이면 한 판.</b></h1>
+      <p>순서대로 별을 모아도 되고, 아무 판이나 골라도 된다.<br>틀려도 잃는 건 없다 — 다시 하면 그만.<br><b style="color:var(--gold)">단어시험 전엔 📌 숙제 판 한 바퀴 — 그대로 점수가 된다.</b></p>
+    </div>
+    <div id="levels"></div>
+    <button class="hwbtn" onclick="showHw()">📋 학원 숙제 넣고 한 판 하기</button>
+    <p class="hint">⭐ 한 판 완주 = 별 1개 · 💯 10점 만점 = 금빛 판<br>판이 끝나면 <b>대결 모드</b> — 같은 문제, 다른 순서로 한 판 더.</p>
+  </div>
+
+  <!-- ─── 학습 ─── -->
+  <div id="learn" class="hidden">
+    <div class="sess-top"><span class="name" id="learnName"></span><span class="timer" id="timer1">0:00</span></div>
+    <div class="bar"><i id="learnBar" style="width:0%"></i></div>
+    <div class="flip" id="flipCard" onclick="flipIt()">
+      <div class="inner">
+        <div class="face front"><div class="w" id="fw"></div><div class="tip">카드를 누르면 뜻이 보인다</div></div>
+        <div class="face back"><div class="m" id="fm"></div><div class="tip" id="fwSmall"></div></div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="ghost" onclick="learnMove(-1)">← 이전</button>
+      <button class="go" id="learnNext" onclick="learnMove(1)">다음 →</button>
+    </div>
+  </div>
+
+  <!-- ─── 퀴즈 ─── -->
+  <div id="quiz" class="hidden">
+    <div class="sess-top"><span class="name" id="quizName"></span><span class="timer" id="timer2">0:00</span></div>
+    <div class="bar"><i id="quizBar" style="width:0%"></i></div>
+    <div class="q-word"><div class="w" id="qw"></div><div class="cnt" id="qc"></div></div>
+    <div class="opts" id="opts"></div>
+  </div>
+
+  <!-- ─── 결과 ─── -->
+  <div id="done" class="hidden">
+    <div class="result">
+      <div class="big"><span id="score">0</span><small> / 10</small></div>
+      <div class="msg" id="msg"></div>
+      <div class="tmsg" id="tmsg"></div>
+      <div class="stars-earn" id="starsEarn"></div>
+      <div class="vs hidden" id="vsBox">
+        <div class="p" id="p1"><div class="who">먼저 한 판</div><div class="sc" id="s1">-</div></div>
+        <div class="x">VS</div>
+        <div class="p" id="p2"><div class="who">나중 한 판</div><div class="sc" id="s2">-</div></div>
+      </div>
+      <div class="btns">
+        <button class="b-gold" id="vsBtn" onclick="startVs()">🤝 대결 모드 — 한 사람 더!</button>
+        <button class="b-mint" onclick="replay()">🔁 같은 판 다시</button>
+        <button class="b-ghost" onclick="goHome()">🏠 홈으로</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 숙제 모드 ─── -->
+  <div id="hw" class="hidden">
+    <button class="back-link" onclick="goHome()">← 홈으로</button>
+    <div class="hero" style="margin-bottom:16px;">
+      <h1>📋 <b>학원 숙제</b> 한 판</h1>
+      <p>한 줄에 한 단어씩 <b>영어단어 뜻</b> 순서로 붙여넣으면 그대로 게임이 된다.</p>
+    </div>
+    <textarea class="hw-in" id="hwText" placeholder="예)
+consider 고려하다
+achieve 이루다, 달성하다
+avoid 피하다"></textarea>
+    <p class="hw-note">띄어쓰기·콜론(:)·탭 아무거나 괜찮다. 최근에 넣은 숙제는 저장돼서 다음에 또 쓸 수 있다.</p>
+    <div class="nav">
+      <button class="go" style="flex:1;" onclick="startHw()">이 단어로 한 판 시작 →</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ───────── 오늘의 숙제: DAY 37–38 (1441–1520) ─────────
+const HW_DATA = [
+ {id:"d37", name:"📌 숙제 · DAY 37", days:[
+  [["intriguing","아주 흥미로운"],["constrict","죄다, 위축시키다"],["bundle","묶음, 꾸러미"],["enclose","동봉하다, 에워싸다"],["insert","삽입하다"],["keen","날카로운, 예민한, 간절히 ~하고 싶은"],["restrain","억제하다, 구속하다"],["aid","돕다; 도움, 조력"],["reputation","평판, 명성"],["measurement","측정, 측량, 치수"]],
+  [["originate","시작되다, 비롯하다"],["flour","밀가루"],["manipulate","조종하다, 조작하다"],["experiment","실험; 실험하다"],["patriot","애국자"],["interchange","교환, 교차점(I.C.); 교환하다"],["intuitive","직관적인, 직관에 의한"],["garment","의복"],["spontaneous","자발적인, 자연히 일어나는"],["vertical","수직의"]],
+  [["testify","검증하다, 증명하다, 증언하다"],["mentor","조언자"],["vivid","생생한"],["pasture","목초지, 목장"],["crust","껍질, (지질) 지각"],["comprehend","이해하다, 포함하다"],["plunge","뛰어들다, 던져 넣다"],["nasty","더러운, 불쾌한"],["appreciate","이해하다, 감상하다, 고맙게 생각하다"],["strip","박탈하다, (옷·껍질을) 벗기다"]],
+  [["deed","행위, 업적"],["skinny","피골이 상접한, 마른"],["grill","석쇠; 석쇠로 굽다, 심문하다"],["canal","수로, 운하"],["curse","저주; 저주하다"],["adverse","거스르는, 반대의, 부정적인"],["censorship","검열"],["leverage","이용하다; 지레의 작용, 영향력"],["appetite","식욕, 욕망, 욕구"],["flaw","결점, 흠"]]
+ ]},
+ {id:"d38", name:"📌 숙제 · DAY 38", days:[
+  [["outgoing","외향적인"],["verbal","말의, 구두(口頭)의"],["liberate","해방하다, 자유롭게 하다"],["academic","학문적인, 학구적인"],["advance","나아가게 하다, 진척시키다; 전진, 증진"],["contemplate","숙고하다, 응시하다"],["underlying","밑에 놓인, 근본적인"],["segregation","인종 차별, 분리"],["stem","생기다, 일어나다; 줄기, 대"],["irrigation","관개, 물 대기"]],
+  [["consecutive","연속적인, 일관된"],["superficial","표면상의, 피상적인"],["refuge","피난, 피난처, 위안"],["swear","맹세하다, 욕하다"],["allergy","알레르기"],["norm","규범, 기준, 표준"],["endeavor","노력; 노력하다"],["erect","세우다; 똑바로 선"],["feminine","여성의, 여성스러운"],["drowsy","졸리는"]],
+  [["inspect","검사하다, 점검하다"],["carriage","마차, 탈것"],["primitive","원시의, 초기의, 미개의"],["compress","압축하다"],["steep","가파른, 경사가 급한"],["cemetery","공동묘지"],["transport","수송[운송]하다; 수송"],["exaggerate","과장하다, 과장해서 말하다"],["random","무작위의, 임의의"],["feast","즐겁게 하다; 축제(일), 잔치"]],
+  [["commemorate","기념하다"],["govern","통치하다, 지배[좌우]하다"],["multitask","다중 작업을 하다"],["toxic","유독한, 중독의"],["stare","응시하다, 노려보다"],["chronic","만성적인, 장기간의"],["designate","지정하다, 가리키다"],["dramatic","연극의, 극적인"],["intense","강렬한"],["propaganda","선전 활동, 선전"]]
+ ]}
+];
+
+// ───────── 단어 데이터: 3레벨 × 5판 × 10단어 ─────────
+const DATA = [
+ {id:"0", name:"LEVEL 1 · 뿌리 다지기", days:[
+  [["decide","결정하다"],["provide","제공하다"],["receive","받다"],["improve","나아지게 하다"],["create","만들어 내다"],["protect","보호하다"],["promise","약속(하다)"],["choose","고르다"],["share","나누다, 공유하다"],["follow","따라가다"]],
+  [["enough","충분한"],["famous","유명한"],["different","다른"],["important","중요한"],["difficult","어려운"],["useful","쓸모 있는"],["dangerous","위험한"],["favorite","가장 좋아하는"],["healthy","건강한"],["popular","인기 있는"]],
+  [["habit","습관"],["effort","노력"],["result","결과"],["reason","이유"],["experience","경험"],["culture","문화"],["nature","자연"],["future","미래"],["memory","기억"],["problem","문제"]],
+  [["arrive","도착하다"],["borrow","빌리다"],["carry","나르다, 들고 가다"],["finish","끝내다"],["forget","잊다"],["invite","초대하다"],["return","돌아오다, 돌려주다"],["save","구하다, 저축하다"],["spend","(돈·시간을) 쓰다"],["travel","여행하다"]],
+  [["early","이른, 일찍"],["late","늦은, 늦게"],["often","자주"],["always","항상"],["usually","보통"],["sometimes","가끔"],["never","결코 ~않다"],["together","함께"],["alone","혼자"],["suddenly","갑자기"]]
+ ]},
+ {id:"1", name:"LEVEL 2 · 몸통 세우기", days:[
+  [["achieve","이루다, 달성하다"],["avoid","피하다"],["compare","비교하다"],["consider","고려하다"],["continue","계속하다"],["describe","묘사하다"],["develop","발전시키다"],["discover","발견하다"],["encourage","격려하다"],["expect","기대하다"]],
+  [["express","표현하다"],["imagine","상상하다"],["include","포함하다"],["increase","늘리다, 증가하다"],["notice","알아차리다"],["prepare","준비하다"],["prevent","막다, 예방하다"],["realize","깨닫다"],["reduce","줄이다"],["suggest","제안하다"]],
+  [["ability","능력"],["advantage","유리한 점, 장점"],["attention","주의, 관심"],["behavior","행동"],["chance","기회, 가능성"],["decision","결정"],["environment","환경"],["knowledge","지식"],["opportunity","기회"],["purpose","목적"]],
+  [["relationship","관계"],["situation","상황"],["society","사회"],["solution","해결책"],["research","연구"],["effect","영향, 효과"],["attitude","태도"],["confidence","자신감"],["courage","용기"],["progress","진전, 발전"]],
+  [["available","이용할 수 있는"],["common","흔한, 공통의"],["necessary","필요한"],["patient","참을성 있는; 환자"],["positive","긍정적인"],["negative","부정적인"],["serious","심각한, 진지한"],["similar","비슷한"],["various","다양한"],["whole","전체의"]]
+ ]},
+ {id:"2", name:"LEVEL 3 · 날개 달기", days:[
+  [["accomplish","성취하다"],["adapt","적응하다"],["analyze","분석하다"],["assume","가정하다, 추정하다"],["concentrate","집중하다"],["contribute","기여하다"],["demonstrate","보여 주다, 입증하다"],["establish","세우다, 확립하다"],["indicate","나타내다, 가리키다"],["maintain","유지하다"]],
+  [["obtain","얻다"],["occur","일어나다, 발생하다"],["persuade","설득하다"],["predict","예측하다"],["pursue","추구하다"],["recognize","알아보다, 인정하다"],["require","필요로 하다, 요구하다"],["respond","반응하다, 대답하다"],["survive","살아남다"],["transform","변형시키다, 바꾸다"]],
+  [["aspect","측면"],["benefit","이익, 혜택"],["capacity","능력, 수용력"],["consequence","결과"],["evidence","증거"],["factor","요인"],["individual","개인; 개인의"],["instance","사례, 경우"],["perspective","관점"],["phenomenon","현상"]],
+  [["potential","잠재력; 잠재적인"],["priority","우선순위"],["resource","자원"],["strategy","전략"],["tendency","경향"],["significant","중요한, 상당한"],["essential","필수적인, 본질적인"],["efficient","효율적인"],["accurate","정확한"],["complex","복잡한"]],
+  [["despite","~에도 불구하고"],["therefore","그러므로"],["however","그러나"],["moreover","게다가"],["whereas","~인 반면에"],["eventually","결국"],["gradually","점차"],["immediately","즉시"],["frequently","자주, 빈번히"],["rarely","드물게"]]
+ ]}
+];
+
+// ───────── 저장소 ─────────
+const S = {
+  get(k,d){ try{ const v=JSON.parse(localStorage.getItem("e3_"+k)); return v===null||v===undefined?d:v; }catch(e){ return d; } },
+  set(k,v){ localStorage.setItem("e3_"+k, JSON.stringify(v)); }
+};
+let stars = S.get("stars",{});        // {"0-1": 8} 판별 최고점
+let streak = S.get("streak",0), lastDay = S.get("last","");
+
+// ───────── 상태 ─────────
+let words=[], idx=0, order=[], score=0, sessName="", sessKey=null;
+let t0=0, tInt=null, elapsed=0;
+let firstScore=null, isVs=false;
+
+// ───────── 홈 렌더 ─────────
+const ALL=[...HW_DATA,...DATA];
+function renderHome(){
+  const box=document.getElementById("levels"); box.innerHTML="";
+  let total=0;
+  ALL.forEach((lv,li)=>{
+    const d=document.createElement("div"); d.className="lv";
+    if(lv.id[0]==="d") d.style.borderColor="var(--gold)";
+    let doneCnt=0;
+    let daysHtml="";
+    lv.days.forEach((day,di)=>{
+      const key=lv.id+"-"+di, best=stars[key];
+      if(best!==undefined){doneCnt++; total++;}
+      const cls = best===10?"day perfect": best!==undefined?"day done":"day";
+      const st = best===10?"💯": best!==undefined?"⭐":"·";
+      daysHtml+=`<button class="${cls}" onclick="startDay(${li},${di})"><span class="st">${st}</span>${di+1}판</button>`;
+    });
+    d.innerHTML=`<div class="lv-head"><h2>${lv.name}</h2><span>${doneCnt}/${lv.days.length} 완주</span></div><div class="days">${daysHtml}</div>`;
+    box.appendChild(d);
+  });
+  document.getElementById("starN").textContent=total;
+  document.getElementById("streakN").textContent=streak;
+}
+function show(id){ ["home","learn","quiz","done","hw"].forEach(x=>document.getElementById(x).classList.add("hidden")); document.getElementById(id).classList.remove("hidden"); window.scrollTo(0,0); }
+function goHome(){ stopTimer(); isVs=false; firstScore=null; renderHome(); show("home"); }
+
+// ───────── 타이머 ─────────
+function startTimer(){ t0=Date.now(); tInt=setInterval(()=>{ elapsed=Math.floor((Date.now()-t0)/1000); const m=Math.floor(elapsed/60), s=(elapsed%60+"").padStart(2,"0"); const txt=m+":"+s; const a=document.getElementById("timer1"),b=document.getElementById("timer2"); if(a)a.textContent=txt; if(b)b.textContent=txt; },500); }
+function stopTimer(){ clearInterval(tInt); }
+
+// ───────── 세션 시작 ─────────
+function startDay(li,di){
+  const lv=ALL[li];
+  words=lv.days[di].slice(); sessName=lv.name.replace("📌 ","").split(" ·")[0]+" · "+(di+1)+"판"; sessKey=lv.id+"-"+di;
+  beginLearn();
+}
+function beginLearn(){
+  idx=0; elapsed=0; stopTimer(); startTimer();
+  document.getElementById("learnName").textContent=sessName+" · 눈에 담기";
+  show("learn"); renderCard();
+}
+function renderCard(){
+  const c=document.getElementById("flipCard"); c.classList.remove("on");
+  document.getElementById("fw").textContent=words[idx][0];
+  document.getElementById("fm").textContent=words[idx][1];
+  document.getElementById("fwSmall").textContent=words[idx][0];
+  document.getElementById("learnBar").style.width=((idx+1)/words.length*100)+"%";
+  document.getElementById("learnNext").textContent = idx===words.length-1 ? "퀴즈 시작 ⚡" : "다음 →";
+}
+function flipIt(){ document.getElementById("flipCard").classList.toggle("on"); }
+function learnMove(d){
+  if(d>0 && idx===words.length-1){ beginQuiz(); return; }
+  idx=Math.max(0,Math.min(words.length-1,idx+d)); renderCard();
+}
+
+// ───────── 퀴즈 ─────────
+function beginQuiz(){
+  order=[...words.keys()].sort(()=>Math.random()-.5); idx=0; score=0;
+  document.getElementById("quizName").textContent=sessName+" · 진짜 한 판";
+  show("quiz"); renderQ();
+}
+function renderQ(){
+  const w=words[order[idx]];
+  document.getElementById("qw").textContent=w[0];
+  document.getElementById("qc").textContent=(idx+1)+" / "+order.length;
+  document.getElementById("quizBar").style.width=(idx/order.length*100)+"%";
+  const pool=words.filter(x=>x[1]!==w[1]).map(x=>x[1]).sort(()=>Math.random()-.5).slice(0,3);
+  const opts=[w[1],...pool].sort(()=>Math.random()-.5);
+  const box=document.getElementById("opts"); box.innerHTML="";
+  opts.forEach(m=>{
+    const b=document.createElement("button"); b.className="opt"; b.textContent=m;
+    b.onclick=()=>answer(b, m===w[1], w[1]);
+    box.appendChild(b);
+  });
+}
+let lock=false;
+function answer(btn, ok, right){
+  if(lock) return; lock=true;
+  if(ok){ btn.classList.add("ok"); score++; }
+  else{
+    btn.classList.add("no");
+    [...document.getElementById("opts").children].forEach(b=>{ if(b.textContent===right) b.classList.add("ok"); });
+  }
+  setTimeout(()=>{ lock=false; idx++; if(idx<order.length) renderQ(); else finish(); }, ok?550:1100);
+}
+
+// ───────── 결과 ─────────
+function finish(){
+  stopTimer();
+  document.getElementById("quizBar").style.width="100%";
+  show("done");
+  document.getElementById("score").textContent=score;
+  const m=Math.floor(elapsed/60), s=(elapsed%60+"").padStart(2,"0");
+  const within3 = elapsed<=180;
+  document.getElementById("tmsg").textContent="걸린 시간 "+m+"분 "+s+"초"+(within3?" — 3분 컷! ⚡":"");
+  const isHw = sessKey!==null && (""+sessKey)[0]==="d";
+  let msgs = score===10?"완벽. 오늘 판은 접수 끝.":score>=8?"거의 다 잡았다 — 한 판 더면 만점.":score>=5?"절반 넘게 챙겼다. 다시 하면 오른다.":"방금 눈에 담은 게 몇 개 남았을 뿐 — 잃은 건 없다.";
+  if(isHw && score===10) msgs="완벽. 시험장에서도 이 점수 그대로다.";
+  document.getElementById("msg").textContent=msgs;
+
+  if(isVs){
+    document.getElementById("vsBox").classList.remove("hidden");
+    document.getElementById("s1").textContent=firstScore;
+    document.getElementById("s2").textContent=score;
+    document.getElementById("p1").classList.toggle("win", firstScore>=score);
+    document.getElementById("p2").classList.toggle("win", score>=firstScore);
+    document.getElementById("vsBtn").classList.add("hidden");
+    document.getElementById("starsEarn").textContent = firstScore===score ? "🤝 무승부!" : "🏆";
+  }else{
+    document.getElementById("vsBox").classList.add("hidden");
+    document.getElementById("vsBtn").classList.remove("hidden");
+    // 별 저장 (숙제 모드는 sessKey 없음)
+    if(sessKey!==null){
+      const prev=stars[sessKey];
+      if(prev===undefined || score>prev){ stars[sessKey]=score; S.set("stars",stars); }
+      document.getElementById("starsEarn").textContent = score===10?"💯 금빛 판!":"⭐ 별 획득!";
+    }else{
+      document.getElementById("starsEarn").textContent = "📋 숙제 한 판 완료!";
+    }
+    // 연속일
+    const today=new Date().toDateString();
+    if(lastDay!==today){
+      const y=new Date(Date.now()-864e5).toDateString();
+      streak = (lastDay===y)? streak+1 : 1;
+      lastDay=today; S.set("streak",streak); S.set("last",lastDay);
+    }
+  }
+}
+function startVs(){ firstScore=score; isVs=true; beginQuiz(); }
+function replay(){ isVs=false; firstScore=null; beginLearn(); }
+
+// ───────── 숙제 모드 ─────────
+function showHw(){
+  document.getElementById("hwText").value = S.get("hw","");
+  show("hw");
+}
+function startHw(){
+  const raw=document.getElementById("hwText").value.trim();
+  if(!raw){ alert("단어를 한 줄에 하나씩 넣어 주세요."); return; }
+  const list=[];
+  raw.split(/\n+/).forEach(line=>{
+    const t=line.trim(); if(!t) return;
+    const m=t.match(/^([A-Za-z][A-Za-z\-\' ]*?)[\s:：\t]+(.+)$/);
+    if(m) list.push([m[1].trim(), m[2].trim()]);
+  });
+  if(list.length<4){ alert("단어가 4개 이상이어야 퀴즈를 만들 수 있어요.\n(영어단어와 뜻 사이를 띄어 주세요)"); return; }
+  S.set("hw",raw);
+  words=list; sessName="학원 숙제 · "+list.length+"단어"; sessKey=null;
+  isVs=false; firstScore=null;
+  beginLearn();
+}
+
+// ───────── 시작 ─────────
+// 연속일 판정: 어제 이후 기록 없으면 표시만 리셋
+(function(){ const today=new Date().toDateString(), y=new Date(Date.now()-864e5).toDateString();
+  if(lastDay!==today && lastDay!==y){ streak=0; } })();
+renderHome();
+</script>
+</body>
+</html>
