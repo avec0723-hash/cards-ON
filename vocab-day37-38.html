@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <title>단어 스와이프 · Day 37–38</title>
-<meta name="description" content="80단어 × 예문 160개. 탭해서 뜻과 쓰임을 보고, 밀어서 O/X. 문장 빈칸 모드로 활용까지. 몰랐던 단어만 다시 나옵니다.">
+<meta name="description" content="80단어 × 예문 160개. 발음기호와 듣기 버튼, 문장 빈칸 모드까지. 탭하면 뜻, 밀면 O/X. 몰랐던 단어만 다시 나옵니다.">
 <meta name="theme-color" content="#FFF8EF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="매일영어">
 <meta property="og:title" content="단어 스와이프 · Day 37–38">
-<meta property="og:description" content="80단어 × 예문 160개. 탭하면 쓰임, 밀면 O/X. 문장 빈칸 모드로 활용까지 익힙니다.">
+<meta property="og:description" content="80단어 × 예문 160개. 발음기호와 듣기까지. 탭하면 쓰임, 밀면 O/X. 문장 빈칸으로 활용까지 익힙니다.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://avec0723-hash.github.io/cards-ON/vocab-day37-38.html">
 <meta property="og:image" content="https://avec0723-hash.github.io/cards-ON/vocab-day37-38-og.png">
@@ -168,7 +168,30 @@
   .word.sent mark{background:#D6F7F0;color:var(--teal-ink);font-weight:800;
     border-radius:6px;padding:1px 5px;animation:fillIn .4s var(--ease)}
   @keyframes fillIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-  #c-answer .word{font-size:clamp(1.7rem,7.5vw,2.1rem);margin-top:18px}
+  #c-answer .word{font-size:clamp(1.7rem,7.5vw,2.1rem);margin-top:13px}
+
+  /* ── 발음 ── */
+  .pron{display:flex;align-items:center;justify-content:center;gap:9px;
+    margin-top:9px;flex-wrap:wrap}
+  .pron:empty{display:none}
+  .ipa{font-size:.88rem;color:var(--sub);font-weight:600;letter-spacing:.01em}
+  .spk{
+    flex-shrink:0;width:34px;height:34px;border-radius:99px;cursor:pointer;
+    border:2px solid var(--teal);background:#E4FAF6;color:var(--teal-ink);
+    display:inline-flex;align-items:center;justify-content:center;padding:0;
+    box-shadow:0 3px 0 var(--teal);transition:transform .1s,box-shadow .1s;
+  }
+  .spk svg{width:16px;height:16px;fill:currentColor}
+  .spk:active{transform:translateY(2px);box-shadow:0 1px 0 var(--teal)}
+  .spk.sm{width:32px;height:32px;box-shadow:0 2px 0 var(--teal)}
+  .spk.sm svg{width:14px;height:14px}
+  .spk.sm:active{transform:translateY(1px);box-shadow:0 1px 0 var(--teal)}
+  .ex + .ex .spk{border-color:var(--indigo);background:#F2EEFF;color:var(--indigo-ink);
+    box-shadow:0 2px 0 var(--indigo)}
+  .ex + .ex .spk:active{box-shadow:0 1px 0 var(--indigo)}
+  .spk.playing{animation:speaking .7s ease-in-out infinite}
+  @keyframes speaking{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+  body.no-tts .spk{display:none}
   .sent-ko{display:none;margin-top:16px;font-size:.86rem;color:var(--sub);line-height:1.6;
     text-align:left;width:100%;padding-top:14px;border-top:1px solid var(--line)}
   .sent-ko.on{display:block}
@@ -188,10 +211,12 @@
   .mean{font-size:1.08rem;font-weight:700;line-height:1.55;letter-spacing:-.01em}
   .rel{font-size:.78rem;color:var(--dim);margin-top:8px}
   .ex-label{font-size:.62rem;letter-spacing:.16em;font-weight:800;color:var(--dim);
-    text-align:left;margin:18px 0 8px}
+    text-align:left;margin:15px 0 7px}
   .ex{padding:14px 15px;border-radius:15px;
     background:#E9FBF7;border:2px solid rgba(0,194,168,.28);text-align:left}
   .ex + .ex{margin-top:9px;background:#F2EEFF;border-color:rgba(124,92,252,.3)}
+  .ex{display:flex;gap:10px;align-items:flex-start}
+  .ex-body{flex:1;min-width:0}
   .ex-en{font-size:.93rem;line-height:1.6}
   .ex-en mark{background:none;color:var(--teal-ink);font-weight:800}
   .ex + .ex .ex-en mark{color:var(--indigo-ink)}
@@ -264,7 +289,7 @@
   @media print{
     body::before{display:none}
     body{background:#fff;color:#000}
-    .ox,.go,.quit,.top{display:none}
+    .ox,.go,.quit,.top,.spk{display:none}
     @page{margin:15mm}
   }
 </style>
@@ -278,7 +303,7 @@
     <h1>단어 하나에<br>문장 <em>둘.</em></h1>
     <p class="lede">
       뜻만 외우면 아는 것 같기만 합니다. 쓰임이 다른 <b>예문 두 개</b>로 확인하고,<br>
-      <b>문장 빈칸</b> 모드에서 직접 채워 넣어 보세요.
+      <b>발음기호와 듣기</b>로 소리까지, <b>문장 빈칸</b> 모드로 활용까지 익히세요.
     </p>
 
     <div class="label">범위</div>
@@ -296,7 +321,8 @@
     </div>
 
     <button class="go" id="btn-start">시작하기</button>
-    <p class="foot">Day 37 · 1441–1480 &nbsp;|&nbsp; Day 38 · 1481–1520 &nbsp;|&nbsp; 예문 160개</p>
+    <p class="foot">Day 37 · 1441–1480 &nbsp;|&nbsp; Day 38 · 1481–1520 &nbsp;|&nbsp; 예문 160개<br>
+      발음기호는 Cambridge Dictionary 미국 발음</p>
   </section>
 
   <!-- 퀴즈 -->
@@ -316,6 +342,7 @@
         <div class="stamp n">몰라요</div>
         <div class="num" id="c-num"></div>
         <div class="word" id="c-word"></div>
+        <div class="pron" id="c-pron"></div>
         <div class="sent-ko" id="c-sentko"></div>
         <div class="hint">
           <svg viewBox="0 0 24 24"><path d="M9 11V6a2 2 0 1 1 4 0v5m0 0V4.5a2 2 0 1 1 4 0V11m0 0V8.5a2 2 0 1 1 4 0V15a6 6 0 0 1-6 6h-2a6 6 0 0 1-6-6v-2a2 2 0 1 1 4 0"/></svg>
@@ -323,17 +350,24 @@
         </div>
         <div class="reveal">
           <div id="c-answer"></div>
+          <div class="pron" id="c-pron2"></div>
           <span class="pos" id="c-pos"></span>
           <div class="mean" id="c-mean"></div>
           <div class="rel" id="c-rel"></div>
           <div class="ex-label">이렇게 씁니다</div>
           <div class="ex">
-            <div class="ex-en" id="c-ex"></div>
-            <div class="ex-ko" id="c-exko"></div>
+            <button class="spk sm" id="spk-ex1" aria-label="첫 번째 예문 듣기"></button>
+            <div class="ex-body">
+              <div class="ex-en" id="c-ex"></div>
+              <div class="ex-ko" id="c-exko"></div>
+            </div>
           </div>
           <div class="ex">
-            <div class="ex-en" id="c-ex2"></div>
-            <div class="ex-ko" id="c-exko2"></div>
+            <button class="spk sm" id="spk-ex2" aria-label="두 번째 예문 듣기"></button>
+            <div class="ex-body">
+              <div class="ex-en" id="c-ex2"></div>
+              <div class="ex-ko" id="c-exko2"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -459,6 +493,30 @@ const DATA=[
 [1520,38,"propaganda","n.","선전 활동, 선전","","The posters were used as war <mark>propaganda</mark>.","그 포스터들은 전쟁 선전물로 사용되었다.","The government spread <mark>propaganda</mark> through radio.","정부는 라디오로 선전을 퍼뜨렸다."]
 ];
 
+// 발음기호 — Cambridge Dictionary 미국 발음(2026-08-08 조회)
+const IPA={
+"intriguing":"/ɪnˈtriː.ɡɪŋ/","constrict":"/kənˈstrɪkt/","bundle":"/ˈbʌn.dəl/","enclose":"/ɪnˈkloʊz/",
+"insert":"/ɪnˈsɝːt/","keen":"/kiːn/","restrain":"/rɪˈstreɪn/","aid":"/eɪd/",
+"reputation":"/ˌrep.jəˈteɪ.ʃən/","measurement":"/ˈmeʒ.ɚ.mənt/","originate":"/əˈrɪdʒ.ən.eɪt/","flour":"/ˈflaʊ.ɚ/",
+"manipulate":"/məˈnɪp.jə.leɪt/","experiment":"/ɪkˈsper.ə.mənt/ n. · /ɪkˈsper.ə.ment/ v.","patriot":"/ˈpeɪ.tri.ɑːt/","interchange":"/ˈɪn.t̬ɚˌtʃeɪndʒ/ n. · /ˌɪn.t̬ɚˈtʃeɪndʒ/ v.",
+"intuitive":"/ɪnˈtuː.ɪ.t̬ɪv/","garment":"/ˈɡɑːr.mənt/","spontaneous":"/spɑːnˈteɪ.ni.əs/","vertical":"/ˈvɝː.t̬ə.kəl/",
+"testify":"/ˈtes.tə.faɪ/","mentor":"/ˈmen.tɔːr/","vivid":"/ˈvɪv.ɪd/","pasture":"/ˈpæs.tʃɚ/",
+"crust":"/krʌst/","comprehend":"/ˌkɑːm.prəˈhend/","plunge":"/plʌndʒ/","nasty":"/ˈnæs.ti/",
+"appreciate":"/əˈpriː.ʃi.eɪt/","strip":"/strɪp/","deed":"/diːd/","skinny":"/ˈskɪn.i/",
+"grill":"/ɡrɪl/","canal":"/kəˈnæl/","curse":"/kɝːs/","adverse":"/ædˈvɝːs/",
+"censorship":"/ˈsen.sɚ.ʃɪp/","leverage":"/ˈlev.ɚ.ɪdʒ/","appetite":"/ˈæp.ə.taɪt/","flaw":"/flɑː/",
+"outgoing":"/ˈaʊt.ɡoʊ.ɪŋ/","verbal":"/ˈvɝː.bəl/","liberate":"/ˈlɪb.ə.reɪt/","academic":"/ˌæk.əˈdem.ɪk/",
+"advance":"/ədˈvæns/","contemplate":"/ˈkɑːn.t̬əm.pleɪt/","underlying":"/ˌʌn.dɚˈlaɪ.ɪŋ/","segregation":"/ˌseɡ.rəˈɡeɪ.ʃən/",
+"stem":"/stem/","irrigation":"/ˌɪr.əˈɡeɪ.ʃən/","consecutive":"/kənˈsek.jə.t̬ɪv/","superficial":"/ˌsuː.pɚˈfɪʃ.əl/",
+"refuge":"/ˈref.juːdʒ/","swear":"/swer/","allergy":"/ˈæl.ɚ.dʒi/","norm":"/nɔːrm/",
+"endeavor":"/enˈdev.ɚ/","erect":"/ɪˈrekt/","feminine":"/ˈfem.ə.nɪn/","drowsy":"/ˈdraʊ.zi/",
+"inspect":"/ɪnˈspekt/","carriage":"/ˈker.ɪdʒ/","primitive":"/ˈprɪm.ə.t̬ɪv/","compress":"/kəmˈpres/",
+"steep":"/stiːp/","cemetery":"/ˈsem.ə.ter.i/","transport":"/ˈtræn.spɔːrt/ n. · /trænˈspɔːrt/ v.","exaggerate":"/ɪɡˈzædʒ.ə.reɪt/",
+"random":"/ˈræn.dəm/","feast":"/fiːst/","commemorate":"/kəˈmem.ə.reɪt/","govern":"/ˈɡʌv.ɚn/",
+"multitask":"/ˌmʌl.tiˈtæsk/","toxic":"/ˈtɑːk.sɪk/","stare":"/ster/","chronic":"/ˈkrɑː.nɪk/",
+"designate":"/ˈdez.ɪɡ.neɪt/","dramatic":"/drəˈmæt̬.ɪk/","intense":"/ɪnˈtens/","propaganda":"/ˌprɑː.pəˈɡæn.də/"
+};
+
 /* 인앱 브라우저(카톡 등)에서 툴바 때문에 화면 높이가 틀어지는 것을 보정 */
 function fixVH(){document.documentElement.style.setProperty('--appvh',window.innerHeight+'px');}
 fixVH();window.addEventListener('resize',fixVH);window.addEventListener('orientationchange',fixVH);
@@ -470,6 +528,36 @@ const $=id=>document.getElementById(id);
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));$(id).classList.add('on');}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function buzz(ms){if(navigator.vibrate){try{navigator.vibrate(ms);}catch(e){}}}
+
+/* ── 소리 내어 읽기 (기기 내장 음성 — 따로 받을 파일이 없다) ── */
+const TTS = 'speechSynthesis' in window && typeof SpeechSynthesisUtterance==='function';
+if(!TTS) document.body.classList.add('no-tts');
+const SPK_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 2v2a8 8 0 0 1 0 16v2a10 10 0 0 0 0-20z"/></svg>';
+function plain(html){return html.replace(/<[^>]+>/g,'');}
+function say(text,btn,rate){
+  if(!TTS||!text)return;
+  try{
+    speechSynthesis.cancel();
+    document.querySelectorAll('.spk.playing').forEach(b=>b.classList.remove('playing'));
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang='en-US'; u.rate=rate||.85;
+    const vs=speechSynthesis.getVoices()||[];
+    const v=vs.find(v=>/^en[-_]US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang));
+    if(v)u.voice=v;
+    if(btn){btn.classList.add('playing');
+      u.onend=u.onerror=()=>btn.classList.remove('playing');}
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function stopSay(){if(TTS){try{speechSynthesis.cancel();}catch(e){}}
+  document.querySelectorAll('.spk.playing').forEach(b=>b.classList.remove('playing'));}
+/* 발음 줄 만들기: 발음기호 + 듣기 단추 */
+function pronRow(el,word){
+  el.innerHTML='<span class="ipa">'+(IPA[word]||'')+'</span>'+
+               '<button class="spk" aria-label="'+word+' 발음 듣기">'+SPK_ICON+'</button>';
+  const b=el.querySelector('.spk');
+  b.onclick=e=>{e.stopPropagation();say(word,b,.8);};
+}
 /* 예문에서 표제어만 빈칸으로 */
 function blankOut(html){return html.replace(/<mark>[\s\S]*?<\/mark>/,'<span class="blank"></span>');}
 
@@ -491,24 +579,27 @@ $('btn-start').onclick=()=>{
   const list = day==="all" ? DATA : DATA.filter(w=>String(w[1])===day);
   startQuiz(shuffle(list));
 };
-$('btn-quit').onclick=()=>show('s-start');
+$('btn-quit').onclick=()=>{stopSay();show('s-start');};
 
 function render(){
   const w=queue[idx],card=$('card');
   card.className='card front in';
   card.style.transform='';card.style.opacity='';card.scrollTop=0;
-  setStamp(0);$('more-hint').classList.remove('on');
+  setStamp(0);$('more-hint').classList.remove('on');stopSay();
   $('c-num').textContent='No.'+w[0]+' · DAY '+w[1];
   $('c-sentko').classList.remove('on');
   $('c-answer').innerHTML='';
+  $('c-pron').innerHTML='';$('c-pron2').innerHTML='';
 
   if(mode==='en2ko'){
     $('c-word').textContent=w[2];$('c-word').className='word';
     $('c-mean').textContent=w[4];
+    pronRow($('c-pron'),w[2]);          // 앞면에 발음기호·듣기
     $('c-hint').textContent='탭하면 뜻과 예문이 보여요';
   }else if(mode==='ko2en'){
     $('c-word').textContent=w[4];$('c-word').className='word ko';
-    $('c-mean').textContent=w[2];
+    $('c-mean').textContent=w[4];
+    $('c-answer').innerHTML='<div class="word">'+w[2]+'</div>';  // 답을 열면 단어가 크게
     $('c-hint').textContent='탭하면 단어와 예문이 보여요';
   }else{ // 문장 빈칸 — 회차마다 다른 문장으로
     const useSecond = round>1;
@@ -546,10 +637,12 @@ function setStamp(v){
 function pt(e){const t=e.touches?e.touches[0]:e;return{x:t.clientX,y:t.clientY};}
 /* 답 펼치기 — 문장 모드에서는 빈칸을 정답으로 채워 문장을 완성한다 */
 function reveal(){
+  const w=queue[idx];
   if(mode==='sent'){
     const b=card.querySelector('.blank');
-    if(b){const m=document.createElement('mark');m.textContent=queue[idx][2];b.replaceWith(m);}
+    if(b){const m=document.createElement('mark');m.textContent=w[2];b.replaceWith(m);}
   }
+  if(mode!=='en2ko' && !$('c-pron2').innerHTML) pronRow($('c-pron2'),w[2]); // 답을 연 뒤에 발음
   card.classList.add('open');
   updateMoreHint();
 }
@@ -562,8 +655,15 @@ function updateMoreHint(){
 card.addEventListener('scroll',updateMoreHint,{passive:true});
 window.addEventListener('resize',updateMoreHint);
 
+/* 예문 듣기 단추 — 문장을 통째로 읽어 준다 */
+[['spk-ex1',6],['spk-ex2',8]].forEach(([id,i])=>{
+  const b=$(id); b.innerHTML=SPK_ICON;
+  b.onclick=e=>{e.stopPropagation();say(plain(queue[idx][i]),b,.8);};
+});
+
 function down(e){
   if(locked)return;
+  if(e.target.closest && e.target.closest('.spk'))return;   // 듣기 단추는 카드를 넘기지 않는다
   const p=pt(e);dragging=true;moved=false;dx=0;startX=p.x;startY=p.y;startT=Date.now();
   card.classList.remove('settle','in');
 }
@@ -614,6 +714,7 @@ function next(){
 }
 
 function finish(){
+  stopSay();
   $('bar-fill').style.width='100%';
   const rate=total?Math.round(knownFirstTry/total*100):0;
   $('d-score').innerHTML='첫 시도 <b>'+knownFirstTry+'</b> / '+total+' 단어';
@@ -641,7 +742,9 @@ function finish(){
   let n=0;const step=Math.max(1,Math.round(rate/28));
   const t=setInterval(()=>{n+=step;if(n>=rate){n=rate;clearInterval(t);}$('d-pct').textContent=n+'%';},34);
 }
-$('btn-home').onclick=()=>show('s-start');
+$('btn-home').onclick=()=>{stopSay();show('s-start');};
+/* 기기 음성 목록은 늦게 오는 일이 있어 한 번 깨워 둔다 */
+if(TTS){try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>{};}catch(e){}}
 $('btn-retry').onclick=()=>{if(missed.length)startQuiz(shuffle(missed));};
 </script>
 </body>
