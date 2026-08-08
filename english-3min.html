@@ -9,11 +9,11 @@
 <meta property="og:locale" content="ko_KR" />
 <meta property="og:site_name" content="3분 영어" />
 <meta property="og:title" content="3분 영어 — 오늘의 한 판" />
-<meta property="og:description" content="하루 10단어, 3분이면 한 판 — 기초부터 단계별, 대결 모드까지" />
+<meta property="og:description" content="하루 10단어, 문장으로 익히는 3분 한 판 — 숙제·대결 모드까지" />
 <meta property="og:url" content="https://avec0723-hash.github.io/cards-ON/english-3min.html" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="3분 영어 — 오늘의 한 판" />
-<meta name="twitter:description" content="하루 10단어, 3분이면 한 판 — 기초부터 단계별, 대결 모드까지" />
+<meta name="twitter:description" content="하루 10단어, 문장으로 익히는 3분 한 판 — 숙제·대결 모드까지" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -70,14 +70,17 @@
 
   /* 학습 카드 */
   .flip{perspective:900px;margin-bottom:16px;}
-  .flip .inner{position:relative;width:100%;height:250px;transform-style:preserve-3d;transition:transform .45s;}
+  .flip .inner{position:relative;width:100%;height:310px;transform-style:preserve-3d;transition:transform .45s;}
   .flip.on .inner{transform:rotateY(180deg);}
   .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;display:flex;
-    flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px;text-align:center;}
+    flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:22px;text-align:center;}
   .face.front{background:var(--panel);border:1px solid var(--line);}
   .face.back{background:#14261E;border:1px solid var(--mint-deep);transform:rotateY(180deg);}
   .face .w{font-size:34px;font-weight:900;letter-spacing:-.01em;word-break:break-all;}
-  .face .m{font-size:24px;font-weight:900;color:var(--mint);line-height:1.5;}
+  .face .m{font-size:19px;font-weight:900;color:var(--mint);line-height:1.5;}
+  .face .ex{font-size:16px;line-height:1.65;color:var(--txt);}
+  .face .ex b{color:var(--gold);}
+  .face .ex .ko{display:block;margin-top:6px;font-size:13px;color:var(--sub);font-weight:400;}
   .face .tip{font-size:12.5px;color:var(--sub);}
   .nav{display:flex;gap:10px;}
   .nav button{flex:1;padding:15px;border-radius:14px;font-size:15px;font-weight:900;}
@@ -85,13 +88,16 @@
   .nav .go{background:var(--mint);color:#0C2418;}
 
   /* 퀴즈 */
-  .q-word{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:34px 20px;
-    text-align:center;margin-bottom:16px;}
+  .q-word{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px 20px;
+    text-align:center;margin-bottom:16px;min-height:130px;display:flex;flex-direction:column;justify-content:center;gap:8px;}
   .q-word .w{font-size:32px;font-weight:900;}
-  .q-word .cnt{margin-top:6px;font-size:12.5px;color:var(--sub);}
+  .q-word .s{font-size:19px;font-weight:700;line-height:1.65;}
+  .q-word .s b{color:var(--gold);}
+  .q-word .ko{font-size:13px;color:var(--sub);}
+  .q-word .cnt{font-size:12.5px;color:var(--sub);}
   .opts{display:flex;flex-direction:column;gap:10px;}
   .opt{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:14px;
-    padding:16px;font-size:16px;font-weight:700;text-align:left;transition:transform .08s;}
+    padding:15px;font-size:16px;font-weight:700;text-align:left;transition:transform .08s;}
   .opt:active{transform:scale(.98);}
   .opt.ok{background:#14351F;border-color:var(--mint);color:var(--mint);}
   .opt.no{background:#3A1D22;border-color:var(--red);color:var(--red);}
@@ -136,12 +142,12 @@
       <div class="streak">🔥 연속 <b id="streakN">0</b>일 · ⭐ <b id="starN">0</b></div>
     </div>
     <div class="hero">
-      <h1>하루 10단어,<br><b>3분이면 한 판.</b></h1>
+      <h1>하루 10단어,<br><b>문장으로 3분 한 판.</b></h1>
       <p>순서대로 별을 모아도 되고, 아무 판이나 골라도 된다.<br>틀려도 잃는 건 없다 — 다시 하면 그만.<br><b style="color:var(--gold)">단어시험 전엔 📌 숙제 판 한 바퀴 — 그대로 점수가 된다.</b></p>
     </div>
     <div id="levels"></div>
     <button class="hwbtn" onclick="showHw()">📋 학원 숙제 넣고 한 판 하기</button>
-    <p class="hint">⭐ 한 판 완주 = 별 1개 · 💯 10점 만점 = 금빛 판<br>판이 끝나면 <b>대결 모드</b> — 같은 문제, 다른 순서로 한 판 더.</p>
+    <p class="hint">⭐ 한 판 완주 = 별 1개 · 💯 10점 만점 = 금빛 판<br>퀴즈의 절반은 <b>문장 빈칸</b> — 쓰임까지 잡는다.<br>판이 끝나면 <b>대결 모드</b> — 같은 문제, 다른 순서로 한 판 더.</p>
   </div>
 
   <!-- ─── 학습 ─── -->
@@ -150,8 +156,8 @@
     <div class="bar"><i id="learnBar" style="width:0%"></i></div>
     <div class="flip" id="flipCard" onclick="flipIt()">
       <div class="inner">
-        <div class="face front"><div class="w" id="fw"></div><div class="tip">카드를 누르면 뜻이 보인다</div></div>
-        <div class="face back"><div class="m" id="fm"></div><div class="tip" id="fwSmall"></div></div>
+        <div class="face front"><div class="w" id="fw"></div><div class="tip">카드를 누르면 뜻과 문장이 보인다</div></div>
+        <div class="face back"><div class="m" id="fm"></div><div class="ex" id="fex"></div><div class="tip" id="fwSmall"></div></div>
       </div>
     </div>
     <div class="nav">
@@ -164,7 +170,7 @@
   <div id="quiz" class="hidden">
     <div class="sess-top"><span class="name" id="quizName"></span><span class="timer" id="timer2">0:00</span></div>
     <div class="bar"><i id="quizBar" style="width:0%"></i></div>
-    <div class="q-word"><div class="w" id="qw"></div><div class="cnt" id="qc"></div></div>
+    <div class="q-word" id="qbox"></div>
     <div class="opts" id="opts"></div>
   </div>
 
@@ -208,44 +214,253 @@ avoid 피하다"></textarea>
 </div>
 
 <script>
+// ───────── 단어 형식: [영어, 뜻, "예문(*단어* 표시)", "예문 해석"] ─────────
+
 // ───────── 오늘의 숙제: DAY 37–38 (1441–1520) ─────────
 const HW_DATA = [
  {id:"d37", name:"📌 숙제 · DAY 37", days:[
-  [["intriguing","아주 흥미로운"],["constrict","죄다, 위축시키다"],["bundle","묶음, 꾸러미"],["enclose","동봉하다, 에워싸다"],["insert","삽입하다"],["keen","날카로운, 예민한, 간절히 ~하고 싶은"],["restrain","억제하다, 구속하다"],["aid","돕다; 도움, 조력"],["reputation","평판, 명성"],["measurement","측정, 측량, 치수"]],
-  [["originate","시작되다, 비롯하다"],["flour","밀가루"],["manipulate","조종하다, 조작하다"],["experiment","실험; 실험하다"],["patriot","애국자"],["interchange","교환, 교차점(I.C.); 교환하다"],["intuitive","직관적인, 직관에 의한"],["garment","의복"],["spontaneous","자발적인, 자연히 일어나는"],["vertical","수직의"]],
-  [["testify","검증하다, 증명하다, 증언하다"],["mentor","조언자"],["vivid","생생한"],["pasture","목초지, 목장"],["crust","껍질, (지질) 지각"],["comprehend","이해하다, 포함하다"],["plunge","뛰어들다, 던져 넣다"],["nasty","더러운, 불쾌한"],["appreciate","이해하다, 감상하다, 고맙게 생각하다"],["strip","박탈하다, (옷·껍질을) 벗기다"]],
-  [["deed","행위, 업적"],["skinny","피골이 상접한, 마른"],["grill","석쇠; 석쇠로 굽다, 심문하다"],["canal","수로, 운하"],["curse","저주; 저주하다"],["adverse","거스르는, 반대의, 부정적인"],["censorship","검열"],["leverage","이용하다; 지레의 작용, 영향력"],["appetite","식욕, 욕망, 욕구"],["flaw","결점, 흠"]]
+  [["intriguing","아주 흥미로운","That is an *intriguing* idea.","그거 아주 흥미로운 생각인데."],
+   ["constrict","죄다, 위축시키다","Tight shoes *constrict* your feet.","꽉 끼는 신발은 발을 죈다."],
+   ["bundle","묶음, 꾸러미","She carried a *bundle* of letters.","그녀는 편지 한 묶음을 들고 갔다."],
+   ["enclose","동봉하다, 에워싸다","Please *enclose* a photo with your letter.","편지에 사진을 동봉해 주세요."],
+   ["insert","삽입하다","*Insert* a coin into the machine.","기계에 동전을 삽입하세요."],
+   ["keen","날카로운, 예민한, 간절히 ~하고 싶은","He is *keen* to win the game.","그는 경기에서 간절히 이기고 싶어 한다."],
+   ["restrain","억제하다, 구속하다","She tried to *restrain* her anger.","그녀는 화를 억제하려고 애썼다."],
+   ["aid","돕다; 도움, 조력","The nurse rushed to *aid* the patient.","간호사는 환자를 도우러 달려갔다."],
+   ["reputation","평판, 명성","The chef has a good *reputation*.","그 요리사는 평판이 좋다."],
+   ["measurement","측정, 측량, 치수","Take a *measurement* of the window.","창문의 치수를 재 보세요."]],
+  [["originate","시작되다, 비롯하다","Many words *originate* from Latin.","많은 단어가 라틴어에서 비롯한다."],
+   ["flour","밀가루","Bread is made from *flour*.","빵은 밀가루로 만든다."],
+   ["manipulate","조종하다, 조작하다","Do not let ads *manipulate* your choices.","광고가 네 선택을 조종하게 두지 마라."],
+   ["experiment","실험; 실험하다","We did an *experiment* in science class.","우리는 과학 시간에 실험을 했다."],
+   ["patriot","애국자","The *patriot* loved his country deeply.","그 애국자는 조국을 깊이 사랑했다."],
+   ["interchange","교환, 교차점(I.C.); 교환하다","Exit at the next *interchange*.","다음 교차점(IC)에서 나가세요."],
+   ["intuitive","직관적인, 직관에 의한","The app has an *intuitive* design.","그 앱은 디자인이 직관적이다."],
+   ["garment","의복","This *garment* is made of silk.","이 의복은 실크로 만들어졌다."],
+   ["spontaneous","자발적인, 자연히 일어나는","It was a *spontaneous* trip to the beach.","그것은 즉흥적으로 떠난 바닷가 여행이었다."],
+   ["vertical","수직의","Draw a *vertical* line on the paper.","종이에 수직선을 그어라."]],
+  [["testify","검증하다, 증명하다, 증언하다","He will *testify* in court tomorrow.","그는 내일 법정에서 증언할 것이다."],
+   ["mentor","조언자","My *mentor* gave me great advice.","내 조언자(멘토)는 훌륭한 조언을 해 주었다."],
+   ["vivid","생생한","I had a *vivid* dream last night.","어젯밤 생생한 꿈을 꿨다."],
+   ["pasture","목초지, 목장","Cows were grazing in the *pasture*.","소들이 목초지에서 풀을 뜯고 있었다."],
+   ["crust","껍질, (지질) 지각","Earthquakes start in the Earth's *crust*.","지진은 지구의 지각에서 시작된다."],
+   ["comprehend","이해하다, 포함하다","I cannot *comprehend* this problem.","나는 이 문제를 이해할 수 없다."],
+   ["plunge","뛰어들다, 던져 넣다","Watch him *plunge* into the pool.","그가 수영장으로 뛰어드는 걸 봐."],
+   ["nasty","더러운, 불쾌한","There was a *nasty* smell in the room.","방에서 불쾌한 냄새가 났다."],
+   ["appreciate","이해하다, 감상하다, 고맙게 생각하다","I really *appreciate* your help.","도와줘서 정말 고맙게 생각해."],
+   ["strip","박탈하다, (옷·껍질을) 벗기다","They tried to *strip* him of his title.","그들은 그에게서 타이틀을 박탈하려 했다."]],
+  [["deed","행위, 업적","A small kind *deed* can change a day.","작은 친절한 행위가 하루를 바꿀 수 있다."],
+   ["skinny","피골이 상접한, 마른","The stray cat was *skinny* and weak.","그 길고양이는 마르고 약했다."],
+   ["grill","석쇠; 석쇠로 굽다, 심문하다","Dad likes to *grill* meat on weekends.","아빠는 주말에 고기를 석쇠에 굽는 걸 좋아한다."],
+   ["canal","수로, 운하","Boats pass through the *canal*.","배들이 운하를 지나간다."],
+   ["curse","저주; 저주하다","They say the old castle has a *curse*.","그 오래된 성엔 저주가 있다고들 한다."],
+   ["adverse","거스르는, 반대의, 부정적인","The game was canceled due to *adverse* weather.","경기는 궂은(부정적인) 날씨로 취소됐다."],
+   ["censorship","검열","The film was cut by *censorship*.","그 영화는 검열로 잘려 나갔다."],
+   ["leverage","이용하다; 지레의 작용, 영향력","Use your skills as *leverage*.","네 기술을 지렛대(영향력)로 활용해라."],
+   ["appetite","식욕, 욕망, 욕구","Exercise gives me a big *appetite*.","운동을 하면 식욕이 커진다."],
+   ["flaw","결점, 흠","Every plan has a small *flaw*.","모든 계획엔 작은 흠이 있다."]]
  ]},
  {id:"d38", name:"📌 숙제 · DAY 38", days:[
-  [["outgoing","외향적인"],["verbal","말의, 구두(口頭)의"],["liberate","해방하다, 자유롭게 하다"],["academic","학문적인, 학구적인"],["advance","나아가게 하다, 진척시키다; 전진, 증진"],["contemplate","숙고하다, 응시하다"],["underlying","밑에 놓인, 근본적인"],["segregation","인종 차별, 분리"],["stem","생기다, 일어나다; 줄기, 대"],["irrigation","관개, 물 대기"]],
-  [["consecutive","연속적인, 일관된"],["superficial","표면상의, 피상적인"],["refuge","피난, 피난처, 위안"],["swear","맹세하다, 욕하다"],["allergy","알레르기"],["norm","규범, 기준, 표준"],["endeavor","노력; 노력하다"],["erect","세우다; 똑바로 선"],["feminine","여성의, 여성스러운"],["drowsy","졸리는"]],
-  [["inspect","검사하다, 점검하다"],["carriage","마차, 탈것"],["primitive","원시의, 초기의, 미개의"],["compress","압축하다"],["steep","가파른, 경사가 급한"],["cemetery","공동묘지"],["transport","수송[운송]하다; 수송"],["exaggerate","과장하다, 과장해서 말하다"],["random","무작위의, 임의의"],["feast","즐겁게 하다; 축제(일), 잔치"]],
-  [["commemorate","기념하다"],["govern","통치하다, 지배[좌우]하다"],["multitask","다중 작업을 하다"],["toxic","유독한, 중독의"],["stare","응시하다, 노려보다"],["chronic","만성적인, 장기간의"],["designate","지정하다, 가리키다"],["dramatic","연극의, 극적인"],["intense","강렬한"],["propaganda","선전 활동, 선전"]]
+  [["outgoing","외향적인","She is *outgoing* and makes friends easily.","그녀는 외향적이라 친구를 쉽게 사귄다."],
+   ["verbal","말의, 구두(口頭)의","We made a *verbal* promise.","우리는 구두 약속을 했다."],
+   ["liberate","해방하다, 자유롭게 하다","The army came to *liberate* the city.","군대가 도시를 해방하러 왔다."],
+   ["academic","학문적인, 학구적인","He is proud of his *academic* record.","그는 자신의 학업 성적을 자랑스러워한다."],
+   ["advance","나아가게 하다, 진척시키다; 전진, 증진","Technology continues to *advance* quickly.","기술은 계속 빠르게 나아간다."],
+   ["contemplate","숙고하다, 응시하다","She sat quietly to *contemplate* her future.","그녀는 조용히 앉아 미래를 숙고했다."],
+   ["underlying","밑에 놓인, 근본적인","Find the *underlying* cause of the problem.","문제의 근본적인 원인을 찾아라."],
+   ["segregation","인종 차별, 분리","*Segregation* divided people by race.","인종 분리는 사람들을 인종으로 갈라놓았다."],
+   ["stem","생기다, 일어나다; 줄기, 대","These problems *stem* from stress.","이 문제들은 스트레스에서 생긴다."],
+   ["irrigation","관개, 물 대기","Farmers use *irrigation* in dry seasons.","농부들은 건기에 관개를 이용한다."]],
+  [["consecutive","연속적인, 일관된","It rained for five *consecutive* days.","5일 연속으로 비가 내렸다."],
+   ["superficial","표면상의, 피상적인","The cut was only *superficial*.","그 상처는 표면상의 것일 뿐이었다."],
+   ["refuge","피난, 피난처, 위안","They found *refuge* from the storm.","그들은 폭풍을 피할 피난처를 찾았다."],
+   ["swear","맹세하다, 욕하다","I *swear* to tell the truth.","진실을 말할 것을 맹세한다."],
+   ["allergy","알레르기","He has an *allergy* to peanuts.","그는 땅콩 알레르기가 있다."],
+   ["norm","규범, 기준, 표준","Wearing masks became the *norm*.","마스크 착용이 표준이 되었다."],
+   ["endeavor","노력; 노력하다","Success needs constant *endeavor*.","성공에는 끊임없는 노력이 필요하다."],
+   ["erect","세우다; 똑바로 선","They plan to *erect* a statue here.","그들은 여기에 동상을 세울 계획이다."],
+   ["feminine","여성의, 여성스러운","The dress has a *feminine* style.","그 드레스는 여성스러운 스타일이다."],
+   ["drowsy","졸리는","The medicine made me *drowsy*.","그 약을 먹었더니 졸렸다."]],
+  [["inspect","검사하다, 점검하다","Police came to *inspect* the scene.","경찰이 현장을 점검하러 왔다."],
+   ["carriage","마차, 탈것","A horse pulled the old *carriage*.","말이 낡은 마차를 끌었다."],
+   ["primitive","원시의, 초기의, 미개의","*Primitive* humans used stone tools.","원시 인류는 석기를 사용했다."],
+   ["compress","압축하다","*Compress* the file before sending it.","보내기 전에 파일을 압축해라."],
+   ["steep","가파른, 경사가 급한","The hill is too *steep* for bikes.","그 언덕은 자전거로 가기엔 너무 가파르다."],
+   ["cemetery","공동묘지","The *cemetery* was quiet and peaceful.","공동묘지는 조용하고 평화로웠다."],
+   ["transport","수송[운송]하다; 수송","Trucks *transport* goods across the country.","트럭이 전국으로 물건을 수송한다."],
+   ["exaggerate","과장하다, 과장해서 말하다","Do not *exaggerate* — it was a small fish.","과장하지 마 — 작은 물고기였잖아."],
+   ["random","무작위의, 임의의","The winner was picked at *random*.","당첨자는 무작위로 뽑혔다."],
+   ["feast","즐겁게 하다; 축제(일), 잔치","We had a big *feast* on New Year's Day.","우리는 설날에 큰 잔치를 벌였다."]],
+  [["commemorate","기념하다","The statue was built to *commemorate* the heroes.","그 동상은 영웅들을 기념하기 위해 세워졌다."],
+   ["govern","통치하다, 지배[좌우]하다","Laws *govern* how we live together.","법은 우리가 함께 사는 방식을 다스린다."],
+   ["multitask","다중 작업을 하다","It is hard to *multitask* while studying.","공부하면서 다중 작업을 하기는 어렵다."],
+   ["toxic","유독한, 중독의","*Toxic* gas leaked from the factory.","유독 가스가 공장에서 새어 나왔다."],
+   ["stare","응시하다, 노려보다","Do not *stare* at strangers.","낯선 사람을 빤히 쳐다보지 마라."],
+   ["chronic","만성적인, 장기간의","He suffers from *chronic* back pain.","그는 만성적인 허리 통증에 시달린다."],
+   ["designate","지정하다, 가리키다","They will *designate* this area as a park.","그들은 이 지역을 공원으로 지정할 것이다."],
+   ["dramatic","연극의, 극적인","The game had a *dramatic* ending.","그 경기는 극적인 결말이었다."],
+   ["intense","강렬한","The final match was *intense*.","결승전은 강렬했다."],
+   ["propaganda","선전 활동, 선전","The poster was wartime *propaganda*.","그 포스터는 전시 선전물이었다."]]
  ]}
 ];
 
-// ───────── 단어 데이터: 3레벨 × 5판 × 10단어 ─────────
+// ───────── 기초: 3레벨 × 5판 × 10단어 ─────────
 const DATA = [
  {id:"0", name:"LEVEL 1 · 뿌리 다지기", days:[
-  [["decide","결정하다"],["provide","제공하다"],["receive","받다"],["improve","나아지게 하다"],["create","만들어 내다"],["protect","보호하다"],["promise","약속(하다)"],["choose","고르다"],["share","나누다, 공유하다"],["follow","따라가다"]],
-  [["enough","충분한"],["famous","유명한"],["different","다른"],["important","중요한"],["difficult","어려운"],["useful","쓸모 있는"],["dangerous","위험한"],["favorite","가장 좋아하는"],["healthy","건강한"],["popular","인기 있는"]],
-  [["habit","습관"],["effort","노력"],["result","결과"],["reason","이유"],["experience","경험"],["culture","문화"],["nature","자연"],["future","미래"],["memory","기억"],["problem","문제"]],
-  [["arrive","도착하다"],["borrow","빌리다"],["carry","나르다, 들고 가다"],["finish","끝내다"],["forget","잊다"],["invite","초대하다"],["return","돌아오다, 돌려주다"],["save","구하다, 저축하다"],["spend","(돈·시간을) 쓰다"],["travel","여행하다"]],
-  [["early","이른, 일찍"],["late","늦은, 늦게"],["often","자주"],["always","항상"],["usually","보통"],["sometimes","가끔"],["never","결코 ~않다"],["together","함께"],["alone","혼자"],["suddenly","갑자기"]]
+  [["decide","결정하다","I cannot *decide* what to wear.","뭘 입을지 결정을 못 하겠다."],
+   ["provide","제공하다","The school will *provide* lunch.","학교에서 점심을 제공할 것이다."],
+   ["receive","받다","Did you *receive* my message?","내 메시지 받았어?"],
+   ["improve","나아지게 하다","Practice will *improve* your English.","연습이 네 영어를 나아지게 할 것이다."],
+   ["create","만들어 내다","Artists *create* something from nothing.","예술가는 무에서 무언가를 만들어 낸다."],
+   ["protect","보호하다","Helmets *protect* your head.","헬멧은 머리를 보호한다."],
+   ["promise","약속(하다)","I *promise* to call you tonight.","오늘 밤 전화하겠다고 약속할게."],
+   ["choose","고르다","*Choose* one card from the deck.","카드 한 장을 골라라."],
+   ["share","나누다, 공유하다","Let's *share* this pizza.","이 피자 나눠 먹자."],
+   ["follow","따라가다","*Follow* me — I know the way.","따라와, 내가 길을 알아."]],
+  [["enough","충분한","We have *enough* time to eat.","밥 먹을 시간은 충분하다."],
+   ["famous","유명한","The singer is *famous* worldwide.","그 가수는 세계적으로 유명하다."],
+   ["different","다른","We are twins, but very *different*.","우리는 쌍둥이지만 아주 다르다."],
+   ["important","중요한","Sleep is *important* for your brain.","잠은 뇌에 중요하다."],
+   ["difficult","어려운","The test was more *difficult* than expected.","시험은 예상보다 어려웠다."],
+   ["useful","쓸모 있는","This app is really *useful*.","이 앱 정말 쓸모 있다."],
+   ["dangerous","위험한","Swimming here is *dangerous*.","여기서 수영하는 건 위험하다."],
+   ["favorite","가장 좋아하는","What is your *favorite* food?","가장 좋아하는 음식이 뭐야?"],
+   ["healthy","건강한","Vegetables keep you *healthy*.","채소는 너를 건강하게 지켜 준다."],
+   ["popular","인기 있는","That game is *popular* at school.","그 게임은 학교에서 인기 있다."]],
+  [["habit","습관","Reading before bed is a good *habit*.","자기 전 독서는 좋은 습관이다."],
+   ["effort","노력","Your *effort* will pay off.","네 노력은 보답받을 것이다."],
+   ["result","결과","The test *result* comes out Friday.","시험 결과는 금요일에 나온다."],
+   ["reason","이유","Tell me the *reason* you were late.","늦은 이유를 말해 봐."],
+   ["experience","경험","Travel gives you new *experience*.","여행은 새로운 경험을 준다."],
+   ["culture","문화","Food is part of *culture*.","음식은 문화의 일부다."],
+   ["nature","자연","We walked in *nature* all day.","우리는 하루 종일 자연 속을 걸었다."],
+   ["future","미래","Nobody knows the *future*.","미래는 아무도 모른다."],
+   ["memory","기억","That trip is my best *memory*.","그 여행은 내 최고의 기억이다."],
+   ["problem","문제","Every *problem* has a solution.","모든 문제에는 해결책이 있다."]],
+  [["arrive","도착하다","What time does the train *arrive*?","기차가 몇 시에 도착해?"],
+   ["borrow","빌리다","Can I *borrow* your pen?","펜 좀 빌릴 수 있을까?"],
+   ["carry","나르다, 들고 가다","Let me *carry* that bag for you.","그 가방 내가 들어 줄게."],
+   ["finish","끝내다","*Finish* your homework first.","숙제 먼저 끝내라."],
+   ["forget","잊다","Do not *forget* your umbrella.","우산 잊지 마."],
+   ["invite","초대하다","Let's *invite* them to the party.","그들을 파티에 초대하자."],
+   ["return","돌아오다, 돌려주다","*Return* the book by Monday.","월요일까지 책을 돌려줘라."],
+   ["save","구하다, 저축하다","*Save* your money for the trip.","여행을 위해 돈을 모아라."],
+   ["spend","(돈·시간을) 쓰다","Do not *spend* all day on your phone.","하루 종일 폰에 시간을 쓰지 마라."],
+   ["travel","여행하다","I want to *travel* around the world.","세계 곳곳을 여행하고 싶다."]],
+  [["early","이른, 일찍","I woke up *early* this morning.","오늘 아침 일찍 일어났다."],
+   ["late","늦은, 늦게","Sorry, I am *late* again.","미안, 또 늦었어."],
+   ["often","자주","How *often* do you exercise?","얼마나 자주 운동해?"],
+   ["always","항상","She *always* smiles first.","그녀는 항상 먼저 웃는다."],
+   ["usually","보통","I *usually* walk to school.","나는 보통 걸어서 학교에 간다."],
+   ["sometimes","가끔","*Sometimes* I cook dinner myself.","가끔은 내가 직접 저녁을 만든다."],
+   ["never","결코 ~않다","He *never* gives up.","그는 결코 포기하지 않는다."],
+   ["together","함께","We studied *together* at the library.","우리는 도서관에서 함께 공부했다."],
+   ["alone","혼자","I like being *alone* sometimes.","가끔은 혼자 있는 게 좋다."],
+   ["suddenly","갑자기","*Suddenly*, the lights went out.","갑자기 불이 꺼졌다."]]
  ]},
  {id:"1", name:"LEVEL 2 · 몸통 세우기", days:[
-  [["achieve","이루다, 달성하다"],["avoid","피하다"],["compare","비교하다"],["consider","고려하다"],["continue","계속하다"],["describe","묘사하다"],["develop","발전시키다"],["discover","발견하다"],["encourage","격려하다"],["expect","기대하다"]],
-  [["express","표현하다"],["imagine","상상하다"],["include","포함하다"],["increase","늘리다, 증가하다"],["notice","알아차리다"],["prepare","준비하다"],["prevent","막다, 예방하다"],["realize","깨닫다"],["reduce","줄이다"],["suggest","제안하다"]],
-  [["ability","능력"],["advantage","유리한 점, 장점"],["attention","주의, 관심"],["behavior","행동"],["chance","기회, 가능성"],["decision","결정"],["environment","환경"],["knowledge","지식"],["opportunity","기회"],["purpose","목적"]],
-  [["relationship","관계"],["situation","상황"],["society","사회"],["solution","해결책"],["research","연구"],["effect","영향, 효과"],["attitude","태도"],["confidence","자신감"],["courage","용기"],["progress","진전, 발전"]],
-  [["available","이용할 수 있는"],["common","흔한, 공통의"],["necessary","필요한"],["patient","참을성 있는; 환자"],["positive","긍정적인"],["negative","부정적인"],["serious","심각한, 진지한"],["similar","비슷한"],["various","다양한"],["whole","전체의"]]
+  [["achieve","이루다, 달성하다","Work hard to *achieve* your goal.","목표를 이루려면 열심히 해라."],
+   ["avoid","피하다","*Avoid* junk food before bed.","자기 전엔 정크푸드를 피해라."],
+   ["compare","비교하다","Do not *compare* yourself with others.","자신을 남과 비교하지 마라."],
+   ["consider","고려하다","*Consider* both sides before deciding.","결정 전에 양쪽을 고려해라."],
+   ["continue","계속하다","The rain will *continue* until night.","비는 밤까지 계속될 것이다."],
+   ["describe","묘사하다","*Describe* the picture in English.","그 그림을 영어로 묘사해 봐라."],
+   ["develop","발전시키다","Reading helps *develop* your thinking.","독서는 사고력을 발전시키는 데 도움이 된다."],
+   ["discover","발견하다","Scientists *discover* new stars every year.","과학자들은 매년 새로운 별을 발견한다."],
+   ["encourage","격려하다","Good coaches *encourage* their players.","좋은 코치는 선수를 격려한다."],
+   ["expect","기대하다","I did not *expect* to win.","이길 거라고 기대하지 않았다."]],
+  [["express","표현하다","Music helps me *express* my feelings.","음악은 감정을 표현하게 도와준다."],
+   ["imagine","상상하다","*Imagine* a world without phones.","폰 없는 세상을 상상해 봐."],
+   ["include","포함하다","Does the price *include* breakfast?","그 가격에 아침 식사가 포함되나요?"],
+   ["increase","늘리다, 증가하다","Prices *increase* every year.","물가는 해마다 오른다."],
+   ["notice","알아차리다","Did you *notice* her new haircut?","그녀의 새 머리 스타일 알아차렸어?"],
+   ["prepare","준비하다","We need to *prepare* for the exam.","시험을 준비해야 한다."],
+   ["prevent","막다, 예방하다","Washing hands can *prevent* colds.","손 씻기는 감기를 예방할 수 있다."],
+   ["realize","깨닫다","I did not *realize* how late it was.","시간이 그렇게 늦은 줄 깨닫지 못했다."],
+   ["reduce","줄이다","*Reduce* screen time before sleep.","자기 전 화면 보는 시간을 줄여라."],
+   ["suggest","제안하다","I *suggest* we take a break.","잠깐 쉬는 걸 제안할게."]],
+  [["ability","능력","She has the *ability* to lead.","그녀는 이끄는 능력이 있다."],
+   ["advantage","유리한 점, 장점","Speaking English is a big *advantage*.","영어 회화는 큰 장점이다."],
+   ["attention","주의, 관심","Pay *attention* to the teacher.","선생님께 주의를 기울여라."],
+   ["behavior","행동","His *behavior* changed after the trip.","여행 후 그의 행동이 달라졌다."],
+   ["chance","기회, 가능성","This is your *chance* to shine.","지금이 네가 빛날 기회다."],
+   ["decision","결정","It was a hard *decision* to make.","내리기 어려운 결정이었다."],
+   ["environment","환경","Plastic harms the *environment*.","플라스틱은 환경을 해친다."],
+   ["knowledge","지식","*Knowledge* grows when you share it.","지식은 나눌 때 자란다."],
+   ["opportunity","기회","Do not miss this *opportunity*.","이 기회를 놓치지 마라."],
+   ["purpose","목적","What is the *purpose* of this rule?","이 규칙의 목적이 뭐야?"]],
+  [["relationship","관계","Trust builds a strong *relationship*.","신뢰가 튼튼한 관계를 만든다."],
+   ["situation","상황","Stay calm in any *situation*.","어떤 상황에서도 침착해라."],
+   ["society","사회","Rules keep *society* running.","규칙이 사회를 돌아가게 한다."],
+   ["solution","해결책","There is a simple *solution* to this.","이 일엔 간단한 해결책이 있다."],
+   ["research","연구","Her *research* took three years.","그녀의 연구는 3년이 걸렸다."],
+   ["effect","영향, 효과","Music has a calming *effect*.","음악에는 마음을 가라앉히는 효과가 있다."],
+   ["attitude","태도","A positive *attitude* changes everything.","긍정적인 태도가 모든 걸 바꾼다."],
+   ["confidence","자신감","Small wins build *confidence*.","작은 승리가 자신감을 키운다."],
+   ["courage","용기","It takes *courage* to say sorry.","미안하다고 말하려면 용기가 필요하다."],
+   ["progress","진전, 발전","You are making real *progress*.","너 정말 발전하고 있어."]],
+  [["available","이용할 수 있는","Is this seat *available*?","이 자리 이용할 수 있나요?"],
+   ["common","흔한, 공통의","Kim is a *common* name in Korea.","김은 한국에서 흔한 성이다."],
+   ["necessary","필요한","Sleep is *necessary* for growth.","잠은 성장에 필요하다."],
+   ["patient","참을성 있는; 환자","Be *patient* — results take time.","참을성 있게 기다려, 결과엔 시간이 걸려."],
+   ["positive","긍정적인","Keep a *positive* mind.","긍정적인 마음을 유지해라."],
+   ["negative","부정적인","Ignore *negative* comments online.","온라인의 부정적인 댓글은 무시해라."],
+   ["serious","심각한, 진지한","Are you *serious* about this plan?","이 계획, 진지하게 하는 말이야?"],
+   ["similar","비슷한","Our tastes in music are *similar*.","우리 음악 취향은 비슷하다."],
+   ["various","다양한","The store sells *various* snacks.","그 가게는 다양한 간식을 판다."],
+   ["whole","전체의","I read the *whole* book in one day.","하루 만에 책 전체를 읽었다."]]
  ]},
  {id:"2", name:"LEVEL 3 · 날개 달기", days:[
-  [["accomplish","성취하다"],["adapt","적응하다"],["analyze","분석하다"],["assume","가정하다, 추정하다"],["concentrate","집중하다"],["contribute","기여하다"],["demonstrate","보여 주다, 입증하다"],["establish","세우다, 확립하다"],["indicate","나타내다, 가리키다"],["maintain","유지하다"]],
-  [["obtain","얻다"],["occur","일어나다, 발생하다"],["persuade","설득하다"],["predict","예측하다"],["pursue","추구하다"],["recognize","알아보다, 인정하다"],["require","필요로 하다, 요구하다"],["respond","반응하다, 대답하다"],["survive","살아남다"],["transform","변형시키다, 바꾸다"]],
-  [["aspect","측면"],["benefit","이익, 혜택"],["capacity","능력, 수용력"],["consequence","결과"],["evidence","증거"],["factor","요인"],["individual","개인; 개인의"],["instance","사례, 경우"],["perspective","관점"],["phenomenon","현상"]],
-  [["potential","잠재력; 잠재적인"],["priority","우선순위"],["resource","자원"],["strategy","전략"],["tendency","경향"],["significant","중요한, 상당한"],["essential","필수적인, 본질적인"],["efficient","효율적인"],["accurate","정확한"],["complex","복잡한"]],
-  [["despite","~에도 불구하고"],["therefore","그러므로"],["however","그러나"],["moreover","게다가"],["whereas","~인 반면에"],["eventually","결국"],["gradually","점차"],["immediately","즉시"],["frequently","자주, 빈번히"],["rarely","드물게"]]
+  [["accomplish","성취하다","She worked hard to *accomplish* her dream.","그녀는 꿈을 성취하기 위해 열심히 노력했다."],
+   ["adapt","적응하다","Animals *adapt* to their environment.","동물은 환경에 적응한다."],
+   ["analyze","분석하다","*Analyze* the data before you judge.","판단하기 전에 데이터를 분석해라."],
+   ["assume","가정하다, 추정하다","Do not *assume* you know the answer.","답을 안다고 가정하지 마라."],
+   ["concentrate","집중하다","I cannot *concentrate* with the TV on.","TV가 켜져 있으면 집중이 안 된다."],
+   ["contribute","기여하다","Everyone can *contribute* to the team.","누구나 팀에 기여할 수 있다."],
+   ["demonstrate","보여 주다, 입증하다","The teacher will *demonstrate* the experiment.","선생님이 실험을 보여 주실 것이다."],
+   ["establish","세우다, 확립하다","They want to *establish* a new club.","그들은 새 동아리를 세우고 싶어 한다."],
+   ["indicate","나타내다, 가리키다","Dark clouds *indicate* coming rain.","먹구름은 비가 올 것을 나타낸다."],
+   ["maintain","유지하다","*Maintain* a steady pace while running.","달릴 때 일정한 속도를 유지해라."]],
+  [["obtain","얻다","You must *obtain* permission first.","먼저 허가를 얻어야 한다."],
+   ["occur","일어나다, 발생하다","Accidents *occur* when we rush.","사고는 서두를 때 일어난다."],
+   ["persuade","설득하다","He tried to *persuade* his parents.","그는 부모님을 설득하려 했다."],
+   ["predict","예측하다","No one can *predict* the weather perfectly.","날씨를 완벽히 예측할 수 있는 사람은 없다."],
+   ["pursue","추구하다","She moved to Seoul to *pursue* her dream.","그녀는 꿈을 추구하러 서울로 갔다."],
+   ["recognize","알아보다, 인정하다","I did not *recognize* you with glasses.","안경 쓰니까 못 알아봤어."],
+   ["require","필요로 하다, 요구하다","Great things *require* time.","위대한 일에는 시간이 필요하다."],
+   ["respond","반응하다, 대답하다","Please *respond* to my email soon.","내 이메일에 곧 답해 줘."],
+   ["survive","살아남다","Camels *survive* long days without water.","낙타는 물 없이 오랜 날을 살아남는다."],
+   ["transform","변형시키다, 바꾸다","Reading can *transform* your life.","독서는 삶을 바꿀 수 있다."]],
+  [["aspect","측면","Consider every *aspect* of the plan.","계획의 모든 측면을 고려해라."],
+   ["benefit","이익, 혜택","What is the *benefit* of this plan?","이 계획의 이점이 뭐야?"],
+   ["capacity","능력, 수용력","The hall has a *capacity* of 500.","그 홀은 수용 인원이 500명이다."],
+   ["consequence","결과","Every choice has a *consequence*.","모든 선택에는 결과가 따른다."],
+   ["evidence","증거","The police found new *evidence*.","경찰이 새 증거를 찾았다."],
+   ["factor","요인","Luck is only one *factor* in success.","운은 성공의 한 요인일 뿐이다."],
+   ["individual","개인; 개인의","Each *individual* has a unique voice.","각 개인은 고유한 목소리를 갖고 있다."],
+   ["instance","사례, 경우","For *instance*, take this sentence.","예를 들어, 이 문장을 봐라."],
+   ["perspective","관점","Travel gives you a wider *perspective*.","여행은 더 넓은 관점을 준다."],
+   ["phenomenon","현상","The aurora is a natural *phenomenon*.","오로라는 자연 현상이다."]],
+  [["potential","잠재력; 잠재적인","You have great *potential*.","너는 큰 잠재력을 갖고 있다."],
+   ["priority","우선순위","Health is my first *priority*.","건강이 내 첫 번째 우선순위다."],
+   ["resource","자원","Time is your most precious *resource*.","시간은 가장 귀한 자원이다."],
+   ["strategy","전략","We need a new *strategy* to win.","이기려면 새 전략이 필요하다."],
+   ["tendency","경향","I have a *tendency* to stay up late.","나는 늦게까지 깨어 있는 경향이 있다."],
+   ["significant","중요한, 상당한","There was a *significant* change in scores.","점수에 상당한 변화가 있었다."],
+   ["essential","필수적인, 본질적인","Water is *essential* for life.","물은 생명에 필수적이다."],
+   ["efficient","효율적인","This is a more *efficient* way to study.","이게 더 효율적인 공부 방법이다."],
+   ["accurate","정확한","Her answer was quick and *accurate*.","그녀의 답은 빠르고 정확했다."],
+   ["complex","복잡한","The brain is a *complex* system.","뇌는 복잡한 체계다."]],
+  [["despite","~에도 불구하고","*Despite* the rain, we played on.","비에도 불구하고 우리는 계속 경기했다."],
+   ["therefore","그러므로","I think, *therefore* I am.","나는 생각한다, 그러므로 존재한다."],
+   ["however","그러나","The test was hard; *however*, I passed.","시험은 어려웠다. 그러나 나는 통과했다."],
+   ["moreover","게다가","The room is big; *moreover*, it is bright.","방은 크다. 게다가 밝다."],
+   ["whereas","~인 반면에","I like summer, *whereas* she likes winter.","나는 여름을 좋아하는 반면 그녀는 겨울을 좋아한다."],
+   ["eventually","결국","Keep going — you will get there *eventually*.","계속 가, 결국 도착하게 돼 있어."],
+   ["gradually","점차","His English improved *gradually*.","그의 영어는 점차 나아졌다."],
+   ["immediately","즉시","Call me *immediately* after the test.","시험 끝나면 즉시 전화해."],
+   ["frequently","자주, 빈번히","We *frequently* eat out on Fridays.","우리는 금요일마다 자주 외식한다."],
+   ["rarely","드물게","She *rarely* gets angry.","그녀는 좀처럼 화내지 않는다."]]
  ]}
 ];
 
@@ -254,7 +469,7 @@ const S = {
   get(k,d){ try{ const v=JSON.parse(localStorage.getItem("e3_"+k)); return v===null||v===undefined?d:v; }catch(e){ return d; } },
   set(k,v){ localStorage.setItem("e3_"+k, JSON.stringify(v)); }
 };
-let stars = S.get("stars",{});        // {"0-1": 8} 판별 최고점
+let stars = S.get("stars",{});        // 판별 최고점 {"d37-0": 8}
 let streak = S.get("streak",0), lastDay = S.get("last","");
 
 // ───────── 상태 ─────────
@@ -298,6 +513,8 @@ function startDay(li,di){
   words=lv.days[di].slice(); sessName=lv.name.replace("📌 ","").split(" ·")[0]+" · "+(di+1)+"판"; sessKey=lv.id+"-"+di;
   beginLearn();
 }
+function markup(sent,cls){ return sent.replace(/\*([^*]+)\*/, "<b"+(cls?' class="'+cls+'"':"")+">$1</b>"); }
+function blank(sent){ return sent.replace(/\*([^*]+)\*/, "<b>＿＿＿</b>"); }
 function beginLearn(){
   idx=0; elapsed=0; stopTimer(); startTimer();
   document.getElementById("learnName").textContent=sessName+" · 눈에 담기";
@@ -305,9 +522,13 @@ function beginLearn(){
 }
 function renderCard(){
   const c=document.getElementById("flipCard"); c.classList.remove("on");
-  document.getElementById("fw").textContent=words[idx][0];
-  document.getElementById("fm").textContent=words[idx][1];
-  document.getElementById("fwSmall").textContent=words[idx][0];
+  const w=words[idx];
+  document.getElementById("fw").textContent=w[0];
+  document.getElementById("fm").textContent=w[1];
+  const ex=document.getElementById("fex");
+  if(w.length>=4){ ex.innerHTML=markup(w[2])+'<span class="ko">'+w[3]+'</span>'; ex.style.display=""; }
+  else{ ex.innerHTML=""; ex.style.display="none"; }
+  document.getElementById("fwSmall").textContent=w[0];
   document.getElementById("learnBar").style.width=((idx+1)/words.length*100)+"%";
   document.getElementById("learnNext").textContent = idx===words.length-1 ? "퀴즈 시작 ⚡" : "다음 →";
 }
@@ -325,16 +546,25 @@ function beginQuiz(){
 }
 function renderQ(){
   const w=words[order[idx]];
-  document.getElementById("qw").textContent=w[0];
-  document.getElementById("qc").textContent=(idx+1)+" / "+order.length;
+  const box=document.getElementById("qbox");
   document.getElementById("quizBar").style.width=(idx/order.length*100)+"%";
-  const pool=words.filter(x=>x[1]!==w[1]).map(x=>x[1]).sort(()=>Math.random()-.5).slice(0,3);
-  const opts=[w[1],...pool].sort(()=>Math.random()-.5);
-  const box=document.getElementById("opts"); box.innerHTML="";
-  opts.forEach(m=>{
+  const modeB = w.length>=4 && idx%2===1;   // 절반은 문장 빈칸
+  let choices, right;
+  if(modeB){
+    box.innerHTML='<div class="s">'+blank(w[2])+'</div><div class="ko">'+w[3]+'</div><div class="cnt">'+(idx+1)+' / '+order.length+' · 빈칸에 들어갈 단어는?</div>';
+    right=w[0];
+    choices=[w[0], ...words.filter(x=>x[0]!==w[0]).map(x=>x[0]).sort(()=>Math.random()-.5).slice(0,3)];
+  }else{
+    box.innerHTML='<div class="w">'+w[0]+'</div><div class="cnt">'+(idx+1)+' / '+order.length+' · 뜻은?</div>';
+    right=w[1];
+    choices=[w[1], ...words.filter(x=>x[1]!==w[1]).map(x=>x[1]).sort(()=>Math.random()-.5).slice(0,3)];
+  }
+  choices.sort(()=>Math.random()-.5);
+  const ob=document.getElementById("opts"); ob.innerHTML="";
+  choices.forEach(m=>{
     const b=document.createElement("button"); b.className="opt"; b.textContent=m;
-    b.onclick=()=>answer(b, m===w[1], w[1]);
-    box.appendChild(b);
+    b.onclick=()=>answer(b, m===right, right);
+    ob.appendChild(b);
   });
 }
 let lock=false;
@@ -345,7 +575,7 @@ function answer(btn, ok, right){
     btn.classList.add("no");
     [...document.getElementById("opts").children].forEach(b=>{ if(b.textContent===right) b.classList.add("ok"); });
   }
-  setTimeout(()=>{ lock=false; idx++; if(idx<order.length) renderQ(); else finish(); }, ok?550:1100);
+  setTimeout(()=>{ lock=false; idx++; if(idx<order.length) renderQ(); else finish(); }, ok?550:1200);
 }
 
 // ───────── 결과 ─────────
@@ -373,7 +603,6 @@ function finish(){
   }else{
     document.getElementById("vsBox").classList.add("hidden");
     document.getElementById("vsBtn").classList.remove("hidden");
-    // 별 저장 (숙제 모드는 sessKey 없음)
     if(sessKey!==null){
       const prev=stars[sessKey];
       if(prev===undefined || score>prev){ stars[sessKey]=score; S.set("stars",stars); }
@@ -381,7 +610,6 @@ function finish(){
     }else{
       document.getElementById("starsEarn").textContent = "📋 숙제 한 판 완료!";
     }
-    // 연속일
     const today=new Date().toDateString();
     if(lastDay!==today){
       const y=new Date(Date.now()-864e5).toDateString();
@@ -393,7 +621,7 @@ function finish(){
 function startVs(){ firstScore=score; isVs=true; beginQuiz(); }
 function replay(){ isVs=false; firstScore=null; beginLearn(); }
 
-// ───────── 숙제 모드 ─────────
+// ───────── 숙제 붙여넣기 모드 ─────────
 function showHw(){
   document.getElementById("hwText").value = S.get("hw","");
   show("hw");
@@ -415,7 +643,6 @@ function startHw(){
 }
 
 // ───────── 시작 ─────────
-// 연속일 판정: 어제 이후 기록 없으면 표시만 리셋
 (function(){ const today=new Date().toDateString(), y=new Date(Date.now()-864e5).toDateString();
   if(lastDay!==today && lastDay!==y){ streak=0; } })();
 renderHome();
