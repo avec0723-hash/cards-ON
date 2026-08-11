@@ -104,7 +104,7 @@
 var DAYS = 10, KEY = "yeolheul-v1", WEEK = ["일","월","화","수","목","금","토"];
 function todayStr(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
 function fresh(round,history,sg,mg,pm){return {startDate:todayStr(),round:round,son:Array(DAYS).fill(false),mom:Array(DAYS).fill(false),sonGoal:sg,momGoal:mg,partyMenu:pm,history:history};}
-var S = fresh(1,[],"단어 스와이프 1회독","나만의 15분","");
+var S = fresh(1,[],"단어 스와이프 하루 3days","나만의 15분","");
 try{var raw=localStorage.getItem(KEY);if(raw)S=JSON.parse(raw);}catch(e){}
 if(S.partyMenu===undefined)S.partyMenu="";
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
