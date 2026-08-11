@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리들의 열흘</title>
+<meta property="og:title" content="우리들의 열흘">
+<meta property="og:description" content="하루 15분, 딱 하나만. 엄마와 아들의 열흘 루틴 체크판 — 끝나면 또 열흘.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { overflow-x: hidden; }
+  body {
+    background: #f6efe2;
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    color: #3f3527;
+    min-height: 100vh;
+  }
+  .wrap { width: 100%; max-width: 460px; margin: 0 auto; padding: 28px 16px 48px; }
+  .head { text-align: center; margin-bottom: 18px; }
+  .round { font-size: 13px; letter-spacing: 3px; color: #b09f85; font-weight: 700; }
+  h1 { font-size: 27px; font-weight: 900; margin: 6px 0 4px; }
+  .sub { font-size: 13.5px; color: #8a7f70; }
+  .today {
+    background: #fffdf7; border: 1.5px dashed #d9c9a8; border-radius: 16px;
+    padding: 12px 16px; margin-bottom: 16px; font-size: 14px; text-align: center;
+  }
+  .today small { display: block; font-size: 12.5px; color: #a3947e; margin-top: 3px; }
+  .doneBanner {
+    background: #3f3527; color: #ffe9a8; border-radius: 18px; padding: 18px 16px;
+    margin-bottom: 16px; text-align: center; font-size: 16px; font-weight: 800; display: none;
+  }
+  .card {
+    background: #fff; border-radius: 20px; padding: 18px 16px;
+    box-shadow: 0 2px 10px rgba(80,60,30,.08); margin-bottom: 14px;
+  }
+  .cardTop { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .name { font-weight: 800; font-size: 17px; }
+  .count { font-size: 13px; color: #8a7f70; font-weight: 700; }
+  .goal { background: none; border: none; font: inherit; font-size: 13.5px; color: #6b6156; margin-bottom: 12px; text-align: left; display: block; }
+  .goal span { color: #b7ad9f; font-size: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .cell {
+    aspect-ratio: 1; border-radius: 14px; border: 1.5px solid #eadfce; background: #faf6ee;
+    color: #a89b88; font-size: 11.5px; font-weight: 700; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; line-height: 1.25; font-family: inherit;
+  }
+  .cell .wd { font-size: 10px; opacity: .8; }
+  .cell.on { font-size: 22px; color: #fff; border-color: transparent; }
+  .son .cell.on { background: #4a7c59; }
+  .mom .cell.on { background: #c06b4f; }
+  .son .name { color: #4a7c59; } .mom .name { color: #c06b4f; }
+  .son .cell.today-cell { border: 2.5px solid #4a7c59; }
+  .mom .cell.today-cell { border: 2.5px solid #c06b4f; }
+  .party {
+    width: 100%; background: #fffdf7; border: 1.5px dashed #e0b06b; border-radius: 16px;
+    padding: 12px 16px; margin-bottom: 14px; font-family: inherit; font-size: 14px;
+    color: #8a6a3f; font-weight: 700; text-align: center;
+  }
+  .party b { color: #3f3527; }
+  .party span { display: block; color: #c7a877; font-size: 12px; margin-top: 3px; }
+  .hist { background: #fffdf7; border-radius: 16px; padding: 14px 16px; margin-bottom: 14px; font-size: 13.5px; color: #6b6156; display: none; }
+  .hist b { color: #3f3527; }
+  .hist div { margin-top: 5px; }
+  .btns { display: flex; gap: 8px; }
+  .primary { flex: 1; padding: 13px 0; border-radius: 14px; border: none; background: #3f3527; color: #fff; font-size: 15px; font-weight: 800; font-family: inherit; }
+  .ghost { padding: 13px 14px; border-radius: 14px; border: 1.5px solid #d9c9a8; background: #fff; color: #8a7f70; font-size: 13px; font-weight: 700; font-family: inherit; }
+  .foot { font-size: 12px; color: #b7ad9f; text-align: center; margin-top: 20px; }
+  @media print {
+    body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .card, .today { break-inside: avoid; }
+    @page { margin: 15mm; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="round" id="roundLabel">ROUND 1</div>
+    <h1>우리들의 열흘 🌱</h1>
+    <p class="sub">하루 15분, 딱 하나만. 끊기지 않는 게 전부다.</p>
+  </div>
+  <div class="today" id="todayBox" style="display:none"></div>
+  <div class="doneBanner" id="doneBanner">🎉 라운드 완주! 오늘 밤, 체크판 앞에서 기념사진 한 장! 🎉</div>
+  <div class="card son">
+    <div class="cardTop"><div class="name">아들</div><div class="count" id="sonCount">0 / 10</div></div>
+    <button class="goal" id="sonGoal" onclick="editGoal('son')"></button>
+    <div class="grid" id="sonGrid"></div>
+  </div>
+  <div class="card mom">
+    <div class="cardTop"><div class="name">엄마</div><div class="count" id="momCount">0 / 10</div></div>
+    <button class="goal" id="momGoal" onclick="editGoal('mom')"></button>
+    <div class="grid" id="momGrid"></div>
+  </div>
+  <button class="party" id="partyBtn" onclick="editParty()"></button>
+  <div class="hist" id="hist"></div>
+  <div class="btns">
+    <button class="primary" onclick="nextRound()">다음 라운드 시작 →</button>
+    <button class="ghost" onclick="resetStart()">시작일=오늘</button>
+  </div>
+  <p class="foot">기록은 이 휴대폰(브라우저)에 저장돼요 · 열흘이 끝나면 또 열흘, 그렇게 계속.</p>
+</div>
+<script>
+var DAYS = 10, KEY = "yeolheul-v1", WEEK = ["일","월","화","수","목","금","토"];
+function todayStr(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function fresh(round,history,sg,mg,pm){return {startDate:todayStr(),round:round,son:Array(DAYS).fill(false),mom:Array(DAYS).fill(false),sonGoal:sg,momGoal:mg,partyMenu:pm,history:history};}
+var S = fresh(1,[],"단어 스와이프 1회독","나만의 15분","");
+try{var raw=localStorage.getItem(KEY);if(raw)S=JSON.parse(raw);}catch(e){}
+if(S.partyMenu===undefined)S.partyMenu="";
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function dateOf(i){var d=new Date(S.startDate+"T00:00:00");d.setDate(d.getDate()+i);return d;}
+function routineTime(d){var w=d.getDay();if(w===3||w===6)return "영어학원 다녀와서 10:30";if(w===0)return "저녁 9:30 (학원 없는 날!)";return "수학학원 다녀와서 9:30";}
+function dayIdx(){var n=new Date();var t=new Date(n.getFullYear(),n.getMonth(),n.getDate());return Math.floor((t-new Date(S.startDate+"T00:00:00"))/86400000);}
+function toggle(who,i){S[who][i]=!S[who][i];save();render();}
+function editGoal(who){var k=who==="son"?"sonGoal":"momGoal";var v=prompt("이번 라운드 목표를 적어주세요 (15분 이하로 작게!)",S[k]);if(v&&v.trim()){S[k]=v.trim();save();render();}}
+function editParty(){var v=prompt("열흘을 다 채우면 열릴 파티! 메뉴를 적어주세요 🎉 (예: 치킨+콜라, 보드게임의 밤)",S.partyMenu);if(v!==null){S.partyMenu=v.trim();save();render();}}
+function nextRound(){if(!confirm("라운드 "+S.round+"을 마치고 새 라운드를 시작할까요?"))return;S.history.push({round:S.round,start:S.startDate,son:S.son.filter(Boolean).length,mom:S.mom.filter(Boolean).length});S=fresh(S.round+1,S.history,S.sonGoal,S.momGoal,"");save();render();}
+function resetStart(){if(!confirm("시작일을 오늘로 다시 맞출까요? (체크는 그대로 둡니다)"))return;S.startDate=todayStr();save();render();}
+function grid(who){var el=document.getElementById(who+"Grid");el.innerHTML="";var di=dayIdx();var inR=di>=0&&di<DAYS;
+  for(var i=0;i<DAYS;i++){(function(i){var d=dateOf(i);var b=document.createElement("button");b.className="cell"+(S[who][i]?" on":"")+(inR&&i===di?" today-cell":"");
+    b.innerHTML=S[who][i]?"⭐":"<span>"+(d.getMonth()+1)+"."+d.getDate()+"</span><span class='wd'>"+WEEK[d.getDay()]+"</span>";
+    b.onclick=function(){toggle(who,i);};el.appendChild(b);})(i);}}
+function render(){
+  document.getElementById("roundLabel").textContent="ROUND "+S.round;
+  document.getElementById("sonGoal").innerHTML="🎯 "+S.sonGoal+" <span>(눌러서 수정)</span>";
+  document.getElementById("momGoal").innerHTML="🎯 "+S.momGoal+" <span>(눌러서 수정)</span>";
+  var sn=S.son.filter(Boolean).length, mn=S.mom.filter(Boolean).length;
+  document.getElementById("sonCount").textContent=sn+" / "+DAYS;
+  document.getElementById("momCount").textContent=mn+" / "+DAYS;
+  grid("son");grid("mom");
+  var di=dayIdx(), tb=document.getElementById("todayBox");
+  if(di>=0&&di<DAYS){var n=new Date();tb.style.display="block";
+    tb.innerHTML="<b>Day "+(di+1)+"</b> · 오늘의 루틴 시간 → <b>"+routineTime(n)+"</b><small>지친 날은 1분 버전이라도 OK. 칸만 채우자!</small>";}
+  else tb.style.display="none";
+  var pb=document.getElementById("partyBtn");
+  pb.innerHTML=S.partyMenu?"🎉 완주 파티 메뉴: <b>"+S.partyMenu+"</b><span>(눌러서 수정)</span>":"🎉 열흘 다 채우면 무슨 파티 할까?<span>눌러서 파티 메뉴 적기</span>";
+  var db=document.getElementById("doneBanner");
+  db.textContent=S.partyMenu?"🎉 라운드 완주! 약속한 파티 시간 — "+S.partyMenu+" 🎉":"🎉 라운드 완주! 오늘 밤, 체크판 앞에서 기념사진 한 장! 🎉";
+  db.style.display=(sn===DAYS&&mn===DAYS)?"block":"none";
+  var h=document.getElementById("hist");
+  if(S.history.length){h.style.display="block";h.innerHTML="<b>지난 라운드</b>"+S.history.map(function(x){return "<div>R"+x.round+" ("+x.start.slice(5).replace("-",".")+"~) — 아들 ⭐"+x.son+" · 엄마 ⭐"+x.mom+"</div>";}).join("");}
+  else h.style.display="none";
+}
+render();
+</script>
+</body>
+</html>
