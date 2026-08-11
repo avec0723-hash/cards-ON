@@ -61,7 +61,8 @@
   .party span { display: block; color: #c7a877; font-size: 12px; margin-top: 3px; }
   .hist { background: #fffdf7; border-radius: 16px; padding: 14px 16px; margin-bottom: 14px; font-size: 13.5px; color: #6b6156; display: none; }
   .hist b { color: #3f3527; }
-  .hist div { margin-top: 5px; }
+  .hist .row { margin-top: 5px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .hist .del { border: none; background: none; color: #c9bda9; font-size: 15px; font-weight: 700; padding: 2px 6px; font-family: inherit; }
   .btns { display: flex; gap: 8px; }
   .primary { flex: 1; padding: 13px 0; border-radius: 14px; border: none; background: #3f3527; color: #fff; font-size: 15px; font-weight: 800; font-family: inherit; }
   .ghost { padding: 13px 14px; border-radius: 14px; border: 1.5px solid #d9c9a8; background: #fff; color: #8a7f70; font-size: 13px; font-weight: 700; font-family: inherit; }
@@ -116,6 +117,10 @@ function editGoal(who){var k=who==="son"?"sonGoal":"momGoal";var v=prompt("이�
 function editParty(){var v=prompt("열흘을 다 채우면 열릴 파티! 메뉴를 적어주세요 🎉 (예: 치킨+콜라, 보드게임의 밤)",S.partyMenu);if(v!==null){S.partyMenu=v.trim();save();render();}}
 function nextRound(){if(!confirm("라운드 "+S.round+"을 마치고 새 라운드를 시작할까요?"))return;S.history.push({round:S.round,start:S.startDate,son:S.son.filter(Boolean).length,mom:S.mom.filter(Boolean).length});S=fresh(S.round+1,S.history,S.sonGoal,S.momGoal,"");save();render();}
 function resetStart(){if(!confirm("시작일을 오늘로 다시 맞출까요? (체크는 그대로 둡니다)"))return;S.startDate=todayStr();save();render();}
+function delRound(i){var x=S.history[i];if(!confirm("지난 라운드 R"+x.round+" 기록을 지울까요?"))return;
+  S.history.splice(i,1);
+  for(var j=0;j<S.history.length;j++)S.history[j].round=j+1;
+  S.round=S.history.length+1;save();render();}
 function grid(who){var el=document.getElementById(who+"Grid");el.innerHTML="";var di=dayIdx();var inR=di>=0&&di<DAYS;
   for(var i=0;i<DAYS;i++){(function(i){var d=dateOf(i);var b=document.createElement("button");b.className="cell"+(S[who][i]?" on":"")+(inR&&i===di?" today-cell":"");
     b.innerHTML=S[who][i]?"⭐":"<span>"+(d.getMonth()+1)+"."+d.getDate()+"</span><span class='wd'>"+WEEK[d.getDay()]+"</span>";
@@ -138,7 +143,7 @@ function render(){
   db.textContent=S.partyMenu?"🎉 라운드 완주! 약속한 파티 시간 — "+S.partyMenu+" 🎉":"🎉 라운드 완주! 오늘 밤, 체크판 앞에서 기념사진 한 장! 🎉";
   db.style.display=(sn===DAYS&&mn===DAYS)?"block":"none";
   var h=document.getElementById("hist");
-  if(S.history.length){h.style.display="block";h.innerHTML="<b>지난 라운드</b>"+S.history.map(function(x){return "<div>R"+x.round+" ("+x.start.slice(5).replace("-",".")+"~) — 아들 ⭐"+x.son+" · 엄마 ⭐"+x.mom+"</div>";}).join("");}
+  if(S.history.length){h.style.display="block";h.innerHTML="<b>지난 라운드</b>"+S.history.map(function(x,i){return "<div class='row'><span>R"+x.round+" ("+x.start.slice(5).replace("-",".")+"~) — 아들 ⭐"+x.son+" · 엄마 ⭐"+x.mom+"</span><button class='del' onclick='delRound("+i+")'>✕</button></div>";}).join("");}
   else h.style.display="none";
 }
 render();
