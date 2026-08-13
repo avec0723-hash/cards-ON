@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장약국 — 마음에 맞는 문장을 처방해 드립니다</title>
+<meta property="og:title" content="문장약국">
+<meta property="og:description" content="오늘, 마음이 어떠세요? 마음의 상황에 맞는 고전 문장을 처방해 드립니다.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --night: #F6F1EA;
+    --card: #FFFDF9;
+    --line: #E5DCCB;
+    --snow: #33302C;
+    --mist: #97907E;
+    --terra: #B0543A;
+    --terra-deep: #9A4630;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background: var(--night);
+    color: var(--snow);
+    min-height: 100vh;
+    padding: 28px 16px 48px;
+  }
+  .wrap { max-width: 520px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 26px; }
+  .brand {
+    font-size: 12px; letter-spacing: 6px; color: var(--terra);
+    margin-bottom: 10px;
+  }
+  h1 { font-size: 25px; font-weight: 600; color: var(--snow); }
+  .ask { font-size: 14.5px; color: var(--mist); margin-top: 8px; word-break: keep-all; }
+  .cats { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 22px 0; }
+  .cat {
+    font-size: 14px; padding: 9px 16px; border-radius: 999px;
+    border: 1px solid var(--line); background: transparent; color: var(--mist);
+    cursor: pointer; font-family: inherit; transition: all .15s;
+  }
+  .cat.on { background: var(--terra); border-color: var(--terra); color: #FFF6F0; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    padding: 40px 28px; text-align: center; min-height: 200px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .quote {
+    font-family: "Noto Serif KR", Batang, serif;
+    font-size: 19px; line-height: 2.0; color: var(--snow);
+    word-break: keep-all; font-weight: 400;
+  }
+  .source { font-size: 13px; color: var(--mist); margin-top: 18px; }
+  .btns { display: flex; gap: 8px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+  button.act {
+    font-size: 14px; padding: 10px 16px; border-radius: 10px;
+    border: 1px solid var(--line); background: transparent; color: var(--snow);
+    cursor: pointer; font-family: inherit;
+  }
+  button.act:hover { border-color: var(--mist); }
+  button.act.terra { border-color: var(--terra); color: var(--terra); }
+  .practice { display: none; margin-top: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .practice.open { display: block; }
+  .practice p.tip { font-size: 13.5px; color: var(--mist); margin-bottom: 12px; word-break: keep-all; line-height: 1.7; }
+  textarea {
+    width: 100%; min-height: 96px; border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px; font-family: "Noto Serif KR", Batang, serif; font-size: 16px; line-height: 1.9;
+    background: var(--night); color: var(--snow); resize: vertical;
+  }
+  textarea::placeholder { color: #BDB39F; }
+  textarea:focus { outline: none; border-color: var(--terra); }
+  .drawer { margin-top: 30px; display: none; }
+  .drawer.open { display: block; }
+  .drawer h2 { font-size: 16px; color: var(--terra); margin-bottom: 12px; font-weight: 500; letter-spacing: 1px; }
+  .pair { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 10px; }
+  .pair .orig { font-size: 13px; color: var(--mist); line-height: 1.7; word-break: keep-all; }
+  .pair .mine { font-family: "Noto Serif KR", Batang, serif; font-size: 16px; line-height: 1.9; margin-top: 10px; word-break: keep-all; color: var(--snow); }
+  .pair .meta { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+  .pair .date { font-size: 12px; color: var(--mist); }
+  .pair button { font-size: 12px; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--mist); cursor: pointer; font-family: inherit; margin-left: 6px; }
+  .pair button:hover { color: var(--snow); border-color: var(--mist); }
+  .empty { font-size: 14px; color: var(--mist); text-align: center; padding: 22px 0; word-break: keep-all; }
+  footer { text-align: center; margin-top: 36px; font-size: 12px; color: #B3A992; word-break: keep-all; }
+  .toast {
+    position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%);
+    background: var(--terra-deep); color: #FFF6F0; font-size: 14px;
+    padding: 10px 22px; border-radius: 999px; opacity: 0; transition: opacity .3s; pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">문 장 약 국</div>
+    <h1>오늘, 마음이 어떠세요?</h1>
+    <p class="ask">마음을 고르면, 오래 살아남은 문장 하나를 처방해 드립니다.</p>
+  </header>
+
+  <div class="cats" id="cats"></div>
+
+  <div class="card">
+    <p class="quote" id="quote">위에서 지금의 마음을 골라 주세요.</p>
+    <p class="source" id="source"></p>
+  </div>
+
+  <div class="btns">
+    <button class="act" id="another">다른 문장</button>
+    <button class="act" id="copy">복사</button>
+    <button class="act terra" id="practiceBtn">내 문장으로</button>
+    <button class="act terra" id="drawerBtn">내 서랍</button>
+  </div>
+
+  <div class="practice" id="practice">
+    <p class="tip">이 문장을 나의 삶, 나의 말로 다시 써 보세요. 옮겨 적는 것이 아니라, 내 하루에서 길어 올린 문장이면 됩니다.</p>
+    <textarea id="myText" placeholder="내 문장을 여기에…"></textarea>
+    <div class="btns" style="justify-content: flex-end;">
+      <button class="act terra" id="saveMine">서랍에 넣기</button>
+    </div>
+  </div>
+
+  <div class="drawer" id="drawer">
+    <h2>내 서랍 — 내가 지은 문장들</h2>
+    <div id="pairs"></div>
+  </div>
+
+  <footer>문장은 골라 드리지만, 사는 건 당신의 문장입니다</footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA = {
+  "지칠 때": [
+    { q: "사람들은 시골로, 바닷가로, 산으로 물러날 곳을 찾는다. 그러나 언제든 물러날 수 있는 곳이 하나 있으니, 바로 그대 자신의 영혼이다.", s: "마르쿠스 아우렐리우스, 『명상록』 4권" },
+    { q: "사람을 흔드는 것은 일 그 자체가 아니라, 그 일에 대한 생각이다.", s: "에픽테토스, 『엥케이리디온』 5" },
+    { q: "우리에게 주어진 인생이 짧은 것이 아니다. 우리가 많은 시간을 흘려보내는 것이다.", s: "세네카, 『인생의 짧음에 관하여』 1장" },
+    { q: "산을 쌓다가 한 삼태기를 남기고 그쳤어도 그친 것은 나요, 땅을 고르며 한 삼태기를 부었어도 나아간 것은 나다.", s: "공자, 『논어』 자한편" },
+    { q: "새벽에 일어나기 싫거든 이렇게 생각하라 — 나는 인간의 일을 하러 일어나는 것이다.", s: "마르쿠스 아우렐리우스, 『명상록』 5권" },
+    { q: "하늘은 우리 머리 위에만 있는 것이 아니라 발아래에도 있다.", s: "소로, 『월든』" },
+    { q: "아는 사람은 좋아하는 사람만 못하고, 좋아하는 사람은 즐기는 사람만 못하다.", s: "공자, 『논어』 옹야편" }
+  ],
+  "용기가 필요할 때": [
+    { q: "꿈의 방향으로 자신 있게 나아가고, 마음에 그려온 삶을 살고자 애쓴다면, 뜻하지 않은 성공을 만나게 될 것이다.", s: "소로, 『월든』 맺음말" },
+    { q: "나를 죽이지 못하는 것은 나를 더 강하게 만든다.", s: "니체, 『우상의 황혼』" },
+    { q: "살아야 할 이유를 아는 사람은 거의 어떤 상황도 견뎌낸다.", s: "니체, 『우상의 황혼』" },
+    { q: "어렵기 때문에 감히 하지 못하는 것이 아니다. 감히 하지 않기 때문에 어려워지는 것이다.", s: "세네카, 『루킬리우스에게 보내는 편지』 104" },
+    { q: "행동을 가로막는 장애물이 행동을 나아가게 한다. 길을 막아선 것이 길이 된다.", s: "마르쿠스 아우렐리우스, 『명상록』 5권" },
+    { q: "너 자신을 믿으라. 모든 심장은 그 쇠줄에 맞춰 떨린다.", s: "에머슨, 『자기신뢰』" },
+    { q: "스스로 돌이켜 보아 옳다면, 천만 명이 막아서도 나는 간다.", s: "맹자, 『맹자』 공손추 상" }
+  ],
+  "관계가 어려울 때": [
+    { q: "내가 바라지 않는 일을 남에게 행하지 말라.", s: "공자, 『논어』 위령공편" },
+    { q: "남이 나를 알아주지 않음을 걱정하지 말고, 내가 남을 알아보지 못함을 걱정하라.", s: "공자, 『논어』 학이편" },
+    { q: "가장 중요한 것은 눈에 보이지 않아.", s: "생텍쥐페리, 『어린 왕자』" },
+    { q: "네가 길들인 것에 대해 너는 언제까지나 책임이 있어.", s: "생텍쥐페리, 『어린 왕자』" },
+    { q: "사람은 서로를 위해 태어났다. 그러니 가르치거나, 아니면 견뎌라.", s: "마르쿠스 아우렐리우스, 『명상록』 8권" },
+    { q: "최선의 복수는 그와 같은 사람이 되지 않는 것이다.", s: "마르쿠스 아우렐리우스, 『명상록』 6권" },
+    { q: "사람을 사랑하는데 친해지지 않거든, 나의 어짊을 돌아보라.", s: "맹자, 『맹자』 이루 상" }
+  ],
+  "새 시작 앞에서": [
+    { q: "천 리 길도 발밑에서 시작된다.", s: "노자, 『도덕경』 64장" },
+    { q: "아름드리나무도 털끝 같은 싹에서 자란다.", s: "노자, 『도덕경』 64장" },
+    { q: "우리가 깨어 있는 날에만 새벽은 온다.", s: "소로, 『월든』 맺음말" },
+    { q: "진실로 하루가 새로웠거든, 나날이 새롭게 하고, 또 날로 새롭게 하라.", s: "『대학』, 탕왕의 반명" },
+    { q: "옛것을 익혀 새것을 알면 남의 스승이 될 만하다.", s: "공자, 『논어』 위정편" },
+    { q: "먼저 어떤 사람이 되고 싶은지 스스로에게 말하라. 그런 다음, 해야 할 일을 하라.", s: "에픽테토스, 『담화록』 3권" }
+  ]
+};
+const KEY = "munjang_drawer";
+let cur = null, order = [], oi = 0;
+const $ = id => document.getElementById(id);
+
+function shuffle(n){
+  const a = Array.from({length:n}, (_,i)=>i);
+  for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+function drawCats(){
+  $("cats").innerHTML = Object.keys(DATA).map(c =>
+    '<button class="cat'+(c===cur?" on":"")+'" data-c="'+c+'">'+c+'</button>'
+  ).join("");
+  document.querySelectorAll(".cat").forEach(b => b.onclick = () => pick(b.dataset.c));
+}
+function pick(c){
+  cur = c; order = shuffle(DATA[c].length); oi = 0;
+  drawCats(); show();
+}
+function item(){ return DATA[cur][order[oi % order.length]]; }
+function show(){
+  const it = item();
+  $("quote").textContent = '"' + it.q + '"';
+  $("source").textContent = "— " + it.s;
+  $("practice").classList.remove("open");
+}
+function toast(msg){
+  const t = $("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 1600);
+}
+$("another").onclick = () => { if(cur){ oi++; show(); } };
+$("copy").onclick = () => {
+  if(!cur) return;
+  navigator.clipboard.writeText($("quote").textContent + " " + $("source").textContent)
+    .then(()=>toast("복사되었습니다 — 카톡에 붙여넣어 보세요"));
+};
+$("practiceBtn").onclick = () => {
+  if(!cur){ toast("먼저 마음을 골라 주세요"); return; }
+  $("practice").classList.toggle("open");
+  if($("practice").classList.contains("open")) $("myText").focus();
+};
+$("saveMine").onclick = () => {
+  const mine = $("myText").value.trim();
+  if(!mine){ toast("내 문장을 먼저 적어 주세요"); return; }
+  const it = item();
+  const list = JSON.parse(localStorage.getItem(KEY) || "[]");
+  list.unshift({ q: it.q, s: it.s, mine: mine, d: new Date().toISOString().slice(0,10) });
+  localStorage.setItem(KEY, JSON.stringify(list));
+  $("myText").value = "";
+  $("practice").classList.remove("open");
+  toast("서랍에 담았습니다");
+  if($("drawer").classList.contains("open")) drawPairs();
+};
+$("drawerBtn").onclick = () => {
+  $("drawer").classList.toggle("open");
+  if($("drawer").classList.contains("open")) drawPairs();
+};
+function drawPairs(){
+  const list = JSON.parse(localStorage.getItem(KEY) || "[]");
+  if(!list.length){ $("pairs").innerHTML = '<p class="empty">아직 비어 있어요. 문장을 하나 골라 내 문장으로 지어 보세요.</p>'; return; }
+  $("pairs").innerHTML = list.map((p,i) =>
+    '<div class="pair">'+
+      '<p class="orig">"'+p.q+'" — '+p.s+'</p>'+
+      '<p class="mine">'+p.mine.replace(/</g,"&lt;")+'</p>'+
+      '<div class="meta"><span class="date">'+p.d+'</span><span>'+
+      '<button data-i="'+i+'" class="cp">복사</button>'+
+      '<button data-i="'+i+'" class="rm">지우기</button>'+
+      '</span></div></div>'
+  ).join("");
+  document.querySelectorAll(".cp").forEach(b => b.onclick = () => {
+    const p = list[b.dataset.i];
+    navigator.clipboard.writeText(p.mine + "\n(원문: " + p.q + " — " + p.s + ")").then(()=>toast("복사되었습니다"));
+  });
+  document.querySelectorAll(".rm").forEach(b => b.onclick = () => {
+    list.splice(b.dataset.i, 1);
+    localStorage.setItem(KEY, JSON.stringify(list));
+    drawPairs();
+  });
+}
+drawCats();
+</script>
+</body>
+</html>
