@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-08-15 (토)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;       /* 디퍼 초록 */
+    --green-soft:#2C6249;
+    --gold:#B8912E;        /* 금빛 */
+    --gold-soft:#D9C48A;
+    --cream:#F7F1E3;       /* 크림 */
+    --paper:#FBF7EC;
+    --ink:#2B2B26;
+    --muted:#6B6459;
+    --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;
+    padding:40px 44px 34px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  /* ── Body ── */
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  /* News */
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  /* Reading picks (글감 분야) */
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:0 0 16px;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+  .seed{font-size:16px;margin:0 0 14px;}
+  .seed b{color:var(--green-soft);}
+  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
+    font-size:15.5px;line-height:1.85;}
+  .pause b{color:var(--gold-soft);}
+
+  /* Poem letter */
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  /* Claude lesson */
+  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
+  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
+  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
+  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
+  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
+    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+
+  /* Fog */
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  /* Closing */
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 8월 15일 · 토요일 · 제81주년 광복절</p>
+      <p class="opening">오늘 등대에 걸린 글들이 뜻밖에 한 자리를 가리킵니다 — <b>살아남는 일은 혼자 버텨서가 아니라, 누군가가 그것을 하나씩 알아보았기 때문</b>이라는 것.<br>
+      집단으로 기억하면 편하고, 한 사람씩 기억하면 어렵습니다. 오늘은 <b>어려운 쪽</b>에 관한 하루입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 제81주년 광복절, 통합 이후 첫 국가 행사가 광주에서 열립니다</span>
+          <a class="src" href="https://news.nate.com/view/20260811n05585" target="_blank" rel="noopener">네이트/전남광주 (08-11) ↗</a>
+          <a class="src" href="https://www.fnnews.com/news/202608130929553471" target="_blank" rel="noopener">파이낸셜뉴스 (08-13) ↗</a>
+          <a class="src" href="https://www.incheon.go.kr/IC010101/view?nttNo=2046036" target="_blank" rel="noopener">인천광역시 ↗</a>
+          <p>전남광주통합특별시가 오늘 오전 10시 서구 김대중컨벤션센터에서 <b>'광복의 힘으로 하나 된 전남광주, 함께 여는 더 큰 미래'</b>를 주제로 제81주년 광복절 경축식을 엽니다. 통합특별시 출범 이후 처음 맞는 국가 기념행사입니다. 경기도는 같은 날 오전 10시 30분 경기아트센터 대극장에서 <b>'우리가 누리는 모든 오늘에, 감사합니다. 기억하겠습니다'</b>를 주제로 경축식을 열고 <b>안중근 의사 유묵</b>을 전시합니다. 인천은 인천문화예술회관 대공연장에서 독립유공자 등 900명 규모로 진행합니다. 행사 제목이 그 지자체의 문장력입니다 — 올해는 세 곳 모두 '기억'과 '오늘'을 붙여 놓았습니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 어제는 기림의 날, 김학순의 증언으로부터 35년째입니다</span>
+          <a class="src" href="https://www.khan.co.kr/article/202608132117005/" target="_blank" rel="noopener">경향신문 (08-13) ↗</a>
+          <p>8월 14일은 <b>일본군 '위안부' 피해자 기림의 날</b>입니다. 1991년 그날, 김학순이 실명과 얼굴을 드러내고 처음 증언한 데서 유래했고 2017년 국가기념일로 지정됐습니다. 올해가 <b>증언 35주년</b>입니다. 전북 익산역 광장, 부산 시민회관, 경남 7개 시군 등 전국에서 추모 행사가 이어졌고, 충남 천안 국립망향의동산에서 정부 기념식이 열렸습니다. 올해부터는 피해 사실을 왜곡하거나 허위로 유포하면 <b>5년 이하 징역 또는 5천만 원 이하 벌금</b>에 처할 수 있습니다. 익산 기념사업회 상임대표의 말이 오늘의 문장입니다 — <b>"기억은 과거를 붙드는 일이 아니라 미래를 지키는 일이다."</b></p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 올해 광복절은 '후손의 시간'이라 불립니다</span>
+          <a class="src" href="https://www.etoday.co.kr/news/view/2614817" target="_blank" rel="noopener">이투데이 해시태그 ↗</a>
+          <p>올해 경축의 초점이 역사의 중심에 섰던 인물에서 <b>그 이름을 물려받은 사람들</b> 쪽으로 옮겨 왔다는 관측입니다. 독립운동가를 기리고 후손을 행사에 초청하는 데서 나아가, <b>주거환경과 생활 여건까지</b> 지원의 범위가 넓어졌다는 것입니다. 기념은 말로 하고 예우는 예산으로 합니다 — 어느 쪽에 줄이 그어졌는지가 그 사회의 실제 태도입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 태풍은 또 비켜 가고, 더위만 남았습니다</span>
+          <a class="src" href="https://www.ajunews.com/view/20260814064937529" target="_blank" rel="noopener">아주경제 (08-14) ↗</a>
+          <a class="src" href="https://imnews.imbc.com/replay/2026/nwdesk/article/6843491_37004.html" target="_blank" rel="noopener">MBC 뉴스데스크 ↗</a>
+          <a class="src" href="https://www.weather.go.kr/w/hazard/heatwave/forecast.do" target="_blank" rel="noopener">기상청 폭염특보 ↗</a>
+          <p>제17호 태풍 <b>낭카</b>는 일본 도쿄 동남동쪽 먼 해상을 북상 중이고, 기상청은 <b>한반도에 직접 영향을 줄 가능성은 크지 않다</b>고 밝혔습니다. 한반도와 가까워지는 17~18일에도 중심은 1,800km 이상 떨어져 지날 전망입니다. 앞서 제15호 찬홈도 사실상 소멸했습니다. 문제는 비가 함께 비켜 간다는 것입니다 — 입추가 지나도 폭염은 이어지고, <b>8월 온열질환자 발생은 10년 전의 3배 가까이</b> 늘었습니다. 연휴에 바깥일을 하시는 분들께는 태풍 소식보다 <b>그늘과 물의 위치</b>가 더 급한 정보입니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 국립중앙도서관 사서들이 고른 8월의 책 여덟 권</span>
+          <a class="src" href="https://www.mhj21.com/news/articleView.html?idxno=253472" target="_blank" rel="noopener">문화저널21 ↗</a>
+          <a class="src" href="https://www.thepublic.kr/news/articleView.html?idxno=313679" target="_blank" rel="noopener">더퍼블릭 ↗</a>
+          <p>문학·인문예술·사회과학·자연과학 네 분야에서 두 권씩입니다. 문학은 <b>『검은 해바라기』</b>(불법 촬영 혐의로 체포된 고등학생 사건에서 출발해 한 가족이 오래 숨겨 온 진실과 관계의 균열로 들어갑니다)와 <b>『오로라를 따라간 푸트만스 씨』</b>. 인문예술은 <b>『그래서 지금 기분은 어때요?』</b>와 <b>『찰나의 기억, 냄새』</b>. 사회과학은 <b>『쾌적한 사회의 불쾌함』</b> 등, 자연과학은 <b>『완벽하지 않은 것이 살아남는다』</b> 등입니다. 마지막 제목 하나가 오늘 등대와 그대로 이어집니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 정부 '업무망 안'으로 AI가 들어옵니다, 개발자 조직도 9월 출범</span>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148950615" target="_blank" rel="noopener">정책브리핑 ↗</a>
+          <a class="src" href="https://www.etnews.com/20260812000005" target="_blank" rel="noopener">전자신문 (08-12) ↗</a>
+          <p>지금까지 민간 AI 서비스는 인터넷망에서만 쓸 수 있었습니다. 내부 행정 데이터가 밖으로 나가거나 민간 모델의 학습에 쓰일 우려 때문입니다. 과기정통부와 행안부가 이 제약을 풀기 위해 중앙부처·지자체가 함께 쓰는 <b>'공통 AI 서비스'</b>를 업무망 안에 도입하는 선도사업을 추진합니다. 여기에 정부 안의 개발자 조직인 <b>'국민AI서비스혁신추진단'이 9월 출범</b>합니다. 8월 28일 시행되는 개정 AI·데이터기반행정법과 한 묶음으로 보시면 됩니다 — <b>공무원 책상 위의 도구가 바뀌는 일정표</b>가 이렇게 짜이고 있습니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 살아남음은 누군가 알아보고 곁에 두었다는 증거다</span></div>
+
+        <div class="pick"><span class="field">🕯 현존 · 삶</span>
+          <span class="title">인류는 어떻게 은행나무를 구했는가</span>
+          <a class="src" href="https://www.themarginalian.org/2026/08/13/ginkgo/" target="_blank" rel="noopener">The Marginalian (2026-08-13) ↗</a>
+          <p>포포바가 은행나무의 2억 년을 따라갑니다. 공룡보다 오래된 이 나무는 빙하기와 대멸종을 견디고도 <b>한때 야생에서 거의 사라졌습니다.</b> 다윈의 말이 인용됩니다 — <b>"희소함이 멸종에 앞선다."</b> 그런데 이 나무는 살아남았습니다. 중국의 승려들이 사찰 마당에 심어 돌보았기 때문입니다. 포포바가 붙인 결론이 오늘의 문장입니다 — <b>"구원은 언제나 사랑의 행위에 뿌리를 두고 있다."</b> 괴테가 1815년 은행잎 두 갈래를 두고 쓴 시가 함께 실립니다. 살아남음은 강함의 증거가 아니라, <b>누군가 그것을 알아보고 곁에 두었다는 증거</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미 · 철학</span>
+          <span class="title">가마와 관계의 양자</span>
+          <a class="src" href="https://www.themarginalian.org/2026/08/13/kiln-quantum/" target="_blank" rel="noopener">The Marginalian (2026-08-13) ↗</a>
+          <p>포포바가 도자기를 굽다가 카를로 로벨리의 『헬골란트』로 건너갑니다. 로벨리는 이렇게 씁니다 — <b>"세계는 서로 관계하는 실체들의 광대한 그물이며, 그것들은 서로 상호작용함으로써 비로소 나타난다."</b> 사물의 속성이란 다른 사물에 대해 작용하는 방식일 뿐이고, <b>"관계는 두 객체 중 어느 하나에 담겨 있지 않다. 그보다 더한 무엇이다."</b> 관계란 두 사람의 평균이 아니라 <b>둘 다를 넘어서는 제3의 것</b>이라는 말입니다. 흙과 불이 만나 그릇이 되듯이.</p></div>
+
+        <div class="pick"><span class="field">📜 고전 · 인문</span>
+          <span class="title">고정관념은 언제 유용한 도구이고, 언제 죄가 되는가</span>
+          <a class="src" href="https://aeon.co/essays/when-is-stereotyping-a-handy-tool-and-when-is-it-a-sin" target="_blank" rel="noopener">Aeon Essays (2026-08-10) ↗</a>
+          <p>제1회 에이온 철학상 수상작입니다. 논지의 핵심은 우리가 <b>두 개의 의무 사이에 끼여 있다</b>는 것입니다. 하나는 경험을 단순화해야 한다는 <b>인지적 의무</b> — 세상은 너무 복잡해서 범주 없이는 하루도 살 수 없습니다. 다른 하나는 사람을 그 사람의 구체성으로 대해야 한다는 <b>도덕적 의무</b>입니다. 이 둘은 화해하지 않습니다. 그러니 문제는 '고정관념을 갖지 않기'가 아니라, <b>어느 자리에서 범주를 내려놓아야 하는지를 아는 일</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기 · 창작</span>
+          <span class="title">고독은 도피가 아니라 주의(注意)의 밀도다</span>
+          <a class="src" href="https://stanforddaily.com/2026/05/24/culture-of-craft-solitude-ethics/" target="_blank" rel="noopener">The Stanford Daily (2026-05-24) ↗</a>
+          <p>글쓰기의 고독을 다르게 읽는 글입니다. 필자는 고독을 <b>"주의의 밀도이자 응축"</b>으로 봅니다. 기예(craft)는 한편으로 사회적 의무에서 물러나는 일이지만, 동시에 <b>사심 없는 주의의 능력을 벼리는 일</b>이라는 것. 그래서 홀로 쓰는 시간은 윤리적 책임에서 달아나는 게 아니라, <b>주의의 윤리를 모아 두고 연습하는 자리</b>가 됩니다. 새벽에 혼자 앉아 쓰는 사람이 왜 세상에서 도망친 게 아닌지에 대한, 가장 정확한 변호입니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문 · 에세이</span>
+          <span class="title">기억이 미래를 지킨다</span>
+          <a class="src" href="https://www.khan.co.kr/article/202608132117005/" target="_blank" rel="noopener">경향신문 (2026-08-13) ↗</a>
+          <p>어제 기림의 날, 전국의 추모 현장을 담은 기사입니다. 익산 기념사업회 상임대표의 말이 이렇습니다 — <b>"기억은 과거를 붙드는 일이 아니라 미래를 지키는 일이다."</b> 기억을 '보존'이 아니라 <b>'방어'</b>로 규정한 문장입니다. 지켜야 할 것이 과거가 아니라 미래라면, 기억하는 방식도 달라집니다. 보관은 창고에 두는 일이고, 방어는 <b>매일 다시 서는 일</b>입니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「꽃」 — 이육사 <span style="font-weight:400;font-size:13px;color:var(--muted)">(저작권 만료·전문)</span></p>
+          <p class="verse">동방은 하늘도 다 끝나고
+비 한 방울 나리잖는 그 땅에도
+오히려 꽃은 빨갛게 피지 않는가
+내 목숨을 꾸며 쉬임없는 날이여
+
+북쪽 툰드라에도 찬 새벽은
+눈 속 깊이 꽃 맹아리가 옴작거려
+제비떼 까맣게 날아오길 기다리나니
+마침내 저버리지 못할 약속이여
+
+한바다 복판 용솟음치는 곳
+바람결 따라 타오르는 꽃성에는
+나비처럼 취하는 회상의 무리들아
+오늘 내 여기서 너를 불러 보노라</p>
+          <p class="memo">배달 메모 — 광복절에 이육사를 다시 부릅니다(7월 13일 「청포도」·7월 29일 「광야」 이후 세 번째이나, 시는 처음입니다). 오늘 이 시를 고른 이유는 마지막 연 때문입니다. 앞의 두 연이 '그래도 핀다'는 <b>견딤의 노래</b>라면, 마지막 연은 <b>부르는 노래</b>입니다 — "오늘 내 여기서 너를 불러 보노라." 은행나무를 살린 것이 심은 손이었듯, 사라질 뻔한 것을 지키는 마지막 동작은 <b>이름을 불러 보는 일</b>입니다. 그리고 2연의 <b>"마침내 저버리지 못할 약속"</b> — 기억이 미래를 지킨다는 어제의 문장이 82년 전에 이미 시로 적혀 있었습니다. 광복절 아침, 소리 내어 한 번 읽어 보셔도 좋겠습니다. 🦊</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2><span class="sub">확인하지 못한 것과 뺀 것</span></div>
+        <div class="fog"><ul>
+          <li>에이온의 고정관념 에세이 원문은 서버가 요청을 거절해(429) 직접 열지 못했습니다. <b>직접 인용부호 없이 요약으로만</b> 적었고, 필자 이름은 확인하지 못해 적지 않았습니다.</li>
+          <li>어제 기림의 날 <b>정부 공식 기념식 장소</b>가 보도마다 다르게 전해집니다(충남 천안 국립망향의동산 / 서울 백범김구기념관). 직접 열어 확인한 경향신문 보도를 따랐습니다.</li>
+          <li>오늘 <b>대통령 경축사</b>는 이 브리핑을 짓는 시점에 발표 전이라 내용을 적지 않았습니다. <b>광복절 특별사면</b> 여부도 오늘까지 확인된 공식 발표가 없어 적지 않았습니다.</li>
+          <li>태풍 낭카의 위치·진로는 <b>8월 14일 발표 기준</b>입니다. 오늘 오전 갱신분은 반영하지 못했습니다.</li>
+          <li>이육사 「꽃」은 판본에 따라 표기(맹아리/움돋아 등)에 차이가 있습니다. 널리 쓰이는 표기를 따랐습니다.</li>
+          <li>닉 케이브의 '겸손과 호기심'이 오늘도 우물에 걸렸지만, 8월 12일 브리핑에 이미 실어 뺐습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘은 이름 하나만 불러 보시면 좋겠습니다. 범주 안에 묶여 있던 누군가를 꺼내어, 그 사람의 이름으로. 은행나무를 살린 것도 결국 그런 손이었습니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+  </div>
+</body>
+</html>
