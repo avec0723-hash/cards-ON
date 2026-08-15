@@ -279,7 +279,7 @@ function bindCard(done){
     $('#ans').classList.add('on');
     const en=$('#ans .en').textContent.replace('🔊','').trim();
     if(canSpeak)speak(en);
-    $('#act').innerHTML=`<div class="row"><button class="btn" id="b-again" style="border-color:var(--warn);color:var(--warn)">다시</button><button class="btn primary" id="b-ok">됐다</button></div>`;
+    $('#act').innerHTML=`<div class="row"><button class="btn" id="b-again" style="border-color:var(--warn);color:var(--warn)">Again</button><button class="btn primary" id="b-ok">OK</button></div>`;
     $('#b-ok').onclick=()=>done(true);$('#b-again').onclick=()=>done(false);
   };
 }
