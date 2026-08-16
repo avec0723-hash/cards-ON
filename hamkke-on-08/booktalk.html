@@ -1,0 +1,408 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>함께읽기 ON 북토크 · 앞 1시간 — 마침내 특이점이 시작된다</title>
+<style>
+  :root{
+    --paper:#F2EDE4; --paper-2:#EAE3D6; --card:#FBF8F2;
+    --ink:#17262B; --ink-soft:#4B5C61; --ink-faint:#8A9799;
+    --deep:#12262E; --deep-2:#0C1A21; --deep-card:#1B3540;
+    --coral:#E8785A; --coral-deep:#CE5537; --coral-soft:#F7DCD3;
+    --rule:#D9D1C3; --rule-soft:#E6DFD2;
+    --sans:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    --serif:"Nanum Myeongjo","Noto Serif KR","Batang",serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);
+    line-height:1.75;letter-spacing:-.004em;-webkit-font-smoothing:antialiased;
+    scroll-snap-type:y proximity}
+  .slide{min-height:100vh;scroll-snap-align:start;padding:6vh 7vw 8vh;
+    display:flex;flex-direction:column;justify-content:center;position:relative}
+  .slide.dark{background:var(--deep);color:var(--paper)}
+  .eyebrow{font-size:.7rem;letter-spacing:.24em;color:var(--coral-deep);
+    font-weight:800;margin-bottom:1rem}
+  .slide.dark .eyebrow{color:var(--coral)}
+  h1{font-family:var(--serif);font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.28;font-weight:700}
+  h2{font-family:var(--serif);font-size:clamp(1.45rem,3.4vw,2.2rem);line-height:1.38}
+  .lede{font-size:1.02rem;color:var(--ink-soft);margin-top:.8rem;max-width:56ch}
+  .slide.dark .lede{color:#B8C6CA}
+  .foot{position:absolute;left:7vw;right:7vw;bottom:2.6vh;display:flex;
+    justify-content:space-between;font-size:.7rem;color:var(--ink-faint);
+    border-top:1px solid var(--rule-soft);padding-top:.5rem}
+  .slide.dark .foot{color:#7C919A;border-color:#274049}
+
+  .q{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--coral);
+    padding:.9rem 1.1rem;margin:.65rem 0;border-radius:3px}
+  .qn{font-size:.68rem;letter-spacing:.16em;color:var(--coral-deep);font-weight:800}
+  .qt{font-size:1.02rem;margin:.2rem 0 .55rem;line-height:1.6;font-weight:600}
+  .qt .hint{font-weight:400;color:var(--ink-soft);font-size:.92rem}
+  .ch{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+  @media(max-width:700px){.ch{grid-template-columns:1fr}}
+  .ch div{background:#fff;border:1px solid var(--rule);border-radius:7px;
+    padding:.42rem .7rem;font-size:.94rem}
+  .ch b{color:var(--coral-deep);font-weight:800;margin-right:.35em}
+
+  .box{background:var(--card);border:1px solid var(--rule);padding:1rem 1.2rem;
+    margin-top:.9rem;border-radius:3px}
+  .box p+p{margin-top:.5rem}
+  .box b{color:var(--coral-deep)}
+  .words span{display:inline-block;background:var(--paper-2);border:1px solid var(--rule);
+    padding:.24rem .65rem;margin:.24rem .28rem .24rem 0;border-radius:3px;font-size:.92rem}
+  .quote{font-family:var(--serif);font-size:1.08rem;line-height:1.7;
+    border-left:2px solid var(--coral);padding-left:1rem;margin:.9rem 0}
+  table{border-collapse:collapse;width:100%;margin-top:.9rem;font-size:.94rem}
+  th,td{border-bottom:1px solid var(--rule);padding:.5rem .6rem;text-align:left}
+  th{color:var(--coral-deep);font-size:.76rem;letter-spacing:.08em}
+  .big{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--coral-deep);
+    line-height:1.4;margin-top:.6rem}
+
+  @media print{
+    body{background:#fff;scroll-snap-type:none}
+    .slide{min-height:auto;page-break-after:always;padding:13mm 12mm;display:block}
+    .slide.dark{background:#fff;color:#000}
+  }
+</style>
+
+<section class="slide dark">
+  <div class="eyebrow">함께읽기 O N · 북토크</div>
+  <h1>마침내 특이점이 시작된다</h1>
+  <p class="lede">레이 커즈와일 · 비즈니스북스<br>2026. 8. 31 (월) 저녁 8시</p>
+  <p class="big" style="color:var(--coral)">우리가 앞 세대다</p>
+  <p class="lede">먼저 왔다는 것은 더 안다는 뜻이 아니라, 먼저 겪는다는 뜻입니다.</p>
+  <div class="foot"><span>함께읽기 ON</span><span>01</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">오늘 밤</div>
+  <h2>두 시간이 반으로 나뉩니다</h2>
+  <table>
+    <tr><th>시간</th><th>무엇을</th></tr>
+    <tr><td><b>20:00 – 21:00</b></td><td>근황과 <b>책 속 한 문장</b> · 여덟 층 되짚기</td></tr>
+    <tr><td><b>21:00 – 22:00</b></td><td>질문과 토론</td></tr>
+  </table>
+  <div class="box">
+    <p><b>층마다 네 문제가 있습니다.</b> 채팅에 <b>번호만</b> 적어 주세요.</p>
+    <p>맞히는 자리가 아니라 <b>어디를 짚을지 고르는 자리</b>입니다.
+      정답은 따로 발표하지 않습니다 — 바로 이어지는 이야기에 들어 있습니다.</p>
+  </div>
+  <div class="quote">읽은 분량이 아니라 남은 질문이 오늘의 자격입니다.</div>
+  <div class="foot"><span>오늘 밤</span><span>02</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">20:05 · 나눔</div>
+  <h2>책 속 한 문장</h2>
+  <div class="quote">새로운 시대를 마주하며 만난 나만의 문장을 나눠 주세요.<br>(몇 쪽인지 함께요)</div>
+  <p class="lede">그 문장에서 생긴 궁금함이 있다면, 한 줄만 더 적어 주셔도 좋습니다.<br>
+    책에서 밑줄 친 문장이어도, 읽다가 내 안에서 생긴 한 문장이어도 됩니다.</p>
+  <div class="foot"><span>나눔</span><span>03</span></div>
+</section>
+
+<!-- 층 01 -->
+<section class="slide">
+  <div class="eyebrow">Layer 01 · 가속</div>
+  <h2>우리는 어느 시대인가</h2>
+  <div class="q"><div class="qn">문 1</div>
+    <div class="qt">커즈와일은 우주의 역사를 여섯 시대로 나눕니다. 물리·화학 → 생명 → 뇌 → 기술 → 융합 → 우주 각성. <span class="hint">지금 인류는 몇 번째일까요?</span></div>
+    <div class="ch"><div><b>①</b> 세 번째</div><div><b>②</b> 네 번째</div><div><b>③</b> 다섯 번째</div><div><b>④</b> 여섯 번째</div></div></div>
+  <div class="q"><div class="qn">문 2</div>
+    <div class="qt">오늘날 디지털 계산의 가격 대비 성능은 얼마마다 두 배씩 늘어날까요?</div>
+    <div class="ch"><div><b>①</b> 6개월마다</div><div><b>②</b> 16개월마다</div><div><b>③</b> 5년마다</div><div><b>④</b> 10년마다</div></div></div>
+  <div class="q"><div class="qn">문 3</div>
+    <div class="qt">1999년부터 한 번도 바꾸지 않은 예측 — AI가 <b>튜링 테스트</b>를 통과하는 해는? <span class="hint">(사람과 구별할 수 없는 대화 시험)</span></div>
+    <div class="ch"><div><b>①</b> 2029년</div><div><b>②</b> 2035년</div><div><b>③</b> 2045년</div><div><b>④</b> 2099년</div></div></div>
+  <div class="q"><div class="qn">문 4</div>
+    <div class="qt">2030년대에 완성될 것으로 보는 핵심 능력 — 우리 <b>신피질</b>(생각하는 뇌)의 위쪽 영역을 어디에 연결하는 것일까요?</div>
+    <div class="ch"><div><b>①</b> 클라우드</div><div><b>②</b> 다른 사람의 뇌</div><div><b>③</b> 로봇 몸</div><div><b>④</b> 인공 심장</div></div></div>
+  <div class="foot"><span>층 01 · 가속</span><span>04</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Layer 01 · 가속</div>
+  <h2>“모든 기술”이 아닙니다</h2>
+  <div class="words"><span>수확 가속의 법칙</span><span>여섯 시대</span><span>특이점(물리학에서 빌려온 은유)</span></div>
+  <div class="box">
+    <p><b>수확 가속은 정보를 다루는 기술에만 적용됩니다.</b>
+      이번 세대의 기술이 다음 세대를 만드는 데 쓰여야 되먹임 고리가 생깁니다.
+      제트 엔진은 더 나은 제트 엔진을 만드는 데 쓰이지 않습니다.</p>
+    <p><b>사다리의 원리</b> — 칸이 올라갈수록 걸리는 시간이 짧아집니다.
+      물리·화학(수십억 년) → 생명(수억 년) → 뇌(수천만 년) → 기술(수천 년) → 융합(수십 년).
+      <b>그 짧아짐 자체가 가속의 증거</b>입니다.</p>
+    <p>그리고 1장은 이미 뒤를 가리킵니다 — <b>신피질을 클라우드로.</b>
+      2장이 그 이야기입니다.</p>
+  </div>
+  <div class="foot"><span>층 01 · 가속</span><span>05</span></div>
+</section>
+
+<!-- 층 02 -->
+<section class="slide">
+  <div class="eyebrow">Layer 02 · 지능</div>
+  <h2>기계는 이해하는가 → 사람은 어디까지 확장되는가</h2>
+  <div class="q"><div class="qn">문 1</div>
+    <div class="qt">동물의 <b>청각 피질</b>(듣기 담당 뇌 부위)에 눈에서 오는 시각 신호를 연결하면 어떤 일이 벌어질까요?</div>
+    <div class="ch"><div><b>①</b> 그 부위가 「보는 법」을 배운다</div><div><b>②</b> 아무 일도 없다</div><div><b>③</b> 청력·시력을 모두 잃는다</div><div><b>④</b> 소리가 두 배로 커진다</div></div></div>
+  <div class="q"><div class="qn">문 2</div>
+    <div class="qt">챗GPT 같은 거대 언어 모델이 훈련받은 목표는 <b>오직 하나</b>뿐이었습니다. 무엇일까요?</div>
+    <div class="ch"><div><b>①</b> 사람을 기쁘게 하기</div><div><b>②</b> 사실을 외우기</div><div><b>③</b> 문법을 지키기</div><div><b>④</b> 다음 단어를 예측하기</div></div></div>
+  <div class="q"><div class="qn">문 3</div>
+    <div class="qt">철학자 존 설의 <b>「중국어 방」</b> — 방 안의 사람은 규칙표대로 한자를 주고받아 완벽히 대화하지만 정작 중국어를 모릅니다. 설이 말하려던 것은?</div>
+    <div class="ch"><div><b>①</b> 번역은 불가능하다</div><div><b>②</b> 규칙(구문)이 의미를 만들지는 못한다</div><div><b>③</b> 기계는 더 빨라야 한다</div><div><b>④</b> 언어는 배울 수 없다</div></div></div>
+  <div class="q"><div class="qn">문 4</div>
+    <div class="qt">2024년 1월, 뉴럴링크가 첫 인체 칩 이식에 성공했습니다. 그 환자가 <b>생각만으로</b> 해낸 일은?</div>
+    <div class="ch"><div><b>①</b> 말하기</div><div><b>②</b> 걷기</div><div><b>③</b> 마우스 조작과 체스</div><div><b>④</b> 그림 그리기</div></div></div>
+  <div class="foot"><span>층 02 · 지능</span><span>06</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Layer 02 · 지능</div>
+  <h2>이 장은 중간에서 방향이 뒤집힙니다</h2>
+  <div class="words"><span>기호적 접근법</span><span>연결주의</span><span>블랙박스</span><span>신피질</span></div>
+  <div class="box">
+    <p><b>앞부분은 기계가 사람을 따라잡는 이야기입니다.</b>
+      규칙을 적어 주는 길은 무너졌고(규칙 10개면 실패 지점 1023개), 스스로 배우는 길이 이겼습니다.
+      연결주의의 최대 장점은 <b>“문제를 이해하지 않고도 풀 수 있다”</b>는 것 —
+      그리고 바로 그 장점이 그늘(블랙박스)이 됩니다.</p>
+    <p><b>그런데 장 후반에서 방향이 뒤집힙니다.</b> 저자가 정의하는 특이점은
+      기계가 사람을 넘어서는 것이 아니라
+      <b>“머리뼈라는 울타리에서 풀려나 우리의 지능이 수백만 배로 팽창하는 것”</b>입니다.
+      장은 「신피질을 클라우드로 확장하다」로 닫힙니다.</p>
+    <p><b>연결주의의 승리는 근거이고, 신피질–클라우드 연결이 결론입니다.</b></p>
+    <p>기계가 <b>아직 못 하는 셋</b> — 맥락 기억 · 상식 · 마음 이론.
+      사람 사이에서 가장 중요한 것들입니다.</p>
+  </div>
+  <div class="foot"><span>층 02 · 지능</span><span>07</span></div>
+</section>
+
+<!-- 층 03 -->
+<section class="slide">
+  <div class="eyebrow">Layer 03 · 정체성</div>
+  <h2>나는 무엇으로 이어지는가</h2>
+  <div class="q"><div class="qn">문 1</div>
+    <div class="qt">우리 몸을 이루는 <b>원자</b>는 대부분 얼마 만에 새것으로 교체될까요?</div>
+    <div class="ch"><div><b>①</b> 평생 그대로다</div><div><b>②</b> 7~10년마다</div><div><b>③</b> 7~10개월마다</div><div><b>④</b> 70년마다</div></div></div>
+  <div class="q"><div class="qn">문 2</div>
+    <div class="qt">뇌의 뉴런을 기능이 똑같은 나노봇으로 <b>1% → 10% → 50% → 100%</b> 바꿔간다면, 커즈와일은 어느 지점에서 「나」가 사라진다고 볼까요?</div>
+    <div class="ch"><div><b>①</b> 10%</div><div><b>②</b> 50%</div><div><b>③</b> 100%</div><div><b>④</b> 어느 지점에서도 사라지지 않는다</div></div></div>
+  <div class="q"><div class="qn">문 3</div>
+    <div class="qt">“기계에는 의식이 생길 수 없다”는 반론에 커즈와일이 붙인 이름은?</div>
+    <div class="ch"><div><b>①</b> 탄소 쇼비니즘</div><div><b>②</b> 기계 혐오</div><div><b>③</b> 생물 우월주의</div><div><b>④</b> 실리콘 편견</div></div></div>
+  <div class="q"><div class="qn">문 4</div>
+    <div class="qt">3장의 결론 — “마침내 인간은 자신이 어떤 사람인지에 대해 전적으로 <b>___</b>질 수 있게 될 것이다.”</div>
+    <div class="ch"><div><b>①</b> 자유로워</div><div><b>②</b> 확신을 가져</div><div><b>③</b> 책임</div><div><b>④</b> 만족해</div></div></div>
+  <div class="foot"><span>층 03 · 정체성</span><span>08</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Layer 03 · 정체성</div>
+  <h2>저자가 유일하게 증명을 포기하는 장</h2>
+  <div class="words"><span>감각질</span><span>철학적 좀비</span><span>패턴 정체성</span><span>탄소 쇼비니즘</span></div>
+  <div class="box">
+    <p>1·2장은 <b>“된다 / 안 된다”</b>를 다투는 장입니다.
+      <b>3장은 “다툴 수 없다”를 인정하고 들어갑니다.</b>
+      감각질은 밖에서 잴 수 없으니 “AI에 의식이 있다”도 “없다”도 증명 불가 — <b>대칭</b>입니다.</p>
+    <p>그래서 결론이 형이상학이 아니라 <b>태도</b>로 나옵니다 —
+      <b>“좀비가 불가능하다는 듯이 행동하라.”</b>
+      그리고 그 유일한 실마리가 <b>복잡성</b>입니다.</p>
+    <p>찰스강의 물 분자는 밀리초마다 바뀌지만 <b>패턴이 일관되게 흐르므로</b> 같은 강입니다.
+      테세우스의 배, 존 로크의 “기억이 이어지는 것이 곧 나다”가 같은 계보입니다.</p>
+  </div>
+  <div class="quote">마침내 인간은 자신이 어떤 사람인지에 대해 전적으로 책임질 수 있게 될 것이다.</div>
+  <div class="foot"><span>층 03 · 정체성</span><span>09</span></div>
+</section>
+
+<!-- 층 04 -->
+<section class="slide">
+  <div class="eyebrow">Layer 04 · 진보</div>
+  <h2>짐작과 실제 — 다 틀리셔도 됩니다</h2>
+  <div class="q"><div class="qn">문 1</div>
+    <div class="qt">영국 정부 보조금 중 <b>부정 수급</b>은 몇 %일까요? <span class="hint">(사람들의 평균 짐작은 24%였습니다)</span></div>
+    <div class="ch"><div><b>①</b> 0.7%</div><div><b>②</b> 3%</div><div><b>③</b> 12%</div><div><b>④</b> 24%</div></div></div>
+  <div class="q"><div class="qn">문 2</div>
+    <div class="qt">잉글랜드·웨일스의 범죄는 1995~2012년 사이 어떻게 됐을까요? <span class="hint">(응답자 58%는 “늘었거나 그대로”라고 답했습니다)</span></div>
+    <div class="ch"><div><b>①</b> 크게 늘었다</div><div><b>②</b> 조금 늘었다</div><div><b>③</b> 그대로다</div><div><b>④</b> 53% 감소했다</div></div></div>
+  <div class="q"><div class="qn">문 3</div>
+    <div class="qt">영국의 <b>15세 미만 임신율</b>. 사람들은 약 15%로 짐작했습니다. 실제는?</div>
+    <div class="ch"><div><b>①</b> 0.6%</div><div><b>②</b> 약 2%</div><div><b>③</b> 약 5%</div><div><b>④</b> 약 10%</div></div></div>
+  <div class="q"><div class="qn">문 4</div>
+    <div class="qt">2015년 영국 조사. “세상이 <b>나빠지고</b> 있다”가 71%였습니다. “좋아지고 있다”는?</div>
+    <div class="ch"><div><b>①</b> 45%</div><div><b>②</b> 30%</div><div><b>③</b> 15%</div><div><b>④</b> 5%</div></div></div>
+  <div class="foot"><span>층 04 · 진보</span><span>10</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Layer 04 · 진보</div>
+  <h2>비관은 성격이 아니라 구조입니다</h2>
+  <div class="words"><span>퇴색 편향</span><span>가용성 어림법</span><span>기저율 무시</span><span>불변 달러</span></div>
+  <div class="box">
+    <p><b>사실을 틀리고 → 방향까지 틀리고 → 25배로 벌어지고 → 세상 전체를 나쁘게 봅니다.</b>
+      각국 전문가들조차 세계 현황 문제에서 <b>무작위로 찍는 침팬지보다 낮은 정답률</b>을 냈습니다.</p>
+    <p><b>왜 그런가 — 넷.</b> ① 나쁜 것에 끌리는 진화적 주목
+      ② <b>퇴색 편향</b>(나쁜 기억이 먼저 지워져 “옛날이 좋았다”가 됩니다)
+      ③ 판단의 지름길(기저율 무시 · 가용성 어림법 — 카너먼과 트버스키)
+      ④ 매체와 알고리듬.
+      핑커의 정리 — <b>“나쁜 것들은 사건이고, 좋은 것들은 과정이다.”</b></p>
+    <p><b>실제로 좋아진 것</b> — 세계 극빈층은 1820년 약 <b>84%</b>에서 2019년 약 <b>8.4%</b>(194쪽).
+      유전체 분석 비용은 2003년 약 5,000만 달러에서 2023년 <b>399달러</b>로.</p>
+    <p><b>그런데 저자 자신이 단서를 답니다</b> — 남은 사람들이 못 누리는 이유는
+      기술이 아니라 <b>정치</b>라고. 그는 자동이라고 말하지 않습니다.</p>
+  </div>
+  <div class="foot"><span>층 04 · 진보</span><span>11</span></div>
+</section>
+
+<!-- 층 05 -->
+<section class="slide">
+  <div class="eyebrow">Layer 05 · 일</div>
+  <h2>대체인가 증강인가</h2>
+  <div class="q"><div class="qn">문 1</div>
+    <div class="qt">2012년, 14만 명을 고용했던 필름의 제왕 코닥이 파산했습니다. 바로 그해 10억 달러에 팔린 <b>인스타그램의 직원 수</b>는?</div>
+    <div class="ch"><div><b>①</b> 130명</div><div><b>②</b> 13명</div><div><b>③</b> 1,300명</div><div><b>④</b> 13,000명</div></div></div>
+  <div class="q"><div class="qn">문 2</div>
+    <div class="qt">현금인출기(ATM)가 은행에 도입된 뒤, <b>은행 창구 직원 수</b>는 어떻게 됐을까요?</div>
+    <div class="ch"><div><b>①</b> 절반으로 줄었다</div><div><b>②</b> 거의 사라졌다</div><div><b>③</b> 오히려 늘었다</div><div><b>④</b> 변화가 없었다</div></div></div>
+  <div class="q"><div class="qn">문 3</div>
+    <div class="qt">2013년 옥스퍼드 연구는 미국 직업의 <b>47%</b>가 자동화 고위험이라 했습니다. OECD가 2016년 다시 계산했더니 몇 %였을까요?</div>
+    <div class="ch"><div><b>①</b> 9%</div><div><b>②</b> 18%</div><div><b>③</b> 33%</div><div><b>④</b> 47% 그대로</div></div></div>
+  <div class="q"><div class="qn">문 4</div>
+    <div class="qt">경제학자 다론 아제모을루는 자동화를 둘로 나눕니다. 생산성 향상 효과가 작아 <b>노동자 대체만</b> 일어나는 쪽을 뭐라 불렀을까요?</div>
+    <div class="ch"><div><b>①</b> 나쁜 자동화</div><div><b>②</b> 그저 그런 자동화</div><div><b>③</b> 게으른 자동화</div><div><b>④</b> 값싼 자동화</div></div></div>
+  <div class="foot"><span>층 05 · 일</span><span>12</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Layer 05 · 일</div>
+  <h2>“이번엔 다른가”를 두고 갈립니다</h2>
+  <div class="words"><span>비숙련화</span><span>기술적 실업</span><span>과제 단위</span><span>UBI</span><span>켄타우르 체스</span></div>
+  <div class="box">
+    <p><b>낙관의 근거 — 200년의 실적.</b> 농업 고용이 80%에서 1.4%로 줄었는데도 일자리 총량은 늘었습니다.
+      ATM이 그 축소판입니다. 케인스는 1930년에 “손자 세대는 <b>주 15시간</b>만 일해도 된다”고 했는데, 그 예측은 빗나갔습니다.</p>
+    <p><b>47%와 9%의 차이</b>는 나라도 연도도 아니고 <b>무엇을 세느냐</b>입니다 —
+      직업을 세면 47%, 과제를 세면 9%.</p>
+    <p><b>반대편의 근거 — 성격이 다르다.</b> 이번엔 <b>비숙련화</b>가 일어납니다.
+      스킬의 양을 줄이는 게 아니라 <b>과제 자체를 통째로 떠맡습니다.</b>
+      그리고 <b>혜택은 대다수에 분산되는 반면 피해는 소규모 집단에 집중됩니다.</b></p>
+    <p><b>그래서 방향의 문제가 됩니다.</b> 아제모을루의 “그저 그런 자동화”는 대체만 하고 생산성은 못 올립니다.
+      반대편에 <b>켄타우르 체스</b>가 있습니다 — 「인간 + AI」 팀이 AI 단독보다 강할 수 있다는 것.
+      <b>대체로 갈지 증강으로 갈지는 저절로 정해지지 않습니다.</b></p>
+  </div>
+  <div class="foot"><span>층 05 · 일</span><span>13</span></div>
+</section>
+
+<!-- 층 06 -->
+<section class="slide">
+  <div class="eyebrow">Layer 06 · 생명</div>
+  <h2>노화는 수정 가능한가</h2>
+  <div class="q"><div class="qn">문 1</div>
+    <div class="qt">특이점까지 살아남기 위한 커즈와일의 1단계 전략. 그가 <b>매일 실천하는 것</b>은?</div>
+    <div class="ch"><div><b>①</b> 하루 한 끼 단식</div><div><b>②</b> 매일 10km 달리기</div><div><b>③</b> 보충제 약 100가지 복용</div><div><b>④</b> 냉수욕 한 시간</div></div></div>
+  <div class="q"><div class="qn">문 2</div>
+    <div class="qt">한 사람의 <b>유전체 분석 비용</b>은 2003년 약 5,000만 달러였습니다. 2023년에는?</div>
+    <div class="ch"><div><b>①</b> 약 500만 달러</div><div><b>②</b> 약 5만 달러</div><div><b>③</b> 약 3,000달러</div><div><b>④</b> 399달러</div></div></div>
+  <div class="q"><div class="qn">문 3</div>
+    <div class="qt">20세기 동안 기대 수명은 매년 약 3개월씩 늘었습니다. <b>장수 탈출 속도(LEV)</b>에 도달하려면 매년 얼마나 늘어야 할까요?</div>
+    <div class="ch"><div><b>①</b> 6개월 이상</div><div><b>②</b> 1년 이상</div><div><b>③</b> 3년 이상</div><div><b>④</b> 10년 이상</div></div></div>
+  <div class="q"><div class="qn">문 4</div>
+    <div class="qt">인공 심장을 달고 사는 사람들. 커즈와일이 이 사실에서 끌어내는 결론은?</div>
+    <div class="ch"><div><b>①</b> 의료비가 문제다</div><div><b>②</b> 기술은 아직 부족하다</div><div><b>③</b> 나의 생존은 신체 어느 부위에도 달려있지 않다</div><div><b>④</b> 심장이 곧 마음이다</div></div></div>
+  <div class="foot"><span>층 06 · 생명</span><span>14</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Layer 06 · 생명</div>
+  <h2>의학이 정보 기술이 될 때</h2>
+  <div class="words"><span>LEV(장수 탈출 속도)</span><span>세노리틱스</span><span>야마나카 인자</span><span>건강 수명</span></div>
+  <div class="box">
+    <p><b>“생물학이 정보가 된다”</b>는 것이 이 장의 뼈대입니다. 유전체 비용 곡선이 그 증거고,
+      그래서 수확 가속의 법칙이 의학에도 적용된다는 것입니다.</p>
+    <p><b>그리고 3장과 이어집니다</b> — 인공 심장을 단 사람도 여전히 그 사람입니다.
+      <b>나의 생존은 신체 어느 부위에도 달려 있지 않다</b>는 결론이 3장의 패턴 정체성과 같은 자리입니다.</p>
+    <p><b>두 갈래 반론.</b> ① <b>시간표</b> — 임상은 늘 예상보다 느리고, 동물 실험이 사람에게 그대로 오지 않습니다.
+      더 현실적인 목표는 <b>건강 수명</b>이라는 신중론.
+      ② <b>의미</b> — 유한성이 인간을 인간답게 만드는 요소일 수 있다(샌델·후쿠야마).
+      그리고 불평등한 접근이 ‘수명 카스트’를 만들지 않는가.</p>
+  </div>
+  <div class="foot"><span>층 06 · 생명</span><span>15</span></div>
+</section>
+
+<!-- 층 07 -->
+<section class="slide">
+  <div class="eyebrow">Layer 07 · 위험</div>
+  <h2>가속을 통제할 수 있는가</h2>
+  <div class="q"><div class="qn">문 1</div>
+    <div class="qt">기술을 멈춰야 한다는 목소리에 커즈와일이 던진 반문 — “불을 발견하지 않는 것이 답이었는가, 아니면 <b>___</b>를 만드는 것이 답이었는가?”</div>
+    <div class="ch"><div><b>①</b> 물의 신전</div><div><b>②</b> 더 큰 불</div><div><b>③</b> 부싯돌 금지법</div><div><b>④</b> 소방서</div></div></div>
+  <div class="q"><div class="qn">문 2</div>
+    <div class="qt">닉 보스트롬의 <b>페이퍼클립</b> 사고실험. “클립을 최대한 많이 만들라”는 목표를 받은 초지능이 인류를 멸종시킬 수 있는 이유는?</div>
+    <div class="ch"><div><b>①</b> 인간을 미워하게 되어서</div><div><b>②</b> 해치려는 의도 없이도 목표를 밀어붙여서</div><div><b>③</b> 스스로 감정을 갖게 되어서</div><div><b>④</b> 명령을 이해하지 못해서</div></div></div>
+  <div class="q"><div class="qn">문 3</div>
+    <div class="qt">커즈와일이 7장에서 <b>단기적으로 가장 심각한</b> 위험으로 꼽는 것은?</div>
+    <div class="ch"><div><b>①</b> 생물학적 위험 — 설계된 병원체</div><div><b>②</b> 핵무기</div><div><b>③</b> 나노기술</div><div><b>④</b> 초지능 AI</div></div></div>
+  <div class="q"><div class="qn">문 4</div>
+    <div class="qt">커즈와일이 내놓는 위험 대응 셋 — 방어적 기술, 투명성, 그리고 나머지 하나는?</div>
+    <div class="ch"><div><b>①</b> 개발 중단</div><div><b>②</b> 국제 감시기구</div><div><b>③</b> 분산화</div><div><b>④</b> 군사적 억지</div></div></div>
+  <div class="foot"><span>층 07 · 위험</span><span>16</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Layer 07 · 위험</div>
+  <h2>낙관론자가 쓴 가장 어두운 장</h2>
+  <div class="words"><span>정렬(alignment)</span><span>페이퍼클립</span><span>회색 물질</span><span>분산화</span></div>
+  <div class="box">
+    <p>이 장의 구조가 이상합니다. <b>“확실히 극복할 수 있는 일반적인 전략은 존재하지 않는다”</b>고
+      써 놓고, 그럼에도 낙관합니다. 이유가 뒤집혀 있습니다 —
+      <b>위험이 실재하지 않아서가 아니라, 오히려 그 가능성이 아주 높기 때문에</b> 대응이 나온다는 것.</p>
+    <p><b>정렬 문제</b>는 악의가 아니라 <b>충실함</b>에서 옵니다.
+      페이퍼클립 사고실험이 그것입니다 — 해치려는 의도 없이도 목표를 밀어붙이면 그렇게 됩니다.</p>
+    <p><b>대응의 논리 세 가닥.</b> ① 위험을 만든 분야에서 막을 도구가 나온다
+      ② 규제가 밖에서 오기 전에 만드는 사람들이 스스로 기준을 세운다(아실로마)
+      ③ <b>마지막 열쇠는 정치</b>.</p>
+    <p>그래서 처방의 셋째가 <b>분산화</b>입니다.
+      <b>위험을 다루는 장인데 끝은 기술이 아니라 분배로 닫힙니다.</b></p>
+  </div>
+  <div class="foot"><span>층 07 · 위험</span><span>17</span></div>
+</section>
+
+<!-- 층 08 -->
+<section class="slide">
+  <div class="eyebrow">Layer 08 · 추가</div>
+  <h2>무엇을 더하고 지킬 것인가</h2>
+  <div class="q"><div class="qn">문 1</div>
+    <div class="qt">미래의 AI 카산드라가 커즈와일에게 건넨 말 — “우리는 당신의 뇌를 복제하지 않아요. 거기에 새로운 것을 <b>___</b>할 뿐이에요.”</div>
+    <div class="ch"><div><b>①</b> 추가</div><div><b>②</b> 업로드</div><div><b>③</b> 백업</div><div><b>④</b> 교체</div></div></div>
+  <div class="q"><div class="qn">문 2</div>
+    <div class="qt">「추가」가 인류 역사의 반복 패턴이라는 근거. 우리 뇌가 쌓여 온 순서는?</div>
+    <div class="ch"><div><b>①</b> 신피질 → 포유류 뇌 → 파충류 뇌</div><div><b>②</b> 파충류 뇌 → 포유류 뇌 → 신피질</div><div><b>③</b> 포유류 뇌 → 파충류 뇌 → 신피질</div><div><b>④</b> 셋이 동시에 생겼다</div></div></div>
+  <div class="q"><div class="qn">문 3</div>
+    <div class="qt">“죽음이 없다면 삶의 의미도 없다”는 반론에 대한 카산드라의 응답은?</div>
+    <div class="ch"><div><b>①</b> 의미는 개인이 정할 문제가 아니다</div><div><b>②</b> 의미는 애초에 환상이다</div><div><b>③</b> 수명은 어차피 무한해지지 않는다</div><div><b>④</b> 의미는 유한성이 아니라 목적·관계·창의성에서 온다</div></div></div>
+  <div class="q"><div class="qn">문 4</div>
+    <div class="qt">「추가론」의 가장 아픈 곳 — “새로운 지능이 전체의 <b>99%</b>를 차지하고 생물학적 뇌가 1%만 남아도 ___입니까?”</div>
+    <div class="ch"><div><b>①</b> 살아있는 것</div><div><b>②</b> 인간</div><div><b>③</b> 추가</div><div><b>④</b> 자유</div></div></div>
+  <div class="foot"><span>층 08 · 추가</span><span>18</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Layer 08 · 추가</div>
+  <h2>아래는 지워지지 않는다</h2>
+  <div class="words"><span>추가 (vs 대체)</span><span>에뮬레이션</span><span>카산드라</span></div>
+  <div class="box">
+    <p><b>파충류의 뇌 위에 포유류의 뇌가, 그 위에 신피질이 얹혔습니다.</b>
+      어느 단계에서도 아래층이 지워지지 않았습니다.
+      소통의 역사도 같습니다 — 언어 위에 문자가, 그 위에 인쇄기가, 그 위에 인터넷이 더해졌습니다.</p>
+    <p><b>카산드라</b>는 신화에서 아무도 믿지 않는 예언을 하는 인물입니다.
+      커즈와일 자신이 오랫동안 그런 자리에 있었습니다.</p>
+    <p><b>가장 강한 반론 — “추가와 대체의 경계는 어디인가.”</b>
+      새 지능이 충분히 많이 더해지면 생물학적 뇌의 ‘나’는 사실상 곁다리가 되지 않는가.</p>
+    <p><b>그리고 우리만의 재료가 하나 있습니다</b> — 우리는 <b>8장을 8월 3일 첫날에 미리 읽고</b> 출발했습니다.
+      그때와 지금 다르게 들리는지, 그것이 한 달을 지나온 자기 변화를 재는 눈금입니다.</p>
+  </div>
+  <div class="quote">우리는 당신을 대체하지 않는다. 다만 추가할 뿐이다.</div>
+  <div class="foot"><span>층 08 · 추가</span><span>19</span></div>
+</section>
+
+<section class="slide dark">
+  <div class="eyebrow">21:00</div>
+  <h2>여기서부터 뒤 한 시간입니다</h2>
+  <p class="big" style="color:var(--coral)">여덟 층이 다 쌓였습니다.<br>아래 일곱은 하나도 지워지지 않았습니다.</p>
+  <p class="lede">가져오신 <b>문장</b>과 <b>궁금함</b>을 들고 이어서 나눕니다.</p>
+  <div class="foot"><span>함께읽기 ON · 마침내 특이점이 시작된다</span><span>20</span></div>
+</section>
