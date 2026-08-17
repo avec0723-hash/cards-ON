@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-08-17 (월)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;       /* 디퍼 초록 */
+    --green-soft:#2C6249;
+    --gold:#B8912E;        /* 금빛 */
+    --gold-soft:#D9C48A;
+    --cream:#F7F1E3;       /* 크림 */
+    --paper:#FBF7EC;
+    --ink:#2B2B26;
+    --muted:#6B6459;
+    --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;
+    padding:40px 44px 34px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  /* ── Body ── */
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  /* News */
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  /* Reading picks (글감 분야) */
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:0 0 16px;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+  .seed{font-size:16px;margin:0 0 14px;}
+  .seed b{color:var(--green-soft);}
+  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
+    font-size:15.5px;line-height:1.85;}
+  .pause b{color:var(--gold-soft);}
+
+  /* Poem letter */
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  /* Claude lesson */
+  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
+  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
+  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
+  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
+  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
+    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+
+  /* Fog */
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  /* Closing */
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 8월 17일 · 월요일</p>
+      <p class="opening">폭염특보가 <b>38일 만에</b> 풀렸습니다. 물러간 자리에 곧바로 물폭탄이 들이쳤으니, 여름은 끝난 게 아니라 <b>얼굴을 바꾼</b> 셈입니다.<br>
+      오늘 등대에 걸린 글들이 한결같이 한 곳을 가리킵니다 — <b>마음이 자꾸 돌아가는 자리</b>. 흘려보내지 말고 한 번 들여다보라고.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 지방의회법, 연내 제정으로 갑니다</span>
+          <a class="src" href="https://www.kihoilbo.co.kr/news/articleView.html?idxno=3031649" target="_blank" rel="noopener">기호일보 (08-13) ↗</a>
+          <a class="src" href="https://www.cctoday.co.kr/news/articleView.html?idxno=2234911" target="_blank" rel="noopener">충청투데이 (08-13) ↗</a>
+          <p>행정안전부가 <b>8월 13일</b> 지방의회법의 <b>연내 제정 추진</b> 방침을 내놨습니다. 지금까지 지방의회는 독립된 법률 없이 지방자치법의 한 장으로만 규율돼 왔습니다. 새 법에는 민간위원으로 구성하는 <b>윤리심사자문위원회</b>, 지방의원의 <b>겸직 신고와 영리 행위 연관성 심사</b>, <b>사적 이해관계자 등록·공개 의무</b>, <b>부적정 수의계약 재검토 권고</b>가 담깁니다. 같은 묶음으로 <b>편법적 수의계약 방지·지방공무원 횡령 방지</b> 대책도 함께 갑니다. 인사권 독립을 얻은 다음 순서가 늘 이것입니다 — <b>권한이 커진 만큼 장부를 여는 일.</b></p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — "승진 인사가 아니라 문제해결 인사를"</span>
+          <a class="src" href="https://www.cctoday.co.kr/news/articleView.html?idxno=2234903" target="_blank" rel="noopener">충청투데이 목요세평 (08-14) ↗</a>
+          <a class="src" href="https://www.newsfreezone.co.kr/news/articleView.html?idxno=704183" target="_blank" rel="noopener">뉴스프리존 (08-14) ↗</a>
+          <p>민선 9기 출범으로 지방정부마다 인사의 계절이 시작됐습니다. 권선필 목원대 경찰행정학부 교수가 짚은 지점이 뼈아픕니다 — 제도가 없어서가 아니라는 것. <b>현행 지방공무원법은 이미 보직할 때 전공·훈련·근무경력을 고려하도록 정해 두고 있습니다.</b> 그런데 승진 서열로만 자리를 채우면 사람은 바뀌어도 시민이 체감하는 행정의 변화는 사라진다는 지적입니다. 한편 <b>전북교육청</b>은 교육행정직 6~8급 본청 전입 공개모집에서 <b>면접 100% 방식을 폐지</b>하고, 시행 뒤 직급별 지원자 수와 합격자의 근무기관·경력 분포를 개인정보 침해 없는 범위에서 공개하기로 했습니다. 제도를 바꾸는 일보다 <b>바꾼 뒤의 숫자를 공개하는 일</b>이 늘 더 어렵습니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 폭염특보 38일 만에 해제, 그러나 저수율이 남았습니다</span>
+          <a class="src" href="http://www.gjdream.com/news/articleView.html?idxno=671895" target="_blank" rel="noopener">광주드림 (08-16) ↗</a>
+          <p>전남·광주의 폭염특보가 <b>7월 6일 발효 후 38일 만인 8월 15일 오후 4시</b> 27개 시·구·군에서 전면 해제됐습니다. 남은 장부는 이렇습니다 — 온열질환자 누적 <b>271명</b>(전남 219·광주 52), 축산 폐사 <b>35만 5,415마리</b>(닭 32만여 마리 포함)·224농가·<b>23억 3,800만 원</b>, 수산 87만 5,000마리. 그리고 <b>동복댐 저수율 48.1%</b>(지난해 같은 시기 94.3%), 주암댐 38.2%. 폭염은 물러갔는데 물이 없습니다. <b>재난은 끝나는 게 아니라 다음 항목으로 넘어갑니다.</b></p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 폭염 지나자 물폭탄, 그리고 정류장 317곳</span>
+          <a class="src" href="https://www.ppss.kr/news/articleView.html?idxno=305817" target="_blank" rel="noopener">피피에스에스 (08-17) ↗</a>
+          <a class="src" href="https://www.jnilbo.com/news/articleView.html?idxno=90000057266" target="_blank" rel="noopener">전남일보 (08-17) ↗</a>
+          <p>같은 지역에 광복절 연휴 <b>최대 204㎜</b>의 집중호우가 쏟아졌습니다. 폭염 예산은 전년의 약 두 배인 17억 원이 투입됐지만 온열질환자는 169명에 이르렀다는 집계도 나옵니다(기관·기준에 따라 수치가 다릅니다). 도심 열섬 조사에서는 <b>광주 버스정류장 2,619곳 중 폭염 취약도 5등급이 317곳</b>, 서구가 100곳으로 가장 많았습니다. 광주 온열질환자는 2022년 20명 → 2023년 64명 → 2024년 70명 → 2025년 72명으로 늘었습니다. <b>예산은 재난 이름으로 배정되고, 취약함은 정류장 단위로 존재합니다.</b></p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 아룬다티 로이, 첫 회고록으로 돌아왔습니다</span>
+          <a class="src" href="https://www.khan.co.kr/article/202608162036025" target="_blank" rel="noopener">경향신문 (08-16) ↗</a>
+          <p>『작은 것들의 신』의 아룬다티 로이가 어머니의 죽음을 계기로 쓴 <b>첫 회고록 『어머니 내게 오시네』</b> 한국어판 출간에 맞춰 경향신문과 서면 인터뷰를 했습니다. AI가 문학을 대체하겠느냐는 물음에 그는 문학을 이렇게 정의합니다 — <b>"자기 자신의 내면과 씨름해 그 결과로 시장에서는 전혀 원하지 않을지라도 어쨌든 (자신만의) 트로피를 들고나오는 것."</b> 회고록을 쓴 태도에 대해서는 이렇게 말합니다 — <b>"온갖 종류의 사랑에 대해 썼습니다. 무언가를 폭로하려는 게 아니었어요."</b> 그리고 이 한 문장 — <b>"자본주의는 우리의 꿈을 식민지화한다."</b></p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 전 세계 학교가 'AI 부정'으로 몸살입니다</span>
+          <a class="src" href="https://www.kmib.co.kr/article/view.asp?arcid=9000003251&amp;cp=nv" target="_blank" rel="noopener">국민일보 (08-15) ↗</a>
+          <p>멕시코국립자치대(UNAM)가 온라인 입학시험에서 <b>3,174건을 무효 처리</b>하고 약 <b>5만 8,000명에게 재시험</b>을 치르게 했습니다. 영국은 지난해 여름 시험에서 휴대전화·스마트기기 관련 부정이 <b>2,225건</b>으로 전체 학생 부정 사례의 <b>44%</b>를 차지했습니다. 국내에서도 5월 광주 소화설비기사 시험과 전기산업기사 시험, 토익 시험에서 <b>스마트안경</b> 착용자가 적발됐습니다. 그런데 반대편 문제가 더 어렵습니다 — 미국 애들피대 학생은 표절 검사에서 <b>'AI 생성 100%'</b> 판정을 받았다가 법원에서 이겼고, <b>밴더빌트·예일·존스홉킨스 등 7개 대학은 AI 탐지 프로그램 사용을 중단</b>했습니다. 미국 대학 교수 약 4분의 3이 학생 글쓰기에서 AI 사용을 보고한다는 조사도 있습니다. <b>가려내는 기술이 가려내지 못할 때, 남는 방법은 과정을 보는 일뿐입니다.</b></p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 서·논술형 수능 논란, 채점의 공정성이 쟁점입니다</span>
+          <a class="src" href="https://www.donga.com/news/Society/article/all/20260816/134484425/1" target="_blank" rel="noopener">동아일보 (08-16) ↗</a>
+          <a class="src" href="https://www.ajunews.com/view/20260814152333458" target="_blank" rel="noopener">아주경제 (08-14) ↗</a>
+          <p>차정인 국가교육위원회 위원장의 <b>"수능 서·논술형은 독서로 충분하다"</b>는 발언에 학원총연합회가 반발했습니다. 사교육 감소를 주장하려면 실증적 근거를 대라는 것이고, <b>평가 기준·채점자 간 편차 통제·AI 채점의 정확성과 공정성 검증·오류 시 이의제기와 재채점 절차</b>를 요구했습니다. 한편 현장에서는 독서·글쓰기 학원은 물론 <b>악필 교정 학원</b>까지 뜬다는 관측이 나옵니다. 제도가 바뀌면 시장은 언제나 <b>가장 얕은 곳부터</b> 반응합니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 마음이 자꾸 돌아가는 자리가 아직 못 채운 자리다</span></div>
+
+        <div class="pick"><span class="field">🧭 심리 · 자아</span>
+          <span class="title">당신의 백일몽은 당신이 모르는 것을 안다</span>
+          <a class="src" href="https://psyche.co/ideas/your-daydreams-know-something-you-dont-look-closely" target="_blank" rel="noopener">Psyche · Ideas ↗</a>
+          <p>임상심리사 바르다 바루치가 쓴 글입니다. 우리는 공상을 '집중을 방해하는 것'으로만 취급하지만, 저자는 다르게 봅니다 — <b>"마음의 방황은 딱히 좋은 것도 나쁜 것도 아니다. 그보다는 마음이 우리의 핵심 필요 쪽으로 주의를 돌리는 방식으로 이해하는 편이 낫다."</b> 임상 사례에서도 치료의 방향은 공상을 없애는 쪽이 아니라 <b>그 공상이 가리키는 필요를 다루는 쪽</b>이었습니다. 자꾸 돌아가는 장면이 있다면, 그것은 <b>결핍의 좌표</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기 · 창작</span>
+          <span class="title">손편지는 속도의 시대를 견디는 수련이다</span>
+          <a class="src" href="https://psyche.co/ideas/writing-letters-is-a-spiritual-practice-for-our-age-of-speed" target="_blank" rel="noopener">Psyche · Ideas ↗</a>
+          <p>작가 어맨다 리 리히텐슈타인의 글입니다. 핵심 문장은 이것입니다 — <b>"의식(ritual) 자체가 처방이다. 펜을 종이에 대는 일이 우리를 현재 시제에 꽂아 넣는다."</b> 편지는 빠른 답장을 목표로 하지 않기 때문에, 쓰는 동안 상대를 오래 생각하게 만듭니다. 저자는 시몬 베유를 불러옵니다 — <b>"주의(attention)는 가장 희귀하고 가장 순수한 형태의 관대함이다."</b> 손으로 쓰는 일이 왜 남아야 하는지에 대한, 감상이 아닌 <b>논증</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🕯 현존 · 삶</span>
+          <span class="title">바다, 그리고 삶의 의미</span>
+          <a class="src" href="https://www.themarginalian.org/2026/08/15/rachel-carson-the-edge-of-the-sea/" target="_blank" rel="noopener">The Marginalian (2026-08-15) ↗</a>
+          <p>포포바가 레이첼 카슨의 『바다의 가장자리』로 돌아갑니다. 카슨은 해변에 엎드려 조개와 미생물을 들여다보다가, 그것들이 가리키는 우주적 사실 앞에서 이렇게 씁니다(번역) — <b>"의미는 우리를 사로잡고, 그러면서 늘 우리를 벗어난다. 그리고 바로 그 뒤쫓는 일 속에서 우리는 삶 자체의 궁극적 신비에 다가선다."</b> 의미는 손에 쥐어지는 물건이 아니라 <b>쫓는 동안에만 곁에 있는 것</b>이라는 말입니다. 답이 몇 초에 나오는 시대에, 이 문장은 낡은 게 아니라 오히려 새것입니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미 · 철학</span>
+          <span class="title">사랑은 이렇게 온다</span>
+          <a class="src" href="https://www.themarginalian.org/2026/08/14/how-love-comes-to-you/" target="_blank" rel="noopener">The Marginalian (2026-08-14) ↗</a>
+          <p>같은 우물의 하루 앞 글입니다. 논지는 단순하고 셉니다 — 삶은 늘 우리의 예상을 넘어서고, <b>"가장 무모한 베팅이 이기는 베팅인 경우가 너무나 자주 있다"</b>는 것을 계속 일깨운다는 것. 그래서 포포바는 이렇게 씁니다 — <b>"무엇이든 포기한다는 것은 — 꿈이든, 사랑하는 사람이든, 사랑 자체든 — 살아 있음의 이 억누를 수 없는 맥박을 부정하는 일이다."</b> 포기하지 않음이 낙관이 아니라 <b>생명의 물리적 증거</b>라는 자리에 문장을 세웠습니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문 · 에세이</span>
+          <span class="title">폭로하려던 게 아니었다는 말</span>
+          <a class="src" href="https://www.khan.co.kr/article/202608162036025" target="_blank" rel="noopener">경향신문 (2026-08-16) ↗</a>
+          <p>로이의 회고록 인터뷰를 글감 쪽에서 한 번 더 봅니다. 어머니를 쓴 사람이 가장 먼저 받는 질문은 늘 같습니다 — <i>어디까지 썼습니까.</i> 로이의 답은 방향을 틉니다. <b>"온갖 종류의 사랑에 대해 썼습니다. 무언가를 폭로하려는 게 아니었어요."</b> 회고록의 윤리가 '무엇을 감출까'가 아니라 <b>'무엇을 향해 쓸까'</b>에 있다는 선언입니다. 자기 삶을 쓰려는 이에게, 이 한 문장이 먼저 정해져야 할 방향입니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「호수 1」 — 정지용 <span style="font-weight:400;font-size:13px;color:var(--muted)">(저작권 만료·전문)</span></p>
+          <p class="verse">얼굴 하나야
+손바닥 둘로
+폭 가리지만,
+
+보고픈 마음
+호수만 하니
+눈 감을밖에.</p>
+          <p class="memo">배달 메모 — 여섯 줄짜리 시를 고른 이유는 오늘 등대가 가리킨 자리와 정확히 겹치기 때문입니다. 얼굴은 손바닥 둘로 가려집니다 — <b>바깥은 가릴 수 있습니다.</b> 그런데 보고픈 마음은 호수만 해서 가릴 방법이 없고, 그래서 남은 동작이 <b>눈을 감는 일</b>뿐입니다. 백일몽을 없애려 애쓰지 말고 그것이 가리키는 쪽을 보라던 프시케의 말이, 1930년대에 이미 여섯 줄로 적혀 있습니다. 눈을 감는 것은 회피가 아니라 <b>호수의 크기를 인정하는 동작</b>입니다. 🦊</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li>프시케(Psyche)의 두 글은 페이지에 <b>발행일이 표기되지 않아</b> 날짜 없이 적었습니다. 최근 게재분으로 확인했으나 정확한 일자는 달지 못했습니다.</li>
+          <li>카슨과 포포바의 인용은 <b>영문 원문을 우리말로 옮긴 것</b>입니다. 어감이 원문과 다를 수 있어 '번역'임을 밝혀 두었습니다.</li>
+          <li>에이온(Aeon)의 8월 신작 목록은 이번에 확인이 되지 않아, 오늘 글감은 프시케 두 편으로 대신했습니다.</li>
+          <li>폭염 수치는 <b>전남·광주 기준</b>입니다(전국 통계가 아닙니다). 같은 지역 온열질환자 수도 보도마다 271명·169명으로 갈립니다 — 집계 기관과 기간이 달라서입니다. 두 숫자를 각각 출처와 함께 적었습니다.</li>
+          <li>로이의 인용은 <b>한국어판 서면 인터뷰의 번역문</b>을 그대로 옮긴 것입니다. 회고록 원제와 옮긴이는 확인하지 못해 적지 않았습니다.</li>
+          <li>정지용 「호수 1」은 판본에 따라 「호수」로만 표기되기도 합니다. 널리 쓰이는 표기를 따랐습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘은 지우지 마시고 한 번 적어 보시면 좋겠습니다. 자꾸 돌아가는 그 장면이, 아직 다 살지 않은 쪽을 가리키고 있을 것입니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+  </div>
+</body>
+</html>
