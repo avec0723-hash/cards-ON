@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-08-20 (목)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;       /* 디퍼 초록 */
+    --green-soft:#2C6249;
+    --gold:#B8912E;        /* 금빛 */
+    --gold-soft:#D9C48A;
+    --cream:#F7F1E3;       /* 크림 */
+    --paper:#FBF7EC;
+    --ink:#2B2B26;
+    --muted:#6B6459;
+    --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;
+    padding:40px 44px 34px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  /* ── Body ── */
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  /* News */
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  /* Reading picks (글감 분야) */
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:0 0 16px;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+  .seed{font-size:16px;margin:0 0 14px;}
+  .seed b{color:var(--green-soft);}
+  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
+    font-size:15.5px;line-height:1.85;}
+  .pause b{color:var(--gold-soft);}
+
+  /* Poem letter */
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  /* Claude lesson */
+  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
+  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
+  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
+  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
+  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
+    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+
+  /* Fog */
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  /* Closing */
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 8월 20일 · 목요일</p>
+      <p class="opening">어제 행정안전부가 입법예고 하나를 냈습니다. <b>적극행정을 하다 수사·소송에 걸린 공무원을 붙잡아 주는 지원단</b>을 만들겠다는 것. 소신껏 일하라는 말만으로는 아무도 소신껏 일하지 않는다는 걸, 제도가 뒤늦게 인정한 셈입니다.<br>
+      오늘 등대에 걸린 글들이 같은 자리를 가리킵니다 — <b>틀릴 수 있게 받쳐 주어야 다시 쓸 수 있다.</b> 초고든 사람이든 마찬가지입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 적극행정 하다 소송에 걸리면, 이제 '보호지원단'이 붙습니다</span>
+          <a class="src" href="https://www.asiatoday.co.kr/kn/view.php?key=20260819010006270" target="_blank" rel="noopener">아시아투데이 (08-19) ↗</a>
+          <a class="src" href="https://www.newspim.com/news/view/20260819000407" target="_blank" rel="noopener">뉴스핌 (08-19) ↗</a>
+          <p>행정안전부가 어제(8월 19일)부터 <b>9월 28일까지</b> 「지방공무원 적극행정 운영규정」 일부개정령안을 입법예고했습니다. 핵심은 지방정부마다 <b>'적극행정 보호지원단'을 신설</b>해, 적극행정 과정에서 수사·민형사 소송에 휘말린 공무원에게 절차 안내·변호사 연계·선임비 지급을 원스톱으로 제공하는 것입니다. 형사 사건은 <b>무죄 확정 전, 기소 단계에서부터 선임비를 먼저 지원</b>합니다. 성과 부진만을 이유로 인사 불이익을 주는 것도 막습니다. 지난 4월 규제합리화위원회의 '복지부동 해소' 지시에 따른 후속 조치이고, <b>11월 시행 예정</b>입니다. 이 규정이 실제로 무엇을 바꾸는지는 문구가 아니라 <b>첫 사례가 나왔을 때</b> 드러납니다. 지금까지 소신 행정의 비용은 대부분 개인 통장에서 나갔습니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 28개 기관 공무직 기본급이 최저임금 월환산액에 못 미칩니다</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003259286" target="_blank" rel="noopener">오마이뉴스 (08-18) ↗</a>
+          <p>8월 13일 국회토론회에서 <b>28개 기관·직종의 공무직 기본급이 2026년 법정 최저임금 월환산액(215만 6,880원)에도 미치지 못한다</b>는 조사가 나왔습니다. 이어 18일 공공연대노동조합이 국회 정문 앞에서 예산 증액을 요구했습니다 — 노인생활지원사의 통신비·교통비·근속수당, 아이돌보미 근속수당, 보육대체교사 임금의 국공립 수준 인상. 목록을 읽어 보면 전부 <b>사람을 돌보는 자리</b>입니다. 같은 청사 안에서 같은 시간을 쓰는데 장부가 둘로 나뉘어 있다는 것을, 그 안에서 일해 본 사람은 압니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 제18호 태풍 '사우델', 오늘 새벽 발생 전망입니다</span>
+          <a class="src" href="https://www.kyeonggi.com/article/20260819580126" target="_blank" rel="noopener">경기일보 (08-19) ↗</a>
+          <a class="src" href="https://www.jemin.com/news/articleView.html?idxno=841845" target="_blank" rel="noopener">제민일보 (08-19) ↗</a>
+          <p>19일 새벽 괌 먼바다에서 발생한 제35호 열대저압부가 <b>오늘(20일) 새벽 제18호 태풍 사우델로 발달</b>할 것으로 기상청은 내다봤습니다. 20일 오전 3시 기준 괌 동남동쪽 약 960km 해상, 중심기압 998hPa. 24일에는 965hPa·최대풍속 초속 37m의 <b>강한 세력</b>으로 커져 서북서진할 전망입니다. 현재 예상경로상 <b>한반도 직접 영향은 확인되지 않았지만</b>, 24일 예상 위치의 70% 확률반경이 440km까지 벌어져 불확실성이 큽니다. 올여름 태풍은 계속 비켜 갔습니다. 비켜 갔다는 기록이 쌓일수록 <b>다음 하나에 대한 준비는 조용히 느슨해집니다.</b></p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 폭염은 아직 안 끝났습니다</span>
+          <a class="src" href="https://www.swn.kr/2026/08/19/kma-202608191600-ae1ca1c5cc/" target="_blank" rel="noopener">기상속보 (08-19) ↗</a>
+          <a class="src" href="https://www.weather.go.kr/w/special-report/overall.do" target="_blank" rel="noopener">기상청 특보 ↗</a>
+          <p>19일 오후 4시를 기해 <b>전남 함평·나주, 경남 남해, 서귀포 중산간</b> 등 네 곳에 폭염주의보가 다시 발표됐습니다. 38일 만에 특보가 풀렸다는 소식이 사흘 전이었습니다. 올여름은 경남 양산에서 <b>42.5℃</b> — 관측 사상 처음 42℃를 넘긴 해로 기록됐습니다. 특보가 해제됐다고 여름이 끝난 것이 아니라, <b>여름이 끝나는 방식이 예전과 달라진 것</b>입니다. 현장 대응 서식은 아직 '해제 → 종료'로 짜여 있습니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 작가가 도서관·문학관·서점에 '살러' 들어갑니다</span>
+          <a class="src" href="https://ilovecontest.com/munhak/board/bbs/board.php?bo_table=contest&amp;wr_id=5176" target="_blank" rel="noopener">문학상주작가 지원사업 안내 ↗</a>
+          <p>문화체육관광부와 한국문화예술위원회의 <b>문학상주작가 지원사업</b>이 올해도 매칭을 진행 중입니다. 작가가 도서관·문학관·서점에 <b>상주하며</b> 문학 프로그램을 운영하고 동시에 자기 창작을 이어 가는 구조입니다. 9월은 독서의 달이고, 지역 도서관들의 하반기 강좌 이름은 이미 '기록'과 '내 시절 쓰기' 쪽으로 옮겨 왔습니다. 작가를 <b>초청 강사가 아니라 거주자로 두는 설계</b>가 핵심입니다. 한 번 오고 마는 사람과 계속 있는 사람은 독자에게 전혀 다른 것을 남깁니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 행안부가 '공공부문 AI 도입·활용 가이드'를 배포했습니다</span>
+          <a class="src" href="https://www.newspim.com/news/view/20260610000268" target="_blank" rel="noopener">뉴스핌 (06-10) ↗</a>
+          <a class="src" href="https://eiec.kdi.re.kr/policy/materialView.do?num=282444" target="_blank" rel="noopener">KDI 경제정보센터 ↗</a>
+          <p>이달 <b>28일 시행되는 「인공지능 및 데이터 기반 행정 활성화에 관한 법률」</b>의 '범정부 AI 공통기반 우선 이용' 조항에 대비한 실무 안내서입니다. AI 서비스 개발을 <b>기획–예산–계약–구축–운영 5단계로 표준화</b>하고, <b>RAG(검색증강생성 — 기관 내부 문서를 먼저 찾아 읽고 그것을 근거로 답하게 하는 방식) 우선 전략</b>과 환각 방지 설계를 담았습니다. 눈여겨볼 대목은 이것입니다 — 공공 AI의 기본값이 '똑똑한 모델'이 아니라 <b>'우리 문서를 근거로 답하기'</b>로 잡혔다는 것. 개인이 쓰는 기록 도구에도 그대로 적용되는 원칙입니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 공공기관이 AI 도입 '선도조직'으로 섭니다</span>
+          <a class="src" href="https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&amp;menuNo=4010100&amp;searchNttId1=MOSF_000000000074668" target="_blank" rel="noopener">재정경제부 보도자료 ↗</a>
+          <p>정부가 공공기관을 AI 도입·활용의 선도조직으로 세우고, <b>2026년 경영평가에 'AI 활용 등 혁신' 가점</b>을 붙였습니다. 평가에 붙으면 도입은 반드시 빨라집니다. 문제는 그다음입니다 — <b>가점은 도입 여부를 세지, 쓰는 사람의 실력을 세지 않습니다.</b> 조직 단위로 도구가 먼저 들어오고 사용법은 각자 익히는 순서가 반복되면, 같은 청사 안에서도 격차가 벌어집니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 틀릴 수 있게 받쳐 주어야 다시 쓸 수 있다</span></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기 · 창작</span>
+          <span class="title">조심스러운 초고는 실패한 초고다</span>
+          <a class="src" href="https://brevitymag.com/craft-essays/the-latest-draft/" target="_blank" rel="noopener">Brevity · The Latest Draft ↗</a>
+          <p>디나 레니가 퇴고를 이야기하며 퍼트리샤 햄플의 문장을 꺼냅니다(번역) — <b>"조심스러운 초고는 실패한 초고다."</b> 잘 쓰려고 웅크린 첫 원고는 고칠 거리조차 남기지 않는다는 뜻입니다. 그가 권하는 방법은 단순합니다. <b>보내기 전에 하룻밤 재우고, 아침에 소리 내어 읽을 것.</b> 어색한 문장과 반복은 눈이 아니라 입에서 걸리고, 그 자리에서 없던 생각이 새로 생깁니다. 그리고 결론 — <b>"퇴고야말로 재미있어지는 지점이다."</b> 초고는 잘 쓰는 자리가 아니라 <b>고칠 것을 만들어 두는 자리</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리 · 자아</span>
+          <span class="title">자기용서는 눈감아 주는 일이 아니다</span>
+          <a class="src" href="https://psyche.co/guides/how-to-forgive-yourself-and-move-past-a-hurtful-mistake" target="_blank" rel="noopener">Psyche · Guides ↗</a>
+          <p>심리학자 너새니얼 웨이드와 매릴린 코니시가 자기용서의 절차를 넷으로 나눕니다 — <b>책임(Responsibility) · 뉘우침(Remorse) · 회복(Restoration) · 갱신(Renewal)</b>. 먼저 내 행동이 만든 결과를 구체적으로 적고, 수치심에 잠기지 않게 후회를 표현하고, 직접이든 간접이든 갚고, 마지막에 자기연민으로 돌아옵니다. 첫 문장이 못을 박습니다 — <b>"자기를 용서한다는 것은 내 행동을 정당화하거나, 한 일을 잊거나, 그것이 남에게 미친 영향을 축소하는 것이 아니다."</b> 순서가 중요합니다. <b>책임이 먼저이고 자비가 나중입니다.</b> 뒤집으면 그건 용서가 아니라 회피입니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미 · 철학</span>
+          <span class="title">용서는 더 큰 정체성을 떠맡는 일이다</span>
+          <a class="src" href="https://www.themarginalian.org/2026/06/11/david-whyte-consolations-anger-forgiveness-maturity/" target="_blank" rel="noopener">The Marginalian (2026-06-11) ↗</a>
+          <p>시인 데이비드 화이트는 먼저 화를 옹호합니다(번역) — <b>"분노는 가장 깊은 형태의 연민이다. 타인을 향한, 세계를 향한, 자기 자신과 한 생을 향한, 몸과 가족과 우리의 모든 이상을 향한 — 모두 상처 입기 쉽고, 모두 어쩌면 곧 다칠 것들을 향한."</b> 그리고 용서를 이렇게 다시 정의합니다 — <b>"용서한다는 것은 처음 상처받은 그 사람보다 더 큰 정체성을 떠맡는 일이다."</b> 잊는 것이 아니라 <b>자라는 것</b>이라는 말. 화이트에게 성숙은 도달한 상태가 아니라 <b>계속 걸어 나가야 하는 경계선</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전 · 인문</span>
+          <span class="title">영혼은 생각의 색을 띤다</span>
+          <a class="src" href="https://psyche.co/ideas/the-stoics-were-right-emotional-control-is-good-for-the-soul" target="_blank" rel="noopener">Psyche · Ideas ↗</a>
+          <p>이슈트반 다라반이 마르쿠스 아우렐리우스를 신경과학 옆에 세웁니다(번역) — <b>"당신이 생각하는 것들이 당신 마음의 질을 결정한다. 영혼은 당신 생각의 색을 띤다."</b> 그리고 화가 나는 구조를 이렇게 해부합니다 — <b>"당신은 통제할 수 없는 것들을 두고 '좋다' '나쁘다'로 규정한다. 그러니 '나쁜' 일이 벌어지거나 '좋은' 일이 오지 않을 때, 신을 탓하고 책임자를 미워하게 된다."</b> 공감보다 <b>인식의 재조정</b>이 먼저라는 주장입니다. 스토아는 참는 기술이 아니라 <b>무엇을 무엇이라 부를지 다시 고르는 기술</b>이었습니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문 · 에세이</span>
+          <span class="title">'혼자 버티는 자유'를 넘어</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003259032" target="_blank" rel="noopener">오마이뉴스 (2026-08-14) · 김주영 ↗</a>
+          <p>856만 비정규직·프리랜서를 다루며 필자가 이렇게 씁니다 — <b>"자유와 불안, 성취와 고립은 프리랜서의 일상 안에서 나란히 움직인다."</b> 그리고 위로만으로는 안 된다고 못 박습니다 — <b>"연결만으로 불안정 노동의 문제가 해결되지는 않는다. 표준계약서와 적정한 보수, 일방적인 계약 취소와 과도한 수정 요구를 막을 장치가 필요하다."</b> 뉴욕의 '프리랜서는 공짜가 아니다' 법을 예로 듭니다. 마음이 아니라 <b>문서와 기한</b>이 사람을 지킨다는 이야기 — 오늘 첫 뉴스의 보호지원단과 정확히 같은 논리입니다.</p></div>
+
+              </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「참회록」 — 윤동주 <span style="font-weight:400;font-size:13px;color:#6B6459;">(저작권 만료 · 전문)</span></p>
+          <p class="verse">파란 녹이 낀 구리 거울 속에
+내 얼굴이 남아 있는 것은
+어느 왕조의 유물이기에
+이다지도 욕될까.
+
+나는 나의 참회의 글을 한 줄에 줄이자.
+— 만 이십사 년 일 개월을
+무슨 기쁨을 바라 살아왔던가.
+
+내일이나 모레나 그 어느 즐거운 날에
+나는 또 한 줄의 참회록을 써야 한다.
+— 그때 그 젊은 나이에
+왜 그런 부끄런 고백을 했던가.
+
+밤이면 밤마다 나의 거울을
+손바닥으로 발바닥으로 닦아 보자.
+
+그러면 어느 운석 밑으로 홀로 걸어가는
+슬픈 사람의 뒷모양이
+거울 속에 나타나온다.</p>
+          <p class="memo">배달 메모 — 이 시가 오늘 등대와 정확히 같은 구조입니다. 3연을 보십시오 — <b>"내일이나 모레나 그 어느 즐거운 날에 / 나는 또 한 줄의 참회록을 써야 한다. / — 그때 그 젊은 나이에 / 왜 그런 부끄런 고백을 했던가."</b> 오늘 쓴 참회록을 나중에 다시 읽고 <b>또 부끄러워할 것을 미리 알면서도</b> 씁니다. 이것이 정확히 퇴고입니다. 초고를 최종본으로 착각하지 않는 사람만이 이렇게 씁니다. 그리고 4연의 동작 — <b>밤마다 손바닥으로 발바닥으로 거울을 닦는 일.</b> 한 번에 깨끗해지는 거울이 아니라, 매일 닦아야 하는 거울입니다. 자기용서의 네 단계도 그렇고, 「참회록」도 그렇습니다. 부끄러움을 없애는 게 아니라 <b>부끄러움을 기록으로 남기고 다음 줄을 쓰는 일</b>. 오늘 아침, 마지막 연의 뒷모양을 한 번 보아 주셔도 좋겠습니다. 🦊</p>
+        </div>
+      </section>
+
+            <section>
+        <div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+        <div class="fog"><ul>
+          <li>프시케(Psyche)의 두 글은 페이지에 <b>발행일이 표기되지 않아</b> 날짜 없이 적었습니다. 현재 게재분으로 확인했습니다.</li>
+          <li>레니·햄플·웨이드·코니시·화이트·다라반의 인용은 모두 <b>영문 원문을 우리말로 옮긴 것</b>입니다. 어감이 원문과 다를 수 있습니다.</li>
+          <li>적극행정 보호지원단은 <b>입법예고 단계(8/19~9/28)</b>이며 아직 시행된 제도가 아닙니다. 법제처 심사 뒤 조문이 달라질 수 있어 그대로 밝혀 둡니다. 11월 시행은 <b>예정</b>입니다.</li>
+          <li>태풍 사우델의 진로는 <b>19일 저녁 발표 기준</b>이며, 기상청이 70% 확률반경 440km의 불확실성을 함께 밝혔습니다. 오늘 아침 실황은 반드시 기상청에서 다시 확인하시기 바랍니다.</li>
+          <li>행안부 'AI 도입·활용 가이드'는 <b>6월 배포분</b>입니다. 오늘 새로 나온 소식이 아니라, 8월 28일 시행을 열흘 앞둔 시점이라 다시 꺼내 두었습니다.</li>
+          <li>문학상주작가 지원사업은 <b>매칭박람회 안내 페이지</b>를 근거로 삼았습니다. 올해 최종 선정 규모·기관 명단은 확인하지 못했습니다.</li>
+          <li>「참회록」은 판본에 따라 띄어쓰기와 표기가 조금씩 다릅니다. 널리 쓰이는 표기를 따랐습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 처음부터 잘 쓰려고 웅크리지 않으셔도 됩니다. 고칠 것을 만들어 두는 것이 오늘의 일이고, 고치는 일은 내일의 몫입니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑</p>
+  </div>
+</body>
+</html>
