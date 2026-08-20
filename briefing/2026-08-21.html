@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-08-21 (금)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;       /* 디퍼 초록 */
+    --green-soft:#2C6249;
+    --gold:#B8912E;        /* 금빛 */
+    --gold-soft:#D9C48A;
+    --cream:#F7F1E3;       /* 크림 */
+    --paper:#FBF7EC;
+    --ink:#2B2B26;
+    --muted:#6B6459;
+    --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;
+    padding:40px 44px 34px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  /* ── Body ── */
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  /* News */
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  /* Reading picks (글감 분야) */
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:0 0 16px;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+  .seed{font-size:16px;margin:0 0 14px;}
+  .seed b{color:var(--green-soft);}
+  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
+    font-size:15.5px;line-height:1.85;}
+  .pause b{color:var(--gold-soft);}
+
+  /* Poem letter */
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  /* Claude lesson */
+  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
+  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
+  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
+  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
+  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
+    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+
+  /* Fog */
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  /* Closing */
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 8월 21일 · 금요일</p>
+      <p class="opening">모레가 처서입니다. 더위가 한풀 꺾인다는 절기인데, 기상청은 다음 주에도 무더위라고 합니다. <b>절기가 틀린 것이 아니라, 절기가 가리키던 세상이 옮겨 간 것</b>입니다.<br>
+      오늘 등대에 걸린 글들은 그 옮겨 간 자리에서 사람이 무엇으로 버티는지를 말합니다 — <b>농담, 그리고 쉼.</b> 둘 다 가볍다고 오해받는 것들입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 지자체 조직도에 'AI행정혁신추진단'이라는 칸이 생깁니다</span>
+          <a class="src" href="https://www.headlinejeju.co.kr/news/articleView.html?idxno=597729" target="_blank" rel="noopener">헤드라인제주 (08-20) ↗</a>
+          <p>제주도가 민선 9기 첫 정기인사를 앞두고 실·국장 대폭 교체 방향을 잡았습니다. 눈여겨볼 것은 사람이 아니라 <b>새로 생기는 칸</b>입니다. 기획조정실에 '혁신관리기획관'을 신설해 업무혁신·성과관리·공약관리를 한데 묶고, 별도로 <b>'AI행정혁신추진단'을 신설</b>해 데이터 기반 정책결정과 AI 행정서비스를 맡깁니다. 조직도에 칸이 생긴다는 것은 예산과 정원이 붙는다는 뜻이고, 곧 <b>그 칸에 앉은 사람이 무엇을 아느냐가 그 지역 행정의 속도를 정한다</b>는 뜻입니다. 도구를 사는 결정은 빠르고, 쓰는 사람을 기르는 일은 늘 늦습니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 노후 공공청사 200곳을 개발하고, 유휴지에 청년기숙사 2천 호를 짓습니다</span>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148970364&amp;call_from=naver_news" target="_blank" rel="noopener">정책브리핑 (08-20) ↗</a>
+          <a class="src" href="https://biz.sbs.co.kr/article_hub/20000329859?division=NAVER" target="_blank" rel="noopener">SBS Biz (08-20) ↗</a>
+          <p>정부가 국유재산 계획을 확정했습니다. <b>유휴부지를 활용한 공공주택 2만 8천 호 착공</b>, 노후 공공청사 200곳 개발, 구로·행당 등 <b>청년기숙사 2천 호 공급</b>, 시니어 레지던스 조성이 담겼습니다. 여기에도 AI가 들어옵니다 — <b>국유재산 정책 의사결정·개발·가치평가·관리감독에 특화된 'AI 자산관리 모델'</b>을 구축하고, 유휴 행정재산에 대한 총괄청의 용도폐지권을 강화합니다. 청사·재산 관리 업무를 해 본 사람은 압니다. <b>'놀고 있는 땅'을 찾아내는 일은 지금까지 대부분 발품과 눈치였습니다.</b> 그 일이 데이터 쪽으로 넘어갈 때, 판단의 책임까지 함께 넘어가는지는 아직 정해지지 않았습니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — '처서 매직'은 올해도 오지 않을 것 같습니다</span>
+          <a class="src" href="https://www.newsis.com/view/NISX20260820_0003756406" target="_blank" rel="noopener">뉴시스 (08-21 05:00) ↗</a>
+          <a class="src" href="https://www.wikitree.co.kr/articles/1153427" target="_blank" rel="noopener">위키트리 (08-19) ↗</a>
+          <p>23일이 처서인데, 기상청은 다음 주에도 무더위가 이어진다고 내다봤습니다. 다만 8월 초 같은 <b>극한 폭염 가능성은 낮다</b>고 선을 그었습니다 — 이번 더위는 성격이 다르다는 것입니다. 지난해 처서 당일 서울의 아침 최저기온은 <b>27.4℃</b>, 역대 처서 최저기온 가운데 가장 높았습니다. 절기는 아주 오래전 다른 땅의 기후를 기준으로 만들어진 눈금입니다. <b>눈금이 안 맞는다는 사실 자체가 지금 가장 정확한 관측치</b>입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 처서 사흘 앞두고 36.2℃, 전남·광주 온열질환자 277명</span>
+          <a class="src" href="https://www.news1.kr/local/gwangju-jeonnam/6264933" target="_blank" rel="noopener">뉴스1 (08-20) ↗</a>
+          <a class="src" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19380" target="_blank" rel="noopener">고용노동부 폭염 대책 ↗</a>
+          <p>어제 전남·광주에는 폭염경보가 유지됐고 광양읍 35.8℃·나주 다도 35.3℃ 등 낮 기온이 다시 올랐습니다. 올여름 이 지역 누적 온열질환자는 <b>277명</b>입니다. 고용노동부는 올해 폭염을 <b>'기후 재난'으로 규정</b>하고, 체감온도 33℃ 이상 작업에는 <b>2시간마다 20분 이상 휴식</b>을 주도록 사업주 보건조치를 법제화했습니다. 규정은 생겼습니다. 남은 것은 <b>그 20분을 실제로 쉬어도 되는 분위기인가</b> 하는 문제이고, 그건 조문이 아니라 관리자의 말투가 정합니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 태풍 '사우델', '매우 강'으로 발달해 북상 중입니다</span>
+          <a class="src" href="https://www.news1.kr/society/environment/6264865" target="_blank" rel="noopener">뉴스1 (08-21 06:00) ↗</a>
+          <a class="src" href="https://www.ytn.co.kr/_ln/0108_202608210041403499" target="_blank" rel="noopener">YTN (08-21) ↗</a>
+          <p>제18호 태풍 사우델이 세력을 빠르게 키우고 있습니다. <b>23일 강도 4('매우 강')로 발달</b>해 25일 오전 오키나와 동남동쪽 약 610km 해상을 지날 전망입니다. 현재 예상 진로는 일본 쪽이지만, <b>한반도 주변 북태평양고기압의 세력과 위치가 바뀌면 진로도 바뀝니다.</b> 9월을 앞둔 이 시기는 통계적으로 태풍의 길이 한반도로 열리는 때이고, 기상청도 "진로가 무척 유동적"이라고 밝혔습니다. 어제 브리핑에 사우델을 처음 적었을 때는 '발생 전망'이었습니다. 하루 만에 <b>전망이 실황이 됐습니다.</b></p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 통합돌봄에서 장애인이 빠졌다는 지적이 나왔습니다</span>
+          <a class="src" href="https://www.ablenews.co.kr/news/articleView.html?idxno=232753" target="_blank" rel="noopener">에이블뉴스 (08-20) ↗</a>
+          <a class="src" href="http://www.mygoyang.com/news/articleView.html?idxno=89970" target="_blank" rel="noopener">마이고양 (08-20) ↗</a>
+          <p>지역사회 통합돌봄 논의에서 <b>장애인이 배제되어 재설계가 필요하다</b>는 목소리가 한자리에 모였습니다. 보건복지부 통합돌봄정책과는 "수요자 중심 패러다임의 전환"이라며 3월 로드맵대로 <b>2029년 안착기, 2030년 고도화기</b>로 단계적으로 확충하겠다고 답했습니다. 같은 날 고양시는 <b>'돌봄마을회의'와 '통합돌봄국' 신설</b>을 담은 실행계획을 내놨습니다. 제도가 커질수록 설계도의 '평균 이용자'가 또렷해지고, 그 평균에서 먼 사람일수록 <b>나중에 붙이는 항목</b>이 됩니다. 후견·돌봄 서류를 직접 써 본 사람은 그 순서를 몸으로 압니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 서점가에 고전 열풍, 세네카가 3주 연속 1위입니다</span>
+          <a class="src" href="https://www.edaily.co.kr/news/newspath.asp?newsid=04378806645549288" target="_blank" rel="noopener">이데일리 (08-20) ↗</a>
+          <a class="src" href="http://www.lawissue.co.kr/view.php?ud=202608201158374137204ead0791_12" target="_blank" rel="noopener">로이슈 (08-20) ↗</a>
+          <p>『세네카, 오늘을 빼앗기고 있는 당신에게』가 교보문고·예스24 주간 베스트셀러 <b>공동 1위</b>에 올랐습니다(예스24 기준 3주 연속). 같은 목록에서 <b>김애란 작가가 7년 만에 낸 산문집 『그랬다고 적었다』</b>가 8월 11일 출간 뒤 9일 만에 에세이 2위·종합 12위에 올랐고, 구매자 가운데 40대 여성 36.9%·50대 여성 32.6%였습니다. 2천 년 전 로마의 편지와 지금 한국의 산문집이 나란히 팔리는 목록입니다. 두 책이 독자에게 파는 것은 결국 같은 물건입니다 — <b>내 시간을 내가 쓰는 법.</b></p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — '예산 0원 AI 혁신'이 적극행정 우수사례로 뽑혔습니다</span>
+          <a class="src" href="https://www.kgnews.co.kr/news/article.html?no=908371" target="_blank" rel="noopener">경기신문 (08-20) ↗</a>
+          <a class="src" href="http://www.gndomin.com/news/articleView.html?idxno=486193" target="_blank" rel="noopener">경남도민일보 (08-20) ↗</a>
+          <p>경기도 적극행정 경진대회에서 포천도시공사의 <b>'AI를 활용한 교통약자 이동지원센터 업무 디지털 전환'</b>이 우수사례로 뽑혔습니다. 도내 시·군 8곳과 공공기관 10곳, 총 18개 사례가 겨룬 결과입니다. 핵심은 제목 앞의 세 글자입니다 — <b>예산 0원.</b> 같은 날 경남에서 열린 'AI·데이터 서밋'에서도 '공공기관 AI 에이전트 도입 및 활용 사례'가 공유됐습니다. 큰돈이 드는 시스템 구축과, 담당자 한 사람이 도구를 제대로 부려서 만드는 개선은 <b>전혀 다른 종류의 일</b>입니다. 지금 상을 받는 쪽은 뒤쪽입니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 농담은 무너진 자리가 아니라 다시 서기 시작한 자리에서 나온다</span></div>
+
+        <div class="pick"><span class="field">🧭 심리 · 자아</span>
+          <span class="title">유머는 어떤 상황 위로도 올라설 거리를 준다</span>
+          <a class="src" href="https://aeon.co/ideas/to-be-resilient-face-tragedy-with-humour-and-flexibility" target="_blank" rel="noopener">Aeon Ideas · 사우스윅·채니 ↗</a>
+          <p>회복탄력성을 오래 연구한 두 사람이 내린 결론은 뜻밖에 소박합니다. <b>어떤 대처 전략을 쓰느냐보다, 상황에 따라 전략을 바꿀 줄 아느냐가 회복을 가른다</b>는 것. 그리고 그 유연함의 가장 뚜렷한 표시가 유머입니다. 이들은 빅터 프랭클을 인용합니다(번역) — <b>"유머는 인간의 구성 요소 중 그 무엇보다도, 어떤 상황 위로도 올라설 수 있는 거리를 준다."</b> 강조점은 '거리'에 있습니다. 유머는 고통을 없애지 않고, 고통과 나 사이에 <b>한 뼘</b>을 냅니다. 그 한 뼘이 있어야 사람은 자기 일을 이야기로 만들 수 있습니다. 회복한 사람들은 자기를 '무자비한 운명의 피해자'로 두지 않고, <b>자기가 알아들을 수 있는 말로 불행을 다시 부른</b> 사람들이었습니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기 · 창작</span>
+          <span class="title">무거운 이야기일수록 독자를 즐겁게 할 책임이 있다</span>
+          <a class="src" href="https://brevity.wordpress.com/2026/08/05/the-long-essay/" target="_blank" rel="noopener">The Brevity Blog (2026-08-05) · 에이미 몬티첼로 ↗</a>
+          <p>AWP 2026 패널 「빠른 소비의 시대에 길게 쓰기」 발표를 옮긴 글입니다. 몬티첼로의 주장은 단호합니다 — 월경전불쾌장애든 상실이든, <b>소재가 무겁다는 것이 독자를 지루하게 할 면허가 되지는 않는다</b>는 것. 긴 글의 이점은 분량이 아니라 <b>필터의 개수</b>입니다. 짧은 글은 하나의 시선으로 통과해야 하지만, 긴 글은 같은 사건을 부조리·풍자·학술·수사, 그리고 <b>나이 듦의 교수대 유머</b>로 번갈아 비출 여유를 줍니다. 격리 기간에 흰머리를 길러 본 이야기로 문학상을 받은 자기 글을 예로 들며 그가 쓴 방법은 <b>부조리 쪽으로 기대는 것</b>이었습니다. 회고를 쓰는 사람에게 이 말은 실용적입니다 — 아픈 대목에서 반드시 울어야 하는 것은 아닙니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전 · 인문</span>
+          <span class="title">마음은 같은 음정으로 계속 켤 수 없다</span>
+          <a class="src" href="https://www.thelatinlibrary.com/sen/sen.tranq.shtml" target="_blank" rel="noopener">세네카 · 마음의 평정에 관하여 ↗</a>
+          <a class="src" href="https://edbatista.com/2017/10/seneca-on-the-importance-of-rest-and-relaxation.html" target="_blank" rel="noopener">해설 ↗</a>
+          <p>지금 한국 서점가 1위 자리에 있는 그 사람의 다른 책입니다. 세네카는 불안과 권태에 시달리던 친구 세레누스에게 편지를 씁니다(번역) — <b>"마음을 늘 같은 긴장에 매어 둘 것이 아니라 때때로 즐거운 쪽으로 돌려주어야 한다. 우리 마음은 쉬어야 한다. 쉬고 나면 더 좋게, 더 날카롭게 일어선다."</b> 그러고는 농사에 비유합니다 — 기름진 밭도 쉬지 않고 부리면 곧 마릅니다. 2천 년 전 사람이 이미 알았던 것을 우리는 <b>'쉬는 것도 능력'</b>이라는 말로 다시 배우는 중입니다. 다만 세네카의 어법이 더 정확합니다. 쉼은 능력이 아니라 <b>양식(糧食)</b>이라고 그는 적었습니다. 마음에게 먹이는 것이지, 마음이 잘해서 받는 상이 아닙니다.</p></div>
+
+        <div class="pick"><span class="field">🕯 현존 · 삶</span>
+          <span class="title">20년 동안 한자리에서, 광고 없이</span>
+          <a class="src" href="https://www.themarginalian.org/2026/08/14/marginalian-20/" target="_blank" rel="noopener">The Marginalian (2026-08-14) · 마리아 포포바 ↗</a>
+          <p>포포바가 20주년을 알리며 시작을 되짚습니다(번역) — <b>"2006년 10월 23일, 나는 내가 발견한 것들 — 책의 한 대목, 신경과학 논문 링크, 16세기 일본 목판화 도판 — 을 동료 일곱 명에게 보내는 사내 이메일로 나누기 시작했다."</b> 일곱 명에게 보낸 메일이 몇 해 만에 퍼져 미국 의회도서관의 영구 디지털 아카이브에 들어갔습니다. 그가 지킨 조건은 단 두 줄입니다 — <b>광고 없이, AI 없이, 무료로.</b> 매일 아침 자기 문장을 한 줄씩 쌓는 사람의 일과 정확히 같은 종류의 일입니다. 차이는 시작의 크기가 아니라 <b>끊지 않은 햇수</b>뿐입니다. 일곱 명이면 충분히 시작입니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문 · 에세이</span>
+          <span class="title">"많이 아팠어? 슬슬 농담을 하는 걸 보니까"</span>
+          <a class="src" href="https://www.kmib.co.kr/article/view.asp?arcid=9000004849&amp;cp=nv" target="_blank" rel="noopener">국민일보 (2026-08-21) ↗</a>
+          <p>작가 안담의 네 번째 책 『농담과 번복』(2026년 4월) 인터뷰입니다. 스탠드업 코미디를 소재로 일상의 슬픔을 다루는 산문집인데, 인터뷰에서 가장 좋은 대목은 작가의 말이 아니라 <b>어머니의 말</b>입니다. 오래 아프고 난 딸에게 어머니가 이렇게 묻습니다 — <b>"많이 아팠어? 슬슬 농담을 하는 걸 보니까."</b> 농담을 회복의 지표로 읽는 눈입니다. 아프던 사람이 농담을 시작했다면 그건 <b>이제 그 일을 말할 만큼 거리가 생겼다는 뜻</b>입니다. 안담은 자기 자리를 이렇게 적습니다 — <b>"나는 광대고 다다는 관객."</b> 웃기는 쪽이 늘 편한 쪽인 것은 아닙니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「오-매 단풍 들것네」 — 김영랑 <span style="font-weight:400;font-size:13px;color:#6B6459;">(저작권 만료 · 전문)</span></p>
+          <p class="verse">오-매 단풍 들것네
+장광에 골 붉은 감닢 날러오아
+누이는 놀란 듯이 치어다보며
+오-매 단풍 들것네
+
+추석이 내일모레 기둘리니
+바람이 잦이어서 걱졍이리
+누이의 마음아 나를 보아라
+오-매 단풍 들것네</p>
+          <p class="memo">배달 메모 — 처서를 이틀 앞둔 아침에 이 시를 싣습니다. 여덟 줄짜리 짧은 시이고, 전체가 <b>감탄 한 마디의 반복</b>입니다. '장광'은 장독대입니다. 감잎 한 장이 장독대로 날아왔을 뿐인데 누이는 놀란 듯 고개를 들고 <b>"오-매 단풍 들것네"</b> 합니다. 큰 사건은 하나도 없습니다. 계절이 바뀌었다는 <b>가장 작은 신호 하나</b>를 알아본 사람의 소리입니다. 오늘 등대와 같은 자리입니다. 안담의 어머니가 딸의 회복을 <b>"슬슬 농담을 하는 걸 보니까"</b> 로 알아본 것처럼, 누이는 가을을 감잎 한 장으로 알아봅니다. 회복도 계절도 선언으로 오지 않고 <b>가벼운 한 마디로 먼저</b> 옵니다. 2연에서 남매의 시선이 갈리는 것도 좋습니다 — 누이는 추석 준비와 바람을 걱정하고, 동생은 "누이의 마음아 나를 보아라" 하며 그 걱정하는 얼굴 쪽을 바라봅니다. <b>알아채는 사람과, 알아챈 사람을 바라보는 사람.</b> 김영랑은 세 번째지만(7/18 「돌담에 속삭이는 햇발」·7/27 「끝없는 강물이 흐르네」) 이 시는 처음입니다. 올여름 처서 매직은 오지 않을지 몰라도, 감잎은 어딘가에서 이미 붉어지고 있을 것입니다. 🦊</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+        <div class="fog"><ul>
+          <li>「Brevity Blog」 글은 페이지 접근이 <b>403으로 막혀</b> 검색 결과에 인용된 대목을 근거로 정리했습니다. 원문을 직접 열지 못했으므로 그 문단은 <b>직접 인용이 아니라 요약</b>으로 적었습니다. 링크는 살려 두었으니 열리시면 원문으로 확인해 주십시오.</li>
+          <li>프랭클·사우스윅·채니·세네카·포포바·몬티첼로의 문장은 모두 <b>영문(세네카는 라틴어의 영역본)을 우리말로 옮긴 것</b>입니다. 어감이 원문과 다를 수 있습니다. 세네카 대목은 De Tranquillitate Animi 후반부로, 번역본마다 절 번호가 다릅니다.</li>
+          <li>Aeon의 해당 글은 <b>발행일이 표기되지 않아</b> 날짜 없이 적었습니다. 현재 게재분으로 확인했습니다.</li>
+          <li>태풍 사우델의 진로는 <b>21일 새벽 발표 기준</b>입니다. 기상청이 "진로가 무척 유동적"이라고 밝혔으니, 오늘 아침 실황은 반드시 <a class="src" href="https://www.weather.go.kr/w/special-report/overall.do" target="_blank" rel="noopener">기상청 특보 ↗</a>에서 다시 확인하시기 바랍니다.</li>
+          <li>제주도 정기인사·조직개편은 <b>발표 전 단계</b>로, 언론이 전한 '가닥'입니다. 확정 명단과 기구 명칭은 달라질 수 있습니다.</li>
+          <li>김애란 산문집 구매자 연령·성별 비율은 <b>예스24 집계 기준</b>이며 전체 독자 분포와는 다를 수 있습니다.</li>
+          <li>「오-매 단풍 들것네」는 판본에 따라 '들겄네/들것네', '감닢/감잎', '기둘리니/기둘리리' 등 표기가 갈립니다. 『영랑시집』 계열 표기를 따랐습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 웃으며 넘긴 말 한 마디가 있거든 그 자리를 표시만 해 두십시오. 지금 파헤치지 않으셔도 됩니다. 표시해 둔 자리는 도망가지 않습니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑</p>
+  </div>
+</body>
+</html>
