@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-08-24 (월)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;       /* 디퍼 초록 */
+    --green-soft:#2C6249;
+    --gold:#B8912E;        /* 금빛 */
+    --gold-soft:#D9C48A;
+    --cream:#F7F1E3;       /* 크림 */
+    --paper:#FBF7EC;
+    --ink:#2B2B26;
+    --muted:#6B6459;
+    --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;
+    padding:40px 44px 34px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  /* ── Body ── */
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  /* News */
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  /* Reading picks (글감 분야) */
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:0 0 16px;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+  .seed{font-size:16px;margin:0 0 14px;}
+  .seed b{color:var(--green-soft);}
+  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
+    font-size:15.5px;line-height:1.85;}
+  .pause b{color:var(--gold-soft);}
+
+  /* Poem letter */
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  /* Claude lesson */
+  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
+  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
+  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
+  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
+  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
+    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+
+  /* Fog */
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  /* Closing */
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 8월 24일 · 월요일</p>
+      <p class="opening">어제가 처서였습니다. 더위가 물러간다는 눈금을 지났는데 예보는 여전히 무더위입니다. <b>계절은 선언으로 바뀌지 않고, 누군가 먼저 알아볼 때 바뀝니다.</b><br>
+      오늘 항로에 오른 소식들이 공교롭게 한 방향을 봅니다 — 신청하지 않아도 먼저 찾아가는 행정, 청하지 못하는 사람을 발굴하는 복지. 등대도 같은 자리에 걸었습니다. <b>도움은 손 든 사람에게만 가지 않는다</b>는 이야기입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 나흘 뒤(8/28), 「인공지능·데이터 기반 행정 활성화법」 개정안이 시행됩니다</span>
+          <a class="src" href="https://zdnet.co.kr/view/?no=20260610140815" target="_blank" rel="noopener">ZDNet Korea (06-10) ↗</a>
+          <a class="src" href="https://www.newspim.com/news/view/20260610000268" target="_blank" rel="noopener">뉴스핌 (06-10) ↗</a>
+          <a class="src" href="https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000015&amp;nttId=124688" target="_blank" rel="noopener">행안부 AI 도입·활용 가이드 ↗</a>
+          <p>핵심 조항은 <b>공공기관이 AI 서비스를 만들 때 '범정부 AI 공통기반'을 우선 이용하도록</b> 한 대목입니다. 행안부는 이에 앞서 실무 중심의 도입·활용 가이드를 전국 공공기관에 배포했습니다. 조문 한 줄이 앞으로 수많은 기관의 "어디에 맡길까"를 정합니다. <b>현장에서 이 시행일이 무슨 뜻인지 물어볼 사람이 각 과에 한 명씩은 필요합니다.</b></p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 하반기부터 '혜택 자동신청' 시범 도입, 복합민원 원스톱</span>
+          <a class="src" href="https://newsdao.kr/29517" target="_blank" rel="noopener">뉴스다오 ↗</a>
+          <a class="src" href="https://www.aikorea.go.kr/web/board/brdDetail.do?menu_cd=000011&amp;num=328" target="_blank" rel="noopener">AI 행동계획 대시보드 ↗</a>
+          <p>행안부가 2026년 하반기부터 <b>AI를 활용해 받을 수 있는 혜택을 먼저 찾아 자동으로 신청</b>해 주는 서비스를 시범 도입합니다. 우리 복지·행정의 오래된 기본값은 <b>신청주의</b>였습니다 — 알아서 찾아오고, 알아서 서류를 갖추고, 알아서 손을 드는 사람에게만 갔습니다. 그 기본값이 뒤집히는 중입니다. 다만 뒤집히는 만큼 새 질문이 생깁니다. <b>먼저 찾아간 판단이 틀렸을 때, 누가 책임집니까.</b></p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 처서를 지났는데 폭염특보는 그대로입니다</span>
+          <a class="src" href="https://www.ajunews.com/view/20260821173956622" target="_blank" rel="noopener">아주경제 (08-21) ↗</a>
+          <a class="src" href="https://www.fnnews.com/news/202608070601026462" target="_blank" rel="noopener">파이낸셜뉴스 (08-07) ↗</a>
+          <p>처서였던 어제 낮 최고기온은 29~34도, 수도권 일부와 충청·남부를 중심으로 폭염특보가 이어졌습니다. 언론은 이제 폭염을 날씨가 아니라 <b>물가·소비·노동을 동시에 흔드는 경제 변수</b>로 다룹니다. 고용노동부는 옥외 노동자와 함께 <b>택배기사·배달 라이더 등 이동 노동자</b>의 온열질환 예방을 위해 쉼터 정보를 안내하고 있습니다. 쉼터는 지어졌습니다. 남은 것은 그 앞을 지나가는 사람이 <b>들어가도 되는 곳이라고 알아채는가</b>입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 제18호 태풍 '사우델', 오늘 괌 북서쪽 먼 해상. 진로는 아직 열려 있습니다</span>
+          <a class="src" href="https://www.bundangnews.co.kr/58101" target="_blank" rel="noopener">분당신문 (08-22) ↗</a>
+          <a class="src" href="https://imnews.imbc.com/news/2026/society/article/6845760_36918.html" target="_blank" rel="noopener">MBC 뉴스 ↗</a>
+          <a class="src" href="https://www.weather.go.kr/w/special-report/overall.do" target="_blank" rel="noopener">기상청 특보 ↗</a>
+          <p>기상청은 오늘(24일) 오전 사우델이 <b>최대풍속 시속 144km, 강도 '강'</b>으로 발달해 괌 인근 해상을 지날 것으로 봤습니다. 공식 예상경로는 24일까지만 제시돼 있고, <b>이 시점 예상 위치의 70% 확률반경이 440km</b>입니다. 지도 위 점 하나가 실제로는 지름 880km짜리 원이라는 뜻입니다. <b>"아직 모른다"는 말이 무성의가 아니라 가장 정확한 정보인 경우가 있습니다.</b></p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 돌봄·간병 부담 가구를 '먼저 찾아내는' 자살예방 대책</span>
+          <a class="src" href="https://www.eroun.net/news/articleView.html?idxno=70298" target="_blank" rel="noopener">이로운넷 ↗</a>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148956615" target="_blank" rel="noopener">정책브리핑 ↗</a>
+          <p>보건복지부가 지난 8월 11일 내놓은 범정부 대책의 핵심 동사는 <b>'발굴'</b>입니다. 중증 치매환자·발달장애인을 돌보는 고위험 가족 중 공적 서비스를 이용하지 못하는 가구를 하반기부터 집중 발굴하고, 고립·은둔청년을 지원하는 <b>청년미래센터를 4개 시·도에서 전국 17개 시·도로 확대</b>합니다. 요건을 충족한 <b>가족돌봄청년에게는 자기돌봄비 200만 원</b>이 지원됩니다. '자기돌봄비'라는 이름이 정확합니다. <b>돌보는 사람은 자기를 돌볼 시간을 가장 먼저 뺏깁니다.</b></p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 한국문학 번역본 해외 판매, 2년 연속 120만 부</span>
+          <a class="src" href="https://www.imaeil.com/page/view/2026072811300757735" target="_blank" rel="noopener">매일신문 (07-28) ↗</a>
+          <a class="src" href="https://biz.heraldcorp.com/article/10824154" target="_blank" rel="noopener">헤럴드경제 (07-28) ↗</a>
+          <p>번역원 지원으로 번역·출판된 한국문학 도서의 지난해 해외 판매량은 <b>119만 7,557부</b>, 연간 최대 기록입니다. 최근 5년간 40개 언어권 1,026종의 누적 판매는 <b>약 358만 부</b>. 눈여겨볼 대목은 총량이 아니라 분포입니다 — 특정 화제작에 몰리지 않고 <b>여러 장르·여러 작가로 저변이 넓어졌다</b>는 것. 한 사람의 수상이 문을 열었고, <b>그 문으로 들어간 것은 번역자들</b>이었습니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — AI 대필 시대, 학교의 답은 '평가 방식을 바꾸는 것'이었습니다</span>
+          <a class="src" href="https://www.kairnews.com/news/491557" target="_blank" rel="noopener">한국AI부동산신문 심층기획 ↗</a>
+          <a class="src" href="https://www.seoul.co.kr/news/society/education-news/2026/04/07/20260407500016" target="_blank" rel="noopener">서울신문 (04-07) ↗</a>
+          <p>서울·경기교육청 주도로 내신 <b>서·논술형 비중을 늘리고 AI 채점·피드백 시스템을 도입</b>했습니다. 설계가 흥미롭습니다 — AI가 채점기준 초안과 피드백 초안을 만들고, <b>교사가 검토·수정한 뒤 공개하며, 최종 판단은 언제나 교사의 몫</b>입니다. AI 디지털교과서도 '교과서'에서 '교육자료'로 지위가 바뀌어 채택 여부를 학교가 정하게 됐습니다. 글쓰기를 없애는 대신 <b>베낄 수 없는 글쓰기</b>로 옮겨 가는 방향입니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 도움은 손 든 사람에게만 가지 않는다</span></div>
+
+        <div class="pick"><span class="field">🧭 심리 · 자아</span>
+          <span class="title">사람들은 당신 생각보다 훨씬 더 기꺼이 돕는다</span>
+          <a class="src" href="https://psyche.co/guides/how-to-ask-for-help-without-discomfort-or-apology" target="_blank" rel="noopener">Psyche Guides · 데비 소렌슨 ↗</a>
+          <p>덴버의 임상심리학자 데비 소렌슨은 도움을 청하는 일을 <b>성격이 아니라 기술</b>로 봅니다. 못 청하는 이유는 대개 두 가지 잘못된 믿음입니다 — 청하면 약해 보인다, 그리고 거절당할 것이다. 그런데 연구 결과는 반대쪽을 가리킵니다(번역) — <b>"우리는 누군가가 도움 요청에 예라고 답할 가능성을 과소평가하는 경향이 있다."</b> 소렌슨의 문장은 이렇습니다 — <b>"사람들은 당신이 아는 것보다 훨씬 더 기꺼이 도우려 합니다."</b> 청하지 못하는 사람은 겸손한 것이 아니라 <b>계산을 틀리게 하고 있는</b> 것입니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전 · 인문</span>
+          <span class="title">저울에 다는 것은 선물의 무게가 아니라 마음이다</span>
+          <a class="src" href="https://www.themarginalian.org/2018/06/29/seneca-letter-81-on-benefits/" target="_blank" rel="noopener">The Marginalian · 세네카 서한 81 ↗</a>
+          <p>세네카는 주고받음을 회계로 보지 않았습니다(번역) — <b>"베풂도 상처와 마찬가지로 마음에 달려 있다. 우리가 다는 것은 선물의 부피가 아니라 그것을 낳은 선의의 질이다."</b> 그리고 배은망덕을 만나 지친 사람에게 이렇게 말합니다 — <b>"돌려받지 못하는 편이, 아무것도 베풀지 않는 것보다는 낫다. 흉작이 들었어도 다시 씨를 뿌려야 한다."</b> 마지막 문장이 가장 세게 옵니다. <b>"선행의 삯은 그것을 행했다는 사실 자체다."</b> 답례를 조건으로 걸지 않는 순간, 주는 쪽은 상대의 반응에서 자유로워집니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기 · 창작</span>
+          <span class="title">모든 인물은 무언가를 원해야 한다, 물 한 컵이라도</span>
+          <a class="src" href="https://www.themarginalian.org/2026/08/12/kurt-vonnegut-on-writing-stories/" target="_blank" rel="noopener">The Marginalian (2026-08-12) · 보니것 8원칙 ↗</a>
+          <p>보니것의 여덟 조항 중 오늘 자리에 정확히 놓이는 것이 둘입니다. 셋째 — <b>"모든 인물은 무언가를 원해야 한다. 그것이 물 한 컵일지라도."</b> 원하는 것을 말하지 않는 인물은 독자에게 <b>없는 사람</b>이 됩니다. 그리고 일곱째 — <b>"단 한 사람을 기쁘게 하려고 써라. 창문을 열고 세상과 사랑을 나누면, 당신의 이야기는 폐렴에 걸린다."</b> 첫째 조항이 그 이유를 받칩니다 — <b>"낯선 이의 시간을, 그가 시간을 낭비했다고 느끼지 않도록 쓰라."</b> 회고를 쓰는 사람에게 이 말은 실무적입니다. <b>독자를 넓히려는 문장이 먼저 흐려집니다.</b></p></div>
+
+        <div class="pick"><span class="field">🌿 의미 · 철학</span>
+          <span class="title">변두리는 결핍이 아니라 시야다</span>
+          <a class="src" href="https://www.themarginalian.org/2026/05/18/bell-hooks-margins/" target="_blank" rel="noopener">The Marginalian (2026-05-18) · 벨 훅스 ↗</a>
+          <p>벨 훅스는 변두리를 이렇게 정의합니다(번역) — <b>"변두리에 있다는 것은 전체의 일부이면서 본체의 바깥에 있다는 것이다."</b> 그리고 그 자리가 주는 것을 말합니다. <b>"이 보는 방식은 우리에게 변두리와 중심 둘 다로 이루어진 하나의 우주가 있음을 일깨웠다."</b> 그래서 훅스는 가장 멀리 보는 시야가 <b>"변두리와 중심 양쪽을 다 아는 사람들"</b>에게서 나온다고 씁니다. 안에 있으면 중심만 보이고, 완전히 바깥에 있으면 아무것도 안 보입니다. <b>걸쳐 있는 자리만 둘 다 봅니다.</b></p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문 · 에세이</span>
+          <span class="title">공공돌봄을 떠받치는 평균 나이 60세의 여성들</span>
+          <a class="src" href="https://www.khan.co.kr/article/202608141614001/" target="_blank" rel="noopener">경향신문 플랫 (2026-08-14) ↗</a>
+          <a class="src" href="https://www.hankyung.com/article/2026081641151" target="_blank" rel="noopener">한국경제 (08-16) ↗</a>
+          <p>아이돌봄 서비스를 떠받치는 사람들의 평균 나이가 <b>60세</b>입니다. 월 100만~200만 원 미만을 받는 경우가 <b>52.9%</b>, 2026년 돌봄수당은 시간당 <b>1만 2,790원</b>입니다. 돌봄을 <b>받는</b> 쪽의 이야기는 자주 기사가 되지만, 돌보는 쪽의 나이와 급여가 기사가 되는 일은 드뭅니다. 국가가 '발굴'을 말할 때, 그 발굴의 손이 되어 주는 사람들이 바로 이들입니다. <b>돌보는 사람을 돌보지 않는 돌봄 체계는, 결국 다음 세대의 돌봄까지 미리 쓰고 있는 것</b>입니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「내 마음을 아실 이」 — 김영랑 <span style="font-weight:400;font-size:13px;color:#6B6459;">(저작권 만료 · 전문)</span></p>
+          <p class="verse">내 마음을 아실 이
+내 혼자 마음 날같이 아실 이
+그래도 어데나 계실 것이면
+
+내 마음에 때때로 어리우는 티끌과
+속임 없는 눈물의 간곡한 방울방울
+푸른 밤 고이 맺는 이슬 같은 보람을
+보밴 듯 감추었다 내어 드리지
+
+아! 그립다
+내 혼자 마음 날같이 아실 이
+꿈에나 아득히 보이는가
+
+향 맑은 옥돌에 불이 달아
+사랑은 타기도 하오련만
+불빛에 연긴 듯 헛되이 스러지고 마오</p>
+          <p class="memo">배달 메모 — 처서 지난 첫 월요일에 이 시를 싣습니다. 시 전체가 <b>한 번도 청하지 않는 사람의 목소리</b>입니다. 화자는 "알아 달라" 하지 않습니다. 다만 <b>"아실 이"</b> 가 어딘가 계실 것이면, 하고 조건절로만 말합니다. 그러고는 티끌과 눈물과 보람을 <b>"보밴 듯 감추었다 내어 드리지"</b> 합니다 — 감추었다가, 내어 드리겠다고. <b>이 두 동작 사이의 시간이 이 시의 전부입니다.</b> 마지막 연이 그 시간의 값을 치릅니다. 옥돌에 불이 달아 타 볼 만도 한데 <b>"불빛에 연긴 듯 헛되이 스러지고" 맙니다.</b> 아무도 몰랐기 때문입니다. 오늘 등대와 정확히 같은 자리입니다 — 소렌슨이 말한 <b>과소평가</b>의 가장 아름다운 판본이 이 시입니다. 청했다면 있었을지도 모를 사람을, 청하지 않아 없는 것으로 셈한. 김영랑은 네 번째이고 사흘 전(8/21 「오-매 단풍 들것네」)에도 실었습니다만, 이 시는 처음이고 오늘 결과 정확히 겹쳐 예외로 둡니다. 감추어 두신 것이 있거든, 오늘은 반 뼘만 내어 드려 보십시오. 🦊</p>
+        </div>
+      </section>
+
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+        <div class="fog"><ul>
+          <li>검색 도구가 잡아 오는 기사 날짜가 <b>8월 20~23일 언저리에 머물러</b>, 오늘 새벽 발표분은 반영하지 못했습니다. 특히 <b>태풍 사우델의 실황과 진로는 8월 22일 보도 기준</b>입니다. 오늘 아침 실황은 <a class="src" href="https://www.weather.go.kr/w/special-report/overall.do" target="_blank" rel="noopener">기상청 특보 ↗</a>에서 반드시 다시 확인해 주십시오.</li>
+          <li>「인공지능·데이터 기반 행정 활성화법」 개정 시행일(8/28)과 '혜택 자동신청' 시범 도입은 <b>6월 보도와 정책 자료를 근거로</b> 적었습니다. 시행 직전 세부 지침이 바뀌었을 수 있어 원문 확인을 권합니다.</li>
+          <li>복지부 자살예방 대책은 <b>8월 11일 발표분</b>으로 오늘 기준 열사흘 지난 소식입니다. 오늘 결과 정확히 맞아 실었으나 최신 뉴스는 아닙니다.</li>
+          <li>한국문학 번역 판매 통계는 <b>7월 28일 보도</b>입니다. 8월 신간·출판 동향은 검색에서 구체적인 결과를 얻지 못해 이번 회차 문화 코너는 통계 쪽으로 갔습니다.</li>
+          <li>Brevity Blog와 Paris Review는 어제와 마찬가지로 <b>403으로 원문 접근이 막혀</b> 오늘 글감에서 제외했습니다. 대신 원문을 직접 확인할 수 있는 우물(Psyche·The Marginalian)로만 채웠습니다.</li>
+          <li>소렌슨·세네카·보니것·훅스의 문장은 모두 <b>영문을 우리말로 옮긴 것</b>입니다. 어감이 원문과 다를 수 있습니다. 세네카는 라틴어의 영역본을 다시 옮긴 <b>이중 번역</b>입니다.</li>
+          <li>「내 마음을 아실 이」는 판본에 따라 '어리우는/어리는', '보밴 듯/보배인 듯', '스러지고 마오/사라지고 마오' 등 표기가 갈립니다. 『영랑시집』 계열 표기를 따랐습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">혼자 들고 계신 것이 있거든, 오늘 하루만 그 무게를 말로 한 번 재어 보십시오. 재어 보는 것과 내려놓는 것은 다른 일이고, 오늘은 재기만 하셔도 충분합니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑</p>
+  </div>
+</body>
+</html>
