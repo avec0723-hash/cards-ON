@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-08-26 (수)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;       /* 디퍼 초록 */
+    --green-soft:#2C6249;
+    --gold:#B8912E;        /* 금빛 */
+    --gold-soft:#D9C48A;
+    --cream:#F7F1E3;       /* 크림 */
+    --paper:#FBF7EC;
+    --ink:#2B2B26;
+    --muted:#6B6459;
+    --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;
+    padding:40px 44px 34px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  /* ── Body ── */
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  /* News */
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  /* Reading picks (글감 분야) */
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:0 0 16px;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+  .seed{font-size:16px;margin:0 0 14px;}
+  .seed b{color:var(--green-soft);}
+  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
+    font-size:15.5px;line-height:1.85;}
+  .pause b{color:var(--gold-soft);}
+
+  /* Poem letter */
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  /* Claude lesson */
+  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
+  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
+  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
+  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
+  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
+    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+
+  /* Fog */
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  /* Closing */
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 8월 26일 · 수요일</p>
+      <p class="opening">어제 국무회의에서 정부가 스스로에게 새 이름을 붙였습니다. <b>'AI 민주정부'.</b> 같은 날 다른 자리에서는, 이름이 붙은 지 오래된 일 하나의 속이 드러났습니다 — 전국의 '통합돌봄' 담당 공무원 <b>열에 여덟은 다른 업무를 겸하고</b> 있었습니다.<br>
+      오늘 항로와 등대를 같은 자리에 걸었습니다. <b>이름은 일을 이끌기도 하고, 일이 없는 자리를 덮기도 합니다.</b> 공자가 정치의 첫 일로 꼽은 것이 바로 그 사이를 가르는 일이었습니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 정부가 'AI 민주정부'를 선언했습니다. 모든 공무원의 AI 교육이 의무가 됩니다</span>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148970591" target="_blank" rel="noopener">정책브리핑 (08-25) ↗</a>
+          <a class="src" href="https://www.newsis.com/view/NISX20260825_0003761964" target="_blank" rel="noopener">뉴시스 (08-25) ↗</a>
+          <a class="src" href="https://www.mt.co.kr/policy/2026/08/26/2026082509583779190" target="_blank" rel="noopener">머니투데이 (08-26) ↗</a>
+          <p>행정안전부가 어제 국무회의에서 「세계 최고의 AI민주정부 실현 전략」을 보고했습니다. 뼈대는 넷입니다 — <b>복지·세금·안전 등 5대 분야의 24시간 AI 상담(2027년부터 구현)</b>, 신청하지 않아도 혜택이 찾아가는 전달 방식, 47개 부처 업무에 '온AI' 도입, <b>범정부 데이터 파이프라인 다음 달 개통.</b> 공직사회 쪽 조항이 더 직접적입니다. <b>모든 공무원의 AI 교육 이수 의무화</b>, 전문인재 2만 명 양성, 공무원이 직접 만드는 'AI 정부실험실'과 매년 여는 'AI 해커톤'. 행정 현장에 선 이의 자리에서 보면 이것은 도구 도입 소식이 아니라 <b>직무 기술서가 조용히 다시 쓰이는 소식</b>입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — '통합돌봄' 담당 공무원 81.7%가 다른 업무를 겸하고 있었습니다</span>
+          <a class="src" href="https://www.hani.co.kr/arti/society/rights/1274650.html" target="_blank" rel="noopener">한겨레 (08-26) ↗</a>
+          <p>지방자치단체별 통합돌봄 인력배치 현황 자료에 따르면, 7월 기준 전국 230개 시군구에서 통합돌봄 업무를 맡은 지방공무원 <b>6,297명 가운데 5,146명(81.7%)이 겸직</b> 상태였습니다. 기사에 나온 겸직 업무 중 하나가 <b>인감증명서 발급</b>입니다. 통합돌봄은 올해 정부가 앞세운 이름이고, 그 이름 아래 배치된 사람의 다섯 중 넷은 창구에서 다른 일을 하고 있습니다. <b>이름은 조직도에 먼저 생기고, 사람은 나중에 옵니다.</b> 그 시차 동안 일은 누군가의 겸업으로 굴러갑니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 간호사 1명당 환자 수를 법으로 정합니다</span>
+          <a class="src" href="https://www.kukinews.com/article/view/kuk202608250131" target="_blank" rel="noopener">쿠키뉴스 (08-26) ↗</a>
+          <p>간호정책심의위원회의 심의·의결로 배치 기준을 정하고, 의료기관장은 <b>간호사 배치 현황을 공개</b>해야 합니다. 배경 숫자가 무겁습니다 — 보건의료노조 2026년 실태조사에서 간호사의 <b>72.1%가 최근 3개월 사이 이직을 생각</b>했다고 답했습니다. 마음가짐이 아니라 <b>숫자와 공개 의무</b>로 받치려는 시도입니다. 위 통합돌봄 소식과 나란히 놓으면 같은 문제의 앞뒤가 보입니다. 정원과 실제 배치는 다른 물건입니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 2차 공공기관 지방이전 발표가 10월 이후로 미뤄졌습니다</span>
+          <a class="src" href="https://www.idomin.com/news/articleView.html?idxno=2013157" target="_blank" rel="noopener">경남도민일보 (08-25) ↗</a>
+          <p>안건 상정이 취소됐고, 행안부는 <b>이전 대상 기관 재검토가 필요하다</b>는 판단이라고 설명했습니다. 지방선거로 단체장이 대부분 바뀐 만큼 새로 당선된 이들과 다시 논의하겠다는 취지입니다. 기다리는 지역에서는 또 한 번의 연기이고, 실무 부서에서는 <b>이미 짜 둔 하반기 계획표를 다시 그리는 일</b>입니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 브런치 공모전이 전면 개편됐습니다. 4편만 엄선, 계약은 작가 중심으로</span>
+          <a class="src" href="https://www.etnews.com/20260824000069" target="_blank" rel="noopener">전자신문 (08-24) ↗</a>
+          <a class="src" href="https://www.financialpost.co.kr/news/articleView.html?idxno=271701" target="_blank" rel="noopener">파이낸셜포스트 (08-24) ↗</a>
+          <p>제14회부터 이름이 '브런치북 출판공모전'으로 바뀌고, <b>독립 심사를 거쳐 소설·에세이·시·종합 부문 대상 각 1편과 신인작가상 1편</b>만 뽑습니다. 수상작에는 출간 연계와 플랫폼 홍보가 집중되고, <b>출판 계약 방식도 작가 중심으로</b> 손봤습니다. 수를 줄이고 무게를 싣는 방향입니다. 브런치에 글을 쌓아 온 이에게는 <b>문이 좁아진 동시에 문턱의 성격이 달라진</b> 소식입니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — "'AI 중심 국가'라는 이름 짓기"에 대한 반론</span>
+          <a class="src" href="https://www.chosun.com/opinion/chosun_column/2026/08/26/RA47AT3RHFGZBFEFOHRBH7FANY/" target="_blank" rel="noopener">조선일보 칼럼 (08-26) ↗</a>
+          <p>보건복지부의 'AI 복지', 지자체의 '전국 최초 AI 중심 도시' 같은 명명이 쏟아지는 상황을 짚으며, 평가의 자리를 옮기자고 말합니다 — <b>돌봄의 질, 노동 시간의 감소, 시민이 돌려받은 시간으로 정책을 평가해야 한다</b>고. 같은 예산으로 전혀 다른 결과가 나오는 이유가 거기에 있다는 것입니다. 오늘 첫 소식과 반드시 짝지어 읽을 글입니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 이름은 일을 이끌기도 하고, 일이 없는 자리를 덮기도 한다</span></div>
+
+        <div class="pick"><span class="field">📜 고전 · 인문</span>
+          <span class="title">"명칭이 바르지 않으면 일이 이루어지지 못한다"</span>
+          <a class="src" href="https://www.catholicnews.co.kr/news/articleView.html?idxno=11256" target="_blank" rel="noopener">가톨릭뉴스 지금여기 · 이수태 「추적 공자」 ↗</a>
+          <p>『논어』 자로편. 자로가 묻습니다. 정치를 맡으시면 무엇부터 하시겠습니까. 공자의 답은 뜻밖입니다. <b>"반드시 명칭을 바로잡겠다(必也正名乎)."</b> 자로마저 "선생님은 참 우활하십니다" 하고 핀잔합니다. 그러자 공자가 연쇄를 풀어 놓습니다 — 명칭이 바르지 않으면 말이 조리를 잃고, 말이 조리를 잃으면 <b>일이 이루어지지 못하고</b>, 끝내 백성이 손발 둘 곳을 잃는다고. 이천오백 년 전의 문장이 오늘 두 기사 사이에 정확히 들어앉습니다. <b>이름을 바로잡는 일은 말장난이 아니라 일이 되게 하는 첫 공정입니다.</b></p></div>
+
+        <div class="pick"><span class="field">🌿 의미 · 철학</span>
+          <span class="title">이름을 부르는 일은 주의를 기울이는 일이고, 사랑하는 일이다</span>
+          <a class="src" href="https://www.themarginalian.org/2015/07/23/robin-wall-kimmerer-gathering-moss-naming/" target="_blank" rel="noopener">The Marginalian · 로빈 월 키머러 『이끼와 함께』 ↗</a>
+          <p>식물학자이자 포타와토미족의 후예인 키머러는 이름 짓기를 이렇게 봅니다(번역) — <b>무언가에 이름을 붙인다는 것은 그것이 다른 모든 것과 구별되는 존재임을 인정하는 일이고, 자율의 품위를 건네주는 일</b>이라고. 그리고 낯섦을 친숙함으로 바꾸는 그 동작이 <b>공감의 뿌리</b>라고. 결론이 짧고 단단합니다. <b>이름을 붙이는 것은 주의를 기울이는 일이고, 곧 사랑하는 일이다.</b> 공자의 정명이 정치의 문법이라면, 키머러의 명명은 애정의 문법입니다. 둘 다 <b>이름을 붙이려면 먼저 오래 보아야 한다</b>고 말합니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리 · 자아</span>
+          <span class="title">일을 옮겨도 주의는 앞의 일에 남아 있다</span>
+          <a class="src" href="https://psyche.co/guides/how-to-reclaim-your-attention" target="_blank" rel="noopener">Psyche Guides · 소피 르로이의 '주의 잔여물' ↗</a>
+          <p>르로이가 이름 붙인 <b>'주의 잔여물(attention residue)'</b>은 이런 현상입니다. 다른 일로 넘어가도 주의의 일부는 앞의 일에 묶여 남아, 지금 하는 일의 수행이 떨어집니다. 앞의 일이 <b>끝나지 않은 채</b> 넘어갔을 때 특히 심합니다. 통합돌봄 담당자의 81.7%가 처한 자리가 바로 여기입니다. 인감 창구와 돌봄 계획 사이를 오가는 하루는 두 일을 반씩 하는 것이 아니라, <b>양쪽 다 잔여물을 안은 채로 하는 것</b>입니다. 겸직은 시간의 문제로 보고되지만 실제로는 <b>주의의 문제</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기 · 창작</span>
+          <span class="title">"에세이는 비문학, 잡문으로 불린다"</span>
+          <a class="src" href="https://www.artinsight.co.kr/news/view.php?no=82164" target="_blank" rel="noopener">아트인사이트 (08-24) · 편집자 이연실 ↗</a>
+          <p>출판 시장에서 가장 잘 팔리고 젊은 독자가 가장 먼저 집는 장르인데, 그 이름은 <b>'비문학'이고 '잡문'</b>입니다. 무엇이 아닌지로 불리는 이름입니다. 이연실은 그 자리에 다른 정의를 놓습니다 — <b>"한 사람이 살아온 대로, 경험한 만큼 쓰이는 글"</b>, <b>"삶이 불러 주는 이야기를 기억 속에서 숙성시켰다가 작가의 손이 자연스레 받아쓰는 글."</b> 그리고 편집자로서 한 문장을 더 답니다. 에세이를 판다는 것은 과격하게 말하면 <b>작가가 제 삶의 일부를 파는 일</b>이라고. 잡문이라는 이름으로는 절대 잴 수 없는 무게입니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문 · 에세이</span>
+          <span class="title">9년차 웹소설 작가인데 '문학 상주작가' 지원은 못 한다</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003257414" target="_blank" rel="noopener">오마이뉴스 (08-21) · 구혜린 ↗</a>
+          <p>필자는 9년째 쓰는 웹소설 작가입니다. 그런데 도서관에 머물며 프로그램을 운영하는 '문학 상주작가' 사업에는 지원할 수 없습니다. 웹소설이 <b>기초예술이 아니라 문화산업의 영역</b>으로 분류되기 때문입니다. 전자책 단독 출간도 인정되지 않고, ISBN 부가기호가 문학(8)이어도 <b>종이책이어야</b> 합니다. 필자의 문장이 조용히 정확합니다 — 오프라인 공간에서 활동한다는 설명은 이해하겠지만, <b>그것이 과거 작품의 출간 형식까지 종이책이어야 할 이유를 충분히 설명하는지는 모르겠다</b>고. 9년의 실제가 있는데, <b>분류가 그 사람을 없는 사람으로 셉니다.</b></p></div>
+
+        <blockquote class="quote">"명칭이 바르지 않으면 말이 조리를 잃고, 말이 조리를 잃으면 일이 이루어지지 못한다."
+          <span class="by">— 공자, 『논어』 자로편 (이수태 옮김)</span></blockquote>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「초혼(招魂)」 — 김소월 <span style="font-weight:400;font-size:13px;color:#6B6459;">(저작권 만료 · 전문)</span></p>
+          <p class="verse">산산이 부서진 이름이여!
+허공중에 헤어진 이름이여!
+불러도 주인 없는 이름이여!
+부르다가 내가 죽을 이름이여!
+
+심중에 남아 있는 말 한마디는
+끝끝내 마저 하지 못하였구나.
+사랑하던 그 사람이여!
+사랑하던 그 사람이여!
+
+붉은 해는 서산 마루에 걸리었다.
+사슴의 무리도 슬피 운다.
+떨어져 나가 앉은 산 위에서
+나는 그대의 이름을 부르노라.
+
+설움에 겹도록 부르노라.
+설움에 겹도록 부르노라.
+부르는 소리는 비껴가지만
+하늘과 땅 사이가 너무 넓구나.
+
+선 채로 이 자리에 돌이 되어도
+부르다가 내가 죽을 이름이여!
+사랑하던 그 사람이여!
+사랑하던 그 사람이여!</p>
+          <p class="memo">배달 메모 — 오늘 등대와 같은 자리에 놓습니다. 이 시는 처음부터 끝까지 <b>이름 하나를 부르는 일</b>로만 되어 있습니다. 첫 연이 이름의 네 가지 상태를 나열합니다 — 부서진 이름, 흩어진 이름, <b>주인 없는 이름</b>, 부르다가 죽을 이름. 세 번째가 오늘의 자리입니다. <b>이름은 남았는데 그 이름의 주인이 없는 상태.</b> 조직도에는 있는데 사람이 겸직인 자리, 장르 이름은 붙었는데 그 이름으로는 자격이 안 되는 자리가 다 그 종류입니다. 2연이 그다음을 말합니다 — <b>"심중에 남아 있는 말 한마디는 / 끝끝내 마저 하지 못하였구나."</b> 이름을 못 붙인 것이 아니라 <b>아직 다 못 한 말</b>이 남은 것입니다. 그리고 마지막 연, 돌이 되어도 부르겠다는 자리. 김소월은 네 번째이지만(7/11 「엄마야 누나야」·7/14 「산유화」·8/25 「가는 길」) 이 시는 처음입니다. 어제 「가는 길」이 <b>말을 할까 생각하는 순간 감정이 확정된다</b>고 했다면, 오늘 「초혼」은 그 뒤를 잇습니다 — <b>부를 이름이 있다는 것 자체가 이미 붙드는 일</b>입니다. 🦊</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+        <div class="fog"><ul>
+          <li>한겨레 통합돌봄 기사 원문에 직접 닿지 못해 <b>검색 요약(제목·본문 발췌) 기준</b>으로 적었습니다. 6,297명·5,146명(81.7%)·230개 시군구는 그 발췌에 나온 수치입니다. <b>자료를 낸 주체(어느 의원실·부처 제출 자료인지)는 확인하지 못했습니다.</b> 인용하실 일이 있으면 원문을 먼저 확인해 주십시오.</li>
+          <li>조선일보 칼럼도 원문 접근이 막혀 <b>검색 요약 기준</b>입니다. 그래서 <b>필자 이름을 적지 못했습니다.</b> 논지("돌봄의 질·노동 시간의 감소·시민이 돌려받은 시간으로 평가하라")만 옮겼습니다.</li>
+          <li>'AI민주정부 실현 전략'은 여러 매체 보도를 교차해 적었으나 <b>행안부 원문 보도자료는 열지 못했습니다.</b> 5대 분야의 정확한 명칭과 시행 시점은 부처 자료로 다시 확인이 필요합니다.</li>
+          <li>키머러·르로이의 문장은 <b>영문을 우리말로 옮긴 것</b>입니다. 어감이 원문과 다를 수 있습니다.</li>
+          <li>논어 자로편 번역은 이수태의 번역을 따랐습니다. 판본에 따라 '명칭'을 '명분'으로 옮기기도 합니다.</li>
+          <li>뺀 것 — 공수처·중수청 관련 소식은 오늘 결과 멀어 넣지 않았습니다. Brevity·Paris Review는 이번에도 원문 접근이 막혀 글감에서 제외했습니다.</li>
+          <li>「초혼」은 판본에 따라 '헤어진/흩어진', '겹도록/겨웁도록' 표기가 갈립니다. 『진달래꽃』 계열 표기를 따랐습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 우리가 붙들고 있는 이름 하나가 실제와 얼마나 떨어져 있는지 재어 보시기를 바랍니다. 떨어져 있다는 걸 알아내는 것만으로도 오늘의 일은 반쯤 이루어진 것입니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑</p>
+  </div>
+</body>
+</html>
