@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-08-27 (목)</title>
+<meta property="og:title" content="관제탑 브리핑 · 2026-08-27 (목)">
+<meta property="og:description" content="덜어내는 것이 일이다 — 다만 버리는 것이 아니라 조절하는 것이다. 오늘의 항로 통보 7건 · 등대 글감 다섯 우물 · 우편기 이육사 「교목」">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;--green-soft:#2C6249;--gold:#B8912E;--gold-soft:#D9C48A;
+    --cream:#F7F1E3;--paper:#FBF7EC;--ink:#2B2B26;--muted:#6B6459;--line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;padding:40px 44px 34px;position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  blockquote.quote{margin:0;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+  .back{display:block;text-align:center;margin:26px auto 0;font-size:13px;color:var(--green-soft);
+    text-decoration:none;font-family:"Nanum Myeongjo",serif;letter-spacing:.08em;}
+  .back:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 8월 27일 · 목요일</p>
+      <p class="opening">어제 충남 청양군이 행정안전부의 '혁신 멘토'가 된 이유를 읽다가 멈췄습니다. 새 제도를 열 개 만들어서가 아니라, <b>'간부 모시는 날'이라는 오래된 관습 하나를 없애서</b>였습니다. 그 군의 운동 이름이 행정PRO — 정확하게(Perfect)·<b>줄이고</b>(Reduce)·공유하자(Open)입니다.<br>
+      오늘 항로와 등대를 같은 자리에 걸었습니다. <b>더 얹는 것이 아니라 덜어내는 것이 일이 되는 자리가 있습니다.</b> 다만 덜어냄에도 종류가 있습니다 — 버림과 조절은 다릅니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 청양군이 '간부 모시는 날'을 없애고 행안부의 혁신 멘토가 됐습니다</span>
+          <a class="src" href="https://www.tournews21.com/news/articleView.html?idxno=141926" target="_blank" rel="noopener">투어뉴스21 (08-27) ↗</a>
+          <p>충남 청양군이 2025년 지방정부 혁신평가 우수기관으로 뽑혀, 그저께(8/25) 다른 지자체를 가르치는 <b>기관혁신 멘토링을 주관</b>했습니다. 멘티는 공주시·군산시·구미시입니다. 한 일의 목록이 인상적입니다 — <b>조직문화 혁신 조례를 제정</b>해 불필요한 업무 축소를 제도로 뒷받침했고, 권위적 조직문화의 상징으로 지적돼 온 <b>'간부 모시는 날'을 사실상 폐지</b>했습니다. 직원이 직접 과제를 발굴하는 'PRO혁신추진단', 아이디어 게시판 '청바시', 신규 공무원용 업무매뉴얼 '알쓸신잡'도 함께입니다. 운동의 이름이 곧 방법입니다 — <b>정확하게·줄이고·공유하자.</b> 가운데 글자가 오늘의 자리입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 통합돌봄 5개월, 대구·경북 읍·면·동에는 전담 공무원이 한 명도 없습니다</span>
+          <a class="src" href="https://www.pn.or.kr/news/articleView.html?idxno=34033" target="_blank" rel="noopener">평화뉴스 (08-26) ↗</a>
+          <p>전국 통합돌봄 담당 공무원의 81.7%가 겸직이라는 수치가 어제 나왔는데, 지역으로 내려가면 더 선명해집니다. 제도 시행 다섯 달이 지났지만 <b>대구·경북 읍·면·동 행정복지센터에는 전담 인력이 0명</b>입니다. 대상자를 직접 발굴하고 상담과 사례 관리를 수행해야 하는 <b>최일선</b>이 그렇습니다. 오늘 항로의 앞뒤가 여기서 갈립니다. 청양군이 줄인 것은 관습이고, 여기서 줄인 것은 사람입니다. <b>줄일 것과 줄이면 안 될 것을 가르는 눈이 곧 행정의 실력입니다.</b></p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 8월 하순인데 37도, 오늘 남부에는 비가 지납니다</span>
+          <a class="src" href="https://n.news.naver.com/mnews/article/422/0000899792" target="_blank" rel="noopener">연합뉴스TV (08-27) ↗</a>
+          <a class="src" href="https://n.news.naver.com/mnews/article/022/0004153838" target="_blank" rel="noopener">세계일보 (08-26) ↗</a>
+          <p>오늘도 전국 대부분에서 찜통더위가 이어지는 가운데, 경남 남해안 등 남부 곳곳에 비가 예보됐습니다. 기상청은 <b>비가 자주 내리면서 늦더위의 기세가 한풀 꺾일 것</b>으로 내다봤습니다. 제18호 태풍 '사우델'은 오키나와 북서쪽을 지나 서진해, <b>29일 오전 중국 푸저우 서쪽 부근 육상에 접근한 뒤 열대저압부로 약화</b>될 전망입니다. 한반도 직접 상륙 경로는 없습니다. 다만 전남·경남 남해안과 제주 해안에는 너울이 들어옵니다 — <b>하늘이 맑아도 갯바위와 방파제에는 파도가 옵니다.</b></p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 초등 1학년이 '이 글의 내용으로 알맞은 것'을 고르고 있습니다</span>
+          <a class="src" href="https://www.seoul.co.kr/news/editOpinion/column/politics-story/2026/08/25/20260825025001" target="_blank" rel="noopener">서울신문 「세종로의 아침」 김소라 (08-25) ↗</a>
+          <p>2033학년도 수능 서술형 도입 예고가 학원 시장을 먼저 움직였다는 진단입니다. <b>학원명에 '논술'이 들어간 학원이 2022년 3월 2,821개에서 2026년 3월 4,656개로 4년 새 65% 급증</b>했습니다. 칼럼의 한 문장이 아픕니다 — <i>"한참 동화책의 재미를 느껴야 할 초등학교 1학년 어린이들이 '이 글의 내용으로 알맞은 것'을 고르는 문제를 푸는 게 흔한 일이 됐다."</i> 그리고 <b>"'독서로 충분하지 않을까'라는 의문은 시험에서 답을 정확히 파악해 써내야 한다는 당면 과제 앞에서 힘을 잃는다"</b>고 적었습니다. 서술형으로 바꾸겠다는 좋은 뜻이 <b>아이에게는 한 겹을 더 얹는 방식</b>으로 도착했습니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 밀리의 서재가 부암동에 '작가의 집'을 열었습니다</span>
+          <a class="src" href="https://www.etoday.co.kr/news/view/2618045" target="_blank" rel="noopener">이투데이 (08-25) ↗</a>
+          <p>창작자에게 <b>5개월간 창작 공간과 숙박을 지원</b>하는 집입니다. 작가 간 교류부터 출판·저작권 교육까지 붙였고, 2호·3호로 확대하는 방안도 검토 중입니다. 지금은 소설 중심이지만 향후 에세이로도 넓힐 계획입니다. 이 소식의 값은 <b>지원금이 아니라 '방'이라는 형식</b>에 있습니다. 쓰라고 돈을 주는 것과 <b>쓸 수 있는 조건에서 방해를 덜어 주는 것</b>은 다른 일입니다. 오늘 등대에서 다시 만납니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 무라카미 하루키 장편 『가호』, 10월 문학동네에서 나옵니다</span>
+          <a class="src" href="https://www.mediawatch.kr/news/article.html?no=260777" target="_blank" rel="noopener">미디어워치 (08-25) ↗</a>
+          <p>그림책 작가의 성장과 회복을 다룬 작품으로, 일본에서 누적 30만 부가 발행됐습니다. 다수 출판사의 판권 경쟁 끝에 문학동네가 선정됐습니다. 문학동네는 2009년 『1Q84』 이후 하루키의 소설과 에세이 20여 종을 국내에 냈습니다. <b>회복을 다룬 이야기가 회복을 기다리는 계절에 도착합니다.</b></p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 내일(8/28) 「인공지능·데이터 기반 행정 활성화법」이 시행됩니다. 질문은 '책임'으로 옮겨 갔습니다</span>
+          <a class="src" href="https://www.ajunews.com/view/20260826094253720" target="_blank" rel="noopener">아주경제 「김정래의 AI 국가론 ①」 (08-26) ↗</a>
+          <p>법은 AI를 <b>정책 수립과 의사결정에 활용</b>할 수 있는 근거를 놓습니다. 연재의 첫 회가 던지는 물음이 정확합니다 — <i>공무원이 된 AI, 그러면 국가책임의 경계는 어디까지인가.</i> 도구가 결정 과정 안쪽으로 들어오면 <b>"누가 정했는가"가 흐려집니다.</b> 결재선의 어느 칸에 AI가 낀 문서를 언젠가 누구나 만지게 될 것이고, 그때 필요한 것은 AI 사용법이 아니라 <b>판단의 지분을 적어 두는 습관</b>입니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 덜어내는 것이 일이다 — 다만 버리는 것이 아니라 조절하는 것이다</span></div>
+
+        <div class="pick"><span class="field">📜 고전 · 인문</span>
+          <span class="title">"배움은 날마다 더하고, 도는 날마다 덜어낸다"</span>
+          <a class="src" href="http://m.usjournal.kr/news/articleView.html?idxno=48706" target="_blank" rel="noopener">노자 『도덕경』 48장 ↗</a>
+          <a class="src" href="https://www.imaeil.com/page/view/2019040410041677978" target="_blank" rel="noopener">매일신문 「위도일손」 ↗</a>
+          <p><b>위학일익 위도일손(爲學日益 爲道日損).</b> 배운다는 것은 날로 더하는 것이요, 도를 닦으면 날마다 덜어진다 — 그리고 이어지는 대목이 핵심입니다. <b>손지우손(損之又損), 덜어내고 또 덜어내야</b> 이윽고 무위에 이르고, 무위에 이르면 되지 않는 일이 없다고 했습니다. 노자는 여기서 배움을 부정하지 않습니다. <b>더하는 일과 덜어내는 일이 서로 다른 근육</b>이라고 말할 뿐입니다. 대부분의 사람은 앞의 근육만 씁니다. 오늘 청양군이 쓴 것은 뒤의 근육이었습니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리 · 자아</span>
+          <span class="title">집중은 의지의 문제가 아니라 구조의 문제다</span>
+          <a class="src" href="https://psyche.co/guides/how-to-reclaim-your-attention" target="_blank" rel="noopener">Psyche · Yousri Marzouki ↗</a>
+          <p>카타르대 인지심리학자 유스리 마르주키가 제안하는 것은 <b>'심리적 미니멀리즘'</b> — 정신적 소음을 의도적으로 줄여 주의와 주도권을 되찾는 실천입니다. 방법은 결심이 아니라 <b>환경과 루틴에서 덜어내기</b>입니다. 알림을 지우고, 물리적 공간을 정리하고, 시간 기반의 안정된 루틴을 세우는 것. 그가 놓는 문장이 명료합니다 — <b>"주의는 순간순간의 통제라기보다 구조적 뒷받침의 문제가 된다."</b> 그러면 <b>"끊임없는 자기 통제에 기대지 않고도 집중을 지속하기 쉬워진다"</b>고 했습니다. 이것은 금욕이 아닙니다. <b>무엇을 들여놓을지 미리 고르는 일</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기 · 창작</span>
+          <span class="title">잘라낸 글이 실패한 글은 아니다. 다른 책의 글일 뿐이다</span>
+          <a class="src" href="https://brevity.wordpress.com/2026/05/05/another-book/" target="_blank" rel="noopener">The Brevity Blog · Tamara Jong ↗</a>
+          <p>에세이로 엮은 회고록을 편집자와 함께 고쳐 나가며, 무엇을 남기고 무엇을 뺄지 가려낸 과정을 적은 글입니다. 제목이 곧 결론입니다 — <b>"그건 다른 책이에요."</b> 빼는 이유가 '못 써서'가 아니라 <b>'이 책의 것이 아니어서'</b>라는 것. 이 구분이 글 쓰는 사람을 살립니다. 잘라낸 원고를 실패로 세면 다음 원고를 쓸 힘이 줄지만, <b>아직 자기 책을 못 찾은 글로 세면</b> 그것은 보관 대상이 됩니다. <b>버려진 문장이 아니라 아직 자기 책을 기다리는 문장입니다.</b></p></div>
+
+        <div class="pick"><span class="field">🌿 의미 · 철학</span>
+          <span class="title">빈 페이지조차 비어 있지 않다</span>
+          <a class="src" href="https://aeon.co/essays/the-place-of-empty-space-in-the-literary-imagination" target="_blank" rel="noopener">Aeon · Andrew Gallix ↗</a>
+          <p>소르본에서 가르치는 작가 앤드루 갤릭스가 문학 속 여백을 따라갑니다. 쓰인 것은 언제나 구상에 못 미치고, 그래서 발터 벤야민은 <b>"모든 책은 그 구상의 데스마스크"</b>라고 했습니다. 갤릭스가 부르는 증인들이 한 방향을 가리킵니다 — 아감벤이 본 <b>필경사 바틀비</b>("차라리 하지 않는 편을 택하겠습니다")는 모든 창조가 거기서 나오는 <b>'무(Nothing)'의 극단적 형상</b>이고, 손택은 예술이 <b>"어쩌면 예술을 버림으로써만 닿을 수 있는 무언가에 이르는 수단"</b>이라고 했습니다. 그리고 라비니아 그린로의 한 줄이 오늘의 자리입니다 — <b>"빈 페이지조차 비어 있지 않다."</b> 덜어낸 자리는 없어진 자리가 아닙니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문 · 에세이</span>
+          <span class="title">"비평도 매력적인 읽기 대상이 돼야 한다"</span>
+          <a class="src" href="https://www.hani.co.kr/arti/culture/book/1274592.html" target="_blank" rel="noopener">한겨레 (08-25) ↗</a>
+          <p>문학평론가 <b>권성우</b>가 10년 만의 비평집 『망명과 지성』(소명출판)을 냈습니다. 1987년 평단 데뷔 이후 일곱 번째 비평집이고, 최인훈을 주요하게 다뤘습니다. 인터뷰에서 그는 <b>'주례사비평'이 더 심해졌다</b>고 진단합니다. 좁은 관계망 안에서 얼굴을 붉히지 않으려 좋은 말만 적는 관행입니다. 오늘 결에 정확히 놓입니다 — <b>주례사비평은 덜어내지 않은 칭찬</b>입니다. 뺄 말을 빼지 않으면 남은 말도 읽히지 않습니다. <b>다 좋다고 하는 글은 아무것도 말하지 않은 글</b>이 됩니다.</p></div>
+
+        <blockquote class="quote">"덜어내고 또 덜어내어 이윽고 함이 없음에 이른다."
+          <span class="by">— 노자, 『도덕경』 48장 (損之又損 以至於無爲)</span></blockquote>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「교목(喬木)」 — 이육사 <span style="font-weight:400;font-size:13px;color:#6B6459;">(저작권 만료 · 전문)</span></p>
+          <p class="verse">푸른 하늘에 닿을 듯이
+세월에 불타고 우뚝 남아 서서
+차라리 봄도 꽃피진 말아라
+
+낡은 거미집 휘두르고
+끝없는 꿈길에 혼자 설레이는
+마음은 아예 뉘우침 아니라
+
+검은 그림자 쓸쓸하면
+마침내 호수 속 깊이 거꾸러져
+차마 바람도 흔들진 못해라</p>
+          <p style="text-align:center;margin:16px 0 0;font-size:12.5px;color:#6B6459;">1940년 7월 《인문평론》 발표 · <a class="src" href="https://ko.wikisource.org/wiki/%EA%B5%90%EB%AA%A9" target="_blank" rel="noopener">위키문헌 ↗</a></p>
+          <p class="memo">배달 메모 — 오늘 등대와 같은 자리에 놓습니다. 이 시는 <b>덜어내고 또 덜어낸 나무</b>의 초상입니다. 1연부터 이미 다 태우고 남았습니다 — <b>"세월에 불타고 우뚝 남아 서서."</b> 그리고 곧바로 하나를 더 뺍니다. <b>"차라리 봄도 꽃피진 말아라."</b> 봄에 꽃을 피우는 것은 나무에게 가장 자연스러운 일인데, 그것마저 사양합니다. 노자의 손지우손이 나무의 몸으로 서 있는 자리입니다. 2연이 그 덜어냄의 성격을 밝힙니다 — <b>"마음은 아예 뉘우침 아니라."</b> 후회해서 버린 것이 아니라는 뜻입니다. 뺀 것을 아까워하지 않는 상태, <b>버림이 아니라 조절</b>의 완성형입니다. 3연에서 나무는 호수 속으로 거꾸러지고, 그제야 <b>"차마 바람도 흔들진 못해라"</b> — 다 덜어낸 것은 흔들 수 없습니다. 「광야」가 아무것도 없는 벌판에 <b>씨를 뿌리는</b> 시였다면, 「교목」은 이미 있던 것을 <b>덜어내고 남는</b> 시입니다. 같은 시인의 두 방향입니다. 🦊</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li>한겨레 권성우 인터뷰는 <b>본문 직접 열람이 막혀</b> 검색 요약과 서지 정보(『망명과 지성』·소명출판·10년 만·일곱 번째 비평집·최인훈)로만 확인했습니다. '주례사비평이 더 심해졌다'는 진단은 기사 제목과 요약에 근거한 것으로, <b>인터뷰 안의 정확한 문장 전체는 확인하지 못했습니다.</b></li>
+          <li>Brevity 블로그도 서버가 직접 열람을 막아, 타마라 종의 글은 <b>제목과 검색 요약</b>(회고록 개정 과정에서 무엇을 남기고 뺄지 가려낸 이야기)까지만 확인했습니다. 본문 안의 직접 인용은 넣지 않았습니다.</li>
+          <li>이육사 「교목」 전문은 널리 통용되는 판본을 따랐습니다. <b>2연 마지막 행은 '뉘우침 아니라'와 '뉘우침 아니리' 두 판본</b>이 돌아다닙니다. 앞의 것으로 실었습니다.</li>
+          <li>오늘 남부 강수량·폭염특보 해제 여부는 <b>아침 발표 기준으로 바뀔 수 있어</b> 구체 수치를 넣지 않았습니다. 외출 전 기상청 확인을 권합니다.</li>
+          <li>국제 뉴스는 오늘 담지 못했습니다. 국내 행정·사회·문화 쪽에 결이 모여 있어 그쪽을 택했습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 무언가를 더 얹기 전에 <b>이미 얹혀 있는 것 하나를 먼저 내려놓을 수 있기를</b> 바랍니다. 내려놓는 일도 일이고, 어쩌면 더 어려운 쪽의 일입니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑</p>
+    <a class="back" href="./">← 브리핑 서가로</a>
+  </div>
+</body>
+</html>
