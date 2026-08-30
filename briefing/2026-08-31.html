@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-08-31 (월)</title>
+<meta property="og:title" content="관제탑 브리핑 · 2026-08-31 (월)">
+<meta property="og:description" content="덜어도 되는 수고와, 덜면 일 자체가 사라지는 수고는 다르다. 오늘의 항로 통보 7건 · 등대 글감 다섯 우물 · 우편기 정지용 「유리창 1」">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;       /* 디퍼 초록 */
+    --green-soft:#2C6249;
+    --gold:#B8912E;        /* 금빛 */
+    --gold-soft:#D9C48A;
+    --cream:#F7F1E3;       /* 크림 */
+    --paper:#FBF7EC;
+    --ink:#2B2B26;
+    --muted:#6B6459;
+    --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;
+    padding:40px 44px 34px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  /* ── Body ── */
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  /* News */
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  /* Reading picks (글감 분야) */
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:0 0 16px;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+  .seed{font-size:16px;margin:0 0 14px;}
+  .seed b{color:var(--green-soft);}
+  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
+    font-size:15.5px;line-height:1.85;}
+  .pause b{color:var(--gold-soft);}
+
+  /* Poem letter */
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  /* Claude lesson */
+  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
+  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
+  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
+  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
+  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
+    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+
+  /* Fog */
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  /* Closing */
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 8월 31일 · 월요일</p>
+      <p class="opening">오늘로 8월이 끝납니다. 여름의 마지막 날이고, 이번 주 안에 9월이 옵니다.<br>
+      오늘 항로에 같은 모양의 소식이 여럿 들어왔습니다 — <b>수고를 줄이려고 한 일이 수고를 없애지 못하고 다른 자리로 옮겨 놓은 장면들</b>입니다. 그래서 오늘의 결을 이렇게 걸었습니다. <b>덜어도 되는 수고와, 덜면 일 자체가 사라지는 수고는 다릅니다.</b></p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 대통령이 "소규모 정비사업 인허가권을 구청장에게" — 권한이 아래로 내려갑니다</span>
+          <a class="src" href="https://www.news1.kr/realestate/general/6273933" target="_blank" rel="noopener">뉴스1 (08-31 06:15) ↗</a>
+          <p>소규모 재개발·재건축의 인허가 권한을 시(市)가 아니라 자치구청장에게 넘기자는 방향이 대통령 발언으로 나왔습니다. 지난 6·3 지방선거 때 나온 공약 — 중소형 정비사업 지정 권한을 자치구로 넘기고 <b>각 정비구역에 전담 공무원을 배치</b>한다는 구상 — 과 같은 줄기입니다. 서울시의 반발이 예상됩니다. 눈여겨볼 대목은 권한 이양 자체가 아니라 <b>뒤따르는 문장</b>입니다. 권한은 내려보내기 쉽지만, 그 권한을 실제로 행사할 사람은 함께 내려가지 않습니다. 오늘 항로의 나머지 소식들이 전부 이 자리에서 갈라집니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 경찰: "에이스들 다 끌려가" — 특수수사로 인력이 몰리자 일선 경찰서가 비었습니다</span>
+          <a class="src" href="https://www.segye.com/newsView/20260830509567" target="_blank" rel="noopener">세계일보 단독 (08-30) ↗</a>
+          <p>12·3 비상계엄 이후 경찰의 특수수사 비중이 커지면서 수사 역량이 그쪽으로 집중됐고, 일선 경찰서에는 업무 가중과 부실수사 논란이 남았습니다. 기사에 실린 처방 하나가 오늘 결과 맞닿습니다 — 이웅혁 건국대 교수(경찰학)는 <b>내근 행정 경찰을 일반 공무원으로 돌리고, 제복 입은 경찰은 민생 치안으로 되돌리자</b>고 했습니다. 일을 없앤 것이 아니라 <b>일이 있어야 할 자리로 되돌리자</b>는 제안입니다. 줄이기와 옮기기는 다른 동작입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 통합돌봄 전담 인력을 '노인 일자리'로 메우고 있습니다</span>
+          <a class="src" href="https://www.donga.com/news/Society/article/all/20260831/134572608/2" target="_blank" rel="noopener">동아일보 (08-31 04:33) ↗</a>
+          <p>정부는 3월 27일부터 전국 227개 시·군·구에서 통합돌봄을 본격 시행하며 읍·면·동마다 전담 인력을 <b>최소 1명 이상</b> 배치하라는 지침을 냈습니다. 그런데 지난달 기준 통합돌봄 업무를 하는 지방공무원 10명 중 8명은 <b>다른 일을 겸하고 있고</b>, 그 빈자리를 노인 일자리 사업 참여자가 메우고 있다는 보도입니다. 이 자리에서 8월 26일·27일 두 번 전해 드린 숫자(전담 3.1%, 대구·경북 읍면동 전담 0명)의 <b>다음 장면</b>이 오늘 나왔습니다. 지침은 사람을 세었고, 현장은 <b>손</b>을 세었습니다. 둘이 같은 것이 아니었다는 사실이 다섯 달 만에 드러납니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 가족을 돌보느라 내일을 미루는 청년, '영케어러'</span>
+          <a class="src" href="https://www.youthdaily.co.kr/news/article.html?no=225998" target="_blank" rel="noopener">청년일보 청년발언대 (08-30) ↗</a>
+          <p>가족을 돌보는 청년들의 이야기입니다. 글이 짚는 두 겹의 구조가 정확합니다. 하나 — 돌봄을 가족의 도리로 여기는 규범 아래에서 <b>청년의 돌봄은 노동으로 인정되지 않고, 당사자조차 자신을 돌봄 제공자로 인식하지 못합니다.</b> 둘 — 소득과 근로능력을 기준으로 짜인 선별적 복지 체계에서는 부모가 수급자가 아니면 그 청년은 어디에도 걸리지 않습니다. 앞 소식과 이어집니다. <b>누군가 하고 있는데 아무도 세지 않는 수고</b>가 오늘 두 자리에서 나왔습니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 김애란, "글쓰기란 고통… 그 고통을 AI에 외주 주고 싶진 않아"</span>
+          <a class="src" href="https://www.yna.co.kr/view/AKR20260829000300005" target="_blank" rel="noopener">연합뉴스 (08-29) ↗</a>
+          <p>7년 만의 산문집 『그랬다고 적었다』를 낸 김애란의 인터뷰입니다. 제목에 놓인 한 문장이 오늘 결의 한복판입니다. 글쓰기가 고통이라는 것을 부정하지 않고, 그 고통이 <b>덜어야 할 비용이 아니라 일 자체</b>라고 말하는 자리입니다. AI가 문장을 대신 만들어 줄 수 있는 시대에, 대신 만들어 줄 수 없는 것이 무엇인지를 작가가 자기 일로 대답했습니다. <span style="color:#6B6459;font-size:14px;">(이 산문집은 8월 21일·28일 이 자리에서 두 번 전해 드렸습니다. 오늘은 책이 아니라 <b>작가의 대답</b>을 싣습니다.)</span></p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 영국: "쓰레기통 왜 안 비우죠?"가 27페이지가 되어 돌아옵니다</span>
+          <a class="src" href="https://www.sedaily.com/article/20084800" target="_blank" rel="noopener">서울경제 (08-30) ↗</a>
+          <p>영국 지방정부·학교·공공기관이 <b>AI로 작성된 장문 민원</b>에 눌리고 있습니다. 예전에는 A4 한 장이면 끝났을 "쓰레기통이 비워지지 않았다"는 민원이, AI를 거치면서 판례와 법률 조항을 붙여 <b>19~27페이지</b>로 돌아옵니다. 분량만이 문제가 아닙니다. AI가 <b>잘못된 조항을 인용하거나 사실과 다른 내용을 섞는</b> 경우가 많아, 공무원이 일일이 확인하고 법률 자문까지 거쳐야 합니다. 처리 시간은 <b>1.5배</b>로 늘었고, 지방정부 변호사 협회는 감당하려면 인력을 지금의 <b>두 배</b>로 늘려야 한다고 분석했습니다. 대응책마저 씁쓸합니다 — AI가 쓴 민원을 <b>다시 AI로 요약해</b> 한 장으로 답하기, 분량 제한 양식 도입, 직접 면담 복구. 다만 기사는 밝은 쪽도 함께 짚습니다. 글쓰기에 어려움을 겪는 신경다양인에게는 <b>정당한 권리를 행사할 수 있는 통로</b>가 되었습니다. 오늘 항로에서 가장 정확한 그림입니다. <b>한쪽이 던 수고는 사라지지 않고, 받는 쪽으로 옮겨 갔습니다.</b></p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — "지방정부 AX가 답이다" — 전문가 7인이 인구 감소 지역을 시범지로 꼽았습니다</span>
+          <a class="src" href="https://www.etnews.com/20260830000081" target="_blank" rel="noopener">전자신문 (08-30) ↗</a>
+          <p>학계·중앙부처·지방정부·협회·공공기관·국회를 대표하는 전문가 7인의 진단입니다. 배일권 행정안전부 인공지능정보기반국장은 지방정부가 중앙보다 AI 전환 성과를 내기에 유리한 구조라고 했고, 성시경 한국행정학회장 역시 지방정부를 'AI 정부' 실현의 최적지로 꼽았습니다. 향후 과제로 나온 대목이 오늘 자리입니다 — <b>인구 감소로 공무원이 정주조차 어려운 울릉군</b>을 모델 지역으로 삼는 '모두의 AI' 시범사업. 사람이 갈 수 없는 곳에 도구를 먼저 보내겠다는 발상입니다. 앞의 영국 소식과 나란히 놓으면 오늘의 질문이 완성됩니다. <b>도구는 어느 수고를 덜 수 있고, 어느 수고는 덜지 못합니까.</b></p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 덜어도 되는 수고와, 덜면 일 자체가 사라지는 수고는 다르다</span></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">"자유의지는 허구다. 자유에는 마찰이 필요하기 때문이다"</span>
+          <a class="src" href="https://psyche.co/ideas/freedom-needs-friction-lessons-in-choice-from-french-history" target="_blank" rel="noopener">Psyche · Larry S McGrath ↗</a>
+          <p>프랑스 철학사를 따라 자유의 두 얼굴을 갈라 놓는 글입니다. 하나는 <b>자유의사(libre arbitre)</b> — 선택지 앞에서 고르는 행위. 다른 하나는 <b>의지(volonté)</b> — 저항을 밀고 나가는 노력. 멘 드 비랑(Maine de Biran)에게 자유는 앞의 것이 아니라 뒤의 것이었습니다. 몸을 쓰면 반드시 저항이 생기고, <b>그 저항을 밀어내는 힘의 감각이 곧 '나'라는 감각</b>입니다. 저자가 외국어를 배운 이야기로 이것을 보여 줍니다 — 프랑스어의 묵음과 연음이 뒤엉킨 소리로만 들리던 시절, 단어 하나에 집중하고 혀를 비틀고 틀릴 위험을 무릅쓰고 말해 본 뒤에야 그 언어 <b>안에 살게</b> 되었다고. 그리고 습관이 자리를 잡으면 다시 새로운 저항이 쌓입니다. <b>저항은 없애야 할 장애가 아니라, 다시 나를 만들 기회입니다.</b></p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">"미리 정해 두고 들어가면, 독자가 따라올 이유가 없습니다"</span>
+          <a class="src" href="https://brevity.wordpress.com/2026/08/26/curiosity-cand-memoir/" target="_blank" rel="noopener">The Brevity Blog · Dinty W. Moore (08-26) ↗</a>
+          <p>호기심이 고양이를 죽였다는 속담부터 무어는 부정합니다. 회고록 쓰는 사람에게 호기심은 사치가 아니라 <b>동력</b>이라는 것. 핵심 문장은 이겁니다 — <b>"작가는 호기심과 진짜 불확실성으로 가득 찬 채 회고록에 들어갈 때 가장 좋은 글을 쓴다."</b> 반대편에 무어가 놓는 경계가 '너무 일찍 잠그기(locking in)'입니다. 무슨 이야기인지, 교훈이 무엇인지 미리 정해 놓고 쓰기 시작하면 문장은 그 결론을 향해 정렬만 합니다. 독자는 그걸 압니다. <b>독자가 원하는 것은 정리된 교훈이 아니라 진짜로 헤매는 사람 곁에 있는 일</b>입니다. 헤맴은 글의 비용이 아니라 <b>글이 존재하는 이유</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">"배우기만 하고 생각하지 않으면 얻는 것이 없다"</span>
+          <a class="src" href="https://ko.wikisource.org/wiki/%EB%85%BC%EC%96%B4/%EC%9C%84%EC%A0%95" target="_blank" rel="noopener">『논어』 「위정」편 ↗</a>
+          <p><b>학이불사즉망 사이불학즉태(學而不思則罔 思而不學則殆).</b> 배우기만 하고 스스로 생각하지 않으면 어두워 얻는 것이 없고, 생각만 하고 배우지 않으면 위태롭다는 말입니다. 오늘 자리에서 앞 구절이 유독 크게 들립니다. 27페이지 민원에는 <b>배움(자료·조항·판례)이 가득</b>합니다. 없는 것은 <b>생각</b>입니다. 그래서 그 27페이지는 보내는 쪽에도 받는 쪽에도 아무것도 남기지 못하고, 대신 확인해야 할 노동만 1.5배로 늘려 놓습니다. 공자는 둘 중 하나를 고르라고 하지 않았습니다. <b>재료를 모으는 일과 그것을 자기 안에서 익히는 일은 서로 대신하지 못한다</b>고 했을 뿐입니다. 앞의 일은 이제 도구가 아주 잘합니다. 뒤의 일은 여전히 비어 있습니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">주의 깊게 본다는 것은 받아들이는 일이 아니라 만들어 내는 일이다</span>
+          <a class="src" href="https://www.themarginalian.org/2026/08/30/matter-memory-bergson/" target="_blank" rel="noopener">The Marginalian · Maria Popova (08-30) ↗</a>
+          <p>베르그송 『물질과 기억』을 다시 읽는 글입니다. 우리는 지각을 카메라처럼 여기지만, 베르그송은 정반대를 말합니다. <b>"우리의 지각은 과거 경험의 수천 가지 세부로 가득 차 있습니다."</b> 그러니 본다는 것은 이미 기억과 뒤섞인 구성이고, 그 덕에 빠르지만 그 때문에 틀립니다. 그리고 오늘의 문장이 여기 있습니다 — <b>"모든 주의적 지각은 능동적으로 창조된 이미지를 우리 밖으로 투사하는 일이다."</b> 주의는 받는 것이 아니라 <b>만드는 것</b>입니다. 그래서 주의는 힘이 듭니다. 힘이 들기 때문에 대신 시킬 수 없고, 대신 시키면 <b>본 것이 남지 않습니다.</b> 27페이지를 AI로 요약해 한 장으로 답하는 공무원은 민원을 읽은 것이 아닙니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">"AI 시대 글쓰기의 시작과 완성"을 산악전기작가에게 묻습니다</span>
+          <a class="src" href="https://www.yna.co.kr/view/AKR20260826122600057" target="_blank" rel="noopener">연합뉴스 (08-26) ↗</a>
+          <a class="src" href="https://www.ajunews.com/view/20260828164643378" target="_blank" rel="noopener">아주경제 ↗</a>
+          <p>울산울주세계산악영화제가 산악문학 부문 수상자 버나데트 맥도날드를 불러 여는 특별 토크의 제목입니다. 그가 책 한 권을 위해 해 온 일은 이렇습니다 — 수년간 자료를 모으고, 당사자들을 찾아가 인터뷰하고, 현장을 발로 뛰어 인간의 눈물과 생존을 <b>아날로그 방식으로</b> 적는 것. 생성형 AI가 몇 초 만에 문장을 만드는 시대에 이 프로그램이 던지는 물음은 "그러면 작가는 필요 없나"가 아닙니다. <b>몇 초 만에 만들어지는 문장에는 무엇이 빠져 있나</b>입니다. 빠진 것은 문체가 아니라 <b>거기 있었던 시간</b>입니다. 그 시간은 줄일 수 있는 공정이 아니라 재료 자체입니다.</p></div>
+
+              </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「유리창(琉璃窓) 1」 — 정지용 <span style="font-weight:400;font-size:13px;color:#6B6459;">(저작권 만료 · 전문)</span></p>
+          <p class="verse">유리(琉璃)에 차고 슬픈 것이 어른거린다.
+열없이 붙어 서서 입김을 흐리우니
+길들은 양 언 날개를 파다거린다.
+지우고 보고 지우고 보아도
+새까만 밤이 밀려나가고 밀려와 부딪히고,
+물 먹은 별이, 반짝, 보석처럼 박힌다.
+밤에 홀로 유리를 닦는 것은
+외로운 황홀한 심사이어니,
+고흔 폐혈관(肺血管)이 찢어진 채로
+아아, 늬는 산(山)새처럼 날아갔구나!</p>
+          <p style="text-align:center;margin:16px 0 0;font-size:12.5px;color:#6B6459;">1930년 1월 『조선지광』 89호 발표 · 1935년 『정지용시집』 수록</p>
+          <p class="memo">배달 메모 — 오늘 등대와 같은 자리에 놓습니다. 이 시의 중심은 일곱째·여덟째 줄입니다. <b>"밤에 홀로 유리를 닦는 것은 / 외로운 황홀한 심사이어니."</b> 외로운 것과 황홀한 것을 붙여 놓은 자리 — 그 둘이 같은 동작에서 나온다는 뜻입니다. 유리를 닦는 일은 아무도 대신해 줄 수 없습니다. 대신 시키면 유리는 깨끗해지겠지만, <b>거기 어른거리는 것은 만나지 못합니다.</b> 넷째 줄이 그 수고의 반복을 정확히 적습니다 — "지우고 보고 지우고 보아도." 지운다고 보이지 않고, 본다고 남지 않습니다. 그런데 그 되풀이 끝에 <b>"물 먹은 별이, 반짝, 보석처럼 박힌다"</b>가 옵니다. 마찰 없이는 오지 않는 순간입니다. 맥그래스가 말한 friction이 여기 우리말로 있습니다. 정지용은 아이를 잃고 이 시를 썼습니다. 슬픔을 설명하는 대신 <b>닦는 동작</b>만 적었습니다 — 오늘 무어가 말한 '미리 잠그지 않기'가 1930년에 이미 이렇게 되어 있습니다. 정지용은 세 번째이지만(7/24 「고향」·8/17 「호수 1」) 이 시는 처음입니다. 「호수 1」이 못 가리는 마음의 시라면, 「유리창 1」은 <b>대신할 수 없는 수고의 시</b>입니다. 🦊</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li>모든 소식은 <b>실제 보도와 원문에 근거</b>하며 링크를 함께 답니다. 확인하지 못한 것은 확인하지 못했다고 적습니다.</li>
+          <li><b>통합돌봄 인력 소식은 이 서가에서 세 번째</b>입니다(8/26 전담 3.1% · 8/27 대구·경북 읍면동 0명 · 오늘 노인 일자리로 대체). 되풀이를 피하려 했으나, 오늘 새벽 보도가 앞의 두 숫자가 실제로 어떻게 메워지고 있는지를 처음 보여 주어 실었습니다.</li>
+          <li><b>동아일보·연합뉴스 기사 본문은 열지 못했습니다.</b> 두 매체 모두 자동 접근이 막혀 있어, 검색 결과에 실린 기사 제목과 요약만으로 정리했습니다. 인용한 수치(10명 중 8명 겸직, 227개 시군구)와 김애란의 발언은 <b>기사 제목과 요약에 실린 그대로</b>이며, 본문의 앞뒤 맥락까지 확인하지는 못했습니다. 링크를 함께 걸어 두었으니 중요한 대목은 원문을 확인하시기 바랍니다.</li>
+          <li><b>『논어』 「위정」편 링크는 원문 출처(위키문헌)로 걸었습니다.</b> 해설이 아니라 원문이므로, 번역은 옮긴이의 것입니다.</li>
+          <li><b>9월 1일부터 달라지는 제도</b>를 따로 찾아보았으나, 전국 단위로 오늘·내일 시행되는 큰 제도 변화는 확인되지 않았습니다(지역 단위로는 대구 범안로 통행료 폐지 등이 있습니다). 억지로 채우지 않고 비웠습니다.</li>
+          <li><b>AI 소식은 일곱 건 중 두 건</b>으로 두었습니다. 오늘 결이 도구 쪽으로 쏠리기 쉬워, 행정 두 건·사회 두 건·문화 한 건을 앞에 놓았습니다.</li>
+          <li>시는 <b>저작권이 만료된 작품만 전문</b>으로 싣습니다. 현대 시인의 작품은 제목과 짧은 인용까지만 옮깁니다.</li>
+          <li>이 공개판에는 <b>개인적인 기록은 담지 않습니다.</b> 항로 통보·글감·시·출처만 옮깁니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 수월하게 해치우고 싶은 일이 있으시거든 <b>그 수고가 어디로 가는지만</b> 한 번 보아 주십시오. 사라지는 수고라면 기꺼이 더십시오. 다만 <b>닦아야만 보이는 유리 하나</b>는 오늘도 당신의 손으로 남겨 두시기를. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑</p>
+  </div>
+</body>
+</html>
