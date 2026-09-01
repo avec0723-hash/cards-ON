@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-02 (수)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1A4A35;       /* 디퍼 초록 */
+    --green-soft:#2C6249;
+    --gold:#B8912E;        /* 금빛 */
+    --gold-soft:#D9C48A;
+    --cream:#F7F1E3;       /* 크림 */
+    --paper:#FBF7EC;
+    --ink:#2B2B26;
+    --muted:#6B6459;
+    --line:#E4DAC4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
+      var(--cream);
+    color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
+    color:#F4EEDD;
+    padding:40px 44px 34px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
+  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
+  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
+  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
+  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
+    border-left:2px solid var(--gold);padding-left:16px;}
+
+  /* ── Body ── */
+  .body{padding:14px 44px 40px;}
+  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
+  .h .em{font-size:22px;line-height:1;}
+  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
+  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+
+  /* News */
+  .news{margin:0 0 20px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
+  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
+    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
+    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
+  .src:hover{color:var(--gold);border-color:var(--gold);}
+  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+
+  /* Reading picks (글감 분야) */
+  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
+    border-radius:10px;border-left:4px solid var(--green-soft);}
+  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
+    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
+  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
+  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:0 0 16px;padding:18px 22px;
+    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
+    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
+  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
+    font-weight:400;color:var(--muted);}
+  .seed{font-size:16px;margin:0 0 14px;}
+  .seed b{color:var(--green-soft);}
+  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
+    font-size:15.5px;line-height:1.85;}
+  .pause b{color:var(--gold-soft);}
+
+  /* Poem letter */
+  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
+    padding:26px 30px;position:relative;}
+  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
+  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
+    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
+  .verse .prose{display:block;text-align:left;font-size:15.5px;line-height:1.95;
+    margin:14px auto;max-width:600px;}
+  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--muted);}
+
+  /* Claude lesson */
+  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
+  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
+  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
+  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
+  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
+    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+
+  /* Fog */
+  .fog{font-size:14px;color:var(--muted);}
+  .fog li{margin:0 0 7px;}
+  .fog ul{margin:0;padding-left:20px;}
+
+  /* Closing */
+  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
+  .closing .fox{font-size:22px;}
+  .foot{text-align:center;font-size:12px;color:var(--muted);
+    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 2일 · 수요일</p>
+      <p class="opening">9월의 둘째 날입니다. 아침 20~25도, 낮 26~32도. 오후에는 강원영동과 제주에 비가 지나갑니다. 여름과 가을이 아직 자리를 바꾸는 중입니다.<br>
+      오늘 항로에 들어온 소식들이 한 곳을 가리킵니다 — <b>말이 아주 잘 만들어지는 시대에, 그 말 뒤에 사람이 있었는지를 어떻게 아느냐</b>는 물음입니다. 그래서 오늘의 결을 이렇게 걸었습니다. <b>글의 값은 매끄러움이 아니라, 거기 사람이 있었다는 증거입니다.</b></p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 정기국회의 100일이 오늘부터 실제로 굴러갑니다</span>
+          <a class="src" href="https://www.mt.co.kr/politics/2026/09/01/2026090108081466063" target="_blank" rel="noopener">머니투데이 (09-01) ↗</a>
+          <p>어제 개회식을 마친 국회가 내일(3일) 첫 본회의를 엽니다. 7일 민주당·8일 국민의힘 교섭단체 대표연설, 9일부터 나흘간 대정부질문이 이어지고, 11월에 내년도 예산안 심사가 시작됩니다. 정부는 <b>800조 원 플러스 알파</b>라는 역대 최대 규모 예산안을 예고했고, 처리 법정 시한은 <b>12월 2일</b>입니다. 공무원의 자리에서 이 일정은 정치 뉴스가 아니라 <b>가을 업무의 시계</b>입니다. 그리고 이 100일은 처음부터 끝까지 <b>말로 이루어진 회기</b>입니다 — 연설·질문·답변·심사보고서. 오늘 결의 첫 문장이 여기서 나옵니다. <b>누가 그 말을 했는가가 곧 책임의 소재입니다.</b></p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 정부 업무망 안으로 AI가 들어왔습니다. 다만 '공통기반을 먼저 쓰라'는 조건이 붙었습니다</span>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148950615" target="_blank" rel="noopener">정책브리핑 ↗</a>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148955271" target="_blank" rel="noopener">정책브리핑(행정망 AI) ↗</a>
+          <p>행정안전부와 과학기술정보통신부가 정부 최초로 <b>내부 업무망에서 쓰는 공통 AI 서비스</b>를 도입했습니다. 삼성SDS·네이버클라우드의 대화형 서비스를 보안이 확보된 인프라 위에서 부처와 지자체가 함께 쓰는 방식입니다. 8월 시행된 개정 「인공지능·데이터 기반 행정 활성화법」은 공공기관이 AI를 도입할 때 <b>범정부 AI 공통기반을 우선 활용</b>하도록 정했습니다. 중복 투자와 기술 파편화를 막자는 취지입니다. 여기서 눈여겨볼 것은 성능이 아니라 <b>경로</b>입니다. 어디를 거쳐 온 문장인지 알 수 있게 길을 하나로 모은 것 — 그것이 이 정책의 실제 내용입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 오늘 낮 26~32도, 오후에 강원영동·제주에 비</span>
+          <a class="src" href="https://www.weather.go.kr/w/forecast/overall/short-term.do" target="_blank" rel="noopener">기상청 단기예보 ↗</a>
+          <p>전국이 대체로 구름 많고, 아침 기온은 20~25도, 낮 기온은 26~32도입니다. 오후부터 강원영동과 제주도에 비가 시작되어 내일까지 이어지겠습니다. 어제 중부를 적신 비가 오늘은 동쪽과 남쪽으로 내려갑니다. 달력은 한 장에 넘어갔지만 계절은 <b>지역마다 다른 속도로</b> 건너가는 중입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 올여름 온열질환 누적 3,090명. 사각지대는 언어와 나이 쪽에 있었습니다</span>
+          <a class="src" href="https://www.koreatimes.co.kr/southkorea/environment-animals/20260809/govt-calls-for-better-protection-for-vulnerable-workers-amid-heat-wave" target="_blank" rel="noopener">The Korea Times (08-09) ↗</a>
+          <p>질병관리청 집계로 올여름 온열질환자는 누적 <b>3,090명</b>, 관련 사망도 이어졌습니다. 중앙재난안전대책본부는 <b>이주노동자와 고령 농업인</b>을 최우선 보호 대상으로 지목했습니다. 이주노동자는 언어 장벽 때문에 안전 안내가 닿지 않는 자리에 있고, 농장주에게는 충분한 물·그늘·휴식을 제공하라는 요청이 갔습니다. 고용노동부는 건설현장 등 취약 사업장을 집중 점검하며 폭염 시간대 작업 중지를 강제했습니다. <b>말이 닿지 않는 곳이 곧 위험한 곳이었다</b> — 오늘 결의 반대편 증거입니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 올 상반기, 소설이 다시 팔렸습니다. 종합 100위 안에 22권</span>
+          <a class="src" href="https://ch.yes24.com/Article/Details/83176" target="_blank" rel="noopener">예스24 채널예스 ↗</a>
+          <p>2026년 상반기 소설·시·희곡 분야 판매량이 전년 같은 기간보다 <b>9.0% 늘었고</b>, 종합 베스트셀러 100위권에 소설이 <b>22권</b> 올랐습니다. 한강의 노벨문학상 수상 이후 뜨거워진 한국문학 열기가 올해는 '스크린셀러'와 세계문학으로 넓어졌다는 분석입니다. AI가 문장을 무한히 찍어내는 해에 <b>사람이 쓴 이야기의 판매가 늘었다</b>는 것 — 이 두 사실이 같은 해에 있다는 점이 오늘 결과 이어집니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 서·논술형 채점을 AI가 돕되, "최종 판단은 언제나 교사의 몫"</span>
+          <a class="src" href="https://blog.classting.com/2026-ai-education-conference-review/" target="_blank" rel="noopener">2026 인공지능 활용 교육 콘퍼런스 (08-06~07) ↗</a>
+          <p>교육부·EBS·KERIS가 함께 연 콘퍼런스에 초·중등 교원 약 <b>1만 명</b>이 모였습니다. 소개된 도구 중 서·논술형 평가를 돕는 '라이팅'의 설계가 눈에 띕니다 — <b>AI가 채점기준 초안과 채점·피드백 초안을 만들고, 교사가 검토·수정한 뒤에야 결과가 공개</b>됩니다. 손글씨 답안도 인식합니다. 문장은 기계가 뽑고, 그 문장에 이름을 얹는 일은 사람이 합니다. 지난주 시행된 AI 행정법의 "최종 권한과 책임은 기관에"와 정확히 같은 구조가 교실에도 놓였습니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 글의 값은 매끄러움이 아니라, 거기 사람이 있었다는 증거다</span></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">"기계가 못 하는 일은 증언하는 것이다"</span>
+          <a class="src" href="https://psyche.co/ideas/well-soon-find-out-what-is-truly-special-about-human-writing" target="_blank" rel="noopener">Psyche · James O'Sullivan ↗</a>
+          <p>디지털 인문학 연구자 제임스 오설리번은 생성형 AI가 <b>책임지는 저자 없이도 유창한 문장</b>을 만들어 내는 시대에, 글쓰기의 중심이 '얼마나 잘 쓰였나'에서 '<b>누구의 것인가</b>'로 옮겨 갈 것이라고 봅니다. 그가 세우는 기준은 이렇습니다 — <b>"기계가 할 수 없는 일은 증언하는 것, 그리고 살아 낸 경험에 근거해 무언가를 주장하는 것이다."</b> 그래서 앞으로 가치를 갖는 글을 이렇게 정의합니다. <b>"의미 있는 글은 여전히 인간의 숙고에 대한 증거로 기능할 수 있는 글일 것이다."</b> 유창함은 흔해졌고, <b>출처를 추적할 수 있음</b>이 귀해졌습니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">"인간이 썼든 기계가 썼든 상관없다"는 이에게</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003260062" target="_blank" rel="noopener">오마이뉴스 · 최은경 (08-29) ↗</a>
+          <p>편집기자 최은경이 친구의 한마디에 걸립니다 — 누가 썼든 좋으면 되지 않느냐는 말. 그 거부감을 아주 구체적인 자리에서 풀어냅니다. <b>"나도 저렇게 쓰고 싶다는 마음도 키웠다. 많은 사람들이 나와 비슷한 생각으로 글을 썼다. 인공지능의 글을 보고도 이런 마음을 먹을까? 아닐 거다."</b> 좋은 글이 하는 일은 정보 전달만이 아니라 <b>다음 사람을 쓰게 만드는 것</b>이라는 관찰입니다. 이유는 이렇게 적습니다 — <b>"내가 경험한 일, 사유한 것을 쓰고 다듬어 나가는 과정이 나에게는 기쁨이라서. 이 작업은 나에게도 좋지만 내가 사는 공동체를 건강하게 만드는 데도 기여한다고 믿으니까."</b> 오설리번이 이론으로 말한 것을 이 글은 <b>자기 손으로</b> 말합니다.</p></div>
+
+        <div class="pick"><span class="field">🕯 현존·삶</span>
+          <span class="title">"사물은 결코 주제가 아니다. 사물은 렌즈다"</span>
+          <a class="src" href="https://brevity.wordpress.com/2026/08/31/the-object-as-witness/" target="_blank" rel="noopener">The Brevity Blog · Marvin Garbeh Davis, Sr. (08-31) ↗</a>
+          <p>라이베리아 작가 마빈 가베 데이비스는 회고록에 정면으로 들어가기 어려울 때 <b>사물을 문으로 쓰라</b>고 권합니다. 문장은 짧고 정확합니다 — <b>"사물 자체가 주제인 것이 아니다. 사물은 렌즈다."</b> 그리고 방법을 이렇게 놓습니다. <b>"평범한 것을 하나 고르라. 매일 아무 생각 없이 쓰는 것. 그리고 물으라 — 이 물건에 대한 나의 가장 오래된 기억은 무엇인가."</b> 사물이 증인이 되는 이유는 단순합니다. <b>거기 있었기 때문</b>입니다. 오늘 오설리번이 말한 '증언'이 여기서는 컵 하나, 숟가락 하나의 모양을 하고 있습니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">한 번뿐인 것은 없었던 것과 같다</span>
+          <a class="src" href="https://www.themarginalian.org/2015/10/16/milan-kundera-unbearable-lightness-of-being/" target="_blank" rel="noopener">The Marginalian · Milan Kundera ↗</a>
+          <p>쿤데라의 『참을 수 없는 존재의 가벼움』이 놓는 독일 속담이 <b>"einmal ist keinmal"</b> — 한 번뿐인 것은 한 번도 없었던 것과 같다, 입니다. 인생에는 리허설이 없고, 우리는 초고를 그대로 살아 냅니다. 그래서 쿤데라의 인물은 자기 감정이 사랑인지 히스테리인지조차 끝내 확정하지 못합니다. 여기서 오늘의 자리가 나옵니다 — <b>되풀이할 수 없기 때문에 기록이 필요합니다.</b> 두 번 살 수 있다면 증거는 필요 없습니다. 한 번뿐이라서, 그 한 번이 있었다는 표시를 남기는 일이 사람의 일이 됩니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">"사람에게 믿음이 없으면 그가 무엇을 할 수 있을지 모르겠다"</span>
+          <a class="src" href="https://ko.wikisource.org/wiki/%EB%85%BC%EC%96%B4/%EC%9C%84%EC%A0%95" target="_blank" rel="noopener">『논어』 「위정」편 22장 ↗</a>
+          <p><b>인이무신 부지기가야(人而無信 不知其可也). 대거무예 소거무월 기하이행지재(大車無輗 小車無軏 其何以行之哉).</b> 사람에게 미더움이 없으면 그가 무슨 일을 할 수 있을지 알 수 없다, 큰 수레에 멍에막이가 없고 작은 수레에 멍에막이가 없으면 그 수레가 어떻게 굴러가겠느냐는 말입니다. 예(輗)와 월(軏)은 수레채와 멍에를 <b>잇는 작은 부품</b>입니다. 없어도 수레는 수레처럼 생겼습니다. 다만 굴러가지 않습니다. 공자가 말한 신(信)은 도덕적 훌륭함이 아니라 <b>이음쇠</b>입니다 — 말과 그 말을 한 사람을 이어 두는 것. 문장은 넘치는데 굴러가지 않는 문장이 많다면, 빠진 것은 재료가 아니라 이 작은 부품입니다.</p></div>
+
+              </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="letter">
+          <p class="pt">「먼 후일」 — 김소월 <span style="font-weight:400;font-size:13px;color:#6B6459;">(저작권 만료 · 전문)</span></p>
+          <p class="verse">먼 훗날 당신이 찾으시면
+그때에 내 말이 "잊었노라"
+
+당신이 속으로 나무라면
+"무척 그리다가 잊었노라"
+
+그래도 당신이 나무라면
+"믿기지 않아서 잊었노라"
+
+오늘도 어제도 아니 잊고
+먼 훗날 그때에 "잊었노라"</p>
+          <p style="text-align:center;margin:16px 0 0;font-size:12.5px;color:#6B6459;">1922년 『개벽』 발표 · 『진달래꽃』(1925) 수록</p>
+          <p class="memo">배달 메모 — 오늘 등대와 같은 자리에 놓습니다. 이 시는 여덟 줄 내내 <b>"잊었노라"</b> 한마디만 되풀이합니다. 그런데 읽는 사람은 누구도 이 화자가 잊었다고 믿지 않습니다. 마지막 연이 앞의 세 번을 전부 뒤집기 때문입니다 — <b>"오늘도 어제도 아니 잊고 / 먼 훗날 그때에 '잊었노라'."</b> 잊었다는 말이 잊지 않았다는 <b>증거</b>가 되어 버리는 구조입니다. 오설리번이 오늘 말한 것이 이것입니다. 문장의 표면은 얼마든지 매끄럽게 만들 수 있지만, <b>말한 사람이 어디 서 있었는지는 문장 안에 남습니다.</b> 그리고 남은 그것이 문장의 진짜 내용이 됩니다. 세 번을 다르게 변명하는 순서 — "무척 그리다가", "믿기지 않아서" — 도 눈여겨볼 자리입니다. 한 번 만에 나온 말이 아니라 <b>여러 번 매만진 말</b>이고, 매만진 흔적이 그대로 보입니다. 데이비스의 사물처럼, 이 시에서는 <b>말버릇 하나가 증인</b>입니다. 김소월은 다섯 번째이지만(7/11 「엄마야 누나야」·7/14 「산유화」·8/25 「가는 길」·8/26 「초혼」) 이 시는 처음입니다. 「가는 길」이 말을 할까 망설이는 시라면, 「먼 후일」은 <b>아니라고 말하면서 그렇다고 남는 시</b>입니다. 🦊</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>9월 1~2일 이틀 사이의 한국어 새 기사를 폭넓게 잡지 못했습니다.</b> 검색이 미국 기준으로 도는 탓에 어제·오늘 자 국내 보도가 잘 걸리지 않았습니다. 오늘 항로는 <b>날짜가 확인된 최근 소식</b> 위주로 짰고, 억지로 오늘 날짜를 붙이지 않았습니다.</li>
+          <li><b>온열질환 3,090명은 8월 9일 자 집계입니다.</b> 그 이후 최신 누계는 확인하지 못했습니다. 숫자를 갱신해 쓰지 않고 출처 날짜를 그대로 적었습니다.</li>
+          <li><b>AI 교육 콘퍼런스 소식의 출처는 참가 기업(클래스팅) 블로그 후기입니다.</b> 교육부·EBS·KERIS 공동 주최라는 사실과 참가 규모는 그 후기에 실린 대로이며, 별도 보도자료로 대조하지는 못했습니다.</li>
+          <li><b>쿤데라 글은 마지널리언의 예전 글(2015)이 최근 다시 올라온 것입니다.</b> 오늘 결에 정확해 택했고, 최신 글이 아님을 밝혀 둡니다.</li>
+          <li><b>『논어』 「위정」편 링크는 원문 출처(위키문헌)로 걸었습니다.</b> 번역은 옮긴 것입니다.</li>
+          <li><b>이 판은 나눔용입니다.</b> 원래 브리핑에 있는 개인 기록(씨앗)·멈춤 질문·도구 수업 코너는 빼고, 뉴스·글감·시만 실었습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 문서 한 장을 넘기기 전에 <b>거기 내가 본 장면이 하나라도 들어 있는지</b> 한 번만 확인해 보시기를. 잘 쓴 글은 이제 흔합니다. 흔하지 않은 것은 <b>그 자리에 있었던 사람</b>입니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑</p>
+  </div>
+</body>
+</html>
