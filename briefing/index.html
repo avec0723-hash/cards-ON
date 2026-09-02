@@ -9,63 +9,63 @@
 <meta property="og:description" content="매일 아침 짓는 한 장 — 항로 통보 · 등대 · 우편기">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
   :root{
-    --green:#1A4A35; --green-soft:#2C6249;
-    --gold:#B8912E; --gold-soft:#D9C48A;
-    --cream:#F7F1E3; --paper:#FBF7EC;
-    --ink:#2B2B26; --muted:#6B6459; --line:#E4DAC4;
+    --green:#16406B; --green-soft:#2A5E93;
+    --gold:#E8734A; --gold-soft:#F4B8A0;
+    --cream:#EEF3F8; --paper:#FFFFFF;
+    --ink:#1B2530; --muted:#5B6672; --line:#DCE4EC;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed, var(--cream);
+    background:radial-gradient(1200px 600px at 50% -8%, #FFFFFF 0%, var(--cream) 55%) fixed, var(--cream);
     color:var(--ink);
-    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
+    font-family:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI","Malgun Gothic","Noto Sans KR",sans-serif;
     line-height:1.85;-webkit-font-smoothing:antialiased;
     padding:48px 20px 80px;
   }
   .wrap{max-width:760px;margin:0 auto;}
 
   .masthead{
-    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
-    color:#F4EEDD;padding:44px 44px 38px;border-radius:14px;position:relative;
-    box-shadow:0 24px 60px -30px rgba(26,74,53,.45);margin-bottom:30px;
+    background:linear-gradient(155deg,var(--green) 0%, #0E2E4E 100%);
+    color:#F4F8FC;padding:44px 44px 38px;border-radius:14px;position:relative;
+    box-shadow:0 24px 60px -30px rgba(22,64,107,.45);margin-bottom:30px;
   }
   .masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
     background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);
     border-radius:0 0 14px 14px;}
   .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
-    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
-  .masthead h1{margin:0 0 14px;font-size:35px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
-  .masthead p{margin:0;font-size:16px;color:#EDE6D2;line-height:1.9;
+    color:var(--gold-soft);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;margin:0 0 12px;}
+  .masthead h1{margin:0 0 14px;font-size:35px;font-weight:800;letter-spacing:-.01em;color:#FFFFFF;}
+  .masthead p{margin:0;font-size:16px;color:#E3EEF8;line-height:1.9;
     border-left:2px solid var(--gold);padding-left:16px;}
 
   .card{
     display:block;text-decoration:none;color:inherit;position:relative;
     background:var(--paper);border:1px solid var(--line);border-radius:12px;
     padding:24px 28px 22px;margin-bottom:16px;
-    box-shadow:0 10px 30px -22px rgba(26,74,53,.5);
+    box-shadow:0 10px 30px -22px rgba(22,64,107,.5);
     transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   }
   .card:hover{transform:translateY(-2px);border-color:var(--gold-soft);
-    box-shadow:0 18px 40px -24px rgba(26,74,53,.6);}
+    box-shadow:0 18px 40px -24px rgba(22,64,107,.6);}
   .card .arrow{position:absolute;top:20px;right:24px;color:var(--gold);font-size:16px;}
   .card .day{margin:0 0 6px;font-size:12.5px;letter-spacing:.14em;color:var(--gold);
-    font-family:"Nanum Myeongjo",serif;}
+    font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;}
   .card h2{margin:0 0 10px;font-size:20px;font-weight:800;color:var(--green);
     letter-spacing:-.01em;line-height:1.45;padding-right:28px;}
   .card .peek{margin:0 0 14px;font-size:14.5px;color:#4A4740;line-height:1.8;}
   .tags{display:flex;gap:7px;flex-wrap:wrap;}
-  .tag{font-size:11.5px;color:var(--green-soft);background:#F3ECD9;
-    border-radius:999px;padding:3px 11px;font-family:"Nanum Myeongjo",serif;}
+  .tag{font-size:11.5px;color:var(--green-soft);background:#F4F8FC;
+    border-radius:999px;padding:3px 11px;font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;}
 
-  .note{margin:26px 0 0;padding:20px 24px;background:#FCFAF2;border:1px solid var(--line);
+  .note{margin:26px 0 0;padding:20px 24px;background:#FFFFFF;border:1px solid var(--line);
     border-radius:12px;font-size:14px;color:var(--muted);line-height:1.9;}
   .note b{color:var(--green-soft);}
   .foot{text-align:center;font-size:12.5px;color:var(--muted);
-    font-family:"Nanum Myeongjo",serif;letter-spacing:.03em;padding:28px 0 0;line-height:1.9;}
+    font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;letter-spacing:.03em;padding:28px 0 0;line-height:1.9;}
 
   @media (max-width:600px){
     body{padding:24px 12px 56px;}
@@ -88,7 +88,7 @@
         <span class="arrow">↗</span>
         <p class="day">2026 · 09 · 02 · 수요일</p>
         <h2>글의 값은 매끄러움이 아니라, 거기 사람이 있었다는 증거다</h2>
-        <p class="peek">오늘의 항로 6건(⚖️ 정기국회 100일 실무 시작 — 3일 첫 본회의, 7·8일 교섭단체 대표연설, 9일부터 나흘 대정부질문, 예산 800조 원+α·법정시한 12월 2일 · ⚖️ 정부 내부 업무망에 첫 공통 AI 서비스 도입 — 개정 AI행정법이 '범정부 AI 공통기반 우선 활용' 의무화 · 🌍 오늘 아침 20~25도·낮 26~32도, 오후 강원영동·제주 비 · 🌍 올여름 온열질환 누적 3,090명 — 사각지대는 이주노동자·고령 농업인 · ✍️ 상반기 소설·시·희곡 판매 9.0% 증가, 종합 100위 안에 소설 22권 · 🤖 서·논술형 AI 채점 도구 '라이팅' — 교사가 검토·수정한 뒤에야 결과 공개) · 글감 다섯 우물(Psyche 제임스 오설리번 "기계가 할 수 없는 일은 증언하는 것이다" · 오마이뉴스 최은경 "인간이 썼든 기계가 썼든 상관없다는 이에게" · Brevity 마빈 가베 데이비스 "사물 자체가 주제가 아니다, 사물은 렌즈다" · 마지널리언 쿤데라 einmal ist keinmal — 리허설 없는 삶 · 『논어』 위정편 "인이무신 부지기가야" 수레의 멍에막이) · 우편기: 김소월 「먼 후일」 — 잊었다는 말이 잊지 않았다는 증거가 되는 시.</p>
+        <p class="peek">오늘의 항로 6건(⚖️ 정기국회 100일 실무 시작 — 3일 첫 본회의, 7·8일 교섭단체 대표연설, 9일부터 나흘 대정부질문, 예산 800조 원+α·법정시한 12월 2일 · ⚖️ 정부 내부 업무망에 첫 공통 AI 서비스 도입 — 개정 AI행정법이 '범정부 AI 공통기반 우선 활용' 의무화 · 🌍 오늘 아침 20~25도·낮 26~32도, 오후 강원영동·제주 비 · 🌍 올여름 온열질환 누적 3,090명 — 사각지대는 이주노동자·고령 농업인 · ✍️ 상반기 소설·시·희곡 판매 9.0% 증가, 종합 100위 안에 소설 22권 · 🤖 서·논술형 AI 채점 도구 '라이팅' — 교사가 검토·수정한 뒤에야 결과 공개) · 글감 다섯 우물(Psyche 제임스 오설리번 "기계가 할 수 없는 일은 증언하는 것이다" · 오마이뉴스 최은경 "인간이 썼든 기계가 썼든 상관없다는 이에게" · Brevity 마빈 가베 데이비스 "사물 자체가 주제가 아니다, 사물은 렌즈다" · 마지널리언 쿤데라 einmal ist keinmal — 리허설 없는 삶 · 『논어』 위정편 "인이무신 부지기가야" 수레의 멍에막이) · 우편기: 니체 "일체의 글 가운데서 나는 오직 피로 쓴 것만을 사랑한다" — 『차라투스트라』 제1부 「읽기와 쓰기에 대하여」.</p>
         <div class="tags"><span class="tag">🛰 항로 통보</span><span class="tag">🗼 등대</span><span class="tag">✈️ 우편기</span></div>
       </a>
       <a class="card" href="2026-09-01.html">

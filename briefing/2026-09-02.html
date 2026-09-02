@@ -4,128 +4,162 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>관제탑 브리핑 · 2026-09-02 (수)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
   :root{
-    --green:#1A4A35;       /* 디퍼 초록 */
-    --green-soft:#2C6249;
-    --gold:#B8912E;        /* 금빛 */
-    --gold-soft:#D9C48A;
-    --cream:#F7F1E3;       /* 크림 */
-    --paper:#FBF7EC;
-    --ink:#2B2B26;
-    --muted:#6B6459;
-    --line:#E4DAC4;
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 — 대비 올림 */
+    --muted:#5B6672;       /* 흐린 글자 — 대비 올림 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     background:
-      radial-gradient(1200px 600px at 50% -8%, #FCF9F0 0%, var(--cream) 55%) fixed,
-      var(--cream);
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
     color:var(--ink);
-    font-family:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Batang,serif;
-    line-height:1.85;
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
     -webkit-font-smoothing:antialiased;
-    padding:48px 20px 80px;
+    padding:56px 20px 96px;
   }
   .sheet{
-    max-width:760px;margin:0 auto;
+    max-width:820px;margin:0 auto;
     background:var(--paper);
     border:1px solid var(--line);
-    border-radius:14px;
-    box-shadow:0 24px 60px -30px rgba(26,74,53,.45), 0 2px 0 var(--gold-soft);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
     overflow:hidden;
   }
 
   /* ── Header band ── */
   .band{
-    background:linear-gradient(155deg,var(--green) 0%, #143A2A 100%);
-    color:#F4EEDD;
-    padding:40px 44px 34px;
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
     position:relative;
   }
   .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
-    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent);}
-  .kicker{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;
-    color:var(--gold-soft);font-family:"Nanum Myeongjo",serif;margin:0 0 12px;}
-  .band h1{margin:0;font-size:33px;font-weight:800;letter-spacing:-.01em;color:#FBF7EC;}
-  .band .date{margin:6px 0 20px;font-size:15px;color:#CFE0D3;letter-spacing:.02em;}
-  .opening{margin:0;font-size:16.5px;color:#EDE6D2;line-height:1.9;
-    border-left:2px solid var(--gold);padding-left:16px;}
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
 
   /* ── Body ── */
-  .body{padding:14px 44px 40px;}
-  section{padding:30px 0;border-bottom:1px dashed var(--line);}
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
-  .h{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;}
-  .h .em{font-size:22px;line-height:1;}
-  .h h2{margin:0;font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em;}
-  .h .sub{font-size:13px;color:var(--muted);margin-left:2px;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
 
   /* News */
-  .news{margin:0 0 20px;}
+  .news{margin:0 0 28px;}
   .news:last-child{margin-bottom:0;}
-  .news .title{font-weight:700;color:var(--ink);font-size:16.5px;}
-  .src{display:inline-block;font-size:12px;font-family:"Nanum Myeongjo",serif;
-    color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--gold-soft);
-    padding-bottom:1px;margin-left:6px;white-space:nowrap;}
-  .src:hover{color:var(--gold);border-color:var(--gold);}
-  .news p{margin:6px 0 0;color:#3C3A33;font-size:15.5px;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
 
-  /* Reading picks (글감 분야) */
-  .pick{margin:0 0 16px;padding:15px 18px;background:#FCFAF2;border:1px solid var(--line);
-    border-radius:10px;border-left:4px solid var(--green-soft);}
-  .pick .field{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold);
-    font-family:"Nanum Myeongjo",serif;margin:0 0 5px;}
-  .pick .title{font-weight:700;color:var(--green);font-size:16px;line-height:1.5;}
-  .pick p{margin:7px 0 0;color:#3C3A33;font-size:15px;}
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
 
   /* Lighthouse quote */
-  blockquote.quote{margin:0 0 16px;padding:18px 22px;
-    background:linear-gradient(0deg,#F3ECD9,#FBF7EC);
-    border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
-    font-size:18px;color:var(--green);font-weight:700;line-height:1.7;}
-  blockquote.quote .by{display:block;margin-top:8px;font-size:13.5px;
-    font-weight:400;color:var(--muted);}
-  .seed{font-size:16px;margin:0 0 14px;}
-  .seed b{color:var(--green-soft);}
-  .pause{background:var(--green);color:#F4EEDD;border-radius:10px;padding:16px 20px;
-    font-size:15.5px;line-height:1.85;}
-  .pause b{color:var(--gold-soft);}
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
 
-  /* Poem letter */
-  .letter{border:1px solid var(--gold-soft);background:#FCFAF2;border-radius:12px;
-    padding:26px 30px;position:relative;}
-  .letter .pt{font-weight:800;color:var(--green);font-size:17px;margin:0 0 16px;text-align:center;}
-  .verse{margin:0;text-align:center;font-size:17px;line-height:2.1;color:#2E2C25;
-    font-family:"Nanum Myeongjo",serif;white-space:pre-line;}
-  .verse .prose{display:block;text-align:left;font-size:15.5px;line-height:1.95;
-    margin:14px auto;max-width:600px;}
-  .memo{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);
-    font-size:14.5px;color:var(--muted);}
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
 
   /* Claude lesson */
-  .lesson{background:#F3ECD9;border-radius:12px;padding:22px 26px;}
-  .lesson .lt{margin:0 0 10px;font-weight:800;color:var(--green);font-size:16.5px;}
-  .lesson p{margin:0 0 8px;font-size:15px;color:#3C3A33;}
-  .lesson .do{margin:12px 0 0;padding:12px 16px;background:#FBF7EC;border-left:3px solid var(--gold);
-    border-radius:0 8px 8px 0;font-size:14.5px;color:var(--green-soft);}
-  code{background:#EFE7D2;padding:1px 7px;border-radius:5px;font-size:13.5px;
-    font-family:"Nanum Myeongjo",monospace;color:#5A4A1E;}
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
 
   /* Fog */
-  .fog{font-size:14px;color:var(--muted);}
-  .fog li{margin:0 0 7px;}
-  .fog ul{margin:0;padding-left:20px;}
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
 
   /* Closing */
-  .closing{text-align:center;padding:34px 44px 8px;color:var(--green);font-size:17px;}
-  .closing .fox{font-size:22px;}
-  .foot{text-align:center;font-size:12px;color:var(--muted);
-    font-family:"Nanum Myeongjo",serif;letter-spacing:.05em;padding:6px 0 6px;}
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
 </style>
 </head>
 <body>
@@ -202,22 +236,17 @@
               </section>
 
       <section>
-        <div class="h"><span class="em">✈️</span><h2>우편기 — 하루 한 편</h2></div>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
         <div class="letter">
-          <p class="pt">「먼 후일」 — 김소월 <span style="font-weight:400;font-size:13px;color:#6B6459;">(저작권 만료 · 전문)</span></p>
-          <p class="verse">먼 훗날 당신이 찾으시면
-그때에 내 말이 "잊었노라"
-
-당신이 속으로 나무라면
-"무척 그리다가 잊었노라"
-
-그래도 당신이 나무라면
-"믿기지 않아서 잊었노라"
-
-오늘도 어제도 아니 잊고
-먼 훗날 그때에 "잊었노라"</p>
-          <p style="text-align:center;margin:16px 0 0;font-size:12.5px;color:#6B6459;">1922년 『개벽』 발표 · 『진달래꽃』(1925) 수록</p>
-          <p class="memo">배달 메모 — 오늘 등대와 같은 자리에 놓습니다. 이 시는 여덟 줄 내내 <b>"잊었노라"</b> 한마디만 되풀이합니다. 그런데 읽는 사람은 누구도 이 화자가 잊었다고 믿지 않습니다. 마지막 연이 앞의 세 번을 전부 뒤집기 때문입니다 — <b>"오늘도 어제도 아니 잊고 / 먼 훗날 그때에 '잊었노라'."</b> 잊었다는 말이 잊지 않았다는 <b>증거</b>가 되어 버리는 구조입니다. 오설리번이 오늘 말한 것이 이것입니다. 문장의 표면은 얼마든지 매끄럽게 만들 수 있지만, <b>말한 사람이 어디 서 있었는지는 문장 안에 남습니다.</b> 그리고 남은 그것이 문장의 진짜 내용이 됩니다. 세 번을 다르게 변명하는 순서 — "무척 그리다가", "믿기지 않아서" — 도 눈여겨볼 자리입니다. 한 번 만에 나온 말이 아니라 <b>여러 번 매만진 말</b>이고, 매만진 흔적이 그대로 보입니다. 데이비스의 사물처럼, 이 시에서는 <b>말버릇 하나가 증인</b>입니다. 김소월은 다섯 번째이지만(7/11 「엄마야 누나야」·7/14 「산유화」·8/25 「가는 길」·8/26 「초혼」) 이 시는 처음입니다. 「가는 길」이 말을 할까 망설이는 시라면, 「먼 후일」은 <b>아니라고 말하면서 그렇다고 남는 시</b>입니다. 🦊</p>
+          <p class="pt">프리드리히 니체 · 저작권 만료</p>
+          <p class="verse">"일체의 글 가운데서 나는
+오직 피로 쓴 것만을 사랑한다.
+피로 써라. 그러면 너는
+피가 곧 정신임을 알게 되리라."</p>
+          <p class="cite">프리드리히 니체, 『차라투스트라는 이렇게 말했다』 제1부 「읽기와 쓰기에 대하여」(1883)
+            <span class="orig">"Von allem Geschriebenen liebe ich nur das, was einer mit seinem Blute schreibt. Schreibe mit Blut: und du wirst erfahren, daß Blut Geist ist."</span>
+            <a class="src" href="https://www.projekt-gutenberg.org/nietzsch/zara/als3007.html" target="_blank" rel="noopener">원문 확인 · Projekt Gutenberg ↗</a></p>
+          <p class="memo">배달 메모 — 오늘 등대와 같은 자리에 놓습니다. 니체가 미워한 것은 못 쓴 글이 아니라 <b>아무나 쓸 수 있었던 글</b>입니다. "피로 쓰라"는 말은 비장하게 쓰라는 뜻이 아니라, <b>대신 쓸 수 없는 것만 쓰라</b>는 뜻에 가깝습니다. 피는 사람마다 다르고, 빌릴 수 없고, 어디서 왔는지 지워지지 않으니까요. 오늘 오설리번이 학술의 언어로 말한 것 — "의미 있는 글은 인간의 숙고에 대한 증거로 기능하는 글" — 을 니체는 1883년에 <b>한 단어</b>로 말해 두었습니다. 그리고 바로 뒤 문장이 더 무섭습니다. <b>"다른 사람의 피를 이해한다는 것은 쉬운 일이 아니다."</b> 잘 읽힌다는 것이 곧 좋은 글이라는 뜻은 아니라는 것 — 매끄러움이 흔해진 시대에 다시 읽을 자리입니다. 🦊</p>
         </div>
       </section>
 
@@ -225,11 +254,11 @@
         <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
         <div class="fog"><ul>
           <li><b>9월 1~2일 이틀 사이의 한국어 새 기사를 폭넓게 잡지 못했습니다.</b> 검색이 미국 기준으로 도는 탓에 어제·오늘 자 국내 보도가 잘 걸리지 않았습니다. 오늘 항로는 <b>날짜가 확인된 최근 소식</b> 위주로 짰고, 억지로 오늘 날짜를 붙이지 않았습니다.</li>
-          <li><b>온열질환 3,090명은 8월 9일 자 집계입니다.</b> 그 이후 최신 누계는 확인하지 못했습니다. 숫자를 갱신해 쓰지 않고 출처 날짜를 그대로 적었습니다.</li>
-          <li><b>AI 교육 콘퍼런스 소식의 출처는 참가 기업(클래스팅) 블로그 후기입니다.</b> 교육부·EBS·KERIS 공동 주최라는 사실과 참가 규모는 그 후기에 실린 대로이며, 별도 보도자료로 대조하지는 못했습니다.</li>
+          <li><b>온열질환 3,090명은 8월 9일 자 집계입니다.</b> 그 이후 최신 누계는 확인하지 못했습니다.</li>
+          <li><b>AI 교육 콘퍼런스 소식의 출처는 참가 기업(클래스팅) 블로그 후기입니다.</b> 별도 보도자료로 대조하지는 못했습니다.</li>
           <li><b>쿤데라 글은 마지널리언의 예전 글(2015)이 최근 다시 올라온 것입니다.</b> 오늘 결에 정확해 택했고, 최신 글이 아님을 밝혀 둡니다.</li>
-          <li><b>『논어』 「위정」편 링크는 원문 출처(위키문헌)로 걸었습니다.</b> 번역은 옮긴 것입니다.</li>
-          <li><b>이 판은 나눔용입니다.</b> 원래 브리핑에 있는 개인 기록(씨앗)·멈춤 질문·도구 수업 코너는 빼고, 뉴스·글감·시만 실었습니다.</li>
+          <li><b>니체 인용은 독일어 원문과 대조했습니다.</b> 『차라투스트라』 제1부 「읽기와 쓰기에 대하여」(1883). 우리말은 옮긴 것이고, 원문 링크를 함께 걸었습니다.</li>
+          <li><b>이 판은 나눔용입니다.</b> 원래 브리핑에 있는 개인 기록(씨앗)·멈춤 질문·도구 수업 코너는 빼고, 뉴스·글감·한 문장만 실었습니다.</li>
         </ul></div>
       </section>
 
