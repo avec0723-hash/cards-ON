@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-03 (목)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 — 대비 올림 */
+    --muted:#5B6672;       /* 흐린 글자 — 대비 올림 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 3일 · 목요일</p>
+      <p class="opening">9월의 셋째 날입니다. 아침 18~23도, 낮 25~31도. 더위가 한풀 꺾여 평년 기온으로 내려앉았습니다. 계절이 자리를 옮기는 중입니다.<br>
+      오늘 항로에 들어온 소식들이 한 곳을 가리킵니다 — <b>자리를 옮기면 무엇이 달라지고, 무엇이 그대로 따라오는가.</b> 오늘 아침 정부는 행정기관을 지방으로 옮기는 계획을 발표하고, 예산안은 국회로 자리를 옮기며, 이달 열리는 작가축제는 "누구세요?"를 묻습니다. 그래서 오늘의 결을 이렇게 걸었습니다. <b>자리를 옮기는 일은 나를 바꾸지 못합니다. 다만 나를 보이게 합니다.</b></p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 오늘 아침, 정부가 행정기관 지방 이전 계획을 발표합니다</span>
+          <a class="src" href="https://www.mt.co.kr/economy/2026/09/02/2026090213222549110" target="_blank" rel="noopener">머니투데이 (09-02) ↗</a>
+          <a class="src" href="https://www.hankyung.com/article/2026090294537" target="_blank" rel="noopener">한국경제 ↗</a>
+          <a class="src" href="https://www.ajunews.com/view/20260902134849516" target="_blank" rel="noopener">아주경제 ↗</a>
+          <p>오늘 오전 정부서울청사에서 <b>국토균형발전 전략</b>과 함께 중앙행정기관의 지방 이전 계획이 공개됩니다. 국무총리와 행정안전부·국토교통부 장관, 재정경제부 차관이 함께 섭니다. 이전 대상으로 <b>금융위원회·개인정보보호위원회·여성가족부</b> 등이 거론되어 왔습니다. 다만 <b>공공기관 이전은 오늘 발표에서 빠지고 추후로 미뤄졌습니다</b> — 기능 개혁(발전 5사 통합, 공항·항만 공사 통합 등 중복 기능 조정)이 먼저라는 판단입니다. 공직에 있는 이의 자리에서 이 발표는 뉴스가 아니라 <b>누군가의 이사 통지서</b>입니다. 조직도의 화살표 하나가 수천 명의 출퇴근과 아이 학교와 배우자의 직장을 옮깁니다. 오늘 결의 첫 문장이 여기서 나옵니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 오늘 정부 예산안이 국회로 넘어갑니다. 시한은 12월 2일입니다</span>
+          <a class="src" href="https://www.mt.co.kr/politics/2026/09/01/2026090108081466063" target="_blank" rel="noopener">머니투데이 (09-01) ↗</a>
+          <p>그저께 개회한 정기국회가 어제 첫 본회의를 열었고, 오늘 <b>내년도 예산안이 국회에 제출</b>됩니다. 7일 더불어민주당·8일 국민의힘 교섭단체 대표연설, 9~11일과 14일 대정부질문이 이어집니다. 회기는 <b>12월 9일까지 100일</b>, 예산 처리 법정시한은 <b>12월 2일</b>입니다. 예산안이 정부에서 국회로 자리를 옮기는 순간, 같은 숫자가 다른 언어로 읽히기 시작합니다. <b>자리가 바뀌면 보이는 것이 바뀝니다</b> — 오늘 결의 두 번째 증거입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 더위가 한풀 꺾였습니다. 아침 18~23도, 낮 25~31도</span>
+          <a class="src" href="https://www.khan.co.kr/article/202609022108005/" target="_blank" rel="noopener">경향신문 (09-02) ↗</a>
+          <a class="src" href="https://www.weather.go.kr/w/forecast/overall/short-term.do" target="_blank" rel="noopener">기상청 단기예보 ↗</a>
+          <p>전국이 구름 많고, 동해안과 제주도는 대체로 흐리겠습니다. 제주도 곳에 따라 비, 오전부터 밤 사이 <b>강원동해안·산지와 경북동해안·북동산지</b>에도 비가 지나갑니다. 오후에는 충북남부와 남부내륙에 소나기가 있겠습니다. 기온은 <b>평년과 비슷하거나 조금 높은 수준</b>으로 내려왔습니다. 어제 서쪽을 적신 비가 오늘은 동쪽으로 옮겨 갑니다. 여름이 물러가는 방식은 선언이 아니라 <b>자리 옮김</b>입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 보건복지부 2027년 예산안, 지역 필수의료와 돌봄에 무게</span>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148956615" target="_blank" rel="noopener">정책브리핑 ↗</a>
+          <p>그제(9월 1일) 발표된 보건복지부 2027년도 예산안은 <b>국민 건강 안전망 강화, 지역 필수의료, 지역사회 돌봄</b> 확충에 초점을 두었습니다. 올해 이미 요양병원 간병비 본인부담이 100%에서 약 30% 수준으로 낮아졌고, 재가노인복지 센터는 192곳에서 250곳으로, 노인맞춤돌봄 대상은 55만 명에서 57만 6천 명으로 늘었습니다. 이 항목들의 공통점이 있습니다 — <b>사람을 옮기지 않고 돌봄을 사람 쪽으로 옮기는</b> 설계입니다. 시설로 보내는 대신 살던 자리에 서비스를 보냅니다. 오늘 결의 반대편에서 같은 말을 하고 있습니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 9월은 독서의 달입니다. 전국에서 1만여 건, 표어는 "그냥 좋아서(書)"</span>
+          <a class="src" href="https://view.asiae.co.kr/article/2026090108550937561" target="_blank" rel="noopener">아시아경제 (09-01) ↗</a>
+          <p>문화체육관광부가 전국 <b>1,572개 기관·단체·기업</b>과 함께 여는 독서의 달 행사가 어제 시작됐습니다. 규모는 약 <b>1만여 건</b> — 서울 2,539건, 경기 1,734건, 경남 1,094건. 작가와의 만남(김애란·김영민 등), 야외도서관, 심야책방, 독서원정대가 이어지고, <b>대한민국 문학축제(11~20일)</b>와 <b>독서대전(18~20일, 춘천)</b>이 이달 안에 들어 있습니다. 청년 도서구매 지원은 수도권 5만 원·비수도권 7만 원으로 확대됐습니다. 표어가 좋습니다. <b>이유를 대지 않아도 되는 일이 하나쯤 있어야 사람이 삽니다.</b></p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 서울국제작가축제가 올해 던지는 질문은 "누구세요?"입니다</span>
+          <a class="src" href="https://www.hankyung.com/article/202608103575i" target="_blank" rel="noopener">한국경제 ↗</a>
+          <a class="src" href="https://siwf.or.kr/ko/index.do" target="_blank" rel="noopener">공식 홈페이지 ↗</a>
+          <p>한국문학번역원이 <b>9월 11~16일</b> 서울 아라아트센터에서 여는 2026 서울국제작가축제의 대주제가 <b>'누구세요?(Who are we?)'</b>입니다. 타인에게 던지는 일상의 질문을 인간과 공동체의 정체성을 되묻는 질문으로 넓혔습니다 — <b>인공지능과 비인간 존재가 화두가 된 시대에 사람다움의 값을 다시 묻겠다</b>는 기획입니다. 국내 14명·해외 10명, 20여 개 프로그램, 전부 무료입니다. 개막 대담은 <b>김애란과 벵하민 라바투트(칠레)</b>. 오늘 결의 정중앙에 있는 질문입니다. 자리가 다 바뀌고 나면 <b>남는 것은 "누구세요?"에 답할 수 있는가</b>뿐입니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — "1인 1 AI 에이전트" 시대, 그리고 이달 슈퍼컴 6호기</span>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148968284" target="_blank" rel="noopener">정책브리핑 ↗</a>
+          <p>정부가 AI 데이터센터를 국가전략산업으로 키우고 내년부터 <b>'전 국민 1인 1 AI 에이전트'</b> 시대를 열겠다고 밝혔습니다. <b>이번 달 슈퍼컴퓨터 6호기</b>를 개통해 연구자에게 GPU를 공급하는 기반도 갖춥니다. 다만 여기에도 오늘 결이 걸립니다. 도구를 옮겨 탄다고 사람이 바뀌지는 않습니다. <b>바뀌는 것은 무엇이 보이느냐입니다.</b></p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 자리를 옮기는 일은 나를 바꾸지 못한다. 다만 나를 보이게 한다</span></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">"하늘을 바꿀 것이 아니라 영혼을 바꿔야 한다"</span>
+          <a class="src" href="https://www.lettersfromastoic.net/letter-28/" target="_blank" rel="noopener">세네카 · 도덕 서한 28번 ↗</a>
+          <a class="src" href="https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_28" target="_blank" rel="noopener">원문(위키소스) ↗</a>
+          <p>로마의 세네카가 여행으로 마음의 병을 고치려는 친구에게 씁니다. 라틴어 원문의 유명한 한 줄이 <b>"Animum debes mutare, non caelum"</b> — 하늘(기후·장소)이 아니라 <b>영혼</b>을 바꿔야 한다, 입니다. 그리고 소크라테스를 불러옵니다. <b>"세상을 다 돌아다녀도 나아지지 않는 것이 무엇이 놀랍습니까 — 당신은 어디를 가든 자기 자신을 데리고 가는데요. 당신을 떠돌게 만든 그 이유가 늘 당신 뒤꿈치를 따라옵니다."</b> 오늘 이 문장은 이전 발표를 받아 든 사람의 책상 위에 정확히 놓입니다. 다만 세네카가 여행을 반대한 것은 아닙니다. <b>자리 옮김이 스스로 일을 해 주리라 기대하는 것</b>을 반대했습니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">"선택은 한 번 내려지는 것이 아니라 끊임없이 내려지는 중이다"</span>
+          <a class="src" href="https://www.themarginalian.org/2026/05/04/simone-de-beauvoir-marriage-change/" target="_blank" rel="noopener">The Marginalian · Maria Popova (05-04) ↗</a>
+          <p>시몬 드 보부아르를 읽는 글입니다. 포포바가 먼저 자아를 이렇게 정의합니다 — <b>"자아란 지금의 나와 지나온 나를 잇기 위해 우리가 지어내는 이야기다."</b> 그리고 보부아르의 문장을 놓습니다. <b>"선택은 한 번 이루어지는 것이 아니라 계속 이루어지는 중이다. 내가 그것을 의식할 때마다 그 선택은 되풀이된다."</b> 여기가 세네카의 반대편이 아니라 <b>뒷면</b>입니다. 자리를 옮긴다고 저절로 달라지지 않는 이유는, 사람이 한 번의 결정으로 만들어지는 존재가 아니기 때문입니다. 이사한 날 한 번이 아니라 <b>그 집에서 맞는 아침마다</b> 다시 고르는 일이 남습니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">집에 있으면서 집을 그리워하는 마음에도 이름이 있습니다</span>
+          <a class="src" href="https://aeon.co/essays/must-we-accept-the-loss-of-beloved-heritage-to-the-climate-crisis" target="_blank" rel="noopener">Aeon · Thijs Weststeijn ↗</a>
+          <p>철학자 글렌 올브레히트가 만든 말 <b>'솔라스탤지어(solastalgia)'</b> — <b>"집에 있으면서 집을 그리워하는 느낌"</b>입니다. 향수(nostalgia)가 떠나온 자리를 그리는 것이라면, 이것은 <b>떠나지 않았는데 그 자리가 먼저 변해 버린</b> 경우입니다. 이 글은 그것을 '모호한 상실'이라 부릅니다. <b>"애착의 대상이 거기 있으면서 거기 없다 — 여전히 존재하지만, 천천히 사라지고 있다."</b> 오늘 이 개념이 필요한 자리는 두 곳입니다. 이전 대상이 아니어서 <b>그대로 남는 사람들</b>의 사무실, 그리고 아무도 이사 가지 않았는데 예전 같지 않은 <b>모든 오래된 관계</b>.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">"회고록이 처음 생각한 자리에서 끝난다면, 잘못 쓰고 있는 것이다"</span>
+          <a class="src" href="https://brevity.wordpress.com/2026/08/26/curiosity-cand-memoir/" target="_blank" rel="noopener">The Brevity Blog · Dinty W. Moore (08-26) ↗</a>
+          <p>브레비티의 창간 편집자 딘티 W. 무어가 회고록 쓰는 이에게 필요한 단 하나로 <b>호기심</b>을 듭니다. 다 알고 시작한 글은 반복이 되고, 쓰는 사람이 먼저 지칩니다. 그가 애비게일 토머스를 인용합니다 — <b>"당신의 회고록이 당신이 끝날 거라 생각했던 자리에서 끝난다면, 당신은 제대로 쓰고 있지 않은 것이다."</b> 그리고 자기 문장을 덧붙입니다. <b>"강력한 회고록의 비밀은 답이 아니라, 우리가 감히 던지는 질문에 있다."</b> 글쓰기에서 '자리를 옮긴다'는 것의 뜻이 여기 있습니다. <b>쓰기 전의 나와 쓰고 난 뒤의 나가 같은 자리에 있으면, 그것은 옮겨 적은 것이지 쓴 것이 아닙니다.</b></p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">"일자리와 돈이라고 생각했는데, 어쩌면 '인정'이었던 건 아닐까"</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003259195" target="_blank" rel="noopener">오마이뉴스 · 김희 (08-14) ↗</a>
+          <p>퇴직 8개월째의 사람이 시민기자로 글을 쓰기 시작한 이야기입니다. 생면부지의 누군가가 자기 글을 읽고 남긴 반응 앞에서 그가 적습니다 — <b>"이건 몇 달간 느껴보지 못한 감정이었다. 쓸모. 내가 세상에 쓸모 있는 존재가 된 느낌이었다."</b> 그리고 자기 진단을 고쳐 씁니다. <b>"지금 나에게 필요한 건 일자리와 돈이라고 생각했는데 어쩌면 '인정'이었던 건 아니었을까."</b> 마지막 문장이 이렇습니다. <b>"우리는 여전히 쓸모 있는 존재들이며, 우리의 홀로서기는 이제 시작되었을 뿐이라고."</b> 자리를 잃은 사람이 <b>자리 없이도 쓸모를 다시 찾은</b> 기록입니다. 오늘 다섯 편 중 이 한 편만이 실제로 자리를 옮겨 본 사람의 글입니다.</p></div>
+
+        <blockquote class="quote">"당신은 어디를 가든 자기 자신을 데리고 갑니다. 당신을 떠돌게 만든 그 이유가 늘 당신 뒤꿈치를 따라옵니다."
+          <span class="by">— 세네카, 『루킬리우스에게 보내는 도덕 서한』 28번 (소크라테스를 인용하며)</span></blockquote>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">프리드리히 니체 · 저작권 만료</p>
+          <p class="verse">"나는 방랑자이며 산을 오르는 자다.
+나는 평지를 사랑하지 않으며,
+오래 가만히 앉아 있지 못하는 것 같다.
+앞으로 나에게 어떤 운명과 체험이 닥쳐오든
+— 그 안에는 방랑이 있고 산 오름이 있을 것이다.
+결국 사람은 자기 자신만을 체험할 뿐이다."</p>
+          <p class="cite">프리드리히 니체, 『차라투스트라는 이렇게 말했다』 제3부 「방랑자」(1884)
+            <span class="orig">"Ich bin ein Wanderer und ein Bergsteiger, sagte er zu seinem Herzen, ich liebe die Ebenen nicht, und es scheint, ich kann nicht lange still sitzen. Und was mir nun auch noch als Schicksal und Erlebnis komme, — ein Wandern wird darin sein und ein Bergsteigen: man erlebt endlich nur noch sich selber."</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/zarathustra/der-wanderer" target="_blank" rel="noopener">원문 확인 · textlog.de ↗</a>
+            <a class="src" href="http://www.zeno.org/Philosophie/M/Nietzsche,+Friedrich/Also+sprach+Zarathustra/Dritter+Teil.+Also+sprach+Zarathustra/Der+Wanderer" target="_blank" rel="noopener">대조 · zeno.org ↗</a></p>
+          <p class="memo">배달 메모 — 니체는 세네카와 <b>같은 말</b>을 하면서 <b>정반대 방향</b>으로 갑니다. 세네카가 "어디를 가든 자기를 데리고 간다"며 떠남에 기대지 말라 했다면, 니체는 <b>"결국 자기 자신만을 체험한다"</b>면서도 계속 걷습니다. 차이는 태도에 있습니다 — 자기를 데리고 다니는 것이 세네카에게는 <b>짐</b>이고, 니체에게는 <b>목적</b>입니다. 걷는 이유가 바깥을 보기 위해서가 아니라 <b>자기를 겪기 위해서</b>라면, 방랑은 도피의 반대말이 됩니다. 오늘 자리를 옮기는 모든 사람에게 이 구분이 유용합니다. <b>무엇으로부터 떠나는가</b>가 아니라 <b>무엇을 겪으러 가는가.</b> 니체가 이 장에서 곧이어 적어 둔 한 줄이 그 답입니다 — 이제 나에게 우연히 떨어질 것은 없다, 떨어지는 것은 이미 내 것이었던 것뿐이다. 🦊</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>이전 발표의 실제 내용은 아직 나오지 않았습니다.</b> 오늘 오전 발표이므로 위 항로 통보는 <b>어제까지의 예고 보도</b>에 근거했습니다. 거론된 기관(금융위·개인정보보호위·여가부)은 <b>확정이 아니라 언론에 오르내린 후보</b>입니다. 발표 전 브리핑이므로 그대로 사실로 읽지 마시기를.</li>
+          <li><b>발표자 실명은 적지 않았습니다.</b> 검색 결과에 국무총리·장관 이름이 나왔으나 서로 어긋나는 대목이 있어, 확인되지 않은 이름 대신 <b>직위로만</b> 적었습니다.</li>
+          <li><b>오늘 글감 중 두 편은 최신 글이 아닙니다.</b> 솔라스탤지어를 다룬 Aeon 에세이는 2021년, 보부아르 글은 올해 5월 것입니다. 오늘 결에 가장 정확히 닿는 문장을 우선했습니다.</li>
+          <li><b>니체 인용은 독일어 원문과 두 곳에서 대조했습니다</b>(textlog.de·zeno.org). 우리말은 옮긴 것이고, 원문 링크를 함께 걸었습니다.</li>
+          <li><b>이 판은 나눔용입니다.</b> 원래 브리핑에 있는 개인 기록(씨앗)·멈춤 질문·도구 수업 코너는 빼고, 뉴스·글감·한 문장만 실었습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">이전 계획이 발표되는 오늘, 아마 하루 종일 남의 이사 이야기를 듣게 되실 겁니다. 그 사이 한 번만, 지금 앉은 자리에서 <b>구조적으로 안 보이는 쪽</b>으로 고개를 돌려 보시기를. 카드 두 장은 늘 처음부터 거기 있었습니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑</p>
+  </div>
+</body>
+</html>
