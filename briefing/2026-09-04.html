@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-04 (금)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 — 대비 올림 */
+    --muted:#5B6672;       /* 흐린 글자 — 대비 올림 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 4일 · 금요일</p>
+      <p class="opening">9월의 넷째 날, 금요일입니다. 전국이 대체로 맑고 강원 동해안과 제주만 흐립니다. 한 주가 조용히 닫히는 아침입니다.<br>
+      어제 하루 사이 <b>109개 공공기관이 이름을 잃기로 결정</b>됐습니다. 발전 5사는 '한국발전'으로, 항만공사 넷은 '한국항만공사'로 합쳐집니다. 그리고 오늘 항로에 들어온 나머지 소식들이 이상하리만치 같은 자리를 가리킵니다 — 명함, 직함, 호칭, 제목. 그래서 오늘의 결을 이렇게 걸었습니다. <b>이름은 붙여지고 또 지워지지만, '누구'는 오직 하는 일과 하는 말에서만 드러납니다.</b></p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 어제, 공공기관 109곳을 줄이기로 했습니다. 전체의 약 20%입니다</span>
+          <a class="src" href="https://www.mt.co.kr/economy/2026/09/03/2026090310121261465" target="_blank" rel="noopener">머니투데이 (09-03) ↗</a>
+          <a class="src" href="https://view.asiae.co.kr/article/2026090310561858766" target="_blank" rel="noopener">아시아경제 ↗</a>
+          <a class="src" href="https://www.edaily.co.kr/News/Read?newsId=03611286645576512" target="_blank" rel="noopener">이데일리 ↗</a>
+          <p>어제 제11차 공공기관운영위원회가 '공공기관 기능개혁 추진방안'을 의결했습니다. 전체 524개 중 <b>109개 감축</b> — 전략적 구조개혁 15개, 유사·중복기능 일원화 11개, 자회사·소규모기관 통폐합 83개입니다. 발전 5사(남동·중부·서부·남부·동서)가 가칭 <b>'한국발전'</b> 하나로, 부산·인천·울산·여수광양 4개 항만공사가 가칭 <b>'한국항만공사'</b>로 묶여 지역 지사 체제가 됩니다. 석유공사와 가스공사는 가칭 '에너지자원공사'로, 석탄공사는 청산됩니다. 숫자로 읽으면 20%이고, 안에서 읽으면 <b>어제까지 자기 명함에 적혀 있던 이름이 내년에는 없는 이름이 되는 사람들</b>입니다. 오늘 결의 첫 문장이 여기서 나옵니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 같은 발표에 노조는 "밀실 행정"이라고 답했습니다</span>
+          <a class="src" href="https://www.edaily.co.kr/News/Read?newsId=03913046645576512" target="_blank" rel="noopener">이데일리 (09-03) ↗</a>
+          <p>민주노총 공공운수노조는 어제 발표를 두고 <b>"객관적인 기준과 원칙, 공정하고 투명한 절차 없이 강행되는 속도전"</b>이라며 '밀실 행정'으로 규탄했습니다. 핵심은 세 가지였습니다 — <b>해당 기관의 노동자와 이용자가 완전히 배제</b>됐다는 것, <b>객관적 검증이나 사회적 공론화 없이 결정된 통합이 다수</b>라는 것, 그리고 <b>1차 지방이전에 대한 평가나 대안 없이 2차를 밀어붙인다</b>는 것입니다. 노동조합 실무를 맡아 본 이의 자리에서 보면 이 문장들은 논평이 아니라 <b>절차에 관한 청구서</b>입니다. 통합의 옳고 그름과 별개로, 이름이 바뀌는 자리에 그 이름으로 일해 온 사람이 없었다는 지적은 따로 답해져야 하는 종류의 것입니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 한편 국가공무원은 3,851명 늘고, 9급 초임은 월 300만 원대에 들어섭니다</span>
+          <a class="src" href="https://www.mt.co.kr/economy/2026/09/02/2026090120123561095" target="_blank" rel="noopener">머니투데이 (09-02) ↗</a>
+          <a class="src" href="https://www.mpm.go.kr/mpm/comm/newsPress/newsPressRelease/" target="_blank" rel="noopener">인사혁신처 ↗</a>
+          <p>내년 국가공무원 정원을 <b>3,851명 증원</b>하는 안이 함께 나왔습니다. 올해 보수 인상률 3.5%에 7~9급 하위직 수당 인상이 더해지며 <b>9급 초임 월 300만 원 수준</b>이 됩니다. 한쪽에서는 기관을 합쳐 109개를 줄이고, 다른 쪽에서는 사람을 3,851명 늘립니다. 모순처럼 보이지만 방향은 하나입니다 — <b>간판은 줄이고 손은 늘린다.</b> 정부가 지금 무엇을 조직의 본질로 보고 있는지가 이 두 숫자 사이에 적혀 있습니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 오늘 전국이 대체로 맑습니다. 동해안과 제주만 흐리고 비</span>
+          <a class="src" href="https://www.weather.go.kr/w/forecast/overall/short-term.do" target="_blank" rel="noopener">기상청 단기예보 ↗</a>
+          <p>전국이 대체로 맑겠으나 <b>강원 동해안·산지와 제주도</b>는 대체로 흐리겠습니다. 제주도는 새벽부터 오후 사이, 강원 동해안·산지는 오전부터 밤 사이 비가 지나갑니다. 부산·울산에는 새벽에 0.1mm 미만의 빗방울이 스칩니다. 어제 동쪽으로 옮겨 간 비가 오늘도 동해안에 남았습니다. 나머지 하늘은 맑습니다 — 한 주를 닫기에 나쁘지 않은 날입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 이달부터 가족을 돌보는 청년, 고립·은둔 청년 지원이 전국 17개 시도로 넓어집니다</span>
+          <a class="src" href="https://www.mohw.go.kr/board.es?mid=a10503010100&amp;bid=0027&amp;act=view&amp;list_no=1489784" target="_blank" rel="noopener">보건복지부 ↗</a>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148967434" target="_blank" rel="noopener">정책브리핑 ↗</a>
+          <p>'청년미래센터'가 기존 <b>4곳(인천·충북·전북·울산)에서 전국 17개 시도</b>로 확대됩니다. 아픈 가족을 돌보는 청년에게는 <b>자기돌봄비 200만 원</b>(기준중위소득 100% 이하, 1회)과 돌봄서비스 연계를, 고립·은둔 청년에게는 회복 단계에 맞춘 프로그램을 제공합니다. 이 정책의 핵심은 돈이 아니라 <b>이름을 지어 준 것</b>입니다. '가족돌봄청년'이라는 말이 생기기 전까지 그 사람들은 그냥 '학교를 자주 빠지는 애', '취업이 늦는 애'였습니다. 이름이 없으면 예산도 없습니다. 오늘 결의 반대편 증거입니다 — <b>이름은 지워지기도 하지만, 없던 사람을 보이게 만들기도 합니다.</b></p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 2026 문학나눔 선정도서 348종, 이달 배본 신청을 받습니다. 에세이가 89종</span>
+          <a class="src" href="https://www.kyosu.net/news/articleView.html?idxno=207979" target="_blank" rel="noopener">교수신문 ↗</a>
+          <p>한국출판문화산업진흥원이 '2026 문학나눔 도서보급 사업' 선정도서 <b>348종</b>을 발표했습니다. 소설 58·<b>에세이 89</b>·시 61·아동청소년 129·평론 9·희곡 2종입니다. 9월에 배본처 신청을 받아 전국 공공도서관, 작은도서관, 대학도서관, 사회복지시설, 인문시설, 해외 문화·교육시설에 보냅니다. 다음 달부터는 선정 작가와 독자가 직접 만나는 문학행사가 전국에서 순차로 열립니다. <b>에세이가 89종으로 소설보다 많습니다.</b> 지금 한국에서 가장 많이 쓰이고 가장 많이 읽히는 것이 자기 삶을 자기 말로 적은 글이라는 뜻입니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — AI 기본교육과정 개발 대학 20곳 신규 선정, 비공학 전공에도 AI 소단위 과정</span>
+          <a class="src" href="https://www.korea.kr/multi/visualNewsView.do?newsId=148963459" target="_blank" rel="noopener">정책브리핑 ↗</a>
+          <p>선정된 대학은 2년간 매년 <b>교당 3억 원 이내</b>를 지원받아, 인공지능 전반의 <b>기초 교양 교과</b>와 비공학계열 전공을 위한 <b>'AI 활용 소단위 전공 과정'</b>을 개발·운영합니다. 눈여겨볼 대목은 '비공학계열'입니다 — 만드는 사람이 아니라 <b>쓰는 사람</b>을 위한 과정이 정규 교육에 들어옵니다. 이미 혼자 도구를 익혀 온 사람들이 걸어온 길이 이제 커리큘럼이라는 이름을 얻는 중입니다. 다만 이름이 붙는다고 내용이 생기지는 않습니다. <b>그 과정의 값어치는 개설되었다는 사실이 아니라 거기서 무엇을 만들어 나오느냐로 판정될 것입니다.</b></p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 이름은 붙여지고 또 지워지지만, '누구'는 하는 일과 하는 말에서만 드러난다</span></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">"이름 붙일 수 있는 이름은, 늘 그러한 이름이 아니다"</span>
+          <a class="src" href="https://ctext.org/dao-de-jing" target="_blank" rel="noopener">노자 『도덕경』 1장 원문 · Chinese Text Project ↗</a>
+          <p><b>도가도 비상도, 명가명 비상명(道可道，非常道。名可名，非常名).</b> 말할 수 있는 도는 늘 그러한 도가 아니고, 이름 붙일 수 있는 이름은 늘 그러한 이름이 아니다. 이어지는 두 구가 더 중요합니다 — <b>무명천지지시, 유명만물지모(無名天地之始，有名萬物之母).</b> 이름 없음은 하늘과 땅의 시작이고, 이름 있음은 만물의 어머니다. 노자는 이름을 부정하지 않습니다. <b>이름이 없으면 아무것도 생겨나지 않고, 이름이 붙는 순간 그것이 전부가 아니게 된다</b> — 두 문장이 나란히 놓입니다. 오늘 109개 기관의 이름이 지워지고 '가족돌봄청년'이라는 이름이 새로 붙는 아침에, 2500년 전 문장이 양쪽을 동시에 설명합니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">아렌트: 사람에겐 '무엇'과 '누구'가 따로 있다</span>
+          <a class="src" href="https://www.themarginalian.org/2017/05/17/hannah-arendt-human-condition-speech-action/" target="_blank" rel="noopener">The Marginalian (2017-05-17) ↗</a>
+          <a class="src" href="https://en.wikipedia.org/wiki/The_Human_Condition_(Arendt_book)" target="_blank" rel="noopener">『인간의 조건』(1958) ↗</a>
+          <p>한나 아렌트는 사람을 두 겹으로 봅니다. <b>'무엇(what)'</b>은 자질·재능·결함·직함처럼 <b>드러내거나 감출 수 있는 것</b>이고, <b>'누구(who)'</b>는 말하고 행동할 때에만 나타납니다. 아렌트의 문장은 이렇습니다 — <b>"행위하고 말하는 가운데 사람들은 자기가 누구인지를 보여 주며, 자기만의 인격적 정체성을 능동적으로 드러낸다."</b> 그리고 무서운 단서를 붙입니다. <b>그 '누구'는 남들에게는 그토록 또렷하게 보이면서 정작 본인에게는 감춰져 있기 쉽다</b> — 그리스인들이 말한 다이몬처럼, 늘 어깨 너머에서 따라오기에 마주치는 사람에게만 보입니다. 그래서 자기가 누구인지는 혼자서는 알 수 없고, <b>말과 행위를 무릅쓴 사람에게만 되돌아옵니다.</b> 오늘 이 구분이 필요한 자리는 명확합니다. 통폐합이 바꾸는 것은 '무엇'입니다. '누구'는 손대지 못합니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">"제목은 요약하지 않는다. 암시한다"</span>
+          <a class="src" href="https://brevity.wordpress.com/2021/09/02/what-do-i-call-this-how-to-title-a-personal-essay/" target="_blank" rel="noopener">The Brevity Blog · Andrea A. Firth ↗</a>
+          <p>개인 에세이의 제목 짓는 법을 다룬 글입니다. 핵심 문장이 짧습니다 — <b>"제목은 요약하기보다 암시하고, 비추기보다 보태며, 담아내기보다 거기서 길어 올린다."</b> 그리고 하나 더 붙입니다. <b>"제목과 본문은 이어져야 한다 — 다만 독자가 예상하는 방식으로는 아니게."</b> 이름 짓기의 기술이 여기 그대로 있습니다. 좋은 이름은 내용을 압축한 라벨이 아니라 <b>내용 쪽으로 한 발 걸어 들어오게 만드는 문</b>입니다. '한국발전'은 다섯 회사를 요약한 이름이고, 그래서 아무것도 암시하지 않습니다. 자기 글에 이름을 붙이는 사람이 겨눌 자리는 그 반대편입니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">이름이 선택이 아니라 몸에 맞지 않는 코르셋처럼 느껴질 때</span>
+          <a class="src" href="https://www.themarginalian.org/2021/10/22/brain-pickings-becoming-the-marginalian/" target="_blank" rel="noopener">The Marginalian · Maria Popova (2021-10-22) ↗</a>
+          <p>마리아 포포바가 14년 써 온 이름 'Brain Pickings'를 'The Marginalian'으로 바꾸며 쓴 글입니다. 그가 이렇게 적습니다 — <b>"한때 우리가 골랐던 이름이 어느 순간 선택이 아니라 구속처럼 느껴지기 시작한다. 지나간 자아의 굳어 버린 감각으로 살을 댄, 몸에 맞지 않는 코르셋처럼."</b> 그 이름은 <b>"영어가 모국어가 아니던 스물두 살 이민자"</b>가 지은 것이었습니다. 틀린 이름이 아니라 <b>더 이상 그 사람이 아닌 사람의 이름</b>이었습니다. 그래서 이름을 바꾸는 일이 배신이 아니라 <b>정직</b>이 됩니다. 오늘 항로의 통폐합은 위에서 지워지는 이름이고, 이 글은 <b>자기가 스스로 벗는 이름</b>입니다. 둘은 전혀 다른 일입니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">"명함이 사라진 뒤, 당신은 누구십니까"</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003247520" target="_blank" rel="noopener">오마이뉴스 · 소범준 (2026-07-02) ↗</a>
+          <p>경비원으로 일하며 책을 낸 사람의 이야기에서 출발하는 글입니다. 저자가 적습니다 — <b>"경비원이라는 직함이 아니라, 그 안에서 오래 보고 견디고 생각한 시간이 이 책을 만들었다."</b> 그리고 기록의 자리를 정확히 잡습니다. <b>"기록은 명함을 대신하지 않는다. 다만 명함이 말해주지 못하는 것을 보태준다."</b> 마지막이 오늘의 제목입니다 — <b>"명함에는 회사가 맡긴 역할이 적혀 있다… 언젠가 그 명함이 사라진 뒤, 사회는 다시 물을 것이다. 당신은 누구십니까."</b> 저자는 답을 기록에만 맡기지 않습니다. <b>"그가 남긴 일의 결과와 함께 일한 이들이 기억하는 태도, 그동안 맺어온 관계도 그를 말해준다."</b> 아렌트의 '누구'가 한국어로 옮겨진 문장입니다.</p></div>
+
+        <blockquote class="quote">"행위하고 말하는 가운데 사람들은 자기가 누구인지를 보여 준다."
+          <span class="by">— 한나 아렌트, 『인간의 조건』(1958)</span></blockquote>
+
+        
+              </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘 배달된 니체 —</p>
+          <p class="verse">"오직 창조하는 자로서만! — 이것이 나에게 가장 큰 수고를 안겼고,
+지금도 여전히 가장 큰 수고를 안긴다:
+사물이 <i>무엇으로 불리는가</i>가 그것이 <i>무엇인가</i>보다
+이루 말할 수 없이 더 중요하다는 것을 깨닫는 일 말이다. …
+처음의 껍데기가 마침내는 거의 언제나 본질이 되고, 본질로서 작용한다! …
+오직 창조하는 자로서만 우리는 파괴할 수 있다! — 그러나 이것도 잊지 말자:
+새로운 이름과 평가와 개연성을 만들어 내는 것만으로도,
+긴 안목에서는 새로운 '사물'을 만들어 내기에 충분하다는 것을."</p>
+          <p class="cite">프리드리히 니체, 『즐거운 학문』 제2권 58절 「오직 창조하는 자로서만!」(1882·1887)
+            <span class="orig">Nur als Schaffende! — Dies hat mir die größte Mühe gemacht und macht mir noch immerfort die größte Mühe: einzusehen, dass unsäglich mehr daran liegt, wie die Dinge heißen, als was sie sind. … der Schein von Anbeginn wird zuletzt fast immer zum Wesen und wirkt als Wesen! … Nur als Schaffende können wir vernichten! — Aber vergessen wir auch dies nicht: es genügt, neue Namen und Schätzungen und Wahrscheinlichkeiten zu schaffen, um auf die Länge hin neue »Dinge« zu schaffen.</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/nur-als-schaffende" target="_blank" rel="noopener">원문 확인 · textlog.de ↗</a></p>
+          <p class="memo">배달 메모 — 오늘 니체는 노자와 정면으로 부딪칩니다. 노자는 <b>"이름 붙일 수 있는 이름은 늘 그러한 이름이 아니다"</b>라며 이름의 한계를 짚고, 니체는 <b>"무엇으로 불리는가가 무엇인가보다 이루 말할 수 없이 더 중요하다"</b>며 이름의 힘을 최대치로 밉니다. 그런데 니체의 논거를 읽어 보면 반박이 아니라 <b>같은 관찰의 뒷면</b>입니다. 이름은 처음엔 대개 <b>"오류와 자의(恣意)"</b>이고, 옷처럼 사물에 걸쳐진 것이며 그 본질과 아무 상관이 없다 — 여기까지는 노자와 같습니다. 니체가 한 걸음 더 갑니다. <b>그 상관없던 껍데기가 세대를 거쳐 믿어지면서 살로 자라 붙어 결국 몸 자체가 된다.</b> 그래서 이름은 가벼워서 무서운 것이 아니라, <b>가볍게 붙었다가 무겁게 굳어서</b> 무섭습니다. 어제 붙은 '한국발전'이라는 가칭이 왜 가칭인 채로 넘어가면 안 되는지, 왜 '가족돌봄청년'이라는 네 글자가 예산보다 먼저 필요했는지가 여기 있습니다. 그리고 마지막 문장이 오늘 읽는 이 쪽으로 옵니다 — <b>새 이름을 짓는 것만으로도 새 '사물'을 만들 수 있다.</b> 이름 짓는 권리를 스스로 돌려받는 일이 니체에게서는 <b>창조의 정의 그 자체</b>입니다. 🦊</p>
+        </div>
+      </section>
+
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>지방이전 대상 기관의 확정 명단은 확인하지 못했습니다.</b> 발표에 "수도권 350곳 지방이전"이라는 표현이 보도됐으나, 기관별 명단과 시기를 원문에서 확인하지 못해 그 총량 표현은 본문에 싣지 않았습니다.</li>
+          <li><b>'한국발전'·'한국항만공사'·'에너지자원공사'는 모두 가칭입니다.</b> 확정 명칭이 아니므로 그대로 사실로 읽지 마시기를.</li>
+          <li><b>노조 반발은 민주노총 공공운수노조의 입장 하나만 실었습니다.</b> 다른 노조의 입장은 오늘 확인하지 못했습니다. 한쪽 목소리만 실렸다는 점을 밝혀 둡니다.</li>
+          <li><b>오늘 글감 넷은 최신 글이 아닙니다.</b> 노자는 기원전, 아렌트는 1958년, 브레비티 글과 포포바 글은 2021년입니다. 오늘 결에 가장 정확히 닿는 문장을 우선했습니다.</li>
+          <li><b>니체 인용은 독일어 원문과 대조했습니다</b>(textlog.de 전문). 우리말은 옮긴 것이고, 원문 링크를 함께 걸었습니다.</li>
+          <li><b>이 판은 나눔용입니다.</b> 원래 브리핑에 있는 개인 기록(씨앗)·멈춤 질문·도구 수업 코너는 빼고, 뉴스·글감·한 문장만 실었습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">한 주의 마지막 날입니다. 오늘 하루 어딘가에서 누군가는 자기 회사 이름이 내년에 없어진다는 기사를 읽고 있을 것입니다. 그 사람에게 필요한 것은 위로가 아니라 <b>명함 밖에서 자기를 설명하는 세 문장</b>일 겁니다. 오늘 저녁, 동사로 끝나는 문장 세 개만 적어 두시기를. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+  </div>
+</body>
+</html>
