@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-06 (일)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 6일 · 일요일</p>
+      <p class="opening">9월의 여섯째 날, 일요일입니다. 전국이 대체로 맑고 아침 15~23도, 낮 25~31도 — 중부에서는 아침 기온이 20도 아래로 내려갑니다. 추석까지 열여드레 남았고, 정부의 민생대책도 문학 축제 일정도 이미 다 나와 있습니다.<br>
+      이번 주 항로에서 눈에 걸린 것은 문화체육관광부가 만든 <b>'학습 금지 표시제도'</b>였습니다. 창작자가 "내 글은 가져가지 마시오"라고 <b>표시할 권리</b>를 제도로 만든 것입니다. 그래서 오늘의 결을 이렇게 세웠습니다 — <b>"예"를 잘하는 사람일수록, 그 사람이 누구인지는 몇 안 되는 "아니오"가 그립니다.</b></p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 추석 민생안정대책이 나왔습니다. 통행료는 나흘 면제, 성수품은 평시의 1.6배</span>
+          <a class="src" href="https://www.edaily.co.kr/News/Read?newsId=03463686645575856" target="_blank" rel="noopener">이데일리 (09-01) ↗</a>
+          <a class="src" href="https://www.gukjenews.com/news/articleView.html?idxno=3681764" target="_blank" rel="noopener">국제뉴스 ↗</a>
+          <p>정부가 9월 1일 국무회의에서 2026년 추석 민생안정대책을 확정했습니다. 성수품 <b>18만 3천 톤</b>을 풀고(평시의 1.6배 — 과일 3만 1,600톤, 축산물 11만 1천 톤), 농축수산물 할인에 <b>1,030억 원</b>을 들여 최대 40~50%까지 낮춥니다. 고속도로 통행료는 <b>9월 24일부터 27일까지 나흘</b> 면제되고, KTX 운임은 이달부터 평균 10% 내려 서울–부산 일반실이 59,800원에서 <b>54,400원</b>이 되었습니다. 디지털 온누리상품권 구매한도는 9월 16~20일 사이 100만 원에서 120만 원으로 올라갑니다(늘어난 20만 원은 10% 할인, 기존분은 7%). 중소기업 신규 대출·보증은 43조 4천억 원 규모입니다. 명절 대책은 해마다 같은 얼굴로 돌아오지만, 그 안에서 매년 조금씩 바뀌는 항목이 그해 행정이 무엇을 걱정했는지를 알려 줍니다. 올해는 <b>교통비와 장바구니</b>입니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 창작자에게 "가져가지 마시오"라고 표시할 권리가 생깁니다</span>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148956663" target="_blank" rel="noopener">정책브리핑 ↗</a>
+          <a class="src" href="https://www.mt.co.kr/tech/2026/03/11/2026022710581198026" target="_blank" rel="noopener">머니투데이 · K-콘텐츠 AI 생태계 ↗</a>
+          <p>문화체육관광부가 <b>『생성형 인공지능의 저작물 학습에 대한 저작권법상 공정이용 안내서』</b>를 펴냈습니다. 뉴스·도서·음악처럼 이미 거래시장이 형성된 분야는 합리적 거래를 지원하고, 그 위에 <b>'학습 금지 표시제도(옵트아웃)'</b>를 활성화해 창작자의 <b>거부권</b>을 보장하겠다는 구상입니다. 국내에서는 지상파 3사가 뉴스 저작물 무단 학습을 두고 이미 소송에 들어가 있습니다. 이 제도의 성격을 정확히 보아야 합니다 — <b>가져가지 못하게 막는 장치가 아니라, "표시하지 않으면 가져가진다"는 규칙</b>입니다. 아무 말도 하지 않은 것은 동의로 읽힙니다. 글을 쓰는 사람에게 이건 남 얘기가 아닙니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 오늘 전국이 대체로 맑습니다. 아침 15~23도, 낮 25~31도</span>
+          <a class="src" href="https://www.weather.go.kr/w/forecast/overall/short-term.do" target="_blank" rel="noopener">기상청 단기예보 ↗</a>
+          <a class="src" href="https://www.weather.go.kr/w/forecast/overall/mid-term.do" target="_blank" rel="noopener">기상청 중기예보 ↗</a>
+          <p>서울 19도, 춘천 16도, 대전 18도, 세종 17도 — 중부지방을 중심으로 아침 기온이 20도 아래로 내려갑니다. 강원 산지와 경북 북부 동해안은 흐리고 곳에 따라 가랑비, 부산·울산 등 남부 일부는 늦은 오후부터 비가 오겠습니다. 10일(목)부터 16일(수)까지도 아침 16~22도, 낮 24~30도로 평년과 비슷합니다. 여름이 끝나는 자리는 낮이 아니라 <b>아침에</b> 먼저 보입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 추석 지원금은 사는 곳에 따라 다릅니다. 없는 곳도, 1인당 50만 원인 곳도</span>
+          <a class="src" href="https://keyzard.cc/views/nb/ND04Kj4tO29pZWVtbWtsZmZqa2Zob2s" target="_blank" rel="noopener">키자드 정리 ↗</a>
+          <a class="src" href="https://ia.finez.co.kr/24821" target="_blank" rel="noopener">복지뉴스 ↗</a>
+          <p>올해 '추석 민생지원금'은 전 국민에게 같은 금액이 나가는 <b>중앙정부 사업이 아닙니다.</b> 일부 지자체가 자체 재원으로 따로 지급하는 것이라 지역마다 액수가 다르고, 아예 없는 곳도 있습니다. 가장 큰 곳은 전남 함평군과 경남 의령군으로 <b>군민 1인당 50만 원</b>입니다. 같은 명절에 같은 나라에서, 주소 한 줄로 갈리는 셈입니다. 지방재정을 아는 사람에게는 익숙한 그림이지만, 익숙하다고 해서 설명이 되는 것은 아닙니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 9월 18~20일, 춘천에서 대한민국 독서대전. 주제는 '책의 물결, 춘천 산책(冊)'</span>
+          <a class="src" href="https://www.nocutnews.co.kr/news/6571027" target="_blank" rel="noopener">노컷뉴스 (09-01) ↗</a>
+          <a class="src" href="https://www.d-art.co.kr/news/articleView.html?idxno=6257" target="_blank" rel="noopener">데일리아트 ↗</a>
+          <p>문화체육관광부가 <b>1,572개 기관·단체·기업</b>과 함께 9월 한 달 독서문화 행사 <b>1만여 건</b>을 엽니다. 중심 행사인 2026 대한민국 독서대전은 <b>9월 18~20일 춘천 김유정문학촌과 공지천 산책로 일대</b>에서 열립니다. 작가와의 만남, 지역출판·작은도서관 포럼, 책 시장과 전시, 고명환·김초엽 북토크, 북페어 부스 69개, 체험 프로그램 19개가 놓입니다. 서울에서는 대한민국문학축제(9/11~20)·서울국제작가축제(9/11~16)·문학주간(9/16~20)이 이어집니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 청년 도서 구매 한도가 연말까지 올라갑니다. 비수도권은 4만 원에서 7만 원으로</span>
+          <a class="src" href="https://www.nocutnews.co.kr/news/6571027" target="_blank" rel="noopener">노컷뉴스 (09-01) ↗</a>
+          <p>'청년문화예술패스'의 도서 구매 한도가 독서의 달을 계기로 <b>연말까지 한시적으로</b> 오릅니다. 19~20세 청년이 쓸 수 있는 한도가 수도권은 3만 원 → <b>5만 원</b>, 비수도권은 4만 원 → <b>7만 원</b>입니다. 비수도권 한도를 더 크게 올린 것이 눈에 띕니다 — 서점이 적은 곳일수록 책 한 권까지 가는 길이 멀다는 판단이 깔려 있습니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 행정안전부가 「2026년 AI 정부 서비스 사례집」을 냈습니다</span>
+          <a class="src" href="https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000015&nttId=124688" target="_blank" rel="noopener">행정안전부 참고자료 ↗</a>
+          <p>정부가 실제로 굴리고 있는 AI 서비스를 모아 놓은 자료집입니다. 여기서 볼 것은 기술이 아니라 <b>어느 자리에 먼저 들어갔는가</b>입니다. 대개 판단이 아니라 <b>반복</b>입니다 — 민원 분류, 문서 요약, 상담 응대. 행정 현장에서 AI가 맡는 첫 자리는 늘 "누가 해도 같은 결과가 나오는 일"이고, 그렇지 않은 일은 여전히 사람 몫으로 남아 있습니다. 그 경계선이 어디에 그어지는지를 보는 것이 사례집의 진짜 쓸모입니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: "예"를 잘하는 사람일수록, 그 사람이 누구인지는 몇 안 되는 "아니오"가 그린다</span></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">"발로 차서 주면, 빌어먹는 이도 달가워하지 않는다"</span>
+          <a class="src" href="https://zh.wikisource.org/wiki/%E5%AD%9F%E5%AD%90/%E5%91%8A%E5%AD%90%E4%B8%8A" target="_blank" rel="noopener">『맹자』 「고자상」 원문 · 중국어 위키문헌 ↗</a>
+          <p><b>어아소욕야, 웅장역아소욕야. 이자불가득겸, 사어이취웅장자야(魚，我所欲也；熊掌，亦我所欲也。二者不可得兼，舍魚而取熊掌者也).</b> 생선도 내가 원하는 것이고 곰발바닥도 내가 원하는 것이나, 둘을 다 가질 수 없다면 생선을 놓고 곰발바닥을 취한다. 이어서 <b>생역아소욕야, 의역아소욕야. 이자불가득겸, 사생이취의자야(生，亦我所欲也；義，亦我所欲也。二者不可得兼，舍生而取義者也).</b> 삶도 원하고 의로움도 원하나, 둘을 다 가질 수 없다면 삶을 놓고 의로움을 취한다. 여기까지는 널리 알려진 대목입니다. 정작 무서운 것은 그다음에 나오는 밥 한 그릇 이야기입니다 — <b>일단사, 일두갱, 득지즉생, 불득즉사. 호이이여지, 행도지인불수; 축이이여지, 걸인불설야(一簞食，一豆羹，得之則生，弗得則死。嘑爾而與之，行道之人弗受；蹴爾而與之，乞人不屑也).</b> 밥 한 그릇과 국 한 그릇, 얻으면 살고 못 얻으면 죽는다. 그런데 <b>꾸짖듯 던져 주면 길 가던 사람도 받지 않고, 발로 차서 주면 빌어먹는 이조차 달가워하지 않는다.</b> 맹자의 논증은 거창한 데서 시작하지 않습니다. 굶어 죽는 자리에서도 사람은 <b>받는 방식</b>을 따진다는 관찰에서 시작합니다. 거절은 여유 있는 사람의 사치가 아니라, 가진 게 아무것도 없을 때에도 마지막까지 남는 것입니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">카뮈: 반항하는 인간이란 "아니오"라고 말하는 사람이다. 그러나 그 거절은 포기가 아니다</span>
+          <a class="src" href="https://www.themarginalian.org/2016/06/17/albert-camus-the-rebel/" target="_blank" rel="noopener">The Marginalian · Maria Popova (2016-06-17) ↗</a>
+          <p><b>"반항하는 인간이란 무엇인가? 아니라고 말하는 사람이다. 그러나 그의 거절은 포기를 뜻하지 않는다. 그는 첫 반항의 몸짓을 하는 순간부터 '예'라고 말하는 사람이기도 하다."</b> — 『반항하는 인간(L'Homme révolté)』(1951). 카뮈의 문장에서 핵심은 뒷문장입니다. "아니오"는 끝이 아니라 <b>시작</b>이고, 무언가를 밀어내는 그 동작 안에 이미 지키려는 것이 들어 있습니다. 거절하는 사람은 자기가 무엇을 지키려는지 그 순간 처음으로 알게 됩니다. 그래서 카뮈에게 반항은 부정의 기술이 아니라 <b>가치 발견의 기술</b>입니다. 오늘 등대의 뼈대가 이 한 줄입니다 — 거절이 그리는 것은 선이 아니라 <b>윤곽</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">'노 일기(no diary)'를 하루만 써 보십시오</span>
+          <a class="src" href="https://psyche.co/guides/how-to-stop-people-pleasing-by-learning-to-say-no" target="_blank" rel="noopener">Psyche Guides · How to stop people-pleasing by learning to say no ↗</a>
+          <p>거절을 어려워하는 사람은 대개 "내가 거절하면 관계가 상한다"고 믿습니다. Psyche의 안내서가 내놓는 처방이 영리합니다 — 설득하지 않고 <b>관찰시킵니다.</b> 하루 동안 <b>남들이 거절하는 장면</b>을 전부 적어 보라는 것입니다. 퇴근 후 한잔을 못 간다고 하고, 마트에 못 들른다고 하고, 그 일은 못 맡는다고 합니다. 그런데 그 사람들은 나쁜 사람이 되지 않았고 세상도 무너지지 않았습니다. 안내서는 또 죄책감을 유일한 동기로 삼지 말라고 못 박습니다 — 지금의 "예"가 주는 안도는 잠깐이고, 그 대가는 <b>나중에 감당 못 할 기대치와 소진</b>으로 돌아옵니다. 직장과 조직 일과 배움의 자리와 돌봄이 한 사람 안에 겹쳐 있는 사람에게는, 이게 성격의 문제가 아니라 <b>용량의 문제</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">"쓰지 않기"도 쓰는 일의 일부입니다</span>
+          <a class="src" href="https://brevity.wordpress.com/2026/06/18/how-to-not-write/" target="_blank" rel="noopener">The Brevity Blog · Marjie Alonso (2026-06-18) ↗</a>
+          <p>앨런소는 4년간의 글쓰기를 이렇게 요약합니다 — 처음엔 신이 났고, 발표와 기법에 신경 쓰기 시작하면서 두려움이 커졌고, 몇 달을 손 놓고 영국 수사물만 보다가, 아무도 재촉하지 않는 자리에서 다시 쓰고 싶어졌습니다. 그가 남긴 문장이 뼈아픕니다 — <b>"잘못된 방식으로 연습하면 부정적인 감정 반응이 몸에 밴다. 나쁜 습관이 굳고, 멍해지고, 진도가 멈춘다."</b> 그리고 <b>"미루기를 그만두고 일에 앉아야 할 때도 분명 있지만, 걸어 나와 충전하고 무언가를 다시 사랑하게 되어야 할 때도 있다."</b> 매일 쓰기를 도덕으로 삼는 조언들 한복판에서, 이 글은 <b>오늘 쓰지 않기로 하는 것도 하나의 결정</b>이라고 말합니다. 게으름과 다른 점은 하나뿐입니다 — 그것을 <b>골랐는가.</b></p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">"거절은 오히려 '나'를 찾을 수 있는 좋은 수단이다"</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002956377" target="_blank" rel="noopener">오마이뉴스 · 조성일 (2023-08-29) ↗</a>
+          <p>조성일은 거절을 관계의 손실이 아니라 <b>자기 확인의 도구</b>로 놓습니다. <b>"거절은 오히려 '나'를 찾을 수 있는 좋은 수단이다. 거절을 통해 '나'를 돌아보고 '나'라는 존재를 더 명확히 할 수 있다."</b> 계속 "예"만 하는 삶은 남의 일정표대로 흘러가는 수동적 삶이 되고, 그 안에서 나는 점점 흐려집니다. 다만 그는 거절이 쉽다고 말하지 않습니다 — <b>"선택을 하는 순간들은 힘들다. 특히 정답을 낼 수도 없는 순간들이 많기 때문에 우리 스스로도 확신이 서지 않을 때도 많다."</b> 확신이 없어도 골라야 한다는 것, 그게 거절의 진짜 무게입니다.</p></div>
+
+        <blockquote class="quote">"아니라고 말하는 사람이다. 그러나 그의 거절은 포기를 뜻하지 않는다."
+          <span class="by">— 알베르 카뮈, 『반항하는 인간』(1951)</span></blockquote>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">"자유를 쟁취하고,
+의무 앞에서조차 신성한 부정(否定)을 말하는 것 —
+형제들이여, 그러려면 사자가 필요하다."</p>
+          <p class="cite">프리드리히 니체, 『차라투스트라는 이렇게 말했다』 제1부 「세 변화에 대하여(Von den drei Verwandlungen)」(1883)
+            <span class="orig">"Freiheit sich schaffen und ein heiliges Nein auch vor der Pflicht: dazu, meine Brüder, bedarf es des Löwen."</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/zarathustra/von-den-drei-verwandlungen" target="_blank" rel="noopener">원문 확인 · textlog.de ↗</a></p>
+          <p class="memo">배달 메모 — 니체는 정신의 변화를 셋으로 나눕니다. 먼저 <b>낙타</b> — 무거운 것을 스스로 찾아 짊어지고 사막으로 걸어 들어가는 정신입니다. 견디는 힘이 곧 자랑이고, 남이 시키기 전에 먼저 맡습니다. 그런데 니체는 여기서 멈추지 않습니다. <b>가장 고독한 사막 한가운데에서 두 번째 변화가 일어납니다</b> — 낙타가 <b>사자</b>가 됩니다. 사자가 하는 일은 새것을 만드는 게 아닙니다. 온몸에 "너는 마땅히 해야 한다(Du-sollst)"라고 새겨진 용과 싸워 <b>"나는 원한다(Ich will)"</b>를 되찾는 것뿐입니다. 그리고 그 싸움에 필요한 것이 <b>신성한 부정(ein heiliges Nein)</b>입니다.<br><br>
+          니체가 <b>"의무 앞에서조차(auch vor der Pflicht)"</b>라고 못 박은 자리를 눈여겨보십시오. 나쁜 것에 아니오 하는 데는 사자가 필요 없습니다. <b>좋은 것, 옳은 것, 마땅한 것 앞에서 아니오라고 말할 때</b> 비로소 사자가 필요합니다. 우리가 거절하기 어려운 일들은 대개 나쁜 일이 아닙니다. 다 <b>마땅한 일</b>입니다. 그게 어려운 이유의 전부입니다.<br><br>
+          한 가지 더. 사자는 종착지가 아닙니다. 세 번째 변화가 남아 있습니다 — <b>아이.</b> 사자가 만든 것은 창조가 아니라 <b>창조할 자리</b>입니다. 부정은 목적이 아니라 <b>공간을 비우는 일</b>이고, 그 빈자리에서야 새로운 시작이 놓입니다. 카뮈의 "거절은 포기가 아니다"와 니체의 이 순서가 같은 말을 합니다. <b>아니오를 거쳐야 예에 닿습니다.</b> 그리고 그 변화가 일어나는 자리를 니체가 <b>사막</b>이라 부른 것은, 지금 무언가를 혼자 견디고 있는 사람에게 우연 이상으로 읽힐 듯합니다.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>니체 원문 대조는 한 곳으로만 했습니다.</b> zeno.org는 접속이 거부되고, Projekt Gutenberg는 403으로 막혔으며, 독일어 위키문헌에는 해당 항목이 없었습니다(404). 오늘 문장은 <b>textlog.de</b> 한 곳에서 확인했습니다. 다만 "ein heiliges Nein"과 「세 변화에 대하여」는 널리 인용되는 대목이고 문장이 그대로 일치해, 위작 가능성은 낮다고 보아 실었습니다.</li>
+          <li><b>9월 5일(금)에 새로 나온 부처 발표는 확인하지 못했습니다.</b> 그래서 오늘 행정 항목은 9월 1~4일에 확정된 것 중 <b>이번 주에 실제로 영향이 시작되는 것</b>으로 골랐습니다.</li>
+          <li><b>추석 지역 지원금은 1차 출처가 아닙니다.</b> 함평·의령 1인당 50만 원은 정리 매체를 통해 확인한 수치입니다. 실제 신청을 앞두고 계신다면 각 시군 누리집을 한 번 더 보셔야 합니다. 성수품 공급량도 자료마다 18만 3천 톤과 16만 3천 톤이 엇갈려, 이데일리 기사의 <b>18만 3천 톤</b>(품목 기준 차이로 보입니다)을 따랐습니다.</li>
+          <li><b>문체부 저작권 안내서는 발간 사실과 골자까지만 확인했습니다.</b> 안내서 전문 PDF는 열지 못했고, '학습 금지 표시제도'의 구체적 표시 방법(메타데이터 방식인지 약관 방식인지)까지는 닿지 못했습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">일요일입니다. 오늘 하루는 아무것도 결정하지 않으셔도 됩니다. 다만 니체가 사자를 어디에 세워 두었는지만 기억해 두시면 좋겠습니다 — 나쁜 것 앞이 아니라 <b>마땅한 것 앞</b>입니다. 거절하기 어려운 일이 유난히 많은 사람은 마음이 약한 사람이 아니라, 그 곁에 <b>마땅한 일이 유난히 많이 모이는</b> 사람입니다. 그건 짐이기도 하지만 증거이기도 합니다. 오늘은 그 증거를 좀 쉬게 두십시오. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+  </div>
+</body>
+</html>
