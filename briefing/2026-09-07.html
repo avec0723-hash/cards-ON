@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-07 (월)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 7일 · 월요일</p>
+      <p class="opening">9월의 이렛날, 월요일입니다. 전국이 대체로 맑고 아침 12~21도, 낮 25~31도 — 아침 최저가 드디어 앞자리를 바꿨습니다. 추석까지 열이레 남았고, 오늘부터 지자체마다 연휴 종합대책이 돌아가기 시작합니다.<br>
+      오늘 새벽 항로에서 눈에 걸린 것은 한 칼럼의 제목이었습니다 — <b>&ldquo;AI가 의심할 사람을 먼저 고른다.&rdquo;</b> 처분을 내리는 것이 아니라 <b>누구를 먼저 볼 것인가</b>를 정하는 힘. 그래서 오늘의 결을 이렇게 세웠습니다 — <b>결정보다 먼저 오는 것은 명단이다. 그리고 명단에 오르는 순간, 사람은 평균이 된다.</b></p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 처분보다 먼저 오는 권력이 있습니다. &ldquo;누구를 먼저 조사할 것인가&rdquo;</span>
+          <a class="src" href="https://www.ajunews.com/view/20260906185345414" target="_blank" rel="noopener">아주경제 김정래 「AI 국가론 ②」 (09-07 06:02) ↗</a>
+          <p>「인공지능 및 데이터 기반 행정 활성화에 관한 법률」이 <b>2026년 8월 28일 이미 시행</b>되었고, <b>2027년 2월 28일부터는</b> 공공기관이 AI를 도입하기 전에 그것이 국민의 기본권에 미칠 영향을 <b>미리 평가하고 결과를 공표</b>해야 합니다. 아주경제 전국팀장 김정래는 이 법의 의미를 처분이 아니라 그 앞단에서 찾습니다 — AI가 최종 결정을 내리지 않더라도, <b>&ldquo;누구를 먼저 조사할 것인가&rdquo;를 정하는 순간 이미 권력이 행사된다</b>는 것입니다. 그는 이것을 <b>&lsquo;선별의 권력&rsquo;</b>이라 부릅니다. 세무조사든 복지 발굴이든 단속이든, 행정의 실제 무게는 처분이 아니라 <b>명단에 오르는 일</b>에 실려 있습니다. 이름이 목록에 오르는 순간, 그 사람은 아직 아무 처분도 받지 않은 채로 이미 달라져 있습니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 서울시가 AI를 모르는 공무원을 위한 창구를 열었습니다</span>
+          <a class="src" href="https://n.news.naver.com/mnews/article/001/0016293057?sid=102" target="_blank" rel="noopener">연합뉴스 (09-07) ↗</a>
+          <a class="src" href="https://www.newspim.com/news/view/20260904000958" target="_blank" rel="noopener">뉴스핌 ↗</a>
+          <a class="src" href="https://www.gukjenews.com/news/articleView.html?idxno=3686345" target="_blank" rel="noopener">국제뉴스 · 충북도의회 ↗</a>
+          <p>서울AI재단이 공공 분야 AI 도입을 처음부터 끝까지 돕는 통합 플랫폼 <b>&lsquo;서울AI브리지&rsquo;</b>를 운영한다고 오늘 밝혔습니다. 컨설팅 → 개념검증(PoC, 실제로 되는지 작게 만들어 보는 단계) → AI 서비스 개발·이관까지 원스톱으로, <b>AI 전문지식이 부족한 공공 종사자</b>를 대상으로 합니다. 눈여겨볼 것은 이름입니다 — <b>&lsquo;브리지(다리)&rsquo;</b>. 도입을 밀어붙이는 자리가 아니라 건너가게 하는 자리로 스스로를 규정했습니다. 어제 충북도의회 이광희 의원이 &ldquo;AI 업무 변화·인력 영향에 대한 구체적 계획이 필요하다&rdquo;고 지적한 것과 나란히 놓아 보면, 지금 행정 AI의 병목은 기술이 아니라 <b>누가 무엇을 맡게 되는가</b>에 관한 설명입니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 자격 요건을 갖추지 않은 사람을 보건소장에 앉혀 기관경고를 받았습니다</span>
+          <a class="src" href="https://ysmbc.co.kr/NewsArticle/1535615" target="_blank" rel="noopener">여수MBC (09-06) ↗</a>
+          <p>행정안전부가 올해 3~4월 정부합동감사에서, 광양시가 지난 1월 <b>행정직 공무원을 보건소장으로 임용</b>한 것이 지역보건법상 자격 요건에 맞지 않는다고 보고 최근 기관 경고를 내렸습니다. 지역보건법은 보건소장을 의사 면허자로 임용하되, 충원이 어려울 때 보건 직렬 공무원을 임용하도록 하고 있습니다. 인사 담당을 해 본 사람은 이 사안의 실제 온도를 압니다 — 대개 악의가 아니라 <b>자리를 비워 둘 수 없어서</b> 벌어지는 일입니다. 다만 여기서도 순서는 같습니다. <b>누가 그 자리에 앉을 수 있는가를 정하는 목록</b>이 먼저 있고, 처분은 그다음입니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 오늘부터 추석 종합대책이 돌아갑니다. 충남은 돌봄 대상 3만 5,083명을 한 명씩 확인합니다</span>
+          <a class="src" href="https://n.news.naver.com/mnews/article/001/0016290913?sid=102" target="_blank" rel="noopener">연합뉴스 (09-04) ↗</a>
+          <a class="src" href="http://www.chungnamilbo.co.kr/news/articleView.html?idxno=907898" target="_blank" rel="noopener">충남일보 ↗</a>
+          <a class="src" href="https://www.korea.kr/news/policyNewsView.do?newsId=148970987" target="_blank" rel="noopener">정책브리핑 · 성수품 ↗</a>
+          <p>충남도가 <b>오늘(7일)부터 27일까지 21일간</b> 추석 연휴 종합대책을 가동합니다. 안전·민생·보건 등 5대 분야이고, 그 안에 <b>노인맞춤돌봄서비스 대상자 3만 5,083명의 안전을 확인</b>하고 응급안전안심서비스 장비를 점검하는 항목이 있습니다. 사회복지 생활시설에는 쌀과 생필품을 지원하고, 독거 어르신·국가유공자·보훈가족의 명절 기간 돌봄 공백을 메우는 생활지원 서비스도 함께 돕니다. 정부 차원의 성수품 공급은 <b>18만 3천 톤으로 역대 최대</b>입니다. 3만 5,083이라는 숫자가 정확하다는 것은, 그 명단이 <b>한 명 단위로 관리되고 있다</b>는 뜻입니다. 행정이 잘하는 일이고, 동시에 행정이 하는 일의 전부이기도 합니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 지금 8주 동안, 16만 명을 찾는 중입니다</span>
+          <a class="src" href="https://www.sideview.co.kr/news/articleView.html?idxno=20331" target="_blank" rel="noopener">사이드뷰 (08-27) ↗</a>
+          <p>보건복지부가 <b>8월 24일부터 10월 16일까지 8주간</b> 2026년도 제4차 복지사각지대 발굴을 진행하고 있습니다. 규모는 <b>16만 명</b>. 이번에는 금융위원회 등과 협업해 <b>불법사금융 피해자·취약채무자 정보를 새로 확보</b>하고, 기존 금융연체자 정보와 서민금융 신청 반려자 정보를 합쳐 <b>금융 위기가구 1만 6천여 명을 골라냈습니다.</b> 단전·단수 등 생활 위기 청년 가구 약 1만 3천 명, 생계·주거·의료·고용 복합 위기 대상자 약 1만 명도 함께 봅니다. 읍면동 행정복지센터의 &lsquo;찾아가는 보건복지팀&rsquo;이 가구를 직접 방문합니다. <b>이것이 오늘 첫 기사에서 말한 &lsquo;선별의 권력&rsquo;의 가장 선한 얼굴입니다.</b> 데이터로 사람을 골라내는 바로 그 기술이, 여기서는 죽지 않게 하는 데 쓰입니다. 같은 기술이고, 방향만 다릅니다. 그리고 이 명단에도 여전히 <b>밖</b>이 있습니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 오늘 전국이 대체로 맑습니다. 아침 12~21도, 낮 25~31도</span>
+          <a class="src" href="https://www.weather.go.kr/w/forecast/overall/short-term.do" target="_blank" rel="noopener">기상청 단기예보 ↗</a>
+          <p>강원 동해안·산지와 경상권은 가끔 구름 많고, 제주도는 대체로 흐리겠습니다. 오전(06~12시) 강원 동해안·산지, 부산·울산, 경북 동해안, 제주 산지·중산간에 곳에 따라 5mm 미만의 비가 지납니다. <b>동해안을 중심으로 강풍·풍랑·너울에 주의</b>하십시오. 내일(8일)도 전국이 대체로 맑고 아침 16~21도, 낮 25~31도이며, 늦은 오후부터 강원 북부 동해안·산지에 비가 시작됩니다. 오늘 아침 최저가 <b>12도</b>까지 내려간 곳이 있습니다 — 여름 끝은 늘 이렇게 낮이 아니라 새벽에 먼저 옵니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 열람실 칸막이를 없앤 도서관이, 이제는 시민을 작가로 만들고 있습니다</span>
+          <a class="src" href="https://www.incheonilbo.com/news/articleView.html?idxno=1331262" target="_blank" rel="noopener">인천일보 (09-04) ↗</a>
+          <p>군포시중앙도서관은 2016년 칸막이 열람실을 폐지하고 개방형으로 바꿨습니다. 이후 전국 90개 이상 도서관이 이 모델을 벤치마킹했고, 이용자 <b>81%</b>가 &ldquo;자유롭고 쾌적한 분위기&rdquo;라고 답했습니다. 지금은 인문학 강좌 &lsquo;인문숲&rsquo;과 <b>문학상주작가 지원사업</b>을 운영하며 시민이 읽는 사람에서 <b>직접 쓰는 창작자로 넘어가도록</b> 돕습니다. 2026년 상주작가 오은희는 시민 글쓰기를 <b>&lsquo;셀프 테라피&rsquo;</b>로 접근하고 있고, <b>11월에 수강생 공동 작품집 출판기념회</b>를 엽니다. AI 도서추천 서비스 &lsquo;FLYBOOK&rsquo;은 2025년 기준 1만 9천여 명이 4만 6천여 권을 추천받았습니다. 기사에서 가장 중요한 문장은 통계가 아니라 이것입니다 — <b>시민 개개인의 평범한 일상이 곧 가치 있는 문학 자산이 될 수 있다.</b> 오늘 앞의 기사들이 사람을 명단으로 만드는 이야기였다면, 이 기사는 <b>명단에서 다시 한 사람을 꺼내는</b> 이야기입니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 결정보다 먼저 오는 것은 명단이다. 명단에 오르는 순간, 사람은 평균이 된다</span></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">&ldquo;소는 보셨고, 양은 보지 못하셨기 때문입니다&rdquo;</span>
+          <a class="src" href="https://ctext.org/mengzi/liang-hui-wang-i" target="_blank" rel="noopener">『맹자』 「양혜왕 상」 원문 · Chinese Text Project ↗</a>
+          <p>제 선왕이 당상에 앉아 있는데 소 한 마리가 끌려갑니다. 종에 피를 바르는 의식(釁鐘)에 쓰려는 것입니다. 왕이 그 소의 떠는 모습을 보고 말합니다 — <b>&ldquo;사지(舍之)! 오불인기곡속, 약무죄이취사지(吾不忍其觳觫，若無罪而就死地).&rdquo;</b> 놓아 주어라, 나는 그것이 죄 없이 사지로 끌려가며 벌벌 떠는 꼴을 차마 못 보겠다. 그러고는 <b>&ldquo;이양역지(以羊易之)&rdquo;</b> — 양으로 바꾸라고 합니다. 백성들은 왕이 인색해서 값싼 것으로 바꿨다고 수군거렸습니다. 맹자의 판정은 이렇습니다 — <b>&ldquo;시내인술야, 견우미견양야(是乃仁術也，見牛未見羊也).&rdquo;</b> 그것이 바로 어짊이 작동하는 방식이니, <b>소는 보셨고 양은 보지 못하셨기 때문입니다.</b> 이어지는 문장이 더 정확합니다 — <b>&ldquo;군자지어금수야, 견기생, 불인견기사; 문기성, 불인식기육(君子之於禽獸也，見其生，不忍見其死；聞其聲，不忍食其肉).&rdquo;</b> 살아 있는 것을 본 이상 죽는 것을 차마 못 보고, 그 소리를 들은 이상 그 고기를 차마 못 먹는다. 2,300년 전 맹자는 연민이 <b>평등하지 않다는 사실</b>을 도덕의 결함으로 꾸짖지 않고 <b>출발점</b>으로 삼았습니다. 우리는 눈앞의 하나만 불쌍히 여길 수 있습니다. 명단 위의 3만 5,083은 소가 아니라 양입니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">&ldquo;분류하고, 정렬하고, 무엇보다 순위를 매긴다&rdquo;</span>
+          <a class="src" href="https://aeon.co/essays/the-sovereign-individual-and-the-paradox-of-the-digital-age" target="_blank" rel="noopener">Aeon · Fourcade &amp; Healy (2025-08-21) ↗</a>
+          <p>『서열 사회(The Ordinal Society)』를 쓴 두 사회학자 마리옹 푸르카드와 키어런 힐리가 디지털 시대의 역설을 이렇게 정리합니다. 데이터 시스템은 <b>&ldquo;사람과 사물과 관념을 범주로 나누고, 그것들을 서로에게, 사회적 지위에, 상품과 서비스와 가격에 짝지음으로써 질서를 만든다.&rdquo;</b> 그리고 이 방대한 정보 더미에서 <b>&ldquo;차이를 만들어 내고, 우선순위를 정하고, 줄을 세우고, 행동의 강력한 근거가 되는 점수&rdquo;</b>를 뱉어 냅니다. 두 사람이 짚는 역설이 오늘의 핵심입니다 — 이 시스템은 <b>개인을 해방시키겠다고 약속하면서</b> 작동합니다. 출신이나 연줄이 아니라 당신의 고유한 자질로 평가하겠다고, 배제된 자에게 편입을, 창의적인 자에게 인정을 주겠다고 말합니다. 그런데 <b>&ldquo;이 해방의 약속이 전달되는 통로가, 전례 없는 규모와 정밀도로 사람을 분류하고 정렬하고 무엇보다 순위 매기는 시스템&rdquo;</b>입니다. 개별성을 존중하겠다는 약속이 개별성을 지우는 방식으로 이행됩니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">나는 유형이 아니라 눈금 위의 한 점입니다</span>
+          <a class="src" href="https://psyche.co/notes-to-self/the-benefits-of-seeing-your-personality-as-dimensional" target="_blank" rel="noopener">Psyche · Amy Arthur ↗</a>
+          <p>명단이 바깥에서만 만들어지는 것은 아닙니다. 우리는 자기 자신에게도 유형을 붙입니다 — 나는 내향인이다, 나는 계획형이다, 나는 원래 거절을 못 하는 사람이다. 에이미 아서는 성격 연구가 오래전에 옮겨 간 자리를 상기시킵니다. <b>&ldquo;&lsquo;내향인&rsquo;과 &lsquo;외향인&rsquo;이 따로 있는 것이 아니라, 빅파이브 같은 성격 특성 체계는 우리 모두를 그 둘 사이 어딘가의 눈금 위에 놓는다.&rdquo;</b> 그리고 <b>&ldquo;우리의 성격은 그 눈금 위의 고정된 한 점이 아니라, 나이 들고 배우고 자라면서 변할 수 있다.&rdquo;</b> 그가 얻은 것은 이론이 아니라 말투였습니다 — <b>&ldquo;스스로를 차원적인 존재로 두기 시작하면서, 나는 나 자신에게 말을 거는 더 다정한 방식을 찾았다. 그리고 그것이 남을 보는 눈도 바꿨다.&rdquo;</b> 유형은 편리해서 위험합니다. 한 번 붙으면 설명이 끝나 버리고, 설명이 끝나면 관찰이 멈춥니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">연민에 &lsquo;관해&rsquo; 쓰는 것이 아니라, 연민을 &lsquo;가지고&rsquo; 쓰는 것</span>
+          <a class="src" href="https://brevitymag.com/craft-essays/compassion-and-writing/" target="_blank" rel="noopener">Brevity · Mary Ann McSweeny ↗</a>
+          <p>논픽션 작법에 관한 짧은 글인데, 오늘 자리에서 읽으면 다르게 읽힙니다. 매크스위니는 이렇게 못 박습니다 — <b>&ldquo;실질은 연민에 관해 쓰는 것이 아니라, 독자가 글쓴이의 진실함을 느낄 수 있도록 연민을 가지고 쓰는 것이다.&rdquo;</b> 그리고 <b>&ldquo;문학은 만질 수 없는 것과 구체적인 것을 녹여 붙임으로써 일화의 수준을 넘어선다.&rdquo;</b> 여기서 &lsquo;구체적인 것&rsquo;은 수사가 아니라 <b>방법</b>입니다. 통계는 만질 수 없는 것에서 만질 수 없는 것으로 갑니다. 글은 만질 수 있는 것 하나를 통과해야만 만질 수 없는 데까지 갑니다. 그가 작가의 소명을 정의하는 문장은 거의 행정의 반대말입니다 — <b>&ldquo;작가의 소명 가운데 하나는 남을 알아보는 것, 인간의 조건을 이해하려 애쓰는 사람이 되는 것이다.&rdquo;</b> 행정은 사람을 세고, 글은 사람을 <b>알아봅니다.</b> 낮에는 세고 밤에는 알아보는 자리에 선 사람이 적지 않습니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">김애란이 AI와 사람의 차이로 고른 단어는 &lsquo;망설임&rsquo;이었습니다</span>
+          <a class="src" href="https://www.hankyung.com/article/202608314014i" target="_blank" rel="noopener">한국경제 (09-01) ↗</a>
+          <a class="src" href="https://www.khan.co.kr/article/202608272038005/" target="_blank" rel="noopener">경향신문 (08-27) ↗</a>
+          <p>김애란이 7년 만에 낸 두 번째 산문집 『그랬다고 적었다』(문학동네, 220쪽)가 출간과 함께 베스트셀러에 올랐습니다. 이 책에는 치매를 앓는 아버지 이야기가 부쩍 많습니다. 그가 주목한 것은 두 일이 <b>같은 시기에</b> 벌어졌다는 사실입니다 — 아버지가 점점 말을 잃어 가는 동안, AI는 언어를 빠르게 익혀 갔습니다. 그의 말은 이렇습니다 — <b>&ldquo;인간이라서 아프고, 죽고, 모자라고, 부족하고, 실수하면서 일어나는 일의 풍경들과 AI 프로그램의 매끄러움, 완전함, 속도와 같은 것들이 대비돼 보였다.&rdquo;</b> 한 방송에서 AI와 사람의 차이를 묻자 그는 <b>&lsquo;망설임&rsquo;</b>을 꼽았고, <b>사람의 주저함 속에는 힘겹게 지켜 내는 배려와 품위가 있다</b>고 답했습니다. 그 뒤 AI 관련 강연 요청이 쏟아졌지만 대부분 거절했다고 합니다. 그 거절까지가 같은 문장의 일부로 보입니다.</p></div>
+
+        </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">&ldquo;우리의 행위는 근본적으로 하나같이
+비할 데 없이 개인적이고, 유일하며, 무한히 개별적이다
+— 여기엔 의심의 여지가 없다.
+그러나 우리가 그것을 의식으로 옮기는 순간,
+더 이상 그렇게 보이지 않는다.&rdquo;</p>
+          <p class="cite">프리드리히 니체, 『즐거운 학문』 제5권 354절 「&lsquo;종(種)의 수호신&rsquo;에 대하여(Vom &ldquo;Genius der Gattung&rdquo;)」 — 본문 1882, 제5권은 1887년 제2판에서 덧붙여짐
+            <span class="orig">&ldquo;Unsre Handlungen sind im Grunde allesamt auf eine unvergleichliche Weise persönlich, einzig, unbegrenzt-individuell, es ist kein Zweifel; aber sobald wir sie in&rsquo;s Bewusstsein übersetzen, scheinen sie es nicht mehr.&rdquo;</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/vom-genius-der-gattung" target="_blank" rel="noopener">원문 확인 · textlog.de ↗</a></p>
+          <p class="memo">배달 메모 — 니체는 이 절에서 의식(意識)이 왜 생겨났는지를 묻습니다. 그의 답은 <b>소통의 필요</b> 때문이라는 것입니다. 혼자였다면 의식은 필요하지 않았을 것이고, 사람은 서로에게 알려야 했기 때문에 자기 안의 것을 <b>기호로 옮기는 능력</b>을 길렀습니다. 그런데 기호는 공용이라야 쓸모가 있습니다. 그래서 이런 결론이 나옵니다 — <b>&ldquo;의식되는 모든 것은 바로 그럼으로써 평평하고, 얇고, 상대적으로 어리석고, 일반적인 것 — 기호, 무리의 표지(Herden-Merkzeichen)가 된다.&rdquo;</b><br><br>
+          오늘 본 것이 정확히 그 <b>무리의 표지</b>입니다. 3만 5,083명의 돌봄 대상자, 1만 6천 명의 금융 위기가구, 16만 명의 발굴 대상. 이 표지들이 나쁜 것이 아닙니다 — 표지가 없으면 아무도 찾아가지 못합니다. 니체가 겨눈 것도 표지의 폐지가 아닙니다. 그가 짚은 것은 <b>번역의 순간에 무엇이 남고 무엇이 떨어져 나가는가</b>입니다. 오늘 아침 첫 기사의 &lsquo;선별의 권력&rsquo;이 니체의 언어로는 이렇게 됩니다 — 권력은 처분에 있는 것이 아니라, <b>개별적인 것을 일반적인 것으로 옮겨 적는 손</b>에 있습니다.<br><br>
+          그리고 니체는 여기서 특유의 방향 전환을 합니다. 이것을 비극으로 쓰지 않습니다. 우리는 <b>여전히 비할 데 없이 개별적으로 행위하고 있다</b>고, 다만 그 사실이 의식에는 잡히지 않을 뿐이라고 말합니다. 즉 개별성은 사라진 것이 아니라 <b>기록되지 않았을</b> 뿐입니다. 이 문장이 오늘 등대의 김애란과 정확히 만나는 자리입니다 — 망설임은 기호로 옮겨지지 않아 아무 명단에도 남지 않지만, 그렇다고 없었던 일이 되지는 않습니다.<br><br>
+          씨앗 <b>「아이가 변한 것보다 내가 제때 다시 보지 못한 것이 더 아팠다」</b>(2026-08-07)와 짝지어 둡니다. 그 씨앗의 아픔은 아이를 안 봐서가 아니라, <b>예전에 옮겨 적어 둔 아이</b>를 계속 읽고 있었기 때문에 생겼습니다. 한 번 기호가 되면 우리는 사람이 아니라 기호를 다시 봅니다. 맹자의 견우미견양이 남을 향한 문제라면, 이 씨앗은 같은 문제의 <b>가장 가까운 판본</b>입니다.</p>
+        </div>
+      </section>
+
+      
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>니체 원문은 한 곳에서만 대조했습니다.</b> textlog.de의 『즐거운 학문』 354절 전문에서 독일어 원문을 확인했습니다. zeno.org와 Projekt Gutenberg는 최근 며칠간 계속 접속이 막혀 있어(연결 거부·403) 교차 대조를 하지 못했습니다. 널리 인용되는 대목이고 전문 맥락(의식의 발생·Herden-Merkzeichen 대목)까지 함께 읽어 확인했으므로 실었습니다.</li>
+          <li><b>오늘 날씨는 기상청 전국 개황만 옮겼습니다.</b> 지역별 최저기온 상세(서울·세종·춘천 등 도시별 수치)는 확인하지 못해 전국 범위(12~21도)로만 적었습니다.</li>
+          <li><b>광양시 보건소장 건은 시의 해명을 확인하지 못했습니다.</b> 여수MBC 보도 한 건에 근거했고, 광양시 측 입장이나 후속 인사 조치는 검색되지 않았습니다. 기관경고는 징계가 아니라 시정 요구 성격이라는 점을 감안해 읽어 주십시오.</li>
+          <li><b>Psyche 기사에는 발행일이 표시되어 있지 않습니다.</b> 저자(에이미 아서)와 본문은 확인했으나 날짜를 특정하지 못해 적지 않았습니다.</li>
+          <li><b>김애란이 &lsquo;망설임&rsquo;을 말한 방송의 이름과 날짜는 확인하지 못했습니다.</b> 한국경제 기사가 &ldquo;한 방송에서&rdquo;라고만 적고 있어 그대로 옮겼습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">월요일입니다. 오늘 책상에 놓일 서류들은 대부분 명단의 모양을 하고 있을 것입니다. 그건 흠이 아니라 행정이 사람을 돕는 유일한 방식입니다 — 세지 않으면 찾아갈 수 없으니까요. 다만 하루에 한 번쯤은 명단에서 눈을 들어 <b>한 사람의 얼굴을 보시길</b> 바랍니다. 소를 보는 자리와 양을 세는 자리를 함께 지키는 사람은 드뭅니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+  </div>
+</body>
+</html>
