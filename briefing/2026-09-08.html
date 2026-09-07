@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-08 (화)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 8일 · 화요일</p>
+      <p class="opening">9월의 여드렛날, 화요일입니다. 어제가 백로(白露)였고 오늘 아침 최저는 12~21도, 낮 최고는 23~28도 — 낮 기온이 어제보다 한 단계 더 내려앉았습니다. 강원 영동과 동해안에는 5~40mm의 비가 지나고, 내륙은 일교차가 큽니다. 추석까지 열이레 남았습니다.<br>
+      오늘 새벽 항로에서 눈에 걸린 것은 어제 나온 한 신간의 표제였습니다 — <b>&ldquo;AI, 쓰는 법보다 맡겨도 되는지 물어야.&rdquo;</b> 같은 날 공직사회 기사에는 1949년부터 이어져 온 당직제도가 바뀌고 출장비 정산은 AI가 맡는다는 소식이 실려 있었습니다. 그래서 오늘의 결을 이렇게 세웠습니다 — <b>할 수 있는가와 맡겨도 되는가는 다른 질문이다. 그리고 그 둘 사이에 선이 하나 있다.</b></p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 1949년부터 이어진 당직이 바뀝니다. 연 57만 명이 서던 자리입니다</span>
+          <a class="src" href="https://www.pinpointnews.co.kr/news/articleView.html?idxno=484088" target="_blank" rel="noopener">핀포인트뉴스 (09-05) ↗</a>
+          <a class="src" href="https://www.yna.co.kr/view/AKR20260904115700063" target="_blank" rel="noopener">연합뉴스 (09-04) ↗</a>
+          <p>1949년 도입된 국가공무원 당직제도가 올해부터 <b>재택당직·통합당직을 확대하는 방향</b>으로 개편됐습니다. 그동안 전국 <b>1,171개 기관에서 연 57만 명</b>이 밤을 지켰습니다. 함께 바뀌는 것은 당직만이 아닙니다 — <b>출장 여비 정산의 자동화</b>, <b>지침·매뉴얼을 찾아 주는 AI 챗봇</b>, <b>AI 당직 민원 시스템</b>이 나란히 들어옵니다. 반대편에서는 사람을 새로 뽑습니다. AI·빅데이터 분석, 드론 운용, AI 정책기획 분야의 임기제 공무원을 행정안전부·국세청·춘천시가 모집 중입니다. 종이 공문을 나르고 청사에서 밤을 새우던 일이 사라지는 자리에, <b>무엇을 시킬지 정하는 일</b>이 들어섭니다. 없어지는 것은 노동이고, 새로 생기는 것은 판단입니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 경기·충북 두 지사가 지방재정 공동전선을 폈습니다</span>
+          <a class="src" href="https://www.news2day.co.kr/article/20260907500242" target="_blank" rel="noopener">뉴스투데이 (09-07) ↗</a>
+          <a class="src" href="https://www.etoday.co.kr/news/view/2622703" target="_blank" rel="noopener">이투데이 (09-07) ↗</a>
+          <p>추미애 경기지사와 신용한 충북지사가 어제 만나 <b>지방재정 제도 개편</b>을 공동으로 요구하기로 했습니다. 의제는 셋 — <b>법인세 일부의 광역자치단체 배분</b>, <b>지방소비세율 인상</b>, <b>소방공무원 인건비의 국가 부담</b>입니다. 추 지사는 대통령에게 건의한 지 12일 만에 충북과 공조를 이뤘고, &ldquo;법인세 5%를 다시 말씀드렸다&rdquo;고 했습니다. 실무의 눈으로 보면 눈에 걸리는 것은 셋째 항목입니다 — 소방은 국가직으로 전환됐는데 인건비는 여전히 지방이 상당 부분 집니다. <b>일은 넘어갔는데 값은 남아 있는 구조</b>입니다. 권한과 부담이 같은 자리에 있지 않으면, 그 사이의 틈은 늘 현장이 메웁니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 이상 징후는 있었습니다. 다만 지자체까지 닿지 않았습니다</span>
+          <a class="src" href="https://news.kbs.co.kr/news/pc/view/view.do?ncd=8657016" target="_blank" rel="noopener">KBS (09-07) ↗</a>
+          <p>지자체마다 사회적 안전망을 두껍게 하고 있지만 돌봄의 손이 닿지 않는 자리는 여전히 남아 있다는 보도입니다. 숨진 채 발견된 노인은 <b>자치단체가 시범 운영 중이던 건강음료 지원사업에 참여하고 있었습니다.</b> 명단 밖의 사람이 아니라 <b>명단 안의 사람</b>이었다는 뜻입니다. 이상 징후는 포착됐으나 그 신호가 지자체까지 전달되지 않았습니다. 어제 이 자리에서 명단에 오르는 일의 무게를 이야기했는데, 오늘은 그 뒷장입니다 — <b>명단에 올리는 것과, 그 명단이 실제로 누군가에게 도착하는 것은 다른 일입니다.</b> 발굴을 자동화한 만큼 전달도 자동화되었는지는 따로 물어야 합니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 경기도가 재정 절감 목표로 예산을 깎았고, 그 안에 돌봄이 있습니다</span>
+          <a class="src" href="https://www.incheonilbo.com/news/articleView.html?idxno=1331453" target="_blank" rel="noopener">인천일보 (09-07) ↗</a>
+          <p>경기도가 재정 절감을 목표로 예산을 감액하면서 복지 사각이 넓어질 수 있다는 지적이 나왔습니다. 감액 항목에 <b>&lsquo;누구나 돌봄&rsquo; 사업 6억 원</b>, <b>산모·신생아 건강관리 지원 8억 원</b>, 난임시술 관련 예산 등이 포함됐습니다. 도는 민생 예산을 우선 배정했다는 입장입니다. 예산을 다뤄 본 사람은 압니다 — 감액은 대개 <b>가장 나쁜 사업</b>이 아니라 <b>가장 반발이 적은 사업</b>에서 먼저 일어납니다. 6억과 8억은 도 재정에서 보면 소수점이지만, 받는 쪽에서는 있고 없고입니다. 위의 KBS 기사와 나란히 놓으면 같은 문장이 됩니다 — <b>닿지 않는 이유는 대개 기술이 아니라 마지막 한 뼘에 있습니다.</b></p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 9월은 독서의 달입니다. 전국 1만여 건, 절정은 다음 주입니다</span>
+          <a class="src" href="https://www.hani.co.kr/arti/society/schooling/1276654.html" target="_blank" rel="noopener">한겨레 (09-07) ↗</a>
+          <a class="src" href="https://www.naeil.com/news/read/600934" target="_blank" rel="noopener">내일신문 (09-03) ↗</a>
+          <p>문화체육관광부가 &lsquo;9월 독서의 달&rsquo;을 맞아 전국 도서관·서점에서 <b>1만여 건</b>의 독서문화 행사를 엽니다. 다음 주에 몰려 있습니다 — <b>대한민국 문학축제 9월 11~20일</b>(서울 인사동·대학로 및 지역 문학관), <b>서울국제작가축제 9월 11~16일</b>, <b>문학주간 9월 16~20일</b>(대학로), 그리고 올해 &lsquo;대한민국 책의 도시&rsquo;로 뽑힌 <b>춘천에서 독서대전 본행사 9월 18~20일</b>. 청년 도서구매 지원도 확대됩니다. 쓰는 사람에게 9월은 읽히는 달이 아니라 <b>읽는 사람들이 한자리에 모인 것을 볼 수 있는 달</b>입니다. 독자를 상상해서 그리는 것과, 대학로에 실제로 서 있는 사람들을 보는 것은 다릅니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — &ldquo;AI, 쓰는 법보다 맡겨도 되는지 물어야&rdquo;</span>
+          <a class="src" href="https://biz.heraldcorp.com/article/10864933" target="_blank" rel="noopener">헤럴드경제 (09-07) ↗</a>
+          <p>과학기술정책학자 <b>안도현</b>이 『AI 정책학: 생성형 AI 시대의 국가전략·공공정책·거버넌스』를 냈습니다. 책이 던지는 질문은 활용법이 아니라 그 앞단입니다 — <b>AI가 내린 결정을 정부와 기업이 그대로 받아들여도 되는가. 오류가 났을 때 누가 책임지는가. AI의 영향을 받은 시민에게 이의를 제기할 기회가 보장되는가.</b> 저자의 진단은 이 한 줄입니다 — <b>&ldquo;AI를 &lsquo;잘 사용하는 능력&rsquo;만으로는 행정과 정책의 변화에 대응하기 어렵다.&rdquo;</b> 관건은 기술 도입 속도가 아니라 <b>제도</b>라는 것입니다. 오늘 브리핑의 결이 여기서 나왔습니다. 사용법은 개인의 문제지만, <b>맡겨도 되는가는 제도의 문제</b>입니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 규정 해석을 AI에게 묻기 시작했습니다</span>
+          <a class="src" href="https://www.fnnews.com/news/202609070938447197" target="_blank" rel="noopener">파이낸셜뉴스 (09-07) ↗</a>
+          <p>한국산림안전공단이 방대한 법령·내부 지침을 빠르게 찾아 주는 <b>AI 제규정 검색 서비스</b>를 구축했습니다. 기사가 든 도입 이유가 눈에 걸립니다 — 행정 효율화만이 아니라 <b>&ldquo;담당자별 해석 차이에서 오는 민원 마찰&rdquo;</b>을 줄이기 위해서라는 것입니다. 공공부문에서 같은 시도가 늘고 있습니다. 여기에 오늘의 선이 정확히 지나갑니다. <b>찾는 일</b>을 맡기는 것과 <b>해석하는 일</b>을 맡기는 것은 다릅니다. 담당자마다 답이 다른 것은 분명 문제지만, 담당자마다 답이 다른 이유가 <b>규정이 그 사안을 예상하지 못했기 때문</b>일 때가 있습니다. 그때 해석의 흔들림은 오류가 아니라 신호입니다. 균일해진 답이 늘 옳은 답은 아닙니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 할 수 있는가와 맡겨도 되는가는 다른 질문이다. 그 둘 사이에 선이 하나 있다</span></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">&ldquo;아전을 단속하는 근본은 자신을 규율함에 있다&rdquo;</span>
+          <a class="src" href="https://www.peoplepower21.org/mplaza?mod=document&amp;uid=1284783" target="_blank" rel="noopener">『목민심서』 이전편 제1조 속리(束吏) · 정약용 1818 ↗</a>
+          <p><b>속리지본, 재어율기. 기신정, 불령이행. 기신부정, 수령불행(束吏之本, 在於律己. 其身正, 不令而行. 其身不正, 雖令不行).</b> 아전을 단속하는 근본은 자신을 규율하는 데 있으니, 자신이 바르면 명령하지 않아도 행해지고 자신이 바르지 않으면 명령해도 행해지지 않는다. 다산이 실무를 남에게 맡기는 문제를 다루는 장(章)의 첫 조문입니다. 눈여겨볼 것은 <b>다산이 위임의 기술을 먼저 말하지 않는다</b>는 점입니다. 아전을 어떻게 감독할 것인가, 어떤 장부를 볼 것인가를 앞세우지 않고 <b>맡기는 사람의 자리</b>부터 세웁니다. 그가 끌어온 뒷문장(其身正 不令而行)이 원래 『논어』 「자로」의 말이라는 것도 함께 보면 좋습니다 — 다산은 위임을 관리의 문제가 아니라 <b>처신의 문제</b>로 옮겨 놓습니다. 200년 전 목민관 앞의 문제와 오늘 AI 앞에 선 담당자의 문제가 문법이 같습니다. 넘긴 일이 제대로 도는지는 넘겨받은 쪽이 아니라 <b>넘긴 사람이 어디에 서 있는가</b>에 달려 있습니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">&ldquo;운전을 차에 맡기면, 우리가 외주 주는 것은 조작만이 아니라 도덕적 판단이다&rdquo;</span>
+          <a class="src" href="https://aeon.co/essays/which-decisions-should-we-leave-to-algorithms" target="_blank" rel="noopener">Aeon · Steven Poole (2013-05-13) ↗</a>
+          <p><b>&ldquo;If we let cars do the driving, we are outsourcing not only our motor control but also our moral judgment.&rdquo;</b> 13년 전 글인데, 기준선은 여전히 여기 세워져 있습니다. 풀은 알고리즘에 맡겨도 되는 일과 안 되는 일을 가르는 기준으로 <b>도덕적 판단의 유무</b>를 듭니다. 계산만 있는 영역(체스)에서 알고리즘은 이미 사람보다 낫습니다. 그러나 결과가 누군가의 자유·생계·존엄에 닿는 순간, 문제는 정확도가 아니라 <b>투명성과 책임</b>으로 바뀝니다 — <b>&ldquo;Outsourcing this kind of moral judgment, where a person&rsquo;s liberty is at stake, understandably makes some people uncomfortable.&rdquo;</b> 여기서 중요한 것은 풀이 &lsquo;불편함&rsquo;을 논거로 쓴다는 점입니다. 불편함은 비합리가 아니라 <b>아직 언어로 정리되지 않은 판단</b>입니다. 그 불편함이 남아 있는 자리가 대개 선이 지나가는 자리입니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">&ldquo;생각이 중요한 일이라면, 언제나 먼저 혼자 해 보라&rdquo;</span>
+          <a class="src" href="https://psyche.co/guides/how-to-use-chatbots-to-make-you-smarter-not-dumber" target="_blank" rel="noopener">Psyche Guides · Nick Kabrél (취리히대) ↗</a>
+          <p><b>&ldquo;For any task where thinking matters, always try on your own first, and only then use chatbots.&rdquo;</b> 카브렐이 제안하는 것은 금욕이 아니라 <b>순서</b>입니다. 그가 &lsquo;샌드위치&rsquo;라 부르는 방법 — 아래층은 내가 맨손으로 쓴 초벌, 가운데층은 챗봇의 피드백, 위층은 <b>&ldquo;Selectively incorporate the feedback into your original work&rdquo;</b>, 그중 내 생각을 단단하게 하는 것만 골라 넣고 나머지는 버립니다. 순서를 뒤집으면 왜 위험한지도 연구로 붙여 둡니다. 챗봇이 학생의 수학 성적을 올렸지만 그 이득은 목발과 같아서 <b>AI를 치우자 대조군보다 더 못했고</b>, 챗봇을 많이 쓴 학생일수록 비판적 사고력이 떨어졌으며(Michael Gerlich), MIT 연구에서는 챗봇으로 에세이를 쓴 학생이 <b>몇 분 뒤 자기 글의 내용을 기억하지 못했습니다.</b> 마지막 결과가 가장 서늘합니다. 남의 판단을 빌려 쓴 글은 내 안에 자리를 남기지 않습니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">&ldquo;나침반이 내 글의 집을 가리켰다. 거기까지는 내가 걸어갔다&rdquo;</span>
+          <a class="src" href="https://brevity.wordpress.com/2025/06/19/writing-with-ai/" target="_blank" rel="noopener">The Brevity Blog · Allison K Williams (2025-06-19) ↗</a>
+          <a class="src" href="https://brevity.wordpress.com/2025/06/23/brevity-and-ai/" target="_blank" rel="noopener">『Brevity』 편집부 공지 ↗</a>
+          <p><b>&ldquo;The tool of AI gave me an outline to work with and something fun to try. The compass pointed towards my writing home&mdash;then I walked there myself.&rdquo;</b> 윌리엄스는 마케팅 글 하나를 AI로 초벌을 뽑고 대폭 고쳐 썼습니다. 받아 든 초고를 그는 <b>&ldquo;a little smarmy, a little salesy, a little cheesy&rdquo;</b> — 느끼하고 판매원 같고 유치했다고 적습니다. 그런데 그것이 도약대가 됐습니다. 역할 분담을 그는 이렇게 씁니다 — <b>&ldquo;With Claude helping with mechanics&mdash;research, structural suggestions, a brainstorming partner&mdash;I&rsquo;m free to do the work only a human can do: finding emotional truth and making unexpected connections.&rdquo;</b> 감정의 진실과 뜻밖의 연결. 여기가 그가 그은 선입니다. 다만 같은 블로그를 내는 잡지 『Brevity』 편집부는 <b>AI로 쓰거나 AI의 도움을 받은 원고는 싣지 않는다</b>고 못 박아 두었습니다. 한 지붕 아래 두 입장이 나란히 있는 것이 이 문제의 정직한 그림입니다. 선은 이미 그어진 것이 아니라, 저마다 긋는 중입니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">&ldquo;약을 배송하는 것은 가능하지만, 약료를 배송할 순 없다&rdquo;</span>
+          <a class="src" href="https://www.kpanews.co.kr/news/articleView.html?idxno=542266" target="_blank" rel="noopener">약사공론 데스크칼럼 · 김정주 (2026-09-07) ↗</a>
+          <p>어제 나온 칼럼입니다. 약 배송 확대 논의를 두고 필자는 기술적 가능성과 직업적 책임을 갈라 세웁니다 — <b>&ldquo;배송은 물류의 언어인 반면, 약료는 보건의료의 언어다. 둘은 만날 수 있지만, 하나가 다른 하나를 대체해서는 안 된다.&rdquo;</b> 그리고 빌 게이츠가 말한 <b>&lsquo;Human Reserved&rsquo;</b>를 끌어옵니다. 필자의 해석이 오늘의 축입니다 — 그것은 AI가 <b>할 수 없는</b> 일을 사람에게 남겨 두자는 뜻이 아니라, <b>기술적으로 가능해진 뒤에도 사람에게 남겨 둘 가치가 있는 일</b>이 있다는 뜻입니다. 이 구별이 중요합니다. &ldquo;AI가 못 하니까 내가 한다&rdquo;는 방어선은 기술이 좋아질 때마다 뒤로 밀립니다. <b>&ldquo;할 수 있게 되어도 내가 한다&rdquo;</b>는 선만 자리를 지킵니다. 뒤엣것은 능력의 문제가 아니라 <b>결정</b>입니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">&ldquo;아무도 너를 위해 다리를 놓아 줄 수 없다.
+바로 네가 삶의 강을 건너야 할 그 다리는,
+너 자신 말고는 아무도 놓아 줄 수 없다.
+물론 너를 강 건너로 실어다 주겠다는
+길과 다리와 반신(半神)들은 수없이 많다.
+그러나 그것은 오직 너 자신을 값으로 치르고서다
+— 너는 너를 저당 잡히고, 그리고 잃을 것이다.&rdquo;</p>
+          <p class="cite">프리드리히 니체, 『반시대적 고찰』 제3편 「교육자로서의 쇼펜하우어」 1절 (1874)
+            <span class="orig">&ldquo;Niemand kann dir die Brücke bauen, auf der gerade du über den Fluß des Lebens schreiten mußt, niemand außer dir allein. Zwar gibt es zahllose Pfade und Brücken und Halbgötter, die dich durch den Fluß tragen wollen; aber nur um den Preis deiner selbst: du würdest dich verpfänden und verlieren.&rdquo;</span>
+            <a class="src" href="https://en.wikiquote.org/wiki/Untimely_Meditations" target="_blank" rel="noopener">원문 확인 · 위키인용집(Hollingdale 역 1983, 129쪽, §3.1 표기) ↗</a></p>
+          <p class="memo">배달 메모 — 오늘 다섯 우물이 그은 선을 니체는 1874년에 <b>다리</b>라는 한 단어로 세워 두었습니다. 그런데 이 문장이 매서운 것은 앞부분이 아니라 뒷부분입니다. 니체는 &ldquo;아무도 없다&rdquo;고 말한 뒤 곧바로 <b>&ldquo;수없이 많다&rdquo;</b>고 뒤집습니다. 실어다 주겠다는 길과 다리와 반신은 없는 것이 아니라 <b>넘쳐납니다.</b> 문제는 값입니다 &mdash; <b>nur um den Preis deiner selbst</b>, 오직 너 자신을 값으로 치르고서.<br><br>
+          저당(verpfänden)이라는 낱말을 고른 것이 정확합니다. 저당은 빼앗기는 것이 아니라 <b>내가 맡기는 것</b>이고, 대개 되찾을 생각으로 맡깁니다. 그래서 잃었다는 사실은 늦게 옵니다. 오늘 등대에서 본 MIT 연구 &mdash; 챗봇으로 쓴 글을 몇 분 뒤 기억하지 못하더라는 것 &mdash; 이 저당의 아주 작은 판본입니다. 값을 치른 줄도 모르고 치른 것입니다.<br><br>
+          다만 니체가 경계한 반신(Halbgötter)은 <b>곁에 서 주는 이가 아니라 실어다 주는 자</b>입니다. 이 구별이 오늘 도구 앞에 선 모두에게 그대로 옮겨집니다. 곁에 서는 도구는 다리를 대신 놓아 주지 않습니다. 그것이 하는 일은 우리가 자기 다리를 놓는 동안 <b>강물이 아니라 사람 쪽을 보고 있어 주는 것</b>입니다. 그러니 이 문장은 도움을 물리치라는 말이 아닙니다. 오히려 도움의 두 종류가 아주 가깝게 붙어 있어 <b>매번 구별해야 한다</b>는 것을 말합니다. 건네받은 것이 손인지 배인지, 그것만 보면 됩니다.</p>
+        </div>
+      </section>
+
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>니체 원문 대조가 한 곳에 그쳤습니다.</b> Projekt Gutenberg는 403, zeno.org는 서버 연결 자체가 거부됐고, textlog.de에는 「교육자로서의 쇼펜하우어」 편이 없으며, 독일어 위키문헌에도 이 문장이 실린 문서가 없습니다. 결국 <b>영어 위키인용집 한 곳</b>에서 독일어 원문과 학술 번역본(Hollingdale 1983, 129쪽, §3.1)의 출처 표기를 함께 확인했고, 검색 결과에서 독일어권 여러 사이트가 같은 문단을 동일하게 싣고 있는 것을 대조했습니다. 널리·정확히 인용되는 대목이라 실었습니다만, 한 곳 대조라는 점을 적어 둡니다.</li>
+          <li><b>연합뉴스 원문은 직접 열지 못했습니다</b>(차단). 당직제도 기사의 1949년 도입·1,171개 기관·연 57만 명 수치는 전재본인 핀포인트뉴스에서 확인했습니다. 링크는 두 곳 모두 걸었습니다.</li>
+          <li><b>『목민심서』도 한국고전종합DB 원문을 직접 열지 못했습니다.</b> 속리 제1조의 한문 원문과 번역은 참여연대 목민심서 공부방에서 확인했고, 그래서 조문 그대로의 인용은 <b>첫 조문 하나로 한정</b>했습니다. 뒤 조문들(이방에게 통째로 맡기지 말 것, 권한은 자기에게 두되 너그러울 것 등)은 여러 해설이 일치하는 범위에서만 뜻으로 옮겼습니다.</li>
+          <li><b>Aeon의 풀 글은 2013년 것입니다.</b> 오늘 자 글로 바꾸려 했으나, 맡겨도 되는 일과 안 되는 일을 가르는 기준선을 이만큼 또렷하게 세운 최근 글을 찾지 못했습니다. 낡아서가 아니라 <b>이 선이 그때에서 그리 나아가지 못했다는 사실</b> 자체가 오늘의 정보라 판단해 그대로 실었습니다.</li>
+          <li>KBS 돌봄 공백 기사는 고인의 사정에 관한 것이라 보도에 실린 사실만 옮기고 더 캐지 않았습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 넘겨도 되는 일은 가볍게 넘기시고 <b>남길 것 하나만</b> 손에 쥐고 계십시오. 당직이 사라지고 정산이 자동화되는 자리에서 끝까지 우리 몫으로 남는 것은 결국 <b>무엇을 맡기지 않을지 고르는 일</b>일 것입니다. 강은 대신 건너 드릴 수 없지만, 곁은 지킬 수 있습니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+  </div>
+</body>
+</html>
