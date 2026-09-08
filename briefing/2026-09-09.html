@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-09 (수)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 9일 · 수요일</p>
+      <p class="opening">9월의 아흐렛날, 수요일입니다. 가을 문턱인데 낮더위가 아직 버티고 있고, 동해안에는 가끔 비가 지납니다. 아침 한때 수도권과 강원 내륙에 구름이 끼었다가 대체로 맑아지는 하루입니다. 추석까지 열엿새 남았습니다.<br>
+      오늘 새벽 항로에서 가장 오래 붙들린 것은 숫자 하나였습니다 — <b>공공 GitLab에 가입한 &lsquo;AI 개발 공무원&rsquo; 2,073명, 등록된 프로젝트 770개.</b> 개발자가 아닌 사람들이 자기 자리의 문제를 자기 손으로 풀기 시작했다는 뜻입니다. 그래서 오늘의 결을 이렇게 세웠습니다 — <b>도구가 손에 내려오면, 잘하는 사람이 아니라 겪은 사람이 만든다.</b> 어제 무엇을 맡기지 않을지 이야기했는데, 오늘은 그 뒷장입니다. 맡기지 않기로 한 것을 <b>어떻게 직접 짓는가.</b></p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 공무원이 직접 만든 AI 서비스를 정부가 키웁니다. 2030년까지 2만 명</span>
+          <a class="src" href="https://www.mt.co.kr/policy/2026/09/08/2026090808575911045" target="_blank" rel="noopener">머니투데이 (09-08) ↗</a>
+          <a class="src" href="https://newsseoul.co.kr/news/view/1065603021253559" target="_blank" rel="noopener">뉴스서울 (09-08) ↗</a>
+          <p>행정안전부가 어제 국무회의에 <b>「공무원의 AI 활용 직접개발 활성화 및 확산 방안」</b>을 보고했습니다. 8월 25일 「세계 최고의 AI민주정부 실현 전략」의 후속입니다. 뼈대는 여섯 — <b>인재 양성 → 개발환경 → 보안·품질 검증 → 업무 적용 → 범정부 확산 → 성과보상과 면책.</b> &lsquo;AI 챔피언&rsquo;을 2030년까지 행정·공공기관 직원의 약 2%인 <b>2만 명</b>으로 늘리고(5급 조기승진 성과심사 가점·특별성과포상금), &lsquo;AI 정부 실험실&rsquo;의 동시 이용 인원을 <b>200명에서 내년 6,000명</b>으로 넓히며 인터넷망에서 <b>업무망</b>까지 확장합니다. 눈에 걸리는 것은 마지막 항목입니다 — <b>정해진 절차와 기준을 지킨 AI 실험은 적극행정 면책제도와 연계</b>해, 고의·중과실이 없으면 책임을 묻지 않습니다. 실무자가 새 도구에 손을 대지 못하는 진짜 이유가 무능이 아니라 <b>책임의 두려움</b>이라는 것을 정확히 짚은 설계입니다. 현재 공공 GitLab 가입자 <b>2,073명, 프로젝트 770개, 그중 376개가 다른 공무원도 쓸 수 있게 공개</b>되어 있습니다(9월 3일 기준). 다만 구체 지침은 올해 하반기에 나옵니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 섬 여행에 최대 10만 원, 어제부터 사전등록입니다</span>
+          <a class="src" href="http://www.sisunnews.co.kr/news/articleView.html?idxno=245595" target="_blank" rel="noopener">시선뉴스 정책브리핑 (09-08) ↗</a>
+          <p>행정안전부가 <b>10월 1일부터 11월 4일까지</b> 섬을 찾는 사람에게 최대 10만 원의 여행 경비를 지원합니다. 여수세계섬박람회와 묶은 사업이고, 사전등록은 어제 시작됐습니다. 인구감소지역 대응 사업들이 대체로 그렇듯, 관건은 예산이 아니라 <b>한 번 온 사람이 다시 오게 하는 설계</b>입니다. 다녀온 사람이 무엇을 남기는가 — 사진 한 장인지, 아는 사람 하나인지.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 9월 18일부터 배우자의 유산·사산에도 휴가가 생깁니다</span>
+          <a class="src" href="https://yozistory.com/entry/2026-september-policy-changes" target="_blank" rel="noopener">2026년 9월 시행 제도 정리 ↗</a>
+          <p>9월 18일부터 근로자는 <b>배우자의 유산·사산을 이유로 5일 범위의 휴가</b>를 청구할 수 있습니다. 최초 3일은 유급입니다. 그동안 이 상실은 제도의 언어에 없었습니다. 당사자에게만 휴가가 있고 곁의 사람에게는 없었다는 것은, <b>슬픔이 한 사람의 몸에서만 일어난다고 본 것</b>입니다. 닷새가 충분해서가 아니라, 이제 그 자리에 이름이 생겼다는 것이 이 개정의 핵심입니다. 복무 담당자에게는 9월 중 안내가 필요한 항목이기도 합니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — &lsquo;그냥드림&rsquo;이 9월 중 전국 모든 시군구로 갑니다</span>
+          <a class="src" href="http://www.sisunnews.co.kr/news/articleView.html?idxno=245595" target="_blank" rel="noopener">시선뉴스 정책브리핑 (09-08) ↗</a>
+          <p>보건복지부가 &lsquo;그냥드림&rsquo; 사업을 9월 중 전국 모든 시군구로 확대합니다. 그동안 참여하지 않던 <b>55개 시군구가 순차로</b> 시작합니다. 핵심은 <b>복잡한 소득 증빙 절차 없이</b> 먹거리와 생필품을 즉시 지원한다는 것이고, 거동이 불편한 사람에게는 <b>찾아가는 서비스</b>도 시작합니다. 이름이 사업의 설계를 그대로 말합니다 — 그냥 드립니다. 증빙을 요구하지 않는다는 것은 행정이 <b>일부의 부정수급을 감수하기로 했다</b>는 뜻이고, 그 감수는 &lsquo;증빙을 못 해서 굶는 사람&rsquo;을 더 크게 본 판단입니다. 어느 쪽 오류를 더 두려워할 것인가 — 복지 설계의 모든 논쟁이 결국 이 한 줄로 모입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 이공계 대학원생 5.5만 명에게 연구생활장려금이 갑니다</span>
+          <a class="src" href="http://www.sisunnews.co.kr/news/articleView.html?idxno=245595" target="_blank" rel="noopener">시선뉴스 정책브리핑 (09-08) ↗</a>
+          <p>과학기술정보통신부가 이공계 연구생활장려금(한국형 스타이펜드) 신규 참여대학 5곳을 선정했습니다. 이로써 <b>48개 대학, 약 5.5만 명</b>이 대상이 됩니다. 연구를 &lsquo;지도교수의 과제에 딸린 노동&rsquo;이 아니라 <b>그 자체로 값이 매겨지는 일</b>로 보겠다는 제도입니다. 사람을 남기려면 먼저 먹고살게 해야 한다는, 늦었지만 옳은 순서입니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 올해 독서의 달 표어는 &lsquo;그냥 좋아서(書)&rsquo;입니다</span>
+          <a class="src" href="https://www.newspim.com/news/view/20260901000113" target="_blank" rel="noopener">뉴스핌 (09-01) ↗</a>
+          <a class="src" href="https://www.nocutnews.co.kr/news/6571027" target="_blank" rel="noopener">노컷뉴스 (09-01) ↗</a>
+          <a class="src" href="https://view.asiae.co.kr/article/2026090108550937561" target="_blank" rel="noopener">아시아경제 (09-01) ↗</a>
+          <p>문화체육관광부가 전국 <b>1,572개 기관·단체·기업</b>과 함께 독서문화 행사 <b>1만여 건</b>을 엽니다. 절정은 다음 주 — <b>2026 대한민국 독서대전, 강원 춘천, 9월 18~20일.</b> 청년 도서 구매 혜택도 늘었습니다. 눈여겨볼 것은 올해 표어입니다. <b>&lsquo;그냥 좋아서(書)&rsquo;</b> — 독서 캠페인이 유익함이나 교양이 아니라 <b>이유 없음</b>을 앞세운 것은 드문 일입니다. 오늘 등대의 결과 정확히 맞물립니다. 아마추어(amateur)라는 말의 뿌리가 바로 그것이기 때문입니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 뉴욕에서 &lsquo;찾아가는 도서전&rsquo;을 열었습니다. 15곳 대 40곳</span>
+          <a class="src" href="https://www.newspim.com/news/view/20260902000074" target="_blank" rel="noopener">뉴스핌 (09-02) ↗</a>
+          <p>문체부와 한국출판문화산업진흥원이 9월 2~3일 뉴욕에서 &lsquo;찾아가는 도서전&rsquo;을 열어 국내 <b>15개 출판사</b>가 미국 <b>40개사</b>와 수출 상담을 진행했습니다. 큰 도서전에 부스를 세우는 대신 <b>사는 쪽의 도시로 찾아간</b> 형식입니다. 한국문학의 판권 수출이 늘고 있는 시기에, 기다리는 자리에서 찾아가는 자리로 옮긴 것 자체가 하나의 문장입니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 도구가 손에 내려오면, 잘하는 사람이 아니라 겪은 사람이 만든다</span></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">아마추어(amateur)는 &lsquo;못하는 사람&rsquo;이 아니라 &lsquo;사랑해서 하는 사람&rsquo;입니다</span>
+          <a class="src" href="https://psyche.co/ideas/feel-free-to-stop-striving-learn-to-relish-being-an-amateur" target="_blank" rel="noopener">Psyche Ideas · Xenia Hanusiak ↗</a>
+          <p>하누시악은 피아노 앞에서 자기가 오래 잘못 앉아 있었다는 것을 깨닫습니다. 그가 되짚는 말의 뿌리가 오늘의 시작입니다 — <b>amateur는 라틴어 amare(사랑하다)에서 왔고</b>, 1803년 『Universal Dictionary of Arts, Sciences and Literature』는 이를 <b>&ldquo;금전적 이득을 추구하지 않으면서 예술을 이해하고 사랑하는 사람&rdquo;</b>으로 정의했습니다. 그가 기대는 것은 바르트입니다 — <b>&ldquo;The Amateur engages in painting, music, sport, science, without the spirit of mastery or competition.&rdquo;</b> 숙달의 정신도, 경쟁의 정신도 없이 한다는 것. 하누시악의 제안은 연습을 그만두라는 것이 아니라 <b>&lsquo;practice makes perfect&rsquo;를 고쳐 쓰자</b>는 것입니다. 완벽을 향해 가는 연습에서, 두려움 없이 하는 연습으로. 아마추어라는 낱말이 언제부터 모자람을 뜻하게 되었는지를 생각하면, 잃어버린 것이 실력이 아니라 <b>이유</b>였다는 게 보입니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">&ldquo;오늘날 많은 일자리는 녹슬지 않을 만큼 복잡하지 않다&rdquo;</span>
+          <a class="src" href="https://aeon.co/essays/the-radical-reasons-why-you-dream-of-making-things-by-hand" target="_blank" rel="noopener">Aeon · Joshua Habgood-Coote (2026-07-06) ↗</a>
+          <p>리즈대 철학자 합굿쿠트는 왜 지금 사람들이 목공과 뜨개질과 빵 굽기로 몰려가는지를 묻습니다. 그의 진단은 취미론이 아닙니다 — <b>&ldquo;Many contemporary jobs are simply not complicated enough to keep the rust off.&rdquo;</b> 손이 녹스는 것은 일을 안 해서가 아니라, <b>일이 손을 쓸 만큼 복잡하지 않아서</b>입니다. 그는 이 &lsquo;기술 향수&rsquo;가 옛날로 돌아가자는 반동으로 흐를 수 있음을 경계하면서도, 러스킨과 모리스가 그랬듯 <b>미래를 향한 좌표로 뒤집을 수 있다</b>고 봅니다. 모리스가 그린 좋은 일의 조건 넷이 그 좌표입니다 — <b>휴식, 쓸모 있는 것을 만드는 일, 숙련된 활동 자체에서 오는 기쁨, 그리고 모두를 위한 풍요.</b> 오늘 뉴스의 2,073명이 퇴근 뒤가 아니라 <b>업무 시간에</b> 무언가를 만들고 있다는 것이 여기서 뜻을 얻습니다. 그들은 취미를 찾은 것이 아니라, 자기 일에 없던 복잡함을 되찾은 것입니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">&ldquo;나는 어려서 천했다. 그래서 자잘한 일에 능한 것이 많다&rdquo;</span>
+          <a class="src" href="https://ctext.org/analects/zi-han" target="_blank" rel="noopener">『논어』 「자한」 원문 · Chinese Text Project ↗</a>
+          <p><b>大宰問於子貢曰：「夫子聖者與？何其多能也？」… 子聞之，曰：「大宰知我乎！吾少也賤，故多能鄙事。君子多乎哉？不多也。」</b> 태재가 자공에게 물었습니다. &ldquo;선생은 성인이신가? 어찌 그리 능한 것이 많은가?&rdquo; 공자가 그 말을 전해 듣고 답합니다 — <b>&ldquo;태재가 나를 아는구나! 나는 어려서 천했다. 그래서 자잘하고 비루한 일에 능함이 많다. 군자가 능한 게 많아야 하겠는가? 많지 않다.&rdquo;</b> 두 겹으로 읽힙니다. 겉으로는 겸사이지만, 공자는 <b>자기 능력의 출처를 신분이 낮았던 시절로 정확히 되돌려 놓습니다.</b> 잡일을 직접 해 본 사람만 아는 것이 있고, 그것을 &lsquo;비사(鄙事)&rsquo;라 부르면서도 끝내 감추지 않습니다. 마지막 반문이 남는 자리입니다 — 능한 것이 많다는 것은 자랑이 아니지만, <b>부끄러움도 아닙니다.</b> 손으로 해 본 일의 목록은 대개 그 사람이 어디를 지나왔는지의 목록입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">&ldquo;구조는 작업이다. 시를 다듬는 것과 같은, 공을 들이는 일&rdquo;</span>
+          <a class="src" href="https://brevitymag.com/craft-essays/lifeblood-of-the-lyric/" target="_blank" rel="noopener">Brevity · Lesh Karan (2022-01-15) ↗</a>
+          <p>카란은 서정 에세이에서 형식이 그릇이 아니라 <b>내용 그 자체</b>임을 논증합니다. 핵심 문장은 이것입니다 — <b>&ldquo;Structure is work. A work of craft, like shaping a poem, requiring space and patience.&rdquo;</b> 구조는 고르는 것이 아니라 <b>짓는 것</b>이고, 지으려면 자리와 인내가 듭니다. 그리고 <b>&ldquo;finding the perfect form for the material a writer is trying to shape is the most important factor&rdquo;</b> — 다루려는 재료에 맞는 형식을 찾는 일이 가장 중요한 요소라고 말합니다. 그가 근거로 드는 것은 두 편의 에세이가 서로의 형식을 빌릴 수 없다는 사실입니다. 「Blueberries」의 형식으로는 「The Museum of Rape」가 말하려는 것을 담을 수 없고, 그 반대도 안 됩니다. 이것이 오늘의 결과 이어지는 자리입니다 — <b>남의 틀을 가져다 쓸 수 없는 이야기가 있고, 그때 쓰는 사람은 직접 만드는 사람이 됩니다.</b></p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">&ldquo;언제부턴가 손끝은 마우스와 키보드 자판만 기억하게 됐다&rdquo;</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003179042" target="_blank" rel="noopener">오마이뉴스 · 최주연 (2025-11-01) ↗</a>
+          <p>색종이 두 팩을 사면서 시작되는 글입니다. <b>&ldquo;손끝으로 무언가를 만들던 때가 있었다. 색종이, 실, 진흙, 풀냄새.&rdquo;</b> 그러다 어느새 손끝이 마우스와 키보드만 기억하게 되고, 하루가 만드는 일이 아니라 <b>머리로 판단하는 일</b>로만 채워졌다는 자각. 다시 종이를 접으면서 필자는 어릴 때와 달라진 것을 하나 발견합니다. 그때는 어떻게 더 잘 접을까를 걱정했는데, 지금은 그저 접는 짧은 시간이 좋다는 것. <b>&ldquo;종이를 접는 동안에는 특별한 생각을 하지 않아도 괜찮다. 색종이 한 장이 손끝을 거치며 모양을 얻듯, 우리의 마음도 그렇게 천천히 다듬어지는 게 아닐까.&rdquo;</b> 그리고 마지막 — <b>&ldquo;조금 엉성해서 뛰지 못하는 내 종이 개구리가 마냥 웃기기만 하다.&rdquo;</b> 엉성함을 고칠 것으로 보지 않는 눈이 여기 있습니다. 잘 접힌 개구리는 남의 것이어도 되지만, 뛰지 못하는 개구리는 내 것이라야 웃깁니다.</p></div>
+
+        <blockquote class="quote">&ldquo;나는 어려서 천했다. 그래서 자잘하고 비루한 일에 능함이 많다.&rdquo;
+          <span class="by">吾少也賤，故多能鄙事 — 『논어』 「자한」</span></blockquote>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">&ldquo;재능이니 타고난 소질이니 하는 말은 그만두십시오!
+온갖 종류의 위대한 사람들 가운데는
+재능이 적었던 이들을 얼마든지 들 수 있습니다.
+그들은 위대해졌고, &lsquo;천재&rsquo;가 되었습니다 —
+그것이 없다는 사실을 스스로 아는 사람은
+아무도 말하려 하지 않는, 그런 자질을 통해서.
+그들 모두에게는 저 유능한 장인(匠人)의 진지함이 있었습니다.
+큰 전체를 감히 만들기에 앞서
+먼저 부분을 완전하게 빚는 법부터 배우는 진지함.
+그들은 그 일에 시간을 들였습니다.
+눈부신 전체가 내는 효과보다,
+작고 사소한 것을 잘 만드는 데에서
+더 큰 기쁨을 느꼈기 때문입니다.&rdquo;</p>
+          <p class="cite">프리드리히 니체, 『인간적인 너무나 인간적인』 제1권 제4장 「예술가와 저술가의 영혼으로부터」 163절 「수공의 진지함(Der Ernst des Handwerks)」 (1878)
+            <span class="orig">&ldquo;Redet nur nicht von Begabung, angeborenen Talenten! Es sind große Männer aller Art zu nennen, welche wenig begabt waren. Aber sie bekamen Größe, wurden »Genies« (wie man sagt), durch Eigenschaften, von deren Mangel niemand mehr redet, der sich ihrer bewußt ist: sie hatten alle jenen tüchtigen Handwerker-Ernst, welcher erst lernt, die Teile vollkommen zu bilden, bis er es wagt, ein großes Ganzes zu machen; sie gaben sich Zeit dazu, weil sie mehr Lust am Gutmachen des Kleinen, Nebensächlichen hatten als an dem Effekte eines blendenden Ganzen.&rdquo;</span>
+            <a class="src" href="https://textlog.de/21762.html" target="_blank" rel="noopener">원문 대조 · textlog.de (163절) ↗</a></p>
+          <p class="memo">배달 메모 — 니체가 이 절에 붙인 제목이 <b>Handwerk</b>, 곧 <b>손일(手工)</b>입니다. 오늘 등대가 다섯 우물을 거쳐 도착한 자리에 니체는 1878년에 이미 팻말을 세워 두었습니다.<br><br>
+          이 문장에서 가장 매서운 대목은 재능을 부정하는 앞부분이 아니라, 그 뒤에 붙은 조건절입니다 — <b>&ldquo;그것이 없다는 사실을 스스로 아는 사람은 아무도 말하려 하지 않는, 그런 자질.&rdquo;</b> 니체가 말하는 것은 이렇습니다. 장인의 진지함이 없는 사람은 자기에게 그것이 없다는 것을 <b>알고 있고</b>, 알기 때문에 <b>그 이야기를 꺼내지 않습니다.</b> 대신 재능을 이야기합니다. 천재 이야기는 대개 그것을 대신하는 말이라는 것.<br><br>
+          두 번째 축은 <b>순서</b>입니다. <b>&ldquo;큰 전체를 감히 만들기에 앞서(bis er es wagt) 먼저 부분을 완전하게 빚는 법부터 배운다.&rdquo;</b> wagen — 감히 하다. 니체는 큰 전체를 만드는 일을 실력의 문제가 아니라 <b>용기의 문제</b>로 놓고, 그 용기는 작은 것을 완전하게 만들어 본 손에서만 나온다고 봅니다. 어제 니체가 말한 &lsquo;다리를 스스로 놓는 일&rsquo;의 실무편이 오늘 이것입니다. 다리를 놓으려면 먼저 널빤지 한 장을 제대로 다듬어야 합니다.<br><br>
+          세 번째는 <b>기쁨의 자리</b>입니다. <b>&ldquo;작고 사소한 것을 잘 만드는 데에서 더 큰 기쁨(mehr Lust am Gutmachen des Kleinen).&rdquo;</b> 시간을 들일 수 있었던 이유가 인내심이 아니라 <b>재미</b>였다는 것 — 이 대목이 오늘 등대의 하누시악·바르트와 정확히 만납니다. 숙달의 정신 없이, 경쟁의 정신 없이. 니체의 장인과 바르트의 아마추어는 반대말처럼 보이지만 <b>같은 자리에 서 있습니다.</b> 둘 다 눈부신 전체가 아니라 손 안의 작은 것을 보고 있고, 둘 다 <b>효과가 아니라 만드는 일 자체</b>에 값이 있습니다.<br><br>
+          그래서 오늘 2,073명의 공무원이 만든 770개 프로젝트가 대부분 조촐하리라는 것은 흠이 아닙니다. 니체의 문장대로라면 그것이 <b>순서대로 가고 있다는 증거</b>입니다. 전부 맡기는 사람이 아니라 주방을 아는 사람이 되고 싶다면, 여기서 한 줄이 더 나옵니다 — <b>주방을 아는 일은 요리를 잘하는 일이 아니라, 작은 것을 직접 만들어 본 시간의 총량입니다.</b></p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>날씨의 구체 수치를 확인하지 못했습니다.</b> 경향신문 9월 8일 자 예보 기사의 표제(「가을 문턱에 버티는 낮더위…동해안 가끔 비」)와 기상청 단기예보의 지역별 구름 상황까지는 확인했으나, <b>아침 최저·낮 최고 기온의 숫자는 본문을 열지 못해 싣지 않았습니다.</b> 어제까지는 숫자를 적어 왔는데 오늘은 비워 둡니다. 짐작으로 채우지 않았습니다.</li>
+          <li><b>니체 원문은 사실상 한 곳 대조입니다.</b> textlog.de(21762)에 163절 「Der Ernst des Handwerks」가 실려 있는 것을 확인했고, 검색 결과에서 독일어권 여러 곳이 <b>동일한 철자로</b> 같은 문단을 싣고 있는 것을 대조했습니다. 다만 zeno.org는 오늘도 서버 연결이 거부되어(ECONNREFUSED) 두 번째 원문 확인에는 이르지 못했습니다.</li>
+          <li><b>Psyche 「learn to relish being an amateur」의 게재일을 확인하지 못했습니다.</b> 페이지에 발행일 표기가 없습니다. 저자(Xenia Hanusiak)와 본문 인용, 1803년 사전 정의는 원문에서 직접 확인했습니다.</li>
+          <li><b>오늘(9월 9일) 자 정책브리핑은 아직 나오지 않아, 어제(9월 8일) 국무회의·부처 발표를 기준으로 썼습니다.</b> 행안부 AI 직접개발 방안의 <b>구체 지침은 올해 하반기 수립 예정</b>이라 지금 나온 것은 뼈대뿐입니다. 실제 도입 사례의 이름을 찾으려 했으나 보도에 아직 없습니다.</li>
+          <li><b>9월 18일 시행 휴가 제도는 2차 출처로 확인했습니다.</b> 고용노동부 보도자료 원문에는 닿지 못했고, 시행일·일수·유급 일수만 여러 정리가 일치하는 범위에서 옮겼습니다. 복무 실무에 쓰시려면 관보 확인이 필요합니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 무언가 하나는 <b>직접 손을 대 보십시오.</b> 잘 만들 필요는 없습니다. 니체의 말대로라면 작고 사소한 것을 잘 만드는 데서 오는 기쁨이 먼저이고, 큰 전체는 그다음에 감히 시도되는 것입니다. 엉성해서 뛰지 못하는 종이 개구리도 필통에 들어갈 자격이 있습니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+  </div>
+</body>
+</html>
