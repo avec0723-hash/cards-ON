@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-10 (목)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 10일 · 목요일</p>
+      <p class="opening">9월 열흘째, 목요일입니다. 전국이 대체로 맑고 제주만 가끔 구름이 지납니다. 아침 14~22℃, 낮 24~30℃로 평년과 비슷합니다. 추석까지 보름 남았습니다.<br>
+      오늘은 <b>세계 자살예방의 날</b>입니다. 공교롭게 복지부 장관의 하루가 앞뒤로 같은 말을 합니다 — 오전 아홉 시에 <b>발달장애인 돌봄 국가책임제 추진방안</b>을 브리핑하고, 오후 두 시에 <b>자살예방의 날 기념식</b>에 섭니다. 그래서 오늘의 결을 이렇게 세웁니다 — <b>돕는 일의 값은 세기가 아니라 길이에 있다.</b> 어제는 직접 만드는 손 이야기였고, 오늘은 그 손이 <b>얼마나 오래 그 자리에 있느냐</b>의 이야기입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 발달장애인 돌봄 국가책임제 추진방안이 오늘 오전 발표됩니다</span>
+          <a class="src" href="https://theindigo.co.kr/archives/68932" target="_blank" rel="noopener">더인디고 ↗</a>
+          <a class="src" href="https://www.bokjitimes.com/news/articleView.html?idxno=43179" target="_blank" rel="noopener">복지타임즈 ↗</a>
+          <a class="src" href="https://v.daum.net/v/20260906084903731" target="_blank" rel="noopener">정부 주요 일정 (9/7~9/11) ↗</a>
+          <p>보건복지부 장관이 오늘 오전 9시 서울에서 <b>「발달장애인 돌봄 국가책임제 추진방안」</b>을 브리핑합니다(석간 보도). 국정과제 79번이고, 2025년 9월 민관 협의체 구성으로 논의를 시작한 지 꼭 1년 만입니다. 뼈대는 <b>아동기 조기 발견 → 성인기 돌봄 → 부모 사후</b>까지의 생애주기 맞춤 지원체계입니다. 이미 반영된 것으로는 최중증 발달장애인 통합돌봄 전문수당 <b>월 5만 원 → 20만 원</b>, 주간활동서비스 <b>1만 4,800명 → 1만 6,500명</b>, 방과후활동 <b>1만 1,000명 → 1만 2,000명</b>이 있습니다.<br><br>
+          이 제도에서 가장 무거운 단어는 예산이 아니라 <b>&lsquo;부모 사후&rsquo;</b> 넉 자입니다. 돌봄 정책이 대개 지금 힘든 사람을 다루는데, 이것은 <b>아직 오지 않은 시간</b>을 다룹니다. 발달장애 가족이 평생 안고 사는 질문이 &ldquo;내가 죽으면 이 아이는 어떻게 되나&rdquo;라는 것을 제도가 처음으로 문장에 넣었습니다. 국가가 책임진다는 말의 진짜 시험대는 지원 액수가 아니라 <b>얼마나 먼 미래까지 약속하는가</b>입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 오늘은 세계 자살예방의 날입니다. 상반기 자살 사망 11.8% 감소, 그래도 OECD 1위</span>
+          <a class="src" href="https://www.womennews.co.kr/news/articleView.html?idxno=281985" target="_blank" rel="noopener">여성신문 · 장명선 ↗</a>
+          <a class="src" href="https://nmhc.or.kr/sub.php?id=file&amp;mode=view&amp;menukey=19&amp;idx=3669&amp;bid=file&amp;page=1" target="_blank" rel="noopener">『2026 자살통계연보』 ↗</a>
+          <a class="src" href="https://kosis.kr/visual/nsportalStats/detailContents.do?listId=D&amp;statJipyoId=3669&amp;vStatJipyoId=4840" target="_blank" rel="noopener">KOSIS 자살률 지표 ↗</a>
+          <p>세계보건기구와 국제자살예방협회가 2003년부터 함께 지켜 온 날입니다. 우리나라는 「자살예방 및 생명존중문화 조성을 위한 법」에 따라 오늘부터 한 주를 <b>자살예방주간</b>으로 둡니다. 숫자는 처음으로 방향을 틀었습니다 — 2025년 자살 사망자 <b>1만 3,774명</b>으로 전년(1만 4,872명)보다 1,098명 줄었고, 인구 10만 명당 <b>23.2명</b>(2024년 29.1명)입니다. 2026년 상반기는 <b>6,339명</b>으로 지난해 같은 기간(7,188명)보다 <b>11.8%</b> 줄었습니다. 그럼에도 OECD 1위 자리는 그대로입니다.<br><br>
+          숫자가 줄었다는 사실보다 중요한 것은 <b>왜 줄었는지 아직 정확히 모른다</b>는 점입니다. 줄어든 이유를 모르면 다시 늘 때도 모릅니다. 춘천시가 올해 기념행사에 붙인 이름이 「네가 있어 나도 있다」였습니다 — 예방의 실무는 결국 <b>누가 누구 곁에 몇 번 갔는가</b>로 환원됩니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 통합돌봄에 이달 100여 개 지자체가 새로 들어옵니다. 담당자 한 명이 떠안은 채로</span>
+          <a class="src" href="https://www.mohw.go.kr/index.es?sid=a6" target="_blank" rel="noopener">복지부 통합돌봄 누리집 ↗</a>
+          <a class="src" href="https://www.bokjitimes.com/news/articleView.html?idxno=42206" target="_blank" rel="noopener">복지타임즈 ↗</a>
+          <a class="src" href="https://www.themedical.kr/news/articleView.html?idxno=2911" target="_blank" rel="noopener">더메디컬 (2025-12-24) ↗</a>
+          <p>3월 27일 「의료·요양 등 지역 돌봄의 통합지원에 관한 법률」 전면 시행으로 시작된 통합돌봄이 7월 14일 100일을 지났고, 이달에 <b>경험이 전무한 100여 개 지자체</b>가 추가로 들어옵니다. 현장 보고는 냉정합니다 — 전담 조직과 인력이 없는 곳이 많고, <b>기준인건비 통보가 늦어져 임시 조직이나 담당자 1인이 업무를 통째로 떠안고</b> 있습니다. 예산도 국회 보건복지위 증액 의결안(1,771억 원)의 절반 수준인 <b>914억 원</b>으로 확정됐고, 확보 인력은 <b>5,394명</b>으로 필요 인력 약 1만 명의 절반입니다.<br><br>
+          오늘 브리핑의 결이 여기서 가장 아프게 드러납니다. 국가가 책임진다는 문장의 끝에는 늘 <b>한 사람</b>이 서 있습니다. 그 한 사람이 얼마나 오래 그 자리에 있을 수 있는지가 제도의 실제 수명입니다. 담당자가 1년마다 바뀌는 자리에서 &lsquo;생애주기 지원&rsquo;은 문서로만 생애주기입니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 내일 대한민국 문학축제가 엽니다. 오늘은 「소설 보다: 가을 2026」이 나왔습니다</span>
+          <a class="src" href="https://view.asiae.co.kr/article/2026090108550937561" target="_blank" rel="noopener">아시아경제 (09-01) ↗</a>
+          <a class="src" href="https://www.ksw-news.com/news/articleView.html?idxno=3032334" target="_blank" rel="noopener">한국사회복지저널 신간 ↗</a>
+          <a class="src" href="https://www.kyosu.net/news/articleView.html?idxno=210015" target="_blank" rel="noopener">문학과사회 155호 ↗</a>
+          <p>9월 독서의 달 표어는 <b>「그냥 좋아서(書)」</b>이고, 전국 1,572개 기관·단체·기업이 1만여 건의 행사를 엽니다. 내일부터 서울 인사동·대학로와 지역 문학관을 중심으로 <b>대한민국 문학축제(11~20일)</b>가 열리고, <b>서울국제작가축제(11~16일)</b>와 <b>문학주간(16~20일)</b>이 그 안에 겹칩니다. 오늘은 문학과지성사의 계간 앤솔러지 <b>「소설 보다: 가을 2026」</b>(박우연·윤단·최미래)이 나왔습니다.<br><br>
+          읽는 일에 관한 이 달의 표어가 이유를 대지 않는다는 점이 좋습니다. <b>그냥 좋아서.</b> 효용을 대지 않는 활동만이 오래갑니다. 그리고 오래가는 것만이 사람을 바꿉니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — AI기본법 시행령 개정안이 이달 의견수렴을 거쳐 다음 달 초 입법예고됩니다</span>
+          <a class="src" href="https://www.lawtimes.co.kr/news/articleViewAmp.html?idxno=223727" target="_blank" rel="noopener">법률신문 ↗</a>
+          <a class="src" href="https://www.aikorea.go.kr/web/board/brdDetail.do?menu_cd=000011&amp;num=328" target="_blank" rel="noopener">인공지능 행동계획(2026~2028) ↗</a>
+          <p>「인공지능 발전과 신뢰 기반 조성 등에 관한 기본법」은 1월 22일 전면 시행됐고, 7월 14일 국무회의를 거친 개정 시행령이 <b>7월 21일</b> 발효됐습니다. 정부는 <b>9월 중 이해관계자 의견을 모아 시행령안을 확정하고 10월 초 입법예고</b>할 계획입니다. 이번 개정에는 <b>&lsquo;AI 제품·서비스 확인제도&rsquo;</b>가 새로 들어갑니다. 우리나라는 EU에 이어 두 번째로 포괄적 AI 규제 틀을 가진 나라입니다.<br><br>
+          행정 현장의 실무자에게 이 소식의 요점은 규제 강화가 아니라 <b>&lsquo;확인&rsquo;</b>이라는 낱말입니다. 쓰기 전에 물어볼 곳이 생긴다는 뜻이고, 물어볼 곳이 있으면 실무자가 덜 무서워합니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 앤스로픽 연구자 한 사람이 안전을 이유로 회사를 떠났습니다</span>
+          <a class="src" href="https://www.bloomberg.com/news/articles/2026-09-09/anthropic-worker-quits-over-ai-firms-gambling-with-our-lives" target="_blank" rel="noopener">Bloomberg (09-09) ↗</a>
+          <p>어제 블룸버그 보도에 따르면 앤스로픽의 AI 연구자 한 사람이 사직하면서 동료들에게 각자의 일을 다시 생각해 보라고 촉구했습니다. 앤스로픽과 오픈AI 양쪽이 <b>&lsquo;스스로 개선하는&rsquo; 모델</b>을 인간이 통제할 수 없는 수준까지 밀고 나가고 있다는 것이 그의 우려입니다.<br><br>
+          이 소식을 싣는 이유는 논쟁의 옳고 그름 때문이 아닙니다. <b>자기가 만든 것에 대해 내부에서 이견이 나오고 그것이 공개되는 조직</b>이라는 사실 자체가, 도구를 쓰는 쪽이 알아 둘 만한 정보이기 때문입니다. 다만 원문은 유료 구독 장벽에 막혀 표제와 요약까지만 확인했습니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 돕는 일의 값은 세기가 아니라 길이에 있다</span></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">&ldquo;한결같음이 없는 사람은 무당도 의원도 될 수 없다&rdquo;</span>
+          <a class="src" href="https://zh.wikisource.org/wiki/論語/子路第十三" target="_blank" rel="noopener">『논어』 「자로」 제22장 원문 · 중국어 위키문헌 ↗</a>
+          <p><b>子曰：「南人有言曰：『人而無恆，不可以作巫醫。』善夫！」「不恆其德，或承之羞。」子曰：「不占而已矣。」</b> 공자가 말했습니다. &ldquo;남쪽 사람들 말에 &lsquo;<b>한결같음이 없는 사람은 무당도 의원도 될 수 없다</b>&rsquo;고 했으니, 좋은 말이다!&rdquo; 이어서 &ldquo;그 덕이 한결같지 않으면 혹 부끄러움을 당한다&rdquo;는 구절을 들고, 다시 말합니다. &ldquo;점칠 것도 없다.&rdquo;<br><br>
+          눈여겨볼 자리가 셋입니다. 첫째, 공자가 든 직업이 <b>무당과 의원</b> — 둘 다 <b>남의 고통 곁에 서는 일</b>입니다. 그 일의 자격 조건으로 그가 든 것은 실력도 자격증도 아닌 <b>恒(항), 한결같음</b>입니다. 둘째, 인용한 &ldquo;불항기덕, 혹승지수&rdquo;는 원래 <b>『주역』 항괘(恒卦) 구삼효</b>의 말입니다. 공자는 속담과 경전을 나란히 놓아 같은 말을 두 번 시킵니다. 셋째, 마지막의 <b>&ldquo;부점이이의&rdquo;(점칠 것도 없다)</b>가 가장 서늘합니다 — 한결같지 않은 사람의 앞날은 점을 쳐 볼 필요조차 없다는 뜻입니다. 결과가 이미 정해져 있어서입니다.</p></div>
+
+        <div class="pick"><span class="field">🕯 현존·삶</span>
+          <span class="title">&ldquo;이 모든 상호작용의 한가운데에 있는 것은 함께 있음이다&rdquo;</span>
+          <a class="src" href="https://aeon.co/essays/we-have-evolved-powerful-mechanisms-for-healing-one-another" target="_blank" rel="noopener">Aeon · Brandon Kohrt (2021-05-21) ↗</a>
+          <p><b>&ldquo;At the heart of all of these interactions is being together.&rdquo;</b> 코트는 정신의학자이자 인류학자로, 사람이 서로를 낫게 하는 방식이 <b>진화적으로 오래된 기능</b>이라고 씁니다. 치료의 핵심을 그는 기법이 아니라 <b>함께 있음(being together)</b>에 둡니다. 심리치료가 전하는 근본 메시지를 그는 한 문장으로 요약합니다 — <b>&ldquo;You are not alone.&rdquo;</b> 그리고 글의 결론은 <b>&ldquo;We heal together.&rdquo;</b> 낫는 일은 혼자 일어나지 않는다는 것.<br><br>
+          이 관점의 실무적 함의는 분명합니다. 곁에 있는 일은 전문성이 부족한 사람의 차선책이 아닙니다. <b>그것이 원래의 기제</b>이고, 전문 기법은 그 위에 얹히는 것입니다. 그러니 자격이 없어서 못 간다는 말은 대개 틀렸습니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">&ldquo;나는 말을 두려워하지 않기 때문입니다&rdquo;</span>
+          <a class="src" href="https://psyche.co/guides/how-to-talk-about-suicide-and-save-the-life-of-a-loved-one" target="_blank" rel="noopener">Psyche Guides · Lindsay Weisner ↗</a>
+          <p>임상심리학자 와이스너는 환자에게 자살 생각을 <b>직접, 그 단어로</b> 묻습니다. 이유는 한 줄입니다 — <b>&ldquo;Because I am not frightened of words.&rdquo;</b> 묻는 것이 생각을 심는다는 것은 오해이고, 대개는 그 반대입니다. 그가 관찰한 바로는 <b>&ldquo;What most patients with suicidal thoughts actually want is to have their fears and feelings heard without judgment&rdquo;</b> — 자살 생각을 가진 사람이 실제로 원하는 것은 해법이 아니라 <b>판단 없이 들리는 일</b>입니다.<br><br>
+          그리고 역할에 관한 문장이 오늘의 결과 정확히 만납니다 — <b>&ldquo;You are a brother, a sister, a parent, a friend. In that role, you can always be there for your loved one while encouraging professional help.&rdquo;</b> 전문가에게 넘기는 일과 곁에 있는 일은 <b>둘 중 하나를 고르는 문제가 아닙니다.</b> 전문가를 권하면서 동시에 계속 곁에 있는 것, 그 둘을 겸하는 자리가 가족과 친구의 자리입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">&ldquo;나는 그 원고와 함께 산다. 이건 장거리다. 느린 궤도다&rdquo;</span>
+          <a class="src" href="https://brevity.wordpress.com/2026/01/12/the-dammed-river/" target="_blank" rel="noopener">The Brevity Blog · Michael Sean Collard (2026-01-12) ↗</a>
+          <p><b>&ldquo;I live with the piece. Carry it in the back of my mind. This is the long haul. The slow orbit.&rdquo;</b> 콜라드가 퇴고를 설명하는 방식은 &lsquo;고친다&rsquo;가 아니라 <b>&lsquo;함께 산다&rsquo;</b>입니다. 그리고 초고 사이의 빈 시간을 그는 낭비가 아니라 작업으로 셉니다 — <b>&ldquo;The time between drafts is where truth has room to settle, where the memory can speak without collapsing.&rdquo;</b> 진실이 가라앉을 자리, 기억이 무너지지 않고 말할 수 있는 자리.<br><br>
+          구체적인 숫자가 붙어 있어 더 무겁습니다. 「Crack Alley」라는 초고를 다시 꺼내 「Six Blocks from the Federal Reserve」라는 에세이로 만드는 데 <b>10년</b>이 걸렸고, 그가 그 시간에 필요했던 것을 이렇게 적습니다 — <b>&ldquo;I didn&rsquo;t just need better craft; I needed the courage to look directly at that part of my life and tell the truth without blinking.&rdquo;</b> 부족했던 것은 기술이 아니라 <b>똑바로 볼 용기</b>였고, 용기는 시간이 있어야 자랍니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">&ldquo;이 사람 곁에 이미 있는 관계는 무엇인가&rdquo;</span>
+          <a class="src" href="https://star.ohmynews.com/NWS_Web/OhmyStar/at_pg.aspx?CNTN_CD=A0003225961&amp;CMPT_CD=M0153" target="_blank" rel="noopener">오마이뉴스 · 안상우 (2026-04-20) ↗</a>
+          <p>안상우는 돌봄의 언어를 다시 짜자고 제안하면서 질문의 <b>순서</b>를 바꿉니다 — <b>&ldquo;이 사람에게 무엇이 필요한가,라고 묻기 전에 이 사람 곁에 이미 있는 관계는 무엇인가,라고 먼저 묻는 것.&rdquo;</b> 행정이 익숙한 첫 질문은 늘 필요(needs)입니다. 필요를 물으면 사람은 <b>결핍의 목록</b>이 되고, 그 목록에 맞는 서비스가 배정됩니다.<br><br>
+          관계를 먼저 물으면 그림이 달라집니다. 그 사람은 <b>이미 무언가를 가진 사람</b>으로 보이고, 행정의 일은 없는 것을 채우는 일에서 <b>있는 것을 지탱하는 일</b>로 바뀝니다. 오늘 항로에 오른 통합돌봄과 발달장애인 국가책임제가 둘 다 걸려 있는 자리가 정확히 여기입니다. 담당자 한 명이 새로 배치되는 것과, 이미 곁에 있던 사람이 계속 있을 수 있게 되는 것은 다른 일입니다.</p></div>      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">&ldquo;사랑을 배워야 한다.
+음악에서 우리는 이렇게 겪는다.
+먼저 하나의 선율과 가락을 듣는 법부터 배워야 한다 —
+가려서 듣고, 구별하고,
+그 자체로 하나의 생명으로 떼어 내어
+경계를 지어야 한다.
+그다음에는 그것을 견뎌 내는 데
+수고와 선의(善意)가 든다.
+…
+사랑도 배워야 한다.&rdquo;</p>
+          <p class="cite">프리드리히 니체, 『즐거운 학문』 제4권 「성 야누아리우스」 334절 「사랑을 배워야 한다(Man muss lieben lernen)」 (1882)
+            <span class="orig">&ldquo;Man muss lieben lernen. — So geht es uns in der Musik: erst muss man eine Figur und Weise überhaupt hören lernen, heraushören, unterscheiden, als ein Leben für sich isoliren und abgrenzen; dann braucht es Mühe und guten Willen, sie zu ertragen … Auch die Liebe muss man lernen.&rdquo;</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/man-muss-lieben-lernen" target="_blank" rel="noopener">원문 대조 · textlog.de ↗</a></p>
+          <p class="memo">배달 메모 — 니체가 이 절에 붙인 동사가 <b>lernen(배우다)</b>입니다. 사랑을 감정으로 두지 않고 <b>기량</b>으로 놓았다는 뜻이고, 기량이라면 반드시 <b>연습 시간</b>이 있습니다. 오늘 등대가 다섯 우물을 지나 도착한 자리에 니체는 1882년에 팻말을 세워 두었습니다.<br><br>
+          첫 번째 축은 <b>순서</b>입니다. 니체가 사랑의 첫 단계로 든 것이 헌신도 열정도 아니라 <b>hören lernen — 듣는 법 배우기</b>입니다. 그리고 듣기의 내용을 그는 셋으로 쪼갭니다. <b>가려서 듣고(heraushören), 구별하고(unterscheiden), 그 자체로 하나의 생명으로 떼어 내어 경계를 짓는 것(als ein Leben für sich isoliren und abgrenzen).</b> 마지막이 특히 무겁습니다 — 사랑의 시작은 상대를 나에게 붙이는 일이 아니라 <b>그 자체로 하나의 생명임을 알아보고 경계를 그어 주는 일</b>입니다. 와이스너가 &ldquo;판단 없이 듣는 것&rdquo;을 자살 생각을 가진 사람이 진짜 원하는 것으로 꼽은 자리와 정확히 겹칩니다.<br><br>
+          두 번째 축은 <b>견딤</b>입니다. 듣는 법을 배운 다음에 오는 것이 즐거움이 아니라 <b>Mühe und guten Willen — 수고와 선의</b>로 견뎌 내는 시간이라는 것. 니체는 이 대목을 낭만화하지 않습니다. 낯선 것은 처음에 <b>불편하고</b>, 그 불편을 참는 동안에만 익숙함이 자랍니다. 통합돌봄 담당자 1인이 새 지역에서 보내는 첫 몇 달이 정확히 이 구간이고, 발달장애 가족이 &lsquo;부모 사후&rsquo;라는 낱말을 견디며 사는 시간도 이 구간입니다.<br><br>
+          세 번째 축은 <b>끝문장</b>입니다. <b>&ldquo;Auch die Liebe muss man lernen&rdquo;</b> — 사랑도 배워야 한다. 앞에 붙은 <b>auch(도)</b>가 이 절 전체의 무게중심입니다. 음악처럼, 다른 모든 것처럼, <b>사랑도 예외가 아니다.</b> 타고나는 것이 아니고, 한 번에 되는 것도 아니며, 반복해서 곁에 둔 시간의 총량으로만 생깁니다. 공자의 <b>恒</b>과 같은 자리에 서 있는 문장입니다 — 공자가 한결같음을 남 돌보는 일의 <b>자격</b>으로 본 자리에서, 니체는 그것을 사랑의 <b>제작 공정</b>으로 봅니다.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>오늘 오전 브리핑의 실제 내용은 아직 없습니다.</b> 발달장애인 돌봄 국가책임제 추진방안은 오늘 9시 브리핑·석간 보도 예정이라, 지금 실은 것은 <b>국정과제 번호와 이미 확정된 수당·대상 확대 수치, 생애주기 설계의 뼈대</b>뿐입니다. 재정 총액과 시행 시기는 오늘 오후에나 확인됩니다.</li>
+          <li><b>니체 원문은 사실상 한 곳 대조입니다.</b> textlog.de에서 334절 「Man muss lieben lernen」의 첫 문장들과 끝문장을 직접 확인했고, zeno.org 목차에서 제4권 「성 야누아리우스」 334절에 이 제목이 있다는 것을 교차 확인했습니다. 다만 zeno.org 본문 서버는 오늘도 연결이 거부되었고(ECONNREFUSED), Projekt Gutenberg는 403이었습니다. <b>중간 문단은 확인된 범위 밖이라 줄임표로 두고 옮기지 않았습니다.</b></li>
+          <li><b>원래 오늘 고르려던 니체 문장은 뺐습니다.</b> 『선악의 저편』 188절의 &ldquo;오래, 한 방향으로 복종하라(lange und in Einer Richtung gehorcht werde)&rdquo;가 오늘 결에 더 가까웠으나, <b>독일어 원문을 어느 곳에서도 대조하지 못해</b> 규칙대로 쓰지 않고 334절로 바꿨습니다.</li>
+          <li><b>자살 통계의 출처가 2차입니다.</b> 2025년 확정 수치(1만 3,774명·10만 명당 23.2명)와 2026년 상반기 잠정치(6,339명·11.8% 감소)는 언론 정리와 지표 페이지로 확인했고, <b>통계청 사망원인통계 원자료와 『2026 자살통계연보』 본문에는 닿지 못했습니다.</b></li>
+          <li><b>앤스로픽 연구자 사직 보도는 표제와 요약까지만 확인했습니다.</b> 블룸버그 유료 구독 장벽으로 본문을 열지 못했습니다. 사직한 연구자의 이름과 발언 전문은 싣지 않았습니다.</li>
+          <li><b>날씨는 어제 발표된 예보 기준입니다.</b> 9~12일 아침 14~22℃·낮 24~30℃, 10일 전국 대체로 맑음·제주 가끔 구름많음까지 확인했고, <b>오늘 아침 실황과 지역별 최저·최고 기온은 확인하지 못했습니다.</b></li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 하루, 누군가에게 <b>두 번째 문장</b>을 건네 보십시오. 새 사람을 찾지 않아도 됩니다. 지난번에 한 번 묻고 그친 사람에게 그때 들은 것을 기억한다는 사실만 알리면 충분합니다. 니체의 말대로라면 사랑도 배우는 것이고, 배움의 유일한 교재는 <b>같은 사람 곁에서 보낸 시간</b>입니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+  </div>
+</body>
+</html>
