@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-12 (토)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 12일 · 토요일</p>
+      <p class="opening">9월 열이틀째, 토요일입니다. 전국이 가끔 구름 많고 아침 14~22℃, 낮 24~30℃로 평년과 비슷합니다. 추석까지 꼭 2주 남았습니다.<br>
+      오늘의 결은 다음 달 1일부터 바뀌는 한 줄에서 나옵니다 — <b>통신요금이 밀려 전화가 끊긴 사람도 109는 걸 수 있게 됩니다.</b> 자살예방상담전화가 112·119와 나란히 긴급통신용 전화로 지정되기 때문입니다. 상담전화는 지금도 365일 24시간 열려 있었습니다. 없었던 것은 도움이 아니라 <b>거기까지 닿는 길</b>이었습니다. 그래서 오늘의 결을 이렇게 세웁니다 — <b>손을 내미는 것과 그 손을 잡게 만드는 것은 다른 일이다.</b> 어제가 규칙 바깥에서 사람이 판단하는 자리였다면, 오늘은 <b>그 판단이 상대에게 가닿을 수 있게 길을 트는 자리</b>입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 요금이 밀려 전화가 끊겨도, 10월부터 109는 걸립니다</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003265484" target="_blank" rel="noopener">오마이뉴스 · 유창재 (09-08) ↗</a>
+          <a class="src" href="http://www.sisunnews.co.kr/news/articleView.html?idxno=245870" target="_blank" rel="noopener">시선뉴스 정책브리핑 (09-11) ↗</a>
+          <p>보건복지부가 자살예방상담전화 <b>109를 「전기통신사업법」상 긴급통신용 전화로 지정</b>했습니다. <b>10월 1일 시행</b>입니다. 그동안 긴급통신용으로 지정된 번호는 112와 119뿐이어서, 요금 미납으로 발신이 제한된 휴대전화에서는 109가 걸리지 않았습니다. 이제 통신 상태와 무관하게 연결되고, 제조사와 협의해 <b>잠금화면에서도 바로 누를 수 있게</b> 합니다. 복지부의 설명은 짧습니다 — <b>&ldquo;109는 국민이 가장 절박한 순간에 찾는 전화로 긴급통신용 전화 요건에 부합된다.&rdquo;</b><br><br>
+          행정의 언어로 보면 이것은 예산 사업이 아니라 <b>한 줄의 지정</b>입니다. 그런데 이 한 줄이 겨냥하는 사람이 정확합니다. 요금을 못 내 전화가 끊긴 상태는 그 자체로 위기의 신호이고, 그 신호가 가장 큰 사람에게서 마지막 통로까지 함께 끊기고 있었습니다. <b>제도가 열려 있다는 말과 그 사람이 닿을 수 있다는 말은 같은 말이 아닙니다.</b> 어제 브리핑의 &lsquo;아는 사람만 받는 복지&rsquo;와 정확히 같은 자리의 다른 얼굴입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 추석 연휴 교통 지원: 24~27일 고속도로 통행료 면제, KTX 운임 10% 인하</span>
+          <a class="src" href="https://www.imaeil.com/page/view/2026090815234735463" target="_blank" rel="noopener">매일신문 (09-08) ↗</a>
+          <p>올해 추석 연휴는 <b>9월 25·26·27일</b>입니다. 정부 민생안정대책에 따라 <b>9월 24일부터 27일까지 나흘간 고속도로 통행료가 면제</b>되고, KTX 운임 10% 인하와 KTX·SRT 일부 열차 할인이 함께 적용됩니다. 연휴가 짧아 <b>9월 28일(월) 임시공휴일</b> 지정 가능성도 거론되고 있습니다. 지자체 명절 위문금은 통상 생계·의료·주거·교육급여 수급자, 차상위계층, 한부모가족, 저소득 장애인 가구, 국가유공자와 유족 등이 대상입니다.<br><br>
+          통행료 면제와 위문금은 성격이 다릅니다. 앞의 것은 <b>모두에게 자동으로</b> 적용되고, 뒤의 것은 <b>명단에 오른 사람에게만</b> 갑니다. 오늘의 결로 읽으면 이렇습니다 — 자동으로 적용되는 지원은 부끄러움을 만들지 않고, 명단으로 가는 지원은 반드시 누군가 명단을 만들어야 합니다. 어느 쪽이 나쁘다는 뜻이 아니라, <b>뒤의 것에는 늘 사람의 손이 하나 더 필요하다</b>는 뜻입니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 벌초 나가기 전, 예초기 반경 15m를 비우십시오</span>
+          <a class="src" href="http://www.sisunnews.co.kr/news/articleView.html?idxno=245870" target="_blank" rel="noopener">시선뉴스 정책브리핑 (09-11) ↗</a>
+          <p>행정안전부가 추석 전 벌초철 예초기 안전사고 예방을 당부했습니다. 작업 전에는 <b>돌·나뭇가지·쓰레기를 미리 치우고</b>, 작업 중에는 <b>반경 15m 이내로 다른 사람이 들어오지 않게</b> 합니다. 보호구는 안면보호구·보안경·무릎보호대·안전화·안전모·장갑입니다. 보호 덮개를 반드시 달고 칼날 상태를 점검하며, 이물질을 뺄 때는 <b>전원을 끄고</b> 합니다.<br><br>
+          해마다 같은 자리에 오는 안내입니다. 눈에 걸리는 것은 <b>15m</b>라는 숫자입니다. 사고가 나기 전에 <b>미리 비워 두는 거리</b>를 행정이 수치로 정해 두었다는 뜻입니다. 안전은 조심하는 마음이 아니라 대개 이런 식으로, <b>사고가 날 자리를 먼저 비워 두는 설계</b>로 만들어집니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 2030년에야 북극에 나갈 배를, 어제 짓기 시작했습니다</span>
+          <a class="src" href="http://www.sisunnews.co.kr/news/articleView.html?idxno=245870" target="_blank" rel="noopener">시선뉴스 정책브리핑 (09-11) ↗</a>
+          <p>해양수산부가 어제 경남 한화오션 거제사업장에서 <b>차세대 쇄빙연구선 착공식</b>을 열었습니다. 2009년 취항한 아라온호에 이은 우리나라 두 번째 쇄빙연구선입니다. 쇄빙능력은 아라온호보다 <b>50% 향상</b>되고, LNG와 저유황유 이중연료 체계로 탄소배출을 줄입니다. <b>2029년 완공, 2030년부터 정식 북극 연구</b>에 들어갑니다. 남·북극 연구항해 일수는 연 85일에서 <b>약 270일</b>로 늘어납니다.<br><br>
+          착공에서 첫 연구까지 <b>4년</b>입니다. 어제 첫 철판을 자른 사람 중에는 그 배가 북극에 닿는 것을 현장에서 보지 못할 사람도 있을 것입니다. 행정에는 이런 종류의 일이 꽤 있습니다 — <b>내 임기 안에 결과가 나오지 않는 일.</b> 이런 일을 끝까지 밀고 가는 힘은 성과 보고서가 아니라, 대개 <b>이 일이 무엇을 위한 것인지 아는 사람이 자리에 남아 있느냐</b>에 달려 있습니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 어제 문학축제가 열렸습니다. 올해 문학주간의 이름은 &lsquo;곁눈질&rsquo;입니다</span>
+          <a class="src" href="https://www.kclassicnews.com/news/article.html?no=225399" target="_blank" rel="noopener">K-Classic News (문체부 보도자료 정리) ↗</a>
+          <p>문화체육관광부가 한국문학번역원·한국문화예술위원회·한국출판문화산업진흥원·국립한국문학관·국제펜한국본부와 함께 <b>&lsquo;2026 대한민국 문학축제&rsquo;</b>를 어제(11일)부터 20일까지 서울 대학로와 전국 각지에서 엽니다. 문학주간은 <b>&lsquo;곁눈질&rsquo;</b>을 주제로 대학로 마로니에공원 일대에서 <b>작가·예술가 167명, 프로그램 48개</b>로 진행됩니다(김애란·최진영 등). <b>16일</b> 아르코예술극장에서 배우 고아성 진행으로 낭독 공연이 열리고, 이민하·김진선·홍지호 시인과 음악인 곽주나가 참여하는 무대는 <b>고(故) 허수경 시인을 기립니다</b>. <b>19일</b>에는 김초엽·연여름·공희경 작가가 한국 과학소설의 방향을 두고 책이야기마당을 엽니다.<br><br>
+          축제의 이름이 &lsquo;곁눈질&rsquo;이라는 점은 지난주에도 한 번 짚었습니다. 오늘 눈에 들어오는 것은 <b>낭독</b>입니다. 읽는 일 중에 가장 느린 방식이고, 혼자 할 수 있는 일을 굳이 여럿이 모여서 합니다. 손을 내미는 일과 손을 잡게 만드는 일의 차이를 문학도 알고 있는 셈입니다 — <b>쓴 것이 있다는 사실과 그것이 누군가에게 읽힌다는 사실은 다른 일</b>이기 때문입니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 지방 공무원이 직접 만든 AI 행정서비스, 제주에서 성과가 공개됐습니다</span>
+          <a class="src" href="https://www.asiatoday.co.kr/kn/view.php?key=20260909010003446" target="_blank" rel="noopener">아시아투데이 (09-09) ↗</a>
+          <p>행정안전부가 <b>제43회 지역정보화(지방정부 AI) 우수사례 발표대회</b>를 10~11일 제주특별자치도에서 열었습니다. 지방정부 공무원이 <b>현장의 문제를 직접 해결한 AI 행정혁신 사례</b>가 공개됐습니다. 지난 8일 국무회의에 보고된 「공무원의 AI 활용 직접개발 활성화 및 확산 방안」(AI 정부 실험실 동시 이용 200명 → 내년 6,000명, 우수 개발자 승진 가점·포상금, 절차를 지킨 개발 실패에 적극행정 면책)과 한 묶음으로 도는 일정입니다.<br><br>
+          지난주 이 자리에서 이 정책을 <b>&lsquo;도구가 손에 내려온다&rsquo;</b>는 말로 읽었습니다. 오늘 더할 것은 <b>발표대회</b>라는 형식입니다. 만든 사람이 직접 앞에 나와 설명하는 자리를 만들어 두면, 만든 사람은 <b>자기가 무엇을 왜 만들었는지를 한 번 더 정리하게</b> 됩니다. 잘 만든 것을 뽑는 것보다 이 정리가 오래 남습니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 손을 내미는 것과 그 손을 잡게 만드는 것은 다른 일이다</span></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">&ldquo;우리의 시스템은 우연히 실패하지 않는다&rdquo;</span>
+          <a class="src" href="https://aeon.co/essays/neuroqueer-expression-and-the-limits-of-social-tolerance" target="_blank" rel="noopener">Aeon · Siobhan Unwin &amp; Kathryne Ford (2026-09-03) ↗</a>
+          <p><b>&ldquo;They reveal that our systems do not fail accidentally. They fail predictably, repeatably, along familiar lines, for similar people.&rdquo;</b> 언윈은 커틴대학교 교육학 부강사로 비판적 장애학을 연구하고, 포드는 같은 대학 교육대학원에서 생애 글쓰기와 문화적 기억을 다룹니다. 두 사람이 빅토리아 시대의 예법, 에이즈 시기의 &lsquo;점잖음의 정치&rsquo;, 오늘의 치료 규범을 나란히 놓고 내리는 결론이 저 문장입니다 — 실패는 사고가 아니라 <b>패턴</b>이고, <b>늘 비슷한 사람들에게, 늘 익숙한 선을 따라</b> 일어납니다. 그래서 두 사람은 이 장면들을 개인의 실패가 아니라 <b>제도의 한계가 드러난 순간</b>으로 읽자고 합니다. 요금 미납으로 전화가 끊긴 사람이 109에 닿지 못했던 지난 시간은 정확히 이 문장의 사례입니다. 누구도 그 사람을 배제하려 하지 않았는데, <b>끊기는 사람은 늘 같은 쪽에 있었습니다.</b></p></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">&ldquo;그러므로 버려지는 사람이 없다&rdquo;</span>
+          <a class="src" href="https://ctext.org/dao-de-jing" target="_blank" rel="noopener">『노자』 제27장 · Chinese Text Project ↗</a>
+          <a class="src" href="http://usjournal.kr/news/newsview.php?ncode=179512929555676" target="_blank" rel="noopener">한국어 대역 · usjournal.kr ↗</a>
+          <p><b>선행무철적, 선언무하적 … 시이성인 상선구인, 고무기인, 상선구물, 고무기물, 시위습명(善行無轍迹，善言無瑕迹 … 是以聖人 常善救人，故無棄人，常善救物，故無棄物，是謂襲明)</b> — 잘 가는 이는 바퀴 자국을 남기지 않고, 잘 하는 말에는 흠이 없으며, 잘 닫은 것은 빗장이 없어도 열리지 않고, 잘 묶은 것은 끈이 없어도 풀리지 않는다. <b>그러므로 성인은 늘 사람을 잘 구하니 버려지는 사람이 없고, 늘 사물을 잘 구하니 버려지는 사물이 없다. 이것을 일러 습명(襲明), 밝음을 껴입는다 한다.</b><br><br>
+          읽는 순서가 중요합니다. 노자는 <b>無棄人</b>(버려지는 사람이 없음)을 착한 마음의 결과로 두지 않고, 앞에 나열한 <b>잘 만든 장치들의 결론</b>으로 둡니다. 빗장 없이 닫히는 문, 끈 없이 묶이는 매듭 — 티 나지 않게, 애쓰는 기색 없이 작동하는 것들입니다. 그리고 이어지는 문장이 오늘의 핵심입니다 — <b>&ldquo;선한 사람은 선하지 못한 사람의 스승이고, 선하지 못한 사람은 선한 사람의 자산(資)이다.&rdquo;</b> 돕는 쪽과 도움받는 쪽을 위아래로 세우지 않습니다. 자기 스승을 귀히 여기지 않고 자기 자산을 아끼지 않으면 아무리 지혜로워도 크게 미혹된다고 덧붙입니다. <b>잠금화면에 번호 하나를 올려 두는 일</b>은 노자가 말한 빗장 없는 문에 꽤 가깝습니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">&ldquo;수치심은 침묵과 고립을 먹고 자라고, 드러남과 연결에서 옅어진다&rdquo;</span>
+          <a class="src" href="https://psyche.co/guides/how-to-cope-with-shame-by-understanding-where-it-comes-from" target="_blank" rel="noopener">Psyche Guides · Michaela B Swee &amp; Susan Murray ↗</a>
+          <p><b>&ldquo;Shame thrives on silence and isolation – but it fades with exposure and connection.&rdquo;</b> 스위는 매사추세츠 벨몬트 맥린병원 트라우마 센터의 임상심리학자이자 하버드 의대 심리학 강사이고, 머레이는 UC샌디에이고 섭식장애 치료연구센터의 임상심리학자입니다. 두 사람은 수치심의 출처를 대개 <b>어린 시절 받은 모욕적인 메시지</b>(명시적이든 암묵적이든)나 학대·방임·사회적 거절·외상 경험에서 찾습니다. 그리고 해소의 조건으로 <b>안전한 관계 안에서의 공유</b>를 듭니다 — 그래야 <b>&ldquo;결함이 있다고 스스로 여기는 모습에도 불구하고 남들이 나를 받아들인다&rdquo;</b>는 것을 겪게 되기 때문입니다.<br><br>
+          여기서 행정이 배울 것이 하나 있습니다. 수치심은 <b>혼자 남겨졌다는 감각</b>에서 커지는데, 신청주의는 구조적으로 사람을 혼자 세웁니다. 신청서를 쓰는 일은 <b>&ldquo;나는 도움이 필요한 사람입니다&rdquo;를 문서로 선언하는 일</b>이기 때문입니다. 그래서 자동 지정·자동 안내는 편의 장치가 아니라 <b>수치심을 덜어 주는 장치</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">&ldquo;수치심은 침묵을 먹고 산다&rdquo;</span>
+          <a class="src" href="https://brevity.wordpress.com/2023/12/05/taboo/" target="_blank" rel="noopener">The Brevity Blog · Katie Bannon (2023-12-05) ↗</a>
+          <p><b>&ldquo;Shame feeds on silence. Putting words on the page and sharing them with readers breaks down these barriers, laying the groundwork for more openness, acceptance, and community.&rdquo;</b> 배넌은 금기시되는 주제 — 정신질환, 성폭력, 폭력 — 를 다룬 글이 역설적으로 가장 강한 논픽션이 된다고 씁니다. 근거는 감동이 아니라 <b>작동 방식</b>입니다. 부끄러운 것을 어둠 밖으로 끌어내면 그 힘이 줄어드는데, 이유는 그것이 <b>유한해지고 가장자리가 생기기</b> 때문입니다. 이름이 없고 경계가 없을 때 가장 크게 보이던 것이, 문장이 되는 순간 크기를 갖게 됩니다.<br><br>
+          쓰는 사람에게 이 대목이 그대로 닿습니다. 쓰는 사람이 자기 이야기를 내놓는 일은 고백이 아니라 <b>가장자리를 그어 주는 작업</b>입니다. 그리고 그 가장자리는 쓰는 사람만 갖는 것이 아닙니다 — 같은 자리에 있던 독자가 <b>자기 것도 크기를 가질 수 있다는 것</b>을 그 글에서 봅니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">&ldquo;약을 처방하는 대신 동네 커뮤니티를 연결한다&rdquo;</span>
+          <a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003266481" target="_blank" rel="noopener">오마이뉴스 · 나현·이혜진(희망제작소) (2026-09-11) ↗</a>
+          <p>대구에서 진행 중인 <b>외로움 연결 실험</b>을 다룬 글입니다. 핵심은 <b>사회적 처방(social prescribing)</b> — <b>&ldquo;약을 처방하는 대신 동네 커뮤니티나 활동을 연결해 고립감을 해소하는&rdquo;</b> 방식을 대구의 조건에 맞게 만들어 보는 시도입니다. 링크웨이브 김하진 대표의 한 마디가 실려 있습니다 — <b>&ldquo;외로움에 나이가 어디 있겠습니까~&rdquo;</b>. 그리고 이 실험을 시작한 마음을 글은 이렇게 적습니다 — <b>&ldquo;이 도시에서 사람들이 조금 덜 외롭고, 서로에게 조금 더 다정하게 연결될 수 있었으면 좋겠다는 마음이요.&rdquo;</b><br><br>
+          &lsquo;처방&rsquo;이라는 낱말이 눈에 걸립니다. 연결을 <b>권유</b>가 아니라 <b>처방</b>으로 두면, 그것은 개인이 알아서 할 일에서 <b>누군가 책임지고 이어 주어야 할 일</b>로 옮겨 갑니다. 손을 내미는 일에서 손을 잡게 만드는 일로 한 칸 옮겨 가는 자리가 여기입니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">&ldquo;고통받는 벗이 있거든
+그의 고통에 쉴 자리가 되어라 —
+다만 딱딱한 침상,
+야전침대 같은 자리가 되어라.&rdquo;
+
+&ldquo;내가 고통받는 자를 고통받는 모습으로 보았다는 것,
+그 사람의 수치 때문에 나는 부끄러웠다.
+그리고 그를 도왔을 때,
+나는 그의 자존심을 모질게 해쳤다.&rdquo;
+
+&ldquo;모든 큰 사랑은 그 모든 동정보다 위에 있다.
+큰 사랑은 사랑하는 것을 아직도 — 창조하려 하기 때문이다!&rdquo;</p>
+          <p class="cite">프리드리히 니체, 『차라투스트라는 이렇게 말했다』 제2부 「동정하는 자들에 대하여(Von den Mitleidigen)」 (1883)
+            <span class="orig">&ldquo;Hast du aber einen leidenden Freund, so sei seinem Leiden eine Ruhestätte, doch gleichsam ein hartes Bett, ein Feldbett&rdquo; / &ldquo;Denn daß ich den Leidenden leidend sah, dessen schämte ich mich um seiner Scham willen; und als ich ihm half, da verging ich mich hart an seinem Stolze.&rdquo; / &ldquo;alle große Liebe ist noch über all ihrem Mitleiden: denn sie will das Geliebte noch — schaffen!&rdquo;</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/zarathustra/von-den-mitleidigen" target="_blank" rel="noopener">원문 대조 · textlog.de ↗</a></p>
+          <p class="memo">배달 메모 — 오늘 등대에서 노자는 <b>버려지는 사람이 없게 하는 것</b>을 말하고, 스위와 머레이는 <b>수치심이 연결에서 옅어진다</b>고 말했습니다. 니체는 같은 자리에서 훨씬 불편한 것을 봅니다 — <b>도움 그 자체가 사람을 상하게 할 수 있다</b>는 것.<br><br>
+          핵심 낱말은 <b>Scham(수치)</b>과 <b>Stolz(자존심)</b>입니다. 니체는 자기가 부끄러웠던 이유를 정확히 적습니다 — 고통받는 사람을 본 것이 미안해서가 아니라, <b>그 사람의 수치 때문에 내가 부끄러웠다(um seiner Scham willen)</b>. 도움받는 사람의 부끄러움이 돕는 사람에게 옮겨 붙는 순간입니다. 그리고 이어집니다 — <b>&ldquo;그를 도왔을 때 나는 그의 자존심을 모질게 해쳤다.&rdquo;</b> 도움이 잘못돼서가 아니라, <b>도움이 성공했기 때문에</b> 일어난 일입니다.<br><br>
+          그래서 처방이 <b>야전침대(Feldbett)</b>입니다. 쉴 자리를 주지 말라는 것이 아닙니다. 자리는 반드시 주되 <b>푹신하지 않게</b> 두라는 것 — 누울 수는 있지만 눌러앉게 되지는 않는 자리. 109가 정확히 그 모양입니다. 상담전화는 대신 살아 주지 않고, 문제를 해결해 주지도 않습니다. <b>다만 끊기지 않습니다.</b><br><br>
+          마지막 문장이 무게중심입니다 — <b>&ldquo;큰 사랑은 사랑하는 것을 아직도 창조하려 한다(sie will das Geliebte noch — schaffen).&rdquo;</b> 니체가 동정(Mitleiden)보다 위에 두는 것은 더 뜨거운 감정이 아니라 <b>만드는 일</b>입니다. 감정에 머물면 상대는 도움받는 자리에 고정되지만, 만들려는 사람은 <b>상대가 스스로 설 수 있는 자리를 짓습니다.</b> 도움을 건네는 사람이 배울 자리가 여기입니다 — 상대의 자존심이 상하지 않도록 문장을 뒤집는 일, <b>다정함의 방향을 슬쩍 감추는 솜씨.</b> 니체가 부끄러워한 그 자리를 피해 가는 길은 마음을 줄이는 것이 아니라 <b>더 잘 짓는 것</b>입니다.</p>
+        </div>
+      </section>
+
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>니체 원문은 한 곳에서만 대조했습니다.</b> textlog.de에서 「동정하는 자들에 대하여」의 세 대목(Feldbett · Scham/Stolz · schaffen)을 직접 확인했으나, 2차 대조로 열려던 zeno.org는 서버 연결이 거부되었습니다. 널리 인용되는 대목이라 실었으나 <b>한 곳 대조</b>임을 밝혀 둡니다.</li>
+          <li><b>『노자』 원문은 Chinese Text Project 본문을 직접 열지 못했습니다.</b> ctext.org가 자동 접근을 차단하고 있어, 검색으로 되돌아온 원문과 한국어 대역 자료를 대조해 옮겼습니다. 링크는 직접 열어 보실 수 있게 두었습니다.</li>
+          <li><b>109 긴급통신 지정 소식의 원 보도는 9월 8일자입니다.</b> 어제(11일) 정책브리핑에 다시 실리며 돌았고, 시행일이 <b>10월 1일</b>이라 오늘의 결로 세웠습니다. 48시간 안의 새 소식은 아니라는 점을 밝혀 둡니다.</li>
+          <li><b>날씨는 중기예보 값입니다.</b> 오늘자 단기예보 화면을 직접 열지 못해 &lsquo;가끔 구름많음, 아침 14~22℃ 낮 24~30℃&rsquo;를 그대로 옮겼습니다. 지역별 실제 기온은 다를 수 있습니다.</li>
+          <li><b>임시공휴일(9/28)은 아직 거론 단계입니다.</b> 확정된 사안이 아니라 언론이 가능성을 짚은 수준이므로 그대로 적었습니다.</li>
+          <li><b>뺀 것</b> — 기후에너지환경부 태양광 산업경쟁력 강화 위원회 출범, 교육부 우즈베키스탄 한국어교육 거점 조성(부하라 국립사범대 한국어학과 신설·정원 240명)은 어제 정책브리핑에 함께 실렸으나 오늘의 결과 결이 달라 넣지 않았습니다. 스토리랩북스 에세이 공모전(9/16~10/15)도 다음 주 일정이라 미뤘습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 누군가에게 무언가를 건네시게 되거든, 건네기 전에 <b>문장을 한 번만 뒤집어 보십시오.</b> 받는 사람이 빚지지 않을 쪽으로. 그 한 번이 손을 내미는 일과 손을 잡게 만드는 일의 차이입니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+  </div>
+</body>
+</html>
