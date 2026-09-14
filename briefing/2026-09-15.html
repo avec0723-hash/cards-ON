@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-15 (화) · 나눔용 판</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 15일 · 화요일</p>
+      <p class="opening">9월 보름째, 화요일입니다. 전국이 대체로 맑고 남부는 가끔 구름이 많습니다. 아침 12~20℃, 낮 24~29℃로 일교차가 10~15도입니다. 강원동해안·산지와 경상권동해안은 대체로 흐리겠습니다. 추석까지 열흘 남았습니다.<br>
+      오늘의 결은 두 숫자 사이의 거리에서 나옵니다. 여수 섬박람회는 713억 원을 들여 <b>300만 명</b>을 목표로 했는데, 누적 관람객은 <b>10만 명대</b>입니다. 그 빈자리를 두고 공무원 관람을 출장으로 처리해 준다는 공문이 나갔습니다. 같은 주, 서울에 온 칠레 작가 라바투트는 책을 읽는 사람이 <b>극소수</b>라는 사실에 &ldquo;굉장한 자부심&rdquo;을 느낀다고 말했습니다. 그래서 오늘의 결을 이렇게 세웁니다 — <b>숫자를 채우는 일과 한 사람에게 닿는 일은 다르다.</b> 어제가 신뢰는 사거나 빌릴 수 없다는 자리였다면, 오늘은 그다음 걸음 — <b>믿을 만한 것을 만든 뒤, 몇 사람에게 닿아야 충분한가</b>의 자리입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 여수 섬박람회, 목표 300만 명에 누적 10만 명대 — 공무원 관람을 &lsquo;출장&rsquo;으로 처리해 준다는 공문</span>
+          <a class="src" href="https://www.khan.co.kr/article/202609142121015" target="_blank" rel="noopener">경향신문 · 고귀한 (09-14) ↗</a>
+          <p>전남광주시가 10일 공문으로 여수세계섬박람회 관람을 <b>&ldquo;출장 처리가 가능하다&rdquo;</b>고 안내했습니다. 부서장에게는 직원 참여를 독려하고 일정을 나누라고 권했고, 대상은 업무 연관성과 상관없는 <b>전 직원</b>이었습니다. 무안청사 직원은 교통비·일비를, 광주청사 직원은 <b>1인당 1만 원</b>을 일괄로 받을 수 있습니다. 박람회는 국비·지방비 <b>713억 원</b>을 들여 11월 4일까지 <b>300만 명</b>을 모으겠다는 목표로 5일 개막했는데, 누적 관람객은 <b>10만 명대</b>입니다. 행정안전부 &lsquo;지방공무원 복무에 관한 예규&rsquo;는 공무와 무관한 사항을 출장으로 처리하지 못하게 합니다. 한 공무원은 이를 <b>&ldquo;행사가 부실하다는 방증&rdquo;</b>이라 했고, 시 관계자는 <b>&ldquo;기존 국제행사 때도 동일하게 출장 처리했고 문제가 없었다&rdquo;</b>고 답했습니다.<br><br>
+          관람객 수는 원래 <b>사람들이 얼마나 오고 싶어 했는지</b>를 보여 주는 숫자입니다. 그 숫자가 목표가 되면, 오고 싶은 사람을 부르는 대신 <b>세어질 사람을 데려오게 됩니다.</b> 현장 공무원에게 이것은 이론이 아니라 출장 신청서 한 장의 문제입니다 — 그 한 장의 &lsquo;출장 목적&rsquo; 칸에 무엇을 적을 것인가. 🗼의 캠벨의 법칙이 바로 이 장면입니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 공공기관 &ldquo;증원하려면 정원 2% 감축부터&rdquo; — 소비자원 신입 직원 한 명이 사건 400건</span>
+          <a class="src" href="https://www.laborplus.co.kr/news/articleView.html?idxno=41472" target="_blank" rel="noopener">참여와혁신 · 김온새봄 (09-14) ↗</a>
+          <p>공공운수노조가 14일 청와대 앞에서, 재정경제부가 공공기관 증원 신청 양식에 <b>&ldquo;감축 소요를 최대한 발굴(2025년 말 알리오 전체 정원 기준 최소 2% 이상)&rdquo;</b>이라는 조건을 넣었다고 밝혔습니다. 노조에 따르면 철도 전기 분야 <b>286명</b> 충원 계획이 무산됐고, 여객 안전관리 <b>40명</b> 충원도 합의되지 않았습니다. 한국소비자원은 법정 처리 기한이 <b>1개월</b>인데 결과가 나오기까지 <b>2년</b>이 걸리고, 신입 직원 한 명이 <b>400건 넘는 사건</b>을 맡고 있다고 합니다. 강성규 본부장의 말 — <b>&ldquo;한쪽의 인력을 빼서 다른 쪽에 채우라는 것은 &lsquo;증원&rsquo;이 아니다.&rdquo;</b> 노조는 21일 청와대 앞 1박 2일 노숙 농성을 예고했습니다.<br><br>
+          정원표의 합계는 맞습니다. 빼고 더하면 0이니까요. 그러나 그 표에는 <b>한 사람이 맡은 사건 수</b>를 적는 칸이 없습니다. 1개월 기한이 2년이 되는 동안, 숫자는 균형을 이루고 사람은 기울어집니다. 위의 섬박람회가 <b>없는 사람을 세어 넣은</b> 일이라면, 이것은 <b>있는 부담을 세지 않은</b> 일입니다. (숫자는 노조가 밝힌 것이고, 재정경제부의 설명은 확인하지 못했습니다.)</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 이주장애인 9,703명, 중증 발달장애인 통합돌봄 이용자는 5년간 &lsquo;0명&rsquo;</span>
+          <a class="src" href="https://www.ntoday.co.kr/news/articleView.html?idxno=129390" target="_blank" rel="noopener">투데이신문 (09-14) ↗</a>
+          <p>국회 보건복지위원회 서미화 의원이 보건복지부에서 받은 자료에 따르면, 국내에 등록한 이주장애인은 올해 6월 기준 <b>9,703명</b>으로 2022년보다 <b>69.9%</b> 늘었습니다. 그러나 장애인연금·활동지원·발달장애인 지원 같은 주요 제도를 받을 수 있는 사람은 난민·특별기여자 등 <b>113명(1.2%)</b>뿐입니다. 지난해 일상생활 지원을 이용한 이주장애인은 <b>29명</b>, 중증 발달장애인 통합돌봄은 등록된 발달장애 이주민이 <b>489명</b>인데도 5년 동안 이용자가 <b>0명</b>이었습니다. 서 의원은 국내에 생활 기반을 둔 이주장애인이 일률적으로 빠져 있다며, 영주권자·결혼이민자부터 단계적으로 대상을 넓히자고 했습니다. 유엔 장애인권리위원회도 체류 자격과 상관없는 서비스 접근을 여러 차례 권고해 왔습니다.<br><br>
+          0은 필요한 사람이 없었다는 뜻이 아닙니다. <b>셀 수 있는 자격이 없었다</b>는 뜻입니다. 489명이 있는 자리에서 이용자 0명은 수요의 숫자가 아니라 <b>문의 모양</b>을 보여 주는 숫자입니다. 지난 10일 발달장애인 돌봄 국가책임제가 발표된 뒤라, 이 0이 더 또렷하게 보입니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 칠레 작가 라바투트 &ldquo;나는 그 극소수에 속한다는 것에 굉장한 자부심을 느낍니다&rdquo;</span>
+          <a class="src" href="https://www.hankookilbo.com/news/article/A2026091310570004139" target="_blank" rel="noopener">한국일보 · 김나연 (09-15) ↗</a>
+          <p>『우리가 세상을 이해하길 멈출 때』로 부커상 최종 후보에 올랐던 칠레 작가 벵하민 라바투트가 한국문학번역원 초청으로 <b>2026 서울국제작가축제(11~16일)</b>에 참가하며 처음 한국에 왔습니다. 낮은 독서율을 묻는 자리에서 그는 뜻밖의 답을 했습니다 — <b>&ldquo;나는 사람들이 책을 읽든 말든 신경 안 씁니다.&rdquo;</b> 이유는 이렇습니다. <b>&ldquo;문학은 사랑과도 같은, 내밀하고 개인적인 관계를 맺는 대상이니까요.&rdquo;</b> 그리고 덧붙였습니다. <b>&ldquo;나는 그 극소수에 속한다는 것에 굉장한 자부심을 느낍니다.&rdquo;</b><br><br>
+          독서율을 걱정하는 기사들 사이에서 이 말은 오만하게 들릴 수 있습니다. 그러나 그가 댄 근거는 <b>사랑</b>입니다. 사랑의 값을 몇 사람과 나눴는지로 재지 않듯, 한 권의 책이 한 사람과 맺는 관계도 부수로 재지 않는다는 것입니다. 쓰는 사람에게 이 문장은 <b>&ldquo;몇 명이 읽었나&rdquo;와 &ldquo;누구에게 닿았나&rdquo;를 떼어 놓게</b> 해 줍니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 강진군, AI를 잘 쓴 공무원에게 근무성적평정 가점을 검토합니다</span>
+          <a class="src" href="https://www.kpinews.kr/newsView/1065588292481532" target="_blank" rel="noopener">KPI뉴스 · 강성명 (09-14) ↗</a>
+          <p>전남 강진군이 AI 활용 성과를 포상금·연수에 더해 <b>근무성적평정 가점</b>과도 잇는 방안을 검토하고 있습니다. 평가 칸은 넷입니다 — ①AI 자격증 취득·교육 이수 ②대내외 수상 실적 ③실제 업무 적용 성과 ④<b>업무 재설계로 행정 효율을 높인 성과</b>. 군은 &lsquo;AI 행정의 달인&rsquo; 3명을 뽑아 포상금 <b>808만 원</b>을 줬고, 군이 밝힌 AI 활용량은 약 <b>40배</b> 늘었습니다. 군수는 이렇게 말했습니다 — <b>&ldquo;AI는 일부 직원의 특별한 기술이 아니라 모든 공직자가 행정 현장에서 활용해야 할 기본 역량.&rdquo;</b><br><br>
+          눈에 걸리는 것은 넷째 칸입니다. 자격증과 수상은 <b>세기 쉽고</b>, 업무 재설계는 <b>세기 어렵습니다.</b> 평정에 들어가는 순간 사람들은 대개 세기 쉬운 칸부터 채웁니다. 이 제도의 성패는 &lsquo;활용량 40배&rsquo;라는 숫자보다, <b>그 40배가 누구의 어떤 하루를 바꿨는지 묻는 칸이 끝까지 살아남는가</b>에 달려 있을 것입니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 서점 진열대를 덮친 AI 책 — 책은 19.2배 늘고 수입은 8.9배 늘었습니다</span>
+          <a class="src" href="https://www.fortunekorea.co.kr/news/articleView.html?idxno=54007" target="_blank" rel="noopener">포춘코리아 · Sasha Rogelberg·김다린 (09-14) ↗</a>
+          <p>미국 스토니브룩대 연구진이 아마존 자가출판 장르소설 <b>14,419편</b>을 분석하니 <b>2,880편(약 20%)</b>에 AI가 쓴 내용이 25% 넘게 들어 있었습니다. 업체 Originality.AI는 1년 동안 아마존에 올라온 종교서 약 2,000권 가운데 <b>63%</b>에서 거대언어모델의 흔적을 찾았습니다. 기사에 따르면 3년 사이 책의 수는 <b>19.2배</b> 늘었지만 전체 수입은 <b>8.9배</b> 느는 데 그쳐 <b>권당 수입이 줄었습니다.</b> 스토니브룩대 투힌 차크라바티 교수는 추천 알고리즘이 AI 책을 더 자주 보여 주면서 사람 작가를 검색 결과 아래로 밀어내는 순환이 생길 수 있다고 봤습니다. 아마존은 AI 사용 여부를 밝히게 하고 자가출판 등록을 하루 3권으로 제한하고 있습니다.<br><br>
+          라바투트의 소수가 <b>고른 적음</b>이라면, 여기의 소수는 <b>밀려난 적음</b>입니다. 책이 19배 늘어나는 동안 한 권이 한 사람에게 닿을 몫은 오히려 줄었습니다. 많아질수록 한 사람에게 닿기 어려워지는 구조 — 🗼의 노자가 오래전에 여섯 글자로 적어 둔 모양입니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 숫자를 채우는 일과 한 사람에게 닿는 일은 다르다</span></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">&ldquo;나에게는 몇 사람으로 충분하고, 한 사람으로 충분하고, 아무도 없어도 충분하다&rdquo;</span>
+          <a class="src" href="https://www.thelatinlibrary.com/sen/seneca.ep1.shtml" target="_blank" rel="noopener">세네카 『도덕 서한』 제7서한 · The Latin Library ↗</a>
+          <p>세네카는 군중 속에 섞이는 일을 경계하는 편지 끝에 좋은 말 셋을 모아 둡니다. 데모크리토스 — <b>&ldquo;Unus mihi pro populo est, et populus pro uno(내게는 한 사람이 군중만 하고, 군중이 한 사람만 하다).&rdquo;</b> 이어 누구의 말인지 분명치 않다며 전하는 답 — 극소수에게만 닿을 기술에 왜 그렇게 공을 들이느냐는 물음에, <b>&ldquo;Satis sunt mihi pauci, satis est unus, satis est nullus(나에게는 몇 사람으로 충분하고, 한 사람으로 충분하고, 아무도 없어도 충분하다).&rdquo;</b> 그리고 에피쿠로스가 공부 동무 한 사람에게 쓴 편지 — <b>&ldquo;Haec ego non multis, sed tibi; satis enim magnum alter alteri theatrum sumus(이것을 나는 여럿에게가 아니라 너에게 쓴다. 우리는 서로에게 충분히 큰 극장이니까).&rdquo;</b> 세네카는 이렇게 닫습니다. <b>&ldquo;많은 이가 너를 칭찬한다. 그러나 네가 여럿이 알아듣는 그런 사람이라면, 스스로에게 흡족할 까닭이 있겠느냐? 너의 좋은 것들은 안을 향하게 하라(introrsus bona tua spectent).&rdquo;</b><br><br>
+          둘째 말의 순서가 이 편지의 심장입니다 — 몇 사람(pauci) → 한 사람(unus) → 아무도 없음(nullus). 객석이 줄어드는 사다리를 끝까지 내려가도 &lsquo;충분하다&rsquo;가 흔들리지 않는 것은, 공들임의 이유가 처음부터 <b>객석에 있지 않았기</b> 때문입니다. 에피쿠로스의 극장은 좌석이 둘뿐이라 <b>빈자리가 생기지 않습니다.</b> 300만 석을 지은 극장만이 빈 좌석을 채울 사람을 찾아 나서야 합니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">&ldquo;적으면 얻고, 많으면 미혹된다&rdquo;</span>
+          <a class="src" href="https://zh.wikisource.org/zh-hant/道德經_(王弼本)" target="_blank" rel="noopener">『도덕경』 제22장(왕필본) · 중국어 위키문헌 ↗</a>
+          <p><b>曲則全，枉則直，窪則盈，敝則新，少則得，多則惑。是以聖人抱一為天下式。不自見故明，不自是故彰，不自伐故有功，不自矜故長。</b> — 굽으면 온전해지고, 휘면 곧아지고, 패이면 채워지고, 해지면 새로워진다. <b>적으면 얻고, 많으면 미혹된다.</b> 그래서 성인은 <b>하나를 품어</b> 세상의 본보기가 된다. 스스로 드러내지 않으니 밝고, 스스로 옳다 하지 않으니 빛나고, <b>스스로 자랑하지 않으니 공이 있고</b>, 스스로 뽐내지 않으니 오래간다.<br><br>
+          惑(혹)은 틀린다는 뜻이 아니라 <b>갈피를 잃는다</b>는 뜻입니다. 많아서 틀리는 것이 아니라, 많아서 무엇을 향하고 있었는지 잊는 것입니다. 노자의 처방은 줄이는 기술이 아니라 <b>抱一 — 하나를 품는 것</b>입니다. 그리고 한 줄 뒤의 <b>不自伐故有功</b>(스스로 공을 세어 내세우지 않으니 공이 남는다)은 오늘 항로 통보 전체에 걸리는 문장입니다. 실적을 스스로 세어 내세우기 시작하면, 세는 일이 공을 대신합니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">&ldquo;지표가 의사결정에 쓰일수록, 그것이 지켜보려던 과정 자체를 비튼다&rdquo;</span>
+          <a class="src" href="https://en.wikipedia.org/wiki/Campbell%27s_law" target="_blank" rel="noopener">Donald T. Campbell (1979) · 위키백과 「Campbell's law」 ↗</a>
+          <p><b>&ldquo;The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it will be to distort and corrupt the social processes it is intended to monitor.&rdquo;</b> — 어떤 양적 사회 지표든 사회적 의사결정에 많이 쓰일수록 부패 압력을 더 받고, <b>그것이 지켜보려던 사회적 과정 자체를 더 비틀고 망가뜨리기 쉽다.</b> 사회과학 방법론자 도널드 캠벨이 「Assessing the Impact of Planned Social Change」(<i>Evaluation and Program Planning</i>, 1979)에서 정리한 이 원리는 흔히 &lsquo;캠벨의 법칙&rsquo;이라 불립니다. 그는 1976년 교육을 예로 들어, 시험 점수가 가르침의 목표가 되면 점수는 교육 상태를 보여 주는 지표로서 가치를 잃고 교육 과정마저 바람직하지 않은 방향으로 비튼다고 썼습니다.<br><br>
+          이 문장에서 무서운 대목은 <b>앞부분(지표가 망가진다)이 아니라 뒷부분(과정이 망가진다)</b>입니다. 관람객 수를 재려던 박람회가 공무원의 출장이라는 과정을 비틀었습니다. 정원 합계를 맞추려던 표가 소비자원의 사건 처리라는 과정을 비틀었습니다. 그래서 대책도 &ldquo;더 정확한 숫자&rdquo;에 있지 않고, 숫자 옆에 <b>그 숫자가 원래 가리키던 사람의 하루</b>를 한 줄 함께 적게 하는 데 있습니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">&ldquo;밤의 가장 고요한 시간에 스스로에게 물어보십시오 — 나는 써야만 하는가?&rdquo;</span>
+          <a class="src" href="https://www.themarginalian.org/2016/10/04/rilke-letters-to-a-young-poet-writing/" target="_blank" rel="noopener">The Marginalian · Maria Popova (2016-10-04) ↗</a>
+          <p>자기 시를 보내며 잘 썼는지 물어 온 젊은 시인에게, 릴케는 『젊은 시인에게 보내는 편지』의 첫 편지에서 평가 대신 질문을 돌려줍니다. <b>&ldquo;This above all — ask yourself in the stillest hour of your night: must I write?&rdquo;</b> 그리고 좋은 작품의 기준을 하나로 좁힙니다. <b>&ldquo;A work of art is good if it has sprung from necessity. In this nature of its origin lies the judgment of it: there is no other.&rdquo;</b> — 예술 작품은 필연에서 솟았을 때 좋다. 그 기원의 성질 안에 판단이 있다. <b>다른 판단은 없다.</b><br><br>
+          &ldquo;there is no other&rdquo; — 이 네 낱말이 조회수·판매 부수·순위표를 한꺼번에 판단의 자리에서 내려놓습니다. 몇 명이 읽을지 묻기 전에 <b>반드시 써야 했는가</b>를 먼저 묻게 되면, 세네카의 &ldquo;아무도 없어도 충분하다&rdquo;는 체념이 아니라 <b>순서의 결과</b>가 됩니다. 필연에서 나온 글은 이미 한 사람 — 쓰는 사람 자신 — 에게 닿았기 때문입니다.</p></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">&ldquo;숫자가 목표가 되는 순간 성과관리는 형식에 머물고 만다&rdquo;</span>
+          <a class="src" href="https://www.jeongpil.com/2559239" target="_blank" rel="noopener">正筆 · 김창석 「성과관리·예산 편성의 문제」 (2026-06-12) ↗</a>
+          <p>김창석은 경기도의회 오창준 의원이 짚은 예산 집행률 저조와 형식적인 성과지표에서 출발해, 공공부문과 기업이 함께 앓는 병을 짚습니다 — 실제 성과 대신 <b>재기 쉬운 숫자</b>를 좇는 것. 글의 한 대목 — <b>&ldquo;성과 달성률이 180%를 넘었다고 해서 균형발전이 그만큼 이뤄졌다고 평가할 수는 없다.&rdquo;</b> 그리고 행정에 이렇게 되묻습니다. <b>&ldquo;행정의 성과는 숫자를 채우는 데 있는 것이 아니라 도민이 체감할 수 있는 변화를 만드는 데 있다.&rdquo;</b><br><br>
+          180%라는 숫자가 오늘 등대에서 가장 정직한 경고입니다. 목표를 두 배 가까이 넘긴 숫자는 자랑이기 전에, <b>목표가 너무 낮았거나 지표를 잘못 골랐다는 신호</b>일 수 있습니다. 캠벨의 법칙이 교과서의 문장이라면, 이 칼럼은 그 법칙이 <b>결재판 위에서</b> 어떻게 보이는지를 적은 한국어 판본입니다.</p></div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">&ldquo;글을 쓸 때 사람은
+이해받기만을 바라지 않는다.
+똑같이 분명하게, 이해받지 않기도 바란다.&rdquo;</p>
+          <p class="cite">프리드리히 니체, 『즐거운 학문』 제5권 「우리 두려움 없는 자들(Wir Furchtlosen)」 381절 「이해 가능성이라는 물음에 대하여(Zur Frage der Verständlichkeit)」 (제5권 1887)
+            <span class="orig">&ldquo;Man will nicht nur verstanden werden, wenn man schreibt, sondern ebenso gewiss auch nicht verstanden werden.&rdquo;</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/zur-frage-der-verstaendlichkeit" target="_blank" rel="noopener">원문 대조 · textlog.de ↗</a>
+            <a class="src" href="http://www.zeno.org/Philosophie/M/Nietzsche,+Friedrich/Die+fr%C3%B6hliche+Wissenschaft/F%C3%BCnftes+Buch.+Wir+Furchtlosen/381.+Zur+Frage+der+Verst%C3%A4ndlichkeit" target="_blank" rel="noopener">zeno.org ↗</a></p>
+          <p class="memo">배달 메모 — 첫 문장 뒤는 이렇게 이어집니다. <i>&ldquo;누군가가 어떤 책을 알아듣기 어렵다고 느낀다고 해서, 그것이 그 책에 대한 반론이 되는 것은 전혀 아니다. 어쩌면 바로 그것이 쓴 사람의 뜻이었을지 모른다 — 그는 &lsquo;아무나&rsquo;에게 이해받기를 원하지 않았던 것이다.&rdquo;</i><br><br>
+          눈여겨볼 자리는 니체가 따옴표를 친 <b>&bdquo;irgend Jemand&ldquo;(아무나)</b>입니다. 니체가 거절하는 것은 독자가 아니라 <b>&lsquo;아무나&rsquo;라는 자리</b>입니다. 300만이라는 숫자는 &lsquo;아무나&rsquo;로도 채울 수 있습니다. 출장 공문으로도 채울 수 있습니다. 그러나 한 사람은 아무나로 채워지지 않습니다.<br><br>
+          그리고 같은 절의 다음 대목 — <i>&ldquo;문체의 더 섬세한 법칙들은 모두 여기서 비롯된다. 그것들은 멀리 두고, 거리를 만들고, &lsquo;들어오는 길&rsquo;을 막는다 … 그러면서 동시에, 귀가 우리와 닮은 이들에게는 귀를 열어 준다(Denen die Ohren aufmachen, die uns mit den Ohren verwandt sind).&rdquo;</i> 닫는 일과 여는 일이 <b>한 동작</b>입니다. 세네카가 전한 에피쿠로스의 &ldquo;여럿에게가 아니라 너에게&rdquo;가 바로 그 동작이고, 라바투트가 말한 &ldquo;극소수에 속한다는 자부심&rdquo;도 같은 결입니다.<br><br>
+          한 가지는 조심해 둡니다. 이 절의 &ldquo;더 고귀한 정신(vornehmere Geist)&rdquo;은 쉽게 오만으로 읽힙니다. 오늘 이 문장이 쓸모 있는 자리는 남을 밀어내는 데가 아니라, <b>모두에게 이해받으려다 문장이 흐려질 때</b>입니다 — 누구의 귀를 향해 쓰는지 먼저 고르라는 허락. 독자는 버리는 것이 아니라 <b>고르는</b> 것입니다.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>니체 381절은 두 곳에서 대조했습니다.</b> textlog.de에서 절 전문을, zeno.org에서 첫 문장을 확인했습니다. 철자는 판본에 따라 gewiss/gewiß로 달라 textlog 판을 따랐습니다.</li>
+          <li><b>세네카 제7서한 라틴어는 The Latin Library 한 곳</b>에서 확인했고, 한국어는 이 브리핑의 직역입니다. 둘째 말은 세네카도 누구의 말인지 분명치 않다고 적었습니다(ambigitur enim de auctore). 『도덕경』 22장은 위키문헌 왕필본으로 대조했습니다.</li>
+          <li><b>릴케 문장은 The Marginalian이 실은 영어 번역</b>을 따랐고, 번역자 이름은 페이지에서 확인하지 못했습니다. <b>캠벨의 법칙 문장과 1976년 교육 사례는 위키백과 항목의 인용</b>을 따랐고, 1979년 원 논문은 직접 읽지 못했습니다.</li>
+          <li><b>김창석 칼럼은 6월 12일자</b>로 최근 글이 아닙니다. 결에 맞아 실었습니다.</li>
+          <li><b>이주장애인 기사의 의원 발언은 따옴표 없이 풀어 적었습니다.</b> 공공기관 증원 기사의 숫자는 노조가 밝힌 것이고 재정경제부의 설명은 찾지 못했습니다. 섬박람회의 &lsquo;10만 명대&rsquo;는 기사 표현입니다.</li>
+          <li><b>AI 책 기사의 &lsquo;19.2배·8.9배&rsquo;가 어떤 시장 범위의 수치인지</b>는 분명히 확인하지 못했습니다. 같은 기사의 &ldquo;앤스로픽 저작권 소송 15억 달러 합의(2026년 7월)&rdquo; 대목은 시점을 확인하지 못해 싣지 않았습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">오늘 한 번, 몇 명에게 닿을지 세기 전에 <b>누구에게 닿고 싶은지</b> 먼저 정해 보십시오. 두 사람이면 충분히 큰 극장입니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+  </div>
+</body>
+</html>
