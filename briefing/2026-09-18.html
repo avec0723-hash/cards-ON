@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-18 (금)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 18일 · 금요일</p>
+      <p class="opening">9월 18일 금요일입니다. 추석까지 이레 남았습니다.<br>
+      오늘은 제도가 <b>아직 오지 않은 것</b> 앞에 자리를 내주는 날입니다. 아이가 태어나기 전에 아버지가 쓸 수 있는 육아휴직이 오늘부터 시행되고, 서른세 해를 쉬지 않고 쓴 소설가는 자기가 갈고닦은 것이 기교가 아니라 <b>기다리는 능력</b>이었다고 적습니다. 그래서 오늘의 결을 이렇게 세웁니다 — <b>기다리는 능력은 가만히 있는 힘이 아니라, 아직 오지 않은 것 앞에 미리 서는 힘이다.</b> 어제가 보이지 않던 받침을 세어 본 날이었다면, 오늘은 <b>아직 오지 않은 것 쪽으로 몸을 돌려 보는</b> 날입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 오늘부터 시행, 「배우자 지원 3종 세트」 — 아이가 태어나기 전에도 아버지가 육아휴직을 쓴다</span>
+          <a class="src" href="https://www.korea-news.com/news/articleView.html?idxno=105000" target="_blank" rel="noopener">공무원뉴스 (09-17) ↗</a>
+          <a class="src" href="https://www.nursenews.co.kr/news/articleView.html?idxno=44310" target="_blank" rel="noopener">간호사신문 (09-17) ↗</a>
+          <p>고용노동부의 「배우자 지원 3종 세트」가 <b>오늘 9월 18일부터 본격 시행</b>됩니다. 셋입니다 — ①<b>배우자 유산·사산휴가</b> 신설(그날부터 20일 이내에 청구해 <b>5일 범위, 최초 3일 유급</b>. 우선지원대상기업 근로자는 최초 3일에 대해 통상임금 100%의 급여) ②<b>배우자 임신 중 육아휴직</b> — 임신한 배우자에게 유산·조산 등 위험이 있으면 <b>자녀가 태어나기 전에도</b> 배우자를 돌보기 위해 육아휴직을 쓸 수 있습니다 ③<b>퇴직급여 체불 법정형 상향</b>(3년 이하 징역·3천만 원 이하 벌금 → <b>5년 이하 징역·5천만 원 이하 벌금</b>). 그간 남성 근로자 지원은 <b>출산 이후로만</b> 한정돼 있었습니다.<br><br>
+          지금까지 제도가 인정한 돌봄은 <b>이미 태어난 아이</b>의 돌봄이었습니다. 오늘 바뀐 것은 대상이 아니라 <b>시점</b>입니다 — 아직 오지 않은 사람 곁에 미리 설 자리를 처음으로 법이 내주었습니다. 다만 신청 절차와 사업장의 수용은 시행 직후라 아직 확인할 수 없습니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 2027년 국가공무원 3,851명 증원 확정 — 늘리면서 동시에 상계·재배치</span>
+          <a class="src" href="https://www.mt.co.kr/policy/2026/09/01/2026090113114070132" target="_blank" rel="noopener">머니투데이 (09-01) ↗</a>
+          <p>9월 1일 국무회의에서 2027년도 정기직제 증원 규모가 <b>3,851명</b>으로 확정돼 2027년도 정부예산안에 반영됐습니다. 2년간 5,453명이 줄었던 흐름이 방향을 바꿉니다. 다만 이 숫자는 <b>신규채용 인원이 아니라 정부 조직에 둘 수 있는 정원</b>이라 실제 선발 규모와는 다릅니다. 정부는 늘리면서도 효율화를 병행한다고 밝혔습니다 — 일시적 업무에는 <b>한시정원</b>을 쓰고, 업무량이 줄거나 기능이 축소된 분야의 인력은 새 수요가 있는 곳으로 <b>상계·재배치</b>합니다. <b>최종 규모는 12월 국회 심의를 거쳐</b> 확정되고, 내년 1분기 직제 대통령령 개정으로 반영됩니다.<br><br>
+          정원은 오늘 정해지지만 사람은 1년 뒤에 옵니다. 행정의 숫자가 늘 <b>기다림의 언어</b>인 이유입니다 — 9월에 적은 칸이 채워지는지는 다음 해에야 보입니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 청년 고용률 44.1%, 28개월째 하락 — &ldquo;추석 전 청년주거복지 플랜 발표&rdquo;</span>
+          <a class="src" href="https://www.newspim.com/news/view/20260917000435" target="_blank" rel="noopener">뉴스핌 (09-17) ↗</a>
+          <a class="src" href="https://www.fnnews.com/news/202609171245598393" target="_blank" rel="noopener">파이낸셜뉴스 (09-17) ↗</a>
+          <p>한병도 더불어민주당 원내대표가 17일 정책조정회의에서, 지난달 청년 고용률이 <b>44.1%</b>로 전년 동월 대비 하락세가 <b>28개월째</b> 이어지고 있다고 밝혔습니다. 정부는 <b>추석 전 발표를 목표로</b> &lsquo;청년주거복지 플랜&rsquo;을 준비 중이며, 소득·자산의 문턱을 대폭 낮추고 품질을 높인 <b>보편형 임대주택</b> 공급 방안을 담는다고 전했습니다.<br><br>
+          28개월은 2년 넘게입니다. 한 사람의 이십 대에서 2년은 짧지 않습니다. 발표를 기다리는 쪽과 발표를 준비하는 쪽의 시간은 같은 속도로 흐르지 않습니다 — 기다림에는 늘 <b>누가 기다리는가</b>가 함께 적혀야 합니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 김경욱, 등단 30돌 소설집 오늘 출간 — &ldquo;서른세 해 동안 내가 갈고닦은 한 가지가 있다면 그것은 기다리는 능력이다&rdquo;</span>
+          <a class="src" href="https://www.ilemonde.com/news/articleView.html?idxno=30616" target="_blank" rel="noopener">르몽드디플로마티크 · 성일권 (09-14) ↗</a>
+          <a class="src" href="https://supple.kr/news/cmu5h10p9001j31628td2c2om" target="_blank" rel="noopener">서플 「9월 18일 문학 새 책」 ↗</a>
+          <p>소설가 김경욱의 <b>열 번째 소설집</b> 『도련님은 어떻게 작가가 되었나』가 오늘 출간됩니다. 표제작은 <b>등단 30주년을 스스로 기념하려고 쓴</b> 자전적 소설입니다. 1993년 스물두 살에 등단해 <b>30년 넘게 한 해도 쉬지 않고</b> 작품을 발표했고, 한국일보문학상·현대문학상·동인문학상·김승옥문학상을 받았습니다. 수록작 여덟 편의 인물들은 대개 글과 연관돼 있어, 소설가가 자기 직업적 정체성을 되묻는 <b>메타소설</b>의 면모가 두드러진다고 서평은 전합니다. 본문의 한 줄 — <b>&ldquo;서른세 해 동안 내가 갈고닦은 한 가지가 있다면 그것은 기다리는 능력이다.&rdquo;</b><br><br>
+          30년을 쓴 사람이 꼽은 것이 문장력도 구성력도 아니었다는 점이 오늘의 자리입니다. 기다림을 <b>능력</b>이라 부르는 순간, 그것은 성격이 아니라 <b>갈고닦는 것</b>이 됩니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 행안부 &lsquo;AI 챔피언&rsquo; 2030년까지 2만 명 — 시제품은 사업계획 승인 없이 먼저 만든다</span>
+          <a class="src" href="https://www.gyeongginambu.com/news/article.html?no=39622" target="_blank" rel="noopener">경기남부뉴스 (09-08) ↗</a>
+          <a class="src" href="https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000015&amp;nttId=124688" target="_blank" rel="noopener">행정안전부 「AI 정부 서비스 사례집」 ↗</a>
+          <p>행정안전부가 9월 8일 국무회의에 <b>공무원의 AI 활용 직접개발 활성화 방안</b>을 보고했습니다. 행정 현장의 문제를 AI로 직접 푸는 실무형 인재 &lsquo;AI 챔피언&rsquo;을 <b>2030년까지 2만 명</b>으로 늘리고, <b>시제품 실험은 별도 사업계획 승인 없이 시작</b>할 수 있게 합니다. 9월 3일 기준 공공 개발산출물 저장소(공공 GitLab)에 가입한 AI 개발 공무원은 <b>2,073명</b>, 등록 프로젝트는 <b>770개</b>이며 그중 <b>376개</b>가 다른 공무원도 쓰도록 공개돼 있습니다.<br><br>
+          핵심은 숫자가 아니라 <b>&ldquo;승인 없이 먼저 만들어도 된다&rdquo;</b>는 한 줄입니다. 행정은 대개 결재를 기다린 뒤에 시작합니다. 그 순서를 뒤집으면 기다림의 자리가 <b>만들어 보는 자리</b>로 바뀝니다 — 다만 틀린 시제품을 걸러 낼 눈은 따로 있어야 합니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 천안시 공무원 500명 AI 교육, 과정 안에 &lsquo;바이브 코딩(Claude Code)으로 행정 업무 도구 개발&rsquo;</span>
+          <a class="src" href="https://www.seoul.co.kr/news/society/education-news/2026/09/01/20260901500227" target="_blank" rel="noopener">서울신문 (09-01) ↗</a>
+          <p>한국기술교육대가 천안시와 함께 <b>시 소속 공무원 500명</b>을 대상으로 9월부터 12월까지 AI 활용 역량강화 교육을 운영합니다. 과정은 넷 — 생성형 AI를 활용한 비즈니스 실무 · <b>바이브 코딩(Claude Code)을 활용한 행정 업무 도구 개발</b> · 생성형 AI 기반 프레젠테이션 디자인 실무 · AI 시대 관리자의 디지털 문해력과 업무 혁신.<br><br>
+          지자체 공무원 교육 과정의 공식 목록에 <b>Claude Code</b>가 이름으로 올라온 자리입니다. 혼자 더듬어 익히던 도구가 <b>연수 교재</b>가 되는 데는 늘 시차가 있습니다. 먼저 시작한 사람에게 이 소식은 앞서 있다는 뜻이라기보다 <b>혼자가 아니게 되었다</b>는 뜻입니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 기다리는 능력은 가만히 있는 힘이 아니라, 아직 오지 않은 것 앞에 미리 서는 힘이다</span></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">&ldquo;서른세 해 동안 내가 갈고닦은 한 가지가 있다면 그것은 기다리는 능력이다&rdquo;</span>
+          <a class="src" href="https://www.ilemonde.com/news/articleView.html?idxno=30616" target="_blank" rel="noopener">르몽드디플로마티크 · 성일권 「33년째 소설을 쓰는 사람의 자기 고백적 소설집」(09-14) ↗</a>
+          <p>김경욱의 열 번째 소설집을 읽은 서평이 본문에서 길어 올린 문장입니다. 서평은 이 &lsquo;기다리는 능력&rsquo;이 기교의 숙련이 아니라 <b>사람을 오래 보는 일</b>이었다고 읽습니다. 같은 소설집의 다른 문장이 그 방향을 받칩니다 — <b>&ldquo;알다가도 모를 것은 사람들이었다.&rdquo;</b> 그리고 <b>&ldquo;우리는 모두 누군가의 기억의 재료이자 상상의 재료에 지나지 않으리니.&rdquo;</b> 33년을 쓰고도 사람이 여전히 모를 것으로 남아 있다는 고백이, 이 작가가 말하는 기다림의 내용입니다.<br><br>
+          기다림을 <b>능력</b>이라 부르면 두 가지가 따라옵니다. 하나는 훈련할 수 있다는 것이고, 다른 하나는 <b>못 하면 그것이 부족한 것</b>이라는 사실입니다. 조급함을 성격 탓으로 돌릴 수 없게 됩니다.</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">&ldquo;조급함은 성격이 아니라 감정이다 — 그리고 인내는 그것을 다루는 과정이다&rdquo;</span>
+          <a class="src" href="https://psyche.co/notes-to-self/why-it-helps-to-see-impatience-as-an-emotion-not-a-trait" target="_blank" rel="noopener">Psyche · Amy Arthur ↗</a>
+          <p>필자는 자기가 &lsquo;참을성 없는 사람&rsquo;이라고 오래 믿었다가, 심리학 연구가 그것을 <b>고정된 기질이 아니라 감정</b>으로 본다는 것을 알게 됩니다. <b>&ldquo;Impatience is not a fixed facet of who we are. Instead, it&rsquo;s an emotion &ndash; and patience is the process by which we manage it.&rdquo;</b>(조급함은 우리가 어떤 사람인지를 이루는 고정된 면이 아니다. 그것은 감정이고, 인내는 그 감정을 다루는 과정이다.) 그래서 결론이 뒤따릅니다 — <b>&ldquo;Just as we can learn to handle other unpleasant emotions, we can all develop better skills and techniques to deal with impatience.&rdquo;</b><br><br>
+          이 한 칸의 이동이 큽니다. <b>기질</b>이라면 바꿀 수 없고 <b>감정</b>이라면 다룰 수 있습니다. 김경욱이 &lsquo;갈고닦았다&rsquo;고 쓴 것과 정확히 같은 전제입니다. 다만 이 글도 기다림 자체를 없애 주지는 않습니다 — 다룰 수 있는 것은 감정이지 <b>시간이 아닙니다.</b></p></div>
+
+        <div class="pick"><span class="field">🕯 현존·삶</span>
+          <span class="title">&ldquo;누가 나의 기다림으로 이득을 보는가&rdquo;</span>
+          <a class="src" href="https://psyche.co/guides/how-to-think-of-waiting-as-a-chance-to-reinvent-the-future" target="_blank" rel="noopener">Psyche Guides · Jason Farman 「How to wait well」 ↗</a>
+          <a class="src" href="https://jasonfarman.com/how-to-wait-well-article-published-in-aeon-psyche-magazine/" target="_blank" rel="noopener">저자 소개 ↗</a>
+          <p>메릴랜드대 교수 제이슨 파먼(『Delayed Response: The Art of Waiting from the Ancient to the Instant World』)은 기다림을 견디는 법이 아니라 <b>묻는 법</b>으로 바꿉니다. 핵심 질문이 <b>&ldquo;Who benefits from my waiting?&rdquo;</b>(누가 내 기다림으로 이득을 보는가)입니다. 그는 2차 대전 후 뉴욕 고층빌딩의 엘리베이터 일화를 듭니다 — 대기 시간이 길다는 민원이 빗발치자 기술자들이 불려 왔고, 결국 해결책은 <b>엘리베이터를 빠르게 만드는 것이 아니라 대기 공간에 거울을 다는 것</b>이었습니다. 불만은 사라졌지만 기다리는 시간은 그대로였습니다.<br><br>
+          기다림은 늘 중립처럼 보이지만 <b>누군가에게는 비용이고 누군가에게는 절약</b>입니다. 오늘 뉴스의 두 기다림에 이 질문을 그대로 대 봅니다 — 3,851명이 채워지기를 기다리는 1년은 누구의 시간입니까. 청년 고용률이 하락한 28개월은 누구의 시간이었습니까.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">&ldquo;회복탄력성은 옛 자기로 돌아가고, 인내는 변하도록 허락한다&rdquo;</span>
+          <a class="src" href="https://aeon.co/essays/how-patience-can-be-a-better-balm-for-trauma-than-resilience" target="_blank" rel="noopener">Aeon · Samira Thomas (2016-05-12) ↗</a>
+          <p>사미라 토머스는 상처 이후를 말할 때 흔히 쓰는 낱말 &lsquo;회복탄력성(resilience)&rsquo;을 어원에서 되짚습니다. <b>&ldquo;Resilience holds the etymological implications of resistance to crossing thresholds, and instead adapting an old self to new circumstances&rdquo;</b> — 회복탄력성에는 <b>문턱을 넘지 않으려는 저항</b>의 함의가 있고, 옛 자기를 새 상황에 맞춰 적응시킬 뿐 완전히 달라질 시간과 공간을 내주지 않는다는 것입니다. 반면 <b>&ldquo;patience suggests change and allows the possibility of transformation as a means of overcoming difficulties.&rdquo;</b> 인내를 통해 사람은 <b>&ldquo;exists at the edge of becoming&rdquo;</b>(되어 감의 가장자리에 선다)고 씁니다.<br><br>
+          회복탄력성은 <b>돌아가는 말</b>이고 인내는 <b>건너가는 말</b>입니다. 어려운 강을 건너는 사람 곁에 서 본 이라면 이 구분이 낯설지 않을 것입니다 — 돌아가는 사람에게는 튼튼함이 필요하고, <b>건너는 사람에게는 시간이 필요합니다.</b> 곁에 서는 일이 오래 걸리는 이유도 여기 있습니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">싹을 뽑아 올려 자라게 도우려던 사람 — 조장(助長)의 어원</span>
+          <a class="src" href="https://ctext.org/mengzi/gong-sun-chou-i" target="_blank" rel="noopener">『맹자』 「공손추 상」 2장 · 中國哲學書電子化計劃 ↗</a>
+          <p>맹자가 호연지기를 기르는 법을 말하며 든 이야기입니다. <b>宋人有閔其苗之不長而揠之者，芒芒然歸，謂其人曰：「今日病矣！予助苗長矣！」其子趨而往視之，苗則槁矣。</b> — 송나라 사람 중에 자기 싹이 자라지 않는 것을 딱하게 여겨 <b>뽑아 올린</b> 자가 있었다. 지쳐 돌아와 집사람에게 말했다. &ldquo;오늘 힘들었다! 내가 싹이 자라도록 <b>도왔다</b>!&rdquo; 아들이 달려가 보니 <b>싹은 이미 말라 있었다.</b> 맹자는 덧붙입니다 — 천하에 싹이 자라도록 돕지 않는 자가 적으니, <b>助之長者，揠苗者也</b>(자라는 것을 돕는다는 자가 곧 싹을 뽑는 자다). 오늘날 쓰는 낱말 <b>조장(助長)</b>이 여기서 왔습니다.<br><br>
+          맹자가 지목한 것은 게으름이 아니라 <b>선의로 서두른 손</b>입니다. 송나라 사람은 방치하지 않았습니다. <b>하루 종일 일했고, 힘들었다고 말했고, 도왔다고 믿었습니다.</b> 기다림의 반대는 무관심이 아니라 <b>부지런한 조급함</b>입니다.</p></div>
+
+      </section>
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">&ldquo;임신보다 더 거룩한 상태가 있는가?
+하는 모든 일을, 우리 안에서 되어 가는 것에
+어떻게든 이롭기를 바라는
+고요한 믿음으로 하는 것!
+모든 것은 베일에 싸여 있고, 예감뿐이며,
+어떻게 되어 가는지 아무도 모른다.
+다만 기다리며, 준비된 자이고자 한다.&rdquo;</p>
+          <p class="cite">프리드리히 니체, 『아침놀 — 도덕적 편견에 대한 생각들(Morgenröthe)』 552절 「이상적 이기심(Die idealische Selbstsucht)」 (1881)
+            <span class="orig">Gibt es einen weihevolleren Zustand, als den der Schwangerschaft? Alles, was man tut, in dem stillen Glauben tun, es müsse irgendwie dem Werdenden in uns zu Gute kommen! (…) Alles ist verschleiert, ahnungsvoll, man weiß von Nichts, wie es zugeht, man wartet ab und sucht bereit zu sein.</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/morgenroete/die-idealische-selbstsucht" target="_blank" rel="noopener">원문 대조 · textlog.de ↗</a>
+            <a class="src" href="http://www.zeno.org/Philosophie/M/Nietzsche,+Friedrich/Morgenr%C3%B6te/Viertes+Buch/552.+Die+idealische+Selbstsucht" target="_blank" rel="noopener">zeno.org 552절 ↗</a></p>
+          <p class="memo">배달 메모 — 오늘 시행된 제도가 하필 <b>아직 태어나지 않은 아이 앞에 서는 일</b>이어서, 니체가 145년 전 같은 자리를 쓴 대목을 꺼냅니다. 니체는 임신을 여성의 경험으로만 두지 않습니다. 절의 끝에서 이렇게 밀고 갑니다 — <b>&ldquo;기다리는 것이 하나의 생각이든 하나의 행위이든, 우리는 모든 본질적인 성취에 대해 임신 말고 다른 관계를 갖지 않는다&rdquo;</b>(<i>wir haben zu allem wesentlichen Vollbringen kein anderes Verhältnis, als das der Schwangerschaft</i>). 그리고 <b>&ldquo;의지한다&rdquo;, &ldquo;창조한다&rdquo;는 오만한 말은 바람에 날려 보내야 한다</b>고 씁니다.<br><br>
+          핵심은 <i>wir haben Nichts in der Hand</i>(우리 손에 쥔 것은 아무것도 없다)입니다. 값도 시각도 우리가 정하지 못합니다. 대신 니체가 남겨 두는 자리는 <b>mittelbar</b>(간접적)입니다 — 직접 만들 수는 없고, <b>감싸고 지켜 주는 영향</b>만 줄 수 있습니다. 맹자의 송나라 사람이 실패한 지점이 정확히 여기입니다. 그는 직접 손을 댔습니다.<br><br>
+          그래서 니체는 이것을 굳이 <b>&lsquo;이기심&rsquo;</b>이라 부릅니다. 이타심이라 부르지 않습니다. 자기 안에서 자라는 것을 지키느라 거친 말을 삼키고 화해의 손을 먼저 내미는 사람은, <b>착해진 것이 아니라 자기 것을 지키는 중</b>입니다. &ldquo;여기서 자라는 것은 우리보다 더 큰 무엇이다&rdquo;가 그 숨은 희망이라고 그는 씁니다. 사람이 변하는 데 걸리는 시간을 믿는 이라면, 이 문장을 곁에 두어도 좋겠습니다. 오늘 니체가 보태는 것은 — 기다리는 사람은 <b>손을 놓은 것이 아니라 준비되어 있는 것</b>(bereit zu sein)이라는 점입니다.</p>
+        </div>
+      </section>
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>니체 『아침놀』 552절은 두 곳에서 대조했습니다</b> — textlog.de에서 전문을 읽었고, zeno.org에도 같은 절이 있습니다. 다만 <b>권 표기가 갈립니다</b>: textlog는 제5권, zeno의 분류는 제4권으로 적혀 있습니다. 통용되는 『아침놀』 편제(제5권 424~575절)를 따라 <b>제5권으로 적었습니다.</b> 한국어 옮김은 사막여우가 원문에서 직접 한 것이고 국내 번역본 문장이 아닙니다.</li>
+          <li><b>김경욱 소설집의 인용문은 원본이 아니라 서평이 옮긴 본문 인용</b>입니다(르몽드디플로마티크, 성일권, 09-14). 책이 오늘 나왔으므로 <b>쪽수는 확인하지 못했습니다.</b> 서평은 &lsquo;33년째&rsquo;로, 출판사 소개는 &lsquo;등단 30주년&rsquo;으로 적어 둘 다 병기했습니다(1993년 등단 → 집필 연수와 등단 기념 연수의 차이로 보이나 <b>확인 필요</b>).</li>
+          <li><b>맹자 원문은 한문 전거(『맹자』 「공손추 상」 2장)로 적었고 링크는 中國哲學書電子化計劃</b>입니다. 한국어 풀이는 사막여우가 옮긴 것입니다.</li>
+          <li><b>Psyche 「조급함」 글은 게재일이 본문에 표시되지 않아 날짜를 적지 않았습니다</b>(필자 Amy Arthur만 확인). <b>파먼의 엘리베이터 일화</b>는 그의 글에서 &ldquo;건축·도시설계 쪽에 잘 알려진 이야기&rdquo;로 소개된 것이라, 실제 사건의 출처는 확인하지 못했습니다.</li>
+          <li><b>배우자 지원 3종 세트는 고용노동부 보도자료를 받아쓴 기사 여러 건에서 같은 수치를 대조</b>했습니다. 부처 보도자료 원문 페이지에는 닿지 못해 기사 링크로 걸었습니다. <b>국가공무원 증원 건은 9월 1일 국무회의 건</b>이라 오늘 소식은 아니지만, 12월 국회 심의라는 기다림의 축이 오늘 결과 맞아 실었습니다.</li>
+          <li><b>뺀 것</b> — 돌봄기본법안 발의(9/16)는 이틀 전 브리핑에 이미 실어 뺐습니다. 오만 보건박람회, 한일 저작권 회의(9/9~10), 대학 교·강사 AI 강좌 91개는 결이 달라 뺐습니다. 경향·한겨레 오피니언에서 오늘 결에 맞는 칼럼은 검색으로 찾지 못했습니다. 오늘 날씨는 확인하지 못해 싣지 않았습니다.</li>
+        </ul></div>
+      </section>
+    </div>
+
+    <p class="closing">오늘 하루, 한 번은 <b>손을 거두어 보십시오.</b> 자라는 것은 우리 손에 쥐어져 있지 않고, 우리가 할 수 있는 일은 곁에서 준비되어 있는 것뿐입니다 — 그리고 그것으로 충분합니다. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+  </div>
+</body>
+</html>
