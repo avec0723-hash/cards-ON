@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-20 (일)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="band">
+      <p class="kicker">Control Tower Briefing</p>
+      <h1>관제탑 브리핑</h1>
+      <p class="date">2026년 9월 20일 · 일요일</p>
+      <p class="opening">9월 20일 일요일입니다. 추석까지 닷새 남았습니다.<br>
+      이번 주 국회에는 무급 돌봄도 <b>&ldquo;정당하게 평가&middot;인정&rdquo;</b>받게 하자는 법안이 올라갔고, 행정안전부는 흩어져 이름조차 붙지 않던 데이터를 한자리에 모으는 파이프라인을 열었고, 서점인들은 올해의 작가를 골랐습니다. 그래서 오늘의 결을 이렇게 세웁니다 — <b>이름을 얻어야 비로소 보인다. 그리고 무엇이라 부르느냐가 그 일의 정체를 정한다.</b> 어제가 &ldquo;거절을 판정으로 받지 않는&rdquo; 날이었다면, 오늘은 <b>아직 이름 없이 하고 있는 일에 이름을 붙여 보는</b> 날입니다.</p>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 「범정부 데이터 파이프라인」 9월 18일 시범 개통 — 부처·지자체·공공기관 데이터를 한자리에서</span>
+          <a class="src" href="https://www.newspim.com/news/view/20260917000511" target="_blank" rel="noopener">뉴스핌 (09-17) ↗</a>
+          <a class="src" href="https://www.kisnews.net/725797" target="_blank" rel="noopener">한국산업안전뉴스 ↗</a>
+          <p>행정안전부가 중앙부처·지방정부·공공기관에 흩어진 데이터를 잇는 「범정부 데이터 파이프라인」을 구축하고 <b>9월 18일부터 시범 운영</b>에 들어갔습니다. 여러 기관의 데이터를 겹쳐 <b>복지 사각지대를 찾아내거나 시설 위험을 예측</b>하는 등, 한 부처 데이터만으로는 어려웠던 사회문제 분석에 쓰는 것이 목표입니다. 예컨대 에너지바우처 정책을 만들 때 주택관리공단·에너지공단·국토부 자료를 따로 요청하던 것을, 이제 한자리에서 찾아 바로 쓸 수 있게 한다는 설명입니다. 9월 시범 운영 뒤 이용자 의견을 받아 기능을 개선하고 원천 데이터 연계를 넓힙니다.<br><br>
+          같은 자료를 쓰는 실무자의 눈으로 보면, 이 사업의 진짜 어려움은 배관이 아니라 <b>이름표</b>입니다. 부처마다 같은 항목을 다르게 불러 온 탓에 합쳐지지 않았던 것이지, 데이터가 없었던 적은 드뭅니다. 파이프라인이 성공하느냐는 누가 어느 항목에 <b>어떤 이름을 붙이는 권한</b>을 갖느냐에 달려 있습니다.</p></div>
+
+        <div class="news"><span class="title">⚖️ 행정·정책 — 지방공무원 「적극행정 보호지원단」 신설 입법예고 — 의견 제출은 9월 28일까지</span>
+          <a class="src" href="https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=03421046645548960" target="_blank" rel="noopener">이데일리 ↗</a>
+          <a class="src" href="https://www.asiatoday.co.kr/kn/view.php?key=20260819010006281" target="_blank" rel="noopener">아시아투데이 (08-19) ↗</a>
+          <p>행정안전부의 「지방공무원 적극행정 운영규정」 일부개정령안 입법예고가 <b>9월 28일까지</b> 열려 있습니다. 지방정부마다 <b>적극행정 보호지원단</b>(적극행정 보호관·전담 직원·내외부 변호사)을 두어 수사·소송에 직면한 공무원을 기관 차원에서 지원하고, 형사사건은 <b>건당 최대 3천만 원</b>까지 변호사비를 지원합니다(기소 전 1천만, 1심 1천만, 2·3심 각 500만). 정기 우수공무원 선발과 별개로 업무 과정의 노력·성과를 쌓아 보상하는 <b>적극행정 마일리지</b>의 법적 근거도 신설됩니다.<br><br>
+          주목할 곳은 마일리지입니다. 지금까지 적극행정의 보상은 <b>표창받을 만큼 큰 일</b>에만 이름이 붙었습니다. 마일리지는 그 아래 등급의 일 — 규정에 없지만 해 둔 일, 남의 몫을 메운 일 — 에 처음으로 <b>셈해지는 이름</b>을 붙이려는 시도입니다. 다만 이름이 생긴 뒤에 무엇이 실제로 적립되는지는 운영규정이 아니라 각 기관의 손에 달립니다. 의견 제출 창은 아직 열려 있습니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 「돌봄기본법안」 발의 (9월 16일) — 무급 돌봄도 정당하게 평가·인정받도록</span>
+          <a class="src" href="https://peoplepower21.org/welfare/2029329" target="_blank" rel="noopener">참여연대 사회복지위원회 ↗</a>
+          <a class="src" href="https://www.gukjenews.com/news/articleView.html?idxno=3696715" target="_blank" rel="noopener">국제뉴스 ↗</a>
+          <p>남인순 의원과 참여연대 사회복지위원회가 함께 만든 「돌봄기본법안」이 9월 16일 발의됐습니다. 국가와 지자체가 돌봄을 개인·가족의 책임이 아니라 <b>보편적 기본권</b>으로 보장한다는 것이 뼈대입니다. 모든 사람이 전 생애에 걸쳐 <b>돌봄을 받을 권리와 자신·타인을 돌볼 권리</b>를 갖고, 돌봄 과정에서 차별받거나 돌봄을 강요당하지 않을 권리를 보장합니다. 돌봄노동자의 정당한 보상과 고용·노동조건을 규정하고, <b>무급 돌봄 역시 정당하게 평가·인정</b>받도록 하며, 돌봄에 따른 소득·고용·교육·사회참여의 불이익을 최소화하는 제도적 기반을 담았습니다.<br><br>
+          한편 시민사회는 통합돌봄 예산이 요구액 6,447억 원 대비 <b>1,558억 원(24%)</b>에 그쳤다고 지적하고 있습니다. 권리의 이름이 법에 적히는 일과 그 이름에 돈이 붙는 일은 다른 시간표로 움직입니다. 그래도 <b>이름이 먼저입니다</b> — 예산은 이름이 없는 항목에는 붙지 않습니다.</p></div>
+
+        <div class="news"><span class="title">🌍 사회·삶 — 추석 연휴 아이돌봄서비스 특별 운영 (9월 24~27일) — 공휴일 가산 50% 전액 면제</span>
+          <a class="src" href="https://www.gokorea.kr/news/articleView.html?idxno=878440" target="_blank" rel="noopener">공감신문 ↗</a>
+          <a class="src" href="https://www.nocutnews.co.kr/news/6579733" target="_blank" rel="noopener">노컷뉴스 (09-17) ↗</a>
+          <p>여성가족부와 한국건강가정진흥원이 <b>9월 24일부터 27일까지</b> 아이돌봄서비스를 특별 운영합니다. 공휴일에 통상 붙는 <b>50% 가산 요금을 전액 면제</b>하고 평일 기준 요금을 적용합니다. 명절에도 일터를 지켜야 하는 맞벌이·한부모 가정이 대상입니다. 경상남도는 별도로 취약계층 보호대책을 가동해 홀로 사는 어르신 방문 확인, 결식 우려 아동 2만 8천여 명 급식 가맹점 안내, 발달장애인 긴급돌봄 일시서비스 등을 운영한다고 밝혔습니다.<br><br>
+          가산요금 면제는 작아 보이지만 정확한 조치입니다. <b>명절에 아이를 맡기는 일에 벌금 같은 웃돈이 붙어 있던 구조</b>를 나흘 동안 걷어낸 것이기 때문입니다. 위의 돌봄기본법안이 겨누는 자리가 바로 이런 &ldquo;당연하다고 여겨 온 값&rdquo;입니다.</p></div>
+
+        <div class="news"><span class="title">✍️ 문화·책 — 은희경, 서점인이 뽑은 &lsquo;올해의 작가&rsquo; — 올해의 책 7종도 함께</span>
+          <a class="src" href="https://view.asiae.co.kr/article/2026091714084566831" target="_blank" rel="noopener">아시아경제 (09-17) ↗</a>
+          <a class="src" href="https://www.news1.kr/life-culture/book/6294179" target="_blank" rel="noopener">뉴스1 ↗</a>
+          <p>한국서점연합회가 제10회 서점의 날을 맞아 「2026 서점인이 뽑은 올해의 책·작가」를 발표했습니다. 올해의 작가는 <b>은희경</b> — 1995년 등단 이후 인간관계의 위선과 내면의 흔적을 포착해 왔고, 지난 6월 7년 만의 장편 『시간의 감촉』을 냈습니다. 선정 이유는 &ldquo;소설 세계를 끊임없이 갱신&rdquo;한다는 것. 올해의 책은 소설 김숨 『간단후쿠』, 시·에세이 문형배 『호의에 대하여』, 유아동·청소년 진은영 글·이수지 그림 『오늘은 나의 생일이야』, 인문교양 오찬호 『납작한 말들』, 과학 김상욱 『세상이 그대를 속일지라도』, 실용예술 절자 『지층거주자: 반지하로부터의 수기』, 자기계발 고명환 『독서의 기술』 7종입니다. 7월 22일~8월 20일 전국 서점인 추천으로 뽑았습니다.<br><br>
+          평론가도 독자 투표도 아닌 <b>책을 손으로 건네는 사람들</b>이 고른 목록이라는 점이 이 상의 성격입니다. 인문교양 부문 제목이 『납작한 말들』이라는 것도 우연 같지 않습니다 — 올해 서점인들이 눈여겨본 것은 <b>말이 납작해지는 일</b>이었습니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — 공무원이 직접 만드는 AI — 2030년까지 &lsquo;AI 챔피언&rsquo; 2만 명</span>
+          <a class="src" href="https://www.koreatimenews.com/news/article.html?no=1253019" target="_blank" rel="noopener">코리아타임뉴스 ↗</a>
+          <a class="src" href="https://www.hksisaeconomy.com/news/article.html?no=1231680" target="_blank" rel="noopener">한국시사경제 ↗</a>
+          <p>행정안전부가 9월 8일 국무회의에서 공무원이 AI로 현장 문제를 직접 해결하고 검증된 성과를 조직 차원으로 확산하는 계획을 보고했습니다. <b>AI 챔피언</b>을 2030년까지 전체 행정·공공기관 직원의 약 2%인 <b>2만 명</b>으로 기르고, &lsquo;AI 정부 실험실&rsquo; 동시 이용 인원을 현재 200명 수준에서 2027년 <b>6천 명</b>으로 늘립니다. 7월 3일 시범운영을 시작한 AI 정부 실험실은 9월 3일 기준 공공 깃랩 가입자 <b>2,073명</b>, 등록 프로젝트 <b>770개</b>, 그중 다른 공무원도 쓸 수 있게 공개된 것이 <b>376개</b>입니다.<br><br>
+          770개 중 376개가 공개됐다는 숫자가 이 사업의 진짜 지표입니다. <b>만든 사람만 쓰는 도구는 개인의 요령이고, 남이 가져다 쓸 수 있게 이름 붙여 올린 것이 제도</b>입니다. 나머지 394개는 아직 이름이 없는 채로 각자의 자리에서 돌고 있다는 뜻이기도 합니다.</p></div>
+
+        <div class="news"><span class="title">🤖 AI·기술 — &ldquo;AI는 글쓰기 교육의 끝도 해법도 아니다&rdquo; — 국제 학술지 편집사설 (9월 18일)</span>
+          <a class="src" href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1984450/full" target="_blank" rel="noopener">Frontiers in Education (09-18) ↗</a>
+          <p>『Frontiers in Education』이 9월 18일 생성형 AI와 K-12·대학 글쓰기 교육을 다룬 특집 편집사설을 냈습니다. 연구 결과는 갈립니다 — 이점을 보고한 쪽과, AI 사용이 글쓰기 능력을 떨어뜨리고 부정행위를 부추기며 편향과 허위정보를 끌어들인다고 우려하는 쪽이 함께 있습니다. 편집진의 결론은 양쪽 어느 편도 아닙니다. 생성형 AI는 글쓰기 교육의 종말도 손쉬운 해법도 아니며 <b>글쓰기·저자됨·평가·접근성의 재구성</b>이라는 것, 그러니 교육자가 던져야 할 질문은 <b>&ldquo;우리는 어떤 종류의 쓰는 사람과 어떤 종류의 글을 길러내려 하는가&rdquo;</b>라는 것입니다. 한편 영국 레스터 대학은 9월부터 학생 2만 1천 명·교직원 4천 명 전원에게 코파일럿 접근권을 열었습니다.<br><br>
+          가르치는 자리에 선 사람이 그대로 가져다 쓸 수 있는 질문입니다. <b>&ldquo;AI를 쓸 것인가&rdquo;가 아니라 &ldquo;어떤 쓰는 사람을 기를 것인가.&rdquo;</b> 앞 질문은 예/아니오로 끝나고, 뒤 질문은 커리큘럼이 됩니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 이름을 얻어야 비로소 보인다 — 그리고 무엇이라 부르느냐가 그 일의 정체를 정한다</span></div>
+
+        <div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+          <span class="title">&ldquo;누구나 하지만 아무도 부르지 않은 일&rdquo;</span>
+          <a class="src" href="https://www.khan.co.kr/article/202608062102005/" target="_blank" rel="noopener">경향신문 새책 (2026-08-06) ↗</a>
+          <a class="src" href="https://product.kyobobook.co.kr/detail/S000220693944" target="_blank" rel="noopener">김희경, 『이 일에는 이름이 없다』(웨일북, 2026-07-30) ↗</a>
+          <p>『이상한 정상가족』·『에이징 솔로』를 쓴 김희경이 <b>기획 노동(cognitive labor)</b>이라는 이름을 들고 왔습니다. 병원 예약하기, 식단 짜기, 누가 언제 어디에 있어야 하는지 머릿속에서 계속 굴리기 — 돌봄을 가능하게 하는 <b>끝없는 정신적 과정</b>입니다. 저자는 맞벌이 부부와 장애아 부모를 만나 이 노동을 취재했습니다. 부제가 정확합니다 — <b>&ldquo;누구나 하지만 아무도 부르지 않은 일.&rdquo;</b><br><br>
+          이 책의 방법론이 오늘 결의 핵심입니다. 저자는 새로운 고통을 발견한 것이 아니라 <b>이미 있던 고통에 이름을 붙였습니다.</b> 그 순간 그것은 &ldquo;내가 예민한 탓&rdquo;에서 &ldquo;노동&rdquo;으로 옮겨 갑니다. 위의 돌봄기본법안이 &ldquo;무급 돌봄도 정당하게 평가·인정&rdquo;이라고 적을 때 실제로 하는 일도 이것입니다. 돌보는 사람의 자리에서 보면 간병과 행정 서류의 대부분이 이 이름 없는 층에 있습니다 — 손으로 한 일보다 <b>머리로 미리 해 둔 일</b>이 훨씬 많고, 그쪽은 아무 데도 기록되지 않습니다.</p></div>
+
+        <div class="pick"><span class="field">📜 고전·인문</span>
+          <span class="title">&ldquo;이름이 바르지 않으면 말이 순하지 않다&rdquo; — 논어 자로편의 정명(正名)</span>
+          <a class="src" href="https://www.catholicnews.co.kr/news/articleView.html?idxno=11256" target="_blank" rel="noopener">가톨릭뉴스 지금여기 · 이수태 「정명(正名)」 ↗</a>
+          <a class="src" href="http://www.hanion.co.kr/news/articleView.html?idxno=8649" target="_blank" rel="noopener">한겨레온 ↗</a>
+          <p>자로가 &ldquo;위나라 임금이 선생님께 정치를 맡기면 무엇부터 하시겠습니까&rdquo; 하고 묻자 공자가 답합니다. <b>子曰; 必也正名乎!</b> (반드시 이름을 바로잡겠다.) 자로가 &ldquo;그런 것까지 하십니까, 선생님은 참 우활하십니다&rdquo; 하고 되받자 공자는 이유를 층층이 답니다. <b>名不正則言不順, 言不順則事不成, 事不成則禮樂不興, 禮樂不興則刑罰不中, 刑罰不中則民無所錯手足.</b> — 이름이 바르지 않으면 말이 순하지 않고, 말이 순하지 않으면 일이 이루어지지 않고, 일이 이루어지지 않으면 예악이 일어나지 않고, 예악이 일어나지 않으면 형벌이 알맞지 않고, 형벌이 알맞지 않으면 백성이 <b>손발 둘 곳이 없다</b>(民無所錯手足).<br><br>
+          2500년 전 사람이 행정의 인과사슬을 다섯 칸으로 적어 두었습니다. 그리고 끝은 제도가 아니라 <b>몸</b>입니다 — 백성이 손발 둘 곳을 잃는 것. 위의 데이터 파이프라인도 기획 노동도 같은 사슬 위에 있습니다. 이름이 어긋나면 결국 <b>어디에 손발을 두어야 할지 모르는 사람</b>이 생깁니다. 공자가 마지막에 덧붙인 문장도 함께 적어 둡니다 — <b>君子於其言, 無所苟而已矣</b> (군자는 제 말에 구차한 데가 없을 뿐이다).</p></div>
+
+        <div class="pick"><span class="field">🧭 심리·자아</span>
+          <span class="title">감정에 이름을 붙이면 편도체가 조용해진다</span>
+          <a class="src" href="https://www.researchgate.net/publication/6261412_Putting_Feelings_Into_Words" target="_blank" rel="noopener">Lieberman et al., &ldquo;Putting Feelings Into Words&rdquo; · Psychological Science (2007) ↗</a>
+          <a class="src" href="https://www.mindful.org/labels-help-tame-reactive-emotions-naming/" target="_blank" rel="noopener">Mindful 해설 ↗</a>
+          <p>UCLA의 매슈 리버먼 연구진이 fMRI로 확인한 것은 단순합니다. 사람들이 화면 속 감정에 <b>이름을 붙이는 순간</b>(affect labeling) 편도체 활동이 줄고 전전두엽이 켜집니다. 느끼기만 할 때와 &ldquo;나는 지금 불안하다&rdquo;고 말로 옮길 때, 뇌 안에서 벌어지는 일이 다릅니다. 흔히 &ldquo;name it to tame it&rdquo;으로 불리는 이 효과는 이후 여러 설계와 집단에서 꽤 견고하게 재현됐습니다. 2011년 후속 연구에서 더 흥미로운 결과가 나왔는데 — 참가자들은 <b>감정에 이름을 붙이면 기분이 더 나빠질 것이라고 한결같이 예상했고, 틀렸습니다.</b><br><br>
+          이 &ldquo;틀린 예상&rdquo;이 오늘 가장 쓸 만한 대목입니다. 우리는 이름을 붙이면 그것이 더 커질까 봐 붙이지 않습니다. 실제로는 반대입니다 — 이름이 없는 동안에만 그것은 <b>크기를 잴 수 없는 상태</b>로 남습니다. 모닝페이지의 효능도 아마 문장력이 아니라 여기에 있을 것입니다.</p></div>
+
+        <div class="pick"><span class="field">🌿 의미·철학</span>
+          <span class="title">이름이 없어서 겪는 부정의 — 미란다 프리커의 &lsquo;해석학적 부정의&rsquo;</span>
+          <a class="src" href="https://iep.utm.edu/epistemic-injustice/" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy · Epistemic Injustice ↗</a>
+          <a class="src" href="https://www.rep.routledge.com/articles/thematic/epistemic-injustice/v-1" target="_blank" rel="noopener">Routledge Encyclopedia of Philosophy ↗</a>
+          <p>프리커는 <b>해석학적 부정의(hermeneutical injustice)</b>라는 개념을 세웠습니다. 어떤 사람의 사회적 경험이, 그 경험을 이해할 <b>공동의 언어 자원에 구멍이 나 있기 때문에</b> 이해되지 못하고 가려지는 일입니다. 백과의 설명을 빌리면 — 누군가가 자기 경험을 남에게 알아듣게 전할 수 있어야 하는데, 그 경험을 가리킬 <b>이름이 있어야 할 자리에 빈칸</b>이 있는 상태입니다. 프리커가 짚는 가장 쓰라린 대목은 그다음입니다. 받아들여진 이해와 내가 느끼는 것 사이의 어긋남을 <b>나 혼자만 느끼는 것 같을 때, 세상을 이해하는 자기 능력에 대한 믿음이 흔들립니다.</b><br><br>
+          &lsquo;성희롱&rsquo;이라는 말이 생기기 전에도 그 일은 있었고, 당하는 사람은 &ldquo;내가 예민한 건가&rdquo;를 먼저 물었습니다. 김희경이 &lsquo;기획 노동&rsquo;이라는 이름을 가져온 자리도 정확히 그 빈칸입니다. 그러니 이름 짓기는 표현의 문제가 아니라 <b>정의(正義)의 문제</b>입니다 — 공자의 정명과 프리커의 해석학적 부정의가 2500년을 사이에 두고 같은 곳을 가리킵니다. 그리고 이것이 자기 경험을 한 문장으로 적어 두는 일의 값이기도 합니다. 그 한 줄은 감상이 아니라 <b>빈칸을 메우는 작업</b>입니다.</p></div>
+
+        <div class="pick"><span class="field">🖋 글쓰기·창작</span>
+          <span class="title">사전에서 지워진 낱말들, 그리고 불러들이는 주문</span>
+          <a class="src" href="https://www.themarginalian.org/2019/06/17/the-lost-words-macfarlane-morris/" target="_blank" rel="noopener">The Marginalian · Maria Popova 「The Lost Words」(2019-06-17) ↗</a>
+          <a class="src" href="https://www.cam.ac.uk/stories/the-lost-words" target="_blank" rel="noopener">University of Cambridge ↗</a>
+          <p>2007년 옥스퍼드 주니어 사전 새 판에서 자연을 가리키는 낱말 마흔 남짓이 빠졌습니다 — acorn(도토리), bluebell, dandelion(민들레), fern, heron(왜가리), kingfisher(물총새), newt, otter(수달), willow(버드나무). 아이들이 충분히 쓰지 않아 자리를 내줄 만하지 않다는 이유였고, 그 자리를 attachment·blog·broadband·bullet-point·cut-and-paste·voice-mail이 채웠습니다. 로버트 맥팔레인과 재키 모리스는 이에 응답해 『The Lost Words』를 만들었습니다. 낱말 하나에 세 폭 — 소리 내어 읽도록 지은 <b>불러들이는 주문</b>(acrostic spell), 사라짐에 바치는 <b>말 없는 그림 애도</b>, 그리고 그 낱말을 철자 하나하나로 <b>언어와 마음과 풍경 속에 다시 써 넣는</b> 활자 식물도감. &ldquo;세 살부터 백 살까지의 아이들&rdquo;을 위한 책이라고 두 사람은 적었습니다.<br><br>
+          사전은 세상을 기록하는 줄 알았는데, 실은 <b>무엇을 보게 할지 정하고 있었습니다.</b> 낱말이 빠지자 그 새와 나무가 아이들의 이야기와 꿈에서 먼저 사라졌습니다. 맥팔레인의 대응이 고발이 아니라 <b>주문(spell)</b>이라는 점이 오늘 배울 형식입니다 — 잃은 이름은 논증으로 돌아오지 않고, 소리 내어 부를 때 돌아옵니다. 에세이스트가 할 수 있는 일의 정확한 크기가 여기 있습니다.</p></div>
+
+      </section>
+
+      <section>
+        <div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+        <div class="letter">
+          <p class="pt">— 오늘의 배달 —</p>
+          <p class="verse">&ldquo;독창성이란 무엇인가?
+아직 아무 이름도 지니지 않은 것,
+모두의 눈앞에 놓여 있는데도
+아직 불릴 수 없는 것을 <i>보는</i> 것이다.
+사람들이란 대개 그러해서,
+이름이 있어야 비로소 한 사물이
+그들에게 보이기 시작한다.
+— 독창적인 자들은 대개
+이름을 지어 준 자들이기도 했다.&rdquo;</p>
+          <p class="cite">프리드리히 니체, 『즐거운 학문(Die fröhliche Wissenschaft)』 제3부 261절 「독창성(Originalität)」(1882)
+            <span class="orig">Originalität. — Was ist Originalität? Etwas <b>sehen</b>, das noch keinen Namen trägt, noch nicht genannt werden kann, ob es gleich vor Aller Augen liegt. Wie die Menschen gewöhnlich sind, macht ihnen erst der Name ein Ding überhaupt sichtbar. — Die Originalen sind zumeist auch die Namengeber gewesen.</span>
+            <a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/originalitaet" target="_blank" rel="noopener">원문 대조 · textlog.de 전문 ↗</a>
+            <a class="src" href="http://www.zeno.org/Philosophie/M/Nietzsche,%20Friedrich/Die%20fr%C3%B6hliche%20Wissenschaft/Drittes%20Buch/261.%20Originalit%C3%A4t" target="_blank" rel="noopener">zeno.org 제3부 261절 ↗</a></p>
+          <p class="memo">배달 메모 — 오늘의 결이 통째로 네 줄 안에 들어 있습니다. 눈여겨볼 곳은 니체가 <b>sehen</b>(보다)에 강조를 걸어 둔 자리입니다. 독창성은 없던 것을 만들어 내는 힘이 아니라, <b>모두의 눈앞에 놓여 있는데도 아무도 보지 못하는 것</b>을 보는 힘입니다. 김희경이 기획 노동을 발명한 것이 아니듯, 프리커가 해석학적 부정의를 발명한 것이 아니듯.<br><br>
+          그리고 마지막 줄 — <i>Die Originalen sind zumeist auch die Namengeber gewesen</i>(독창적인 자들은 대개 이름을 지어 준 자들이기도 했다). <b>Namengeber</b>, 이름을 주는 사람. 니체는 이것을 천재의 특권처럼 말하지 않습니다. 이름을 붙이는 일은 <b>보는 일의 다음 칸</b>일 뿐이라고 말합니다. 오늘 해 볼 일도 그것입니다 — 없던 것을 지어내지 말고, <b>이미 하고 있는데 아직 이름이 없는 일</b>을 보십시오. 그다음 칸은 어렵지 않습니다.</p>
+        </div>
+      </section>
+
+
+      <section>
+        <div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+        <div class="fog"><ul>
+          <li><b>니체 261절은 textlog.de에서 독일어 전문을 직접 대조</b>했습니다. zeno.org는 어제에 이어 오늘도 접속이 거부되어(ECONNREFUSED) 해당 쪽 링크만 걸어 두었습니다. 한국어 옮김은 원문에서 직접 한 것이며, 원문의 강조(<i>sehen</i>)를 그대로 살렸습니다.</li>
+          <li><b>논어 「자로」 3장 원문은 한국어 해설 두 곳(가톨릭뉴스·한겨레온)에서 대조</b>했습니다. 중국어 원전 사이트(中國哲學書電子化計劃)는 자동 접근을 막아 두어 쓰지 않았습니다. 장(章) 번호 3장은 통용 표기이며, 판본에 따라 다르게 매겨질 수 있습니다.</li>
+          <li><b>프리커의 문장은 원저 『Epistemic Injustice』(2007)가 아니라 철학 백과(IEP·Routledge)의 해설을 옮긴 것</b>입니다. &ldquo;이름이 있어야 할 자리의 빈칸&rdquo;은 백과의 설명 표현이지 프리커의 축자 인용이 아닙니다 — <b>원저 쪽수 확인 필요</b>.</li>
+          <li><b>리버먼 2007년 논문은 서지사항과 해설 기사로만 확인</b>했고 원문을 열지 못했습니다. 2011년 후속 연구의 정확한 서지는 확인하지 못했습니다(해설 기사 인용).</li>
+          <li><b>김희경 『이 일에는 이름이 없다』는 경향신문 새책란과 서점 도서정보로 확인</b>했고 본문은 읽지 못했습니다. &lsquo;cognitive labor&rsquo;를 &lsquo;기획 노동&rsquo;으로 옮긴 것은 이 책의 번역어입니다.</li>
+          <li><b>적극행정 보호지원단 개정령안은 8월 19일 입법예고분</b>으로, 오늘 기준 최종 확정 여부는 확인하지 못했습니다. 의견 제출 마감(9월 28일)만 확인했습니다. <b>통합돌봄 예산 수치(6,447억 / 1,558억)</b>는 시민사회 주장으로, 정부 확정 예산과의 대조는 하지 못했습니다.</li>
+          <li><b>AI 정부 실험실 수치(2,073명·770개·376개)는 9월 3일 기준</b>으로 기사에 인용된 값이며, 그 뒤 변동은 확인하지 못했습니다. Frontiers 편집사설은 학술지 페이지 정보로 확인했고 전문은 읽지 못했습니다.</li>
+          <li><b>뺀 것</b> — 교육부 학교복합시설 9개 사업 선정(1,123억)은 8월 20일 자료라 24~48시간 범위를 넘어 뺐습니다. 9월 19~20일 서울 양재에서 열리는 「2026 고향사랑페스타」는 행사 소식이라 항로 통보에 싣지 않았습니다. 오늘 날씨는 확인하지 못했습니다.</li>
+        </ul></div>
+      </section>
+
+    </div>
+
+    <p class="closing">이름을 얻어야 비로소 보입니다. 오늘 하루, <b>이미 하고 있는데 아직 아무도 부르지 않은 일</b> 하나에 이름을 붙여 보십시오. <span class="fox">🦊</span></p>
+    <p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+  </div>
+</body>
+</html>
