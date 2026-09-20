@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-21 (월)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 9월 21일 · 월요일</p>
+<p class="opening">9월 21일 월요일입니다. 추석 연휴(9월 24~27일)까지 사흘 남았습니다.<br>
+오늘 항로에 올라온 소식은 하나같이 <b>빈자리</b> 이야기입니다 &mdash; 떠난 사람의 자리, 휴직으로 생긴 자리, 연휴에 닫히는 자리, AI가 가져간다는 자리. 그래서 오늘의 결: <b>자리는 메울 수 있어도, 그 자리에서 겪은 사람은 대체되지 않습니다.</b></p>
+</header>
+<div class="body">
+
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·정책 — 대구 중구, 5년간 8·9급 22명 의원면직 — 구의회가 물은 것은 숫자가 아니라 &ldquo;왜 떠나는가&rdquo;</span>
+<a class="src" href="http://www.inews24.com/view/2006987" target="_blank" rel="noopener">아이뉴스24 (09-18) ↗</a>
+<a class="src" href="http://www.breaknews.com/1237956" target="_blank" rel="noopener">브레이크뉴스 ↗</a>
+<p>대구 중구의회 김결이 의원이 행정사무감사에서 최근 5년간 8·9급 공무원 <b>22명이 의원면직</b>한 사실을 짚었습니다. 지적의 핵심은 저연차 이탈로 인한 <b>&ldquo;행정 경험의 손실&rdquo;</b>과 조직 내 공정성·신뢰 부족이었고, 대안으로 ①승진·전보·포상 기준을 투명하게 설명하는 예측 가능한 인사원칙 ②추가 업무에 대한 객관적 평가 ③저연차의 체계적 정착 관리 ④실제 공적을 반영하는 포상제도를 들었습니다.</p>
+<p>같은 자리에 있는 사람의 눈으로 보면, 스물두 명이라는 숫자보다 무서운 것은 <b>정원은 그대로 채워졌다는 사실</b>입니다. 자리는 다음 사람이 앉아 메워졌고, 조직은 결원이 없으므로 아무 일도 없었다고 기록합니다. 사라진 것은 자리가 아니라 그 자리에서 5년을 겪은 사람이 갖고 있던 것 &mdash; 어느 민원이 어디서 막히는지 아는 감각 &mdash; 이고, 그건 정원표에 칸이 없습니다.</p></div>
+
+<div class="news"><span class="title">⚖️ 행정·정책 — &ldquo;기준인건비 하나로 다 담는 건 이미 한계&rdquo; — 시장군수구청장협의회 대표회장</span>
+<a class="src" href="https://www.idaegu.co.kr/news/articleView.html?idxno=560228" target="_blank" rel="noopener">대구일보 (09-20) ↗</a>
+<p>조재구 대한민국 시장·군수·구청장협의회 대표회장이 인터뷰에서 기준인건비 제도의 장기 재검토를 요구했습니다. 2026년 기준인력은 전년보다 <b>9,962명</b>, 기준인건비는 <b>40조 1,313억 원(+8.2%)</b> 늘었고, 공무원연금 부담금 증가분과 일부 대체인력 인건비는 초과 불이익 산정에서 제외됐습니다. 그럼에도 <b>&ldquo;급변하는 행정수요와 물가 상승 등을 단일한 기준인건비 테두리 안에 모두 담아낸다는 것은 이미 한계에 달했다&rdquo;</b>는 것이 요지입니다.</p>
+<p>지난주 행정안전부가 육아휴직 결원 보전 단가를 올린 것(160만→190만 원)과 같은 줄기의 이야기입니다. 제도는 빈자리를 <b>돈으로 환산해 메우는</b> 방향으로 정교해지고 있는데, 환산할 수 없는 자리가 남습니다. 이 기사와 위의 대구 중구 기사를 나란히 두면 오늘의 결이 행정 문서 위에서 그대로 보입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·삶 — 성동구, 추석 연휴 6일 &lsquo;행정 공백&rsquo; 6대 대책 — 문 닫는 날에 문 여는 곳을 미리 적어 두기</span>
+<a class="src" href="https://www.ppss.kr/news/articleView.html?idxno=311686" target="_blank" rel="noopener">피플파워스토리 (09-20) ↗</a>
+<p>성동구가 <b>9월 23일부터 28일까지 6일간</b> 안전·교통·생활·물가·나눔·공직기강 6대 분야 종합대책을 가동합니다. 24시간 재난안전상황실과 비상진료 상황실을 열어 <b>문을 여는 병·의원과 휴일지킴이 약국을 안내</b>하고, 공영주차장 3곳(166구획)을 무료 개방하며, 취약계층에는 도시락·밑반찬을 지원하고 명절 전후로 <b>&lsquo;집중 안부확인의 날&rsquo;</b>을 운영합니다.</p>
+<p>연휴 대책 기사는 해마다 비슷해 보이지만, 올해 눈에 걸리는 낱말은 &lsquo;집중 안부확인의 날&rsquo;입니다. 평소 돌봄은 <b>사람이 오가는 흐름에 얹혀</b> 돌아갑니다. 요양보호사가, 복지팀이, 이웃이 지나가면서 확인하던 일이 나흘 멈추면 그 자리가 빕니다. 그래서 명절 대책의 본질은 새 서비스를 만드는 게 아니라 <b>평소 누가 그 확인을 하고 있었는지 뒤늦게 세어 보는 일</b>입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·삶 — 반도체 일자리 8년새 14.5% 늘었는데 신규채용은 21.6% 감소 — &lsquo;대체&rsquo;와 &lsquo;신규&rsquo;가 갈린다</span>
+<a class="src" href="https://www.fnnews.com/news/202609200955076114" target="_blank" rel="noopener">파이낸셜뉴스 (09-20) ↗</a>
+<p>국가데이터처 국가통계포털 기준으로 반도체 일자리는 2018년 1분기 15만 2천 개에서 2026년 1분기 <b>17만 4천 개(+14.5%)</b>로 늘었습니다. 그런데 같은 기간 신규채용 일자리는 3만 7천 개에서 <b>2만 9천 개(-21.6%)</b>로 줄었고, 기업 신설·확장으로 순수하게 새로 생긴 <b>신규일자리는 2만 개에서 1만 5천 개(-25%)</b>가 됐습니다. 전체의 <b>83.9%</b>는 기존 근로자가 계속 일하는 지속일자리입니다.</p>
+<p>통계가 &lsquo;지속·대체·신규&rsquo;를 굳이 나눠 세는 이유가 오늘의 결과 맞닿습니다. 겉으로는 다 같은 한 자리이지만, <b>누군가 나간 자리를 메운 것</b>과 <b>없던 자리가 생긴 것</b>은 사회적으로 전혀 다른 사건입니다. 앞의 것은 사람만 바뀌고 구조는 그대로이고, 뒤의 것만 세상이 넓어진 흔적입니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — 韓日 작가는 왜 지금 &lsquo;니체&rsquo;에 주목했나 — 혼돈과 절망에서 마주하는 초인</span>
+<a class="src" href="https://www.munhwa.com/article/11618315" target="_blank" rel="noopener">문화일보 (09-20) ↗</a>
+<p>강용수(고려대 철학연구소 연구교수)의 『니체 초인 수업』과 사이토 다카시(메이지대 문학부 교수)의 『사이토 다카시의 니체는 이렇게 말했다』가 나란히 소개됐습니다. 기사가 뽑은 물음은 이것입니다 &mdash; <b>&ldquo;고통과 혼돈의 시대에 지금의 삶을 당연하게 받아들이고 살 것인가, 아니면 끊임없이 자신을 넘어서는 인간, 초인의 자세로 살 것인가.&rdquo;</b></p>
+<p>관제탑 우편기가 3주 가까이 니체를 배달해 온 자리에 마침 이 기사가 도착했습니다. 다만 &lsquo;초인&rsquo;은 남보다 뛰어난 사람이 아니라 <b>어제의 자기를 넘어선 사람</b>입니다. 비교의 대상이 바깥이 아니라 안이라는 점에서, 오늘의 결과 같은 축 위에 있습니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·기술 — &ldquo;AI가 일자리를 줄였나&rdquo; 연구기관마다 답이 다르다</span>
+<a class="src" href="https://www.hankookilbo.com/news/article/A2026092015410001881" target="_blank" rel="noopener">한국일보 (09-20) ↗</a>
+<p>국회예산정책처는 2018년~2026년 1월 자료로 <b>&ldquo;생성형 AI가 노동 수요를 줄인 증거가 확인되지 않았다&rdquo;</b>고 봤습니다(IT 개발자·이공계 연구자·금융 전문가·20대 청년층 대상, 사무직 청년 채용 감소는 다른 요인으로 설명 가능). 반면 한국개발연구원은 <b>10년 뒤 약 25만 6천 개 일자리 대체 가능</b>, 전체 직업의 <b>72%</b>가 대체 위험에 노출된다고 전망했고, 한국은행은 피지컬 AI 노출 직업의 취업자 수가 수도권·비수도권 모두에서 감소 중이라고 진단했습니다.</p>
+<p>같은 자료를 두고 답이 갈리는 이유는 대체로 <b>&ldquo;무엇을 일자리 하나로 세느냐&rdquo;</b>에 있습니다. 직무를 세면 줄어 보이고, 사람을 세면 아직 안 줄어 보입니다. 가르치는 자리에 선 사람이 그대로 쓸 문장은 여기서 나옵니다 &mdash; 겁을 주지도 안심시키지도 말고, <b>무엇이 세어지고 무엇이 안 세어지는지</b>를 보여 주는 쪽.</p></div>
+
+<div class="news"><span class="title">🤖 AI·기술 — 트럼프, &lsquo;AI 포스&rsquo; 창설·&lsquo;AI 차르&rsquo; 임명 예고 — 자리를 먼저 만들고 할 일은 나중에</span>
+<a class="src" href="https://www.aitimes.com/news/articleView.html?idxno=215499" target="_blank" rel="noopener">AI타임스 (09-20) ↗</a>
+<a class="src" href="https://www.khan.co.kr/article/202609202055005" target="_blank" rel="noopener">경향신문 (09-20) ↗</a>
+<p>트럼프 미국 대통령이 우주군(Space Force)을 본뜬 <b>&lsquo;AI 포스&rsquo;</b> 창설과 정부 AI 정책을 총괄할 <b>&lsquo;AI 차르&rsquo;</b> 임명을 예고했습니다. 덧붙여 &lsquo;인공지능&rsquo;이라는 명칭을 &ldquo;우월 지능(Superior Intelligence)&rdquo;, &ldquo;극대 지능(Extreme Intelligence)&rdquo;, &ldquo;최고 지능(Supreme Intelligence)&rdquo;으로 바꾸자며 지지자 여론조사를 걸었습니다. 업계에서는 <b>조직의 역할과 필요성이 무엇인지 되묻는 반응</b>이 나옵니다.</p>
+<p>행정 조직을 만들어 본 사람이면 아는 순서가 있습니다 &mdash; 할 일이 먼저 있고 그다음 자리를 만듭니다. 순서가 뒤집히면 자리는 생겼는데 그 자리가 <b>무엇의 빈칸이었는지 아무도 설명하지 못하는 상태</b>가 됩니다. 이름부터 바꾸자는 제안이 같은 날 나온 것도 그래서 우연이 아닙니다.</p></div>
+</section>
+
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 대체 가능해 보이는 것과 실제로 대체되는 것은 다르다 — 그 차이는 &lsquo;겪음&rsquo;에 있다</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">&ldquo;내가 없었어도 누군가 나를 썼을 것이다&rdquo;</span>
+<a class="src" href="https://www.theparisreview.org/blog/2022/07/06/why-write/" target="_blank" rel="noopener">Elisa Gabbert, &ldquo;Why Write?&rdquo; · The Paris Review (2022-07-06) ↗</a>
+<p>개버트는 팬데믹 첫해에 작가 인터뷰 팟캐스트를 몰아 듣다가 이상한 지점에 닿았다고 씁니다. <b>&ldquo;한참 듣다 보면 대부분의 작가가 똑같은 소리를 낸다. 작가들을 폭식한 날이면 나는 스스로가 무의미하고 대체 가능하게(interchangeable) 느껴지기 시작한다.&rdquo;</b> 그리고 포크너의 말을 끌어옵니다 &mdash; <b>&ldquo;내가 존재하지 않았더라도 누군가가 나를, 헤밍웨이를, 도스토옙스키를, 우리 모두를 썼을 것이다.&rdquo;</b></p>
+<p>그런데 개버트가 이 절망에서 빠져나오는 방식이 오늘 배울 형식입니다. 반박하지 않습니다. 대신 질문을 낮춥니다 &mdash; 글쓰기는 <b>&ldquo;젖은 시멘트에 손자국을 찍거나 김 서린 창에 손가락을 긋고 싶은 충동과 같은 것&rdquo;</b>이라고. 누가 대신 쓸 수 있었느냐가 아니라, <b>내 손이 여기 닿았다는 자국</b>이 남느냐. 작가의 대체 가능성을 인정하면서도 쓰기를 멈추지 않는 길이 이 문장 하나에 들어 있습니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">속해 있다는 것과, 없으면 그리워진다는 것은 다르다</span>
+<a class="src" href="https://www.psychologicalscience.org/news/has-gordon-flett-found-the-secret-to-feeling-like-you-matter.html" target="_blank" rel="noopener">Psychological Science · Gordon Flett ↗</a>
+<a class="src" href="https://www.abc.net.au/listen/programs/lifematters/gordon-flett-mattering-happiness-purpose-mattering-movement/105928884" target="_blank" rel="noopener">ABC Life Matters ↗</a>
+<p>요크대의 고든 플렛은 <b>mattering</b>(내가 누군가에게 중요한 사람이라는 감각)이 자존감·회복탄력성·소속감보다 삶의 만족을 더 잘 설명한다고 봅니다. 결정적인 구별은 이것입니다 &mdash; mattering은 <b>&ldquo;집단에 속해 있다는 느낌 이상이며, 내가 그 자리에 없었다면 사람들이 나를 그리워할 것인가(being missed)&rdquo;</b>의 문제입니다. 플렛은 외로움 유행의 상당 부분이 실은 <b>&lsquo;중요하지 않음(not mattering)&rsquo; 유행</b>이라고 말합니다.</p>
+<p>소속은 자리로 확인되고, mattering은 <b>빈자리로 확인됩니다.</b> 위 항로의 대구 중구 스물두 명은 정원상 소속을 정확히 갈음당했지만, 그들이 떠난 뒤 조직이 무엇을 아쉬워했는지는 기록에 없습니다. 아쉬워한 적이 없어서일 수도 있고, 아쉬움을 적는 칸이 없어서일 수도 있습니다. 사람을 붙잡는 일은 대체로 두 번째 문제입니다.</p></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">&ldquo;사람들이, 인간이 아니라, 이 땅에 산다&rdquo;</span>
+<a class="src" href="https://www.themarginalian.org/2017/05/17/hannah-arendt-human-condition-speech-action/" target="_blank" rel="noopener">The Marginalian · Hannah Arendt, <i>The Human Condition</i> (1958) ↗</a>
+<p>아렌트는 인간의 조건을 <b>복수성(plurality)</b>으로 정의합니다 &mdash; <b>&ldquo;인간(Man)이 아니라 사람들(men)이 이 땅에 살며 세계에 거주한다는 사실.&rdquo;</b> 그리고 그 복수성은 평등과 구별이라는 두 겹으로 되어 있습니다. 우리는 모두 똑같이 인간이지만, <b>&ldquo;살았고 살고 있고 살게 될 그 누구와도 결코 같지 않은 방식으로&rdquo;</b> 똑같습니다. 아렌트에게 말과 행위는 이 유일함이 남에게 <b>나타나는</b> 통로입니다.</p>
+<p>여기서 주의할 대목이 있습니다. 아렌트는 유일함을 <b>미리 가진 성질</b>로 두지 않습니다. 말하고 행하기 전까지 사람은 그저 서로 다를 뿐(distinct)이고, 말과 행위를 통해서야 <b>스스로를 구별해 냅니다</b>(distinguish themselves). 대체 불가능함은 타고나는 자격이 아니라 <b>밖으로 나온 만큼만 존재하는 것</b>입니다 &mdash; 쓰지 않은 글은 아무도 대체할 수 없지만, 동시에 아무도 그것을 잃지도 않습니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">當其無, 有車之用 — 쓸모는 비어 있는 자리에서 나온다</span>
+<a class="src" href="https://www.egreenway.com/taoism/ttclz11.htm" target="_blank" rel="noopener">老子 『道德經』 11장 · 원문과 영역 대조 ↗</a>
+<a class="src" href="https://blog.daum.net/namgok/1867" target="_blank" rel="noopener">국내 해설 ↗</a>
+<p>&ldquo;三十輻共一轂, <b>當其無, 有車之用</b>. 埏埴以爲器, 當其無, 有器之用. 鑿戶牖以爲室, 當其無, 有室之用. 故有之以爲利, 無之以爲用.&rdquo; &mdash; 바퀴살 서른 개가 바퀴통 하나에 모이지만 <b>그 가운데가 비어 있어서</b> 수레를 쓸 수 있고, 흙을 빚어 그릇을 만들지만 속이 비어 있어서 그릇을 쓸 수 있으며, 문과 창을 뚫어 방을 만들지만 그 안이 비어 있어서 방을 쓸 수 있다. 그러므로 <b>있음은 이로움이 되고, 없음은 쓸모가 된다.</b></p>
+<p>오늘 항로의 빈자리들을 이 문장에 비춰 보면 결이 한 겹 뒤집힙니다. 조직이 빈자리를 <b>결함</b>으로만 세는 동안, 노자는 빈 곳이 곧 <b>기능하는 자리</b>라고 말합니다. 다만 조심할 것은 이 문장이 &ldquo;비어도 괜찮다&rdquo;는 위로가 아니라는 점입니다 &mdash; 바퀴통의 빈 곳은 <b>바퀴살 서른 개가 정확히 둘러싸고 있을 때만</b> 축이 됩니다. 아무 데나 비어 있는 것은 그냥 구멍입니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">&ldquo;말할 수 있으면 쓸 수 있어요&rdquo;</span>
+<a class="src" href="https://www.lecturernews.com/news/articleView.html?idxno=210802" target="_blank" rel="noopener">강사신문 (09-18) · 강원국 『당신은 어떻게 씁니까』 ↗</a>
+<p>대통령 연설비서관을 지낸 강원국이 신간 인터뷰에서 좋은 글쓰기의 세 가지를 <b>공부와 메모 / 말하기 / 독자</b>로 꼽았습니다. 글감을 모으기 위한 공부, 배운 것을 <b>말로 먼저 해 보기</b>, 그리고 읽을 사람을 두고 쓰기. <b>&ldquo;말할 수 있으면 쓸 수 있어요.&rdquo;</b> <b>&ldquo;글은 결국 독자에게 읽혀야 의미가 있으니까요.&rdquo;</b></p>
+<p>그런데 인터뷰에서 가장 깊은 대목은 기술 이야기가 아닙니다. <b>&ldquo;&lsquo;나에 대한 글쓰기&rsquo;는 많은 걸 선사합니다. 나쁜 기억에서 놓여나고, 관계가 좋지 않았던 사람과 화해하고, 스스로를 치유할 수 있는 기회를 줍니다.&rdquo;</b> 이 문장이 오늘 개버트의 절망에 대한 실용적인 답입니다 &mdash; 남이 대신 쓸 수 있는 글이 있고, <b>쓰는 동안 쓴 사람이 달라지는 글</b>이 있습니다. 뒤엣것은 결과물이 아니라 과정이 본체라서, 대신 쓰면 애초에 성립하지 않습니다.</p></div>
+
+
+
+</section>
+
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘의 배달 —</p>
+<p class="verse">&ldquo;근본적으로 모든 사람은 잘 알고 있다 —
+자기가 이 세상에 <b>단 한 번</b>,
+하나의 <b>유일한 것(Unikum)</b>으로 있다는 것을,
+그리고 아무리 기묘한 우연이라도
+자기라는 이 별난 잡다함을
+두 번 다시 하나로 섞어 내지는 못하리라는 것을.
+그는 그것을 알면서도, 켕기는 일처럼 숨긴다 — 왜인가?
+이웃이 두려워서다. 이웃은 관습을 요구하고,
+스스로도 그 관습으로 자기를 가린다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『반시대적 고찰』 제3편 「교육자로서의 쇼펜하우어(Schopenhauer als Erzieher)」 1절 (1874)
+<span class="orig">Im Grunde weiß jeder Mensch recht wohl, daß er nur einmal, als ein <b>Unikum</b>, auf der Welt ist und daß kein noch so seltsamer Zufall zum zweitenmal ein so wunderlich buntes Mancherlei zum Einerlei, wie er es ist, zusammenschütteln wird: er weiß es, aber verbirgt es wie ein böses Gewissen – weshalb? Aus Furcht vor dem Nachbar, welcher die Konvention fordert und sich selbst mit ihr verhüllt.</span>
+<a class="src" href="http://www.zeno.org/Philosophie/M/Nietzsche,+Friedrich/Unzeitgem%C3%A4%C3%9Fe+Betrachtungen/3.+Schopenhauer+als+Erzieher" target="_blank" rel="noopener">zeno.org 원문 대조 ↗</a></p>
+<p class="memo">배달 메모 — 오늘 등대의 물음에 니체가 1874년에 붙여 둔 답입니다. 눈여겨볼 곳은 니체가 대체 불가능함을 <b>자랑거리로 두지 않았다</b>는 자리입니다. 그는 &ldquo;너는 유일하다&rdquo;고 격려하지 않고, <b>&ldquo;너도 이미 알고 있으면서 숨기고 있다&rdquo;</b>고 지적합니다. 그리고 숨기는 이유를 용기 부족이 아니라 <i>Furcht vor dem Nachbar</i> — 이웃에 대한 두려움 — 으로 못 박습니다.<br><br>
+이 대목이 오늘 항로와 정확히 겹칩니다. 조직에서 &ldquo;나만 할 수 있는 일&rdquo;을 말하는 것은 자랑처럼 들릴까 봐 대개 삼가는 말입니다. 그래서 스물두 명이 떠날 때까지 아무도 그 칸을 적지 않았습니다. 니체의 진단대로라면 문제는 겸손이 아니라 <b>관습이라는 가림막</b>입니다.<br><br>
+덧붙임: 9월 8일 우편기에서 배달한 <b>&ldquo;아무도 너를 위해 다리를 놓아 줄 수 없다&rdquo;</b>가 이 문장 바로 뒤쪽, 같은 글 1절에서 나옵니다. 니체는 한 쪽 안에서 같은 말을 두 번 했습니다 — 먼저 <b>너는 대체되지 않는다</b>, 그다음 <b>그러니 아무도 대신 건너 줄 수 없다.</b> 두 번째 문장은 첫 번째의 값입니다.</p>
+</div>
+</section>
+
+
+<section>
+<div class="h"><span class="em">🌫</span><h2>출처에 관하여</h2></div>
+<div class="fog"><ul>
+<li><b>니체 문장은 zeno.org에서 독일어 전문을 직접 열어 대조</b>했습니다. Projekt Gutenberg는 오늘 봇 차단(Cloudflare)으로, nietzschesource.org는 접속 거부로 열지 못했습니다. zeno.org 판본은 현대 정서법을 따라 <b>Unikum / nur einmal / Mancherlei zum Einerlei</b>로 적고 있으며, 1874년 초판은 <i>Unicum / nur Ein Mal / Mannigfaltiges zu einer Einheit</i>로 표기합니다. 본문에는 <b>실제로 대조한 zeno.org 표기 그대로</b> 실었습니다.</li>
+<li><b>개버트의 문장은 『The Paris Review』 원문 페이지를 직접 열어 해당 문단을 대조</b>했습니다(포크너 인용 포함). 포크너 원 발언의 1차 출처(『파리 리뷰』 1956년 진 스타인 인터뷰로 추정)까지는 확인하지 못해 <b>개버트의 인용으로만</b> 적었습니다.</li>
+<li><b>플렛의 mattering 정의는 Psychological Science 소개 기사와 ABC 인터뷰 소개문으로 확인</b>했습니다. 원저 <i>The Psychology of Mattering</i>(2018) 본문은 열지 못했습니다. &ldquo;외로움 유행의 상당 부분이 not mattering 유행&rdquo;이라는 표현은 해설 기사의 요약입니다.</li>
+<li><b>아렌트 인용은 『인간의 조건』 원서가 아니라 The Marginalian의 발췌</b>를 옮긴 것입니다. 페이지 번호는 확인하지 못했습니다.</li>
+<li><b>도덕경 11장은 中國哲學書電子化計劃(ctext.org)이 자동 접근을 막아 두어 쓰지 않았고</b>, 원문·영역 대조가 함께 실린 egreenway.com과 국내 해설로 갈음했습니다.</li>
+<li><b>대구 중구·성동구·조재구 회장 기사는 각 원문 페이지를 직접 열어 수치와 날짜를 대조</b>했습니다. 성동구 대책 기간은 기사 기준 <b>9월 23~28일</b>로, 연휴(24~27일)보다 앞뒤로 하루씩 넓습니다.</li>
+<li><b>한국일보 기사의 연구기관별 수치(KDI 25만 6천 개·72%)는 기사에 인용된 값</b>이며, 원 보고서는 열지 못했습니다. 국회예산정책처 분석의 정확한 보고서명도 확인하지 못했습니다.</li>
+<li><b>뺀 것</b> — 「AI 민원 27장」(영국 공무원) 기사는 8월 말 자료라 24~48시간 범위를 넘어 뺐습니다. 추석 연휴 지자체 대책 기사는 어제 브리핑(아이돌봄서비스)과 겹치지 않도록 <b>행정 공백</b>이라는 다른 각도의 한 건만 실었습니다.</li>
+</ul></div>
+</section>
+
+</div>
+<p class="closing">자리는 메울 수 있어도, 그 자리에서 겪은 사람은 대체되지 않습니다.<br>오늘 하루, <b>메우면서 알게 된 것 하나</b>만 적어 두십시오 — 다음 사람이 앉아서는 알 수 없는 것입니다. <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+</div>
+</body>
+</html>
