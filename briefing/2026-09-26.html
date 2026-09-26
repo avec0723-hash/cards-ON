@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-09-26 (토)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 9월 26일 · 토요일</p>
+<p class="opening">추석 다음 날, 연휴 사흘째입니다. 쉬는 사람들 곁에서 누군가는 당직을 서고, 서점에서는 두꺼운 책이 팔려 나갑니다.<br>
+오늘 하늘의 결은 <b>내 몸을 지나간 것만 남는다</b> &mdash; 빨리 얻은 답과 내 것이 된 생각은 같지 않다는 것입니다.</p>
+</header>
+
+<div class="body">
+
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·정책 — 연휴 나흘, 안산 314명·제주 460명이 비상근무</span>
+<a class="src" href="https://www.mt.co.kr/policy/2026/09/23/2026092310445715057" target="_blank" rel="noopener">머니투데이 (09-23) ↗</a>
+<a class="src" href="https://www.headlinejeju.co.kr/news/articleView.html?idxno=599178" target="_blank" rel="noopener">헤드라인제주 ↗</a>
+<p>안산시는 9월 24~27일 <b>10개 분야·27개 부서, 공직자 314명</b>을 비상근무로 편성하고 24시간 종합상황실을 열었습니다. 민원콜센터는 추석 당일과 일요일에도 오전 9시~오후 1시에 전화를 받고, 응급의료기관 7곳은 24시간 문을 엽니다. 제주시는 460명을 편성해 하루 115명씩 돌아가며 섭니다.</p>
+<p>달력의 빨간 날은 행정에서는 <b>당직표</b>라는 다른 문서로 적힌다는 것 &mdash; 표에 이름이 오른 사람에게는 연휴가 아니라 교대 근무입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·삶 — 성동구 1인 가구 5,642명 안부 확인, 연휴 뒤 28·29일에 한 번 더</span>
+<a class="src" href="http://www.dailypop.kr/news/articleView.html?idxno=102721" target="_blank" rel="noopener">데일리팝 (09-21) ↗</a>
+<p>성동구는 9월 10~29일 어르신과 중장년·청년 1인 가구 <b>5,642명</b>의 안부를 살피고, 22·23일과 연휴 뒤 <b>28·29일</b>을 집중 확인일로 잡았습니다. 동주민센터 공무원·지역사회보장협의체·우리동네돌봄단·복지통장이 가정 방문과 전화, 스마트 안부확인 서비스로 나눠 맡습니다. 경찰도 9월 17~27일 1인 가구 밀집 지역 순찰을 늘렸습니다.</p>
+<p>기사가 함께 적은 숫자 &mdash; 2024년 고독사 사망자 <b>3,924명</b>, 처음 발견한 사람은 임대인·경비원 등이 <b>43.1%</b>로 가족(26.6%)보다 많았습니다. 안부 확인이 연휴 <b>뒤</b>에도 잡혀 있다는 점이 눈에 띕니다. 명절의 빈자리는 명절이 끝난 뒤에 드러나기 때문입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·삶 — 추석 당일 문 연 의료기관 5,231곳, 오늘은 8,472곳</span>
+<a class="src" href="https://www.asiatoday.co.kr/kn/view.php?key=20260924010009002" target="_blank" rel="noopener">아시아투데이 (09-24~25) ↗</a>
+<p>날짜별로 문 여는 병·의원·약국 수가 다릅니다 &mdash; 추석 당일(25일) <b>5,231곳</b>, 오늘(26일) <b>8,472곳</b>, 내일(27일) <b>7,689곳</b>. 응급의료기관 <b>416곳</b>은 연휴 내내 24시간 진료합니다. 증상을 넣으면 응급실에 가야 하는지 판단을 돕는 &lsquo;응급똑똑&rsquo; 앱도 안내됐습니다. 호흡곤란이나 의식 저하가 있으면 망설이지 말고 119입니다.</p>
+<p>오늘은 연휴 중 문 연 곳이 가장 많은 날이니, 미뤄 둔 진료가 있다면 오늘이 낫습니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — 추석 서점가, 100위 안에 문학·인문 44종 — 세네카·헤세·니체</span>
+<a class="src" href="https://www.fnnews.com/news/202609250424546742" target="_blank" rel="noopener">파이낸셜뉴스 (09-25) 북브리핑 ↗</a>
+<a class="src" href="https://www.fnnews.com/news/202609250504554687" target="_blank" rel="noopener">같은 날 인문서 추천 ↗</a>
+<p>예스24 종합 베스트셀러 100위 가운데 소설·시·희곡 26종, 인문 18종으로 <b>문학과 인문이 44종</b>을 차지했습니다. 1위 『세네카, 오늘을 빼앗기고 있는 당신에게』, 3위 헤세 『싯다르타』, 4위 『니체의 초월자』(김철 편역, 77편). 평소 분량 때문에 미뤄 둔 &lsquo;벽돌책&rsquo;을 연휴에 꺼내는 흐름도 함께 적혔습니다.</p>
+<p>같은 날 같은 지면의 인문서 추천에는 연세대 홍진기 교수의 『사고외주』(어크로스)가 들었습니다 &mdash; <b>&ldquo;결과물을 얻는 속도와 스스로 이해하는 깊이가 같은 것은 아니라는 문제의식&rdquo;</b>.</p></div>
+
+<div class="news"><span class="title">🤖 AI·기술 — AI로 쓴 에세이는 점수가 높았고, 쓴 사람은 마지막 문장을 기억하지 못했다</span>
+<a class="src" href="https://www.koreajoongangdaily.com/korea/students-get-ai-boost-in-writing-blow-to-recall/12884915" target="_blank" rel="noopener">Korea JoongAng Daily (09-22) · 중앙일보 실험 ↗</a>
+<p>중앙일보가 9월 9~10일 서울 지역 대학생들을 모아 한 실험입니다. AI를 쓴 조의 에세이 점수는 <b>81.6점</b>, 안 쓴 조는 <b>68.8점</b>. 표현·문장 구성은 82.7점 대 61.3점으로 차이가 더 컸습니다. 그런데 이해도 평가에서는 뒤집혔습니다 &mdash; AI 조 <b>66.9점</b>, 안 쓴 조 <b>82.9점</b>. 안 쓴 학생은 모두 자기 에세이의 마지막 문장을 기억했고, AI 조는 <b>절반 넘게</b> 기억하지 못했습니다.</p>
+<p>한 학생의 말 &mdash; &ldquo;솔직히 제가 다시 쓸 수 있는 문장이 하나도 없었어요.&rdquo; 한양대 유성호 교수는 &ldquo;스스로 말로 옮길 수 없는 부분이 많다면, 배운 것을 내면화하지 못했다는 뜻&rdquo;이라고 했습니다. 글쓰기를 가르치는 자리와 AI를 가르치는 자리가 같은 표 앞에 서야 할 결과입니다.</p></div>
+
+</section>
+
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 내 몸을 지나간 것만 남는다 — 빨리 얻은 답과 내 것이 된 생각은 다르다</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">&ldquo;초안을 외주로 넘기면 무엇을 잃는가? 생각을 잃는다&rdquo;</span>
+<a class="src" href="https://www.bostonglobe.com/2026/04/10/opinion/essay-writing-ai/" target="_blank" rel="noopener">The Boston Globe (2026-04-10) · Anna Kusmer ↗</a>
+<a class="src" href="https://lithub.com/joan-didion-why-i-write/" target="_blank" rel="noopener">Joan Didion, 「Why I Write」(1976) ↗</a>
+<p>보스턴글로브 오피니언의 오디오 에디터 애나 쿠스머가 쓴 에세이 「I write to find out what I think」입니다. 제목은 조앤 디디온의 「나는 왜 쓰는가」(1976)에서 왔습니다 &mdash; &ldquo;나는 오로지 내가 무엇을 생각하는지, 무엇을 보고 있는지, 무엇을 보는지, 그리고 그것이 무엇을 뜻하는지 알아내기 위해 쓴다.&rdquo;</p>
+<p>쿠스머는 여기서 질문 하나를 끌어냅니다. <b>&ldquo;초안 단계를 외주로 넘기면 무엇을 잃는가? 우리는 생각을 잃는다.&rdquo;</b> 초안은 완성본으로 가는 귀찮은 중간 단계가 아니라 <b>생각이 처음 생기는 자리</b>라는 것. 원고를 쓰는 사람에게도, 쓰기를 가르치는 사람에게도 같은 경계선입니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">&ldquo;우리는 명료하다는 느낌을 배움의 결승선으로 착각한다&rdquo;</span>
+<a class="src" href="https://www.psychologytoday.com/us/blog/how-we-learn/202603/the-feeling-of-learning-can-be-a-psychological-illusion" target="_blank" rel="noopener">Psychology Today (2026-03-06) · Jarek Janio ↗</a>
+<p>교육학자 재럭 재니오는 앨터와 오펜하이머(2009)의 &lsquo;인지적 유창성&rsquo;, 비요크 부부(2011)의 &lsquo;유능감 착각&rsquo;을 불러와, 설명을 들을 때의 &ldquo;아하!&rdquo;는 학생의 능력이 바뀐 흔적이 아니라 <b>좋은 강의의 성질</b>인 경우가 많다고 씁니다. 결론은 짧습니다 &mdash; &ldquo;진짜 숙련은 우리가 어떻게 느끼느냐가 아니라 무엇을 할 수 있느냐에서 드러난다.&rdquo;</p>
+<p>매끄럽게 읽힌 강의와 매끄럽게 뽑힌 AI 답은 같은 착각을 줍니다. 살롱이나 교육을 설계할 때 &lsquo;잘 들었다&rsquo;가 아니라 <b>&lsquo;혼자 해 봤다&rsquo;</b>를 마지막 칸에 두어야 하는 까닭입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">세네카 두 번째 편지 &mdash; &ldquo;어디에나 있는 사람은 어디에도 없다&rdquo;</span>
+<a class="src" href="https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_2" target="_blank" rel="noopener">Wikisource · Seneca, Moral Letters to Lucilius, Letter 2 (Gummere 역) ↗</a>
+<p>추석 서점가 1위가 세네카입니다. 그렇다면 그가 루킬리우스에게 보낸 <b>두 번째 편지</b>를 먼저 읽을 만합니다 &mdash; 주제가 &lsquo;어떻게 읽을 것인가&rsquo;입니다. &ldquo;어디에나 있는 것은 어디에도 없는 것이다. 여행으로만 세월을 보내는 사람은 아는 사람은 많아도 벗은 없다.&rdquo;</p>
+<p>그리고 음식의 비유가 이어집니다. &ldquo;먹자마자 위를 떠나는 음식은 몸에 흡수되지 않아 아무 득이 없다.&rdquo; 그래서 처방은 <b>적은 수의 스승 곁에 오래 머물며 소화하라</b>는 것. 많이 읽는 것과 내 것이 되는 것 사이에는 &lsquo;소화&rsquo;라는 느린 시간이 있다고, 2천 년 전 사람이 이미 적어 두었습니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문</span>
+<span class="title">홍진기 『사고외주』 &mdash; &ldquo;과정 없이 결론만 얻는 시대, 인간은 무엇을 잃는가&rdquo;</span>
+<a class="src" href="https://www.yes24.com/product/goods/192173353" target="_blank" rel="noopener">예스24 · 『사고외주』(어크로스) ↗</a>
+<a class="src" href="https://www.fnnews.com/news/202609250504554687" target="_blank" rel="noopener">파이낸셜뉴스 추석 인문서 ↗</a>
+<p>연세대 홍진기 교수가 MIT 연구실·CES 현장·강의실을 오가며 쓴 책입니다. 제목이 개념 하나를 새로 세웁니다 &mdash; <b>사고외주(思考外注)</b>, 생각을 바깥에 맡기는 일. 저자는 지금 우리가 &ldquo;똑똑한 무능함&rdquo;에 빠져 있다고 진단하고, 생각의 주도권을 지키는 법과 &lsquo;외주할 수 없는 나&rsquo;를 만드는 법으로 책을 엮습니다.</p>
+<p>파이낸셜뉴스가 추석 인문서로 고르며 붙인 한 줄이 책의 요약입니다 &mdash; 결과물을 얻는 속도와 스스로 이해하는 깊이는 같지 않다. 위 실험의 <b>81.6점과 66.9점</b>이 그 간격의 숫자입니다.</p></div>
+
+
+</section>
+
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;근본적으로 책만 &lsquo;뒤적이는&rsquo; 학자는
+끝내 스스로 생각하는 능력을 완전히 잃는다.
+뒤적이지 않으면 생각하지 않는다.
+그가 생각할 때, 그것은 자극 &mdash; 읽은 생각 하나 &mdash; 에 대한 대답이다.
+그는 끝내 그저 반응할 뿐이다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『이 사람을 보라(Ecce homo)』 「나는 왜 이렇게 영리한가(Warum ich so klug bin)」 8절 (1888년 집필 · 1908년 출간)
+<span class="orig">Der Gelehrte, der im Grunde nur noch Bücher „wälzt“ — der Philologe mit mässigem Ansatz des Tags ungefähr 200 — verliert zuletzt ganz und gar das Vermögen, von sich aus zu denken. Wälzt er nicht, so denkt er nicht. Er antwortet auf einen Reiz (— einen gelesenen Gedanken), wenn er denkt, — er reagirt zuletzt bloss noch.</span></p>
+<p class="cite"><a class="src" href="https://www.gutenberg.org/ebooks/7202" target="_blank" rel="noopener">Project Gutenberg #7202 독일어 전문 ↗</a>
+<a class="src" href="https://homepage.univie.ac.at/arno.boehler/php/ecce-homo-performance-text/" target="_blank" rel="noopener">빈 대학 뵐러 공연 대본 (부분 대조) ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 니체가 이 절을 여는 말은 &ldquo;되도록 드물게 반응하는 것&rdquo;이 <b>자기방어</b>라는 것입니다. 남의 생각에 예·아니오만 하다 보면, 힘은 다 쓰는데 정작 스스로는 생각하지 않게 된다고. 1888년의 &lsquo;책&rsquo;을 오늘의 &lsquo;답 창&rsquo;으로 바꿔 읽어도 문장이 그대로 섭니다.<br><br>
+그리고 같은 절의 마지막 줄 &mdash; <i>&ldquo;Frühmorgens beim Anbruch des Tags, in aller Frische, in der Morgenröthe seiner Kraft, ein Buch lesen — das nenne ich lasterhaft!&rdquo;</i> (&ldquo;이른 아침 날이 밝을 무렵, 가장 싱싱할 때, 제 힘의 아침놀 속에서 책을 읽는 것 &mdash; 나는 그것을 악덕이라 부른다!&rdquo;)<br><br>
+새벽에 쓰는 사람에게 반가운 줄입니다. 하루의 가장 싱싱한 시간에 남의 문장보다 <b>제 손으로 먼저 쓰는</b> 습관은, 니체 식으로 말하면 이미 그 악덕을 피하고 있는 셈입니다.</p>
+</div>
+</section>
+
+
+
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>니체 문장은 Project Gutenberg #7202 전문 텍스트를 직접 내려받아 대조했습니다.</b> textlog.de·zeno.org·nietzschesource.org·projekt-gutenberg.org는 오늘 모두 본문을 내주지 않았고, 둘째 대조처인 빈 대학 뵐러의 공연 대본은 발췌·축약본이라 &ldquo;wälzt … von sich aus zu denken … er selber denkt nicht mehr&rdquo; 대목만 일치를 확인했습니다. &ldquo;200&rdquo;을 &lsquo;권&rsquo;으로 옮기는 번역이 흔하지만 원문에는 단위가 없어 번역문에서 숫자를 뺐습니다.</li>
+<li><b>중앙일보 실험</b>은 영문판(Korea JoongAng Daily) 기사로 확인했습니다. 참가 학생 수는 기사에 적혀 있지 않아 적지 않았습니다.</li>
+<li><b>『사고외주』</b>는 책 본문이나 저자 인터뷰를 직접 읽지 못해, 출판사 소개(예스24)와 파이낸셜뉴스 추천 기사에 실린 문장만 옮겼습니다. &ldquo;똑똑한 무능함&rdquo;은 책 소개문의 표현입니다.</li>
+<li><b>세네카 두 번째 편지</b>는 위키문헌의 거미어 영역(1917)을 우리말로 옮겼습니다. 라틴어 원문 대조는 하지 않았습니다.</li>
+<li><b>추석 당일 의료기관 수(5,231곳)</b>는 아시아투데이 기사와 검색 요약이 일치했으나, 보건복지부 보도자료 원문은 열어 보지 못했습니다.</li>
+<li><b>뺀 것</b> &mdash; 해외 AI 업계 소식(9월 24일 에이전트 제품 출시·가격 경쟁)은 오늘 결과 멀고 공무원·글쓰기 현장에 닿는 바가 적어 뺐습니다. 김애란 산문집은 지난 브리핑들에서 여러 번 다뤄 이번에는 뺐습니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">빨리 얻은 것은 빨리 떠납니다.<br><b>오늘 하루는 한 문장이라도 천천히 씹어 삼키는 날</b>이 되시길 바랍니다. <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
