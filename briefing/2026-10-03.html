@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-03 (토)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 3일 · 토요일 · 개천절</p>
+<p class="opening">개천절, 하늘이 열린 날의 토요일입니다. 월요일 대체공휴일까지 사흘이 이어지는 연휴의 첫날입니다.<br>
+오늘 하늘의 결은 <b>줄어든 시간이 고르는 눈을 준다</b> &mdash; 남은 시간이 짧다고 느낄 때 사람은 덜 펼치고 더 깊은 것을 고르고, 그 고름은 잃음이 아니라 선명해짐일 수 있다는 것입니다.</p>
+</header>
+
+<div class="body">
+
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·정책 — 검찰청 78년 만에 간판을 내리다, 공소청·중수청 출범 첫날</span>
+<a class="src" href="https://www.khan.co.kr/article/202610021546001/" target="_blank" rel="noopener">경향신문 (10-02) ↗</a>
+<a class="src" href="https://www.ajunews.com/view/20261002130653835" target="_blank" rel="noopener">아주경제 (10-02) ↗</a>
+<p>10월 2일 검찰청이 폐지되고 기소를 맡는 <b>공소청</b>과 수사를 맡는 <b>중대범죄수사청(중수청)</b>이 함께 문을 열었습니다. 중수청은 서울 을지로에서 내빈 80여 명을 모아 무대·대형 스크린·현판 제막까지 갖춘 개청식을 열었고, 공소청은 직원들만 모여 15분 남짓 비공개로 치렀습니다. 중수청은 정원 2,874명 가운데 1,900명으로 먼저 출범했고, 첫날부터 고소·고발 10여 건이 들어왔지만 형사사법정보시스템(KICS)이 다 갖춰지지 않아 <b>고발장을 손으로 받아 적는</b> 장면도 있었습니다.</p>
+<p>간판이 바뀌는 날에도 민원인이 서는 창구는 그대로 열려 있어야 합니다. 수기 접수는 서툶이 아니라, <b>제도와 제도 사이에서 사람이 끊기지 않게 하는 마지막 줄</b>입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·삶 — 제30회 노인의 날, 100세 어르신 여섯 분께 청려장</span>
+<a class="src" href="https://www.mt.co.kr/politics/2026/10/02/2026100211125888762" target="_blank" rel="noopener">머니투데이 (10-02) ↗</a>
+<a class="src" href="https://www.segye.com/newsView/20261002509457" target="_blank" rel="noopener">세계일보 (10-02) ↗</a>
+<p>10월 2일 서울에서 열린 제30회 노인의 날 기념식에서 대통령은 저소득 어르신의 기초연금을 더 두텁게 하고 <b>노인 일자리를 118만 개로</b> 늘리겠다고 밝혔습니다. 간병비 건강보험 적용과 집에서 돌봄을 받는 지역 돌봄망 확대도 약속했습니다. 올해 100세를 맞은 어르신 가운데 여섯 분이 장수 지팡이 청려장을 받았고, 대통령은 &ldquo;어르신 한 분, 한 분의 삶의 궤적이 모여 오늘날 우리 대한민국의 역사를 만들어 왔다&rdquo;고 말했습니다.</p>
+<p>숫자는 일자리를 세지만, 백 년을 걸어온 사람에게 지팡이를 건네는 일은 <b>걸어온 길을 세는</b> 일입니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — 『난파선의 선장들』, 교모세포종 진단 뒤 나눈 죽음에 관한 대화</span>
+<a class="src" href="https://www.seoul.co.kr/news/life/publication-literature/2026/10/02/20261002017002" target="_blank" rel="noopener">서울신문 [책꽂이] (10-02) ↗</a>
+<p>온라인 독서 플랫폼 &lsquo;그믐&rsquo;의 대표 <b>김새섬</b>은 뇌종양의 하나인 교모세포종 진단을 받고, 남편과 나눈 팟캐스트 대화로 자기 상황을 세상에 알렸습니다. 스위스에서 그 방송을 듣던 작가 <b>김진경</b>이 인터뷰를 청했고, 두 사람이 죽음을 두고 나눈 대화가 한 권이 되었습니다(어크로스, 288쪽).</p>
+<p>제목이 먼저 말을 겁니다 &mdash; 배가 기울어도 <b>키를 쥔 사람은 여전히 선장</b>이라는 것. 끝을 정할 수 없는 자리에서도, 무엇을 말하고 누구와 나눌지는 고를 수 있습니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·기술 — 행안부 &lsquo;공공부문 AI 윤리기준&rsquo; 확정, &ldquo;최종 책임과 통제는 사람에게&rdquo;</span>
+<a class="src" href="https://news.jkn.co.kr/post/1004288" target="_blank" rel="noopener">전국매일신문 (10-01) · 행정안전부 발표 ↗</a>
+<p>행정안전부가 공공부문 AI 윤리기준을 확정했습니다. 공공성·형평성·투명성·책임성·안전성·프라이버시 보호의 <b>6대 핵심가치</b>와 <b>68개 자율점검 항목</b>으로 짰고, 복지대상자 선정·인허가·위험예측처럼 국민의 권리와 생활에 바로 닿는 업무에 적용합니다. 중심 문장은 &ldquo;최종 책임과 통제는 사람에게 있다&rdquo;입니다. 각 기관의 AI 활용 수준에 따라 &lsquo;적용·응용·융합&rsquo; 3단계로 운영하고 공직자 교육도 함께 한다고 합니다.</p>
+<p>현장 담당자에게 이 기준이 실제로 요구하는 것은 하나로 모입니다 &mdash; AI가 낸 판단 옆에 <b>&ldquo;이 판단을 사람이 확인했다&rdquo;는 흔적</b>을 남기는 일입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·기술 — arXiv, 한 사람이 한 달에 논문 두 편까지만</span>
+<a class="src" href="https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/" target="_blank" rel="noopener">arXiv 공식 블로그 (10-01) ↗</a>
+<p>전 세계 연구자들이 논문을 먼저 올리는 공개 저장소 arXiv가 <b>한 사람당 한 달 2편, 동시에 심사 중인 것은 3편까지</b>로 제출을 묶었습니다. 9월 한 달 제출이 <b>40,363편</b> &mdash; 2년 전(20,569편)의 두 배였고, AI 분야는 2년 새 여섯 배로 늘었습니다. arXiv는 AI 도구가 연구 일부를 빠르게 해 주는 것은 인정하면서도, 범위가 좁고 얇은 논문, 하나를 잘게 쪼갠 &lsquo;살라미&rsquo; 논문이 쏟아져 자원봉사 심사자의 시간을 삼킨다고 적었습니다.</p>
+<p>쓰는 일이 쉬워질수록 귀해지는 것은 <b>덜 내고 더 깊게 내는 결심</b>입니다.</p></div>
+
+</section>
+
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 줄어든 시간이 고르는 눈을 준다 — 끝이 보이는 자리에서 사람은 넓이 대신 깊이를 고른다</span></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">로라 카스텐슨 &lsquo;사회정서적 선택 이론&rsquo;: 시간이 짧다고 느끼면 젊은이도 아는 사람 곁을 고른다</span>
+<a class="src" href="https://en.wikipedia.org/wiki/Socioemotional_selectivity_theory" target="_blank" rel="noopener">Wikipedia ↗</a>
+<a class="src" href="https://spsp.org/news-center/character-context-blog/paradoxical-wonderfulness-knowing-end-life-approaching" target="_blank" rel="noopener">SPSP 블로그 (2019) ↗</a>
+<p>스탠퍼드 심리학자 로라 카스텐슨은 나이 들수록 사람이 더 행복해지는 &ldquo;노화의 역설&rdquo;을 시간 지평으로 설명합니다. 앞으로 남은 시간이 넓게 열려 있다고 느낄 때 사람은 배우고 탐색하는 목표를 좇고, 시간이 좁아졌다고 느끼면 <b>정서적으로 의미 있는 목표와 관계</b>를 고른다는 것입니다. 핵심은 나이가 아니라 &lsquo;남은 시간에 대한 느낌&rsquo;이라는 점입니다.</p>
+<p>사회심리학 블로그의 해설은 이렇게 정리합니다 &mdash; &ldquo;지상에서 보낼 시간이 짧다고 믿게 되면, 젊은 사람들조차 낯선 이를 새로 사귀기보다 이미 알고 사랑하는 이들과 함께하기를 강하게 원한다.&rdquo; 고름은 움츠러듦이 아니라 <b>초점이 맞춰지는 일</b>입니다.</p></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">폴 칼라니티 『숨결이 바람 될 때』: &ldquo;나는 계속할 수 없다. 나는 계속할 것이다&rdquo;</span>
+<a class="src" href="https://www.themarginalian.org/2016/01/13/when-breath-becomes-paul-kalanithi/" target="_blank" rel="noopener">The Marginalian ↗</a>
+<p>서른다섯에 4기 폐암 진단을 받은 신경외과 레지던트 폴 칼라니티는 남은 시간이 얼마인지 모르는 채로 글을 썼고, 책은 그가 떠난 뒤 2016년에 나왔습니다. 어느 어두운 아침 그의 머릿속에 사뮈엘 베케트의 일곱 낱말이 되풀이됩니다 &mdash; <b>&ldquo;나는 계속할 수 없다. 나는 계속할 것이다(I can&rsquo;t go on. I&rsquo;ll go on).&rdquo;</b></p>
+<p>책 끝에는 갓 태어난 딸에게 남긴 문단이 있습니다. 언젠가 네가 무엇이었고 무엇을 했는지 셈해야 할 때, 죽어 가는 사람의 날들을 <b>&ldquo;더, 더를 갈망하지 않고 채워져 쉬는 기쁨&rdquo;</b>으로 채워 주었다는 것을 깎아내리지 말라고. 쓰는 사람에게 이 책은 묻습니다 &mdash; 시간이 줄어들 때 무엇을 쓰기로 고르는가.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문</span>
+<span class="title">이어령·김지수 『이어령의 마지막 수업』: &ldquo;너무 아름다웠다고. 정말 고마웠다고&rdquo;</span>
+<a class="src" href="https://newsseoul.co.kr/news/view/1065569412605648" target="_blank" rel="noopener">뉴스서울 (2023-04-27) ↗</a>
+<a class="src" href="https://m.seoul.co.kr/news/2022/02/26/20220226500061" target="_blank" rel="noopener">서울신문 (2022-02-26) ↗</a>
+<p>암 투병 사실을 알린 뒤 항암치료 대신 글쓰기를 고른 이어령 선생은, 기자 김지수와 1년에 걸쳐 열여섯 번 마주 앉아 삶 속의 죽음, 죽음 곁의 삶을 이야기했습니다. 김지수 작가가 강연에서 전한 선생의 부탁은 이렇습니다 &mdash; <b>&ldquo;글로 써주게. 사람들에게. 너무 아름다웠다고. 정말 고마웠다고.&rdquo;</b></p>
+<p>그리고 자신의 언어가 독자들의 삶에 <b>&ldquo;찰랑이는 비유의 말로&rdquo;</b> 남기를 바랐다고 합니다. 마지막 시간에 고른 낱말이 원망이 아니라 고마움이었다는 것 &mdash; 끝이 가까울수록 사람은 가장 깊은 말을 고른다는, 오늘 결의 한국어 증언입니다.</p></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">니체가 본 이민선 갑판: &ldquo;서로에게 어느 때보다 할 말이 많다&rdquo;</span>
+<a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/der-gedanke-an-den-tod" target="_blank" rel="noopener">textlog.de · 『즐거운 학문』 278절 ↗</a>
+<p>오늘의 우편기와 이어지는 글감입니다. 니체는 『즐거운 학문』(1882)의 한 절에서 붐비는 골목에 서서, 사람들 각자의 뒤에 그림자가 서 있는 것을 봅니다. 그리고 그 광경을 <b>이민선이 떠나기 직전의 갑판</b>에 견줍니다 &mdash; 시간이 재촉하니 사람들은 서로에게 어느 때보다 할 말이 많아진다고.</p>
+<p>그러나 니체의 결론은 끝을 붙드는 쪽이 아닙니다. 그는 <b>삶에 대한 생각</b>을 백 배 더 생각할 만한 것으로 만들고 싶다고 맺습니다. 끝을 의식하는 일의 쓸모는 끝이 아니라 지금을 향할 때 생긴다는 것입니다.</p></div>
+
+
+</section>
+
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;언제나 이민선이 떠나기 직전의
+마지막 순간과 같다.
+사람들은 서로에게 어느 때보다 할 말이 많고,
+시간은 재촉한다. (&hellip;)
+나는 사람들에게 삶에 대한 생각을
+백 배 더 생각할 만한 것으로 만드는 데
+무언가 보태고 싶다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『즐거운 학문(Die fröhliche Wissenschaft)』 제4권 「성 야누아리우스(Sanctus Januarius)」 278절 「죽음에 대한 생각(Der Gedanke an den Tod)」 (1882)
+<span class="orig">Es ist immer wie im letzten Augenblicke vor der Abfahrt eines Auswandererschiffes: man hat einander mehr zu sagen als je, die Stunde drängt (…) Ich möchte gern Etwas dazu tun, ihnen den Gedanken an das Leben noch hundertmal denkenswerter zu machen.</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/der-gedanke-an-den-tod" target="_blank" rel="noopener">textlog.de 278절 독일어 전문 ↗</a>
+<a class="src" href="https://www.gutenberg.org/ebooks/52881" target="_blank" rel="noopener">Project Gutenberg #52881 영역본 (대조) ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 이 절은 &ldquo;멜랑콜리한 행복&rdquo;으로 시작합니다. 니체는 붐비는 골목에서 갈증 난 듯 살아 있는 사람들을 보며, 곧 모두에게 고요가 오리라는 것을 압니다. 그런데 그 앎이 그를 어둡게 하지 않습니다. 이민선 갑판의 사람들처럼, <b>떠날 시간을 아는 사람은 서로에게 할 말이 많아진다</b> &mdash; 끝의 의식이 말을 줄이는 것이 아니라 나눌 말을 늘린다는 관찰입니다.<br><br>
+마지막 문장에서 니체는 방향을 틉니다. 죽음을 더 생각하라고 권하지 않고, <b>삶에 대한 생각</b>을 백 배 더 생각할 만한 것으로 만들고 싶다고 합니다. 카스텐슨의 이론, 칼라니티의 마지막 문단, 이어령 선생의 &ldquo;고마웠다고&rdquo;가 같은 자리에 섭니다 &mdash; 시간의 끝을 아는 일은 지금 곁에 있는 것을 더 선명하게 보게 하는 쪽으로 쓰일 때 의미가 있습니다.</p>
+</div>
+</section>
+
+
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>니체 문장</b>은 textlog.de의 278절 독일어 전문을 명령줄로 직접 받아 대조했고, Project Gutenberg #52881 영역본(『The Joyful Wisdom』) 278절로 뜻을 다시 맞춰 보았습니다. 독일어 전문을 담은 projekt-gutenberg.org는 접속 확인 화면에 막혀 열지 못했습니다. 한국어 옮김은 사막여우가 직접 옮긴 것이라 출간 번역본과 낱말이 다를 수 있습니다.</li>
+<li><b>공소청·중수청</b>의 공소청 인원 &lsquo;약 1,900명&rsquo;은 아주경제 기사의 숫자이고 법무부 발표 원문은 확인하지 못했습니다. 공소청 개청식을 &ldquo;장례식장 분위기&rdquo;라 한 말은 경향신문이 옮긴 익명 관계자의 말이라 본문에서 뺐습니다.</li>
+<li><b>노인의 날</b>의 올해 100세 어르신 수(2,692명)는 검색 요약에만 보이고 연 기사 본문에는 없어 적지 않았습니다. 노인 일자리 증가가 노인 인구 증가를 따라가지 못한다는 비판 기사도 보였지만, 날짜를 확인하지 못해 뺐습니다.</li>
+<li><b>AI·기술</b>에서 구글 새 모델(Gemini 4 &lsquo;Argon&rsquo;) 출시 소식은 CNBC 본문이 접속 거부(403)였고, 다른 자료는 &lsquo;구글이 확인하지 않은 시험판 이름&rsquo;이라 적어 엇갈려 뺐습니다. OpenAI가 100곳이 넘는 기관에 에이전트 활동을 알렸다는 로이터 보도는 본문을 열지 못해 싣지 않았습니다.</li>
+<li><b>칼라니티 인용</b>은 The Marginalian 발췌로 확인했고 원서 쪽수는 대조하지 못했습니다. <b>카스텐슨 문장</b>은 카스텐슨 본인의 말이 아니라 사회성격심리학회(SPSP) 블로그 필자(펠햄·보닝어)의 해설 문장입니다. <b>이어령 선생의 말</b>은 김지수 작가의 강연을 전한 기사(뉴스서울, 2023-04-27)에서 옮겼고 책 원문 쪽수는 확인하지 못했습니다.</li>
+<li><b>뺀 것</b> &mdash; 📜 고전·인문과 🕯 현존·삶은 최근 브리핑과 겹치는 우물(세네카·몽테뉴·프랭클)을 피하다 보니 오늘 결에 맞는 새 글을 원문으로 확인하지 못해 네 분야로 지었습니다. 오늘 결이 끝과 시간을 다루는 만큼, 무겁게 닿을 수 있는 사건·사고 기사는 싣지 않았습니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">연휴의 첫 아침, 펼쳐 둔 것들 가운데 <b>하나만 골라 오래 곁에 두는 하루</b>가 되기를.<br>고른 자리에 물이 고입니다. <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
