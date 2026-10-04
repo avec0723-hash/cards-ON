@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-04 (일)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 4일 · 일요일 · 연휴 둘째 날</p>
+<p class="opening">연휴 한가운데의 일요일입니다. 내일은 개천절 대체공휴일이라 하루가 더 이어집니다.<br>
+오늘 하늘의 결은 <b>두 발로 건너야 곁이 된다</b> &mdash; 생각도, 위로도, 행정도 머리에서 끝나지 않고 발까지 내려와 같은 땅을 밟을 때 비로소 그 사람의 것이 된다는 것입니다.</p>
+</header>
+
+<div class="body">
+
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·현장 — 진흙탕 앞에서 업혀 건넌 사람, &ldquo;업혀 갈 거면 뭐 하러 왔느냐&rdquo;</span>
+<a class="src" href="https://news.jtbc.co.kr/article/NB12321205" target="_blank" rel="noopener">JTBC (10-03) ↗</a>
+<p>8월 말 대구 북구의 침수 피해 복구 현장에서, 구청 직원으로 <b>추정되는</b> 남성이 진흙탕 앞에 멈춰 섰다가 다른 사람의 등에 업혀 건너는 모습이 제보 영상으로 알려졌습니다. 주민들은 비를 맞으며 온몸에 진흙을 묻힌 채 복구하던 중이었습니다. 주민들은 구청에 &ldquo;업혀 갈 거면 뭐 하러 왔느냐&rdquo;고 물었지만 그런 사람이 없다는 답을 들었다고 합니다. 북구청은 당시 직원 약 100명을 포함해 150여 명이 현장에 나가 있어 영상 속 인물을 파악하기 어렵다면서, 심려를 끼쳐 죄송하다는 뜻을 전했습니다.</p>
+<p>영상 속 인물이 누구인지는 아직 확인되지 않았습니다. 그래서 오늘은 그 사람을 판정하지 않고 장면만 봅니다. 현장에 <b>도착하는 것</b>과 현장에 <b>닿는 것</b>은 다르고, 주민이 기억하는 것은 그 차이입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·복지 — 시흥시 &lsquo;찾아가는 복지&rsquo; 수기 공모, 대상은 고독사 위험에서 사람을 찾아낸 기록</span>
+<a class="src" href="https://www.kyeonggi.com/article/20261004580023" target="_blank" rel="noopener">경기일보 (10-04) ↗</a>
+<p>시흥시가 현장 복지 공무원들의 &lsquo;찾아가는 보건복지서비스 우수사례 공모전&rsquo; 수상작 3편을 골랐습니다. 대상은 거북섬동 장현우 주무관의 「생명의 골든타임을 지켜낸 찾아가는 보건복지 통합 구출기」, 최우수상은 목감동 윤송희 주무관의 「20년 만에 열린 마음의 문, 다시 시작된 안전한 일상」, 우수상은 정왕4동 하희영 주무관의 「닫힌 문 너머로 전한 온기」입니다. 응모작 12편을 외부 전문가를 포함한 4명이 이름을 가리고 심사했습니다.</p>
+<p>대구의 진흙탕과 나란히 놓고 보면, 행정이 사람에게 닿는 길은 결국 <b>누군가 문 앞까지 걸어가는 일</b>입니다. 상의 이름에 &lsquo;찾아가는&rsquo;이 붙은 까닭입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·삶 — 폭염 속 &lsquo;승전 기념 마라톤&rsquo;에서 쓰러진 일병의 길을 어머니가 다시 걸었다</span>
+<a class="src" href="https://v.daum.net/v/ykjABHd8ui" target="_blank" rel="noopener">JTBC · 다음 뉴스 (10-03) ↗</a>
+<p>지난해 9월 5일 최고 기온 31도의 날, 사단장이 영천대첩 승전일을 기념한다며 따로 기획한 9.13㎞ 마라톤 훈련에서 고 지수혁 일병(상병 추서)이 열사병으로 쓰러져 닷새 뒤 숨졌습니다. 10월 3일 아침 포천천에서 유족과 군 사망 장병의 부모들, 시민 등 26명이 그 길 약 8.2㎞를 함께 걸었습니다. 원칙은 둘이었습니다 &mdash; &ldquo;누가 빨리 걷는지 겨루지 않는다&rdquo;, &ldquo;누구도 끝까지 가라고 강요하지 않는다.&rdquo; &ldquo;중간에 멈추는 건 잘못이 아니&rdquo;라고 미리 말했습니다.</p>
+<p>어머니는 &ldquo;그 길을 두 발로 직접 걸어보지 않고는 너무 미안할 것 같았다&rdquo;고 했습니다. 같은 길을 <b>정반대의 원칙으로</b> 걸은 하루였고, 모두 무사히 돌아갔습니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — 38년 동네 서점 대표가 427㎞를 걷고 쓴 『길은 나를 비우고 다시 채웠다』</span>
+<a class="src" href="https://mobile.newsis.com/view_amp.html?ar_id=NISX20261003_0003813469" target="_blank" rel="noopener">뉴시스 (10-03) ↗</a>
+<p>1988년부터 안산에서 대동서적을 꾸려 온 최창규 대표가 설명하기 어려운 허전함을 안고 배낭을 멨습니다. 파타고니아·히말라야·존 뮤어 트레일을 28박 29일, 78만 걸음, 427㎞ 걸으며 &ldquo;나는 지금 어디로 가고 있는가&rdquo;를 물은 걷기 에세이입니다(해토출판사). 천천히 걷는 사람이 결국 목적지에 닿고, 잘못 든 길을 고집하기보다 돌아설 줄 아는 편이 더 지혜로울 때가 있다는 것을 길에서 배웠다고 적었습니다.</p>
+<p>추천사를 쓴 이문재 시인은 관광은 <b>&lsquo;두 눈&rsquo;</b>으로 하는 소비, 여행은 <b>&lsquo;몸&rsquo;</b>으로 하는 경험, 순례는 <b>&lsquo;영혼&rsquo;</b>이 자라는 여정이라고 나누었습니다. 각 장 끝에 함께 읽을 책을 붙인 것이 서점 사람다운 손길입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·기술 — 서울시 &lsquo;행정지원 AI 에이전트&rsquo;, 말로 시키면 행정시스템에 들어가 직접 처리</span>
+<a class="src" href="https://www.etnews.com/20261002000051" target="_blank" rel="noopener">전자신문 (10-02) ↗</a>
+<p>서울시가 &lsquo;행정지원 AI 에이전트&rsquo; 구축에 나섰고 더존비즈온이 플랫폼을 공급합니다. 직원이 자연어로 일을 시키면 AI가 행정시스템에 접속해 <b>실제로 처리하고</b> 결과를 돌려주는 &lsquo;실행형&rsquo; 구조입니다. 먼저 문서 요약, 회의실 예약, 제안서 평가위원 선정 세 가지를 만들고, 사용자 권한 확인과 <b>실행 이력 관리</b>를 함께 둔다고 합니다.</p>
+<p>답을 알려 주는 AI에서, 대신 손을 움직이는 AI로 넘어가는 자리입니다. 손이 대신 움직일수록 남겨야 할 것은 &lsquo;누가 시켰고 무엇이 실행됐는지&rsquo;의 발자국입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·교육 — 울산과학대 특강, &ldquo;AI 답은 다시 확인하고, 내 생각과 맞는 답만 받아들이는 버릇을 경계하라&rdquo;</span>
+<a class="src" href="https://www.joongdo.co.kr/web/view.php?key=20261003010000771" target="_blank" rel="noopener">중도일보 (10-03) ↗</a>
+<p>울산과학대가 10월 2일 재학생 대상 &lsquo;생성형 AI 시대, 대학생이 알아야 할 AI 활용과 윤리&rsquo; 특강을 열었습니다. 강연자 황준원 대표는 생성된 답의 사실 여부를 다시 확인하고, <b>자기 생각과 일치하는 결과만 받아들이는 편향</b>을 경계하라고 했습니다. 개인정보는 넣지 않거나 익명화하고, 과제마다 AI를 써도 되는지 스스로 판단할 기준을 갖추라고 당부했습니다.</p>
+<p>교육 현장에 옮기면 이렇습니다 &mdash; 도구 쓰는 법보다 먼저 가르칠 것은 <b>멈춰서 확인하는 발걸음</b>입니다.</p></div>
+</section>
+
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 두 발로 건너야 곁이 된다 — 생각은 걸으며 오고, 앎은 발까지 내려와야 끝난다</span></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">스탠퍼드 오페초·슈워츠 &lsquo;아이디어에 다리를 달아 주라&rsquo;: 걷는 동안, 그리고 걷고 난 뒤에도</span>
+<a class="src" href="https://www.psychologytoday.com/us/blog/the-athletes-way/201404/why-does-walking-stimulate-creative-thinking" target="_blank" rel="noopener">Psychology Today (2014-04) ↗</a>
+<p>스탠퍼드 교육대학원의 메릴리 오페초와 대니얼 슈워츠는 2014년 『실험심리학 저널: 학습·기억·인지』에 실린 연구에서, 앉아 있을 때와 걸을 때 사람들이 내놓는 창의적 생각을 견주었습니다. 걸을 때 새로운 생각이 뚜렷하게 늘었고, 걷고 난 뒤 다시 앉아서 시험을 봐도 효과가 남았습니다. 연구진은 걷기 자체에 창의성을 높이는 아주 구체적인 이로움이 있어 보인다고 적었습니다.</p>
+<p>막힌 원고 앞에서 자리를 뜨는 일은 도망이 아니라 <b>생각에 다리를 달아 주는 일</b>일 수 있습니다.</p></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">리베카 솔닛 『걷기의 인문학(Wanderlust)』: 마음과 몸과 세상이 한 화음이 되는 상태</span>
+<a class="src" href="https://www.themarginalian.org/2015/06/03/wanderlust-rebecca-solnit-walking/" target="_blank" rel="noopener">The Marginalian ↗</a>
+<p>솔닛은 걷기의 역사를 쓴 이 책(2000)에서, 걷기는 이상적으로 <b>마음과 몸과 세상이 나란히 놓이는 상태</b>이며 마치 세 인물이 마침내 함께 대화를 나누는 것처럼, 세 음이 갑자기 하나의 화음을 이루는 것과 같다고 씁니다. 걷는 속도가 생각의 속도와 닮았다는 것입니다.</p>
+<p>쓰는 사람에게 이 책은 묻습니다 &mdash; 오늘 쓴 문장은 몇 걸음의 속도로 왔는가.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">헨리 데이비드 소로 「걷기(Walking)」(1862): 성지로 가는 사람, &lsquo;Sainte-Terrer&rsquo;</span>
+<a class="src" href="https://www.gutenberg.org/files/1022/1022-h/1022-h.htm" target="_blank" rel="noopener">Project Gutenberg #1022 ↗</a>
+<p>소로는 생애 마지막 해에 발표한 이 글에서 &lsquo;어슬렁거리다(saunter)&rsquo;의 뿌리를 중세의 떠돌이들에게서 찾습니다. 성지(à la Sainte Terre)로 간다며 마을을 떠돌던 이들을 아이들이 &ldquo;저기 성지 가는 사람 간다&rdquo;고 불렀다는 것입니다. 그리고 자신은 하루 최소 네 시간 &mdash; 대개 그보다 더 &mdash; 숲과 언덕과 들을 어슬렁거리지 않으면 <b>건강과 정신을 지킬 수 없다</b>고 적었습니다.</p>
+<p>목적지 없이 걷는 일이 실은 가장 오래된 순례의 이름이었다는 것, 오늘 뉴스의 이문재 시인이 말한 &lsquo;순례&rsquo;와 같은 자리입니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문</span>
+<span class="title">신영복 『담론』: 머리에서 가슴으로, 다시 가슴에서 발로 가는 가장 먼 여행</span>
+<a class="src" href="https://www.hangyo.com/mobile/article.html?no=95693" target="_blank" rel="noopener">한국교육신문 칼럼 (2022-02-26) ↗</a>
+<p>신영복 선생은 마지막 강의를 묶은 『담론』(돌베개, 2015)에서 공부를 <b>&ldquo;머리에서 가슴으로, 다시 가슴에서 발로 가는 가장 먼 여행&rdquo;</b>이라 불렀습니다. 머리로 아는 것은 가깝고, 가슴으로 공감하기까지는 멀며, 그것이 발 &mdash; 삶의 현장, 행동 &mdash; 에 이르기까지는 더 멀다는 것입니다.</p>
+<p>오늘 항로의 장면들이 이 한 문장 위에 놓입니다. 진흙탕 앞에서 멈춘 발, 닫힌 문 앞까지 걸어간 발, 아들이 쓰러진 길을 다시 걸은 어머니의 발. 앎은 발까지 내려왔을 때 비로소 곁이 됩니다.</p></div>
+
+
+</section>
+
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;&lsquo;앉아서만 생각하고 쓸 수 있다&rsquo;(G. 플로베르).
+&mdash; 이로써 너를 붙잡았다, 허무주의자여!
+엉덩이 붙이고 버티는 것이야말로
+성령을 거스르는 죄다.
+오직 걸어서 얻은 생각만이 가치가 있다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『우상의 황혼(Götzen-Dämmerung)』 「잠언과 화살(Sprüche und Pfeile)」 34절 (1889)
+<span class="orig">On ne peut penser et écrire qu'assis (G. Flaubert). — Damit habe ich dich, Nihilist! Das Sitzfleisch ist gerade die Sünde wider den heiligen Geist. Nur die ergangenen Gedanken haben Wert.</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/goetzen-daemmerung/sprueche-und-pfeile" target="_blank" rel="noopener">textlog.de 「Sprüche und Pfeile」 독일어 전문 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; &lsquo;ergangen&rsquo;은 &lsquo;걸어서(gehen) 얻어 낸&rsquo;이라는 뜻을 품은 낱말입니다. 니체는 플로베르의 &ldquo;앉아서만 쓸 수 있다&rdquo;를 받아쳐, 오래 눌러앉아 버티는 엉덩이(Sitzfleisch)를 오히려 죄라고 부릅니다. 그에게 생각은 책상에서 짜내는 것이 아니라 <b>길에서 걸어 나오는 것</b>이었습니다.<br><br>
+오늘 등대의 네 우물이 이 한 줄에 모입니다. 스탠퍼드의 실험은 걷는 동안 생각이 늘어난다고 했고, 소로는 하루 네 시간을 걸었으며, 신영복 선생은 앎이 발까지 가야 끝난다고 했습니다. 니체의 문장은 조금 더 날카롭게, <b>앉아서 끝까지 버티는 것만이 성실이라는 믿음</b>을 흔듭니다. 같은 책의 &ldquo;보는 법을 배워야 한다&rdquo;와 나란히 두면, 걷기는 쉬는 일이 아니라 보는 법을 다시 배우는 일이 됩니다.</p>
+</div>
+</section>
+
+
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>대구 침수 현장 영상</b>은 제보 영상과 주민 말을 전한 보도이고, 영상 속 인물이 실제 구청 직원인지는 구청도 확인하지 못했다고 했습니다. 그래서 &lsquo;추정&rsquo;을 붙이고 사람을 가리키는 말은 줄였습니다. 같은 사건을 다룬 다른 매체는 열지 않았습니다.</li>
+<li><b>고 지수혁 일병 기사</b>는 다음 뉴스에 실린 JTBC 기사로 확인했습니다. 사단장 송치·직무배제 등 수사 경과는 기사에 적힌 대로만 따랐고, 검찰 처분은 확인하지 못했습니다.</li>
+<li><b>스탠퍼드 걷기 연구</b>는 논문 원문 PDF를 글자로 풀지 못해 연구를 소개한 Psychology Today 글(2014-04)로 확인했습니다. 검색 요약에 보이던 &ldquo;60% 증가&rdquo; 같은 숫자는 원문에서 확인하지 못해 적지 않았습니다.</li>
+<li><b>키르케고르의 걷기 편지</b>(&ldquo;나는 걸으며 내 가장 좋은 생각에 이르렀다&rdquo;, 1847)는 받는 사람과 출전 표기가 자료마다 엇갈려 오늘은 뺐습니다.</li>
+<li><b>신영복 문장</b>은 책 원문 쪽수 대신 『담론』을 인용한 한국교육신문 칼럼에서 옮겼습니다. <b>솔닛 문장</b>은 The Marginalian 발췌로 확인했고 한국어는 사막여우가 옮겼습니다. <b>니체 문장</b>은 textlog.de 독일어 전문에서 34절을 대조했고(textlog는 &lsquo;Werth&rsquo;를 &lsquo;Wert&rsquo;로 적습니다), 한국어 옮김은 출간 번역본과 낱말이 다를 수 있습니다.</li>
+<li><b>뉴스 검색</b>은 일반 검색에서 최근 이틀 한국 기사가 거의 잡히지 않아, 뉴스 피드로 제목을 찾고 기사 원문을 하나씩 열어 확인했습니다. 연합뉴스·한겨레는 접속이 막혀 열지 못했습니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">연휴의 한가운데, 오늘은 생각을 책상에 붙들어 두지 말고 <b>조금 걸어 나가 보는 하루</b>가 되기를.<br>건너는 발걸음 뒤에 밝음이 따라옵니다. <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
