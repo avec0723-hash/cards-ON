@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-06 (화)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 6일 · 화요일</p>
+<p class="opening">긴 연휴가 끝나고 다시 출근하는 아침입니다. 오늘 하동 평사리에서 박경리 탄생 100주년 토지문학제가 문을 엽니다.<br>
+오늘 하늘의 결은 <b>용건 너머에서 묻는 한마디</b> &mdash; 받으러 간 자리에서 &ldquo;요즘 무엇을 겪고 계세요?&rdquo;를 물을 때, 사람이 &lsquo;체납자&rsquo;라는 숫자에서 걸어 나온다는 것입니다.</p>
+</header>
+
+<div class="body">
+
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·현장 — 체납을 확인하러 갔다가 복지를 이어 준 세무서 체납관리단</span>
+<a class="src" href="https://www.gnnews.co.kr/news/articleView.html?idxno=646869" target="_blank" rel="noopener">경남일보 (10-05) ↗</a>
+<p>국세청은 7월 8일 전국 133개 세무서에서 &lsquo;국세·국세외수입 체납관리단&rsquo;을 출범시켜, 국세 체납자 134만 명과 과태료 같은 국세외수입 체납자 424만 명을 12월 23일까지 전수 확인하고 있습니다. 진주세무서 방문조가 찾아간 사천의 61세 주민은 아들이 자기 명의로 몬 오토바이·렌터카 과태료 137건, 약 1000만 원을 떠안고 있었습니다. 관절염으로 월 60여만 원을 버는 형편이었습니다.</p>
+<p>관리단은 독촉 대신 긴급복지·위기가구 신고를 했고, 한 달째 상자째 방치된 자전거를 조립해 주었습니다. 한 확인원은 &ldquo;우리 권한은 복지 신청서 접수까지라, 어떻게 하면 더 도움이 되도록 <b>적을 수 있을지</b> 고민&rdquo;한다고 말했습니다. 받으러 간 문 앞에서, 용건보다 먼저 사람이 보인 장면입니다.</p></div>
+
+<div class="news"><span class="title">⚖️ 행정·노동 — 2기 공무직위원회, 5년간 공공부문 &lsquo;같은 일터 다른 처우&rsquo;를 다룬다</span>
+<a class="src" href="https://www.newspim.com/news/view/20261005000110" target="_blank" rel="noopener">뉴스핌 (10-06) ↗</a>
+<p>고용노동부 장관이 6일 정책 설명 영상에서 공무직위원회의 역할을 소개했습니다. 지난달 18일 출범한 위원회는 중앙정부·지방정부·공공기관에서 일하는 무기계약직·기간제·파견·용역 노동자의 고용안정과 노동조건, 인사관리를 다루는 공식 노정 협의 기구입니다. 3월 공무직위원회법 제정 뒤 노동계·전문가·정부가 사전협의를 거쳐 꾸렸고, 5년간 활동합니다(1기는 2020~2023년).</p>
+<p>같은 청사 같은 창구에서 신분이 다른 동료와 일하는 공무원에게 <b>남의 일이 아닌 소식</b>입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·노동 — 사회보험이 없으면 고용 불안이 마음까지 더 깊이 흔든다</span>
+<a class="src" href="https://www.hani.co.kr/arti/society/labor/1280963.html" target="_blank" rel="noopener">한겨레 (10-05) ↗</a>
+<p>한국노동연구원 『노동정책연구』(10월 1일)에 실린 신정민·최은영 연구는 2015~2024년 노동패널 1만665명을 분석했습니다. 직무만족도(5점 만점 평균 3.332점)는 고용 불안정일 때 0.072점, 저임금일 때 0.066점, 사회보험 미가입일 때 0.044점 낮았습니다. 그런데 <b>고용 불안정과 사회보험 미가입이 겹치면</b> 각각의 영향을 더한 것보다 크게 떨어졌습니다.</p>
+<p>연구진은 사회보험을 &ldquo;노동자의 심리적 안정과 노동시장 내 보호장치&rdquo;라고 불렀습니다. 지난해 임금노동자의 국민연금 가입률은 68.5%였습니다. 제도는 돈만 건네는 것이 아니라, <b>&lsquo;나를 받쳐 주는 것이 있다&rsquo;는 감각</b>을 건넵니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — 박경리 탄생 100주년, &ldquo;『토지』는 미래다&rdquo; 토지문학제 오늘 개막 · 만해문학상에 김애란</span>
+<a class="src" href="https://v.daum.net/v/20261005095002310" target="_blank" rel="noopener">경남도민일보 (10-05) ↗</a><a class="src" href="https://v.daum.net/v/20261005143411249" target="_blank" rel="noopener">강원도민일보 (10-05) ↗</a>
+<p>25회째인 토지문학제가 6일부터 11일까지 하동 평사리 박경리문학관과 최참판댁 일대에서 열립니다. 오늘 오후 2시 개막식과 『토지』 낭독회로 시작해, 9일에는 백일장과 함께 <b>문해교실 어르신과 결혼이주여성의 시낭송·소설 낭독 경연</b>이 열리고, 10일에는 &lsquo;생성형 인공지능 시대에 작가의 글기둥&rsquo; 세미나가 이어집니다.</p>
+<p>같은 날(5일) 창비는 제41회 만해문학상 본상에 김애란 소설집 『안녕이라 그랬어』를 골랐다고 밝혔습니다. 심사위원단은 &ldquo;보통 사람들이 일상에서 맞닥뜨리는 문제적 상황을 칼날처럼 벼려낸&rdquo; 서사라고 평했습니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — 공무원용 AI 모델 31종 중 19종이 외국산, 고르는 기준은 없었다</span>
+<a class="src" href="https://v.daum.net/v/20261006050220697" target="_blank" rel="noopener">조선일보 (10-06) ↗</a>
+<p>&lsquo;범정부 초거대 AI 공통 기반&rsquo;(삼성SDS 패브릭스·네이버클라우드 클로바 스튜디오 포 거브)에 도입된 모델 31종 가운데 국산은 12종, 외국산은 19종이었다고 김장겸 의원실이 행안부·과기정통부 자료로 밝혔습니다. 이미 탑재된 11종 중 7종도 외국산이고, 미국 상무부 수출통제 명단에 오른 중국 BAAI의 &lsquo;Bge-M3&rsquo;도 들어 있었습니다.</p>
+<p>정부는 개발 국가나 기관을 따지는 검증 기준이 없었음을 인정하며, 기능·성능·보안성을 종합 검토한다고 답했습니다. 공무원 책상 위 AI가 <b>어디서 왔는지 묻는 일</b>이 이제 행정의 몫이 되었습니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — 서초구 &lsquo;서초 AI전트&rsquo;, 900여 개 공공서비스를 대화로 찾고 예약</span>
+<a class="src" href="https://amp.seoul.co.kr/go/20261006021003" target="_blank" rel="noopener">서울신문 (10-06) ↗</a>
+<p>서초구가 행정 안내 챗봇 &lsquo;서초 AI전트&rsquo; 고도화를 마쳤다고 5일 밝혔습니다. 유관·위탁기관까지 65개 홈페이지, 3만6846쪽을 학습하고, 한글 문서·서식·엑셀·포스터 같은 자료도 읽어 안내합니다. &ldquo;가장 빠른 시간으로 예약해 줘&rdquo;라고 하면 무료 법률상담·민원 방문·행사·강좌 등 900여 개 서비스 예약을 돕습니다. TTA 품질 검정에서 답변 정확도 97%를 받았습니다.</p>
+<p>길을 찾아 주는 일은 기계가 점점 잘합니다. 위의 체납관리단처럼 <b>문을 열고 들어가 묻는 일</b>은 여전히 사람의 몫으로 남습니다.</p></div>
+</section>
+
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 용건 너머에서 묻는 한마디 — 작은 호의는 건네는 쪽이 생각하는 것보다 멀리 간다</span></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">시몬 베유 「신의 사랑을 위한 학교 공부의 올바른 쓰임에 대한 성찰」: &ldquo;무엇을 겪고 계십니까?&rdquo;</span>
+<a class="src" href="https://themathesontrust.org/library/weil-reflections-on-the-right-use" target="_blank" rel="noopener">The Matheson Trust (영·불 원문) ↗</a>
+<p>베유는 이 글에서 불행한 이들에게 이 세상에서 필요한 것은 <b>자기에게 주의를 기울일 수 있는 사람</b>뿐이라고 씁니다. 그 능력은 &ldquo;매우 드물고 어려운 것, 거의 기적이고, 기적&rdquo;이며, 따뜻한 마음이나 연민만으로는 모자란다고 합니다. 그리고 성배 전설을 꺼냅니다. 성배는 가장 아픈 상처로 몸이 굳은 왕에게 처음으로 &ldquo;무엇을 겪고 계십니까(Quel est ton tourment)?&rdquo;라고 묻는 사람의 것이라고.</p>
+<p>이웃 사랑의 충만함이란 그 물음을 건넬 수 있는 것, 상대를 &lsquo;불행한 사람&rsquo;이라는 범주의 표본이 아니라 한 사람으로 알아보는 것이라고 맺습니다. 체납자 424만 명 가운데 한 사람의 현관 앞에서 일어난 일이 바로 이 물음이었습니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">아밋 쿠마르·니컬러스 에플리 「작은 선의는 뜻밖에 멀리 간다」(2022): 건네는 사람은 늘 과소평가한다</span>
+<a class="src" href="https://news.mccombs.utexas.edu/research/a-little-good-goes-farther-than-you-think/" target="_blank" rel="noopener">UT 매콤스 경영대 (2022) ↗</a>
+<p>텍사스대 쿠마르와 시카고대 에플리는 시카고 매기 데일리 공원에서 참가자 84명에게 핫초콜릿 한 잔을 낯선 사람에게 건넬지 물었고, 75명이 건넸습니다. 건넨 사람이 예상한 상대의 기분은 평균 2.7, 받은 사람이 답한 기분은 3.5였습니다. 건네는 쪽은 <b>행위의 크기</b>(겨우 음료 한 잔)를 보고, 받는 쪽은 <b>누군가 나를 알아봐 주었다는 온기</b>를 받기 때문이라고 연구진은 풉니다.</p>
+<p>쿠마르는 &ldquo;친절이 나를 기분 좋게 한다는 건 안다. 모르는 건 그것이 남을 얼마나 기분 좋게 하는가&rdquo;라고 했습니다. &ldquo;작은 친절을 베풀었을 뿐인데&rdquo;라고 쑥스러워한 체납관리단 확인원의 말이 이 연구의 한 장면 같습니다.</p></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">레이먼드 카버 「A Small, Good Thing(작지만 좋은 것)」(1983): &ldquo;이럴 때는 먹는 게 작지만 좋은 일입니다&rdquo;</span>
+<a class="src" href="https://shortstorymagictricks.com/2015/04/22/a-small-good-thing-by-raymond-carver/" target="_blank" rel="noopener">Short Story Magic Tricks ↗</a>
+<p>소설집 『대성당(Cathedral)』에 실린 이 단편에서, 한 엄마가 아들 생일 케이크를 주문하지만 아이는 생일날 차에 치여 끝내 세상을 떠납니다. 찾아가지 않은 케이크 때문에 빵집 주인은 화난 전화를 거듭 걸고, 부부는 한밤중 빵집으로 따지러 갑니다. 사정을 들은 빵집 주인은 사과하고, 자기의 외로움을 털어놓으며 갓 구운 롤빵과 커피를 내놓습니다 &mdash; &ldquo;이럴 때는 먹는 게 작지만 좋은 일입니다.&rdquo;</p>
+<p>카버는 큰 위로의 말을 쓰지 않았습니다. 따뜻한 빵 한 접시가 그 말을 대신합니다. 쓰는 사람에게, <b>위로 대신 건네는 작은 것</b>이 어떻게 장면이 되는지 보여 주는 소설입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">정약용 『목민심서』 애민 6조 「진궁(振窮)」: &ldquo;궁한 이는 스스로 일어서지 못하니, 남을 기다려 일어선다&rdquo;</span>
+<a class="src" href="https://brunch.co.kr/@ihmin/637" target="_blank" rel="noopener">브런치 「다산이 오늘의 공직자에게 남긴 세 개의 문장」 ↗</a>
+<p>다산은 고을 수령이 백성을 사랑하는 여섯 조목 가운데 셋째를 &lsquo;궁한 이를 일으킴&rsquo;으로 두었습니다. 첫 문장은 &ldquo;鰥寡孤獨, 謂之四窮. 窮不自振, 待人以起&rdquo; &mdash; 홀아비·과부·고아·의지할 데 없는 노인을 네 궁한 이라 하니, 스스로 일어서지 못하므로 남이 일으켜야 한다는 뜻입니다.</p>
+<p>이백 년 전 지방관의 수칙이, 오늘 세무서 방문조가 &ldquo;우리 권한은 신청서 접수까지&rdquo;라며 그 한 장을 어떻게 적을지 고민하는 자리와 겹칩니다. 공무원의 일에는 늘 <b>정해진 용건과, 그 용건이 닿지 못하는 사람</b> 사이의 틈이 있고, 다산은 그 틈을 수령의 일로 적었습니다.</p></div>
+
+
+</section>
+
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;호의. &mdash;
+작지만 셀 수 없이 잦고,
+그래서 아주 큰 힘을 내는 것들 가운데 호의가 있다.
+다정한 마음의 표시, 눈의 미소, 악수 같은 것들.
+모든 교사, 모든 공무원은
+자기 의무인 것에 이 곁들임을 덧붙인다.
+그것은 인간다움의 끊임없는 실천,
+말하자면 그 빛의 물결이어서
+그 안에서 모든 것이 자란다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『인간적인, 너무나 인간적인』 제1권 제2장 「도덕적 감정의 역사에 대하여(Zur Geschichte der moralischen Empfindungen)」 49절 「호의(Wohlwollen)」 (1878)
+<span class="orig">Wohlwollen. — Unter die kleinen, aber zahllos häufigen und desshalb sehr wirkungsvollen Dinge … ist auch das Wohlwollen zu rechnen; ich meine jene Aeusserungen freundlicher Gesinnung im Verkehr, jenes Lächeln des Auges, jene Händedrücke … Jeder Lehrer, jeder Beamte bringt diese Zuthat zu dem, was für ihn Pflicht ist, hinzu; es ist die fortwährende Bethätigung der Menschlichkeit, gleichsam die Wellen ihres Lichtes, in denen Alles wächst.</span></p>
+<p class="cite"><a class="src" href="https://www.gutenberg.org/ebooks/7207" target="_blank" rel="noopener">Project Gutenberg 7207 독일어 전문 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 니체가 굳이 &ldquo;모든 공무원(jeder Beamte)&rdquo;을 적었다는 것이 오늘 이 문장을 고른 이유입니다. 의무(Pflicht)는 정해져 있고, 호의는 그 위에 얹는 곁들임(Zuthat)입니다. 법이 시키지 않지만 그것이 빠지면 일이 사람에게 닿지 않습니다.<br><br>
+니체는 바로 다음 문장에서, 이런 작은 호의가 동정·자비·희생이라는 &ldquo;훨씬 이름난&rdquo; 덕보다 <b>문화를 훨씬 힘 있게 지어 왔다</b>고 덧붙입니다. 상자 속 자전거를 조립해 준 손, 갓 구운 롤빵 한 접시, 핫초콜릿 한 잔이 모두 그 빛의 물결 속에 있습니다.</p>
+</div>
+</section>
+
+
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b>는 뉴스 피드로 제목을 찾고 원래 기사 주소를 풀어, 여섯 건 모두 기사 본문 글자를 직접 받아 대조했습니다. 체납관리단 기사에 실린 주민의 실명은 옮기지 않았습니다. 공무직위원회는 9월 18일 출범한 것이고, 오늘 기사는 장관의 정책 설명 영상 소개입니다.</li>
+<li><b>노벨문학상</b> 발표일(10월 8일 무렵으로 보도)은 원문에서 확인하지 못해 넣지 않았습니다. 김선미 그림에세이 『불의 아이』 기사는 본문이 열리지 않아 뺐습니다.</li>
+<li><b>카버 단편</b>의 한국어판 제목은 확인하지 못해 영어 제목에 사막여우의 옮김을 붙였습니다. 빵집 주인의 대사는 영어 해설 글에서 확인했고, 원서 쪽수 대조는 못 했습니다.</li>
+<li><b>베유 인용</b>은 영어판(Emma Craufurd 역)과 프랑스어 원문 PDF를 직접 받아 같은 대목을 대조했습니다. 집필 연도는 확인하지 못해 적지 않았습니다.</li>
+<li><b>다산 구절</b>은 한문·번역을 브런치 글(2026-07-09)에서 옮겼고, 한국고전종합DB 원문과 대조하지는 못했습니다. <b>쿠마르·에플리 연구</b>는 텍사스대 매콤스 경영대의 연구 소개 글로 확인했고, 논문 본문은 열지 않았습니다.</li>
+<li><b>니체 문장</b>은 구텐베르크 7207 독일어 전문에서 49절을 직접 대조했습니다. 두 번째 대조처는 주소를 찾지 못했습니다. 한국어 옮김은 사막여우의 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">연휴 뒤 첫 출근길입니다.<br>오늘 마주할 용건들 사이 어딘가에서, <b>용건 너머의 한마디</b>가 한 번 오가는 하루가 되기를. <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
