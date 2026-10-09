@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-10 (토)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 10일 · 토요일 · 정신건강의 날</p>
+<p class="opening">오늘은 정신건강의 날입니다. 이번 주 정부는 처음으로 &ldquo;AI의 위로가 사람을 대신할 수 없다&rdquo;는 이용 지침을 냈고, 같은 주에 셰리 터클은 기계가 건네는 &lsquo;가짜 공감&rsquo;을 경고하는 책을 냈습니다.<br>
+오늘 하늘의 결은 <b>곁에는 마찰이 있다</b> &mdash; 매끄럽게 맞장구치는 것은 기계도 하지만, 불편을 감수하고 끝까지 남아 있는 일은 사람이 합니다. 그 일은 다른 일 하는 김에 할 수 있는 일이 아닙니다.</p>
+</header>
+
+<div class="body">
+
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">🌍 사회·마음 — &ldquo;AI 위로가 사람 대체 못해&rdquo; 정신건강 목적 생성형 AI 이용 지침 첫 발표</span>
+<a class="src" href="https://www.yna.co.kr/view/AKR20261008056200530" target="_blank" rel="noopener">연합뉴스 (10-08) ↗</a>
+<p>보건복지부가 대한신경정신의학회와 함께 「정신건강 목적 생성형 AI 이용 가이드라인」을 냈습니다. 보건사회연구원 조사(15~79세 이용자 1,019명)에서 68.8%가 AI를 일상 대화·심리상담 같은 정서적 목적으로도 쓰고 있었고, 청소년은 69.2%였습니다. AI의 정신건강 정보를 검증하는 비율은 11.9%뿐이었습니다.</p>
+<p>권고는 이렇습니다 &mdash; 진단서·처방전은 넣지 말 것, <b>대화의 범위와 끝낼 시점을 미리 정할 것</b>, AI 이용이 늘고 가족·친구와의 관계가 줄면 의식적으로 거리를 둘 것. 보호자에게는 무조건 막기보다 아이가 왜 AI를 쓰는지 먼저 이해하라고 합니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·돌봄 — 통합돌봄 신청은 농어촌에 몰리는데, 읍면동 전담인력은 5.5%</span>
+<a class="src" href="https://www.nongmin.com/article/20261008500432" target="_blank" rel="noopener">농민신문 (10-09) ↗</a>
+<p>3월 27일 전국 시행된 지역사회 통합돌봄에 8월 말까지 93,139명이 신청했습니다. 인구 1만 명당 전국 평균은 18명인데 군위 154명, 서천 144명, 무주 120명으로 농어촌이 6~8배입니다.</p>
+<p>그런데 읍·면·동 담당 인력 가운데 전담은 263명(5.5%)이고 4,515명은 겸직입니다. 연계까지 평균 10일이지만 속초는 35일이 걸렸습니다. 돌봄을 <b>&lsquo;다른 일 하는 김에&rsquo;</b> 하는 구조로는 가장 필요한 곳부터 늦어진다는 숫자입니다. (소병훈 의원실·보건복지부 자료)</p></div>
+
+<div class="news"><span class="title">⚖️ 행정·조직 — 옛 광주는 &lsquo;주임&rsquo;, 전남은 &lsquo;주사&rsquo;&hellip; 전남광주통합특별시, 6급 이하 호칭 &lsquo;주무관&rsquo;으로 통일</span>
+<a class="src" href="https://www.khan.co.kr/article/202610091742001" target="_blank" rel="noopener">경향신문 (10-09) ↗</a>
+<p>민형배 전남광주시장이 6급 이하 공무원 호칭을 &lsquo;주무관&rsquo;으로 통일하고, 시민에게도 그렇게 불러 달라고 했습니다. 8일 조직개편으로 새로 생긴 시정상황실 첫 회의의 <b>1호 안건</b>이 호칭이었다고 합니다.</p>
+<p>두 기관 직원이 한 부서에서 일하게 되자 서로 다르게 부르는 이름이 매일의 어색함이 되었기 때문입니다. 시장의 말 &mdash; &ldquo;이런 데서도 갈라져 있던 시간이 보인다.&rdquo; 통합은 조직도보다 부르는 말에서 먼저 시작되는 모양입니다.</p></div>
+
+<div class="news"><span class="title">⚖️ 행정·조직문화 — 전주시 공무원 5명 중 1명 &ldquo;최근 1년 &lsquo;간부 모시기&rsquo; 경험&rdquo;</span>
+<a class="src" href="https://www.hankookilbo.com/news/article/A2026100808120000955" target="_blank" rel="noopener">한국일보 (10-08) ↗</a>
+<p>행정안전부 공문에 따라 전주시가 처음으로 &lsquo;간부 모시기&rsquo;만 따로 물었습니다(응답 233명). 최근 1년 경험은 19%로 지난해 26%보다 줄었습니다. 팀별로 순번을 정해 간부와 식사하는 경우가 53%, 직원들이 식사비를 나눠 내는 경우가 22%였습니다.</p>
+<p>계속되는 이유는 &ldquo;이어진 관행&rdquo;(55%)과 &ldquo;거절하기 어려운 분위기&rdquo;(45%). 시는 신고 창구를 검토하고 설문을 매월이나 분기마다 이어 가겠다고 했습니다. <b>마음건강은 상담실보다 점심 자리에서 먼저 닳기도 합니다.</b></p></div>
+
+<div class="news"><span class="title">✍️ 문화·출판 — 앤 카슨 노벨상, 국내에 소개한 세 출판사의 &lsquo;웃음꽃&rsquo;</span>
+<a class="src" href="https://www.hani.co.kr/arti/culture/book/1281675.html" target="_blank" rel="noopener">한겨레 (10-09) ↗</a>
+<p>카슨의 국내 출간은 큰 문학 출판사가 아니라 한겨레출판·난다·봄날의책이 해 왔습니다. 『녹스』를 낸 봄날의책 대표는 번역가가 1~2년 여러 출판사에 타진했지만 다들 난색을 표했고, <b>&ldquo;직접 출판사라도 차려 하겠다&rdquo;</b>고까지 해서 결심했다고 말합니다.</p>
+<p>192쪽 종이가 한 장으로 이어지는 아코디언북이라 손이 많이 들어, 노벨상 뒤 추가 주문분은 12월에나 들어올 것이라고 합니다. 팔릴지 모르는 책을 끝까지 붙든 몇 사람 덕분에, 상이 발표된 날 한국 독자는 이미 그 책을 손에 들고 있었습니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·공공 — &ldquo;챗GPT 쓰려고 보안서약까지&rdquo;&hellip; 공공기관 37곳, 생성형 AI 사용 기준 제각각</span>
+<a class="src" href="https://biz.heraldcorp.com/article/10897045" target="_blank" rel="noopener">헤럴드경제 (10-09) ↗</a>
+<p>산업부·중기부·지식재산처 산하 37개 기관을 보니, 6곳은 승인·보안서약을 거쳐야 쓰고(강원랜드는 64명만 신청 가능), 20곳은 기관망에서 막되 분리망에서는 허용, 6곳은 기관망에서만 허용했습니다. 한 기관은 직원들이 <b>개인 스마트폰으로 구독형 AI를 쓴다</b>고 답했습니다.</p>
+<p>올해부터 AI 활용 현황 공시는 의무지만 공통 사용·보안 기준은 아직 없습니다. 의원의 말 &mdash; &ldquo;망을 나누고 접속을 막는 것만으로는 직원들이 개인 기기로 AI를 쓰는 것까지 관리할 수 없다.&rdquo; 막는 규칙보다 <b>어떻게 쓰라는 규칙</b>이 늦게 오고 있습니다. (임문영 의원실 국감 자료)</p></div>
+</section>
+
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 곁에는 마찰이 있다 — 매끄러운 공감은 기계도 하지만, 남아 있는 일은 사람이 한다</span></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">셰리 터클 『인공적 친밀함(Artificial Intimacy)』(2026): &ldquo;챗봇이 하는 일은 가짜 공감을 건네는 것&rdquo;</span>
+<a class="src" href="https://news.mit.edu/2026/when-we-talk-to-machines-sherry-turkle-book-0929" target="_blank" rel="noopener">MIT News ↗</a>
+<p>MIT의 사회심리학자 터클이 9월 말 새 책을 냈습니다. 그는 챗봇을 친구나 상담자로 대할 때 우리가 <b>친밀함·공감의 &lsquo;연기&rsquo;를 충분하다고 받아들이게 된다</b>고 봅니다. &ldquo;사람은 너무 손이 많이 간다 &mdash; 그런데 지금만큼 다른 사람이 필요한 때도 없었다.&rdquo;</p>
+<p>그가 붙드는 낱말은 마찰입니다. 삶의 모든 고비는 마찰과 긴장을 마주하는 일이고, 마찰은 나쁜 것이 아니라는 것. 사람들이 기계에서 원하는 것은 결국 &ldquo;덜 취약해지는 느낌&rdquo;인데, 취약함 없이는 우정도 친밀함도 없다고 그는 말합니다. 오늘 복지부 지침이 숫자로 한 말을 터클은 문장으로 합니다.</p></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">버지니아 울프 「아픔에 대하여(On Being Ill)」(1926): 영어에는 오한과 두통을 말할 낱말이 없다</span>
+<a class="src" href="https://www.themarginalian.org/2019/05/06/virginia-woolf-on-being-ill/" target="_blank" rel="noopener">The Marginalian ↗</a>
+<p>1925년, 신경쇠약 뒤 침대에서 쓴 에세이입니다. 울프는 병이 이렇게 흔한데도 사랑·전쟁·질투와 나란히 문학의 큰 주제가 되지 못한 것이 이상하다고 씁니다. &ldquo;햄릿의 생각과 리어의 비극을 표현할 수 있는 영어가, 오한과 두통을 말할 낱말은 갖고 있지 않다.&rdquo; 그래서 아픈 사람은 말을 새로 지어야 한다는 것.</p>
+<p>그리고 이렇게 덧붙입니다 &mdash; &ldquo;늘 공감받고, 늘 동행되고, 늘 이해받는 것은 견딜 수 없을 것이다.&rdquo; 아픈 이에게 필요한 것이 <b>끝없는 맞장구만은 아니라는</b>, 백 년 전의 경고입니다.</p></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">마르틴 부버 『나와 너(Ich und Du)』(1923): &ldquo;모든 참된 삶은 만남이다&rdquo;</span>
+<a class="src" href="https://www.themarginalian.org/2018/03/18/i-and-thou-martin-buber/" target="_blank" rel="noopener">The Marginalian ↗</a>
+<p>부버는 세계를 대하는 두 가지 말을 가릅니다. &lsquo;나&ndash;그것&rsquo;은 상대를 쓰고 재고 분류하는 말이고, &lsquo;나&ndash;너&rsquo;는 상대를 온전히 마주하는 말입니다. &ldquo;&lsquo;나&ndash;너&rsquo;라는 근원어는 온 존재로만 말할 수 있다. &lsquo;나&ndash;그것&rsquo;은 결코 온 존재로 말할 수 없다.&rdquo;</p>
+<p>무엇이든 &lsquo;그것&rsquo;은 다른 것과의 경계로 정해지지만, &lsquo;너&rsquo;에게는 경계가 없다고 그는 씁니다. 응답을 잘 만들어 내는 상대와 나를 온 존재로 마주하는 상대는 다릅니다. 민원 창구에서 사람을 <b>&lsquo;건&rsquo;으로 처리할지 &lsquo;너&rsquo;로 만날지</b>도 같은 갈림길에 있습니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문</span>
+<span class="title">정혜신 『당신이 옳다』(2018): 충고·조언·평가·판단 대신 &ldquo;당신 지금 마음이 어때요?&rdquo;</span>
+<a class="src" href="https://www.kyeonggi.com/article/202004011121701" target="_blank" rel="noopener">경기일보 서평 ↗</a>
+<p>정신과 의사 정혜신은 진료실 밖에서 트라우마 피해자를 오래 만나 온 경험으로 이 책을 썼습니다. 마음을 털어놓는 사람 앞에서 삼갈 네 가지를 &lsquo;충조평판(충고·조언·평가·판단)&rsquo;이라 부르고, 그 자리에 &ldquo;당신 지금 마음이 어때요?&rdquo;라는 질문 하나를 놓으라고 권합니다.</p>
+<p>전문가가 아니어도 누구나 할 수 있는 &lsquo;심리적 CPR&rsquo;, 집밥 같은 치유라는 뜻에서 &lsquo;적정심리학&rsquo;이라는 이름을 붙였습니다. <b>옳은 말이 먼저 나가면 그 말이 상처가 될 수 있다</b>는 것 &mdash; 쉽게 정답을 내놓는 AI 앞에서 다시 읽게 되는 대목입니다.</p></div>
+
+</section>
+
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;나는 그런 고통이 우리를
+&lsquo;더 낫게&rsquo; 만드는지 의심한다.
+그러나 그것이 우리를
+깊게 만든다는 것은 안다. &hellip;
+삶을 사랑하는 일조차 여전히 가능하다 &mdash;
+다만 다르게 사랑할 뿐이다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『즐거운 학문(Die fröhliche Wissenschaft)』 「제2판 서문(Vorrede zur zweiten Ausgabe)」 3절 (1887)
+<span class="orig">Ich zweifle, ob ein solcher Schmerz »verbessert«–; aber ich weiß, daß er uns vertieft. … Selbst die Liebe zum Leben ist noch möglich – nur liebt man anders.</span></p>
+<p class="cite"><a class="src" href="http://www.zeno.org/Philosophie/M/Nietzsche,+Friedrich/Die+fr%C3%B6hliche+Wissenschaft/Vorrede+zur+zweiten+Ausgabe" target="_blank" rel="noopener">zeno.org 독일어 전문 ↗</a> &nbsp;·&nbsp; <a class="src" href="https://www.gutenberg.org/ebooks/52124" target="_blank" rel="noopener">Project Gutenberg 52124 영역본 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 정신건강의 날에 고통을 말하는 문장을 고르면서 조심한 것이 있습니다. 이 문장은 &ldquo;고통이 사람을 키운다&rdquo;는 말이 아닙니다. 니체는 오래 아픈 사람이었고, 바로 그래서 고통이 사람을 &lsquo;낫게&rsquo; 한다는 말에 따옴표를 쳐 의심합니다. 그가 확신하는 것은 하나 &mdash; 깊어진다는 것뿐입니다.<br><br>
+그리고 같은 절의 끝에서 그는 삶을 사랑하는 일이 여전히 가능하다고, <b>다만 다르게 사랑할 뿐</b>이라고 덧붙입니다. 위로하지 않고, 건너게 하는 문장입니다.</p>
+</div>
+</section>
+
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b>는 뉴스 피드에서 제목을 찾아 원래 기사 주소를 풀고, 여섯 건 모두 기사 본문을 직접 받아 대조했습니다. 정신건강의 날 행사(기념식·유공자 포상)는 지침 기사 하나로 묶고 따로 싣지 않았습니다. 전주시 조사는 응답자가 전체 직원의 약 10%(233명)라는 점을 함께 읽어 주십시오.</li>
+<li><b>셰리 터클</b>의 책은 한국어판이 확인되지 않아 제목과 인용을 사막여우가 옮겼습니다. 인용은 MIT 뉴스 기사(2026-09-29)에 실린 것만 썼고, 책 본문은 열지 않았습니다.</li>
+<li><b>울프·부버</b> 인용은 The Marginalian에 실린 영어 문장을 사막여우가 옮겼습니다. 울프 에세이의 한국어 제목은 번역본마다 다를 수 있습니다.</li>
+<li><b>정혜신</b> 인용은 경기일보 서평(2020-04-01)에 실린 대목만 확인했고, 책 본문 쪽수는 대조하지 못했습니다.</li>
+<li><b>니체 문장</b>은 zeno.org 독일어 전문과 구텐베르크 영역본 두 곳에서 대조했습니다(projekt-gutenberg.org는 403으로 막혔습니다). &ldquo;&hellip;&rdquo;로 줄인 자리에는 고통 앞의 두 태도와 &ldquo;삶 자체가 문제가 되었다&rdquo;는 대목이 있습니다. 한국어 옮김은 사막여우의 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘은 토요일입니다.<br>누군가의 곁에 서는 일도, 오늘만큼은<br><b>반 걸음 물러서서 해도 괜찮습니다.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
