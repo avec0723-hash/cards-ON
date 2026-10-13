@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-14 (수)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 14일 · 수요일</p>
+<p class="opening">제주도가 민원을 받은 지 72시간 안에 &ldquo;어디까지 왔는지&rdquo;부터 알리기 시작했습니다. 답을 당기는 대신 답이 오기 전의 시간을 비워 두지 않겠다는 방식입니다. 같은 날 국정감사에서는 정년과 연금 사이에 놓인 228만 명의 빈칸이 다시 불려 나왔습니다.<br>
+오늘 하늘의 결은 <b>답이 오기 전의 시간</b> &mdash; 그 시간을 혼자 두지 않는 일, 그리고 서둘러 메우지 않는 일.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·민원 — &ldquo;접수한 민원 어디까지 왔나&rdquo;&hellip; 제주도, 72시간 안에 진행 상황 안내</span>
+<a class="src" href="https://www.fnnews.com/news/202610121453269657" target="_blank" rel="noopener">파이낸셜뉴스 (10-12) ↗</a>
+<p>제주도가 지난 8일부터 도 누리집의 주요 온라인 민원에 대해 접수 후 72시간 안에 접수 여부·담당 부서·처리기한을 먼저 알려 줍니다. 최종 답변은 따로 나갑니다. &lsquo;제주자치도에 바란다&rsquo;는 &lsquo;도지사에게 바란다&rsquo;로 합쳤고, 도민청원은 정부 &lsquo;청원24&rsquo;와 이었습니다.</p>
+<p>도는 처리기간을 줄이기보다 <b>처리 과정의 투명성과 예측 가능성</b>을 높이는 데 초점을 맞췄다고 밝혔습니다. 민원인의 불안은 답이 늦어서보다, 내 일이 어디 있는지 모를 때 커진다는 것을 제도로 받아 적은 셈입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — &lsquo;온AI&rsquo; 중앙부처 25곳 → 연말 47곳&hellip; 전문가들 &ldquo;효과 지표와 책임 소재부터&rdquo;</span>
+<a class="src" href="https://www.seoul.co.kr/news/society/2026/10/13/20261013500019" target="_blank" rel="noopener">서울신문 (10-13) ↗</a>
+<p>정부 AI 업무지원 플랫폼 &lsquo;온AI&rsquo;가 정책 자료 검색·요약, 보고서 초안, 화상회의 회의록 정리를 돕고, 4월부터는 모바일로도 씁니다. 중앙행정기관은 이달 25곳에서 연말 47곳으로 늘고, 54개 지자체 공무원 약 2만 2천 명이 시범 운영에 들어갑니다. AI 챔피언은 올해 1,200명, 2030년 2만 명이 목표입니다.</p>
+<p>다만 기사 속 &ldquo;회의록·보고서 초안 10분&rdquo;은 한 사무관의 사례이고, 이병대 경기대 교수는 효과를 잴 객관 지표가 아직 부족하며 <b>AI가 만든 자료에 대한 사람의 검증과 오류 시 법적 책임</b>을 분명히 해야 한다고 했습니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·노동 — 노동부 장관 &ldquo;정년 연장, 오늘 논의해도 늦다&rdquo;&hellip; 퇴직과 연금 사이 228만 명</span>
+<a class="src" href="https://laborplus.co.kr/news/articleView.html?idxno=41639" target="_blank" rel="noopener">참여와혁신 (10-13) ↗</a>
+<p>김위상 의원은 퇴직 연령과 연금 수급 시기가 어긋나 퇴직 후 연금까지 버텨야 하는 사람이 228만 명이라며(의원 주장) 정기국회 안 입법을 요구했습니다. 김영훈 장관은 연내 처리가 필요하다고 답하면서, 정부안을 먼저 내면 사회적 대화가 어려워질까 아직 내지 않았다고 했습니다. 한국노총은 11월 7일 전국노동자대회를 앞두고 &lsquo;65세 정년 연장 연내 입법&rsquo;을 하반기 첫 과제로 꼽았습니다.</p>
+<p>제도와 제도 사이의 몇 해는, 그 사이에 서 있는 사람에게는 <b>기다림이 아니라 생활</b>입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·돌봄 — 아파도 떠나지 않아도 되게&hellip; 노인복지주택 거주 요건 완화 입법예고</span>
+<a class="src" href="https://www.careyounews.org/news/articleView.html?idxno=11846" target="_blank" rel="noopener">캐어유뉴스 (10-13) ↗</a>
+<p>지금은 노인복지주택 입소자가 건강이 나빠져 일상생활이 어려워지면 입소 자격을 잃고 퇴거해야 합니다. 복지부는 13일부터 노인복지법 시행규칙 개정안을 입법예고해, 전국 47개 노인복지주택 입소자가 건강이 나빠져도 재가돌봄을 받으며 계속 살 수 있게 한다고 밝혔습니다.</p>
+<p><b>몸이 약해진 바로 그때 집을 옮겨야 했던 순서</b>를 바꾸는 일입니다. 입법예고 기간은 기사에서 확인하지 못했습니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — &ldquo;나는 쓴다, 내 안의 물음에 답하려고&rdquo;&hellip; 윤지양 『쓰는 유령』·장강명 『소설가라는 이상한 직업 2』</span>
+<a class="src" href="https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=01613766645612920" target="_blank" rel="noopener">이데일리 (10-14) ↗</a>
+<p>윤지양 시인의 첫 에세이 『쓰는 유령』(라우더북스)과 장강명 소설가의 자전 에세이 둘째 권(유유히)이 함께 소개됐습니다. 윤지양은 &ldquo;내 안의 물음을 나만의 언어로 풀어내기 위해 글을 쓰는 것은 AI가 절대 할 수 없는 것&rdquo;이라고 쓰고, 장강명은 변화를 받아들이면서도 &ldquo;너무 변해버리면 자신을 잃어버리게 된다&rdquo;고 경계합니다.</p>
+<p>AI 시대에 글 쓰는 사람이 <b>무엇을 붙들고 무엇을 바꿀지</b>, 두 작가가 서로 다른 자리에서 같은 질문을 듭니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 답이 오기 전의 시간</span></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">케이트 스위니: &ldquo;기다림이 가장 힘든 부분이다&rdquo;</span>
+<a class="src" href="https://time.com/4078583/bad-news-waiting/" target="_blank" rel="noopener">TIME (2015-10-19) ↗</a>
+<p>UC 리버사이드의 심리학자 케이트 스위니는 캘리포니아 변호사 시험 결과를 넉 달 동안 기다린 법대 졸업생 230명을 2주마다 추적했습니다(『Emotion』 게재). 기다리는 동안 불안을 다스리려는 노력은 대체로 듣지 않았고, 어떤 대처는 오히려 역효과를 냈습니다.</p>
+<p>그런데 스위니는 이렇게 덧붙입니다. &ldquo;불확실성의 시기를 견뎌 낸 사람은 나쁜 소식에 더 생산적으로, 좋은 소식에 더 기쁘게 반응한다.&rdquo; 기다림을 잘 견디는 법은 없을지 몰라도, <b>견딘 기다림이 헛되지는 않다</b>는 연구입니다.</p></div>
+
+<div class="pick"><span class="field">🕯 현존·삶</span>
+<span class="title">프랭크 파트노이 『기다림(Wait)』: &ldquo;현명한 결정에는 숙고가, 숙고에는 멈춤이 필요하다&rdquo;</span>
+<a class="src" href="https://www.themarginalian.org/2012/07/02/wait-frank-partnoy/" target="_blank" rel="noopener">The Marginalian ↗</a>
+<p>파트노이는 우리가 너무 빨리 단단한 결론으로 뛰어든다고 말합니다. 좋은 판단은 미래에 대해 우리가 얼마나 모르는지를 아는 데서 오고, 그러니 정보를 모으고 저울질하는 데 <b>책임 있게 쓸 수 있는 시간이 얼마인지</b>를 먼저 정하라고 합니다.</p>
+<p>&ldquo;삶은 시간과의 경주일지 모르지만, 본능을 넘어 시계를 멈출 때 풍요로워진다.&rdquo; 즉답을 요구받는 결재 자리에서, 미루는 것과 숙고하는 것을 가르는 기준이 됩니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">호라티우스 『시학』: &ldquo;아홉 해째까지 눌러 두라&hellip; 한번 내보낸 말은 돌아올 줄 모른다&rdquo;</span>
+<a class="src" href="https://www.thelatinlibrary.com/horace/arspoet.shtml" target="_blank" rel="noopener">The Latin Library 원문 386~390행 ↗</a>
+<p>호라티우스는 피소 집안의 맏아들에게 당부합니다. 언젠가 무언가를 쓰거든 믿을 만한 비평가와 아버지와 나의 귀에 먼저 들려주고, &ldquo;아홉 해째까지 눌러 두라(nonumque prematur in annum)&hellip; 내지 않은 것은 지울 수 있다. 한번 내보낸 말은 돌아올 줄 모른다(nescit vox missa reverti).&rdquo;</p>
+<p>아홉 해는 과장이지만 요지는 분명합니다 &mdash; <b>원고가 서랍에 있는 동안만 고칠 수 있습니다.</b> 발행 버튼 앞에 선 사람에게, 기다림은 머뭇거림이 아니라 마지막 퇴고의 자리입니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문</span>
+<span class="title">『박완서의 낱말들』: &ldquo;어머니의 책상 가까이에는 사전이 늘 있었다&rdquo;</span>
+<a class="src" href="https://supple.kr/news/cmu7izd8h005ttflyfgn8vkbg" target="_blank" rel="noopener">한겨레 (09-19) ↗</a>
+<p>타계 15주기에 딸 호원숙 작가와 편집부가 박완서의 낱말 120개를 골라 다섯 갈래(자연을 닮은 말·귀로 듣고 눈으로 보는 말·삶을 일구는 말·마음이 하는 말·사람을 읽는 말)로 엮었습니다(웅진지식하우스). 한 면엔 뜻을, 맞은 면엔 그 낱말이 쓰인 작품 구절을 실었습니다.</p>
+<p>&lsquo;구메구메&rsquo;(남모르게 틈틈이)처럼 오래 기다려야 제자리를 찾는 말들입니다. 두꺼운 사전 두 권의 제본이 풀릴 만큼 <b>낱말 하나를 기다려 고른 손</b>이, 한 작가의 문체를 지었다는 기록입니다.</p></div>
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;깊은 우물은 무엇을 겪든 느리다.
+제 깊이에 무엇이 떨어졌는지
+알기까지 오래 기다려야 한다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『차라투스트라는 이렇게 말했다(Also sprach Zarathustra)』 제1부 「시장의 파리들에 대하여(Von den Fliegen des Marktes)」 (1883)
+<span class="orig">Langsam ist das Erleben allen tiefen Brunnen: lange müssen sie warten, bis sie wissen, was in ihre Tiefe fiel.</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/zarathustra/von-den-fliegen-des-marktes" target="_blank" rel="noopener">textlog.de 독일어 전문 ↗</a> &nbsp;·&nbsp; <a class="src" href="https://www.gutenberg.org/cache/epub/7205/pg7205.txt" target="_blank" rel="noopener">Project Gutenberg 독일어판 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 바로 앞 문장에서 니체는 말합니다. &ldquo;오직 시장에서만 사람들은 &lsquo;예냐, 아니오냐?&rsquo;로 덮쳐 온다.&rdquo; 즉답을 재촉하는 소리에서 한 걸음 물러나야, 내 안에 무엇이 떨어졌는지 들을 수 있다는 뜻입니다.<br><br>
+오늘 바로 답하지 못한 일이 있다면, 그것은 <b>얕아서가 아니라 깊어서</b>일 수 있습니다.</p>
+</div>
+</section>
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b>는 행정·AI 분야의 10월 13일 당일 기사가 적게 잡혀 12일 기사(제주 민원)를 함께 썼고, 다섯 건 모두 기사 원문을 열어 대조했습니다. &lsquo;2차 중앙행정기관 이전&rsquo; 13일 브리핑 보도는 날짜를 확인하지 못해 뺐습니다. 노인복지주택 입법예고는 복지부 보도자료 원문을 찾지 못해 캐어유뉴스의 정리로 적었고, 입법예고 기간은 확인하지 못했습니다. 주거·돌봄 연계 남성 이용률(SBS Biz)은 제목 57%와 본문 약 60%가 엇갈려 뺐습니다.</li>
+<li><b>글감</b>의 스위니 인용은 TIME 기사에 실린 발언을 옮긴 것이고, 『Emotion』 논문 원문은 보지 못했습니다. 『박완서의 낱말들』은 책 본문을 보지 못해 한겨레 서평의 소개를 근거로 적었습니다. 한병철 『시간의 향기』는 원문 문장을 확인하지 못해 뺐고, 릴케·키츠는 9월에 다룬 적이 있어 피했습니다.</li>
+<li><b>번역</b> — 호라티우스(The Latin Library 원문)와 니체(textlog.de·Project Gutenberg 두 곳 대조)의 한국어 옮김은 사막여우의 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">답이 아직 오지 않은 일들 사이를 건너시는 오늘,<br><b>기다리는 시간도 걸음의 일부라는 것을 기억해 주십시오.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
