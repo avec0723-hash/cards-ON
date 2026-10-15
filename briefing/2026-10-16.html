@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-16 (금)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 16일 · 금요일</p>
+<p class="opening">경기 가평군보건소에서 2년 동안 멈춰 있던 소아청소년과 진료가, 인천에서 36년 의원을 하다 은퇴한 의사 한 사람이 오면서 다시 열렸습니다. 같은 날, 올여름 풍수해 사망자가 지난해 25명에서 1명으로 줄었다는 집계도 나왔습니다.<br>
+오늘 하늘의 결은 <b>끊긴 자리를 다시 잇는 손</b> &mdash; 처음부터 다시가 아니라, 멈춘 자리에서 한 삼태기를 다시 붓는 일.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·재난 — 올여름 풍수해 사망 25명 → 1명, &ldquo;위험을 먼저 찾아 먼저 대피시켰다&rdquo;</span>
+<a class="src" href="https://www.mt.co.kr/policy/2026/10/15/2026101508361680372" target="_blank" rel="noopener">머니투데이 (10-15) ↗</a>
+<p>올여름 풍수해 인명피해는 1명으로 지난해 25명보다 96% 줄었고, 재산피해는 1,209억 원으로 89.3% 줄었습니다(행정안전부 잠정 집계). 행안부는 통제·대피 기준을 처음으로 숫자로 정했고(산사태는 누적 300㎜ 이상이면서 시간당 50㎜ 이상이면 즉시 대피), 주민대피지원단을 전국 시·군·구 9만 7,641명으로 늘려 혼자 피하기 어려운 2만 6,189명을 미리 찾았습니다. 유일한 사망은 8월 17일 거제 사면 붕괴였습니다.</p>
+<p>올해 강수량이 평년보다 적었다는 점도 함께 봐야 하지만, <b>&lsquo;판단&rsquo;을 &lsquo;기준&rsquo;으로 바꾸자 현장 공무원이 머뭇거리지 않고 문을 두드릴 수 있었다</b>는 점은 행정이 배울 대목입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·의료 — 은퇴한 의사 셋이 메운 지역 공백, 사례집 『다시, 이음』</span>
+<a class="src" href="https://www.rapportian.com/news/articleView.html?idxno=241255" target="_blank" rel="noopener">라포르시안 (10-14 입력·10-15 수정) ↗</a>
+<p>만 60세 이상 은퇴 의사를 지방의료원·보건소에 잇는 &lsquo;시니어의사 지원 사업&rsquo;의 사례집이 나왔습니다(보건복지부·국립중앙의료원). 군산의료원 정형외과 임종선 전문의, 남원 사매면·덕과면 보건지소를 이틀씩 오가는 진영호 전문의, 가평군보건소 최낙완 소아청소년과 전문의입니다. 최 전문의가 오면서 약 2년간 멈췄던 소아청소년과 진료와 영유아 건강검진이 다시 시작됐습니다.</p>
+<p>그는 &ldquo;개원의로 일할 때는 공공의료가 이렇게 취약한지 몰랐다&rdquo;고 말합니다. 다만 채용지원금이 12개월로 한정돼, <b>그 뒤를 지역이 감당할 수 있느냐</b>는 과제가 남는다는 지적도 함께 나왔습니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·노동 — 노동장관 &ldquo;일하는 방식이 바뀌면 보호하는 방식도 바뀌어야&rdquo;</span>
+<a class="src" href="https://www.ajunews.com/view/20261013101613753" target="_blank" rel="noopener">아주경제 (10-13) ↗</a>
+<p>김영훈 고용노동부 장관은 국정감사에서 AI 확산·저출생·고령화·플랫폼 노동을 노동시장의 큰 변화로 꼽고, &lsquo;일하는 사람 권리 기본법&rsquo;의 연내 제정을 돕겠다고 밝혔습니다. 육아기 10시 출근제, 청년부터 중장년까지의 AI 직업훈련, 지난달 18일 출범한 공무직위원회를 통한 공공부문 비정규직 처우 개선도 내놓았습니다. 올해 상반기 일터 사고사망자는 전년보다 11.8% 줄었다고 했습니다.</p>
+<p><b>노동자라는 이름 밖에서 일하던 사람을 보호의 줄에 다시 잇는 일</b>이 법으로 될 수 있을지, 연말까지 지켜볼 일입니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — 『이태준 평전』, 한은형 11년 만의 소설집 『빵과 우유』</span>
+<a class="src" href="https://supple.kr/news/cmv9gnp67002r12lp7y8kcmx4" target="_blank" rel="noopener">한겨레 「10월 16일 문학 새 책」 (10-15) ↗</a>
+<p>안재성의 『이태준 평전』(인문서원)은 1904년 철원에서 나 여섯 살에 블라디보스토크로 망명한 상허 이태준의 생애를 따라갑니다. 『문장강화』를 남겨 &ldquo;시에는 지용, 문장에는 태준&rdquo;이라 불렸던 작가입니다. 한은형은 『빵과 우유』(문학동네)로 11년 만에 두 번째 소설집을 냈고, 이다 투르페이넨의 첫 장편 『숨의 조각』(열린책들)은 멸종한 스텔러바다소의 뼈를 맞춰 복원한 여성 조수의 삶을 엮습니다.</p>
+<p>오래 끊겼던 이름과 <b>끊긴 뼈를 다시 잇는 책들</b>이 한 주에 나란히 왔습니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·정보 — &ldquo;다음 선거 공작은 당신의 AI 챗봇을 노린다&rdquo;</span>
+<a class="src" href="https://cyberscoop.com/ai-chatbots-election-influence-hyperlocal-networks/" target="_blank" rel="noopener">CyberScoop (10-15) ↗</a>
+<p>미국 14개 주에 걸친 가짜 지역 언론 사이트 460여 쪽이 특정 후보에 유리한 문장을 조금씩 바꿔 반복하고, 서로를 인용해 &lsquo;지역에서 믿을 만한 출처&rsquo;처럼 보이게 꾸몄습니다(이스라엘 위협정보 업체 VisionHeight 조사). 첫 37개 사이트는 하룻저녁에, 그중 36개는 8분 안에 등록됐습니다. 많은 언론사가 AI 수집기를 막는 것과 달리 이 사이트들은 일부러 열어 두었고, 퍼플렉시티가 그중 한 곳을 답의 첫 출처로 인용한 사례도 확인됐습니다.</p>
+<p>사람이 아니라 <b>AI가 읽으라고 쓴 글</b>이 생겼다는 것 &mdash; AI 교육에서 &ldquo;출처를 열어 보라&rdquo;를 다시 가르쳐야 하는 까닭입니다. 누가 벌인 일인지는 아직 밝혀지지 않았습니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 끊긴 자리를 다시 잇는 손</span></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">트로닉의 아기와 엄마: &ldquo;맞는 때는 30%뿐, 사랑은 수선에 있다&rdquo;</span>
+<a class="src" href="https://greatergood.berkeley.edu/article/item/family_conflict_is_normal_its_the_repair_that_matters" target="_blank" rel="noopener">Greater Good Magazine (2020-10-27) ↗</a>
+<p>발달심리학자 에드 트로닉과 앤드루 지아니노는 아기와 양육자가 감정을 주고받으며 박자가 맞는 때가 얼마나 되는지 쟀습니다. 건강하고 안정된 관계에서도 맞는 때는 30% 정도였고, 나머지 70%는 어긋나거나 다시 맞춰 가는 중이었습니다. 트로닉은 이 작은 어긋남과 수선이 아이에게 스스로를 달래는 힘과 &ldquo;관계는 다시 회복된다&rdquo;는 믿음을 길러 준다고 봅니다.</p>
+<p>다이애나 디베차의 글은 릭 핸슨의 말 &ldquo;관계는 수선할 수 있는 들판의 크기만큼 줄어든다&rdquo;를 옮기고 이렇게 닫습니다 &mdash; &ldquo;사랑은 수선 안에 있다.&rdquo; 어긋남이 아니라 <b>돌아오는 길</b>이 관계를 지킨다는 연구입니다.</p></div>
+
+<div class="pick"><span class="field">🕯 현존·삶</span>
+<span class="title">조너선 셰들러 「영혼의 킨츠기」: &ldquo;덮어 둔 것은 깨진 채로 남는다&rdquo;</span>
+<a class="src" href="https://jonathanshedler.substack.com/p/kintsugi-for-the-soul" target="_blank" rel="noopener">Jonathan Shedler · Substack (2025-11-03) ↗</a>
+<p>깨진 그릇을 금으로 잇는 일본의 킨츠기를 빌려, 심리치료자 셰들러는 가까운 관계가 깨짐과 수선을 거쳐 자란다고 씁니다. &ldquo;깨짐은 피할 수 없다, 우리가 사람이기 때문에.&rdquo; 수선하려면 깨진 것을 이름 붙여 말하고, 왜 깨졌는지, 서로에게 어떻게 겪어졌는지를 함께 들여다봐야 합니다.</p>
+<p>대충 넘어가면 이렇습니다 &mdash; &ldquo;금은 가려져도 구조는 약해진다&rdquo;, &ldquo;덮어 둔 것은 깨진 채로 남는다.&rdquo; 글 쓰는 사람에게는, <b>금 간 자리를 지우지 않고 금으로 드러내는 글</b>이 오히려 단단하다는 말로도 읽힙니다.</p></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">한나 아렌트의 &lsquo;탄생성&rsquo;: &ldquo;세계를 구하는 기적&rdquo;</span>
+<a class="src" href="https://thefrailestthing.com/2017/01/02/the-miracle-that-saves-the-world/" target="_blank" rel="noopener">L. M. Sacasas · The Frailest Thing (2017-01-02) ↗</a>
+<p>아렌트는 『인간의 조건』(1958)에서 사람을 &lsquo;죽을 자&rsquo;가 아니라 &lsquo;태어난 자&rsquo;로 다시 봅니다. 우리가 태어났다는 사실이 곧 무언가를 새로 시작할 수 있다는 능력의 뿌리라는 것입니다. &ldquo;세계, 곧 인간사의 영역을 그 정상적이고 &lsquo;자연스러운&rsquo; 몰락에서 구하는 기적은 결국 탄생성이라는 사실이다.&rdquo;</p>
+<p>사카사스는 이 대목을 희망의 근거로 읽으면서도, 모든 새 시작이 좋은 것은 아니어서 아렌트가 용서와 약속이라는 짝을 함께 두었다고 짚습니다. 은퇴한 뒤 보건지소로 다시 출근하는 의사처럼, <b>시작할 수 있는 힘은 나이가 아니라 태어났다는 사실에 있다</b>는 생각입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">『논어』 「자한」: &ldquo;한 삼태기라도 부어 나아갔다면 내가 간 것이다&rdquo;</span>
+<a class="src" href="https://hangyo.com/news/article.html?no=60123" target="_blank" rel="noopener">한국교육신문 · 문곤섭 칼럼 (2009-07-14) ↗</a>
+<p>&ldquo;譬如爲山 未成一簣 止 吾止也 譬如平地 雖覆一簣 進 吾往也.&rdquo; 산을 쌓다가 한 삼태기가 모자라 멈춘 것도 내가 멈춘 것이고, 평지에 겨우 한 삼태기를 부었어도 나아갔다면 내가 간 것이라는 말입니다. 필자(전 울산외국어고 교장)는 학문의 성패가 남이 아니라 자기에게 달려 있다고 읽습니다.</p>
+<p>오늘의 결로 보면 이 문장의 무게는 뒷구절에 있습니다 &mdash; 다시 시작하는 사람에게 필요한 것은 산 전체가 아니라 <b>오늘 붓는 한 삼태기</b>라는 것. 멈췄던 원고, 접어 둔 공부 앞에서 쓸 만한 문장입니다.</p></div>
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;아이는 순진무구함이며 망각이다.
+하나의 새로운 시작, 하나의 놀이,
+스스로 굴러가는 바퀴, 하나의 첫 움직임,
+하나의 거룩한 긍정이다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『차라투스트라는 이렇게 말했다(Also sprach Zarathustra)』 제1부 「세 가지 변화에 대하여(Von den drei Verwandlungen)」 (1883)
+<span class="orig">Unschuld ist das Kind und Vergessen, ein Neubeginnen, ein Spiel, ein aus sich rollendes Rad, eine erste Bewegung, ein heiliges Ja-sagen.</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/zarathustra/von-den-drei-verwandlungen" target="_blank" rel="noopener">textlog.de 독일어 전문 ↗</a> &nbsp;·&nbsp; <a class="src" href="https://www.gutenberg.org/cache/epub/7205/pg7205.txt" target="_blank" rel="noopener">Project Gutenberg 독일어판 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 차라투스트라의 첫 설교입니다. 정신은 짐을 지는 낙타가 되고, &ldquo;너는 해야 한다&rdquo;에 맞서는 사자가 되었다가, 마지막에 아이가 됩니다. 사자도 하지 못한 일을 아이가 하는 까닭은, 아이에게는 새로 시작하는 힘이 있기 때문입니다. 여기서 &lsquo;망각&rsquo;은 배운 것을 버리라는 말이 아니라, 지난 실패의 무게를 내려놓고 첫 움직임을 다시 낼 수 있다는 뜻으로 읽힙니다.<br><br>
+바로 다음 문장이 이렇게 잇습니다 &mdash; &ldquo;그렇다, 창조라는 놀이를 위해서는, 형제들이여, 거룩한 긍정이 필요하다.&rdquo; 다시 시작하는 일은 처음보다 늦은 일이 아니라, <b>아이의 자리로 한 번 더 돌아가는 일</b>입니다.</p>
+</div>
+</section>
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 10월 15일 당일 행정 기사는 서울시 국정감사(한강버스·주택) 공방이 많았지만 정치 공방이 중심이라 빼고, 같은 날 행안부 풍수해 집계를 실었습니다. 노동장관 국감 기사는 13일 것이라 이틀보다 조금 오래됐습니다. 풍수해 수치는 잠정 집계입니다. 제주 광치기해변 붉은바다거북 방류(10/15, 정책브리핑 요약)는 원 보도자료를 열지 못해 뺐습니다. 다섯 건 모두 원문을 열어 대조했습니다.</li>
+<li><b>글감</b> — 트로닉·지아니노의 30%·70% 수치는 원 논문이 아니라 Greater Good 해설 기사에서 확인했습니다. 아렌트의 널리 알려진 문장 &ldquo;사람은 죽기 위해서가 아니라 시작하기 위해 태어난다&rdquo;는 확인한 출처 페이지에 실려 있지 않아 쓰지 않고, 사카사스 글에 인용된 &lsquo;기적&rsquo; 대목만 옮겼습니다. 이태준 『문장강화』 본문 인용은 확인할 칼럼을 찾지 못해 글감에서 뺐습니다.</li>
+<li><b>원문·번역</b> — 니체 「세 가지 변화에 대하여」는 textlog.de와 Project Gutenberg 판의 문장이 일치합니다. 아렌트·셰들러·디베차·니체의 한국어 옮김은 사막여우의 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">멈춘 자리에서 한 삼태기만 다시 붓는 하루이기를,<br><b>처음의 눈동자는 다시 시작하는 자리에 기다리고 있습니다.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
