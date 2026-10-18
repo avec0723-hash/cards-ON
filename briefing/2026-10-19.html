@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-19 (월)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 19일 · 월요일</p>
+<p class="opening">국무총리가 통합돌봄 현장에서 &ldquo;아무리 좋은 제도도 국민이 알지 못해 이용하지 못한다면 소용이 없다&rdquo;고 말했습니다. 같은 주, 공무원이 직접 만든 AI를 두고는 &ldquo;개발자는 보상받고 운영 담당자는 책임만 떠안으면 오래가기 어렵다&rdquo;는 말이 나왔습니다.<br>
+오늘 하늘의 결은 <b>만드는 손과 이어 돌보는 손</b> &mdash; 지어 놓은 것은 날마다 돌보는 손이 있어야 남습니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·돌봄 — 통합돌봄 반년, 7만 8천 명 연계… &ldquo;알지 못해 못 쓰면 소용없다&rdquo;</span>
+<a class="src" href="https://go.seoul.co.kr/news/prnewsView.php?id=452112" target="_blank" rel="noopener">정부 보도자료 · 서울신문 서울Pn 전재 (10-16) ↗</a>
+<p>한성숙 국무총리가 대전 서구 통합돌봄 현장간담회와 동구 치매안심센터를 찾았습니다. 3월 본격 시행 뒤 약 반년 동안 약 7만 8천 명에게 1인당 평균 3.5개 서비스가 연계됐다고 하고, 내년부터 돌봄 취약지역에 공공 돌봄센터 30곳을 새로 짓고 제1차 통합돌봄 기본계획을 세우겠다고 밝혔습니다. 대전 서구는 의료·요양 통합돌봄을 이어 갈 국비 지원 체계를 건의했습니다.</p>
+<p>제도를 만드는 일과 <b>사람이 그 제도를 알고 쓰게 하는 일</b>은 다른 일입니다. 읍면동 창구에서 매일 하는 그 두 번째 일이 제도의 실제 몸입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — 공무원이 만든 AI, 권리와 보상은 누구에게… 행안부 지침 11월 발표 목표</span>
+<a class="src" href="https://www.etnews.com/20261018000022" target="_blank" rel="noopener">전자신문 (10-18) ↗</a>
+<p>행정안전부가 「행정·공공기관 직원의 AI 직접개발 지침」을 이르면 11월 고시할 계획입니다. 공공 깃랩 시범 운영 석 달 만에 공무원 개발자 2,700여 명, 프로젝트 1,100여 개가 등록됐습니다. 지침안에는 승진 우대·포상, 고의·중과실 없는 직원에 대한 불이익 금지가 담겼습니다. 16일 &lsquo;AI 정부 포럼&rsquo;에서 통일부 채유진 씨는 &ldquo;개발자는 보상받고 운영 담당자는 책임만 떠안으면 서비스가 지속되기 어렵다&rdquo;고 말했습니다.</p>
+<p><b>만든 사람만 세고 돌보는 사람을 세지 않으면</b> 서비스는 출시일에 멈춥니다. AI 교육에서도 &lsquo;만들기&rsquo; 다음 시간은 &lsquo;맡아 기르기&rsquo;여야 합니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정(해외) — 네덜란드 내각 &ldquo;AI로 공무원 줄인다&rdquo;… 자문위 &ldquo;규칙과 점검부터 덜어야&rdquo;</span>
+<a class="src" href="https://www.dutchnews.nl/2026/10/dutch-cabinet-wants-ai-to-help-slash-civil-service-telegraaf/" target="_blank" rel="noopener">DutchNews · De Telegraaf 인용 (10-15) ↗</a>
+<p>네덜란드 공무원 수는 2021년 14만 명에서 지난해 17만 명으로 늘었고, 정책 담당 공무원은 10년 사이 2만 명 가까이로 두 배가 됐습니다. 내각은 AI로 인력을 줄여 2028·2029년 각각 2억 유로, 2035년부터 해마다 10억 유로를 아끼겠다는 계산을 하고 있다고 합니다(내부 관계자 추산). 정작 공직의 미래를 다루는 자문위원회는 &ldquo;규칙과 점검이 쌓이는 것을 함께 다루지 않으면&rdquo; AI도 정부를 효율적으로 만들 수 없다고 경고했습니다.</p>
+<p>사람을 빼는 것과 일을 덜어 내는 것은 다릅니다 &mdash; <b>쌓인 절차를 그대로 둔 채 손만 줄이면 남은 손이 더 무거워집니다.</b></p></div>
+
+<div class="news"><span class="title">🌍 사회·삶 — 여든에 책을 펴 8년 동안 1,400권, &ldquo;독서는 콩나물시루에 물 주는 일&rdquo;</span>
+<a class="src" href="https://supple.kr/news/cmvbjb6js001u927w196kpb5g" target="_blank" rel="noopener">한겨레 · 서플 게재 (10-17) ↗</a>
+<p>강릉의 박정옥(87) 씨는 2018년 여든에 책 읽기를 시작해 8년 동안 1,400여 권을 읽어 &lsquo;박천권&rsquo;이라 불립니다. 해방 전에 태어나 보험 영업과 한복 바느질로 살아온 그는 하루 다섯 시간 넘게 읽고, 요즘은 뇌과학 책에 빠져 있다고 합니다. 딸이 엮은 독서 일기는 지난달 『늦은 나이는 없다』로 나왔습니다. 기사는 80대 독서 인구가 14.3%, 1인당 연평균 0.9권이라는 사회조사 수치도 함께 전합니다.</p>
+<p>콩나물시루에 부은 물은 다 빠져나가는 것 같아도 콩나물은 자랍니다. <b>날마다 붓는 일의 힘</b>을 이보다 짧게 말하기는 어렵습니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·출판 — 앤트로픽 저작권 합의 목록에 한국 작가 15명·22종… 출판계 &ldquo;책이 없으면 AI도 없다&rdquo;</span>
+<a class="src" href="https://supple.kr/news/cmvamg2ng00gtbmujx0w668su" target="_blank" rel="noopener">한겨레 · 서플 게재 (10-16) ↗</a>
+<p>미국 작가들의 집단소송 끝에 앤트로픽이 약 15억 달러를 내기로 한 합의의 대상 목록(48만 2,460종)에 한강·신경숙·김영하·배수아·김숨·정유정 등 한국 작가 최소 15명의 작품 22종이 들어 있었습니다. 앤트로픽이 국내 유통사를 통해 종이책을 사들여 스캔했다는 내용도 함께 보도됐습니다. 한국출판인회의는 데이터 투명성, 권리자 허락 원칙, 정당한 보상을 요구하는 호소문에 서명을 받고 있습니다.</p>
+<p>이 브리핑을 짓는 AI를 만든 회사의 소식이라 사실만 옮깁니다. 기계가 읽은 한 권 뒤에도 <b>쓴 손과 옮긴 손, 엮은 손</b>이 있었다는 것 &mdash; 글 쓰는 사람이 AI를 쓸 때 먼저 놓지 말아야 할 감각입니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 만드는 손과 이어 돌보는 손</span></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">미얼 래더먼 유켈레스 「유지 예술 선언 1969!」: &ldquo;혁명이 끝난 뒤 월요일 아침 쓰레기는 누가 치우나?&rdquo;</span>
+<a class="src" href="https://en.wikipedia.org/wiki/Mierle_Laderman_Ukeles" target="_blank" rel="noopener">위키백과 인용 대조 ↗</a>
+<a class="src" href="https://queensmuseum.org/wp-content/uploads/2016/04/Ukeles-Manifesto-for-Maintenance-Art-1969.pdf" target="_blank" rel="noopener">퀸스미술관 선언문 스캔본 ↗</a>
+<p>첫아이를 낳은 뒤 예술가이자 엄마가 된 유켈레스는, 새것을 만드는 &lsquo;발전&rsquo;만 예술로 쳐 주는 세계에 물었습니다. 혁명 다음 날 월요일 아침의 쓰레기는 누가 치우느냐고. 그는 유지를 &ldquo;먼지가 앉지 않게 하고, 새것을 지키고, 변화를 이어 가는&rdquo; 일로 정의하고, 요리·청소·돌봄을 예술의 자리로 끌어올렸습니다. 1977년부터는 뉴욕시 청소국의 무보수 상주 작가가 됩니다.</p>
+<p>공공의 일 대부분은 유지입니다. <b>아무도 박수 치지 않지만 멈추면 모두가 아는 일</b> &mdash; 그 일에 이름을 붙이는 것이 그의 선언이었습니다.</p></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">옥타비아 버틀러 「광적인 글쓰기」: &ldquo;먼저 영감을 잊어라. 습관이 더 믿을 만하다&rdquo;</span>
+<a class="src" href="https://quoteinvestigator.com/2016/06/08/habit-sustain/" target="_blank" rel="noopener">Quote Investigator 대조 · 『Bloodchild』(1995) 141쪽 ↗</a>
+<p>SF 작가 버틀러는 작가 지망생에게 쓴 짧은 글 「Furor Scribendi」에서 이렇게 말합니다. &ldquo;먼저 영감을 잊어라. 습관이 더 믿을 만하다. 습관은 영감이 있든 없든 너를 지탱한다.&rdquo; 이야기를 끝내고 다듬게 하는 것은 습관이지 영감이 아니라고, 그리고 같은 이치로 계속 배우는 것이 재능보다 믿을 만하다고 덧붙입니다.</p>
+<p>쓰는 일에도 유지가 있습니다. <b>영감은 시작을 만들고, 습관은 원고를 남깁니다</b> &mdash; 매일의 한 쪽은 원고를 돌보는 손입니다.</p></div>
+
+<div class="pick"><span class="field">🕯 현존·삶</span>
+<span class="title">스티븐 J. 잭슨 「수리를 다시 생각하다」: &lsquo;부서진 세계에서 출발하는 생각&rsquo;</span>
+<a class="src" href="https://research.tuni.fi/digisus/event/research-seminar-2024-living-in-the-broken-world-fostering-repair-maintenance-and-care/" target="_blank" rel="noopener">「Rethinking Repair」(2014) · 탐페레대 세미나 소개 ↗</a>
+<p>정보학자 잭슨은 『Media Technologies』(MIT Press, 2014)에 실은 글에서, 기술을 생각할 때 새로움·성장·진보가 아니라 <b>침식과 고장, 낡음</b>을 출발점으로 삼으면 무엇이 보이는지 묻습니다. 그가 &lsquo;부서진 세계의 생각(broken world thinking)&rsquo;이라 이름 붙인 관점에서, 유지와 수리는 뒷정리가 아니라 창의와 지식이 생기는 자리이자 오래 잊힌 돌봄의 윤리입니다.</p>
+<p>세상은 원래 조금씩 부서지고, 누군가 날마다 고칩니다. 그 사람을 보는 눈이 곧 <b>돌봄을 보는 눈</b>입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">『중용』 26장: &ldquo;지극한 정성은 쉼이 없다&rdquo;</span>
+<a class="src" href="https://zh.wikisource.org/wiki/禮記/中庸" target="_blank" rel="noopener">위키문헌 『예기』 「중용」 원문 ↗</a>
+<p>&ldquo;故至誠無息。不息則久，久則徵，徵則悠遠，悠遠則博厚，博厚則高明。&rdquo; &mdash; 그러므로 지극한 정성은 쉼이 없다. 쉬지 않으면 오래가고, 오래가면 드러나고, 드러나면 멀리 가고, 멀리 가면 넓고 두터워지며, 넓고 두터우면 높고 밝아진다. 그리고 &ldquo;오래감(悠久)은 만물을 이루는 까닭&rdquo;이라고 맺습니다.</p>
+<p>높고 밝은 것이 맨 끝에 옵니다. 순서가 거꾸로 되지 않는다는 것 &mdash; <b>드러남은 쉬지 않음의 결과이지 목표가 아니라는 것</b>입니다.</p></div>
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;그러나 사람은 나무와 같다.
+높은 곳, 밝은 곳으로 오르려 할수록
+그 뿌리는 더 힘차게 땅으로, 아래로,
+어둠 속으로, 깊은 곳으로 &mdash;
+악 속으로 뻗어 간다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『차라투스트라는 이렇게 말했다(Also sprach Zarathustra)』 제1부 「산비탈의 나무에 대하여(Vom Baum am Berge)」 (1883)
+<span class="orig">Aber es ist mit dem Menschen wie mit dem Baume. Je mehr er hinauf in die Höhe und Helle will, um so stärker streben seine Wurzeln erdwärts, abwärts, in's Dunkle, Tiefe, &mdash; in's Böse.</span></p>
+<p class="cite"><a class="src" href="https://www.gutenberg.org/cache/epub/7205/pg7205.txt" target="_blank" rel="noopener">Project Gutenberg 독일어판 ↗</a> &nbsp;·&nbsp; <a class="src" href="http://www.textlog.de/nietzsche/schriften/zarathustra/vom-baum-am-berge" target="_blank" rel="noopener">textlog.de 독일어 전문 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 차라투스트라는 산비탈의 나무에 기대 앉은 청년을 만나 이 말을 건넵니다. 청년은 &ldquo;그래요, 악 속으로!&rdquo; 하고 외치며 어떻게 제 마음을 알아보았느냐고 묻습니다. 니체는 깊이를 예쁘게 칠하지 않습니다 &mdash; 오르려는 만큼 아래의 어둠도 함께 자란다고 말합니다.<br><br>
+콩나물시루 속에서도 보이는 것은 머리뿐이고, 자라는 것의 절반은 아래로 뻗습니다. <b>보이는 높이는 보이지 않는 아래가 버팁니다.</b> 오늘 돌보는 일이 아무에게도 보이지 않는다면, 그것은 아마 뿌리 쪽 일입니다.</p>
+</div>
+</section>
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 10월 18일 당일의 국내 행정·사회 기사를 검색으로 찾지 못해 16~17일 것을 주로 실었습니다. 총리 방문 기사는 서울신문 전재 페이지로 확인했는데 본문에 연도가 없어 주소의 날짜로 갈음했습니다. 네덜란드 건은 De Telegraaf 원문 대신 그것을 인용한 DutchNews로 확인했고, 절감액은 &lsquo;내부 관계자&rsquo; 추산입니다. 국정감사 돌봄 수치(가족휴가제 이용률 등)는 원출처를 찾지 못해 뺐습니다.</li>
+<li><b>글감</b> — 유켈레스 선언문은 퀸스미술관 스캔본에 글자 층이 없어, 위키백과에 인용된 문장으로 대조했습니다. 잭슨의 논문 원문은 열지 못해 연구 세미나의 소개로 요지만 옮겼습니다. 한국어 인문·에세이는 오늘 결에 맞는 확인된 글을 찾지 못해 이번엔 네 분야로 지었습니다.</li>
+<li><b>원문·번역</b> — 니체 문장은 Project Gutenberg 판과 textlog.de가 일치합니다(Gutenberg는 옛 철자 &ldquo;in's&rdquo;, textlog는 &ldquo;ins&rdquo;). 『중용』은 위키문헌으로 대조했습니다(ctext.org는 자동 접근이 막혀 있음). 니체·유켈레스·버틀러·『중용』의 한국어 옮김은 사막여우의 것입니다.</li>
+<li><b>알림</b> — 앤트로픽 기사는 이 브리핑을 짓는 AI를 만든 회사에 관한 것이라, 평가 없이 보도된 사실만 옮겼습니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘은 콩나물시루에 물 한 바가지 붓는 하루이기를,<br><b>다 빠져나가는 것 같아도, 무언가는 자라고 있습니다.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
