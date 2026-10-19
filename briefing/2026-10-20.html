@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-20 (화)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 20일 · 화요일</p>
+<p class="opening">행정안전부가 행정서비스 1,658개의 서류를 &ldquo;동의만 하면&rdquo; 내지 않아도 되게 했다고 밝힌 날, 아프리카의 한 젊은 작가는 상 받은 소설을 자기가 썼다는 것을 증명해야 하는 자리에 서 있습니다.<br>
+오늘 하늘의 결은 <b>증명의 무게를 누가 지는가</b> &mdash; 덜어 줄 수 있는 증명이 있고, 끝내 스스로에게만 할 수 있는 증명이 있습니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정 — 행정서비스 1,658개 제출서류 간소화 완료… &ldquo;동의하면 서류를 떼지 않아도&rdquo;</span>
+<a class="src" href="https://nocutnews.co.kr/news/6593167" target="_blank" rel="noopener">CBS노컷뉴스 · 행정안전부 발표 (10-19) ↗</a>
+<p>행정안전부가 중앙부처와 지방정부의 행정서비스 1,658개에 대한 제출서류 간소화를 마쳤다고 밝혔습니다. 2024년 421개, 2025년 679개, 올해 3분기 558개를 합친 수입니다. 신청인이 행정정보 확인에 동의하면 담당자가 전산으로 확인하므로, 2024년부터 누적 1억 건이 넘는 조회만큼 서류 발급을 덜었다고 합니다. 소상공인·사업자 서비스가 535개(32.3%)로 가장 많고, 처리기관은 시·군·구 등 지방정부가 55.6%입니다.</p>
+<p>증명의 짐을 <b>시민의 발에서 창구의 전산으로</b> 옮기는 일입니다. 서류 한 장이 사라진 자리에는 그 정보를 대신 확인하는 공무원의 손이 남는다는 것도 함께 기억할 만합니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — &ldquo;국감 열리면 공무원은 무한대기&rdquo;… 주무관이 직접 만든 알림 AI &lsquo;국정ON&rsquo;</span>
+<a class="src" href="https://www.fnnews.com/news/202610191846089463" target="_blank" rel="noopener">파이낸셜뉴스 [fn이사람] (10-19) ↗</a>
+<p>행정안전부 공공인공지능혁신과 김민 주무관은 국회 생중계를 종일 지켜보던 동료들의 고충을 덜려고 &lsquo;국정ON&rsquo;을 만들었습니다. 등록한 정책·기관·사업 키워드가 국회나 국무회의에서 언급되면 카카오톡으로 알리고 발언 요약을 보내 줍니다. 기본 기능은 2주, 실제 업무에 맞게 다듬는 데 두 달 가까이 걸렸다고 합니다. 실시간 정리에는 &lsquo;비공식 정리&rsquo; 표시를 붙이고, 공식 회의록이 나오면 무엇이 지워지고 고쳐졌는지 비교할 수 있게 했습니다.</p>
+<p>기계가 쓴 요약에 <b>&lsquo;비공식&rsquo;이라는 이름표를 스스로 붙인 것</b>이 이 이야기의 가장 좋은 대목입니다. AI를 가르치는 교실이 전해야 할 태도도 그것입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·삶 — 맞벌이라도 여성의 가사·돌봄 시간이 하루 1시간 43분 더 길다</span>
+<a class="src" href="https://view.asiae.co.kr/article/2026101913535934300" target="_blank" rel="noopener">아시아경제 · 국가데이터처 생활시간조사 (10-19) ↗</a>
+<p>자녀가 있는 맞벌이 청년(25~39세) 부부에서 여성은 하루 평균 4시간, 남성은 2시간 17분을 가사·돌봄에 썼습니다. 차이는 1시간 43분으로, 10년 전 3시간 16분에서 절반 가까이 줄었습니다. 자녀가 없는 맞벌이 부부의 차이는 34분이었습니다.</p>
+<p>줄어든 것은 사실이고, 아직 남은 것도 사실입니다. 돌봄은 <b>서류로 증명되지 않는 노동</b>이라, 이렇게 시간으로 재어 줄 때에야 겨우 보입니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·글쓰기 — 케인상 수상작에 &lsquo;AI가 썼다&rsquo; 의혹… 작가 &ldquo;탐지기가 우리에게 편향돼 있다&rdquo;</span>
+<a class="src" href="https://www.news4jax.com/entertainment/2026/10/14/zimbabwes-caine-prize-winner-rejects-claim-he-used-ai-to-write-his-story/" target="_blank" rel="noopener">AP통신 · News4JAX 게재 (10-14) ↗</a>
+<p>아프리카 문학상인 케인상(상금 1만 달러)을 받은 짐바브웨 작가 심바라셰 쿤디제자의 「The Blue Fighter」를 두고, 미국 『애틀랜틱』이 AI 탐지기 &lsquo;팽그램&rsquo;이 다른 작가의 시 인용을 뺀 거의 전부를 AI 생성으로 판정했다고 보도했습니다. 작가는 가족의 경험에서 길어 올린 이야기라며 부인했고, 이전 작품과 문체가 다르다는 것이 증거가 될 수 없다고 했습니다. 주최 측은 상을 철회하지 않은 채 &ldquo;사람 중심의&rdquo; 검토를 하고 있습니다.</p>
+<p>글을 쓰는 사람이 <b>자기가 썼음을 증명해야 하는 시대</b>가 문 앞에 와 있습니다. 탐지기는 문장의 무늬를 잴 뿐 초고의 역사를 보지 못한다는 점, 판정은 아직 나지 않았다는 점을 함께 적어 둡니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 증명의 무게를 누가 지는가</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">테드 창 「AI는 왜 예술을 만들지 못하는가」: &ldquo;글은 쓴 사람이 들인 노력의 결과다&rdquo;</span>
+<a class="src" href="https://www.newyorker.com/culture/the-weekend-essay/why-ai-isnt-going-to-make-art" target="_blank" rel="noopener">The New Yorker (2024-08-31) ↗</a>
+<a class="src" href="https://www.commonreader.co.uk/i/148420252/art-is-choice" target="_blank" rel="noopener">The Common Reader 인용 대조 ↗</a>
+<p>SF 작가 테드 창은 예술을 &ldquo;아주 많은 선택을 한 끝에 나오는 것&rdquo;이라 정의합니다. 소설을 쓸 때 우리는 의식하든 못 하든 거의 모든 낱말에서 선택을 하고, 몇백 단어짜리 지시문에는 그 선택이 다 담기지 않는다는 것입니다. 그리고 덧붙입니다 &mdash; 독자의 주의를 받을 만한 글은 모두 그 글을 쓴 사람이 들인 노력의 결과라고.</p>
+<p>케인상 소동 앞에서 이 글은 탐지기와 다른 물음을 건넵니다. <b>누가 썼는가보다, 누가 골랐는가.</b> 고른 자리가 남아 있는 글은 증명서 없이도 그 사람의 것입니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">칼 로저스 『사람이 된다는 것』: &ldquo;있는 그대로를 받아들이기 전에는 바뀌지 못한다&rdquo;</span>
+<a class="src" href="https://haven.ca/acceptance-and-change/" target="_blank" rel="noopener">『On Becoming a Person』(1961) · Haven 발췌 ↗</a>
+<p>인간중심 상담을 세운 로저스는 내담자들과 자기 경험에서 하나의 역설을 배웠다고 씁니다. 우리는 지금의 우리를 받아들이기 전에는 바뀔 수 없고, 지금의 자리에서 떠날 수도 없다는 것. 화·따뜻함·지루함·불안을 그때그때 알아차리고 자기 말을 받아 주며 들을 수 있을 때 더 잘 일할 수 있었다고 합니다.</p>
+<p>스스로를 늘 증명해야 하는 사람은 바뀔 틈이 없습니다. <b>증명을 멈추는 자리에서 변화가 시작된다</b>는 것이 이 오래된 상담가의 결론입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">에픽테토스 『엥케이리디온』 23장: &ldquo;보이고 싶거든 너 자신에게 그렇게 보여라&rdquo;</span>
+<a class="src" href="https://cts.perseids.org/read/greekLit/tlg0557/tlg002/perseus-eng4/23" target="_blank" rel="noopener">Perseids · Higginson 역(1890) ↗</a>
+<p>노예 출신 스토아 철학자 에픽테토스는 이렇게 가르칩니다. 누군가의 마음에 들려고 바깥으로 몸을 돌리는 순간, 너는 네 삶의 계획을 잃은 것이다. 그러니 철학자인 것으로 만족하라. 다른 이에게도 철학자로 보이고 싶다면 너 자신에게 그렇게 보여라, 그것으로 족하다.</p>
+<p>이천 년 전의 문장이 오늘의 탐지기 앞에 닿습니다. 바깥의 판정은 내 손에 있지 않고, <b>내가 내 일을 알아보는 눈만이 내 몫</b>입니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">이용욱 「AI가 글 쓰는 시대, 무엇을 물을 것인가」: &ldquo;인간은 무엇을 할 것인가&rdquo;</span>
+<a class="src" href="https://weekly.khan.co.kr/article/202609160600001/" target="_blank" rel="noopener">주간경향 [편집실에서] (2026-09-16) ↗</a>
+<p>주간경향 편집장은 자기 칼럼을 AI에 넣어 평가받아 본 경험에서 출발합니다. 규격화된 기사와 칼럼은 AI가 충분히 쓸 수 있고, 문학 창작에도 이미 깊이 들어와 있다는 것. 그래서 중요한 것은 AI가 쓴 문장을 가려내는 일보다, AI가 판을 짜고 판단하는 세상에서 &ldquo;인간은 무엇을 할 것인가&rdquo;를 끊임없이 묻는 일이라고 씁니다. 편해지자고 만든 기술에 도리어 지배당하는 것은 &ldquo;뻔하면서도 슬픈 결말&rdquo;이라는 경고도 함께입니다.</p>
+<p><b>가려내기보다 묻기</b> &mdash; 행정의 보고서에도, 에세이스트의 원고에도, AI를 가르치는 교실에도 같은 물음이 걸립니다.</p></div>
+
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;네 양심은 무엇을 말하는가?
+&mdash; &lsquo;너는 너인 그것이 되어야 한다.&rsquo;&rdquo;</p>
+<p class="cite">프리드리히 니체, 『즐거운 학문(Die fröhliche Wissenschaft)』 제3권 270절 「네 양심은 무엇을 말하는가?(Was sagt dein Gewissen?)」 (1882)
+<span class="orig">Was sagt dein Gewissen? &mdash; &bdquo;Du sollst der werden, der du bist.&ldquo;</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/was-sagt-dein-gewissen" target="_blank" rel="noopener">textlog.de 독일어 원문 ↗</a> &nbsp;·&nbsp; <a class="src" href="https://www.gutenberg.org/ebooks/52881" target="_blank" rel="noopener">Project Gutenberg 영역본 270절 ↗</a> &nbsp;·&nbsp; <a class="src" href="https://www.gutenberg.org/cache/epub/7205/pg7205.txt" target="_blank" rel="noopener">『차라투스트라』 「꿀 봉헌」 &ldquo;Werde, der du bist!&rdquo; ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 니체의 책에서 가장 짧은 절 가운데 하나입니다. 본디 고대 그리스 시인 핀다로스의 말에서 온 이 문장을, 니체는 바깥의 도덕이 아니라 &lsquo;양심&rsquo;의 입에 넣습니다. 남이 정해 준 모습이 되라는 목소리가 아니라, 이미 내 안에 있는 것이 되라는 목소리입니다.<br><br>
+되어야 할 &lsquo;나&rsquo;는 증명서로 확인되지 않습니다. 매일 고르는 낱말과 매일 붓는 손으로 조금씩 드러날 뿐입니다. <b>증명은 남에게 하는 것이고, 되어 감은 나에게 일어나는 것입니다.</b></p>
+</div>
+</section>
+
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 서류 간소화는 여러 매체 수치가 일치해 노컷뉴스 원문으로 대조했습니다. 케인상 건은 『애틀랜틱』 원문(유료)을 열지 못해 그것을 인용한 AP 기사로 확인했고, 상금은 매체마다 달러/파운드 표기가 엇갈려 AP를 따랐습니다. 『워싱턴포스트』 10/18 칼럼(&ldquo;AI가 소설가에게 사람임을 증명하게 만들 수 있다&rdquo;)은 접속이 막혀 싣지 않았습니다. 한 일간지의 10/8 칼럼 「AI 이후 비싸진 &lsquo;인간의 흠집&rsquo;」은 본문 글자가 깨져 필자를 확인하지 못해 뺐습니다.</li>
+<li><b>글감</b> — 테드 창의 원문은 열지 못해 The Common Reader의 인용으로 대조했습니다. 로저스의 유명한 문장 &ldquo;the curious paradox…&rdquo;는 판본마다 &lsquo;just as I am&rsquo;과 &lsquo;as I am&rsquo;이 갈려, 확인된 발췌 문장의 요지만 옮겼습니다. 에픽테토스는 Perseids 영역 페이지와 롱 역(1887)을 함께 봤습니다. 🕯 현존·삶은 오늘 결에 맞는 확인된 글을 찾지 못해 네 분야로 지었습니다.</li>
+<li><b>원문·번역</b> — 니체 독일어 원문은 textlog.de에서 확인했고, zeno.org·nietzschesource.org는 접속이 거부되어 구텐베르크 영역본의 같은 번호와 『차라투스트라』 독일어 원문의 같은 구절로 대조를 갈음했습니다. 인용문의 한국어는 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘은 누구에게 보이려 하지 않은 문장 하나가 하루에 조용히 남기를,<br><b>고른 자리는 늘 안에 있습니다.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
