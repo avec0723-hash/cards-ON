@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-26 (월)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 26일 · 월요일</p>
+<p class="opening">미국 뉴욕주의 한 보안관실이 AI 보고서 초안 도구를 90일 써 보고는 들이지 않기로 했고, 한국의 시간선택제 공무원들은 일할 시간을 스스로 정하게 해 달라고 묻고 있습니다. 오늘 아침, 이 두 소식이 같은 질문을 던집니다.<br>
+오늘 하늘의 결은 <b>초안을 쥔 손</b> &mdash; 도구는 생각에 함께 손을 대지만, 무엇을 내 손에 남길지는 여전히 사람이 고릅니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·인사 — 시간선택제 채용공무원 6,400명… &ldquo;원하는 사람에게는 주 40시간을&rdquo;</span>
+<a class="src" href="https://www.public25.com/news/articleView.html?idxno=57135" target="_blank" rel="noopener">퍼블릭타임스 〈이슈분석〉 (10-25) ↗</a>
+<p>2014년 처음 뽑을 때 208명 모집에 5,084명이 몰렸던(24대 1) 시간선택제 채용공무원은 지금 약 6,400명입니다. 노조 측은 지방직 시선제 공무원의 92%가 초과근무를 포함해 주 42시간을 일한다고 주장하며, 원하는 사람에 한해 주 40시간 근무를 허용해 달라고 요구합니다. 10월 7일 행정안전위원회 국정감사에서 행안부 장관과 인사혁신처장은 검토와 부처 간 협의를 하겠다는 취지로 답했지만, 정부는 전일제와의 구분이 흐려진다는 이유로 받아들이기 어렵다는 입장인 것으로 전해집니다.</p>
+<p><b>일의 크기를 누가 정하는가</b>의 문제입니다. 제도의 이름은 &lsquo;선택&rsquo;인데, 선택의 폭은 제도가 정하고 있습니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·돌봄 — 오늘(26일) 청와대 앞·세종문화회관 계단… &lsquo;국제 돌봄의 날&rsquo; 주간이 열린다</span>
+<a class="src" href="https://peoplepower21.org/welfare/2054855" target="_blank" rel="noopener">참여연대 사회복지위원회 · 행사 일정 ↗</a>
+<p>오늘 오전 10시 청와대 앞에서 공공운수노조가 돌봄 공공성 강화와 돌봄노동자 처우개선 요구 서명을 전달하고, 10시 30분 세종문화회관 계단에서는 &lsquo;한국노총 돌봄노조연대&rsquo;가 출범합니다. 오후 2시에는 사회복지 노동자 권익 침해 증언대회가 열립니다. 29일 국제 돌봄의 날에는 청와대 분수대 앞 공동기자회견, 국회 본관 앞 민주노총 결의대회(처우개선 예산 쟁취)가 이어집니다.</p>
+<p>지난주 브리핑의 통합돌봄 겸직 82.4%, 안양 돌봄 예산 0원과 같은 줄기의 소식입니다. 오늘은 <b>돌보는 사람들이 자기 일의 값을 직접 말하러 나오는 날</b>입니다. (행사 일정 안내이며, 결과 보도는 아직 없습니다.)</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — 웬델 베리의 마지막 에세이집 『Dispatches from Rural America』, 내일(27일) 출간</span>
+<a class="src" href="https://www.counterpointpress.com/books/dispatches-from-rural-america/" target="_blank" rel="noopener">Counterpoint Press 도서 소개 ↗</a>
+<a class="src" href="https://www.resilience.org/stories/2026-09-02/remembering-wendell-berry-agrarian-writer-and-voice-of-conscience/" target="_blank" rel="noopener">Resilience.org 추모 글 (09-02) ↗</a>
+<p>8월 31일 아흔둘로 세상을 떠난 미국의 농부 작가 웬델 베리의 에세이 열여섯 편이 처음 한 권으로 묶여 나옵니다. 전쟁이 아이들에게 남기는 것, 산업주의의 문제, 공동체의 필요를 다룬 글들이며, 대표작 『The Unsettling of America』 출간 50주년을 앞둔 시점입니다. 베리는 평생 연필과 종이로 썼고, 원고는 아내가 타자기로 옮기며 첫 비평가 노릇을 했습니다.</p>
+<p>손으로 쓰는 일을 끝까지 지킨 사람의 마지막 책이 <b>AI 초안의 시대 한가운데</b> 도착합니다. (출판사 소개문에는 &lsquo;16편&rsquo;이, 함께 실린 추천사 하나에는 &lsquo;12편&rsquo;이 적혀 있어 수록 편수는 책으로 확인이 필요합니다.)</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정(해외) — 90일 써 본 AI 보고서 초안 도구, 보안관실이 &ldquo;들이지 않겠다&rdquo;</span>
+<a class="src" href="https://www.govtech.com/artificial-intelligence/kentucky-sheriff-nixes-ai-assisted-report-writing-after-trial" target="_blank" rel="noopener">Daily Freeman · GovTech 전재 (10-23) ↗</a>
+<p>뉴욕주 얼스터 카운티 보안관실이 바디캠 대화를 받아 적어 보고서 초안을 만들어 주는 Axon의 &lsquo;Draft One&rsquo;을 90일 시범 운영한 뒤(10월 9일 종료) 도입하지 않기로 했습니다. 담당 경위는 &ldquo;몇 가지 제한된 쓸모&rdquo;는 있었지만 &ldquo;그 돈을 들일 만한 가치를 찾지 못했다&rdquo;고 했고, 지역사회의 우려도 영향을 줬다고 밝혔습니다. 카운티 행정관은 &lsquo;초안 기술(first draft technology)&rsquo;에 강하게 반대한다는 입장입니다. 연방 보조금 79만 4천 달러는 컴퓨터·무전기 등 다른 장비에 쓰입니다.</p>
+<p>도입보다 <b>들이지 않기로 한 판단</b>이 기사가 되는 일은 드뭅니다. (GovTech 제목에는 &lsquo;Kentucky&rsquo;라 적혔으나 본문의 기관은 뉴욕주 얼스터 카운티입니다.)</p></div>
+
+<div class="news"><span class="title">🤖 AI·공직 인력(해외) — &ldquo;AI가 공무원의 일을 어떻게 바꾸나&rdquo; 110만 달러 들여 오클라호마·버지니아가 잰다</span>
+<a class="src" href="https://www.govtech.com/artificial-intelligence/1-1m-grant-targets-ai-skills-gap-in-state-government" target="_blank" rel="noopener">GovTech (10-22) ↗</a>
+<p>공익혁신기금(Public Benefit Innovation Fund)과 Recoding America Fund가 18개월짜리 프로젝트 &lsquo;AI 시대에 맞는 정부 인력 설계&rsquo;에 110만 달러를 댑니다. 오클라호마와 버지니아 주정부가 AI가 직무·필요 기술·채용 수요를 어떻게 바꿀지 분석하고, 직무 분류·채용·보수에 공무원 제도와 노동 협약까지 함께 검토합니다. 결과는 다른 주도 쓸 수 있는 오픈소스 도구(VOKA)와 안내서로 공개될 예정입니다. 참여 기업 대표는 &ldquo;정부가 일을 해내는 힘은 그 일을 하는 사람에게 달려 있다&rdquo;고 말했습니다.</p>
+<p>&lsquo;도구를 들일까&rsquo;보다 한 걸음 앞의 질문 &mdash; <b>사람의 일을 어떻게 다시 그릴까</b>를 먼저 재 보겠다는 시도입니다. 아직 결과는 없습니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 초안을 쥔 손</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">웬델 베리 「나는 왜 컴퓨터를 사지 않을 것인가」: 새 도구가 넘어야 할 아홉 가지 기준</span>
+<a class="src" href="https://grist.org/article/engler-berry/" target="_blank" rel="noopener">Grist 해설 ↗</a>
+<a class="src" href="https://hettingern.people.charleston.edu/150_Spring_2015/Berry_Why_Not_Buy_Computer.htm" target="_blank" rel="noopener">『Harper's』(1987) 강의 요약 ↗</a>
+<p>베리는 연필과 종이로 쓰고, 아내가 1956년산 타자기로 원고를 옮기며 고치고 다듬는다고 밝힌 뒤, 자기 일에 새 도구를 들일 때의 기준을 적었습니다. 더 싸야 하고, 더 작아야 하고, 대신하는 것보다 <b>분명히, 눈에 보이게 더 나은 일을 해야 하며</b>, 마지막으로 <b>이미 있는 좋은 것 &mdash; 가족과 공동체의 관계까지 &mdash; 을 대신하거나 흐트러뜨려서는 안 된다</b>는 것. 이 글은 성난 독자 편지를 많이 불렀고, 그중에는 아내를 부려 먹는다는 비판도 있었습니다.</p>
+<p>베리의 기준은 기술을 거부하는 목록이라기보다 <b>무엇을 지키는지 먼저 말하고 고르는 법</b>입니다. 위의 보안관실이 90일 뒤 내린 판단도 결국 이 마지막 기준을 따져 본 셈입니다.</p></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">리처드 세넷 『장인』: &ldquo;만드는 일이 곧 생각하는 일이다&rdquo;</span>
+<a class="src" href="https://frieze.com/article/craftsman" target="_blank" rel="noopener">『frieze』 서평 ↗</a>
+<a class="src" href="https://bjgp.org/content/60/578/702" target="_blank" rel="noopener">『BJGP』 서평 (2010) ↗</a>
+<p>사회학자 세넷은 이 책의 첫머리에서 길잡이가 되는 명제로 &ldquo;만드는 일이 곧 생각하는 일이다(making is thinking)&rdquo;를 내겁니다. 그는 손으로 하는 노동과 성찰하는 삶을 나눠 온 오랜 구분 &mdash; 한나 아렌트의 &lsquo;노동하는 동물&rsquo;과 &lsquo;만드는 인간&rsquo;의 구분까지 &mdash; 을 진지한 철학적 오류로 보고, 유리 불기·요리·의술·프로그래밍에 이르기까지 손과 머리가 함께 자라는 자리를 따라갑니다.</p>
+<p>손을 떼면 생각도 함께 떠난다는 경고로도 읽힙니다. 초안 쓰기를 통째로 맡길 때 <b>함께 맡겨지는 것이 무엇인지</b> 묻게 하는 책입니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">&lsquo;이케아 효과&rsquo;: 서툴러도 제 손으로 끝낸 것을 더 아낀다</span>
+<a class="src" href="https://scholars.duke.edu/publication/861385" target="_blank" rel="noopener">『Journal of Consumer Psychology』 22(3), 2012 ↗</a>
+<a class="src" href="https://dash.harvard.edu/handle/1/12136084" target="_blank" rel="noopener">Harvard DASH 공개본 ↗</a>
+<p>이케아 상자를 조립하고, 종이접기를 하고, 레고를 쌓게 한 네 실험에서, 사람들은 제 손으로 만든 서툰 결과물을 전문가 작품과 비슷한 값으로 매겼고 남들도 그렇게 볼 거라 여겼습니다. 다만 이 효과는 <b>끝까지 해냈을 때만</b> 나타났습니다. 만든 것을 다시 부수거나 끝내지 못하면 사라졌습니다.</p>
+<p>손이 들인 수고가 애정을 낳는다는 뜻이자, 애정이 판단을 흐릴 수 있다는 경고이기도 합니다. 글을 쓰는 사람에게는 둘 다 쓸모 있는 앎입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">『장자』 「천지」 한음장인: &ldquo;기계가 있으면 기계의 일이 생기고, 기계의 일이 있으면 기계의 마음이 생긴다&rdquo;</span>
+<a class="src" href="https://zh.wikisource.org/wiki/莊子/天地" target="_blank" rel="noopener">위키문헌 원문 ↗</a>
+<p>자공이 한수 남쪽에서 항아리로 우물물을 길어 밭에 대는 노인을 만나, 하루에 백 이랑을 적시는 두레박(槔)을 권합니다. 노인은 낯빛을 바꾸며 웃습니다. &ldquo;내 스승께 들으니, 기계가 있는 자에게는 반드시 기계의 일이 있고, 기계의 일이 있는 자에게는 반드시 기계의 마음이 있다(有機械者必有機事，有機事者必有機心).&rdquo; 그 마음이 가슴에 자리 잡으면 본래의 맑음이 갖춰지지 않는다고 합니다. 몰라서가 아니라 &ldquo;부끄러워 쓰지 않는다&rdquo;는 것이 노인의 말입니다.</p>
+<p>어제의 포정이 칼을 쓰되 마디 앞에서 손을 늦췄다면, 오늘의 노인은 <b>도구 앞에서 마음을 살핍니다.</b> 공자는 이 노인을 두고 &lsquo;하나는 알고 둘은 모른다&rsquo;는 평도 남겨, 장자도 답을 닫지 않습니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">임혜인 「AI가 대신할 수 없는 뿌듯함」</span>
+<a class="src" href="https://www.artinsight.co.kr/news/view.php?no=82989" target="_blank" rel="noopener">아트인사이트 (10-23) ↗</a>
+<p>AI가 글을 대신 써 줄 수 있는 시대에 직접 쓰는 이유를, 필자는 생각과 기억을 정리하는 일에서 찾습니다. 지우고 다시 쓰는 과정을 몸소 겪어야만 완성된 글 앞에서 뿌듯함이 생기며, &ldquo;이 뿌듯함은 절대로 AI가 대신해 줄 수 없다&rdquo;고 씁니다. 완벽하지 않더라도 의미가 있기에 계속 쓰겠다는 다짐으로 맺습니다.</p>
+<p>이케아 효과의 &lsquo;끝까지 해낸 손&rsquo;을 한국어 일상의 문장으로 옮겨 놓은 듯한 글입니다. 쓰는 사람의 이유가 결과물이 아니라 <b>과정에 붙어 있다</b>는 고백입니다.</p></div>
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;&hellip;우리의 필기구는
+우리의 생각에 함께 손을 댑니다.
+언제쯤이면 이 손가락으로
+긴 문장 하나를 눌러 찍어 낼 수 있을까요!&rdquo;</p>
+<p class="cite">프리드리히 니체, 하인리히 쾨젤리츠에게 보낸 타자 편지 (1882년 2월 말)
+<span class="orig">&raquo;&hellip;unser Schreibzeug arbeitet mit an unseren Gedanken. Wann werde ich es ueber meine Finger bringen, einen langen Satz zu drücken!&laquo;</span></p>
+<p class="cite"><a class="src" href="https://www.nietzsche-dokumentationszentrum-naumburg.de/assets/Die-Feder-kritzelt.pdf" target="_blank" rel="noopener">니체 기록센터 나움부르크 · Ralf Eichberg 「Die Feder kritzelt」 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 1882년 니체는 &lsquo;타자 공(Schreibkugel, 말링한센 라이팅볼)&rsquo;이라 불린 타자기를 들였습니다. 그 기계로 편지 열다섯 통과 시 여러 편을 쳤지만, 여섯 주 만에 씨름을 그만두었습니다. 그사이 그는 도구가 생각을 함께 빚는다는 사실을 누구보다 먼저 알아챘습니다.<br><br>
+도구는 중립이 아닙니다 &mdash; 그것을 알고 쓰는 손과 모르고 쓰는 손이 다를 뿐입니다. 오늘 아침의 초안을 어느 손이 쥘지 고르기 전에, 이 한 줄을 곁에 둡니다.</p>
+</div>
+</section>
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 월요일 새벽이라 24~25일자 국내 행정 발표는 거의 없어, 23~25일 보도와 오늘의 행사 일정을 주로 실었습니다. 시간선택제 기사의 &lsquo;주 42시간 92%&rsquo;는 노조 측 주장으로 전해진 수치이고, 국감 회의록 원문은 대조하지 못했습니다. 돌봄 기자회견은 단체의 일정 안내만 확인했고 결과 보도는 아직 없습니다. 웬델 베리의 별세일(8월 31일)은 출판사 페이지와 추모 글에서 확인했습니다. 인천시의 생성형 AI 실무교육 소식(10/22 교육, 10/25 보도)은 지난 이틀의 부천·일본 소식과 결이 겹쳐 뺐습니다.</li>
+<li><b>글감</b> — 베리의 아홉 기준은 1987년 『Harper&rsquo;s』 원문이 아니라 대학 강의 자료의 요약과 해설 기사로 확인했으므로, 따옴표 안 문장은 요지를 옮긴 것입니다. 세넷의 &ldquo;making is thinking&rdquo;은 책 본문이 아니라 두 서평에서 확인했습니다. 『장자』 「천지」는 위키문헌 원문을 내려받아 대조했습니다(어제 「양생주」에 이어 같은 책이지만 다른 편·다른 이야기라 실었습니다). 이케아 효과는 논문 초록으로 확인했고 본문 수치는 열지 않았습니다.</li>
+<li><b>원문·번역</b> — 오늘의 니체 문장은 작품이 아니라 편지(타자 원고)입니다. 니체 기록센터 나움부르크의 연구 글이 인용한 원문과 출처 표기(1882년 2월 말, 쾨젤리츠에게)를 대조했고, 비판전집 서간집은 직접 열지 못했습니다(자동 접속이 막힘). 인용문의 한국어는 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘 하루, 많은 일을 도구에 맡기더라도<br><b>한 줄만은 당신의 손으로 시작되기를.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
