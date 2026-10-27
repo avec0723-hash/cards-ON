@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-27 (화)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 27일 · 화요일</p>
+<p class="opening">어제는 국회에서 &lsquo;그냥드림 3법&rsquo;이 발의됐고, 오늘은 인천의 한 구청이 외로움의 징후를 먼저 알아채는 AI를 들이기로 했다는 소식이 들어왔습니다. 두 소식 모두 사람이 문을 두드리기 전에 제도 쪽에서 먼저 다가가겠다는 이야기입니다.<br>
+오늘 하늘의 결은 <b>먼저 두드리는 문</b>입니다. 신청을 기다리는 대신 먼저 찾아가는 손, 그리고 그 손이 잊지 말아야 할 문턱을 함께 봅니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·재난 — 민선 9기 단체장들, 오늘 대구에서 세 번째 재난안전 교육&hellip; &ldquo;자살예방도 단체장의 임무&rdquo;</span>
+<a class="src" href="https://www.public25.com/news/articleView.html?idxno=57276" target="_blank" rel="noopener">퍼블릭타임스 송한수 선임기자 (10-27) ↗</a>
+<p>행정안전부 국가재난안전교육원이 오늘 오후 2~5시 대구 메리어트호텔에서 민선 9기 기초자치단체장을 대상으로 재난안전관리 교육을 엽니다. 출범 뒤 7월과 9월에 이어 세 번째입니다. 대설·한파, 대형화재, 산불·산사태 같은 겨울철 재난 대응이 중심이고, 그 사이에 백종우 국민생명안전위원회 부위원장의 「자살예방을 위한 자치단체장의 임무와 역할」 강의가 들어 있습니다.</p>
+<p>눈과 불에 대비하는 교육 시간표에 <b>한 사람의 목숨을 지키는 일</b>이 함께 올라 있습니다. 재난의 범위가 날씨에서 사람의 마음까지 넓어졌다는 뜻입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·복지 — &lsquo;그냥드림 3법&rsquo; 발의&hellip; &ldquo;복지제도의 문턱이 또 다른 장벽이 되어서는 안 된다&rdquo;</span>
+<a class="src" href="https://sports.khan.co.kr/article/202610261225003/" target="_blank" rel="noopener">스포츠경향 강석봉 기자 (10-26) ↗</a>
+<p>전현희 의원(더불어민주당)이 26일 「사회보장기본법」 개정안을 대표 발의했습니다. 먹거리·생필품 지원(그냥드림), 형광등 교체나 수도꼭지 수리 같은 생활 불편 해소(그냥해드림), 거동이 불편한 어르신·장애인·식품사막지대 주민에게 물품을 직접 전하는 방문·배달(그냥갖다드림), 그리고 안부 확인과 고립 예방을 묶어 &lsquo;생활기본지원서비스&rsquo;로 정의하자는 내용입니다. 국가와 지자체가 도움이 필요한 사람을 적극 발굴하도록 하는 조항도 들어 있습니다.</p>
+<p>행정 현장에서 보면 이 법안의 열쇠 낱말은 <b>&lsquo;그냥&rsquo;</b>입니다. 신청서와 증빙 서류라는 문턱을 얼마나 낮출 수 있느냐가 관건입니다. 기사에는 예산과 규모가 나오지 않으며, 아직 발의 단계입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·복지 — 미추홀구, 외로움의 징후를 알아채는 AI로 고독사 예방에 나선다</span>
+<a class="src" href="https://www.joongdo.co.kr/web/view.php?key=20261027010007818" target="_blank" rel="noopener">중도일보 주관철 기자 (10-27) ↗</a>
+<p>인천 미추홀구가 26일 대화형 AI 기업 심심이㈜와 협약을 맺었습니다. 음성 패턴, 생체 신호, 디지털 기기 사용 정보를 분석해 정서적 고립이나 일상 패턴의 이상 변화를 포착하면 구의 복지 체계로 연결하는 방식입니다. 과기정통부·IITP 국가 R&amp;D 과제와 연계한 실증이라 구 자체 예산은 들지 않으며, 데이터는 비식별 처리해 정책 자료로 쓴다고 밝혔습니다.</p>
+<p>&lsquo;먼저 알아채는 손&rsquo;을 기계에 맡기는 시도입니다. 기사에는 참여 규모도, 사생활 침해에 대한 우려나 동의 절차도 나오지 않습니다. <b>알아챔과 들여다봄의 경계를 어디에 둘지</b>는 이제부터 지켜볼 대목입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — 경기도 &lsquo;인공지능 행정혁신 3강&rsquo;&hellip; 구청 주무관이 도지사 앞에서 &lsquo;바이브코딩&rsquo;을 강의하다</span>
+<a class="src" href="https://www.newspim.com/news/view/20261026001082" target="_blank" rel="noopener">뉴스핌 안성진 기자 (10-26) ↗</a>
+<p>경기도가 26일 북부청사에서 지사와 실·국장 등 200여 명을 대상으로 AI 교육을 열었습니다(22일 본청에 이어 두 번째). 박태웅 녹서포럼 의장이 공공부문 AI 전환 전략을, 조용탁 NIA 수석이 업무 방식 재설계와 관리자의 역할을 다뤘고, 류승인 서울 광진구청 주무관이 프로그래밍 지식 없이 AI에 설명만 해서 프로그램을 만드는 &lsquo;바이브코딩&rsquo;과 문서 자동화 사례를 나눴습니다.</p>
+<p>이 기사에서 눈여겨볼 대목은 <b>강단에 선 사람이 현장의 주무관</b>이라는 점입니다. 디퍼의 AI 교육이 서 있는 자리, 곧 &lsquo;먼저 해 본 사람이 옆 사람에게 건네는 배움&rsquo;이 행정 안에서도 일어나고 있습니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·문학 — 제17회 김만중문학상, 정이현 『노 피플 존』·김이듬 『아무도 미워하지 않고 한 계절이 지나갔다』</span>
+<a class="src" href="https://www.todayscs.com/news/articleView.html?idxno=19368" target="_blank" rel="noopener">투데이서경 구승모 기자 (10-22) ↗</a>
+<p>남해군이 제17회 김만중문학상 수상자를 발표했습니다. 정이현 작가의 소설집 『노 피플 존』과 김이듬 시인의 시집 『아무도 미워하지 않고 한 계절이 지나갔다』가 대상으로 뽑혔고, 시상식은 11월 7일 남해유배문학관에서 열립니다.</p>
+<p>유배지에서 생을 마친 서포 김만중의 이름을 단 상이, 올해는 &lsquo;사람이 없는 구역&rsquo;이라는 제목과 &lsquo;아무도 미워하지 않은 한 계절&rsquo;이라는 제목을 나란히 골랐습니다. 두 제목을 함께 읽으면 <b>사람을 밀어내는 공간과 사람을 놓지 않는 마음</b>이 마주 놓입니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 먼저 두드리는 문</span></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">존 카시오포: &ldquo;외로움은 배고픔이나 목마름 같은 생존 신호다&rdquo;</span>
+<a class="src" href="https://magazine.uchicago.edu/1012/features/the-nature-of-loneliness.shtml" target="_blank" rel="noopener">『The University of Chicago Magazine』 (2010) ↗</a>
+<a class="src" href="https://bigthink.com/videos/john-cacioppo-on-loneliness/" target="_blank" rel="noopener">Big Think 인터뷰 ↗</a>
+<p>&lsquo;외로움 박사&rsquo;로 불린 신경과학자 카시오포는 외로움이 성격의 결함이나 나약함의 표시가 아니라, 배고픔이나 목마름처럼 사람을 동료에게로 밀어 보내는 생존 신호라고 보았습니다. 아픈 사람이나 배고픈 사람처럼, 외로운 사람도 그 불쾌한 상태에서 벗어나려고 무언가를 한다는 것입니다. 그의 연구에서는 외로운 친구가 한 명 있으면 내가 외로워질 확률이 40~65% 높아졌고, 1985년과 2004년을 비교한 조사에서는 속마음을 털어놓을 사람 수의 가장 흔한 답이 셋에서 0으로 줄었습니다.</p>
+<p>신호라면 고칠 대상은 사람이 아니라 <b>신호에 답하지 못하는 환경</b>입니다. 고독사 예방이 &lsquo;본인 의지&rsquo;의 문제가 아니라 행정의 몫이 되는 이유가 여기 있습니다.</p></div>
+
+<div class="pick"><span class="field">🕯 현존·삶</span>
+<span class="title">리베카 솔닛 『이 폐허를 응시하라』: 재난 한가운데 먼저 도착하는 것은 이웃이다</span>
+<a class="src" href="https://bookshop.org/a/24322/9780143118077" target="_blank" rel="noopener">『A Paradise Built in Hell』(2009) 도서 소개 ↗</a>
+<p>솔닛은 1906년 샌프란시스코 지진, 1917년 핼리팩스 폭발, 1985년 멕시코시티 지진, 9·11, 허리케인 카트리나를 따라가며 재난 뒤에 공황과 약탈이 온다는 통념을 반박합니다. 『퍼블리셔스 위클리』 서평의 요약대로, 실제로 흔했던 것은 즉흥적인 이타심과 스스로 꾸린 상호부조였습니다. 이웃과 낯선 이들이 침착하게 서로를 구하고 먹이고 재워 주었습니다. 솔닛은 재난 뒤 사람들이 느낀 이상한 기쁨이 평소 채워지지 않던 공동체에 대한 갈망을 드러낸다고 읽습니다.</p>
+<p>오늘 대구에 모인 단체장들의 교육과 겹쳐 읽을 만한 책입니다. 재난 대응 계획이 <b>사람들을 통제할 대상으로만 보는지, 먼저 손을 내밀 이웃으로도 보는지</b>를 묻게 합니다.</p></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">존 스타인벡: &ldquo;막연한 독자는 잊고, 한 사람을 골라 그에게 써라&rdquo;</span>
+<a class="src" href="https://www.openculture.com/2012/02/john_steinbecks_nobel_prize_speech_and_his_six_tips_for_the_aspiring_writer.html" target="_blank" rel="noopener">Open Culture 정리 ↗</a>
+<a class="src" href="https://www.theparisreview.org/interviews/4156/the-art-of-fiction-no-45-continued-john-steinbeck" target="_blank" rel="noopener">『The Paris Review』 63호 (1975) ↗</a>
+<p>스타인벡이 로버트 월스텐에게 보낸 편지에 남긴 여섯 가지 글쓰기 조언 가운데 셋째입니다. 이름도 얼굴도 없는 독자는 첫째로 사람을 겁에 질리게 하고, 둘째로 극장과 달리 실제로는 존재하지 않는다는 것입니다. 그러니 아는 사람이든 상상 속의 사람이든 실제 한 사람을 골라 그 사람에게 쓰라고 합니다.</p>
+<p>&lsquo;모두에게&rsquo; 보내는 안내문은 대개 아무에게도 닿지 않습니다. 복지 안내문도, 에세이도, 강의안도 같습니다. <b>문을 두드릴 집이 한 곳으로 정해질 때 문장이 비로소 걸어가기 시작합니다.</b></p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">『예기』 「예운」 대동: &ldquo;바깥문을 닫지 않는다&rdquo;</span>
+<a class="src" href="https://zh.wikisource.org/wiki/禮記/禮運" target="_blank" rel="noopener">위키문헌 원문 ↗</a>
+<p>공자가 그린 &lsquo;크게 하나 된 세상(大同)&rsquo;의 한 대목입니다. &ldquo;사람들은 제 부모만 부모로 섬기지 않고 제 자식만 자식으로 돌보지 않았다(人不獨親其親，不獨子其子).&rdquo; 늙은이는 삶을 잘 마치고 젊은이는 쓰일 데가 있으며, &ldquo;홀아비·과부·고아·자식 없는 늙은이·병든 이가 모두 돌봄을 받았다(矜寡孤獨廢疾者皆有所養).&rdquo; 그리고 그 끝이 이렇습니다. &ldquo;그래서 바깥문을 닫지 않았다(外户而不閉).&rdquo;</p>
+<p>2천 년도 더 된 이 이상향의 시험지는 <b>&lsquo;혼자 사는 이(獨)&rsquo;가 돌봄을 받느냐</b>였습니다. 그냥드림 법안과 고독사 예방이 오늘 붙들고 있는 질문이 이미 이 문장 안에 있습니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">정종민 「외로움과 고독, 그리고 성장」</span>
+<a class="src" href="https://www.m-i.kr/news/articleView.html?idxno=2005034" target="_blank" rel="noopener">매일일보 독자기고 (10-13) ↗</a>
+<p>필자는 고독사 사망자가 다섯 해 연속 늘어난 지금, 사회적 고립을 개인이 아니라 나라의 과제로 봅니다. 연결은 넘치는데 관계는 얕아져 더 외로워졌다고 진단하고, 해법은 넓은 인맥이 아니라 소수와의 깊은 관계에 있다고 말합니다. 그리고 이렇게 가릅니다. &ldquo;외로움이 &lsquo;나는 혼자다&rsquo;라는 절망이라면, 고독은 &lsquo;나는 나와 함께 있다&rsquo;라는 회복이다.&rdquo;</p>
+<p>노인대학을 이끄는 사람이 쓴 글이라 문장이 현장에 닿아 있습니다. 바깥의 손이 먼저 와야 하는 외로움이 있고, 혼자 걸어 들어가야 하는 고독이 있습니다. 쓰는 사람에게는 <b>이 둘을 구분하는 눈</b>이 필요합니다.</p></div>
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;보라! 나는 내 지혜에 물렸다.
+꿀을 너무 많이 모은 꿀벌처럼.
+나에게는 내미는 손들이 필요하다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『차라투스트라는 이렇게 말했다』 제1부 「차라투스트라의 머리말」 1절 (1883)
+<span class="orig">&raquo;Siehe! Ich bin meiner Weisheit überdrüssig, wie die Biene, die des Honigs zu viel gesammelt hat, ich bedarf der Hände, die sich ausstrecken.&laquo;</span></p>
+<p class="cite"><a class="src" href="https://www.gutenberg.org/cache/epub/7205/pg7205.txt" target="_blank" rel="noopener">Project Gutenberg #7205 독일어 전문 ↗</a> <a class="src" href="https://www.gutenberg.org/cache/epub/1998/pg1998.txt" target="_blank" rel="noopener">#1998 커먼 영역 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 산속에서 열 해를 보낸 차라투스트라가 해에게 말을 걸며 사람들에게로 내려가겠다고 다짐하는 첫 장면입니다. 여기서 뜻밖의 것은, 손이 필요하다고 말하는 쪽이 <b>주는 사람</b>이라는 점입니다. 꿀이 넘쳐 무거워진 꿀벌에게는 받아 줄 손이 있어야 합니다.<br><br>
+먼저 찾아가는 일은 베푸는 쪽만의 미덕이 아닙니다. 건넬 것을 가진 사람도 그것을 받아 줄 손을 기다립니다. 문을 두드리는 손과 문을 여는 손은 서로를 필요로 합니다.</p>
+</div>
+</section>
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 오늘 아침 행안부·인사혁신처 보도자료 원문은 열지 못해 언론 보도로 확인했습니다. 단체장 교육은 오늘 오후 일정이라 아직 결과 보도가 없습니다. 미추홀구 기사에는 참여 규모, 동의 절차, 사생활 보호 장치가 나오지 않아 해설에 &lsquo;나오지 않는다&rsquo;고 적었습니다. 김만중문학상은 22일 보도라 48시간보다 이르지만 앞선 브리핑에서 다루지 않아 실었습니다. 서울대병원 28일 파업 예고의 후속 보도와 동해시 신규 임용(10/12 보도라 오래돼 뺐습니다)은 싣지 않았습니다. 어제 실은 &lsquo;국제 돌봄의 날&rsquo; 주간 기자회견은 결과 보도를 찾지 못했습니다.</li>
+<li><b>글감</b> — 솔닛의 책은 원문이 아니라 출판사 소개와 『퍼블리셔스 위클리』 서평 요약으로 확인했습니다. 한국어판 제목은 『이 폐허를 응시하라』로 알고 있으나 판권면은 확인하지 못했습니다. 스타인벡의 조언은 출처 기록이 엇갈립니다. 『파리 리뷰』 63호(1975)에 실린 로버트 월스텐 앞 편지로 보는 기록이 많아 그쪽을 따랐고, 『파리 리뷰』 원문 페이지는 자동 접속이 막혀(403) 직접 대조하지 못했습니다. 카시오포의 문장과 수치는 시카고대 매거진 기사에서 확인했고 책 본문은 열지 않았습니다. 『예기』는 위키문헌 원문을 내려받아 대조했습니다. 『맹자』는 9월에 여러 번 실려서 이번에는 피했습니다.</li>
+<li><b>원문·번역</b> — 니체의 문장은 구텐베르크 독일어 판(#7205)과 영역 판(#1998)을 두 곳에서 대조했습니다. textlog.de와 zeno.org는 해당 쪽 주소를 찾지 못했습니다. 인용문의 한국어 번역은 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘 하루, 당신이 두드리는 문 하나가 열리고,<br><b>당신에게 내밀어지는 손 하나도 놓치지 않으시기를.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
