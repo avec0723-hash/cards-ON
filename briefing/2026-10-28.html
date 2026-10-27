@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-28 (수)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 28일 · 수요일</p>
+<p class="opening">어제 인사혁신처는 업무 대화와 자료를 AI가 늘 기록해 성과 관리를 돕는 &lsquo;일하는 방식&rsquo; 안내자료를 냈습니다. 같은 날 광양에서는 어르신 열한 명이 저마다 한 권씩 쓴 에세이집이 출판기념회를 마쳤다는 소식이 들어왔습니다.<br>
+오늘 하늘의 결은 <b>기록되는 사람에서 쓰는 사람으로</b>입니다. 기계가 우리 일을 받아 적는 시대에, 제 삶을 제 손으로 적는 일이 어떤 자리를 갖는지 함께 봅니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·인사 — 인사처, &ldquo;보고 단계 줄이고 AI로 업무 관리&rdquo;&hellip; 첫 &lsquo;일하는 방식 혁신 안내자료&rsquo;</span>
+<a class="src" href="https://gosiweek.com/article/1065582110865852" target="_blank" rel="noopener">고시위크 마성배 기자 (10-27) ↗</a>
+<p>인사혁신처가 27일 첫 「일하는 방식 혁신 안내자료」를 냈습니다. 업무에 따라 과장이나 국장에게 곧바로 보고해 중간 단계를 줄이고, 지능형 업무관리 시스템이 업무 대화·자료·협업 내용을 늘 기록해 성과를 뒤늦게 정리하는 시간을 덜겠다는 내용입니다. 출장도 신청부터 정산까지 출장자가 전용 앱으로 직접 처리합니다. 4월 혁신 계획과 8월 제정한 규정의 후속 조치입니다.</p>
+<p>보고는 줄고 <b>기록은 저절로 쌓이는</b> 방향입니다. 기사에는 절감 시간이나 참여 규모 같은 수치가 나오지 않습니다. 남는 물음은 이것입니다. 늘 쌓이는 기록은 일하는 사람을 위한 것일까요, 일하는 사람을 지켜보기 위한 것일까요.</p></div>
+
+<div class="news"><span class="title">⚖️ 행정·지방 — &ldquo;11월 행정 마비 벼랑 끝&rdquo;&hellip; 인천 서해구, 검단구 상대로 648억 정산 분쟁조정 신청</span>
+<a class="src" href="https://m.joongdo.co.kr/view.php?key=20261027010007831" target="_blank" rel="noopener">중도일보 주관철 기자 (10-27) ↗</a>
+<p>올해 행정체제 개편으로 서구에서 나뉜 서해구와 검단구가 돈 문제로 맞섰습니다. 서해구는 상반기 검단 지역의 세출이 세입을 넘어 약 648억 원을 먼저 썼고 분구 뒤 돌려받기로 했다고 주장합니다(8월 1차 581억 원, 10월 6일 2차 648억 원 통보). 검단구는 산정 자료를 믿기 어렵다며 지급을 미루고 있습니다. 서해구청장은 27일 인천시 분쟁조정위원회에 조정을 신청하고, 11월 중순이면 자금이 바닥나 필수 경비 지급이 어려워진다고 경고했습니다.</p>
+<p>하나였던 살림을 둘로 나눌 때, 장부의 숫자는 <b>어느 쪽이 적었느냐</b>에 따라 다르게 읽힙니다. 지방채와 시설관리공단 직원 고용승계 문제도 함께 걸려 있습니다. 현재 기사는 서해구 쪽 주장 중심입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·돌봄 — 내일 &lsquo;국제 돌봄의 날&rsquo;&hellip; 오늘 한일 세미나, 내일 방문요양보호사 341명 위험성평가 첫 공개</span>
+<a class="src" href="https://www.specialtimes.co.kr/news/articleView.html?idxno=478918" target="_blank" rel="noopener">스페셜타임스 정시환 기자 (10-27) ↗</a>
+<p>보건복지자원연구원이 유엔 &lsquo;국제 돌봄의 날&rsquo;(10월 29일)에 맞춰 오늘과 내일 이틀 동안 행사 세 개를 엽니다. 오늘 오후 3시에는 27년 된 일본 개호보험과 한국 장기요양을 견주는 한일 세미나가, 내일 오전 9시 30분에는 청와대 앞에서 &ldquo;돌봄은 재정 부담이 아니라 사회의 기반&rdquo;이라는 기자회견이 열립니다. 내일 오후 국회 토론회에서는 올해 방문요양보호사 341명에게 시범 적용한 위험성평가 모델의 결과를 처음 공개합니다.</p>
+<p>돌봄 현장의 위험은 오래도록 <b>돌보는 사람의 몸에만 기록</b>되어 왔습니다. 그 위험을 숫자와 서류로 옮겨 적는 일이 이제 시작된 셈입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — 화성시 &lsquo;화성MCP&rsquo;&hellip; 주무관이 만들고, 클로드 대화창에서 예약·민원까지</span>
+<a class="src" href="https://www.ggplaza.co.kr/news/article.html?no=61405" target="_blank" rel="noopener">경기뉴스광장 정일수 기자 (10-27) ↗</a>
+<p>화성시가 AI와 외부 기능을 잇는 공개 표준 MCP(Model Context Protocol)로 시의 행정정보와 서비스를 AI 대화창에 연결하는 &lsquo;화성MCP&rsquo;를 추진합니다. AI 스마트전략실의 AI공무원 TF 주무관이 직접 만들었고, 시정전략회의에서 클로드(Claude) 앱에 연동해 주말 아이 동반 프로그램 예약, 버스 배차 민원 접수, 생활정보 8종 안내를 시연했습니다. 올 하반기 시범 공개, 2027년 부서별 확대, 2028년 전면 운영이 목표입니다.</p>
+<p>그제 경기도 AI 교육에서 강단에 선 광진구청 주무관에 이어, 이번에도 <b>현장 공무원이 직접 만든 도구</b>입니다. 기사에는 개인정보 보호 대책이 나오지 않고, 예약 시연에서 동의 절차를 거쳤다는 언급만 있습니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·책 — 광양 어르신 11명 『살아온 날이 글이 되다』 큰글자책 11권, 부평 여성장애인 10명 『나를 쓰다, 우리를 잇다』</span>
+<a class="src" href="https://www.gmitoday.com/news/articleView.html?idxno=34588" target="_blank" rel="noopener">굿모닝투데이 이성훈 기자 (10-27) ↗</a>
+<a class="src" href="https://www.gukjenews.com/news/articleView.html?idxno=3729148" target="_blank" rel="noopener">국제뉴스 이병훈 기자 (10-22) ↗</a>
+<p>광양 중앙도서관이 26일 &lsquo;큰글자책 시니어 에세이 글쓰기&rsquo; 출판기념회를 열었습니다. 5~8월 13회 수업을 거쳐 참여자 11명이 저마다 한 권씩, 모두 11권을 큰글자책으로 펴냈고 8명을 &lsquo;광양시 명예작가&rsquo;로 위촉했습니다. 한 참여자는 &ldquo;처음에는 내 이야기가 책이 될 수 있을까 싶었는데, 완성된 책을 손에 쥐니 기쁘고 뿌듯하다&rdquo;고 말했습니다. 앞서 21일 부평에서는 여성장애인 10명이 &lsquo;가장 길었던 10분&rsquo;, &lsquo;나의 공간&rsquo; 같은 주제로 넉 달 동안 쓴 에세이집을 직접 낭독했습니다.</p>
+<p>늘 남이 쓴 서류와 기록 속에 &lsquo;대상자&rsquo;로 적혀 온 사람들이 이번에는 <b>글쓴이 이름 칸</b>에 섰습니다. 디퍼가 하는 일과 같은 자리입니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 기록되는 사람에서 쓰는 사람으로</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">아니 에르노: &ldquo;나는 내 사람들의 원수를 갚기 위해 쓰겠다&rdquo;</span>
+<a class="src" href="https://www.nobelprize.org/prizes/literature/2022/ernaux/lecture/" target="_blank" rel="noopener">노벨 문학상 수상 강연 (2022-12-07) ↗</a>
+<p>에르노는 노벨 강연을 예순 해 전 일기에 적은 한 문장으로 엽니다. &ldquo;나는 내 사람들의 원수를 갚기 위해 쓰겠다.&rdquo; 그는 그 약속과, 일찍 죽게 만드는 일에 길든 고된 노동자였던 윗대 사람들에게서 그들에게 &ldquo;문학 속 자리를 주려는&rdquo; 힘과 분노를 얻었다고 말합니다. 그의 &lsquo;복수&rsquo;는 누구를 치는 일이 아니라 기록되지 않던 삶을 문학 안에 적어 넣는 일이었습니다.</p>
+<p>광양의 큰글자책, 부평의 낭독과 같은 자리입니다. <b>이름 없이 지나가던 삶에 지면을 내주는 일</b>이 쓰기의 가장 오래된 이유 가운데 하나입니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">제임스 페니베이커: 하루 15분씩 사흘 동안 쓰기</span>
+<a class="src" href="https://exw.utpsyc.org/about.php" target="_blank" rel="noopener">텍사스대 오스틴 연구팀 소개 ↗</a>
+<a class="src" href="https://ajp.psychiatryonline.org/doi/10.1176/appi.ajp-rj.2016.110302" target="_blank" rel="noopener">『AJP Residents&rsquo; Journal』 리뷰 (2016) ↗</a>
+<p>사회심리학자 페니베이커와 학생들은 1986년, 마음을 뒤흔든 일에 대해 하루 15분씩 사흘 연이어 쓰기만 해도 몸과 마음의 건강이 나아질 수 있다는 것을 발견했습니다. 그 뒤 전 세계에서 &lsquo;표현적 글쓰기&rsquo;에 대한 연구가 천 편 넘게 나왔습니다. 다만 효과를 확인한 메타분석이 있는 반면, 의미 있는 효과를 찾지 못한 메타분석(Mogk 외)도 있어 결과가 엇갈립니다.</p>
+<p>기적의 처방이라기보다는, <b>겪은 일을 내 문장으로 옮겨 보는 15분</b>이 사람에게 무엇을 해 주는지 묻는 연구입니다. 디퍼의 아침 글쓰기와 시니어 글쓰기 교실에 함께 놓을 만합니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">사마천 「보임안서」: &ldquo;지난 일을 적으며 올 사람을 생각했다&rdquo;</span>
+<a class="src" href="https://zh.wikisource.org/wiki/報任少卿書" target="_blank" rel="noopener">위키문헌 원문 ↗</a>
+<p>궁형을 받은 뒤 사마천은 벗 임안에게 보낸 답장에서 왜 죽지 않고 『사기』를 썼는지 털어놓습니다. 주 문왕은 갇혀서 『주역』을 풀었고, 공자는 곤궁 속에서 『춘추』를 지었으며, 굴원은 쫓겨나 「이소」를 썼다고 차례로 짚은 뒤 이렇게 말합니다. &ldquo;이들은 모두 마음에 맺힌 것이 있었으나 그 길을 뚫을 수 없었기에, 지난 일을 적으며 올 사람을 생각했다(此人皆意有所鬱結，不得通其道，故述往事，思來者).&rdquo;</p>
+<p>맺힌 것이 길을 찾지 못할 때 남는 길이 <b>적는 일</b>이라는 고백입니다. 그 기록은 지금의 억울함을 푸는 데서 그치지 않고 아직 오지 않은 사람에게로 향합니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">박승일 「서툴러도 글쓰기를 멈추지 않았다, 그 결과」</span>
+<a class="src" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003248847" target="_blank" rel="noopener">오마이뉴스 (07-06) ↗</a>
+<p>현직 경찰관인 필자는 책 출간이 유명인만의 일이라고 여겼지만, 현장의 하루를 꾸준히 적다가 출간 제안을 받기까지의 과정을 연재 「평범한 직장인의 책 한 권이 태어나기까지」로 풀었습니다. 출판사의 거절이 열 번 넘게 이어져도 쓰기를 멈추지 않았다고 합니다. 그는 이렇게 씁니다. &ldquo;특별한 삶보다 자신의 하루를 꾸준히 기록하는 사람이 결국 한 권의 책을 만든다.&rdquo;</p>
+<p>공무원이 쓴 공무원의 하루라는 점에서 남다르게 읽힙니다. 업무 시스템이 남기는 기록과 <b>한 사람이 제 눈으로 남기는 기록은 같은 하루를 다르게 적습니다.</b></p></div>
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;예술가들에게서는 대개 이 섬세한 힘이
+예술이 끝나고 삶이 시작되는 곳에서 멈춘다.
+그러나 우리는 우리 삶의 시인이 되고자 한다.
+그것도 가장 작고 가장 일상적인 것에서부터.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『즐거운 학문』 제4권 299절 「예술가들에게서 배워야 할 것」 (1882)
+<span class="orig">&raquo;Denn bei ihnen hört gewöhnlich diese ihre feine Kraft auf, wo die Kunst aufhört und das Leben beginnt; wir aber wollen die Dichter unseres Lebens sein, und im Kleinsten und Alltäglichsten zuerst.&laquo;</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/was-man-den-kuenstlern-ablernen-soll" target="_blank" rel="noopener">textlog.de 299절 독일어 ↗</a> <a class="src" href="https://www.gutenberg.org/cache/epub/52881/pg52881.txt" target="_blank" rel="noopener">Project Gutenberg #52881 영역 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 니체는 이 절에서 쓴 것을 덜어 내는 의사의 솜씨와, 사물을 거리를 두고 보거나 노을빛 아래 놓아 보는 예술가의 솜씨를 배우자고 말합니다. 그러고는 예술가보다 한 걸음 더 나아가자고 합니다. 예술가는 작품 안에서만 시인이지만, 우리는 <b>삶에서 시인</b>이 되자는 것입니다.<br><br>
+광양의 어르신들이 펴낸 책 제목이 『살아온 날이 글이 되다』입니다. 니체가 말한 &ldquo;가장 작고 가장 일상적인 것에서부터&rdquo;를 그분들이 먼저 해냈습니다.</p>
+</div>
+</section>
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 인사처 안내자료와 화성시 발표는 원문 보도자료를 열지 못해 언론 보도로 확인했습니다. 서해구·검단구 분쟁은 서해구 기자회견 중심 기사라 검단구 쪽 반론을 따로 찾지 못했습니다. 부평 에세이집 기사는 22일 보도라 48시간보다 이르지만 광양 소식과 결이 같아 한데 묶었습니다. 어제 이어 보기로 한 서울대병원 28일 파업 예고는 오늘 아침 검색에서 후속 보도를 찾지 못했습니다. 미국 CivicPlus의 AI 회의록 기능 발표(10/27)는 보도자료 원문이 막혀(403) 기능을 확인하지 못해 뺐습니다.</li>
+<li><b>글감</b> — 에르노 강연은 nobelprize.org 영문본을 명령줄로 내려받아 대조했고, 한국어 번역은 사막여우가 옮겼습니다. 페니베이커는 연구팀 소개 페이지와 리뷰 논문 초록으로 확인했고, 원 논문(1986)과 메타분석 본문은 열지 않았습니다. 사마천 원문은 위키문헌으로 대조했으며 위키문헌 표기는 &lsquo;大抵&rsquo;가 아니라 &lsquo;大底&rsquo;입니다. 프레이리 『페다고지』의 &ldquo;세상을 이름 짓는 일&rdquo;도 후보였지만 원문 쪽수를 대조하지 못해 뺐습니다. 『장자』는 최근 두 번 실려서 피했습니다.</li>
+<li><b>원문·번역</b> — 니체의 문장은 textlog.de 독일어 본문과 구텐베르크 영역 판(#52881)을 두 곳에서 대조했습니다. 인용문의 한국어 번역은 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘 하루 중 한 장면만은,<br><b>시스템이 아니라 당신의 손으로 적히기를.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
