@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-10-29 (목)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 10월 29일 · 목요일</p>
+<p class="opening">어제 인사혁신처는 공무원이 평소에 실적을 수시로 기록하는 &lsquo;상시 성과관리&rsquo;를 전 부처에 처음 시행했습니다. 그리고 오늘은 유엔이 정한 &lsquo;국제 돌봄과 지원의 날&rsquo;입니다.<br>
+오늘 하늘의 결은 <b>실적란에 적히지 않는 손</b>입니다. 무엇이든 기록되는 시대에, 끝내 칸에 들어가지 않는 일들이 무엇을 떠받치고 있는지 함께 봅니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·인사 — &ldquo;공무원 실적 기록 수시로&rdquo;, &lsquo;상시 성과관리&rsquo; 첫 시행</span>
+<a class="src" href="https://www.mpm.go.kr/mpm/comm/newsPress/newsPressRelease/?boardId=bbs_0000000000000029&amp;mode=view&amp;cntId=4350&amp;category=&amp;pageIdx=" target="_blank" rel="noopener">인사혁신처 보도자료 (10-28) ↗</a>
+<p>지금까지는 근무성적평정 때(연 1~2회) 실적을 한꺼번에 입력했습니다. 앞으로는 전자인사관리시스템(e-사람)에 평소 실적을 수시로 적고 부서장의 의견을 받을 수 있습니다. 평가자는 실적서뿐 아니라 평소 성과와 <b>협업 기여도</b>도 계속 확인합니다. 근거는 6월 개정된 「공무원 성과평가 등에 관한 규정」입니다. 오영열 인사관리국장은 &ldquo;실적 작성에 대한 부담을 덜고&rdquo; 체계적인 성과관리가 가능해질 것이라고 했습니다.</p>
+<p>그제 나온 &lsquo;일하는 방식 혁신 안내자료&rsquo;가 바로 제도로 들어왔습니다. 연말에 몰아 쓰던 부담은 줄겠지만, 남는 물음이 있습니다. 동료의 일을 거든 손, 민원인 곁에서 보낸 시간처럼 <b>&lsquo;실적&rsquo;이라는 낱말에 잘 담기지 않는 일</b>은 어떻게 적힐까요.</p></div>
+
+<div class="news"><span class="title">🌍 사회·돌봄 — 오늘 &lsquo;국제 돌봄과 지원의 날&rsquo;&hellip; &ldquo;돌봄은 노동자의 희생으로 유지되고 있다&rdquo;</span>
+<a class="src" href="https://www.labortoday.co.kr/news/articleView.html?idxno=237404" target="_blank" rel="noopener">매일노동뉴스 엄재희 기자 (10-27) ↗</a>
+<a class="src" href="https://nodong.org/statement/7950145" target="_blank" rel="noopener">민주노총 취재요청 (10-28) ↗</a>
+<p>공공운수노조 사회복지지부의 온라인 설문(사회복지 종사자 217명)에서 15.7%가 직장 내 괴롭힘·차별·부당해고 같은 권익침해를 겪었다고 답했습니다. 비정규직은 57.1%(21명 중 12명), 정규직은 11.2%(196명 중 22명)였습니다. 노조는 장기요양기관 2만 8,868곳 가운데 국공립은 256곳(0.9%)뿐이라며 공공 돌봄 비중을 30% 이상으로 높이라고 요구했습니다. 오늘 오전 청와대 앞 노동·시민사회 공동 기자회견, 오후 국회 앞 결의대회와 국회 토론회가 이어집니다.</p>
+<p>한 노인 생활지원사는 이렇게 말했습니다. &ldquo;생활지원사가 어르신의 존엄한 노후를 지키는 것처럼 우리의 존엄한 노동도 지켜져야 합니다.&rdquo; 돌봄은 <b>돌보는 사람이 다치지 않아야</b> 이어집니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문화·문학 — 제3회 샤롯데문학상, 5,700여 명 응모&hellip; 수필 대상 이승준 「누런 수의」</span>
+<a class="src" href="https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202610280136" target="_blank" rel="noopener">한국경제TV 정성식 PD (10-28) ↗</a>
+<a class="src" href="https://www.news1.kr/industry/distribution/6334386" target="_blank" rel="noopener">뉴스1 유민주 기자 (10-28) ↗</a>
+<p>롯데장학재단이 27일 시·소설·수필 세 부문 24명에게 상을 주었습니다. 응모자는 5,700여 명으로 지난해의 약 두 배였고, 올해부터 문예지에 실리거나 출판된 적 없는 작품만 받았습니다. 대상은 시 강우근 「구름들」, 소설 서정아 「빈칸의 위치」, 수필 이승준 「누런 수의」입니다. 장혜선 이사장은 &ldquo;요즘은 글을 쓴다는 것만으로 생활을 이어가기가 참 어렵다&rdquo;고 말했습니다.</p>
+<p>아직 아무 데도 실린 적 없는 글 5,700편이 한 자리에 모였다는 사실이 눈에 띕니다. <b>생계 곁에서 쓰는 사람</b>이 그만큼 많다는 뜻이기도 합니다. 수상작 본문은 기사에 실리지 않아 읽지 못했습니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — 제주도 공무원 118명 &lsquo;AI 파트너&rsquo;&hellip; 부서 업무를 바꾸는 &lsquo;빌더&rsquo;는 2명</span>
+<a class="src" href="https://fnnews.com/news/202610280914026467" target="_blank" rel="noopener">파이낸셜뉴스 정용복 기자 (10-28) ↗</a>
+<p>제주도가 27일 제주문학관에서 AI 파트너 발대식을 열었습니다. 118명 가운데 개인 업무에 AI를 쓰는 &lsquo;러너&rsquo;가 116명, 부서 업무개선 과제를 찾고 동료를 돕는 &lsquo;빌더&rsquo;가 2명이며, 실·국 단위 전환을 기획하는 &lsquo;마스터&rsquo;는 아직 없습니다. 11~12월 수준별 교육과 12월 우수사례 경진대회를 거쳐, 2027년부터 인사 가점과 부서장 성과평가 가점을 줄 계획입니다.</p>
+<p>제목이 짚은 숫자가 정직합니다. 혼자 쓰는 사람은 많아도, <b>동료 곁에서 함께 바꾸는 사람</b>은 아직 둘입니다. 디퍼가 공무원 AI 교육에서 무엇을 길러야 하는지 보여 주는 숫자입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·출판(해외) — 출판사가 작가에게 AI를 밀어붙일 때&hellip; 지어낸 추천사, 믿기 어려운 탐지기</span>
+<a class="src" href="https://avclub.com/ai-use-publishers-authors-relationship" target="_blank" rel="noopener">A.V. Club 올리비아 싱 (10-28) ↗</a>
+<a class="src" href="https://wtop.com/national/2026/10/the-anti-ai-writing-police-are-everywhere-what-are-they-looking-for/" target="_blank" rel="noopener">CNN·WTOP (10-22) ↗</a>
+<p>A.V. Club은 와이어드 보도를 소개하며, 보복을 걱정해 익명으로 나선 베스트셀러 작가들이 미국 5대 출판사가 작업 과정에 AI를 밀어 넣는다고 증언했다고 전했습니다. 한 작가는 자기 소설의 홍보 문구에 AI가 지어낸 인용이 들어갔다고 말했습니다. 반대편에서는 AI 탐지기가 문제입니다. CNN은 오류율이 아주 낮다는 탐지기도 매일 쏟아지는 글의 양 앞에서는 많은 사람을 잘못 지목하게 된다고 짚었습니다.</p>
+<p>AI가 쓰는 쪽에도, AI를 잡는 쪽에도 사람의 확인이 빠지면 <b>작가의 이름이 다칩니다.</b> 출처를 대조하는 습관이 글 쓰는 사람을 지키는 마지막 자리입니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 실적란에 적히지 않는 손</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">어슐러 K. 르 귄 「소설의 장바구니 이론」: 창이 아니라 그릇</span>
+<a class="src" href="https://www.ursulakleguin.com/the-carrier-bag-theory-of-fiction" target="_blank" rel="noopener">르 귄 공식 사이트 · 『Dancing at the Edge of the World』(1989) ↗</a>
+<p>르 귄은 인류의 첫 발명품이 창이나 칼이 아니라 무언가를 담아 집으로 가져오는 그릇, 곧 바구니와 자루였을 것이라고 봅니다. 그런데 우리가 물려받은 이야기는 늘 매머드를 쓰러뜨린 사냥꾼, 곧 영웅의 이야기였습니다. 르 귄은 영웅이 아니라 <b>담고, 나르고, 나누는 사람의 이야기</b>를 쓰자고 제안합니다.</p>
+<p>돌봄과 협업은 영웅담의 문법으로는 잘 쓰이지 않습니다. 실적서가 &lsquo;사냥의 기록&rsquo;이라면, 오늘 쓸 글은 바구니에 무엇을 담아 왔는지의 기록일 수 있습니다.</p></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">버니스 피셔·조안 트론토: &ldquo;우리의 세계를 유지하고, 이어 가고, 고치는 모든 일&rdquo;</span>
+<a class="src" href="https://artsandculturalstudies.ku.dk/research/art-and-earth/environmental-humanities-glossary/care/" target="_blank" rel="noopener">코펜하겐대 환경인문학 용어집 &lsquo;Care&rsquo; ↗</a>
+<p>두 사람은 「돌봄의 페미니즘 이론을 향하여」(『Circles of Care』, 1990)에서 돌봄을 이렇게 정의했습니다. 우리가 이 세계에서 될 수 있는 한 잘 살 수 있도록 <b>우리의 세계를 유지하고, 이어 가고, 고치기 위해 하는 모든 일.</b> 그리고 그 세계에는 우리의 몸과 자아와 환경이 모두 들어간다고 덧붙였습니다. 이 정의로 보면 돌봄은 요양원과 집 안에만 있지 않습니다.</p>
+<p>고장 난 것을 고치고, 끊길 뻔한 일을 잇는 일 모두가 돌봄입니다. 행정의 많은 일도 여기에 들어갑니다. <b>유지하는 일은 눈에 띄지 않을 때 가장 잘된 것</b>이라는 점이 이 일의 어려움입니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">앨리 러셀 혹실드 『감정노동』: 웃음에도 값이 매겨질 때</span>
+<a class="src" href="https://en.wikipedia.org/wiki/The_Managed_Heart" target="_blank" rel="noopener">『The Managed Heart』(1983) ↗</a>
+<p>사회학자 혹실드는 승무원들을 오래 지켜보며 &lsquo;감정노동&rsquo;이라는 낱말을 처음 내놓았습니다. 일터가 정해 준 표정과 감정을 보여 주는 것도 일이라는 것, 그리고 그 일이 오래 이어지면 일하는 사람이 <b>제 웃음과 제 감정에서 멀어질 수 있다</b>는 것입니다. 이 부담이 일터와 집 모두에서 여성에게 더 무겁게 지워진다는 점도 짚었습니다.</p>
+<p>민원 창구와 돌봄 현장에서 하루 종일 쓰는 마음은 실적란에 적히지 않습니다. 그래도 그것은 분명히 쓰인 힘이고, <b>쓴 만큼 채워야 하는 힘</b>입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">『논어』 「학이」: &ldquo;남이 알아주지 않아도 성내지 않으니&rdquo;</span>
+<a class="src" href="https://zh.wikisource.org/wiki/論語/學而第一" target="_blank" rel="noopener">위키문헌 원문 ↗</a>
+<p>『논어』는 이렇게 열립니다. &ldquo;배우고 때때로 익히니 기쁘지 아니한가. 벗이 먼 곳에서 찾아오니 즐겁지 아니한가. <b>남이 알아주지 않아도 성내지 않으니 군자답지 아니한가</b>(人不知而不慍，不亦君子乎).&rdquo; 책의 첫 장이 &lsquo;알아줌&rsquo;에 기대지 않는 마음으로 끝납니다.</p>
+<p>이 문장을 &ldquo;알아주지 않아도 참아라&rdquo;로 읽으면 무거워집니다. 그보다는 <b>내가 하는 일의 값을 남의 기록에 다 맡기지 않는다</b>는 뜻으로 읽을 수 있습니다. 기록 시스템이 촘촘해질수록 오히려 더 필요한 마음입니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">기호운 「돌봄을 돌보지 않는 사회」</span>
+<a class="src" href="https://www.labortoday.co.kr/news/articleView.html?idxno=237226" target="_blank" rel="noopener">매일노동뉴스 (10-15) ↗</a>
+<p>한국비정규노동센터 사무국장인 필자는 국제 돌봄의 날을 앞두고 &ldquo;우리는 어떤 돌봄을 원하는가&rdquo;를 묻습니다. 장기요양보험으로 비용은 사회가 나누게 되었지만 공급과 질은 민간 시장에 맡겨졌고, 공공 시설은 1% 남짓이라고 짚습니다. 갑작스러운 취소와 이동 시간에는 돈을 받지 못하는 시급제, 막아 줄 사람 없는 괴롭힘, 업무상 재해로 잘 인정되지 않는 근골격계 질환이 돌보는 사람의 몫으로 남습니다.</p>
+<p>그는 이렇게 씁니다. &ldquo;돌보는 사람이 지치고 다치는데 돌봄의 질을 기대하는 것은 모순이다.&rdquo; 간병의 강을 건너 본 사람이라면 <b>이 문장의 뒷면</b>을 압니다.</p></div>
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;이제 사람들은 쉬는 것을 부끄러워한다.
+오래 생각에 잠기는 일은 거의 양심의 가책이 된다.
+사람들은 손에 시계를 들고 생각하고, &hellip;
+마치 무언가를 끊임없이 &lsquo;놓칠 수도 있는&rsquo; 사람처럼 산다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『즐거운 학문』 제4권 329절 「여가와 한가함」 (1882)
+<span class="orig">&raquo;Man schämt sich jetzt schon der Ruhe; das lange Nachsinnen macht beinahe Gewissensbisse. Man denkt mit der Uhr in der Hand, wie man zu Mittag isst, das Auge auf das Börsenblatt gerichtet, — man lebt, wie Einer, der fortwährend Etwas &bdquo;versäumen könnte&ldquo;.&laquo;</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/musse-und-muessiggang" target="_blank" rel="noopener">textlog.de 329절 독일어 ↗</a> <a class="src" href="https://www.gutenberg.org/cache/epub/52881/pg52881.txt" target="_blank" rel="noopener">Project Gutenberg #52881 영역 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 니체는 이 절에서 &ldquo;남보다 적은 시간에 무언가를 해내는 것&rdquo;이 이 시대의 덕이 되었다고 씁니다. 그 서두름 속에서 사람들은 벗·가족·아이·스승과 나누는 대화의 예의와 여유, 곧 한가한 시간(Otium)을 잃는다고 했습니다. 생각하는 시간조차 부끄러워지는 세계입니다.<br><br>
+실적이 수시로 쌓이는 시스템 앞에서, 기록되지 않는 시간에 머무는 일은 게으름이 아닙니다. 등대의 바구니처럼, <b>무언가를 담아 오는 시간</b>입니다.</p>
+</div>
+</section>
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 보건복지자원연구원이 오늘 오후 국회 토론회에서 공개한다는 방문요양보호사 341명 위험성평가 결과는 아직 나오지 않아 싣지 못했습니다. 국가직 7급 2차시험 합격자 발표(820명)와 보은군의회·공무원노조 갈등 기사도 찾았지만 오늘 결에 맞춰 뺐습니다. 샤롯데문학상 수상작 본문과 수상 소감은 기사에 없었습니다. 와이어드 원 기사는 열지 않고 A.V. Club의 소개 글로 확인했습니다. 어제 이어 보기로 한 서해구·검단구 분쟁조정 후속 보도는 찾지 못했습니다.</li>
+<li><b>글감</b> — 르 귄 에세이는 저작권이 살아 있어 전문을 열지 않고 공식 사이트 소개로 확인했습니다. 피셔·트론토 정의는 용어집과 인용 문헌으로 확인했고, 원서의 쪽수(40쪽 또는 41쪽)는 문헌마다 달라 적지 않았습니다. 혹실드는 원서가 아니라 서지 정보와 요약 자료로 확인했습니다. 『논어』는 위키문헌으로 대조했습니다.</li>
+<li><b>원문·번역</b> — 처음에는 『아침놀』 173절 「노동을 찬미하는 사람들」(&ldquo;노동이 가장 좋은 경찰&rdquo;)을 골랐습니다. 영역본(구텐베르크 #39955)으로는 확인했지만 독일어 원문 사이트가 보안 확인 화면에 막혀 대조하지 못했고, 그래서 329절로 바꿨습니다. 329절은 첫 문장에 19세기식 민족 편견이 담긴 표현이 있어 그 부분은 인용하지 않았습니다. 번역은 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘 하루 칸 밖에 남을 손 하나를,<br><b>당신의 문장이 먼저 알아봐 주기를.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
