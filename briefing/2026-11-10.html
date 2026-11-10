@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-11-10 (화)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 11월 10일 · 화요일</p>
+<p class="opening">11월 10일 화요일 아침입니다. 어제 아부다비가 법령 일부를 기계가 읽을 수 있는 형식으로 바꾸겠다고 밝혔습니다.<br>
+오늘 하늘의 결은 <b>읽힌다고 알려진 것은 아니다</b>입니다. 이번 주 소식은 서류의 칸과 그 칸 밖의 사람 사이를 묻고 있고, 오늘 글감은 칸에 들어가지 않는 것을 어떻게 다시 보는지를 이야기합니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·민원 — 한 사람이 열 달간 정보공개 2,166건, 화성시 공무원노조 &ldquo;법을 고쳐 달라&rdquo;</span>
+<a class="src" href="https://view.asiae.co.kr/article/2026110418214378690" target="_blank" rel="noopener">아시아경제 이종구 기자 (11-04) ↗</a>
+<p>전국공무원노조 경기본부 화성시지부에 따르면 특정 청구인 1명이 올해 1월부터 10월 26일까지 정보공개를 2,166건 청구했습니다. 건당 세부 항목이 평균 10개여서 검토할 항목이 2만 개를 넘는다는 것이 지부의 추산입니다. 지부는 괴롭힘 목적의 청구를 막을 기준과 피해 공무원 보호를 요구하며 4주간의 릴레이 1인 시위와 법 개정 의견 전달을 예고했습니다. 노조 자료에 따르면 시는 10월 22일 청구인을 공무집행방해 등의 혐의로 고발했습니다. 기사에는 청구인 쪽 입장이 실리지 않았습니다.</p>
+<p>정보공개는 시민이 행정을 읽을 권리입니다. 그 권리가 괴롭힘으로 넘어가는 선을 <b>건수 말고 무엇으로 그을 것인가</b>가 제도의 숙제로 남습니다.</p></div>
+
+<div class="news"><span class="title">⚖️ 행정·돌봄 — 시군구 세 곳 중 두 곳, 읍면동·보건소에 통합돌봄 전담자 0명</span>
+<a class="src" href="https://news.tf.co.kr/read/life/2374034.htm" target="_blank" rel="noopener">더팩트 이준영 기자 · 백종헌 의원 공개 복지부 자료 (10-07) ↗</a>
+<a class="src" href="https://www.careyounews.org/news/articleView.html?idxno=12330" target="_blank" rel="noopener">캐어유뉴스 (11-08) ↗</a>
+<p>7월 말 기준 시군구 통합돌봄 수행인력 6,215명 가운데 전담인력은 1,093명(17.6%)이고 나머지는 겸직입니다. 읍면동 인력 4,840명 중 전담은 151명(3.1%)이며, 읍면동과 보건소를 통틀어 전담인력이 한 명도 없는 시군구가 152곳(66.4%)입니다. 복지부는 지난해 12월 가이드라인에서 1명 이상 배치를 권고했습니다. 이달 8일 돌봄 전문매체가 이 지적을 다시 다뤘습니다.</p>
+<p>서류에는 담당자 칸이 채워져 있어도, <b>그 사람의 하루가 돌봄에 쓰이는지는 다른 질문</b>입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·복지 — &lsquo;동거고독사&rsquo;, 함께 살아도 혼자였던 죽음</span>
+<a class="src" href="https://www.ekoreanews.co.kr/news/articleView.html?idxno=88843" target="_blank" rel="noopener">이코리아 배소현 기자 (10-26) ↗</a>
+<p>8월 6일 서울 중랑구에서 지적장애가 있는 20대 남성이 숨진 지 며칠 뒤 발견됐습니다. 함께 살던 어머니와 남동생도 지적장애가 있어 죽음을 바로 알아차리지 못했습니다. 복지부는 위기정보 49종을 활용하는 제5차 복지사각지대 발굴·조사(10월 19일~12월 11일)에서 중증장애인이 포함된 위기가구 13,476명을 살피고, 돌봄서비스를 쓰지 않는 발달장애인 4,325명도 조사합니다. 서미화 의원은 국정감사에서 가구원 수뿐 아니라 누가 누구를 돌보는지를 확인해야 한다고 지적했습니다.</p>
+<p>&lsquo;동거&rsquo;라는 칸은 혼자가 아니라는 뜻으로 읽히기 쉽습니다. <b>가구원 수가 말해 주지 않는 것</b>을 현장 확인이 찾아야 합니다.</p></div>
+
+<div class="news"><span class="title">✍️ 책·독서 — 교보문고 &lsquo;올해의 책&rsquo; 후보 24종, 독자 투표 시작</span>
+<a class="src" href="https://www.fnnews.com/news/202611091423279385" target="_blank" rel="noopener">파이낸셜뉴스 장인서 기자 (11-09) ↗</a>
+<p>교보문고가 후보 24종 가운데 독자 투표로 10종을 가려 12월 1일에 발표합니다. 온라인 투표는 이달 27일까지, 6개 매장 투표는 25일까지입니다. 후보에는 김애란 산문집 『그랬다고 적었다』, 김정아 『도스토옙스키 번역 일기』, 22년 작업이라는 김헌 번역 『오뒷세이아』, 나오미 배런 『읽지 않는 사람들』이 올랐습니다.</p>
+<p>읽지 않는 사람들을 다룬 책과 스물두 해를 들인 번역이 <b>같은 목록에 나란히</b> 있습니다. 글쓰기 수업의 첫 시간에 꺼내 볼 만한 한 장입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정(해외) — 아부다비·오픈AI, 법령을 기계가 읽는 형식으로</span>
+<a class="src" href="https://gulfnews.com/business/abu-dhabi-openai-launch-worlds-first-ai-native-government-initiative-to-speed-up-public-services-1.500741069" target="_blank" rel="noopener">Gulf News (11-09) ↗</a>
+<p>아부다비가 법령과 규정 일부를 AI가 처리할 수 있는 형식으로 바꾸는 &lsquo;기계 판독 정부&rsquo;를 발표했습니다. 허가·증명 같은 정형 심사부터 적용해 며칠 걸리던 결정을 몇 분으로 줄이는 것이 목표이고, 결정마다 근거 조항을 연결해 감사 기록을 남깁니다. 권리, 수급 자격, 필수 서비스 접근에 영향을 주는 사안은 자율 결정 대상에서 뺐다고 합니다. 식품 수입 분야 시범은 이미 가동 중입니다.</p>
+<p>결정마다 조항을 잇는 방식은 눈여겨볼 만합니다. 다만 <b>이 건이 정형인지 아닌지를 가르는 일이 이미 판단</b>입니다. 그 선을 누가 긋는지가 다음 질문입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·공직(영국) — 공무원의 AI 사용 30%에서 82%로, 조직의 배움은 그대로</span>
+<a class="src" href="https://www.thinkdigitalpartners.com/news/2026/11/05/new-tech-same-old-problems-five-takeaways-from-the-civil-service-survey/" target="_blank" rel="noopener">THINK Digital Partners 크리스틴 호턴 · Re:State 설문 (11-05) ↗</a>
+<p>공무원 1,747명이 답한 설문에서 업무 중 AI 사용이 지난해 30%에서 올해 82%로 뛰었습니다. 사용자의 83%가 시간을 아꼈다고 답했고, 쓰임은 문서 초안·편집(74%)이 대부분이며 업무 자동화는 16%입니다. 그러나 절차가 일을 방해한다는 응답은 71%, 부서가 사업을 평가해 교훈을 적용한다는 응답은 25%입니다. 자발 참여 설문이라 공직 전체를 대표하지는 않습니다.</p>
+<p>도구가 퍼지는 속도와 조직이 배우는 속도는 <b>다른 곡선</b>입니다. 직접 만드는 공무원을 늘리는 한국도 함께 봐야 할 숫자입니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 읽힌다고 알려진 것은 아니다</span></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">제임스 C. 스콧 『국가처럼 보기』: 읽기 쉽게 만드는 일의 값</span>
+<a class="src" href="https://en.wikipedia.org/wiki/Seeing_Like_a_State" target="_blank" rel="noopener">『Seeing Like a State』(1998) 위키백과 해설 ↗</a>
+<p>스콧은 국가가 다양한 지역의 사정을 중앙이 읽고 다룰 수 있는 칸으로 단순하게 만드는 일을 &lsquo;행정적 가독성&rsquo;이라 불렀습니다. 웨일스의 한 남자가 법정에서 아버지와 할아버지의 이름을 잇달아 대자, 마을에서는 또렷했던 그 이름이 먼 관리에게는 뜻이 없었고 법정은 고정된 성을 요구했다는 이야기가 책에 나옵니다. 스콧이 행정 자체를 부정한 것은 아닙니다. 칸이 없으면 급여도 없습니다.</p>
+<p>다만 <b>칸에 들어가지 않는 것은 보이지 않게 됩니다.</b> 어제 아부다비 소식에 붙일 스물여덟 해 전의 각주이고, 서식을 만드는 공무원이 매일 서는 자리입니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">아이리스 머독: 시어머니가 며느리를 다시 본 일</span>
+<a class="src" href="https://philosophynow.org/issues/148/Iris_Murdoch_and_The_Mystery_of_Love" target="_blank" rel="noopener">Philosophy Now 148호 스티븐 리치 ↗</a>
+<a class="src" href="https://en.wikipedia.org/wiki/The_Sovereignty_of_Good" target="_blank" rel="noopener">『선의 지고함』(1970) 위키백과 해설 ↗</a>
+<p>「완전성이라는 관념」(1962)에 나오는 사고실험입니다. 며느리를 탐탁지 않게 여기는 시어머니가 있습니다. 겉으로는 내내 흠잡을 데 없이 대합니다. 그러다 혼자 차분하고 공정하게 며느리를 다시 들여다보며 생각이 바뀝니다. 행동은 처음부터 끝까지 같습니다. 머독은 바로 이 안쪽의 일을 도덕의 활동이라 부르고, 한 개별 현실을 향한 정의롭고 사랑 어린 시선을 그 이름으로 삼습니다.</p>
+<p>어떤 기록에도 남지 않는 변화입니다. 글 쓰는 사람에게는 <b>달라진 행동보다 달라진 시선</b>이 쓸거리입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">『맹자』 「만장 하」: 글을 읽고 나서 그 사람을 묻다</span>
+<a class="src" href="https://zh.wikisource.org/wiki/孟子/萬章下" target="_blank" rel="noopener">위키문헌 『맹자』 「만장 하」 원문 ↗</a>
+<p>맹자는 만장에게 벗의 범위를 넓혀 가는 이야기를 합니다. 한 마을의 선비는 한 마을의 선비와, 나라의 선비는 나라의 선비와 벗합니다. 그래도 모자라 옛사람을 논합니다. 이어서 &ldquo;그 시를 읊고 그 글을 읽으면서 그 사람을 모른다면 되겠는가. 그래서 그 시대를 논한다(頌其詩 讀其書 不知其人 可乎 是以論其世也)&rdquo;고 말합니다.</p>
+<p>글은 읽었다고 끝나지 않고 <b>그 사람과 그 시대까지 더 물어야</b> 한다는 것입니다. 민원 서류 한 장을 읽는 일에도 그대로 옮겨 올 수 있는 문장입니다.</p></div>
+
+<div class="pick"><span class="field">🕯 현존·삶</span>
+<span class="title">조르주 페렉 「무엇에 다가갈 것인가」: 날마다의 일을 쓰는 법</span>
+<a class="src" href="https://dullmensclub.com/how-to-account-for-the-obvious-ordinary-infraordinary/" target="_blank" rel="noopener">「Approaches to What?」(1973) 인용 해설 ↗</a>
+<p>페렉은 일간지가 날마다 벌어지는 일만 빼고 다 다룬다고 꼬집습니다. 사고와 추문이 되어야 비로소 기록에 오른다는 것입니다. 그는 이런 것들에 &lsquo;하위의 평범함(l'infra-ordinaire)&rsquo;이라는 이름을 붙이고, 더는 놀랍지 않게 된 것을 다시 물어보자고 제안합니다.</p>
+<p>사건이 되어야 읽히는 삶이라면, 사건이 되지 않은 날들은 <b>누가 적어 둘 것인가</b>를 묻는 글입니다. 글쓰기 수업에 바로 쓸 수 있는 과제이기도 합니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">은유 『있지만 없는 아이들』: 서류에 없는 사람</span>
+<a class="src" href="https://www.pressian.com/pages/articles/2021081815130578400" target="_blank" rel="noopener">프레시안 백지연 문학평론가 (2021-08-19) ↗</a>
+<p>서평에 따르면 미등록 이주아동은 약 2만 명으로 추산되고, 고등학교까지는 학습권이 있지만 만 18세 이후 추방될 수 있습니다. 25년을 미등록으로 살아온 인화는 자기 삶을 &ldquo;사는 것도 아니고 안 사는 것도 아니&rdquo;라고 말합니다. 탄원서 1,650건으로 체류 자격을 얻은 학생의 이야기도 나옵니다.</p>
+<p>스콧의 반대편입니다. 칸에 갇히는 값이 있고, <b>칸이 없는 값</b>도 있습니다. 끝내 서류를 움직인 것이 사람들이 쓴 글이었다는 점도 기억해 둘 만합니다.</p></div>
+
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;분노, 증오, 사랑, 동정, 욕망, 앎, 기쁨, 고통 —
+이것들은 모두 극단의 상태에 붙은 이름이다.
+더 온건한 중간 단계들, 더구나 끊임없이 움직이는 낮은 단계들은
+우리에게서 빠져나간다.
+그러나 우리의 성격과 운명의 실을 짜는 것은 바로 그것들이다.
+…
+우리는 우리 자신이라는, 가장 또렷해 보이는 이 글자를 잘못 읽는다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『아침놀(Morgenröte)』 제2권 115절 「이른바 &lsquo;자아&rsquo;(Das sogenannte „Ich“)」 (1881)
+<span class="orig">&raquo;Zorn, Hass, Liebe, Mitleid, Begehren, Erkennen, Freude, Schmerz, — das sind Alles Namen für extreme Zustände: die milderen mittleren und gar die immerwährend spielenden niederen Grade entgehen uns, und doch weben sie gerade das Gespinnst unseres Charakters und Schicksals. … wir verlesen uns in dieser scheinbar deutlichsten Buchstabenschrift unseres Selbst.&laquo;</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/morgenroete/das-sogenannte-ich" target="_blank" rel="noopener">textlog.de 독일어 원문 ↗</a> <a class="src" href="http://www.zeno.org/Philosophie/M/Nietzsche,+Friedrich/Morgenr%C3%B6te/Zweites+Buch/115.+Das+sogenannte+%C2%BBIch%C2%AB" target="_blank" rel="noopener">zeno.org 독일어 원문 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 스콧이 국가의 서식을 말했다면, 니체는 언어가 이미 서식이라고 합니다. 사랑도 고통도 극단에만 이름이 붙어 있고, 같은 절에서 그는 말이 없는 곳에서는 우리가 더 이상 정확히 관찰하지 않는다고 덧붙입니다. 마지막 동사 <b>verlesen</b>은 잘못 읽는다는 뜻인데, 그 주어가 남이 아니라 우리 자신입니다. 칸에 갇히는 일은 관공서보다 먼저 내 안에서 일어난다는 말입니다.</p>
+</div>
+</section>
+
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 11월 9일자 국내 행정·복지 발표는 검색으로 찾지 못했습니다. 그래서 11월 4~8일 기사와, 지금 조사가 진행 중이거나 다시 다뤄진 10월 기사(동거고독사 10/26, 통합돌봄 인력 10/7)를 골랐습니다. 화성시 건은 노조 측 자료 중심의 기사이고 시와 청구인의 입장은 확인하지 못했습니다. 통합돌봄 수치는 자료마다 기준 시점이 달라, 다른 의원 자료(8월 말 전담 1,233명)와는 맞지 않습니다. 아부다비 건은 Gulf News 한 곳의 발표 기사로, 실제 효과는 아직 알 수 없습니다.</li>
+<li><b>글감</b> — 스콧과 페렉은 책이 아니라 해설과 인용 페이지로, 은유의 책은 서평으로 확인했습니다. 『국가처럼 보기』라는 한국어판 제목은 사막여우의 기억이고 오늘 확인하지 않았습니다. 머독의 시어머니 사례는 위키백과 해설로 읽었고, 페렉의 글 제목과 &lsquo;하위의 평범함&rsquo;은 사막여우가 옮긴 말입니다. 현대 저자의 문장은 저작권을 생각해 대부분 풀어 적었습니다.</li>
+<li><b>원문·번역</b> — 니체는 textlog.de에서 절 전체를, zeno.org에서 뒷부분(verlesen 문장)을 대조했습니다. 앞부분 &ldquo;Zorn, Hass…&rdquo;는 textlog.de 한 곳 대조입니다. 번역은 사막여우가 옮긴 것입니다. 『맹자』 원문은 위키문헌으로 확인했습니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘 읽어야 할 서류 한 장 뒤에 사람 하나가 있음을 기억하며,<br><b>당신의 하루도 어느 칸보다 넓기를.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
