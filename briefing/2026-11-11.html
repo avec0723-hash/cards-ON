@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-11-11 (수)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 11월 11일 · 수요일</p>
+<p class="opening">11월 11일 수요일 아침입니다. 오늘은 서점의 날 열 돌이고, 유럽과 영연방에서는 오전 11시에 2분 동안 말을 멈추는 날입니다.<br>
+오늘 하늘의 결은 <b>무엇을 가리고 무엇을 남기는가</b>입니다. 이번 주 소식에는 가렸어야 할 것이 열려 있던 일과 드러나야 할 것이 늦게 드러나는 일이 함께 있고, 오늘 글감은 말하지 않는 일에도 주인과 이유가 있다는 이야기를 합니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정·개인정보 — 정보공개포털, 가렸어야 할 주민번호와 진단서가 열려 있었다</span>
+<a class="src" href="https://khan.co.kr/article/202611051110001" target="_blank" rel="noopener">경향신문 안광호 기자 (11-05) ↗</a>
+<p>정보공개포털(open.go.kr)에 올라간 일부 공개 문서의 첨부파일에서 공무원과 민간인의 개인정보가 노출됐습니다. 한 매체는 최소 22개 기관, 문서 35건에서 주민등록번호와 암 진단서 같은 민감정보가 누구나 내려받을 수 있는 상태였다고 보도했습니다. 행안부는 일부 기관이 원문을 공개할 때 비공개 설정을 하지 않은 것으로 보고, 원문 다운로드를 일시 중단한 뒤 전 공공기관에 전수 점검을 지시했습니다. 개인정보 필터링 소프트웨어를 새로 들이고 문서 작성 단계의 교육도 강화한다고 밝혔습니다.</p>
+<p>어제 브리핑의 정보공개 2,166건과 같은 창구입니다. 공개는 <b>가릴 것을 먼저 가려야 성립하는 일</b>이고, 그 손은 결국 문서를 올리는 담당자의 손입니다.</p></div>
+
+<div class="news"><span class="title">⚖️ 노동행정 — 노동자 둘이 숨진 아워홈, 넉 달 감독에서 위반 92건</span>
+<a class="src" href="https://seoul.co.kr/news/economy/2026/11/09/20261109500337" target="_blank" rel="noopener">서울신문 김우진 기자 (11-09) ↗</a>
+<p>고용노동부가 6월부터 넉 달 동안 아워홈을 감독해 산업안전 53건, 근로기준 39건의 위반을 찾았습니다. 13건은 기소 의견으로 송치하고 37건에 과태료 약 8,630만 원을 물립니다. 지난해 4월과 올해 6월 공장에서 노동자가 기계에 끼여 숨졌는데, 그 뒤에도 다른 공장에서 안전검사를 받지 않은 컨베이어가 돌았습니다. 특별교육을 받지 못한 46명 중 44명이 협력업체 노동자였고, 2차 협력업체 근로자 45명을 불법 파견받은 사실도 드러났습니다.</p>
+<p>교육 명단에서 빠진 사람이 거의 다 협력업체 사람이었다는 숫자가 이 기사의 가운데에 있습니다. <b>명단에 없는 사람이 위험 앞에 먼저 섭니다.</b></p></div>
+
+<div class="news"><span class="title">🌍 사회·노동 — 불시점검이 있던 날, 조선소 탱크 안에서 숨진 스물일곱 살 하청노동자</span>
+<a class="src" href="https://www.khan.co.kr/article/202611101624001/" target="_blank" rel="noopener">경향신문 선명수 기자 (11-10) ↗</a>
+<p>11월 3일 전남 영암 HD현대삼호 조선소에서 하청노동자 신모씨(27)가 건조 중인 선박 화물탱크 안에서 용접 작업을 하다 쓰러져 숨졌습니다. 노동부가 대불산단 조선업 사업장을 불시 점검한 날이었습니다. 노조는 환기가 안 되는 밀폐공간이었고 2인1조 수칙이 지켜지지 않았다고 주장하고, 회사는 출입구와 환기 설비가 있어 밀폐공간이 아니라고 반박합니다. 노동부는 사고 현장만 작업중지 상태이고 원인 조사가 진행 중이라고 밝혔고, 유족은 장례를 미루고 있습니다.</p>
+<p>사고 원인은 아직 조사 중입니다. 다만 &lsquo;밀폐공간이냐 아니냐&rsquo;라는 <b>낱말 하나의 판정이 작업중지의 범위를 정한다</b>는 점은 행정의 자리에서 눈여겨볼 대목입니다.</p></div>
+
+<div class="news"><span class="title">✍️ 책·서점 — 오늘은 서점의 날 열 돌, 책 네 권의 책등이 &lsquo;1111&rsquo;</span>
+<a class="src" href="https://www.asiae.co.kr/article/book/2026111010162145452" target="_blank" rel="noopener">아시아경제 김희윤 기자 (11-10) ↗</a>
+<p>책 네 권이 나란히 꽂힌 책등, 서점으로 줄지어 걷는 사람들의 모습이 숫자 1111을 닮아 11월 11일이 서점의 날이 됐습니다. 2016년에 정해져 올해 10주년입니다. 교보문고는 오늘부터 전국 동네서점 67곳의 직원들이 추천한 책 212종을 소개하고, 좋아하는 책 네 권의 책등으로 1111을 만드는 행사를 연말까지 엽니다.</p>
+<p>서점 직원이 고른 책은 알고리즘이 고른 책과 <b>고른 손이 다릅니다.</b> 오늘 책 네 권을 골라 본다면 어떤 등을 나란히 세울지, 그것만으로도 한 편의 자기소개가 됩니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·저작권 — 앤트로픽 저작권 합의금, 11월 15일까지 첫 지급</span>
+<a class="src" href="https://ailawsuittracker.com/cases/bartz-v-anthropic/" target="_blank" rel="noopener">AI Lawsuit Tracker 「Bartz v. Anthropic」 (11월 확인) ↗</a>
+<p>해적판 책으로 AI를 학습시킨 문제로 작가들이 앤트로픽(이 브리핑을 쓰는 클로드를 만든 회사)을 상대로 낸 집단소송에서, 법원이 7월 20일 약 15억 달러 합의를 최종 승인했습니다. 합의 관리자는 권리자 사이 배분과 지급 정보가 갖춰진 작품부터 11월 15일까지 첫 지급을 보내기로 되어 있습니다. 작품 한 권당 약 3,000달러로 추산되고, 대부분의 책은 작가 쪽과 출판사 쪽이 반씩 나누는 것이 기본입니다. 실제 지급이 나갔는지는 아직 확인되지 않았습니다.</p>
+<p>돈은 사람 단위가 아니라 <b>책 단위로</b> 계산됩니다. 쓴 사람의 이름보다 책 한 권이 먼저 세어지는 셈법을, 책을 준비하는 사람은 알아 둘 만합니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정(미국) — 정보공개 문서의 &lsquo;가림&rsquo;을 AI에게 먼저 맡기는 미국 정부</span>
+<a class="src" href="https://www.engadget.com/2270348/the-us-government-plans-to-use-ai-to-help-redact-documents/" target="_blank" rel="noopener">Engadget 스티브 덴트 · 워싱턴포스트 인용 (09-28) ↗</a>
+<p>미국 국토안보부 산하 관세국경보호청이 정보공개(FOIA) 청구에 응할 때 무엇을 가릴지 구글의 AI가 먼저 제안하게 하는 계획을 세웠습니다. 9월 말까지 청구의 10% 이상, 약 10만~14만 건에 적용하고 직원이 건마다 검토한다는 설명입니다. 내무부·법무부·보건복지부도 비슷한 도구를 쓰거나 만들고 있습니다. 정보공개 전문가는 정부가 AI로 기록을 가리는 방식을 아주 주의 깊게 지켜봐야 한다고 말했습니다.</p>
+<p>한국에서는 가려야 할 것이 열렸고, 미국에서는 AI가 너무 많이 가릴까 걱정합니다. 방향은 반대지만 질문은 같습니다. <b>가리는 선을 누가, 무엇을 위해 긋는가.</b></p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 무엇을 가리고 무엇을 남기는가</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">버지니아 울프 「지나간 날의 스케치」: 솜뭉치 같은 날들과 충격의 순간</span>
+<a class="src" href="https://www.themarginalian.org/2015/09/09/virginia-woolf-cotton-wool-moments-of-being/" target="_blank" rel="noopener">The Marginalian 마리아 포포바 ↗</a>
+<p>울프는 어린 시절의 하루가 대부분 이름 없는 &ldquo;솜뭉치(cotton wool)&rdquo; 같은 &lsquo;존재하지 않음&rsquo;으로 채워져 있었다고 씁니다. 그 사이로 이따금 충격 같은 순간이 찾아오는데, 그 충격을 받아들이는 능력이 자기를 작가로 만든다고 말합니다. 그 순간은 겉모습 뒤에 있는 어떤 실재의 표시이고, 자신은 그것을 말로 옮김으로써 실재하게 만든다고 덧붙입니다.</p>
+<p>삶의 대부분은 솜에 싸여 가려져 있습니다. 글 쓰는 사람이 하는 일은 그 솜을 다 걷어내는 것이 아니라 <b>충격이 온 자리 하나를 골라 말로 옮기는 것</b>입니다.</p></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">시셀라 복 『비밀(Secrets)』: 감추는 일의 윤리</span>
+<a class="src" href="https://www.nybooks.com/articles/1983/03/31/kiss-and-dont-tell/" target="_blank" rel="noopener">뉴욕리뷰오브북스 서평 (1983-03-31) ↗</a>
+<a class="src" href="https://content.time.com/time/subscriber/article/0,33009,951900,00.html" target="_blank" rel="noopener">타임 에세이 ↗</a>
+<p>『거짓말』을 쓴 철학자 시셀라 복은 의사·변호사의 비밀유지부터 국가기밀, 영업비밀, 개인의 사생활까지 감추는 일을 두루 살핍니다(1982). 서평들이 공통으로 짚는 그의 입장은 비밀 자체는 선도 악도 아니며, 무엇을 위해 감추는지가 그 값을 정한다는 것입니다. 복은 비밀을 없애자고 하지 않았고, 동시에 &lsquo;알 권리&rsquo;를 앞세워 무엇이든 열자는 쪽에도 날을 세웠습니다.</p>
+<p>정보공개 창구 앞의 공무원이 매일 서는 자리입니다. <b>가림은 늘 무엇을 위한 가림인지 물어야</b> 정당해집니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">『논어』 「자로」: 아버지는 아들을 위해 숨기고</span>
+<a class="src" href="https://zh.wikisource.org/wiki/論語/子路第十三" target="_blank" rel="noopener">위키문헌 『논어』 「자로」 원문 ↗</a>
+<p>섭공이 공자에게 자랑합니다. 우리 마을에는 곧은 사람이 있어서 아버지가 양을 훔치자 아들이 그것을 증언했다고요. 공자는 이렇게 답합니다. &ldquo;우리 마을의 곧은 사람은 그와 다릅니다. 아버지는 아들을 위해 숨기고 아들은 아버지를 위해 숨기니, 곧음은 그 가운데 있습니다(父爲子隱 子爲父隱 直在其中矣).&rdquo;</p>
+<p>이 대목은 이천 년 넘게 논쟁거리였습니다. 공자가 거짓을 편든 것이 아니라 <b>곧음을 사람 사이의 관계 안에서 물었다</b>고 읽을 수도 있고, 사사로움에 기운 말이라 비판할 수도 있습니다. 어느 쪽이든 &lsquo;드러내는 것이 곧 곧음&rsquo;이라는 등식에 물음표를 붙인 문장입니다.</p></div>
+
+<div class="pick"><span class="field">🕯 현존·삶</span>
+<span class="title">11시의 2분: 말을 멈춰서 기억하는 법</span>
+<a class="src" href="https://en.wikipedia.org/wiki/Edward_George_Honey" target="_blank" rel="noopener">위키백과 「Edward George Honey」 ↗</a>
+<a class="src" href="https://www.awm.gov.au/commemoration/customs/silence" target="_blank" rel="noopener">오스트레일리아 전쟁기념관 ↗</a>
+<p>1918년 11월 11일 오전 11시에 1차 세계대전의 휴전이 발효됐습니다. 이듬해 5월, 런던의 오스트레일리아 기자 에드워드 허니가 신문 독자 편지로 국가적 침묵을 제안했고, 남아프리카 정치인 퍼시 피츠패트릭의 비슷한 제안도 왕에게 전해졌습니다. 조지 5세는 1919년 11월 7일 제국 전역에 2분의 침묵을 요청했고, 첫 침묵은 그해 11월 11일이었습니다. 누구의 제안이 결정적이었는지는 지금도 기록마다 다릅니다.</p>
+<p>죽은 이들의 이름을 다 부를 수 없을 때 사람들은 <b>말을 멈추는 쪽을 골랐습니다.</b> 침묵이 잊음이 아니라 기억의 형식이 될 수 있다는 오래된 예입니다.</p></div>
+
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;깊은 것은 모두 가면을 사랑한다.
+…
+사람이 가장 심하게 부끄러워하는 것이
+가장 나쁜 일은 아니다.
+가면 뒤에 있는 것이 간계만은 아니다 —
+꾀 속에는 그토록 많은 선함이 있다.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『선악의 저편(Jenseits von Gut und Böse)』 제2장 「자유정신(Der freie Geist)」 40절 (1886)
+<span class="orig">&raquo;Alles, was tief ist, liebt die Maske … Es sind nicht die schlimmsten Dinge, deren man sich am schlimmsten schämt: es ist nicht nur Arglist hinter einer Maske, — es giebt so viel Güte in der List.&laquo;</span></p>
+<p class="cite"><a class="src" href="https://www.gutenberg.org/cache/epub/7204/pg7204.txt" target="_blank" rel="noopener">Project Gutenberg 독일어 원문 ↗</a> <a class="src" href="https://www.gutenberg.org/cache/epub/4363/pg4363.txt" target="_blank" rel="noopener">Project Gutenberg 영역 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 같은 절에서 니체는 값지고 다치기 쉬운 것을 품은 사람이 겉으로는 묵직한 술통처럼 투박하게 굴러간다고 씁니다. 그 투박함은 섬세한 부끄러움이 고른 옷이라는 것입니다. 정보공개포털에서 열려 버린 진단서는 그 옷이 벗겨진 자리였습니다. 니체는 가면을 거짓으로만 보지 말라고 합니다. 가면 뒤에 선함이 있을 수 있다는 말은, <b>감춘 사람을 먼저 의심하지 말라는 부탁</b>이기도 합니다.</p>
+</div>
+</section>
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 11월 10~11일자 국내 행정 발표는 찾지 못해, 11월 5~10일 기사로 골랐습니다. 정보공개포털 노출 규모는 한 매체의 보도 수치이고 행안부의 공식 집계는 아직 없습니다. HD현대삼호 건은 노조와 회사의 주장이 엇갈리고 원인 조사가 진행 중입니다. 앤트로픽 합의금은 소송 정리 사이트 한 곳으로 확인했고, 1회차 권당 금액(약 2,200달러라는 2차 자료)은 그 페이지에 없어 싣지 않았습니다. 미국 정부의 AI 가림 건은 9월 28일 기사라 48시간 범위 밖이지만, 오늘 결과 맞아 함께 실었습니다. 농업인의 날(11월 11일) 행사 보도는 아직 나오지 않아 뺐습니다.</li>
+<li><b>글감</b> — 오늘 결에 맞는 한국어 인문·에세이는 확인 가능한 글을 찾지 못해 네 우물로 줄였습니다. 울프의 문장은 The Marginalian의 인용으로, 시셀라 복의 입장은 책이 아니라 서평으로 확인했습니다. 『비밀』의 한국어판 여부는 확인하지 않았습니다. 2분 침묵의 기원은 허니와 피츠패트릭 중 누구 몫인지 기록이 엇갈려 둘 다 적었습니다.</li>
+<li><b>원문·번역</b> — 니체는 Project Gutenberg 독일어 전문(#7204)과 짐먼 영역(#4363) 두 곳을 명령줄로 내려받아 40절을 대조했습니다. textlog·zeno는 열어 보지 않았습니다. 『논어』 원문은 위키문헌으로 확인했습니다(ctext.org는 자동 접속을 막아 열리지 않음). 번역은 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">오늘 11시, 2분이 아니어도 좋으니<br><b>짧게 멈추는 틈 하나가 당신의 하루에도 있기를.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
