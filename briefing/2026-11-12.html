@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-11-12 (목)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 11월 12일 · 목요일</p>
+<p class="opening">11월 12일 목요일 아침입니다. 사흘 뒤 15일부터 정부의 겨울 대책 기간이 시작됩니다.<br>
+오늘 하늘의 결은 <b>찾아내는 일과 찾아가는 일</b>입니다. 이번 주 소식에는 위기 정보로 사람을 찾아내고 기계가 책을 만드는 이야기가 있고, 오늘 글감은 찾아낸 뒤 문을 두드리는 손은 여전히 사람의 것이라고 말합니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 복지행정 — 겨울 위기가구 40만 명, 위기 정보 47종에서 50종으로</span>
+<a class="src" href="https://www.sideview.co.kr/news/articleView.html?idxno=20680" target="_blank" rel="noopener">사이드뷰 이하늘 기자 (11-11) ↗</a>
+<p>보건복지부가 「2026~2027년 겨울철 취약계층 보호대책」을 마련했습니다. 11월 15일부터 내년 3월 15일까지를 집중 보호 기간으로 두고, 복지 사각지대 발굴에 쓰는 위기 정보를 47종에서 50종으로 늘려 약 40만 명을 찾아낼 계획입니다. 에너지 취약계층 약 144만 가구에 에너지바우처를 주고, 취약 어르신 56만 6천 명의 안부를 정기적으로 확인하며, 한파특보가 나면 거동이 불편한 고위험군은 매일 한 번 이상 전화나 방문으로 살핍니다. 지난겨울 한랭질환 사망자는 8명에서 14명으로 늘었습니다.</p>
+<p>정보 50종은 사람을 <b>찾아내는</b> 그물이고, 매일 한 번의 전화와 방문은 <b>찾아가는</b> 손입니다. 읍면동 창구에서 이 겨울의 무게는 뒤쪽에 더 실립니다.</p></div>
+
+<div class="news"><span class="title">⚖️ 행정·AI — 지자체 행정시스템 개편에 2,857억 원, AI 연계 기반까지</span>
+<a class="src" href="https://www.fnnews.com/news/202611091810428899" target="_blank" rel="noopener">파이낸셜뉴스 이보미 기자 (11-09) ↗</a>
+<p>행정안전부가 전국 지자체가 민원·인허가·증명서 발급에 쓰는 행정시스템을 바꾸는 사업의 총사업비를 2,857억 원으로 확정했습니다. 한국개발연구원(KDI)의 사업계획 적정성 검토를 거친 금액이고, 노후한 시스템을 고치면서 AI를 연계할 기반을 깔겠다는 것이 목표입니다. 내일(13일) 서울 한국지역정보개발원에서 1,527억 원 규모 통합사업의 기업 설명회가 열리고, AI 코딩을 활용한 개발 방식과 800여 개 법령에 걸친 국가 위임사무 처리 체계도 다룹니다.</p>
+<p>지자체 공무원이 매일 여는 화면이 바뀌는 사업입니다. 설명회의 청중은 기업이지만, <b>새 시스템을 가장 오래 쓰는 사람은 창구의 공무원</b>입니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회·노동 — 열차는 늘었는데 사람은 그대로, 공공부문 파업 예고 잇달아</span>
+<a class="src" href="https://www.khan.co.kr/article/202611111548001/" target="_blank" rel="noopener">경향신문 선명수·박준철 기자 (11-11) ↗</a>
+<p>철도노조가 어제 서울역 앞에서 12월 10일 오전 9시부터 무기한 총파업을 예고했습니다. 9월 고속철도 통합 뒤 열차와 좌석은 늘었는데 인력은 그대로라며 안전 인력 충원을 요구합니다. 공항철도 노조는 2007년 개통 이후 처음으로 13일 하루 경고파업을 하고, 수능 뒤 전면 파업도 예고했습니다. 서울교통공사노조는 25일, 학교 급식·돌봄교실 노동자들이 속한 학교비정규직연대회의는 27일 파업을 예고했습니다.</p>
+<p>철도노조는 &ldquo;바라는 것은 파업이 아니라 해결&rdquo;이라고 했습니다. 요구가 한목소리로 <b>&lsquo;사람을 늘려 달라&rsquo;</b>라는 점이 이번 줄의 공통분모입니다.</p></div>
+
+<div class="news"><span class="title">✍️ 책·소설 — 정세랑, 6년 만의 소설집 『태풍의 이름을 잊은 것처럼』</span>
+<a class="src" href="https://ridibooks.com/books/371004050" target="_blank" rel="noopener">리디 도서 정보 · 문학동네 (11-06 출간) ↗</a>
+<p>정세랑 작가가 2010년 데뷔작 「드림, 드림, 드림」부터 미발표작 「발화되지 않는」까지 단편 일곱 편을 묶었습니다. 현실에 밀착한 노동자 이야기부터 근미래 SF까지 다정한 이야기와 냉정한 이야기가 함께 실렸습니다. 장편으로 더 알려진 작가의 6년 만의 소설집입니다.</p>
+<p>열여섯 해에 걸친 단편을 한 권으로 세우는 일은 <b>흩어진 글을 다시 찾아가는 일</b>이기도 합니다. 책을 준비하는 사람에게는 &lsquo;무엇을 다시 묶을 것인가&rsquo;의 한 본보기입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·출판(해외) — AI 에이전트로 책을 만드는 출판사, 6,400만 달러 투자 유치</span>
+<a class="src" href="https://fortune.com/2026/11/09/publisher-spines-raises-64-million-in-new-funding-to-accelerate-effort-to-automate-book-publishing-with-ai-agents/" target="_blank" rel="noopener">Fortune 제러미 칸 (11-09) ↗</a>
+<p>작가가 비용을 내고 출판사가 인세 일부를 가져가는 &lsquo;하이브리드 출판사&rsquo; 스파인스(Spines)가 6,400만 달러를 새로 모았습니다. 편집·교정·조판·표지·유통·오디오북·번역·마케팅까지 AI 에이전트가 맡고, 지금까지 8,000명 넘는 작가의 책 약 12,000종을 냈다고 밝혔습니다. 작가 몫 인세는 70%에서 80%로 올렸습니다. 기사는 AI로만 만든 이미지는 미국에서 저작권을 인정받지 못한다는 점도 짚었습니다.</p>
+<p>사람의 손이 하던 출판의 단계가 하나씩 기계로 넘어가는 중입니다. 그래도 <b>원고를 쓰고 비용을 내는 것은 여전히 작가</b>라는 구조는 그대로입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·문학(프랑스) — AI가 쓴 소설에 주는 문학상, &ldquo;상은 작가의 것&rdquo;이라는 반론</span>
+<a class="src" href="https://www.prospectmagazine.co.uk/culture/the-culture-newsletter/75541/literary-prizes-are-for-writers-not-machines-france-ai-writing" target="_blank" rel="noopener">Prospect 케이티 댄시-다운스 (11-05) ↗</a>
+<p>프랑스에서 대형언어모델로 쓴 소설에 주는 &lsquo;프리 파스칼 AI 문학상&rsquo;이 응모를 받기 시작했습니다. 응모자는 작품과 함께 쓴 프롬프트와 과정을 내야 하고, 주최 측은 &ldquo;기술 경연이 아니다&rdquo;라고 말합니다. 필자는 문학상이 기계가 아니라 작가를 위한 것이어야 한다며, 이 상이 창작에서 무엇이 중요한지에 대해 잘못된 신호를 준다고 비판합니다.</p>
+<p>지난 9일 브리핑의 공쿠르상 수상자 &ldquo;챗GPT 세 번&rdquo; 논란에 이은 장면입니다. 프롬프트를 함께 내라는 규칙은 거꾸로 <b>과정을 보여 주는 것이 곧 저자됨의 증거</b>가 되어 간다는 뜻이기도 합니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 찾아내는 일과 찾아가는 일</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">체호프 「구스베리」: 행복한 사람의 문 뒤에 선 망치</span>
+<a class="src" href="https://ibiblio.org/eldritch/ac/jr/190.htm" target="_blank" rel="noopener">체호프 단편 영역 전문 ↗</a>
+<a class="src" href="https://en.wikipedia.org/wiki/Gooseberries_(short_story)" target="_blank" rel="noopener">위키백과 해설 ↗</a>
+<p>꿈이던 시골 영지를 얻어 구스베리를 따 먹으며 흡족해하는 동생을 본 이반은, 만족한 사람의 문 뒤에 누군가 망치를 들고 서서 불행한 사람이 있다는 것을 끊임없이 두드려 일깨워 주어야 한다고 말합니다. 그리고 곧 덧붙입니다. &ldquo;그러나 망치를 든 사람은 없다.&rdquo; 체호프는 결론을 내리지 않고, 이야기를 들은 이들이 잠드는 밤으로 소설을 닫습니다(1898).</p>
+<p>글 쓰는 사람의 자리가 어쩌면 그 망치입니다. 다만 체호프의 망치는 꾸짖는 망치가 아니라 <b>문을 가볍게 두드리는 망치</b>입니다.</p></div>
+
+<div class="pick"><span class="field">🌿 의미·철학</span>
+<span class="title">마르틴 부버 『나와 너』: &ldquo;모든 참된 삶은 만남이다&rdquo;</span>
+<a class="src" href="https://www.themarginalian.org/2018/03/18/i-and-thou-martin-buber/" target="_blank" rel="noopener">The Marginalian 마리아 포포바 ↗</a>
+<a class="src" href="https://en.wikiquote.org/wiki/Martin_Buber" target="_blank" rel="noopener">위키인용집 ↗</a>
+<p>부버는 사람이 세상을 대하는 두 가지 근본어를 &lsquo;나–그것&rsquo;과 &lsquo;나–너&rsquo;로 나눕니다(1923). &lsquo;그것&rsquo;은 재고 분류하고 쓰는 대상이고, &lsquo;너&rsquo;는 온 존재로 마주하는 상대입니다. 부버는 &lsquo;그것&rsquo;의 세계 없이는 살 수 없지만, 그것만으로 사는 사람은 사람이 아니라고 말하며 이렇게 씁니다. &ldquo;모든 참된 삶은 만남이다(Alles wirkliche Leben ist Begegnung).&rdquo;</p>
+<p>위기 정보 50종은 사람을 &lsquo;그것&rsquo;으로 찾아냅니다. 행정에 꼭 필요한 일입니다. 다만 <b>문이 열리고 &ldquo;괜찮으세요?&rdquo;라고 묻는 순간</b>, 명단의 한 줄이 &lsquo;너&rsquo;가 됩니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">세네카 『루킬리우스에게 보낸 편지』 40: 편지는 그 사람의 흔적을 싣는다</span>
+<a class="src" href="https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_40" target="_blank" rel="noopener">위키문헌 거머 영역 ↗</a>
+<p>세네카는 자주 편지를 보내 주어 고맙다는 말로 이 편지를 엽니다. 편지는 멀리 있는 벗이 자기를 보여 줄 수 있는 유일한 길이고, 편지를 받을 때마다 곧장 벗과 함께 있는 것 같다고 씁니다. 멀리 있는 벗의 초상은 희미한 위로일 뿐이지만, 편지에는 그 사람의 손이 남긴 진짜 흔적이 실려 온다는 것입니다.</p>
+<p>이천 년 전의 안부 편지입니다. 안부가 위로가 되는 까닭은 내용보다 <b>그 사람이 나에게 손을 썼다는 흔적</b>에 있습니다.</p></div>
+
+<div class="pick"><span class="field">🕯 현존·삶</span>
+<span class="title">문경 행복기동대: &lsquo;불 꺼진 창문&rsquo;을 읽는 법을 배우다</span>
+<a class="src" href="https://www.kyongbuk.co.kr/news/articleView.html?idxno=4090143" target="_blank" rel="noopener">경북일보 ↗</a>
+<a class="src" href="http://www.enewstoday.co.kr/news/articleView.html?idxno=2490267" target="_blank" rel="noopener">이뉴스투데이 (11-09) ↗</a>
+<p>경북 문경시가 이웃을 살피는 주민 모임 &lsquo;행복기동대&rsquo;와 함께 고독사 예방 교육을 열었습니다(11월 5일). 악취나 불 꺼진 창문처럼 놓치기 쉬운 위험 신호와 방문할 때의 요령을 배웠고, 이웃의 작은 생활 변화에 귀 기울이고 먼저 문을 두드려 안부를 묻는 관심이 고독사를 막는 가장 강한 수단이라는 말이 강조됐습니다.</p>
+<p>뉴스이지만 글감으로 옮겨 둡니다. 위기 정보 50종이 닿지 못하는 자리에서 <b>불 꺼진 창문을 알아보는 눈</b>은 이웃의 것입니다. 체호프가 &ldquo;없다&rdquo;고 한 망치를 든 사람이 여기 있습니다.</p></div>
+
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;누가 자기를 도왔는지
+그가 미처 알아채지 못하게 돕는 것!
+…
+궁한 사람은 누구도 내치지 않되,
+나중에는 잊히거나 웃음거리가 되는
+허름한 주막처럼 되는 것!
+…
+나누고, 돌려주고, 전하고, 더 가난해지는 것!&rdquo;</p>
+<p class="cite">프리드리히 니체, 『아침놀(Morgenröte)』 제5권 449절 「정신이 궁한 이들은 어디에 있는가?(Wo sind die Bedürftigen des Geistes?)」 (1881)
+<span class="orig">&raquo;… helfen, ohne dass er recht merkt, wer ihm geholfen hat! … Wie eine geringe Herberge sein, die Niemanden zurückstößt, der bedürftig ist, die aber hinterher vergessen oder verlacht wird! … sondern abgeben, zurückgeben, mitteilen, ärmer werden!&laquo;</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/morgenroete/wo-sind-die-beduerftigen-des-geistes" target="_blank" rel="noopener">textlog.de 독일어 원문 ↗</a> <a class="src" href="https://www.gutenberg.org/cache/epub/39955/pg39955.txt" target="_blank" rel="noopener">Project Gutenberg 영역 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 같은 절에서 니체는 이런 사람을 &ldquo;정신의 가난한 이들을 돌보는 의사(Armenarzt des Geistes)&rdquo;라 부르고, 고마움마저 피해 달아나고 싶어 한다고 씁니다. 고마움은 고독과 침묵을 두려워하지 않고 밀고 들어오기 때문이라는 것입니다. 이 겨울 한파쉼터 6만 4천 곳과 매일의 안부 전화가 꼭 그런 주막입니다. <b>아무도 내치지 않고, 봄이 오면 잊힙니다.</b><br><br>
+니체는 이 절을 &ldquo;그것이 삶이리라! 그것이 오래 살 이유이리라!&rdquo;로 맺습니다. 찾아가는 사람의 자리를 이토록 기쁘게 그린 니체는 드뭅니다.</p>
+</div>
+</section>
+
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 11월 11~12일자 국내 행정 발표는 검색으로 거의 찾지 못해 11월 9~11일 기사로 골랐습니다. 겨울철 보호대책은 사이드뷰 한 곳의 기사로 수치를 확인했고, 복지부 보도자료 원문과 데일리안 기사(서버 오류로 열리지 않음)는 대조하지 못했습니다. 검색 요약에 있던 &lsquo;한파 사망자 75% 증가&rsquo;는 확인한 기사의 수치(8명→14명)로 바꿔 적었습니다. 스파인스 기사는 회사 발표에 기댄 독점 기사이고 바깥 비판의 말은 실려 있지 않습니다. Prospect 기사에는 갈리마르의 AI 탐지 도입 이야기가 없어, 검색 요약에만 있던 그 대목은 뺐습니다.</li>
+<li><b>글감</b> — 오늘 결에 맞는 한국어 인문·에세이는 찾지 못해, 문경 행복기동대 기사를 🕯 자리에 옮겨 두었습니다. 체호프 영역본 페이지에는 번역자 이름이 적혀 있지 않습니다. 부버의 문장은 위키인용집과 해설로 확인했고 책 원문은 열어 보지 않았습니다. 세네카 40번 편지는 첫 문장만 직접 확인하고 나머지는 요약을 읽었습니다.</li>
+<li><b>원문·번역</b> — 니체 449절은 textlog 독일어 전문과 Project Gutenberg #39955 케네디 영역 두 곳을 명령줄로 내려받아 대조했습니다. 번역은 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">사흘 뒤 겨울 대책이 시작됩니다. 그 전에 오늘,<br><b>가장 잘 웃는 한 사람에게 짧은 안부 하나가 건너가기를.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
