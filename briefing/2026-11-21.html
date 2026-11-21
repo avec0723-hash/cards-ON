@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-11-21 (토)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 11월 21일 · 토요일</p>
+<p class="opening">11월 21일 토요일 오후입니다. 이번 주 소식에는 확인하지 않은 인용 하나가 법정에서 무너진 일과, 서류에 이름이 없어 보호받지 못하는 손들이 함께 있습니다.<br>
+오늘 하늘의 결은 <b>확인하는 손</b>입니다. 출처를 끝까지 따라가는 손, 그리고 아직 모르는 것을 모른다고 말하는 입이 오늘의 글감입니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정 — 외국인주민 266만 명, 지방정부 정착 지원 우수사례 8건 본선</span>
+<a class="src" href="https://m.korea.kr/briefing/pressReleaseView.do?newsId=156789743" target="_blank" rel="noopener">행정안전부 보도자료 (11-18 배포) ↗</a>
+<p>행정안전부가 11월 19일 정부세종청사에서 &lsquo;2026 지방정부 외국인주민 지원 우수사례 경진대회&rsquo; 본선을 열었습니다. 1·2차 심사를 거친 8건이 현장 발표를 했고, 최우수 1·우수 3·장려 4건에 장관상이 돌아갑니다. 전남 외국인주민 통합지원 콜센터, 부산의 외식 주문 불편 개선 &lsquo;부산올랭&rsquo;, 남양주 이주배경 아동·청소년 성장 프로젝트 &lsquo;날개&rsquo;, 거창의 계절근로자 주민 통합 지원 등이 올랐습니다. 외국인주민은 2025년 11월 1일 기준 266만 2,967명, 총인구의 5.1%입니다.</p>
+<p>보도자료는 외국인주민을 <b>지원 대상이 아니라 지역사회의 일원</b>으로 본다고 적었습니다. 그 문장이 민원 창구에서 어떤 말투가 되는지가 현장의 몫입니다.</p></div>
+
+<div class="news"><span class="title">🌍 노동 — 간병노동자 산재보험 적용 15년째 제자리, &ldquo;시행령만이라도&rdquo;</span>
+<a class="src" href="https://www.labortoday.co.kr/news/articleView.html?idxno=237843" target="_blank" rel="noopener">매일노동뉴스 우다영 기자 (11-20) ↗</a>
+<p>19일 국회 토론회에서 산재보험법 시행령에 간병인을 노무제공자로 추가하자는 제안이 나왔습니다. 병원 간병노동자 192명 조사에서 최근 1년간 다친 경험이 있다는 응답이 81%, 치료비 지원을 받지 못했다는 응답이 97%였습니다. 대학병원 간병노동자 270명 조사에서는 98%가 24시간 근무, 하루 평균 수면은 4.38시간이었습니다. 병원과 소개업체가 실제로 업무를 지시·관리하는데도, 환자와 사적으로 계약했다는 이유로 노동자로 인정받지 못하는 구조가 쟁점입니다.</p>
+<p>일하는 사람은 분명히 있는데 <b>서류의 칸이 그를 알아보지 못하는</b> 자리입니다.</p></div>
+
+<div class="news"><span class="title">✍️ 문학 — 전태일작가상에 김숨 『딸기 이론』, 전태일문학상은 에세이 단일 장르로</span>
+<a class="src" href="https://www.khan.co.kr/article/202611211709001/" target="_blank" rel="noopener">경향신문 (11-21) ↗</a>
+<p>제2회 전태일작가상은 딸기밭 이주여성 노동자의 삶을 그린 김숨의 장편 『딸기 이론』(민음사, 2026)이 받았습니다. 올해 제34회 전태일문학상은 에세이 단일 장르로 공모해 112명이 224편을 냈고, 최지은의 「한옥스테이와 살림집, 흔들리는 시계추」 외 1편이 최우수상을 받았습니다. 청소년문학상 독후감 부문에는 「AI 시대에도 필요한 전태일 정신」이라는 제목도 보입니다. 시상식은 21일 경향신문사에서 열렸습니다.</p>
+<p>노동을 다루는 문학상이 <b>에세이</b>를 단일 장르로 골랐다는 점이 에세이스트에게는 눈여겨볼 대목입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — 인도 주 정부, AI로 쓴 답변서에 존재하지 않는 대법원 판례</span>
+<a class="src" href="https://www.barandbench.com/news/madhya-pradesh-high-court-slams-state-for-citing-fictitious-case-law-generated-by-ai-tool" target="_blank" rel="noopener">Bar &amp; Bench (11-19) ↗</a>
+<a class="src" href="https://www.news1.kr/local/moi/6338651" target="_blank" rel="noopener">뉴스1 — 공무원 업무망 AI 보고서 (11-01) ↗</a>
+<p>인도 마디아프라데시 고등법원은 경찰관 파면 사건에서 주 정부가 낸 답변서가 존재하지 않는 대법원 판결을 인용했다고 지적했습니다. 적힌 판례 번호는 전혀 다른 사건의 것이었습니다. 법원은 주 정부가 AI 도구로 서면을 쓰고 인용을 확인하지 않은 것으로 보인다며 법원을 오도하는 데 가깝다고 꾸짖었고, 파면 처분을 취소했습니다. 판결문은 주 법무장관에게도 전달됐습니다.</p>
+<p>행정이 AI 초안을 쓰는 시대에 <b>마지막 확인은 서명하는 사람의 몫</b>이라는 것을 보여 준 사례입니다. 우리 공무원 업무망에도 12월부터 AI 보고서 초안 기능이 시범 운영될 예정입니다(행안부 11월 1일 발표).</p></div>
+
+<div class="news"><span class="title">🤖 AI·글쓰기 — &ldquo;AI가 작가와 독자 사이의 신뢰를 무너뜨린다&rdquo;</span>
+<a class="src" href="https://authorsguild.org/about/ag-in-the-news/" target="_blank" rel="noopener">미국 작가조합 보도 목록 (The Atlantic 11-12 · WIRED 11-09) ↗</a>
+<p>미국 작가조합이 정리한 이달 보도 목록에는 AI가 작가와 독자 사이의 신뢰를 허물고 있다는 The Atlantic의 글과, 작가가 &lsquo;AI로 쓴 것 아니냐&rsquo;는 의심에 맞서 작업 기록(초고·수정 이력)을 남기는 도구를 다룬 WIRED 기사가 나란히 있습니다. 이제 글쓴이는 좋은 문장만이 아니라 <b>그 문장이 어디서 왔는지</b>까지 보여 달라는 요구를 받습니다.</p>
+<p>기사 본문은 열어 보지 못해, 제목과 목록에 적힌 범위만 옮깁니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 확인하는 손</span></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">존 맥피 「검문소(Checkpoints)」, 뱀장어의 부레까지 확인하는 사람들</span>
+<a class="src" href="https://www.geist.com/blogs/just-the-facts-maam" target="_blank" rel="noopener">The New Yorker 2009-02-09·16 · Geist 해설 ↗</a>
+<a class="src" href="https://litjo.blogspot.com/2009/03/checkpoints.html" target="_blank" rel="noopener">서평 ↗</a>
+<p>논픽션 작가 존 맥피가 뉴요커의 팩트체커들, 특히 1966~1982년 그곳에서 일한 세라 리핀콧에게 바친 회고입니다. 맥피가 비유 하나에 뱀장어의 부레를 썼을 때, 팩트체커들은 어류학자들에게 전화를 돌려 그 비유가 사실과 다르다는 것을 알아냈고 맥피는 문장을 고쳐 썼습니다. 책을 낼 때는 팩트체커가 없어 자기 글을 스스로 검증해야 했다는 고백도 있습니다.</p>
+<p>비유조차 확인의 대상이라는 것, <b>아름다운 문장일수록 더 의심받아야 한다</b>는 것을 보여 줍니다. 에세이스트에게는 &lsquo;내 문장의 검문소를 누가 서는가&rsquo;라는 물음이 됩니다.</p></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">레이철 프레이저 「지적 겸손이 늘 미덕은 아닌 이유」</span>
+<a class="src" href="https://aeon.co/essays/why-intellectual-humility-isnt-always-a-virtue" target="_blank" rel="noopener">Aeon (2024-10-03) ↗</a>
+<p>옥스퍼드 철학자 레이철 프레이저는 요즘 유행하는 &lsquo;지적 겸손&rsquo; 예찬에 이의를 겁니다. 겸손은 성급한 판단을 막기도 하지만, 보고 싶지 않은 증거를 피하는 비겁함의 가면이 되기도 한다는 것입니다. 보부아르의 『레 망다랭』 속 인물들과, 겸손하지 않았지만 뛰어난 과학자였던 바버라 매클린톡이 예로 나옵니다.</p>
+<p>&ldquo;모르겠다&rdquo;는 말이 정직일 때와 회피일 때를 가르는 것은 그 뒤에 따라오는 행동, 곧 <b>확인하러 가느냐</b>입니다. 공무원의 &ldquo;검토해 보겠습니다&rdquo;에도 같은 두 얼굴이 있습니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">플라톤 『소크라테스의 변론』: &ldquo;나는 알지도 못하고, 안다고 생각하지도 않는다&rdquo;</span>
+<a class="src" href="http://classics.mit.edu/Plato/apology.html" target="_blank" rel="noopener">MIT Classics · 조엣 영역 ↗</a>
+<p>델포이 신탁이 &lsquo;소크라테스보다 지혜로운 사람은 없다&rsquo;고 하자, 소크라테스는 그 말을 그대로 믿지 않고 확인하러 나섭니다. 지혜롭다고 이름난 정치가를 만나 본 뒤 그는 결론짓습니다. 우리 둘 다 아름답고 좋은 것을 알지 못하지만, 그는 안다고 생각하고 나는 &ldquo;알지도 못하고 안다고 생각하지도 않는다&rdquo;, 그러니 이 점에서 내가 조금 낫다고(21d).</p>
+<p>신의 말조차 검증의 대상으로 삼은 이 장면은, <b>그럴듯한 출처가 붙은 문장 앞에서 멈추는 법</b>의 원형입니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">김숨 『딸기 이론』: &lsquo;모름다움&rsquo;과 &ldquo;사람인 내가 사람을 어떻게 대할 것인가&rdquo;</span>
+<a class="src" href="https://www.hankyung.com/article/202606048081i" target="_blank" rel="noopener">한국경제 인터뷰 (2026-06) ↗</a>
+<a class="src" href="https://news.jkn.co.kr/post/924202" target="_blank" rel="noopener">재경일보 고진아 기자 (06-03) ↗</a>
+<p>김숨은 딸기밭 이주노동자들이 머무는 법정·쉼터·버스정류장에서 2년여를 취재해 이 소설을 썼습니다. 인터뷰에서 그는 이주노동자를 어떻게 대할지를 묻는 대신 &lsquo;사람인 내가 사람을 어떻게 대할 것인가&rsquo;로 질문을 바꿔야 한다고 말했고, 제목에 &lsquo;이론&rsquo;을 붙인 것은 그들이 왜 그곳에 있게 됐는지를 객관적으로 보여 주고 싶어서라고 했습니다. 작품의 열쇳말 &lsquo;모름다움&rsquo;은 &ldquo;보지 못한 데서 생겨난 보지 못하는 아름다움&rdquo;으로 소개됩니다.</p>
+<p>남을 그리는 글이 <b>안다고 착각하지 않고 모름을 끌어안은 채</b> 다가가는 법을 보여 줍니다.</p></div>
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;대다수는
+이것저것을 믿고 그에 따라 사는 일을
+경멸할 만하다고 여기지 않는다 —
+그에 앞서 찬반의 가장 궁극적이고
+가장 확실한 근거를 의식하지도 않은 채.&rdquo;</p>
+<p class="cite">프리드리히 니체, 『즐거운 학문(Die fröhliche Wissenschaft)』 제1권 2절 「지적 양심(Das intellectuale Gewissen)」 (1882)
+<span class="orig">&bdquo;die Allermeisten finden es nicht verächtlich, dies oder jenes zu glauben und darnach zu leben, … ohne sich vorher der letzten und sichersten Gründe für und wider bewusst worden zu sein&ldquo;</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/das-intellektuale-gewissen" target="_blank" rel="noopener">textlog.de 독일어 원문 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 니체는 이 짧은 글에서 &ldquo;대다수에게는 지적 양심이 없다(den Allermeisten fehlt das intellectuale Gewissen)&rdquo;고 씁니다. 그가 경멸한 것은 모르는 사람이 아니라, <b>모르면서 확인하지 않고 그대로 사는 태도</b>입니다.<br><br>
+오늘 인도 법정의 가짜 판례와, 뱀장어 부레를 확인한 팩트체커 사이에 이 문장을 놓아 둡니다.</p>
+</div>
+</section>
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 날짜를 지정한 국내 뉴스 검색이 잘 걸리지 않아 행정·사회 소식이 평소보다 적습니다(5건). 외국인주민 경진대회의 최종 순위는 확인하지 못했고, 고병원성 AI(조류인플루엔자) 방역 회의 기사는 글자가 깨져 내용을 대조할 수 없어 뺐습니다.</li>
+<li><b>글감</b> — The Atlantic·WIRED 기사는 본문을 열지 못해 작가조합 보도 목록의 제목만 옮겼습니다. 맥피 「검문소」 원문은 유료라 서평·해설 글로 내용을 대조했습니다.</li>
+<li><b>원문·번역</b> — 니체 원문은 zeno.org·Projekt Gutenberg 접속이 막혀 textlog.de 판으로 대조했습니다(맞춤법은 그 판을 따름). 생략 부호(…) 자리는 원문의 중간 구절을 줄인 곳입니다. 번역은 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">토요일 오후, 오늘 쓰는 한 문장에 출처가 있다면<br><b>그 출처를 한 번만 끝까지 따라가 보셔도 좋겠습니다.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
