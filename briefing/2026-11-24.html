@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관제탑 브리핑 · 2026-11-24 (화)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy:#16406B;        /* 새벽 청람 — 주색 */
+    --navy-soft:#2A5E93;
+    --navy-deep:#0E2E4E;
+    --coral:#E8734A;       /* 산호 — 포인트 */
+    --coral-soft:#F4B8A0;
+    --wash:#EEF3F8;        /* 바탕 */
+    --paper:#FFFFFF;       /* 종이 */
+    --ink:#1B2530;         /* 본문 글자 */
+    --muted:#5B6672;       /* 흐린 글자 */
+    --line:#DCE4EC;
+    --tint:#F4F8FC;        /* 옅은 청람 면 */
+    --sans:"Pretendard Variable",Pretendard,-apple-system,"Segoe UI",
+           "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 620px at 50% -8%, #FFFFFF 0%, var(--wash) 58%) fixed,
+      var(--wash);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.95;
+    letter-spacing:-.005em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{
+    max-width:820px;margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 28px 70px -34px rgba(22,64,107,.40), 0 2px 0 var(--coral-soft);
+    overflow:hidden;
+  }
+
+  /* ── Header band ── */
+  .band{
+    background:linear-gradient(155deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#F2F7FC;
+    padding:52px 56px 44px;
+    position:relative;
+  }
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--coral),var(--coral-soft),var(--coral),transparent);}
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.40em;text-transform:uppercase;
+    color:var(--coral-soft);margin:0 0 14px;}
+  .band h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#FFFFFF;line-height:1.3;}
+  .band .date{margin:8px 0 24px;font-size:15px;font-weight:500;color:#AFCBE4;letter-spacing:0;}
+  .opening{margin:0;font-size:17px;font-weight:400;color:#E3EEF8;line-height:2.0;
+    border-left:3px solid var(--coral);padding-left:20px;}
+  .opening b{color:#FFFFFF;font-weight:700;}
+
+  /* ── Body ── */
+  .body{padding:20px 56px 52px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .h{display:flex;align-items:baseline;gap:13px;margin:0 0 26px;flex-wrap:wrap;}
+  .h .em{font-size:23px;line-height:1;}
+  .h h2{margin:0;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .h .sub{font-size:13.5px;font-weight:500;color:var(--muted);}
+
+  /* News */
+  .news{margin:0 0 28px;}
+  .news:last-child{margin-bottom:0;}
+  .news .title{display:block;font-weight:700;color:var(--ink);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;margin:0 0 4px;}
+  .src{display:inline-block;font-size:12.5px;font-weight:600;
+    color:var(--navy-soft);text-decoration:none;
+    background:var(--tint);border:1px solid var(--line);border-radius:999px;
+    padding:2px 11px;margin:4px 6px 0 0;white-space:nowrap;letter-spacing:0;}
+  .src:hover{color:#FFFFFF;background:var(--coral);border-color:var(--coral);}
+  .news p{margin:10px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .news b{font-weight:700;color:var(--navy);}
+
+  /* Reading picks */
+  .pick{margin:0 0 20px;padding:22px 26px;background:var(--tint);
+    border:1px solid var(--line);border-radius:14px;
+    border-left:4px solid var(--navy-soft);}
+  .pick .field{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;
+    color:var(--coral);margin:0 0 7px;}
+  .pick .title{display:block;font-weight:700;color:var(--navy);font-size:17.5px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .pick p{margin:11px 0 0;color:var(--ink);font-size:16.5px;line-height:1.95;}
+  .pick b{font-weight:700;color:var(--navy-deep);}
+  .pick .src{background:var(--paper);}
+
+  /* Lighthouse quote */
+  blockquote.quote{margin:28px 0 20px;padding:24px 28px;
+    background:linear-gradient(0deg,#E7F0F8,var(--tint));
+    border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+    font-size:19.5px;color:var(--navy);font-weight:700;line-height:1.8;
+    letter-spacing:-.015em;}
+  blockquote.quote .by{display:block;margin-top:10px;font-size:13.5px;
+    font-weight:500;color:var(--muted);letter-spacing:0;}
+  .seed{font-size:16.5px;margin:0 0 20px;line-height:1.95;}
+  .seed b{color:var(--navy);font-weight:700;}
+  .pause{background:var(--navy);color:#EAF3FA;border-radius:14px;padding:24px 28px;
+    font-size:16.5px;line-height:2.0;}
+  .pause b{color:#FFD9C8;font-weight:700;}
+
+  /* Quote letter (우편기) */
+  .letter{border:1px solid var(--coral-soft);background:#FFFBF9;border-radius:16px;
+    padding:34px 38px;}
+  .letter .pt{font-weight:700;color:var(--navy);font-size:16px;margin:0 0 20px;
+    text-align:center;letter-spacing:.02em;}
+  .verse{margin:0;text-align:center;font-size:21px;line-height:1.95;color:var(--navy-deep);
+    font-weight:600;letter-spacing:-.02em;white-space:pre-line;}
+  .cite{text-align:center;margin:20px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .cite .orig{display:block;margin-top:6px;font-size:12px;font-style:italic;color:#7C8794;}
+  .memo{margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line);
+    font-size:16px;color:#3A4552;line-height:1.95;}
+  .memo b{color:var(--navy);font-weight:700;}
+
+  /* Claude lesson */
+  .lesson{background:var(--tint);border:1px solid var(--line);
+    border-radius:14px;padding:26px 30px;}
+  .lesson .lt{margin:0 0 14px;font-weight:800;color:var(--navy);font-size:18px;
+    line-height:1.6;letter-spacing:-.015em;}
+  .lesson p{margin:0 0 12px;font-size:16.5px;color:var(--ink);line-height:1.95;}
+  .lesson b{font-weight:700;color:var(--navy-deep);}
+  .lesson ol{margin:0 0 12px;padding-left:22px;font-size:16.5px;line-height:1.95;}
+  .lesson li{margin:0 0 10px;}
+  .lesson .do{margin:18px 0 0;padding:18px 22px;background:var(--paper);
+    border-left:3px solid var(--coral);border-radius:0 12px 12px 0;
+    font-size:16px;color:var(--navy-soft);}
+  .lesson .do pre{margin:0 0 10px;white-space:pre-wrap;font-size:15px;line-height:1.8;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);
+    background:#E3EBF3;padding:14px 16px;border-radius:8px;}
+  code{background:#E3EBF3;padding:2px 8px;border-radius:6px;font-size:14.5px;
+    font-family:"SFMono-Regular",Consolas,"Malgun Gothic",monospace;color:var(--navy-deep);}
+
+  /* Fog */
+  .fog{font-size:15.5px;color:var(--muted);line-height:1.9;}
+  .fog li{margin:0 0 12px;}
+  .fog ul{margin:0;padding-left:22px;}
+  .fog b{color:#3A4552;font-weight:600;}
+
+  /* Closing */
+  .closing{text-align:center;padding:44px 56px 12px;color:var(--navy);
+    font-size:18px;line-height:1.95;letter-spacing:-.015em;}
+  .closing b{font-weight:700;}
+  .closing .fox{font-size:23px;}
+  .foot{text-align:center;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.18em;padding:10px 0 14px;}
+
+  @media (max-width:640px){
+    body{padding:24px 12px 60px;font-size:16px;}
+    .band{padding:36px 24px 30px;}
+    .band h1{font-size:29px;}
+    .body{padding:12px 24px 36px;}
+    .letter{padding:26px 22px;}
+    .verse{font-size:18.5px;}
+    .closing{padding:34px 24px 10px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="band">
+<p class="kicker">Control Tower Briefing</p>
+<h1>관제탑 브리핑</h1>
+<p class="date">2026년 11월 24일 · 화요일</p>
+<p class="opening">11월 24일 화요일 새벽입니다. 이번 소식에는 아파서 일을 쉬는 사람, 이제 막 일을 배우기 시작한 사람, 멈춘 버스 앞에 선 도시가 함께 있습니다.<br>
+오늘 하늘의 결은 <b>사이에 놓인 시간</b>입니다. 끝과 시작 사이, 아직 이름이 없는 그 자리를 어떻게 건너는지가 오늘의 글감입니다.</p>
+</header>
+
+<div class="body">
+
+<!--NEWS-->
+<section>
+<div class="h"><span class="em">🛰</span><h2>오늘의 항로 통보</h2><span class="sub">행정·사회·문화, 그리고 AI</span></div>
+
+<div class="news"><span class="title">⚖️ 행정 — 부산시인재개발원장 &ldquo;9급 시험은 고졸 수준&rdquo; 발언 논란</span>
+<a class="src" href="https://www.khan.co.kr/article/202611231758001" target="_blank" rel="noopener">경향신문 김준용 기자 (11-23) ↗</a>
+<p>정영란 부산시 인재개발원장이 7월 15일 시의회 교육위원회 업무보고에서 &ldquo;9급 공무원 시험은 다 고졸 수준으로 치르지 않는가&rdquo;, &ldquo;그런 직원들을 데리고 갑자기 막 (일을) 하기 시작하니까 직원들이 전부 멘붕이 온다&rdquo;고 말한 사실이 23일 예산안 심사에서 다시 다뤄졌습니다. 시의원들은 사과와 교체를 요구했고, 정 원장은 경향신문 통화에서 &ldquo;죄송하다&rdquo;며 신규·저연차 교육의 필요성을 너무 강조하다 무리한 표현이 나왔다고 해명했습니다.</p>
+<p>신입이 일을 익히는 시간은 <b>모자람이 아니라 건너는 중</b>입니다. 그 시간을 받치는 것이 인재개발원의 일이라는 점에서 더 아픈 말이었습니다.</p></div>
+
+<div class="news"><span class="title">⚖️ 행정 — 행안부, 주한 외교사절 76개국에 공공행정 우수사례 설명회</span>
+<a class="src" href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156790353" target="_blank" rel="noopener">행정안전부 보도자료 · 정책브리핑 (11-23) ↗</a>
+<p>행정안전부가 23일 앰배서더 서울 풀만 호텔에서 76개국 외교사절 95명(대사·국제기구 대표 52명)을 초청해 디지털·AI 기반 정부혁신 사례 6건을 소개했습니다. 식약처 수입식품 검사 시간이 최대 1일에서 5분 이내로, 법무부 전자입국신고로 1인당 심사시간이 4초 줄었다는 사례가 나왔고, 2부는 서울시 교통정보센터(TOPIS) 방문이었습니다.</p>
+<p>줄어든 시간 뒤에는 그 일을 하던 사람들의 <b>바뀐 자리</b>가 있습니다. 숫자 너머를 함께 묻게 되는 소식입니다.</p></div>
+
+<div class="news"><span class="title">🌍 노동 — &ldquo;아픈 노동자 위해 써주세요&rdquo;, 익명 기부 2000만원으로 28명 도와</span>
+<a class="src" href="https://www.khan.co.kr/article/202611231521001/" target="_blank" rel="noopener">경향신문 김남희 기자 (11-23) ↗</a>
+<p>서울 중랑구 녹색병원이 익명 독지가의 2000만원으로 자체 상병수당 사업을 열어, 1~8월 치료로 일을 쉰 노동자 28명을 지원했습니다. 한 달 이상 입원한 16명에게 100만원씩, 한 달 미만 12명에게 50만원씩 온누리상품권을 건넸고, 지원자의 64%(18명)가 50~60대였습니다. 병원이 정부 상병수당 시범사업 지역 밖이라 민간 후원으로 메운 것이며, 내년에도 잇습니다.</p>
+<p>아파서 멈춘 시간에 <b>소득이 끊기지 않게 받치는 손</b>입니다. 제도가 닿지 않는 자리를 이름 없는 사람이 먼저 채웠습니다.</p></div>
+
+<div class="news"><span class="title">🌍 사회 — &ldquo;시내버스를 필수공익사업으로&rdquo;, 서울시 지정 촉구</span>
+<a class="src" href="https://www.khan.co.kr/article/202611240600091/" target="_blank" rel="noopener">경향신문 노도현 기자 (11-24) ↗</a>
+<p>오세훈 서울시장이 23일 국회 토론회에서 준공영제 시내버스를 필수공익사업으로 지정해 달라고 촉구했습니다. 서울연구원은 1월 13~14일 파업 때 하루 시내버스 통행이 286만 건 줄었고, 그중 67.2%는 다른 대중교통으로 옮겼으며 23.8%는 이동을 포기한 것으로 추정했습니다. 국토교통부는 필요하다는 쪽, 고용노동부는 단체행동권 제한을 우려해 신중한 쪽입니다.</p>
+<p>멈추면 안 되는 일과, 멈출 권리 사이의 <b>오래된 줄다리기</b>입니다.</p></div>
+
+<div class="news"><span class="title">✍️ 책 — 다니엘 나예리 『노마드 랜드의 선생님』, 칠판을 메고 전쟁을 건넌 아이들</span>
+<a class="src" href="https://www.khan.co.kr/article/202611192052005" target="_blank" rel="noopener">경향신문 윤승민 기자 (11-19) · 보물창고 ↗</a>
+<p>1941년 영국·소련의 침공을 받은 이란에서, 교사였던 아버지를 잃은 열세 살 바박과 여덟 살 사나 남매가 아버지의 가죽끈 칠판을 메고 유목민 행렬을 따라나서는 소설입니다. 서툰 수업으로 쫓겨나기도 하지만, 그 칠판 덕에 다른 언어를 쓰는 사람들과 말을 주고받으며 고비를 넘깁니다. 이란 난민 출신 작가의 작품입니다(조고은 옮김).</p>
+<p>가르칠 준비가 덜 된 아이가 <b>가르치면서 선생이 되어 가는</b> 이야기라, 오늘의 첫 소식과 나란히 놓입니다.</p></div>
+
+<div class="news"><span class="title">🤖 AI·행정 — 영국 내각사무처, 부처별 AI 사용 &lsquo;중앙 목록&rsquo; 만든다</span>
+<a class="src" href="https://www.publictechnology.net/2026/11/23/government-and-politics/cabinet-office-team-plans-central-repository-of-departments-ai-use/" target="_blank" rel="noopener">PublicTechnology · Sam Trendall (11-23) ↗</a>
+<p>영국 디지털정부 담당 장관 스테퍼니 피콕은 의회 서면답변에서 정부 안에서 AI 모델 사용을 &ldquo;중앙에서 추적하지 않는다&rdquo;고 밝혔고, 내각사무처 팀이 부처별 AI 도구 정보를 모은 저장소를 만들기로 했습니다. 이 자료는 최근 예산안에서 발표된 GovAI 조직으로 이어집니다. 알고리즘 투명성 기록 표준(ATRS)으로는 2021년 이후 157건이 공개됐습니다.</p>
+<p><b>무엇을 쓰고 있는지 먼저 적어 두는 일</b>이 AI 행정의 첫걸음이라는, 소박하지만 정확한 장면입니다.</p></div>
+</section>
+
+<!--LIGHTHOUSE-->
+<section>
+<div class="h"><span class="em">🗼</span><h2>등대 — 오늘의 글감</h2><span class="sub">결: 사이에 놓인 시간</span></div>
+
+<div class="pick"><span class="field">🧭 심리·자아</span>
+<span class="title">윌리엄 브리지스의 &lsquo;전환(transition)&rsquo; 세 단계</span>
+<a class="src" href="https://wmbridges.com/what-is-transition/" target="_blank" rel="noopener">William Bridges Associates 「What is Transition?」 ↗</a>
+<p>브리지스는 바깥에서 일어나는 사건인 <b>변화(change)</b>와, 사람이 그 새 상황을 받아들이며 겪는 안쪽의 과정인 <b>전환(transition)</b>을 가릅니다. 전환은 끝남 → 중립 지대(neutral zone) → 새 시작의 세 단계이고, &ldquo;전환은 끝남에서 시작된다(Transition starts with an ending).&rdquo; 끝과 시작 사이의 중립 지대는 헷갈리고 텅 빈 듯하지만, 그는 그곳을 &lsquo;새 시작의 못자리(seedbed)&rsquo;라고 부릅니다.</p>
+<p>발령·복직·퇴직, 혹은 글을 멈춘 시기처럼 <b>아무것도 아닌 것 같은 시간</b>에 이름을 붙여 주는 틀입니다.</p></div>
+
+<div class="pick"><span class="field">🖋 글쓰기·창작</span>
+<span class="title">도널드 홀, 시가 떠난 뒤 산문을 쓰다</span>
+<a class="src" href="https://www.npr.org/2014/12/06/368013634/at-86-poet-donald-hall-writes-on-but-leaves-verse-behind" target="_blank" rel="noopener">NPR 인터뷰 (2014-12-06) ↗</a>
+<p>미국 계관시인을 지낸 도널드 홀은 여든여섯에 더는 시를 쓸 수 없다고 말했습니다. 시가 자기에게서 희미해지는지, 자기가 시에서 희미해지는지 모를 시간이 몇 해 이어졌고, &ldquo;그래서 오는 것을 보았다&rdquo;고 했습니다. 그러면서 덧붙입니다. 산문은 소리에 그렇게 기대지 않는다고, 그리고 &ldquo;이 에세이들이 올 줄은 몰랐고, 와서 정말 기쁘다&rdquo;고. 그렇게 나온 책이 『여든 이후의 에세이(Essays After Eighty)』입니다.</p>
+<p>한 문이 닫히는 것을 <b>부정하지 않고 지켜본 사람에게 다른 문이 왔다</b>는 기록입니다.</p></div>
+
+<div class="pick"><span class="field">📜 고전·인문</span>
+<span class="title">『주역』 박괘(剝卦) 상구, &ldquo;큰 과일은 먹히지 않는다(碩果不食)&rdquo;</span>
+<a class="src" href="https://zh.wikisource.org/wiki/周易/剝" target="_blank" rel="noopener">위키문헌 『周易』 「剝」 ↗</a>
+<p>박(剝)은 깎여 나가는 괘입니다. 아래에서부터 다섯 효가 모두 음으로 바뀌고 맨 위 한 효만 양으로 남은 모양, 잎이 다 진 나무 꼭대기에 과일 하나가 달린 형상입니다. 그 마지막 효의 말이 &ldquo;碩果不食(큰 과일은 먹히지 않는다)&rdquo;입니다. 그리고 괘의 순서에서 박 다음은 복(復), 다시 돌아옴입니다.</p>
+<p><b>다 깎인 자리와 다시 오는 자리 사이에 씨 하나가 남아 있다</b>는 구조가, 브리지스의 중립 지대와 겹칩니다.</p></div>
+
+<div class="pick"><span class="field">🇰🇷 한국어 인문·에세이</span>
+<span class="title">성지연 「우리는 어떤 &lsquo;감 하나&rsquo;를 남겨놔야 할까」</span>
+<a class="src" href="https://weekly.khan.co.kr/article/202002031632121" target="_blank" rel="noopener">주간경향 「오십, 길을 묻다」 (2020-02-03) ↗</a>
+<p>필자는 신영복이 20년 감옥살이를 견디게 한 화두로 &lsquo;석과불식(碩果不食)&rsquo;을 꼽았다는 데서 출발합니다. &ldquo;의미만 보면 별 얘기가 아니다. 씨 과실을 먹지 않는다는 뜻이다.&rdquo; 필자는 그 말을 겨울 감나무 꼭대기에 남겨 둔 &lsquo;감 하나&rsquo;로 옮겨, 오십 이후의 삶에서 무엇을 먹지 않고 남겨 둘 것인가를 묻습니다.</p>
+<p>깎여 나가는 시간에 <b>무엇을 남길지 고르는 일이 곧 희망</b>이라는 읽기입니다.</p></div>
+
+
+
+</section>
+
+<!--POST-->
+<section>
+<div class="h"><span class="em">✈️</span><h2>우편기 — 오늘 배달된 한 문장</h2></div>
+<div class="letter">
+<p class="pt">— 오늘 배달 —</p>
+<p class="verse">&ldquo;나는 사물에서 필연적인 것을
+아름다운 것으로 보는 법을 더 많이 배우고 싶다.
+그러면 나는 사물을 아름답게 만드는 사람들 가운데 하나가 될 것이다.
+아모르 파티 — 이것이 이제부터 나의 사랑이 되기를!&rdquo;</p>
+<p class="cite">프리드리히 니체, 『즐거운 학문(Die fröhliche Wissenschaft)』 제4권 「Sanctus Januarius」 276절 「새해에(Zum neuen Jahr)」 (1882)
+<span class="orig">&bdquo;Ich will immer mehr lernen, das Notwendige an den Dingen als das Schöne sehen: — so werde ich Einer von Denen sein, welche die Dinge schön machen. Amor fati: das sei von nun an meine Liebe!&ldquo;</span></p>
+<p class="cite"><a class="src" href="https://www.textlog.de/nietzsche/schriften/froehliche-wissenschaft/zum-neuen-jahr" target="_blank" rel="noopener">textlog.de 독일어 원문 ↗</a></p>
+<p class="memo"><b>배달 메모</b> &mdash; 「1882년 1월 제노바」라고 적힌 제4권을 여는, 새해 소원의 문장입니다. 바로 뒤에는 &ldquo;추한 것과 전쟁하지 않겠다… 외면하는 것이 나의 유일한 부정이기를&rdquo;이 이어집니다.<br><br>
+아모르 파티는 체념이 아니라 <b>배우는 일</b>(&ldquo;더 많이 배우고 싶다&rdquo;)로 시작합니다. 시가 떠난 도널드 홀도, 칠판을 멘 아이도, 닫힌 문을 아름답다 하기보다 그 문 앞에서 다음 일을 배웠습니다.</p>
+</div>
+</section>
+
+
+
+<!--FOG-->
+<section>
+<div class="h"><span class="em">🌫</span><h2>오늘 닿지 못한 곳</h2></div>
+<div class="fog"><ul>
+<li><b>뉴스</b> — 경향신문 11월 23일자 석탄발전소 폐쇄 이후 노동자 기사는 네이트 판 글자가 깨지고 원문 주소가 사라져 대조하지 못해 뺐습니다. 『노마드 랜드의 선생님』 서평은 11월 19일자로 48시간보다 이릅니다. 행안부 설명회는 보도자료 재게재 판으로 읽었고 정책브리핑 원문은 열지 않았습니다. 호주 공무원 AI 도구 기사(캔버라타임스)는 접속이 거부되어 뺐습니다.</li>
+<li><b>원문</b> — 니체 276절은 textlog.de 한 곳에서 대조했습니다(Projekt Gutenberg 보안 확인 화면·gutenberg.org 503·zeno.org 접속 거부). 『주역』은 위키문헌 판이며, 상구의 &ldquo;君子得輿&rdquo;가 이 판에는 &ldquo;君子德車&rdquo;로 적혀 있습니다.</li>
+<li><b>글감</b> — 브리지스는 원저 대신 공식 누리집의 요약으로 옮겼습니다. 도널드 홀의 말은 NPR 인터뷰 요약본에서 옮겼고, 번역은 모두 사막여우가 옮긴 것입니다.</li>
+</ul></div>
+</section>
+
+</div>
+
+<p class="closing">사이에 놓인 화요일,<br><b>아직 이름이 없는 시간도 건너는 중이라는 것만 기억해 두셔도 좋겠습니다.</b> <span class="fox">🦊</span></p>
+<p class="foot">관제탑 브리핑 · 나눔용 판</p>
+
+</div>
+</body>
+</html>
